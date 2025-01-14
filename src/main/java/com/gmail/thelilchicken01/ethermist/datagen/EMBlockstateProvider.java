@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -19,6 +20,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.GLIMMERBUG_HIVE);
         simpleBlock(EMBlocks.MIST_GEM_ORE);
 
+        // Etherstone
         simpleBlock(EMBlocks.ETHERSTONE);
         stairsBlock(EMBlocks.ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.ETHERSTONE.get()));
         slabBlock(EMBlocks.ETHERSTONE_SLAB.get(), blockTexture(EMBlocks.ETHERSTONE.get()), blockTexture(EMBlocks.ETHERSTONE.get()));
@@ -34,6 +36,12 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
         blockItem(EMBlocks.ETHERSTONE_FENCE_GATE);
         blockItem(EMBlocks.ETHERSTONE_TRAPDOOR, "_bottom");
+        blockItem(EMBlocks.RICH_GRASS);
+
+        // Rich Dirt
+        simpleBlock(EMBlocks.RICH_DIRT);
+        simpleBlock(EMBlocks.RICH_GRASS.get(), models().cubeBottomTop("rich_grass",
+                modLoc("block/rich_grass_side"), modLoc("block/rich_dirt"), modLoc("block/rich_grass_top")));
 
     }
 

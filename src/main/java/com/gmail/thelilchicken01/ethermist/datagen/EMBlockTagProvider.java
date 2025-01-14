@@ -23,6 +23,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.ETHERSTONE_STAIRS.get())
                 .add(EMBlocks.ETHERSTONE_SLAB.get())
+                .add(EMBlocks.ETHERSTONE_BUTTON.get())
+                .add(EMBlocks.ETHERSTONE_PRESSURE_PLATE.get())
                 .add(EMBlocks.ETHERSTONE_FENCE.get())
                 .add(EMBlocks.ETHERSTONE_FENCE_GATE.get())
                 .add(EMBlocks.ETHERSTONE_WALL.get())
@@ -30,6 +32,10 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_TRAPDOOR.get())
 
                 .add(EMBlocks.MIST_GEM_ORE.get());
+
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(EMBlocks.RICH_DIRT.get())
+                .add(EMBlocks.RICH_GRASS.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());

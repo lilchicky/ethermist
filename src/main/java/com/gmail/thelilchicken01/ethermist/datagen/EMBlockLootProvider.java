@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
@@ -30,6 +31,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(EMBlocks.GLIMMERBUG_HIVE.get());
 
+        // Etherstone
         dropSelf(EMBlocks.ETHERSTONE.get());
         dropSelf(EMBlocks.ETHERSTONE_STAIRS.get());
         add(EMBlocks.ETHERSTONE_SLAB.get(),
@@ -43,8 +45,12 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.ETHERSTONE_DOOR.get()));
         dropSelf(EMBlocks.ETHERSTONE_TRAPDOOR.get());
 
-        //add(EMBlocks.ORE.get(),
-        //    block -> createOreDrop(EMBlocks.ORE.get(), EMItems.ITEM.get()));
+        // Rich Dirt
+        dropSelf(EMBlocks.RICH_DIRT.get());
+        add(EMBlocks.RICH_GRASS.get(),
+            block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS.get(),
+                    LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));

@@ -2,10 +2,12 @@ package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -34,7 +36,12 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_DOOR);
                 output.accept(EMBlocks.ETHERSTONE_TRAPDOOR);
 
+                // Rich Dirt
+                output.accept(EMBlocks.RICH_DIRT);
+                output.accept(EMBlocks.RICH_GRASS);
+
                 output.accept(EMBlocks.MIST_GEM_ORE);
+
             })
             .build());
 

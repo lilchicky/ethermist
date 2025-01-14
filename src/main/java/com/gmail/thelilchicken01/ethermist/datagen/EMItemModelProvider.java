@@ -24,6 +24,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItem(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
         fenceItem(EMBlocks.ETHERSTONE_FENCE, EMBlocks.ETHERSTONE);
         wallItem(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
+
     }
 
     // By Kaupenjoe

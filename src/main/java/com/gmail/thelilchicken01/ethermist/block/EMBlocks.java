@@ -36,6 +36,10 @@ public class EMBlocks {
     // Mist Gem Ore
     public static final DeferredBlock<Block> MIST_GEM_ORE = registerBlock("mist_gem_ore", Etherstone::new);
 
+    // Rich Dirt
+    public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);
+    public static final DeferredBlock<Block> RICH_GRASS = registerBlock("rich_grass", RichGrass::new);
+
     /*
     Register Functions
      */
