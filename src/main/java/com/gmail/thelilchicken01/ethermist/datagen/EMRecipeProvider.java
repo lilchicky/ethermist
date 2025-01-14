@@ -1,0 +1,84 @@
+package com.gmail.thelilchicken01.ethermist.datagen;
+
+import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class EMRecipeProvider extends RecipeProvider implements IConditionBuilder {
+
+    public EMRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries);
+    }
+
+    @Override
+    protected void buildRecipes(RecipeOutput output) {
+
+        List<ItemLike> MIST_GEM_SMELTABLES = List.of(EMBlocks.MIST_GEM_ORE);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.ETHERSTONE.get())
+                .pattern("aaa")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', EMItems.MIST_GEM.get())
+                .unlockedBy("has_mist_gem", has(EMItems.MIST_GEM)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMItems.MIST_GEM.get())
+                .requires(EMBlocks.ETHERSTONE.get())
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMItems.MIST_GEM.get()) // If output is the same as another recipe, include id in save
+                .requires(EMBlocks.GLIMMERBUG_HIVE.get())
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output, "ethermist:etherstone_from_glimmerbug_hive");
+
+        oreSmelting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 200, "mist_gem");
+        oreBlasting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 100, "mist_gem");
+
+        //Etherstone
+        stairBuilder(EMBlocks.ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_SLAB.get(), EMBlocks.ETHERSTONE.get());
+        buttonBuilder(EMBlocks.ETHERSTONE_BUTTON.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+        pressurePlate(output, EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), EMBlocks.ETHERSTONE.get());
+        fenceBuilder(EMBlocks.ETHERSTONE_FENCE.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+        fenceGateBuilder(EMBlocks.ETHERSTONE_FENCE_GATE.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get());
+        doorBuilder(EMBlocks.ETHERSTONE_DOOR.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+        trapdoorBuilder(EMBlocks.ETHERSTONE_TRAPDOOR.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+
+    }
+
+    protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                      float pExperience, int pCookingTIme, String pGroup) {
+        oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
+                pExperience, pCookingTIme, pGroup, "_from_smelting");
+    }
+
+    protected static void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                      float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
+                pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
+
+    protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
+                                                                       List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for(ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
+                    .save(recipeOutput, Ethermist.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+        }
+    }
+
+}

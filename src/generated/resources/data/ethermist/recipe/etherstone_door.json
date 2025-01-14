@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "etherstone",
+  "key": {
+    "#": {
+      "item": "ethermist:etherstone"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "ethermist:etherstone_door"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "etherstone",
+  "key": {
+    "#": {
+      "item": "ethermist:etherstone"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "ethermist:etherstone_stairs"
+  }
+}

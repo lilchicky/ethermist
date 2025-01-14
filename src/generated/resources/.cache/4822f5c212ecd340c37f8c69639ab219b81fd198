@@ -1,0 +1,6 @@
+// 1.21.1	2025-01-14T00:05:18.8383762	Tags for minecraft:block mod id ethermist
+9a0568fba2fa9a470bd98fc9fb15ec919c0355d4 data/minecraft/tags/block/fences.json
+0a5abe2d67213ccfd5322d8bb833d5bdd3e7af3e data/minecraft/tags/block/fence_gates.json
+64768a863da903a5b8a6754a0c1520a2b277ee78 data/minecraft/tags/block/mineable/pickaxe.json
+26fc11a49fe1bf27968dfa36f06b9bb27b821ac7 data/minecraft/tags/block/needs_iron_tool.json
+c6fdcc0e88b5da89577dc536c415a143ca5d04e9 data/minecraft/tags/block/walls.json

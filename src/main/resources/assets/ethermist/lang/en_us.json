@@ -1,0 +1,17 @@
+{
+  "_comment": "-------BLOCKS-------",
+  "block.ethermist.glimmerbug_hive": "Glimmerbug Hive",
+
+  "block.ethermist.etherstone": "Etherstone",
+  "block.ethermist.etherstone_stairs": "Etherstone Stairs",
+  "block.ethermist.etherstone_slab": "Etherstone Slab",
+  "block.ethermist.etherstone_pressure_plate": "Etherstone Pressure Plate",
+  "block.ethermist.etherstone_button": "Etherstone Button",
+  "block.ethermist.etherstone_fence": "Etherstone Fence",
+  "block.ethermist.etherstone_fence_gate": "Etherstone Fence Gate",
+  "block.ethermist.etherstone_wall": "Etherstone Wall",
+  "block.ethermist.etherstone_door": "Etherstone Door",
+  "block.ethermist.etherstone_trapdoor": "Etherstone Trapdoor",
+
+  "creativetab.ethermist.em_creative_tab": "Ethermist"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "mist_gem",
+  "ingredient": {
+    "item": "ethermist:mist_gem_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:mist_gem"
+  }
+}

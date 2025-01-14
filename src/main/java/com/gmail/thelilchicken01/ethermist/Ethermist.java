@@ -1,5 +1,10 @@
 package com.gmail.thelilchicken01.ethermist;
 
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -17,11 +22,13 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+import static com.gmail.thelilchicken01.ethermist.block.EMBlocks.*;
+
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Ethermist.MODID)
 public class Ethermist {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "examplemod";
+    public static final String MODID = "ethermist";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -36,19 +43,17 @@ public class Ethermist {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
+        // Register custom content
+        EMCreativeTab.register(modEventBus);
+
+        EMBlocks.register(modEventBus);
+        EMItems.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
-    }
-
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
 

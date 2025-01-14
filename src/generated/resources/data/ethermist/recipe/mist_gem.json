@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ethermist:etherstone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:mist_gem"
+  }
+}
