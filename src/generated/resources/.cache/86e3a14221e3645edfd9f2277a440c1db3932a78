@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-14T01:12:21.3398801	Block States: ethermist
+// 1.21.1	2025-01-14T16:04:37.66832	Block States: ethermist
 ca3baac5c26d9e452d7684148a8fe6e78b612968 assets/ethermist/blockstates/etherstone.json
 100de1e0961efaa06fd3b90d265c1fcb001bd14f assets/ethermist/blockstates/etherstone_button.json
 b5e808a312a418719646560b8a7a80278022c3ff assets/ethermist/blockstates/etherstone_door.json
@@ -11,7 +11,6 @@ dc5df2f4b92aaaeeb9bad7bcba4934d79cd51f74 assets/ethermist/blockstates/etherstone
 5b4c24c8c80027d62ece44916d51b43d8c13fef9 assets/ethermist/blockstates/etherstone_wall.json
 7580a0b28c273e7c1020bcdb383aa9a5596b3981 assets/ethermist/blockstates/glimmerbug_hive.json
 006792fe6b71b97044748a4d2b872df5bb475afa assets/ethermist/blockstates/mist_gem_ore.json
-45bd7885b8d8e5e241461c27d479d792a3e6df91 assets/ethermist/blockstates/rich_dirt.json
 48b2c7ccc9aa8f6e6492b9e56abd54a22431fe90 assets/ethermist/blockstates/rich_grass.json
 184241d1870268ad56843beb28f6a0cfaf63e32a assets/ethermist/models/block/etherstone.json
 6f99a16ed1c812765b8098251b9194011eaa3289 assets/ethermist/models/block/etherstone_button.json
@@ -45,8 +44,7 @@ d1df36db95f758deaa748b0da3a023df03a94946 assets/ethermist/models/block/etherston
 7b5d52c0e47e5c4599ee7d6e2c7ad513fab3dabf assets/ethermist/models/block/etherstone_wall_side_tall.json
 a3899d8ed82bbae81647595829e03a3e64c53fb4 assets/ethermist/models/block/glimmerbug_hive.json
 181eb95c6aed4b5e8600ffe1612cc154caf723bd assets/ethermist/models/block/mist_gem_ore.json
-08c1a2c3569d27c3849d679c87e8bbabe24fd1da assets/ethermist/models/block/rich_dirt.json
-531459154117dfef30a921bd76182e6056dd8e0c assets/ethermist/models/block/rich_grass.json
+8fe256ac7276ec77a082027701fc1af53e6b86d4 assets/ethermist/models/block/rich_grass.json
 2c8f6b92b22768d763b8b06be76e049c3cf231bd assets/ethermist/models/item/etherstone.json
 2c03a2ecb717a64f1f74900211ba494b9c12a6dd assets/ethermist/models/item/etherstone_fence_gate.json
 072fec49cc4093858118e726bbb73cef5914c812 assets/ethermist/models/item/etherstone_pressure_plate.json
@@ -55,5 +53,4 @@ a3899d8ed82bbae81647595829e03a3e64c53fb4 assets/ethermist/models/block/glimmerbu
 c3438de907f9ed925962db3f3b9b603bba6a731b assets/ethermist/models/item/etherstone_trapdoor.json
 6712c5d7614412b010016a46d2b1cf2d8884be98 assets/ethermist/models/item/glimmerbug_hive.json
 9ce975ab9256022f6c336f33d34f8581b99af52a assets/ethermist/models/item/mist_gem_ore.json
-a800d0a2a76af680cf67cbe0c9c80f3cec03de2d assets/ethermist/models/item/rich_dirt.json
 78c5836cf807c92ab4ed61098486fb3e4d96971f assets/ethermist/models/item/rich_grass.json

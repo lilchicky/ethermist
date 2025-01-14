@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/rich_dirt/rich_dirt", "weight": 100
+      },
+      {
+        "model": "ethermist:block/rich_dirt/rich_dirt_1", "weight": 20
+      },
+      {
+        "model": "ethermist:block/rich_dirt/rich_dirt_2", "weight": 20
+      }
+    ]
+  }
+}

@@ -39,9 +39,8 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.RICH_GRASS);
 
         // Rich Dirt
-        simpleBlock(EMBlocks.RICH_DIRT);
         simpleBlock(EMBlocks.RICH_GRASS.get(), models().cubeBottomTop("rich_grass",
-                modLoc("block/rich_grass_side"), modLoc("block/rich_dirt"), modLoc("block/rich_grass_top")));
+                modLoc("block/rich_grass_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_top")));
 
     }
 
