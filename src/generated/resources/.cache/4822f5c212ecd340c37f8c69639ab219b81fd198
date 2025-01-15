@@ -1,7 +1,20 @@
-// 1.21.1	2025-01-14T01:01:17.4637091	Tags for minecraft:block mod id ethermist
-9a0568fba2fa9a470bd98fc9fb15ec919c0355d4 data/minecraft/tags/block/fences.json
-0a5abe2d67213ccfd5322d8bb833d5bdd3e7af3e data/minecraft/tags/block/fence_gates.json
-e1314f3699ff6b3a5d144e179424fc3aaf9e7e80 data/minecraft/tags/block/mineable/pickaxe.json
+// 1.21.1	2025-01-14T20:00:06.0601732	Tags for minecraft:block mod id ethermist
+736fe5a61a6af89dd73fbbe297a8b6b876865cf7 data/minecraft/tags/block/buttons.json
+66bf7210c62a9a034bdc365fa80bfbbdd1355467 data/minecraft/tags/block/dirt.json
+14345b628e0880844649d0c4c7ec6359328e16ba data/minecraft/tags/block/doors.json
+e45cd112edffd979703e306cd91aebfcdbac1af8 data/minecraft/tags/block/fences.json
+970e80342fb7cc09fa24f341a12723b420426724 data/minecraft/tags/block/fence_gates.json
+af7aee700876fa4d6fd1d01bd3aef77bdc905c81 data/minecraft/tags/block/leaves.json
+6d04e3e5a78ca155b6ad9d4bb6089bf665095723 data/minecraft/tags/block/logs.json
+6d04e3e5a78ca155b6ad9d4bb6089bf665095723 data/minecraft/tags/block/logs_that_burn.json
+dd5e5550c7cfd3fbcd23b750fc6e12511591c09b data/minecraft/tags/block/mineable/axe.json
+a34920aa6984eeb67b486c8e6967a4e0c414ce03 data/minecraft/tags/block/mineable/pickaxe.json
 f03408ef042142141e9490005fad562066bd77ed data/minecraft/tags/block/mineable/shovel.json
 26fc11a49fe1bf27968dfa36f06b9bb27b821ac7 data/minecraft/tags/block/needs_iron_tool.json
+25d8399de38c9739bde720b4a775b0217875ed3f data/minecraft/tags/block/pressure_plates.json
+dd40343bf1638abc9593f3d9d32c03f9065436f4 data/minecraft/tags/block/saplings.json
 c6fdcc0e88b5da89577dc536c415a143ca5d04e9 data/minecraft/tags/block/walls.json
+458dd9d5e4f7b2e34239d6cc9fdc1ebe23acb0eb data/minecraft/tags/block/wooden_buttons.json
+14345b628e0880844649d0c4c7ec6359328e16ba data/minecraft/tags/block/wooden_doors.json
+e45cd112edffd979703e306cd91aebfcdbac1af8 data/minecraft/tags/block/wooden_fences.json
+d8de98091dac54cce59b6bcd99c440cc945bd853 data/minecraft/tags/block/wooden_pressure_plates.json

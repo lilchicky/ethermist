@@ -3,8 +3,7 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,10 +18,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-
-import static com.gmail.thelilchicken01.ethermist.block.EMBlocks.*;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Ethermist.MODID)
@@ -35,6 +31,7 @@ public class Ethermist {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Ethermist(IEventBus modEventBus, ModContainer modContainer) {
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 

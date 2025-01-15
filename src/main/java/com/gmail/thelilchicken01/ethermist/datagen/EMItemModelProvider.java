@@ -6,6 +6,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -20,10 +21,13 @@ public class EMItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(EMItems.MIST_GEM.get());
 
-        basicItem(EMBlocks.ETHERSTONE_DOOR.asItem());
         buttonItem(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
-        fenceItem(EMBlocks.ETHERSTONE_FENCE, EMBlocks.ETHERSTONE);
         wallItem(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
+
+        fenceItem(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS);
+        buttonItem(EMBlocks.ANCIENT_BUTTON, EMBlocks.ANCIENT_PLANKS);
+        basicItem(EMBlocks.ANCIENT_DOOR.asItem());
+        saplingItem(EMBlocks.ANCIENT_SAPLING);
 
     }
 
@@ -44,6 +48,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
                         "block/" + baseBlock.getId().getPath()));
+    }
+
+    public ItemModelBuilder saplingItem(DeferredBlock<?> block) {
+        return withExistingParent(block.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + block.getId().getPath()));
     }
 
 }

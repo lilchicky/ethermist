@@ -1,6 +1,8 @@
-// 1.21.1	2025-01-14T00:05:18.834373	Item Models: ethermist
+// 1.21.1	2025-01-14T19:15:15.206401	Item Models: ethermist
+5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
+2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
+faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
+44076821cbc977d3d8b2d750336eb7b98b16b961 assets/ethermist/models/item/ancient_sapling.json
 a83412f15bc14d49551ed00a91f0ce91e2ccae21 assets/ethermist/models/item/etherstone_button.json
-e485d687748f454123710d103951128ee5950abc assets/ethermist/models/item/etherstone_door.json
-62a09a3872ef720ba538c85f5371302e50ed7139 assets/ethermist/models/item/etherstone_fence.json
 e13935e6d378581fdcb5f66875dc8c39e3ded8a5 assets/ethermist/models/item/etherstone_wall.json
 9c2fc2f38751ee76d9bbff5f083a75984006ae71 assets/ethermist/models/item/mist_gem.json

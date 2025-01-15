@@ -30,11 +30,24 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_SLAB);
                 output.accept(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
                 output.accept(EMBlocks.ETHERSTONE_BUTTON);
-                output.accept(EMBlocks.ETHERSTONE_FENCE);
-                output.accept(EMBlocks.ETHERSTONE_FENCE_GATE);
                 output.accept(EMBlocks.ETHERSTONE_WALL);
-                output.accept(EMBlocks.ETHERSTONE_DOOR);
-                output.accept(EMBlocks.ETHERSTONE_TRAPDOOR);
+
+                // Ancient Wood
+                output.accept(EMBlocks.ANCIENT_LOG);
+                output.accept(EMBlocks.STRIPPED_ANCIENT_LOG);
+                output.accept(EMBlocks.ANCIENT_WOOD);
+                output.accept(EMBlocks.STRIPPED_ANCIENT_WOOD);
+                output.accept(EMBlocks.ANCIENT_PLANKS);
+                output.accept(EMBlocks.ANCIENT_SAPLING);
+                output.accept(EMBlocks.ANCIENT_LEAVES);
+                output.accept(EMBlocks.ANCIENT_STAIRS);
+                output.accept(EMBlocks.ANCIENT_SLAB);
+                output.accept(EMBlocks.ANCIENT_PRESSURE_PLATE);
+                output.accept(EMBlocks.ANCIENT_BUTTON);
+                output.accept(EMBlocks.ANCIENT_FENCE);
+                output.accept(EMBlocks.ANCIENT_FENCE_GATE);
+                output.accept(EMBlocks.ANCIENT_DOOR);
+                output.accept(EMBlocks.ANCIENT_TRAPDOOR);
 
                 // Rich Dirt
                 output.accept(EMBlocks.RICH_DIRT);

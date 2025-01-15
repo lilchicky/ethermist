@@ -7,11 +7,23 @@
   "block.ethermist.etherstone_slab": "Etherstone Slab",
   "block.ethermist.etherstone_pressure_plate": "Etherstone Pressure Plate",
   "block.ethermist.etherstone_button": "Etherstone Button",
-  "block.ethermist.etherstone_fence": "Etherstone Fence",
-  "block.ethermist.etherstone_fence_gate": "Etherstone Fence Gate",
   "block.ethermist.etherstone_wall": "Etherstone Wall",
-  "block.ethermist.etherstone_door": "Etherstone Door",
-  "block.ethermist.etherstone_trapdoor": "Etherstone Trapdoor",
+
+  "block.ethermist.ancient_log": "Ancient Log",
+  "block.ethermist.stripped_ancient_log": "Stripped Ancient Log",
+  "block.ethermist.ancient_wood": "Ancient Wood",
+  "block.ethermist.stripped_ancient_wood": "Stripped Ancient Wood",
+  "block.ethermist.ancient_leaves": "Ancient Leaves",
+  "block.ethermist.ancient_sapling": "Ancient Sapling",
+  "block.ethermist.ancient_planks": "Ancient Planks",
+  "block.ethermist.ancient_stairs": "Ancient Stairs",
+  "block.ethermist.ancient_slab": "Ancient Slab",
+  "block.ethermist.ancient_pressure_plate": "Ancient Pressure Plate",
+  "block.ethermist.ancient_button": "Ancient Button",
+  "block.ethermist.ancient_fence": "Ancient Fence",
+  "block.ethermist.ancient_fence_gate": "Ancient Fence Gate",
+  "block.ethermist.ancient_door": "Ancient Door",
+  "block.ethermist.ancient_trapdoor": "Ancient Trapdoor",
 
   "creativetab.ethermist.em_creative_tab": "Ethermist"
 }

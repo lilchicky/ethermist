@@ -49,15 +49,28 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         buttonBuilder(EMBlocks.ETHERSTONE_BUTTON.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
                 .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
         pressurePlate(output, EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), EMBlocks.ETHERSTONE.get());
-        fenceBuilder(EMBlocks.ETHERSTONE_FENCE.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
-        fenceGateBuilder(EMBlocks.ETHERSTONE_FENCE_GATE.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
         wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get());
-        doorBuilder(EMBlocks.ETHERSTONE_DOOR.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
-        trapdoorBuilder(EMBlocks.ETHERSTONE_TRAPDOOR.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("etherstone")
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_STAIRS.get(), EMBlocks.ETHERSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_SLAB.get(), EMBlocks.ETHERSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get(), 1);
+
+        // Ancient Wood
+        stairBuilder(EMBlocks.ANCIENT_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_SLAB.get(), EMBlocks.ANCIENT_PLANKS.get());
+        buttonBuilder(EMBlocks.ANCIENT_BUTTON.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+        pressurePlate(output, EMBlocks.ANCIENT_PRESSURE_PLATE.get(), EMBlocks.ANCIENT_PLANKS.get());
+        fenceBuilder(EMBlocks.ANCIENT_FENCE.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+        fenceGateBuilder(EMBlocks.ANCIENT_FENCE_GATE.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+        doorBuilder(EMBlocks.ANCIENT_DOOR.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+        trapdoorBuilder(EMBlocks.ANCIENT_TRAPDOOR.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
+                .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
+
 
     }
 
@@ -79,6 +92,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, Ethermist.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
+    }
+
+    protected static void stonecutting(RecipeOutput recipeOutput, RecipeCategory category, ItemLike result, ItemLike material, int resultCount) {
+        SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(Ingredient.of(new ItemLike[]{material}), category, result, resultCount).unlockedBy(getHasName(material), has(material));
+        String id = getConversionRecipeName(result, material);
+        builder.save(recipeOutput, Ethermist.MODID + ":" + id + "_stonecutting");
     }
 
 }

@@ -43,6 +43,8 @@ public class DataGenerators {
         gen.addProvider(event.includeClient(), new EMBlockstateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeClient(), new EMItemModelProvider(packOutput, existingFileHelper));
 
+        gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
+
     }
 
 }
