@@ -85,6 +85,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         // Timesworn Sand
         dropSelf(EMBlocks.TIMEWORN_SAND.get());
         dropSelf(EMBlocks.TIMEWORN_SANDSTONE.get());
+        dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
 
         // Crumbling Etherstone
         dropSelf(EMBlocks.CRUMBLING_ETHERSTONE.get());

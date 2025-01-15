@@ -76,6 +76,7 @@ public class EMCreativeTab {
                 // Timeworn Sand
                 output.accept(EMBlocks.TIMEWORN_SAND);
                 output.accept(EMBlocks.TIMEWORN_SANDSTONE);
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
 
                 // Crumbling Etherstone
                 output.accept(EMBlocks.CRUMBLING_ETHERSTONE);

@@ -93,6 +93,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .define('a', EMBlocks.TIMEWORN_SAND.get())
                 .unlockedBy("has_timeworn_sand", has(EMBlocks.TIMEWORN_SAND)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 4)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.TIMEWORN_SANDSTONE.get())
+                .unlockedBy("has_timeworn_sandstone", has(EMBlocks.TIMEWORN_SANDSTONE)).save(output);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
 
     }
 

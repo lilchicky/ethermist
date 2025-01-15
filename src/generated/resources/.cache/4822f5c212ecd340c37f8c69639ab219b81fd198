@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-15T06:18:59.9219762	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-01-15T07:24:30.9424493	Tags for minecraft:block mod id ethermist
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/block/gravels.json
 ac6e8cefb7dc871d08d227f1e38da274b62cc84a data/minecraft/tags/block/buttons.json
 66bf7210c62a9a034bdc365fa80bfbbdd1355467 data/minecraft/tags/block/dirt.json
@@ -9,7 +9,7 @@ ee2863966ecbbb1c0b4f4e6f345f926d08cff900 data/minecraft/tags/block/fences.json
 aef289dc4c93149397daf03da43b1258416a2cb5 data/minecraft/tags/block/logs.json
 aef289dc4c93149397daf03da43b1258416a2cb5 data/minecraft/tags/block/logs_that_burn.json
 9afd5699759779cd182ec87db76b1ee46f095aa6 data/minecraft/tags/block/mineable/axe.json
-432126ad22858274453e9e765980dbc30fccc92a data/minecraft/tags/block/mineable/pickaxe.json
+39378d81a7468de6f0d76f74386862ec901eb06f data/minecraft/tags/block/mineable/pickaxe.json
 c9d36523e198a41e09472e8d705f0c75e8ed6c56 data/minecraft/tags/block/mineable/shovel.json
 26fc11a49fe1bf27968dfa36f06b9bb27b821ac7 data/minecraft/tags/block/needs_iron_tool.json
 f3223248932ed6ab6ed813e0873c7daf355fa1ea data/minecraft/tags/block/pressure_plates.json

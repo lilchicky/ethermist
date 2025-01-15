@@ -28,6 +28,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_WALL.get())
 
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get())
 
                 .add(EMBlocks.MIST_GEM_ORE.get());
 

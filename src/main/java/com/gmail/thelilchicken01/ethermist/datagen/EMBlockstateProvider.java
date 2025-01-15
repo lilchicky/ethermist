@@ -96,6 +96,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
         // Crumbling Etherstone
         simpleBlock(EMBlocks.CRUMBLING_ETHERSTONE);
 
+        // Timeworn Sand
+        simpleBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
+
         // Rich Dirt
         simpleBlock(EMBlocks.RICH_GRASS.get(), models().cubeBottomTop("rich_grass",
                 modLoc("block/rich_grass_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_top")));

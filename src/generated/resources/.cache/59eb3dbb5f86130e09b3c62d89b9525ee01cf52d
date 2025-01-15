@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-15T06:18:59.9189739	Loot Tables
+// 1.21.1	2025-01-15T07:24:30.9394455	Loot Tables
 21d670ae1fa81407116f0de0cfca19ce9913cdae data/ethermist/loot_table/blocks/ancient_button.json
 8e7a8ca4b51d3e38cf7e0d7bff0245204c24d924 data/ethermist/loot_table/blocks/ancient_door.json
 ebda84777ce5cc739f00fe65390d725469830943 data/ethermist/loot_table/blocks/ancient_fence.json
@@ -21,6 +21,7 @@ a5a9fe2eac177396ef8b820161bdfbd73541c65c data/ethermist/loot_table/blocks/ethers
 c040115c2ee5b31782b37fef3adb6806c1a864d2 data/ethermist/loot_table/blocks/etherstone_wall.json
 9e61cfbde581eb47c49050e0c553fd03b0cacc5c data/ethermist/loot_table/blocks/glimmerbug_hive.json
 6eac858f41dd976524fe368e4fbf8a16d851f630 data/ethermist/loot_table/blocks/mist_gem_ore.json
+6d4c352ba023f3729d57831e3efa6900e8534233 data/ethermist/loot_table/blocks/polished_timeworn_sandstone.json
 2ba62bade6e1ba777775f3784c150b7d276cf06b data/ethermist/loot_table/blocks/rich_dirt.json
 fa648932fdc9e01aafdbf530fb38822ed2b3a287 data/ethermist/loot_table/blocks/rich_grass.json
 6b841f95abe719bda8cd9cff0a17e20c7c197ba6 data/ethermist/loot_table/blocks/slimy_button.json
