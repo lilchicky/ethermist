@@ -803,7 +803,7 @@
                                         {
                                           "type": "minecraft:block",
                                           "result_state": {
-                                            "Name": "minecraft:gravel"
+                                            "Name": "ethermist:crumbling_etherstone"
                                           }
                                         }
                                       ]
@@ -850,7 +850,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "ethermist:sparkling_sand"
                                     }
                                   }
                                 ]
@@ -886,7 +886,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "ethermist:timeworn_sand"
                                     }
                                   }
                                 ]
@@ -1152,7 +1152,7 @@
                                         {
                                           "type": "minecraft:block",
                                           "result_state": {
-                                            "Name": "minecraft:gravel"
+                                            "Name": "ethermist:crumbling_etherstone"
                                           }
                                         }
                                       ]
@@ -1199,7 +1199,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "ethermist:sparkling_sand"
                                     }
                                   }
                                 ]
@@ -1235,7 +1235,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "ethermist:timeworn_sand"
                                     }
                                   }
                                 ]
@@ -1367,7 +1367,7 @@
                         {
                           "type": "minecraft:block",
                           "result_state": {
-                            "Name": "minecraft:sand"
+                            "Name": "ethermist:sparkling_sand"
                           }
                         }
                       ]
@@ -1395,7 +1395,7 @@
                       {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:gravel"
+                          "Name": "ethermist:crumbling_etherstone"
                         }
                       }
                     ]

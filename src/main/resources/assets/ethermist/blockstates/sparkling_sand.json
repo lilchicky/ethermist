@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/sparkling_sand/sparkling_sand", "weight": 100
+      },
+      {
+        "model": "ethermist:block/sparkling_sand/sparkling_sand_1", "weight": 90
+      },
+      {
+        "model": "ethermist:block/sparkling_sand/sparkling_sand_2", "weight": 90
+      }
+    ]
+  }
+}

@@ -53,6 +53,15 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.RICH_DIRT);
                 output.accept(EMBlocks.RICH_GRASS);
 
+                // Sparkling Sand
+                output.accept(EMBlocks.SPARKLING_SAND);
+
+                // Timeworn Sand
+                output.accept(EMBlocks.TIMEWORN_SAND);
+
+                // Crumbling Etherstone
+                output.accept(EMBlocks.CRUMBLING_ETHERSTONE);
+
                 output.accept(EMBlocks.MIST_GEM_ORE);
 
             })

@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -59,6 +58,15 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.ANCIENT_DOOR.get(),
                 block -> createDoorTable(EMBlocks.ANCIENT_DOOR.get()));
         dropSelf(EMBlocks.ANCIENT_TRAPDOOR.get());
+
+        // Sparkling Sand
+        dropSelf(EMBlocks.SPARKLING_SAND.get());
+
+        // Timesworn Sand
+        dropSelf(EMBlocks.TIMEWORN_SAND.get());
+
+        // Crumbling Etherstone
+        dropSelf(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         // Rich Dirt
         dropSelf(EMBlocks.RICH_DIRT.get());

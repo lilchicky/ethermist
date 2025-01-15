@@ -6,7 +6,6 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -28,6 +27,13 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.STONES)
                 .add(EMBlocks.ETHERSTONE.asItem());
+
+        tag(ItemTags.SAND)
+                .add(EMBlocks.SPARKLING_SAND.get().asItem())
+                .add(EMBlocks.TIMEWORN_SAND.get().asItem());
+
+        tag(Tags.Items.GRAVELS)
+                .add(EMBlocks.CRUMBLING_ETHERSTONE.get().asItem());
 
         tag(ItemTags.PLANKS)
                 .add(EMBlocks.ANCIENT_PLANKS.get().asItem());

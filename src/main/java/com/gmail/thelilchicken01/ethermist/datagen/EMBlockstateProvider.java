@@ -7,7 +7,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -34,7 +33,6 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_STAIRS);
         blockItem(EMBlocks.ETHERSTONE_SLAB);
         blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
-
 
         // Ancient Wood
         logBlock((RotatedPillarBlock) EMBlocks.ANCIENT_LOG.get());
@@ -65,6 +63,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ANCIENT_WOOD);
         blockItem(EMBlocks.STRIPPED_ANCIENT_WOOD);
         blockItem(EMBlocks.ANCIENT_SAPLING);
+
+        // Crumbling Etherstone
+        simpleBlock(EMBlocks.CRUMBLING_ETHERSTONE);
 
         // Rich Dirt
         simpleBlock(EMBlocks.RICH_GRASS.get(), models().cubeBottomTop("rich_grass",

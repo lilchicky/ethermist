@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-14T19:02:16.4728815	Block States: ethermist
+// 1.21.1	2025-01-15T01:51:34.1168027	Block States: ethermist
 0e25efb99dc2193080285a7d9a74af5c48c0838b assets/ethermist/blockstates/ancent_fence_gate.json
 aabf64dbeb25e196238e20423df564a4f963240d assets/ethermist/blockstates/ancient_button.json
 95067374d9b9c9f822516900e02da7a40db15547 assets/ethermist/blockstates/ancient_door.json
@@ -12,6 +12,7 @@ c61c89a2f8072d41b548dd3f8325b98f2cc1b87d assets/ethermist/blockstates/ancient_lo
 547e17536d67e837a46aacf8f6cd1587042241aa assets/ethermist/blockstates/ancient_stairs.json
 3561c88c92fe6790860791e239ae551cf9a73ddc assets/ethermist/blockstates/ancient_trapdoor.json
 69c9dfaa8c03e6c2ec4aff176cc17f9709387de7 assets/ethermist/blockstates/ancient_wood.json
+0e70dc602fcd4302dac069c0307536577c33ccee assets/ethermist/blockstates/crumbling_etherstone.json
 ca3baac5c26d9e452d7684148a8fe6e78b612968 assets/ethermist/blockstates/etherstone.json
 100de1e0961efaa06fd3b90d265c1fcb001bd14f assets/ethermist/blockstates/etherstone_button.json
 a64f9597db2e61a70339747fc952dc739d1f4c3f assets/ethermist/blockstates/etherstone_pressure_plate.json
@@ -56,6 +57,7 @@ b0e40dde5b7a4a57068254c758cc7b564f4c2cc7 assets/ethermist/models/block/ancient_t
 bd5b3912453f556d14325b9e886f70a2d87d31d5 assets/ethermist/models/block/ancient_trapdoor_top.json
 42b1c2a431b53502a52f62217b8c65c783261be7 assets/ethermist/models/block/ancient_wood.json
 4047b03c6751ef48d1580d77de1ea4fb0d00a780 assets/ethermist/models/block/ancient_wood_horizontal.json
+60a47f042f32a8ffd5619b2bb7c5ad4352e0e254 assets/ethermist/models/block/crumbling_etherstone.json
 184241d1870268ad56843beb28f6a0cfaf63e32a assets/ethermist/models/block/etherstone.json
 6f99a16ed1c812765b8098251b9194011eaa3289 assets/ethermist/models/block/etherstone_button.json
 caef73cda2924ab86191bb5803e864e02a9df3a8 assets/ethermist/models/block/etherstone_button_pressed.json
@@ -86,6 +88,7 @@ e91f899b820a532ad70d4b0e16ab198ca486f430 assets/ethermist/models/item/ancient_sl
 9fbd663aab1c73cdca5461ef0f7ff36d41d18659 assets/ethermist/models/item/ancient_stairs.json
 e16d1d8d7015bc86817c624a20094dab4e8a7358 assets/ethermist/models/item/ancient_trapdoor.json
 3249102f9ebbb47796bf48794b02456daf4f53b8 assets/ethermist/models/item/ancient_wood.json
+6cf2f3f4d4cf84cac56cb8b5f68d982c8abc1d74 assets/ethermist/models/item/crumbling_etherstone.json
 2c8f6b92b22768d763b8b06be76e049c3cf231bd assets/ethermist/models/item/etherstone.json
 072fec49cc4093858118e726bbb73cef5914c812 assets/ethermist/models/item/etherstone_pressure_plate.json
 4ab1d9228a3ecfdeb03022ac46c09f91e879f27c assets/ethermist/models/item/etherstone_slab.json

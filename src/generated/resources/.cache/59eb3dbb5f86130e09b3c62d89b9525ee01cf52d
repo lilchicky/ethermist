@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-14T18:58:21.7674186	Loot Tables
+// 1.21.1	2025-01-15T01:51:34.1188054	Loot Tables
 2fffa9322b3df69bc3a59de9d9cdf6a7aee1ad9f data/ethermist/loot_table/blocks/ancent_fence_gate.json
 21d670ae1fa81407116f0de0cfca19ce9913cdae data/ethermist/loot_table/blocks/ancient_button.json
 8e7a8ca4b51d3e38cf7e0d7bff0245204c24d924 data/ethermist/loot_table/blocks/ancient_door.json
@@ -12,6 +12,7 @@ a3a53c3ccc618d3a91967783b5e53e79f50630d8 data/ethermist/loot_table/blocks/ancien
 ce2851f439df78895400a4325a8d8bbe9110acf7 data/ethermist/loot_table/blocks/ancient_stairs.json
 7d1155e7205b3823f8237d1678dbc26b53f2d079 data/ethermist/loot_table/blocks/ancient_trapdoor.json
 0bdcd219971d04e436b42f135cdbaa51a604c6a5 data/ethermist/loot_table/blocks/ancient_wood.json
+7d7b3e189169ffe0b71f0fe9f52d6fe5a3d77a2e data/ethermist/loot_table/blocks/crumbling_etherstone.json
 7665231d9b88ee1dfd724aba6658c0019d43a6dd data/ethermist/loot_table/blocks/etherstone.json
 92e0d3a6d897aafe76828dc46016e6d1c1008282 data/ethermist/loot_table/blocks/etherstone_button.json
 2c0775f7d8ce741c88598071c29a1dace45db696 data/ethermist/loot_table/blocks/etherstone_pressure_plate.json
@@ -22,5 +23,7 @@ c040115c2ee5b31782b37fef3adb6806c1a864d2 data/ethermist/loot_table/blocks/ethers
 6eac858f41dd976524fe368e4fbf8a16d851f630 data/ethermist/loot_table/blocks/mist_gem_ore.json
 2ba62bade6e1ba777775f3784c150b7d276cf06b data/ethermist/loot_table/blocks/rich_dirt.json
 fa648932fdc9e01aafdbf530fb38822ed2b3a287 data/ethermist/loot_table/blocks/rich_grass.json
+f14b5c654e1e3be3991c84de210c74b7da968051 data/ethermist/loot_table/blocks/sparkling_sand.json
 2a5f5d0fab0f9272af4c33f94075aa1884306def data/ethermist/loot_table/blocks/stripped_ancient_log.json
 93929f63a75f595ac09c3791affe970157fc62a5 data/ethermist/loot_table/blocks/stripped_ancient_wood.json
+6fdf3979e0d73b3e385219781e536e9041bd4ba7 data/ethermist/loot_table/blocks/timeworn_sand.json

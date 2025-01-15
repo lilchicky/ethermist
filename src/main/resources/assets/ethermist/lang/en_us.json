@@ -25,5 +25,11 @@
   "block.ethermist.ancient_door": "Ancient Door",
   "block.ethermist.ancient_trapdoor": "Ancient Trapdoor",
 
+  "block.ethermist.sparkling_sand": "Sparkling Sand",
+
+  "block.ethermist.timeworn_sand": "Timeworn Sand",
+
+  "block.ethermist.crumbling_etherstone": "Crumbling Etherstone",
+
   "creativetab.ethermist.em_creative_tab": "Ethermist"
 }

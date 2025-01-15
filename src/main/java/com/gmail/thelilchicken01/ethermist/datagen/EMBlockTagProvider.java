@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -30,7 +31,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(EMBlocks.RICH_DIRT.get())
-                .add(EMBlocks.RICH_GRASS.get());
+                .add(EMBlocks.RICH_GRASS.get())
+                .add(EMBlocks.SPARKLING_SAND.get())
+                .add(EMBlocks.TIMEWORN_SAND.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(EMBlocks.ANCIENT_PLANKS.get())
@@ -50,6 +53,13 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.DIRT)
                 .add(EMBlocks.RICH_GRASS.get())
                 .add(EMBlocks.RICH_DIRT.get());
+
+        tag(BlockTags.SAND)
+                .add(EMBlocks.SPARKLING_SAND.get())
+                .add(EMBlocks.TIMEWORN_SAND.get());
+
+        tag(Tags.Blocks.GRAVELS)
+                .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         tag(BlockTags.FENCE_GATES)
                 .add(EMBlocks.ANCIENT_FENCE_GATE.get());
