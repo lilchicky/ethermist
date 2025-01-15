@@ -24,6 +24,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
         wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
 
+        wallItem(EMBlocks.ETHERSTONE_BRICK_WALL, EMBlocks.ETHERSTONE_BRICKS);
+
         fenceItem(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS);
         buttonItem(EMBlocks.ANCIENT_BUTTON, EMBlocks.ANCIENT_PLANKS);
         basicItem(EMBlocks.ANCIENT_DOOR.asItem());

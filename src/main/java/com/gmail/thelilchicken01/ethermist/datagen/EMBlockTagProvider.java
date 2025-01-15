@@ -27,6 +27,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_WALL.get())
 
+                .add(EMBlocks.ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.ETHERSTONE_BRICK_STAIRS.get())
+                .add(EMBlocks.ETHERSTONE_BRICK_SLAB.get())
+                .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
+
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get())
 
@@ -52,6 +57,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());
 
+        tag(Tags.Blocks.SANDSTONE_BLOCKS)
+                .add(EMBlocks.TIMEWORN_SANDSTONE.get());
+
         tag(BlockTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get())
                 .add(EMBlocks.SLIMY_LEAVES.get());
@@ -76,7 +84,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_FENCE_GATE.get());
 
         tag(BlockTags.WALLS)
-                .add(EMBlocks.ETHERSTONE_WALL.get());
+                .add(EMBlocks.ETHERSTONE_WALL.get())
+                .add(EMBlocks.ETHERSTONE_BRICK_WALL.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);

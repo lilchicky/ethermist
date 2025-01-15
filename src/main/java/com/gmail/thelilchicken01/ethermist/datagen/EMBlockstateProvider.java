@@ -33,6 +33,13 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_SLAB);
         blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
 
+        simpleBlock(EMBlocks.ETHERSTONE_BRICKS);
+        stairsBlock(EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
+        slabBlock(EMBlocks.ETHERSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
+        wallBlock(EMBlocks.ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
+        blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS);
+        blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB);
+
         // Ancient Wood
         logBlock((RotatedPillarBlock) EMBlocks.ANCIENT_LOG.get());
         logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_LOG.get());

@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.RandomizedBlockStateProvider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -25,9 +26,11 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 
 public class EMConfiguredFeatures {
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_ANCIENT_TREE_KEY = registerKey("mega_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE_KEY = registerKey("ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
 
@@ -35,13 +38,37 @@ public class EMConfiguredFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
-        register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.ANCIENT_LOG.get().defaultBlockState()),
-                new AncientTrunkPlacer(8, 8, 3),
+        register(context, MEGA_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.GLIMMERBUG_HIVE.get().defaultBlockState(), 0.99),
+                new AncientTrunkPlacer(
+                        11,
+                        3,
+                        1
+                ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
+                        ConstantInt.of(4),
+                        ConstantInt.of(2),
                         ConstantInt.of(5),
-                        ConstantInt.of(0),
+                        0.25F,
+                        0.5F,
+                        0.16666667F,
+                        0.33333334F
+                ),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
+        );
+
+        register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.GLIMMERBUG_HIVE.get().defaultBlockState(), 0.99),
+                new StraightTrunkPlacer(
+                        5,
+                        3,
+                        1
+                ),
+                BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
+                new CherryFoliagePlacer(
+                        ConstantInt.of(4),
+                        ConstantInt.of(1),
                         ConstantInt.of(5),
                         0.25F,
                         0.5F,

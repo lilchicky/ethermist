@@ -23,6 +23,7 @@ import java.util.List;
 
 public class EMPlacedFeatures {
 
+    public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_PLACED_TREE_KEY = registerKey("mega_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
 
@@ -32,8 +33,12 @@ public class EMPlacedFeatures {
 
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
+        register(context, MEGA_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.MEGA_ANCIENT_TREE_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
+                        EMBlocks.ANCIENT_SAPLING.get()));
+
         register(context, ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ANCIENT_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.5f, 2),
                         EMBlocks.ANCIENT_SAPLING.get()));
 
         register(context, SLIMY_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SLIMY_TREE_KEY),

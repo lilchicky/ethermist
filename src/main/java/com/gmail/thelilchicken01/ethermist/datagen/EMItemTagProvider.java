@@ -32,6 +32,12 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.SPARKLING_SAND.get().asItem())
                 .add(EMBlocks.TIMEWORN_SAND.get().asItem());
 
+        tag(ItemTags.STONE_BRICKS)
+                .add(EMBlocks.ETHERSTONE_BRICKS.get().asItem());
+
+        tag(Tags.Items.SANDSTONE_BLOCKS)
+                .add(EMBlocks.TIMEWORN_SANDSTONE.get().asItem());
+
         tag(Tags.Items.GRAVELS)
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get().asItem());
 

@@ -9,6 +9,11 @@
   "block.ethermist.etherstone_button": "Etherstone Button",
   "block.ethermist.etherstone_wall": "Etherstone Wall",
 
+  "block.ethermist.etherstone_bricks": "Etherstone Bricks",
+  "block.ethermist.etherstone_brick_stairs": "Etherstone Stairs",
+  "block.ethermist.etherstone_brick_slab": "Etherstone Slab",
+  "block.ethermist.etherstone_brick_wall": "Etherstone Wall",
+
   "block.ethermist.ancient_log": "Ancient Log",
   "block.ethermist.stripped_ancient_log": "Stripped Ancient Log",
   "block.ethermist.ancient_wood": "Ancient Wood",

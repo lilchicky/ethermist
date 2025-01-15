@@ -23,8 +23,8 @@
       "sound": "minecraft:music.overworld.forest"
     },
     "sky_color": 9912472,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_color": 3413305,
+    "water_fog_color": 6761073
   },
   "features": [
     [],
@@ -78,6 +78,7 @@
       "minecraft:spring_lava"
     ],
     [
+      "ethermist:mega_ancient_tree_placed",
       "ethermist:ancient_tree_placed"
     ],
     [

@@ -32,6 +32,11 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_BUTTON);
                 output.accept(EMBlocks.ETHERSTONE_WALL);
 
+                output.accept(EMBlocks.ETHERSTONE_BRICKS);
+                output.accept(EMBlocks.ETHERSTONE_BRICK_STAIRS);
+                output.accept(EMBlocks.ETHERSTONE_BRICK_SLAB);
+                output.accept(EMBlocks.ETHERSTONE_BRICK_WALL);
+
                 // Ancient Wood
                 output.accept(EMBlocks.ANCIENT_LOG);
                 output.accept(EMBlocks.STRIPPED_ANCIENT_LOG);

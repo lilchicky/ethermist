@@ -29,6 +29,11 @@ public class EMBlocks {
     public static final DeferredBlock<ButtonBlock> ETHERSTONE_BUTTON = registerBlock("etherstone_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get()).noCollission()));
     public static final DeferredBlock<WallBlock> ETHERSTONE_WALL = registerBlock("etherstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
 
+    public static final DeferredBlock<Block> ETHERSTONE_BRICKS = registerBlock("etherstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<StairBlock> ETHERSTONE_BRICK_STAIRS = registerBlock("etherstone_brick_stairs", () -> new StairBlock(EMBlocks.ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<SlabBlock> ETHERSTONE_BRICK_SLAB = registerBlock("etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<WallBlock> ETHERSTONE_BRICK_WALL = registerBlock("etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+
     // Mist Gem Ore
     public static final DeferredBlock<Block> MIST_GEM_ORE = registerBlock("mist_gem_ore", Etherstone::new);
 
@@ -82,7 +87,7 @@ public class EMBlocks {
     // Timesworn Sand
     public static final DeferredBlock<FallingBlock> TIMEWORN_SAND = registerBlock("timeworn_sand", () -> new TimewornSand(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<Block> TIMEWORN_SANDSTONE = registerBlock("timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-    public static final DeferredBlock<Block> POLISHED_TIMEWORN_SANDSTONE = registerBlock("polished_timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
+    public static final DeferredBlock<Block> POLISHED_TIMEWORN_SANDSTONE = registerBlock("polished_timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));
 
     // Crumbling Etherstone
     public static final DeferredBlock<FallingBlock> CRUMBLING_ETHERSTONE = registerBlock("crumbling_etherstone", () -> new CrumblingEtherstone(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL)));

@@ -55,6 +55,22 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_SLAB.get(), EMBlocks.ETHERSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get(), 1);
 
+        stairBuilder(EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE_BRICKS)).group("etherstone")
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE_BRICKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ETHERSTONE_BRICKS.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_WALL.get(), EMBlocks.ETHERSTONE_BRICKS.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), EMBlocks.ETHERSTONE_BRICKS.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ETHERSTONE_BRICKS.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_WALL.get(), EMBlocks.ETHERSTONE_BRICKS.get(), 1);
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.ETHERSTONE.get(), 1);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICKS.get())
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.ETHERSTONE.get())
+                .unlockedBy("has_timeworn_sand", has(EMBlocks.ETHERSTONE)).save(output);
+
         // Ancient Wood
         stairBuilder(EMBlocks.ANCIENT_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
                 .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
@@ -88,12 +104,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_slimy_planks", has(EMBlocks.SLIMY_PLANKS)).save(output);
 
         // Timeworn Sand
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.TIMEWORN_SANDSTONE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE.get())
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.TIMEWORN_SAND.get())
                 .unlockedBy("has_timeworn_sand", has(EMBlocks.TIMEWORN_SAND)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 4)
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.TIMEWORN_SANDSTONE.get())
