@@ -27,6 +27,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_WALL.get())
 
+                .add(EMBlocks.TIMEWORN_SANDSTONE.get())
+
                 .add(EMBlocks.MIST_GEM_ORE.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
@@ -39,16 +41,23 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ANCIENT_PLANKS.get())
                 .add(EMBlocks.ANCIENT_STAIRS.get())
                 .add(EMBlocks.ANCIENT_SLAB.get())
-                .add(EMBlocks.ANCIENT_FENCE_GATE.get());
+                .add(EMBlocks.ANCIENT_FENCE_GATE.get())
+                
+                .add(EMBlocks.SLIMY_PLANKS.get())
+                .add(EMBlocks.SLIMY_STAIRS.get())
+                .add(EMBlocks.SLIMY_SLAB.get())
+                .add(EMBlocks.SLIMY_FENCE_GATE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());
 
         tag(BlockTags.LEAVES)
-                .add(EMBlocks.ANCIENT_LEAVES.get());
+                .add(EMBlocks.ANCIENT_LEAVES.get())
+                .add(EMBlocks.SLIMY_LEAVES.get());
 
         tag(BlockTags.SAPLINGS)
-                .add(EMBlocks.ANCIENT_SAPLING.get());
+                .add(EMBlocks.ANCIENT_SAPLING.get())
+                .add(EMBlocks.SLIMY_SAPLING.get());
 
         tag(BlockTags.DIRT)
                 .add(EMBlocks.RICH_GRASS.get())
@@ -62,19 +71,24 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         tag(BlockTags.FENCE_GATES)
-                .add(EMBlocks.ANCIENT_FENCE_GATE.get());
+                .add(EMBlocks.ANCIENT_FENCE_GATE.get())
+                .add(EMBlocks.SLIMY_FENCE_GATE.get());
 
         tag(BlockTags.WALLS)
                 .add(EMBlocks.ETHERSTONE_WALL.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);
+        addRedstone(EMBlocks.SLIMY_BUTTON.get(), EMBlocks.SLIMY_PRESSURE_PLATE.get(), true);
 
         addFences(EMBlocks.ANCIENT_FENCE.get(), true);
+        addFences(EMBlocks.SLIMY_FENCE.get(), true);
 
         addLogs(EMBlocks.ANCIENT_LOG.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), EMBlocks.ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_WOOD.get(), true);
+        addLogs(EMBlocks.SLIMY_LOG.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), EMBlocks.SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_WOOD.get(), true);
 
         addDoors(EMBlocks.ANCIENT_DOOR.get(), EMBlocks.ANCIENT_TRAPDOOR.get(), true);
+        addDoors(EMBlocks.SLIMY_DOOR.get(), EMBlocks.SLIMY_TRAPDOOR.get(), true);
 
     }
 

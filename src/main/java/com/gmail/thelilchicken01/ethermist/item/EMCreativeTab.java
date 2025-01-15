@@ -49,6 +49,23 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ANCIENT_DOOR);
                 output.accept(EMBlocks.ANCIENT_TRAPDOOR);
 
+                // Slimy Wood
+                output.accept(EMBlocks.SLIMY_LOG);
+                output.accept(EMBlocks.STRIPPED_SLIMY_LOG);
+                output.accept(EMBlocks.SLIMY_WOOD);
+                output.accept(EMBlocks.STRIPPED_SLIMY_WOOD);
+                output.accept(EMBlocks.SLIMY_PLANKS);
+                output.accept(EMBlocks.SLIMY_SAPLING);
+                output.accept(EMBlocks.SLIMY_LEAVES);
+                output.accept(EMBlocks.SLIMY_STAIRS);
+                output.accept(EMBlocks.SLIMY_SLAB);
+                output.accept(EMBlocks.SLIMY_PRESSURE_PLATE);
+                output.accept(EMBlocks.SLIMY_BUTTON);
+                output.accept(EMBlocks.SLIMY_FENCE);
+                output.accept(EMBlocks.SLIMY_FENCE_GATE);
+                output.accept(EMBlocks.SLIMY_DOOR);
+                output.accept(EMBlocks.SLIMY_TRAPDOOR);
+
                 // Rich Dirt
                 output.accept(EMBlocks.RICH_DIRT);
                 output.accept(EMBlocks.RICH_GRASS);
@@ -58,6 +75,7 @@ public class EMCreativeTab {
 
                 // Timeworn Sand
                 output.accept(EMBlocks.TIMEWORN_SAND);
+                output.accept(EMBlocks.TIMEWORN_SANDSTONE);
 
                 // Crumbling Etherstone
                 output.accept(EMBlocks.CRUMBLING_ETHERSTONE);

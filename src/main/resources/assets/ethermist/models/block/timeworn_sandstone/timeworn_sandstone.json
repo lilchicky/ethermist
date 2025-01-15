@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ethermist:block/timeworn_sandstone/timeworn_sandstone"
+  }
+}

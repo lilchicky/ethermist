@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/timeworn_sandstone/timeworn_sandstone", "weight": 100
+      },
+      {
+        "model": "ethermist:block/timeworn_sandstone/timeworn_sandstone_1", "weight": 90
+      },
+      {
+        "model": "ethermist:block/timeworn_sandstone/timeworn_sandstone_2", "weight": 90
+      }
+    ]
+  }
+}

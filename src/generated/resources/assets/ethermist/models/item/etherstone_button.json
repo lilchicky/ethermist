@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "ethermist:block/etherstone"
+    "texture": "ethermist:block/etherstone/etherstone"
   }
 }

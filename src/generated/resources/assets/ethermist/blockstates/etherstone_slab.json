@@ -4,7 +4,7 @@
       "model": "ethermist:block/etherstone_slab"
     },
     "type=double": {
-      "model": "ethermist:block/etherstone"
+      "model": "ethermist:block/etherstone/etherstone"
     },
     "type=top": {
       "model": "ethermist:block/etherstone_slab_top"

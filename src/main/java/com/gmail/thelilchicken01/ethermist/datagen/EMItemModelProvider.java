@@ -21,13 +21,18 @@ public class EMItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(EMItems.MIST_GEM.get());
 
-        buttonItem(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
-        wallItem(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
+        buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
+        wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
 
         fenceItem(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS);
         buttonItem(EMBlocks.ANCIENT_BUTTON, EMBlocks.ANCIENT_PLANKS);
         basicItem(EMBlocks.ANCIENT_DOOR.asItem());
         saplingItem(EMBlocks.ANCIENT_SAPLING);
+
+        fenceItem(EMBlocks.SLIMY_FENCE, EMBlocks.SLIMY_PLANKS);
+        buttonItem(EMBlocks.SLIMY_BUTTON, EMBlocks.SLIMY_PLANKS);
+        basicItem(EMBlocks.SLIMY_DOOR.asItem());
+        saplingItem(EMBlocks.SLIMY_SAPLING);
 
     }
 
@@ -36,6 +41,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
                 .texture("texture",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
                         "block/" + baseBlock.getId().getPath()));
+    }
+
+    public void buttonItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
+                .texture("texture",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
+                        "block/" + baseBlock.getId().getPath() + "/" + baseBlock.getId().getPath()));
     }
 
     public void fenceItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
@@ -49,6 +60,13 @@ public class EMItemModelProvider extends ItemModelProvider {
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
                         "block/" + baseBlock.getId().getPath()));
     }
+
+    public void wallItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
+                        "block/" + baseBlock.getId().getPath() + "/" + baseBlock.getId().getPath()));
+    }
+
 
     public ItemModelBuilder saplingItem(DeferredBlock<?> block) {
         return withExistingParent(block.getId().getPath(),

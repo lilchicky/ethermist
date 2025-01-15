@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import org.slf4j.Logger;
 
@@ -42,6 +43,8 @@ public class Ethermist {
 
         // Register custom content
         EMCreativeTab.register(modEventBus);
+
+        EMTrunkPlacerType.register(modEventBus);
 
         EMBlocks.register(modEventBus);
         EMItems.register(modEventBus);

@@ -24,12 +24,11 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.MIST_GEM_ORE);
 
         // Etherstone
-        simpleBlock(EMBlocks.ETHERSTONE);
-        stairsBlock(EMBlocks.ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.ETHERSTONE.get()));
-        slabBlock(EMBlocks.ETHERSTONE_SLAB.get(), blockTexture(EMBlocks.ETHERSTONE.get()), blockTexture(EMBlocks.ETHERSTONE.get()));
-        buttonBlock(EMBlocks.ETHERSTONE_BUTTON.get(), blockTexture(EMBlocks.ETHERSTONE.get()));
-        pressurePlateBlock(EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.ETHERSTONE.get()));
-        wallBlock(EMBlocks.ETHERSTONE_WALL.get(), blockTexture(EMBlocks.ETHERSTONE.get()));
+        stairsBlock(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
+        slabBlock(EMBlocks.ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
+        buttonBlock(EMBlocks.ETHERSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
+        pressurePlateBlock(EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
+        wallBlock(EMBlocks.ETHERSTONE_WALL.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
         blockItem(EMBlocks.ETHERSTONE_STAIRS);
         blockItem(EMBlocks.ETHERSTONE_SLAB);
         blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
@@ -64,6 +63,36 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_ANCIENT_WOOD);
         blockItem(EMBlocks.ANCIENT_SAPLING);
 
+        // Ancient Wood
+        logBlock((RotatedPillarBlock) EMBlocks.SLIMY_LOG.get());
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_LOG.get());
+        axisBlock((RotatedPillarBlock) EMBlocks.SLIMY_WOOD.get(), blockTexture(EMBlocks.SLIMY_LOG.get()));
+        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_WOOD.get(), blockTexture(EMBlocks.STRIPPED_SLIMY_LOG.get()));
+
+        simpleBlock(EMBlocks.SLIMY_PLANKS);
+        leavesBlock(EMBlocks.SLIMY_LEAVES);
+        saplingBlock(EMBlocks.SLIMY_SAPLING);
+
+        stairsBlock(EMBlocks.SLIMY_STAIRS.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        slabBlock(EMBlocks.SLIMY_SLAB.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        buttonBlock(EMBlocks.SLIMY_BUTTON.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        pressurePlateBlock(EMBlocks.SLIMY_PRESSURE_PLATE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        fenceBlock(EMBlocks.SLIMY_FENCE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        fenceGateBlock(EMBlocks.SLIMY_FENCE_GATE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
+        doorBlockWithRenderType(EMBlocks.SLIMY_DOOR.get(), modLoc("block/slimy_door_bottom"), modLoc("block/slimy_door_top"), "cutout");
+        trapdoorBlockWithRenderType(EMBlocks.SLIMY_TRAPDOOR.get(), modLoc("block/slimy_trapdoor"), true, "cutout");
+
+        blockItem(EMBlocks.SLIMY_STAIRS);
+        blockItem(EMBlocks.SLIMY_SLAB);
+        blockItem(EMBlocks.SLIMY_PRESSURE_PLATE);
+        blockItem(EMBlocks.SLIMY_FENCE_GATE);
+        blockItem(EMBlocks.SLIMY_TRAPDOOR, "_bottom");
+        blockItem(EMBlocks.SLIMY_LOG);
+        blockItem(EMBlocks.STRIPPED_SLIMY_LOG);
+        blockItem(EMBlocks.SLIMY_WOOD);
+        blockItem(EMBlocks.STRIPPED_SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_SAPLING);
+
         // Crumbling Etherstone
         simpleBlock(EMBlocks.CRUMBLING_ETHERSTONE);
 
@@ -95,6 +124,11 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlockWithItem(blockRegistryObject.get(),
                 models().singleTexture(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
                         "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    public ResourceLocation blockTextureFolder(Block block) {
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block);
+        return ResourceLocation.fromNamespaceAndPath(name.getNamespace(), "block/" + name.getPath() + "/" + name.getPath());
     }
 
 }

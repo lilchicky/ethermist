@@ -25,9 +25,26 @@
   "block.ethermist.ancient_door": "Ancient Door",
   "block.ethermist.ancient_trapdoor": "Ancient Trapdoor",
 
+  "block.ethermist.slimy_log": "Slimy Log",
+  "block.ethermist.stripped_slimy_log": "Stripped Slimy Log",
+  "block.ethermist.slimy_wood": "Slimy Wood",
+  "block.ethermist.stripped_slimy_wood": "Stripped Slimy Wood",
+  "block.ethermist.slimy_leaves": "Slimy Leaves",
+  "block.ethermist.slimy_sapling": "Slimy Sapling",
+  "block.ethermist.slimy_planks": "Slimy Planks",
+  "block.ethermist.slimy_stairs": "Slimy Stairs",
+  "block.ethermist.slimy_slab": "Slimy Slab",
+  "block.ethermist.slimy_pressure_plate": "Slimy Pressure Plate",
+  "block.ethermist.slimy_button": "Slimy Button",
+  "block.ethermist.slimy_fence": "Slimy Fence",
+  "block.ethermist.slimy_fence_gate": "Slimy Fence Gate",
+  "block.ethermist.slimy_door": "Slimy Door",
+  "block.ethermist.slimy_trapdoor": "Slimy Trapdoor",
+
   "block.ethermist.sparkling_sand": "Sparkling Sand",
 
   "block.ethermist.timeworn_sand": "Timeworn Sand",
+  "block.ethermist.timeworn_sandstone": "Timeworn Sandstone",
 
   "block.ethermist.crumbling_etherstone": "Crumbling Etherstone",
 

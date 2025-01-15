@@ -879,7 +879,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "ethermist:timeworn_sandstone"
                                       }
                                     }
                                   },
@@ -1228,7 +1228,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "ethermist:timeworn_sandstone"
                                       }
                                     }
                                   },
@@ -1299,7 +1299,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sandstone"
+                          "Name": "ethermist:timeworn_sandstone"
                         }
                       }
                     }

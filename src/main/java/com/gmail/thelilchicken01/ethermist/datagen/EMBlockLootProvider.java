@@ -59,11 +59,32 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.ANCIENT_DOOR.get()));
         dropSelf(EMBlocks.ANCIENT_TRAPDOOR.get());
 
+        // Slimy Wood
+        dropSelf(EMBlocks.SLIMY_LOG.get());
+        dropSelf(EMBlocks.STRIPPED_SLIMY_LOG.get());
+        dropSelf(EMBlocks.SLIMY_WOOD.get());
+        dropSelf(EMBlocks.STRIPPED_SLIMY_WOOD.get());
+        dropSelf(EMBlocks.SLIMY_PLANKS.get());
+        this.add(EMBlocks.SLIMY_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.SLIMY_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(EMBlocks.SLIMY_SAPLING.get());
+        dropSelf(EMBlocks.SLIMY_STAIRS.get());
+        add(EMBlocks.SLIMY_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.SLIMY_SLAB.get()));
+        dropSelf(EMBlocks.SLIMY_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.SLIMY_BUTTON.get());
+        dropSelf(EMBlocks.SLIMY_FENCE.get());
+        dropSelf(EMBlocks.SLIMY_FENCE_GATE.get());
+        add(EMBlocks.SLIMY_DOOR.get(),
+                block -> createDoorTable(EMBlocks.SLIMY_DOOR.get()));
+        dropSelf(EMBlocks.SLIMY_TRAPDOOR.get());
+
         // Sparkling Sand
         dropSelf(EMBlocks.SPARKLING_SAND.get());
 
         // Timesworn Sand
         dropSelf(EMBlocks.TIMEWORN_SAND.get());
+        dropSelf(EMBlocks.TIMEWORN_SANDSTONE.get());
 
         // Crumbling Etherstone
         dropSelf(EMBlocks.CRUMBLING_ETHERSTONE.get());

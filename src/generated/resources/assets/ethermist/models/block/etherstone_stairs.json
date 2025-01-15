@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "bottom": "ethermist:block/etherstone",
-    "side": "ethermist:block/etherstone",
-    "top": "ethermist:block/etherstone"
+    "bottom": "ethermist:block/etherstone/etherstone",
+    "side": "ethermist:block/etherstone/etherstone",
+    "top": "ethermist:block/etherstone/etherstone"
   }
 }

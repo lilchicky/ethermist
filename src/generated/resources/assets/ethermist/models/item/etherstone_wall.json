@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "ethermist:block/etherstone"
+    "wall": "ethermist:block/etherstone/etherstone"
   }
 }
