@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-15T08:01:53.8090146	Item Models: ethermist
+// 1.21.1	2025-01-15T15:48:59.1101399	Item Models: ethermist
 5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
 faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
@@ -6,6 +6,7 @@ faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fe
 ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone_brick_wall.json
 96c65a3fbb10da01cd872c6aef7fcfb2b563d438 assets/ethermist/models/item/etherstone_button.json
 e34243c92f72fd62234f14f0cb53bb8232bd401b assets/ethermist/models/item/etherstone_wall.json
+b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_blossom.json
 9c2fc2f38751ee76d9bbff5f083a75984006ae71 assets/ethermist/models/item/mist_gem.json
 9e39efd5c42524a67855c2d68aad22fca0a160be assets/ethermist/models/item/slimy_button.json
 501ec6dc222dc280718c634508e158abd0fed621 assets/ethermist/models/item/slimy_door.json

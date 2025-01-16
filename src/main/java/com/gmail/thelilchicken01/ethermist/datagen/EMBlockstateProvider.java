@@ -6,6 +6,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -111,6 +113,10 @@ public class EMBlockstateProvider extends BlockStateProvider {
                 modLoc("block/rich_grass_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_top")));
         blockItem(EMBlocks.RICH_GRASS);
 
+        // Flowers
+        flowerBlock(EMBlocks.GLIMMER_BLOSSOM);
+        flowerPotBlock(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM);
+
     }
 
     private void simpleBlock(DeferredBlock<?> block) {
@@ -128,6 +134,16 @@ public class EMBlockstateProvider extends BlockStateProvider {
     private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void flowerBlock(DeferredBlock<FlowerBlock> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void flowerPotBlock(DeferredBlock<FlowerPotBlock> block, DeferredBlock<FlowerBlock> flower) {
+        simpleBlock(block.get(), models().withExistingParent(BuiltInRegistries.BLOCK.getKey(block.get()).getPath(), "minecraft:block/flower_pot_cross")
+                .texture("plant", blockTexture(flower.get())).renderType("cutout"));
     }
 
     private void leavesBlock(DeferredBlock<Block> blockRegistryObject) {

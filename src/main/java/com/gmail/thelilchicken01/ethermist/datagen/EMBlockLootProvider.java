@@ -103,6 +103,11 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                     LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
                             .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
+        // Flowers
+        dropSelf(EMBlocks.GLIMMER_BLOSSOM.get());
+        add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get(),
+                block -> createPotFlowerItemTable(EMBlocks.GLIMMER_BLOSSOM.get().asItem()));
+
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));
 

@@ -16,7 +16,7 @@ public class GlimmerbugHive extends Block {
 
         super(BlockBehaviour.Properties.ofFullCopy(Blocks.SHROOMLIGHT).emissiveRendering((state, getter, pos) -> {
             return true;
-        }).lightLevel((state) -> 5));
+        }).lightLevel((state) -> 12));
 
     }
 

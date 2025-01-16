@@ -4,29 +4,42 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.RandomizedBlockStateProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+
+import java.util.List;
 
 public class EMConfiguredFeatures {
 
@@ -35,6 +48,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -47,8 +61,8 @@ public class EMConfiguredFeatures {
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
-                        ConstantInt.of(4),
-                        ConstantInt.of(2),
+                        ConstantInt.of(3),
+                        ConstantInt.of(3),
                         ConstantInt.of(5),
                         0.25F,
                         0.5F,
@@ -60,10 +74,16 @@ public class EMConfiguredFeatures {
 
         register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.GLIMMERBUG_HIVE.get().defaultBlockState(), 0.99),
-                new StraightTrunkPlacer(
-                        5,
-                        3,
-                        1
+                new CherryTrunkPlacer(
+                        6,
+                        1,
+                        0,
+                        new WeightedListInt(
+                                SimpleWeightedRandomList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()
+                        ),
+                        UniformInt.of(2, 4),
+                        UniformInt.of(-4, -3),
+                        UniformInt.of(-1, 0)
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
@@ -95,7 +115,7 @@ public class EMConfiguredFeatures {
                 new CherryFoliagePlacer(
                         ConstantInt.of(4),
                         ConstantInt.of(0),
-                        ConstantInt.of(5),
+                        ConstantInt.of(4),
                         0.25F,
                         0.5F,
                         0.16666667F,
@@ -108,6 +128,27 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(Blocks.LAVA),
                 BlockStateProvider.simple(EMBlocks.ETHERSTONE.get())
         ));
+
+        register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        256,
+                        16,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        new WeightedStateProvider(
+                                                SimpleWeightedRandomList.<BlockState>builder()
+                                                        .add(Blocks.SHORT_GRASS.defaultBlockState(), 6)
+                                                        .add(EMBlocks.GLIMMER_BLOSSOM.get().defaultBlockState(), 1)
+                                        )
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
 
     }
 

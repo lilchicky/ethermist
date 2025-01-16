@@ -79,6 +79,15 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.GRAVELS)
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
+        tag(BlockTags.FLOWERS)
+                .add(EMBlocks.GLIMMER_BLOSSOM.get());
+
+        tag(BlockTags.SMALL_FLOWERS)
+                .add(EMBlocks.GLIMMER_BLOSSOM.get());
+
+        tag(BlockTags.FLOWER_POTS)
+                .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get());
+
         tag(BlockTags.FENCE_GATES)
                 .add(EMBlocks.ANCIENT_FENCE_GATE.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get());

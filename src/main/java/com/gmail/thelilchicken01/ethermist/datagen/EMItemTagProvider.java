@@ -53,6 +53,12 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.ANCIENT_SAPLING.get().asItem())
                 .add(EMBlocks.SLIMY_SAPLING.get().asItem());
 
+        tag(ItemTags.FLOWERS)
+                .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem());
+
+        tag(ItemTags.SMALL_FLOWERS)
+                .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem());
+
         tag(Tags.Items.GEMS)
                 .add(EMItems.MIST_GEM.get());
 

@@ -36,6 +36,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.SLIMY_DOOR.asItem());
         saplingItem(EMBlocks.SLIMY_SAPLING);
 
+        saplingItem(EMBlocks.GLIMMER_BLOSSOM);
+
     }
 
     // By Kaupenjoe
@@ -70,8 +72,8 @@ public class EMItemModelProvider extends ItemModelProvider {
     }
 
 
-    public ItemModelBuilder saplingItem(DeferredBlock<?> block) {
-        return withExistingParent(block.getId().getPath(),
+    public void saplingItem(DeferredBlock<?> block) {
+        this.withExistingParent(block.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + block.getId().getPath()));
     }

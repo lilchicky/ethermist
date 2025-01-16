@@ -5,6 +5,8 @@ import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import org.slf4j.Logger;
 
@@ -56,6 +58,10 @@ public class Ethermist {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.GLIMMER_BLOSSOM.getId(), EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT);
+        });
 
     }
 

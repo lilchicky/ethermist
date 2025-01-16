@@ -24,7 +24,7 @@
     },
     "sky_color": 9912472,
     "water_color": 3413305,
-    "water_fog_color": 6761073
+    "water_fog_color": 4529228
   },
   "features": [
     [],
@@ -79,7 +79,8 @@
     ],
     [
       "ethermist:mega_ancient_tree_placed",
-      "ethermist:ancient_tree_placed"
+      "ethermist:ancient_tree_placed",
+      "ethermist:glimmer_blossom_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

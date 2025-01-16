@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-15T08:01:53.8130179	Loot Tables
+// 1.21.1	2025-01-15T15:48:59.1141434	Loot Tables
 21d670ae1fa81407116f0de0cfca19ce9913cdae data/ethermist/loot_table/blocks/ancient_button.json
 8e7a8ca4b51d3e38cf7e0d7bff0245204c24d924 data/ethermist/loot_table/blocks/ancient_door.json
 ebda84777ce5cc739f00fe65390d725469830943 data/ethermist/loot_table/blocks/ancient_fence.json
@@ -24,6 +24,8 @@ a5a9fe2eac177396ef8b820161bdfbd73541c65c data/ethermist/loot_table/blocks/ethers
 30b9ff8a09f44b1d7f6957330780bf084628604a data/ethermist/loot_table/blocks/etherstone_stairs.json
 c040115c2ee5b31782b37fef3adb6806c1a864d2 data/ethermist/loot_table/blocks/etherstone_wall.json
 9e61cfbde581eb47c49050e0c553fd03b0cacc5c data/ethermist/loot_table/blocks/glimmerbug_hive.json
+4fc68e950b2933e2b814dd86989c04fd34621946 data/ethermist/loot_table/blocks/glimmer_blossom.json
+e8bb96dbabe75b7b9a9e7a481be3523950f8f636 data/ethermist/loot_table/blocks/glimmer_blossom_flower_pot.json
 6eac858f41dd976524fe368e4fbf8a16d851f630 data/ethermist/loot_table/blocks/mist_gem_ore.json
 6d4c352ba023f3729d57831e3efa6900e8534233 data/ethermist/loot_table/blocks/polished_timeworn_sandstone.json
 2ba62bade6e1ba777775f3784c150b7d276cf06b data/ethermist/loot_table/blocks/rich_dirt.json

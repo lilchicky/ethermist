@@ -86,6 +86,9 @@ public class EMCreativeTab {
                 // Crumbling Etherstone
                 output.accept(EMBlocks.CRUMBLING_ETHERSTONE);
 
+                // Flowers
+                output.accept(EMBlocks.GLIMMER_BLOSSOM);
+
                 output.accept(EMBlocks.MIST_GEM_ORE);
 
             })
