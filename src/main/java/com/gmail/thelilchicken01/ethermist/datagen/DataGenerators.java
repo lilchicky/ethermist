@@ -45,6 +45,8 @@ public class DataGenerators {
 
         gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
 
+        gen.addProvider(event.includeClient(), new EMParticleProvider(packOutput, existingFileHelper));
+
     }
 
 }

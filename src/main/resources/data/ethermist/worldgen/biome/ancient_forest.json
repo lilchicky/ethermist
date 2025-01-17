@@ -78,6 +78,7 @@
       "minecraft:spring_lava"
     ],
     [
+      "minecraft:glow_lichen",
       "ethermist:mega_ancient_tree_placed",
       "ethermist:ancient_tree_placed",
       "ethermist:glimmer_blossom_patch_placed"

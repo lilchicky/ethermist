@@ -1,15 +1,19 @@
 package com.gmail.thelilchicken01.ethermist.worldgen.tree;
 
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -95,7 +99,8 @@ public class AncientTrunkPlacer extends TrunkPlacer {
                     int branchSize = random.nextInt(6) + 3;
 
                     for (int branchCount = 0; branchCount < branchSize; branchCount++) {
-                        this.placeLog(level, blockSetter, random, new BlockPos(xPos + x2, treeMaxPos - branchCount + 2, zPos + y2), config);
+                        BlockPos currentPos = new BlockPos(xPos + x2, treeMaxPos - branchCount + 2, zPos + y2);
+                        this.placeLog(level, blockSetter, random, currentPos, config);
                     }
 
                     list.add(new FoliagePlacer.FoliageAttachment(new BlockPos(j1 + x2, treeMaxPos, k1 + y2), 0, false));

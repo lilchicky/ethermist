@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -46,6 +47,8 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_ANCIENT_TREE_KEY = registerKey("mega_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE_KEY = registerKey("ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
@@ -53,7 +56,7 @@ public class EMConfiguredFeatures {
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
         register(context, MEGA_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.GLIMMERBUG_HIVE.get().defaultBlockState(), 0.99),
+                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.PEEKING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
                 new AncientTrunkPlacer(
                         11,
                         3,
@@ -61,9 +64,9 @@ public class EMConfiguredFeatures {
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
+                        ConstantInt.of(4),
                         ConstantInt.of(3),
-                        ConstantInt.of(3),
-                        ConstantInt.of(5),
+                        ConstantInt.of(4),
                         0.25F,
                         0.5F,
                         0.16666667F,
@@ -73,7 +76,7 @@ public class EMConfiguredFeatures {
         );
 
         register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.GLIMMERBUG_HIVE.get().defaultBlockState(), 0.99),
+                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.PEEKING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
                 new CherryTrunkPlacer(
                         6,
                         1,
@@ -89,7 +92,7 @@ public class EMConfiguredFeatures {
                 new CherryFoliagePlacer(
                         ConstantInt.of(4),
                         ConstantInt.of(1),
-                        ConstantInt.of(5),
+                        ConstantInt.of(4),
                         0.25F,
                         0.5F,
                         0.16666667F,
@@ -124,6 +127,36 @@ public class EMConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
         );
 
+        register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                new ForkingTrunkPlacer(
+                        2,
+                        3,
+                        1
+                ),
+                BlockStateProvider.simple(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get()),
+                new AcaciaFoliagePlacer(
+                        ConstantInt.of(2),
+                        ConstantInt.of(0)
+                ),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get())).build()
+        );
+
+        register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                new ForkingTrunkPlacer(
+                        2,
+                        3,
+                        1
+                ),
+                BlockStateProvider.simple(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get()),
+                new AcaciaFoliagePlacer(
+                        ConstantInt.of(2),
+                        ConstantInt.of(0)
+                ),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get())).build()
+        );
+
         register(context, ETHERMIST_LAVA_LAKE, Feature.LAKE, new LakeFeature.Configuration(
                 BlockStateProvider.simple(Blocks.LAVA),
                 BlockStateProvider.simple(EMBlocks.ETHERSTONE.get())
@@ -139,7 +172,7 @@ public class EMConfiguredFeatures {
                                 new SimpleBlockConfiguration(
                                         new WeightedStateProvider(
                                                 SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(Blocks.SHORT_GRASS.defaultBlockState(), 6)
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 6)
                                                         .add(EMBlocks.GLIMMER_BLOSSOM.get().defaultBlockState(), 1)
                                         )
                                 ),

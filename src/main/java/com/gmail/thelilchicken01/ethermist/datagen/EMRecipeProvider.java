@@ -6,6 +6,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -23,21 +24,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
     protected void buildRecipes(RecipeOutput output) {
 
         List<ItemLike> MIST_GEM_SMELTABLES = List.of(EMBlocks.MIST_GEM_ORE);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.ETHERSTONE.get())
-                .pattern("aaa")
-                .pattern("aaa")
-                .pattern("aaa")
-                .define('a', EMItems.MIST_GEM.get())
-                .unlockedBy("has_mist_gem", has(EMItems.MIST_GEM)).save(output);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMItems.MIST_GEM.get())
-                .requires(EMBlocks.ETHERSTONE.get())
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMItems.MIST_GEM.get()) // If output is the same as another recipe, include id in save
-                .requires(EMBlocks.GLIMMERBUG_HIVE.get())
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output, "ethermist:etherstone_from_glimmerbug_hive");
 
         oreSmelting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 200, "mist_gem");
         oreBlasting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 100, "mist_gem");
@@ -65,7 +51,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_WALL.get(), EMBlocks.ETHERSTONE_BRICKS.get(), 1);
 
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.ETHERSTONE.get(), 1);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICKS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICKS.get(), 4)
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.ETHERSTONE.get())
@@ -87,6 +73,60 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         trapdoorBuilder(EMBlocks.ANCIENT_TRAPDOOR.get(), Ingredient.of(EMBlocks.ANCIENT_PLANKS)).group("ancient_wood")
                 .unlockedBy("has_ancient_planks", has(EMBlocks.ANCIENT_PLANKS)).save(output);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.ANCIENT_LOG.get())
+                .unlockedBy("has_ancient_log", has(EMBlocks.ANCIENT_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.ANCIENT_WOOD.get())
+                .unlockedBy("has_ancient_wood", has(EMBlocks.ANCIENT_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_wood"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_ANCIENT_LOG.get())
+                .unlockedBy("has_stripped_ancient_log", has(EMBlocks.STRIPPED_ANCIENT_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_stripped_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_ANCIENT_WOOD.get())
+                .unlockedBy("has_stripped_ancient_wood", has(EMBlocks.STRIPPED_ANCIENT_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_stripped_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.ANCIENT_LOG.get())
+                .unlockedBy("has_ancient_log", has(EMBlocks.ANCIENT_LOG)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.STRIPPED_ANCIENT_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.STRIPPED_ANCIENT_LOG.get())
+                .unlockedBy("has_ancient_wood", has(EMBlocks.STRIPPED_ANCIENT_LOG)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.PEEKING_ANCIENT_LOG.get())
+                .unlockedBy("has_peeking_ancient_log", has(EMBlocks.PEEKING_ANCIENT_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_peeking_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.PEEKING_ANCIENT_LOG.get())
+                .unlockedBy("has_peeking_ancient_wood", has(EMBlocks.PEEKING_ANCIENT_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_peeking_wood"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get())
+                .unlockedBy("has_stripped_peeking_ancient_log", has(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_stripped_peeking_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get())
+                .unlockedBy("has_stripped_peeking_ancient_wood", has(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ANCIENT_PLANKS.getId().getPath() + "_stripped_peeking_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.PEEKING_ANCIENT_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.PEEKING_ANCIENT_LOG.get())
+                .unlockedBy("has_peeking_ancient_log", has(EMBlocks.PEEKING_ANCIENT_LOG)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get())
+                .unlockedBy("has_peeking_ancient_wood", has(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG)).save(output);
+
         // Slimy Wood
         stairBuilder(EMBlocks.SLIMY_STAIRS.get(), Ingredient.of(EMBlocks.SLIMY_PLANKS)).group("slimy_wood")
                 .unlockedBy("has_slimy_planks", has(EMBlocks.SLIMY_PLANKS)).save(output);
@@ -103,6 +143,67 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         trapdoorBuilder(EMBlocks.SLIMY_TRAPDOOR.get(), Ingredient.of(EMBlocks.SLIMY_PLANKS)).group("slimy_wood")
                 .unlockedBy("has_slimy_planks", has(EMBlocks.SLIMY_PLANKS)).save(output);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SLIMY_PLANKS.get(), 4)
+                .requires(EMBlocks.SLIMY_LOG.get())
+                .unlockedBy("has_slimy_log", has(EMBlocks.SLIMY_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_PLANKS.getId().getPath() + "_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SLIMY_PLANKS.get(), 4)
+                .requires(EMBlocks.SLIMY_WOOD.get())
+                .unlockedBy("has_slimy_wood", has(EMBlocks.SLIMY_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_PLANKS.getId().getPath() + "_wood"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SLIMY_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_SLIMY_LOG.get())
+                .unlockedBy("has_stripped_slimy_log", has(EMBlocks.STRIPPED_SLIMY_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_PLANKS.getId().getPath() + "_stripped_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SLIMY_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_SLIMY_WOOD.get())
+                .unlockedBy("has_stripped_slimy_wood", has(EMBlocks.STRIPPED_SLIMY_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_PLANKS.getId().getPath() + "_stripped_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SLIMY_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.SLIMY_LOG.get())
+                .unlockedBy("has_slimy_log", has(EMBlocks.SLIMY_LOG)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.STRIPPED_SLIMY_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.STRIPPED_SLIMY_LOG.get())
+                .unlockedBy("has_slimy_wood", has(EMBlocks.STRIPPED_SLIMY_LOG)).save(output);
+
+        // Sparkling Sand
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE.get())
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.SPARKLING_SAND.get())
+                .unlockedBy("has_timeworn_sand", has(EMBlocks.SPARKLING_SAND)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 4)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.SPARKLING_SANDSTONE.get())
+                .unlockedBy("has_timeworn_sandstone", has(EMBlocks.SPARKLING_SANDSTONE)).save(output);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), EMBlocks.SPARKLING_SANDSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), Ingredient.of(EMBlocks.SPARKLING_SANDSTONE)).group("sparkling_sandstone")
+                .unlockedBy("has_sparkling_sandstone", has(EMBlocks.SPARKLING_SANDSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_SLAB.get(), EMBlocks.SPARKLING_SANDSTONE.get());
+        buttonBuilder(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), Ingredient.of(EMBlocks.SPARKLING_SANDSTONE)).group("sparkling_sandstone")
+                .unlockedBy("has_sparkling_sandstone", has(EMBlocks.SPARKLING_SANDSTONE)).save(output);
+        pressurePlate(output, EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), EMBlocks.SPARKLING_SANDSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_WALL.get(), EMBlocks.SPARKLING_SANDSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), EMBlocks.SPARKLING_SANDSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_SLAB.get(), EMBlocks.SPARKLING_SANDSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_WALL.get(), EMBlocks.SPARKLING_SANDSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.SPARKLING_SANDSTONE_BRICKS)).group("sparkling_sandstone")
+                .unlockedBy("has_sparkling_sandstone", has(EMBlocks.SPARKLING_SANDSTONE_BRICKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 1);
+
         // Timeworn Sand
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE.get())
                 .pattern("aa")
@@ -115,6 +216,27 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.TIMEWORN_SANDSTONE.get())
                 .unlockedBy("has_timeworn_sandstone", has(EMBlocks.TIMEWORN_SANDSTONE)).save(output);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), Ingredient.of(EMBlocks.POLISHED_TIMEWORN_SANDSTONE)).group("polished_timeworn_sandstone")
+                .unlockedBy("has_polished_timeworn_sandstone", has(EMBlocks.POLISHED_TIMEWORN_SANDSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
+        buttonBuilder(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), Ingredient.of(EMBlocks.POLISHED_TIMEWORN_SANDSTONE)).group("polished_timeworn_sandstone")
+                .unlockedBy("has_polished_timeworn_sandstone", has(EMBlocks.POLISHED_TIMEWORN_SANDSTONE)).save(output);
+        pressurePlate(output, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), Ingredient.of(EMBlocks.TIMEWORN_SANDSTONE)).group("timeworn_sandstone")
+                .unlockedBy("has_timeworn_sandstone", has(EMBlocks.TIMEWORN_SANDSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.TIMEWORN_SANDSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.TIMEWORN_SANDSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
 
     }
 

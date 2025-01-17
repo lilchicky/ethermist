@@ -3,13 +3,19 @@ package com.gmail.thelilchicken01.ethermist.worldgen.tree;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.material.FluidState;
+import org.jetbrains.annotations.Nullable;
 
 public class RandomizedBlockStateProvider extends BlockStateProvider {
 
@@ -35,7 +41,7 @@ public class RandomizedBlockStateProvider extends BlockStateProvider {
     }
 
     public BlockState getState(RandomSource random, BlockPos pos) {
-        return Math.random() < mainChance ? this.mainTrunk : this.subTrunk;
+        return random.nextDouble() < mainChance ? this.mainTrunk : this.subTrunk;
     }
 
 }

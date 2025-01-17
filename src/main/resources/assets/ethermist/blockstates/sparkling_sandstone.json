@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/sparkling_sandstone/sparkling_sandstone", "weight": 1
+      },
+      {
+        "model": "ethermist:block/sparkling_sandstone/sparkling_sandstone_1", "weight": 1
+      },
+      {
+        "model": "ethermist:block/sparkling_sandstone/sparkling_sandstone_2", "weight": 1
+      }
+    ]
+  }
+}

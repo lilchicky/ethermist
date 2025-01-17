@@ -65,6 +65,23 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.ANCIENT_DOOR.get()));
         dropSelf(EMBlocks.ANCIENT_TRAPDOOR.get());
 
+        add(EMBlocks.PEEKING_ANCIENT_LOG.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.PEEKING_ANCIENT_LOG.get(),
+                        LootItem.lootTableItem(EMBlocks.ANCIENT_LOG.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+        add(EMBlocks.PEEKING_ANCIENT_WOOD.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.PEEKING_ANCIENT_WOOD.get(),
+                        LootItem.lootTableItem(EMBlocks.ANCIENT_WOOD.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+        add(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(),
+                        LootItem.lootTableItem(EMBlocks.STRIPPED_ANCIENT_LOG.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+        add(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(),
+                        LootItem.lootTableItem(EMBlocks.STRIPPED_ANCIENT_WOOD.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+
         // Slimy Wood
         dropSelf(EMBlocks.SLIMY_LOG.get());
         dropSelf(EMBlocks.STRIPPED_SLIMY_LOG.get());
@@ -87,19 +104,45 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
         // Sparkling Sand
         dropSelf(EMBlocks.SPARKLING_SAND.get());
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get());
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE.get());
+
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get());
+        add(EMBlocks.SPARKLING_SANDSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.SPARKLING_SANDSTONE_SLAB.get()));
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get());
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_WALL.get());
+
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get());
+        add(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get()));
+        dropSelf(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get());
 
         // Timesworn Sand
         dropSelf(EMBlocks.TIMEWORN_SAND.get());
         dropSelf(EMBlocks.TIMEWORN_SANDSTONE.get());
         dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
 
+        dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get());
+        add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get()));
+        dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get());
+        dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
+
+        dropSelf(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get());
+        add(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get()));
+        dropSelf(EMBlocks.TIMEWORN_SANDSTONE_WALL.get());
+
         // Crumbling Etherstone
         dropSelf(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         // Rich Dirt
         dropSelf(EMBlocks.RICH_DIRT.get());
-        add(EMBlocks.RICH_GRASS.get(),
-            block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS.get(),
+        add(EMBlocks.RICH_GRASS_BLOCK.get(),
+            block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS_BLOCK.get(),
                     LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
                             .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
@@ -107,6 +150,13 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.GLIMMER_BLOSSOM.get());
         add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.GLIMMER_BLOSSOM.get().asItem()));
+        add(EMBlocks.RICH_GRASS.get(),
+                block -> createGrassDrops(EMBlocks.RICH_GRASS.get()));
+
+        // Abyssal Mushrooms
+        dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get());
+        dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+        dropSelf(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
 
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));

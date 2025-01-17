@@ -5,10 +5,7 @@ import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -48,6 +45,11 @@ public class EMBlockstateProvider extends BlockStateProvider {
         axisBlock((RotatedPillarBlock) EMBlocks.ANCIENT_WOOD.get(), blockTexture(EMBlocks.ANCIENT_LOG.get()));
         axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_ANCIENT_LOG.get()));
 
+        logBlock((RotatedPillarBlock) EMBlocks.PEEKING_ANCIENT_LOG.get());
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get());
+        axisBlock((RotatedPillarBlock) EMBlocks.PEEKING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.PEEKING_ANCIENT_LOG.get()));
+        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get()));
+
         simpleBlock(EMBlocks.ANCIENT_PLANKS);
         leavesBlock(EMBlocks.ANCIENT_LEAVES);
         saplingBlock(EMBlocks.ANCIENT_SAPLING);
@@ -70,6 +72,10 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_ANCIENT_LOG);
         blockItem(EMBlocks.ANCIENT_WOOD);
         blockItem(EMBlocks.STRIPPED_ANCIENT_WOOD);
+        blockItem(EMBlocks.PEEKING_ANCIENT_LOG);
+        blockItem(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG);
+        blockItem(EMBlocks.PEEKING_ANCIENT_WOOD);
+        blockItem(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD);
         blockItem(EMBlocks.ANCIENT_SAPLING);
 
         // Ancient Wood
@@ -102,20 +108,58 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_SLIMY_WOOD);
         blockItem(EMBlocks.SLIMY_SAPLING);
 
-        // Crumbling Etherstone
-        simpleBlock(EMBlocks.CRUMBLING_ETHERSTONE);
+        // Sparkling Sand
+        simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS);
+
+        stairsBlock(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
+        slabBlock(EMBlocks.SPARKLING_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
+        buttonBlock(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
+        pressurePlateBlock(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
+        wallBlock(EMBlocks.SPARKLING_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_STAIRS);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_SLAB);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE);
+
+        stairsBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
+        slabBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
+        wallBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB);
 
         // Timeworn Sand
         simpleBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
 
+        stairsBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
+        slabBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
+        buttonBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
+        pressurePlateBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
+        wallBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS);
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB);
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE);
+        
+        stairsBlock(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
+        slabBlock(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
+        wallBlock(EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
+        blockItem(EMBlocks.TIMEWORN_SANDSTONE_STAIRS);
+        blockItem(EMBlocks.TIMEWORN_SANDSTONE_SLAB);
+
         // Rich Dirt
-        simpleBlock(EMBlocks.RICH_GRASS.get(), models().cubeBottomTop("rich_grass",
-                modLoc("block/rich_grass_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_top")));
-        blockItem(EMBlocks.RICH_GRASS);
+        simpleBlock(EMBlocks.RICH_GRASS_BLOCK.get(), models().cubeBottomTop("rich_grass_block",
+                modLoc("block/rich_grass_block_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_block_top")));
+        blockItem(EMBlocks.RICH_GRASS_BLOCK);
 
         // Flowers
-        flowerBlock(EMBlocks.GLIMMER_BLOSSOM);
+        plantBlock(EMBlocks.GLIMMER_BLOSSOM);
         flowerPotBlock(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM);
+        plantBlock(EMBlocks.RICH_GRASS);
+
+        // Abyssal Mushrooms
+        simpleBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
+        simpleBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
+        logBlock(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
+
+        blockItem(EMBlocks.ABYSSAL_MUSHROOM_STEM);
 
     }
 
@@ -136,7 +180,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
                 models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
-    private void flowerBlock(DeferredBlock<FlowerBlock> blockRegistryObject) {
+    private void plantBlock(DeferredBlock<?> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }

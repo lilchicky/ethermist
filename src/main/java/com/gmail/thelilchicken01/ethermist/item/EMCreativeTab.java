@@ -42,6 +42,12 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.STRIPPED_ANCIENT_LOG);
                 output.accept(EMBlocks.ANCIENT_WOOD);
                 output.accept(EMBlocks.STRIPPED_ANCIENT_WOOD);
+
+                output.accept(EMBlocks.PEEKING_ANCIENT_LOG);
+                output.accept(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG);
+                output.accept(EMBlocks.PEEKING_ANCIENT_WOOD);
+                output.accept(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD);
+
                 output.accept(EMBlocks.ANCIENT_PLANKS);
                 output.accept(EMBlocks.ANCIENT_SAPLING);
                 output.accept(EMBlocks.ANCIENT_LEAVES);
@@ -71,23 +77,51 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.SLIMY_DOOR);
                 output.accept(EMBlocks.SLIMY_TRAPDOOR);
 
+                // Abyssal Mushrooms
+                output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
+                output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
+                output.accept(EMBlocks.ABYSSAL_MUSHROOM_STEM);
+
                 // Rich Dirt
                 output.accept(EMBlocks.RICH_DIRT);
-                output.accept(EMBlocks.RICH_GRASS);
+                output.accept(EMBlocks.RICH_GRASS_BLOCK);
 
                 // Sparkling Sand
                 output.accept(EMBlocks.SPARKLING_SAND);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_BRICKS);
+
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_STAIRS);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_SLAB);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_BUTTON);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_WALL);
+
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB);
+                output.accept(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL);
 
                 // Timeworn Sand
                 output.accept(EMBlocks.TIMEWORN_SAND);
                 output.accept(EMBlocks.TIMEWORN_SANDSTONE);
                 output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
 
+                output.accept(EMBlocks.TIMEWORN_SANDSTONE_STAIRS);
+                output.accept(EMBlocks.TIMEWORN_SANDSTONE_SLAB);
+                output.accept(EMBlocks.TIMEWORN_SANDSTONE_WALL);
+
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS);
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB);
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE);
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON);
+                output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL);
+
                 // Crumbling Etherstone
                 output.accept(EMBlocks.CRUMBLING_ETHERSTONE);
 
                 // Flowers
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);
+                output.accept(EMBlocks.RICH_GRASS);
 
                 output.accept(EMBlocks.MIST_GEM_ORE);
 

@@ -32,14 +32,29 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_BRICK_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
 
+                .add(EMBlocks.SPARKLING_SANDSTONE.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_SLAB.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_WALL.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get())
+
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get())
+                .add(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get())
+                .add(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get())
+                .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get())
 
                 .add(EMBlocks.MIST_GEM_ORE.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(EMBlocks.RICH_DIRT.get())
-                .add(EMBlocks.RICH_GRASS.get())
+                .add(EMBlocks.RICH_GRASS_BLOCK.get())
                 .add(EMBlocks.SPARKLING_SAND.get())
                 .add(EMBlocks.TIMEWORN_SAND.get());
 
@@ -52,13 +67,18 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_PLANKS.get())
                 .add(EMBlocks.SLIMY_STAIRS.get())
                 .add(EMBlocks.SLIMY_SLAB.get())
-                .add(EMBlocks.SLIMY_FENCE_GATE.get());
+                .add(EMBlocks.SLIMY_FENCE_GATE.get())
+                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());
 
         tag(Tags.Blocks.SANDSTONE_BLOCKS)
-                .add(EMBlocks.TIMEWORN_SANDSTONE.get());
+                .add(EMBlocks.TIMEWORN_SANDSTONE.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE.get());
+
+        tag(BlockTags.LOGS)
+                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get())
@@ -69,7 +89,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_SAPLING.get());
 
         tag(BlockTags.DIRT)
-                .add(EMBlocks.RICH_GRASS.get())
+                .add(EMBlocks.RICH_GRASS_BLOCK.get())
                 .add(EMBlocks.RICH_DIRT.get());
 
         tag(BlockTags.SAND)
@@ -94,17 +114,24 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.WALLS)
                 .add(EMBlocks.ETHERSTONE_WALL.get())
-                .add(EMBlocks.ETHERSTONE_BRICK_WALL.get());
+                .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_WALL.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get())
+                .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get(), EMBlocks.SLIMY_PRESSURE_PLATE.get(), true);
+        addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), false);
+        addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), false);
 
         addFences(EMBlocks.ANCIENT_FENCE.get(), true);
         addFences(EMBlocks.SLIMY_FENCE.get(), true);
 
         addLogs(EMBlocks.ANCIENT_LOG.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), EMBlocks.ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_WOOD.get(), true);
         addLogs(EMBlocks.SLIMY_LOG.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), EMBlocks.SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_WOOD.get(), true);
+        addLogs(EMBlocks.PEEKING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(), EMBlocks.PEEKING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(), true);
 
         addDoors(EMBlocks.ANCIENT_DOOR.get(), EMBlocks.ANCIENT_TRAPDOOR.get(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get(), EMBlocks.SLIMY_TRAPDOOR.get(), true);

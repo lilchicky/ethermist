@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/crumbling_etherstone/crumbling_etherstone", "weight": 100
+      },
+      {
+        "model": "ethermist:block/crumbling_etherstone/crumbling_etherstone_1", "weight": 25
+      },
+      {
+        "model": "ethermist:block/crumbling_etherstone/crumbling_etherstone_2", "weight": 25
+      },
+      {
+        "model": "ethermist:block/crumbling_etherstone/crumbling_etherstone_3", "weight": 25
+      }
+    ]
+  }
+}

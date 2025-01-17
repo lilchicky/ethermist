@@ -2,6 +2,9 @@
   "_comment": "-------BLOCKS-------",
   "block.ethermist.glimmerbug_hive": "Glimmerbug Hive",
 
+  "block.ethermist.rich_grass_block": "Rich Grass Block",
+  "block.ethermist.rich_dirt": "Rich Dirt",
+
   "block.ethermist.etherstone": "Etherstone",
   "block.ethermist.etherstone_stairs": "Etherstone Stairs",
   "block.ethermist.etherstone_slab": "Etherstone Slab",
@@ -18,6 +21,12 @@
   "block.ethermist.stripped_ancient_log": "Stripped Ancient Log",
   "block.ethermist.ancient_wood": "Ancient Wood",
   "block.ethermist.stripped_ancient_wood": "Stripped Ancient Wood",
+
+  "block.ethermist.suspicious_ancient_log": "Suspicious Ancient Log",
+  "block.ethermist.stripped_suspicious_ancient_log": "Stripped Suspicious Ancient Log",
+  "block.ethermist.suspicious_ancient_wood": "Suspicious Ancient Wood",
+  "block.ethermist.stripped_suspicious_ancient_wood": "Stripped Suspicious Ancient Wood",
+
   "block.ethermist.ancient_leaves": "Ancient Leaves",
   "block.ethermist.ancient_sapling": "Ancient Sapling",
   "block.ethermist.ancient_planks": "Ancient Planks",
@@ -46,16 +55,43 @@
   "block.ethermist.slimy_door": "Slimy Door",
   "block.ethermist.slimy_trapdoor": "Slimy Trapdoor",
 
+  "block.ethermist.blue_abyssal_mushroom_top": "Blue Abyssal Mushroom Top",
+  "block.ethermist.orange_abyssal_mushroom_top": "Orange Abyssal Mushroom Top",
+  "block.ethermist.abyssal_mushroom_stem": "Abyssal Mushroom Stem",
+
   "block.ethermist.sparkling_sand": "Sparkling Sand",
+  "block.ethermist.sparkling_sandstone": "Sparkling Sandstone",
+  "block.ethermist.sparkling_sandstone_bricks": "Sparkling Sandstone Bricks",
+
+  "block.ethermist.sparkling_sandstone_stairs": "Sparkling Sandstone Stairs",
+  "block.ethermist.sparkling_sandstone_slab": "Sparkling Sandstone Slab",
+  "block.ethermist.sparkling_sandstone_pressure_plate": "Sparkling Sandstone Pressure Plate",
+  "block.ethermist.sparkling_sandstone_button": "Sparkling Sandstone Button",
+  "block.ethermist.sparkling_sandstone_wall": "Sparkling Sandstone Wall",
+
+  "block.ethermist.sparkling_sandstone_brick_stairs": "Sparkling Sandstone Brick Stairs",
+  "block.ethermist.sparkling_sandstone_brick_slab": "Sparkling Sandstone Brick Slab",
+  "block.ethermist.sparkling_sandstone_brick_wall": "Sparkling Sandstone Brick Wall",
 
   "block.ethermist.timeworn_sand": "Timeworn Sand",
   "block.ethermist.timeworn_sandstone": "Timeworn Sandstone",
   "block.ethermist.polished_timeworn_sandstone": "Polished Timeworn Sandstone",
 
+  "block.ethermist.polished_timeworn_sandstone_stairs": "Polished Timeworn Sandstone Stairs",
+  "block.ethermist.polished_timeworn_sandstone_slab": "Polished Timeworn Sandstone Slab",
+  "block.ethermist.polished_timeworn_sandstone_pressure_plate": "Polished Timeworn Sandstone Pressure Plate",
+  "block.ethermist.polished_timeworn_sandstone_button": "Polished Timeworn Sandstone Button",
+  "block.ethermist.polished_timeworn_sandstone_wall": "Polished Timeworn Sandstone Wall",
+
+  "block.ethermist.timeworn_sandstone_stairs": "Timeworn Sandstone Stairs",
+  "block.ethermist.timeworn_sandstone_slab": "Timeworn Sandstone Slab",
+  "block.ethermist.timeworn_sandstone_wall": "Timeworn Sandstone Wall",
+
   "block.ethermist.crumbling_etherstone": "Crumbling Etherstone",
 
   "block.ethermist.glimmer_blossom": "Glimmer Blossom",
   "block.ethermist.glimmer_blossom_flower_pot": "Glimmer Blossom Flower Pot",
+  "block.ethermist.rich_grass": "Rich Grass",
 
   "creativetab.ethermist.em_creative_tab": "Ethermist"
 }

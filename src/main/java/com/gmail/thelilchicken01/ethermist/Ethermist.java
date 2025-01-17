@@ -3,11 +3,15 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
+import com.gmail.thelilchicken01.ethermist.particle.EMSuspendedParticle;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -47,6 +51,8 @@ public class Ethermist {
         // Register custom content
         EMCreativeTab.register(modEventBus);
 
+        EMParticleTypes.register(modEventBus);
+
         EMTrunkPlacerType.register(modEventBus);
         EMBlockStateProviderType.register(modEventBus);
 
@@ -75,9 +81,15 @@ public class Ethermist {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+        }
+
+        @SubscribeEvent
+        public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(EMParticleTypes.GILMMERBUG_AIR.get(), EMSuspendedParticle.GlimmerbugAirProvider::new);
         }
     }
 }

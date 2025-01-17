@@ -843,7 +843,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "ethermist:sparkling_sandstone"
                                       }
                                     }
                                   },
@@ -908,7 +908,7 @@
                               "then_run": {
                                 "type": "minecraft:block",
                                 "result_state": {
-                                  "Name": "ethermist:rich_grass",
+                                  "Name": "ethermist:rich_grass_block",
                                   "Properties": {
                                     "snowy": "false"
                                   }
@@ -1192,7 +1192,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "ethermist:sparkling_sandstone"
                                       }
                                     }
                                   },
@@ -1274,7 +1274,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sandstone"
+                          "Name": "ethermist:sparkling_sandstone"
                         }
                       }
                     }
@@ -1360,7 +1360,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:sandstone"
+                              "Name": "ethermist:sparkling_sandstone"
                             }
                           }
                         },

@@ -24,6 +24,14 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
         wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
 
+        buttonItemFolder(EMBlocks.SPARKLING_SANDSTONE_BUTTON, EMBlocks.SPARKLING_SANDSTONE);
+        wallItemFolder(EMBlocks.SPARKLING_SANDSTONE_WALL, EMBlocks.SPARKLING_SANDSTONE);
+        wallItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL, EMBlocks.SPARKLING_SANDSTONE_BRICKS);
+
+        buttonItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON, EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
+        wallItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL, EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
+        wallItemFolder(EMBlocks.TIMEWORN_SANDSTONE_WALL, EMBlocks.TIMEWORN_SANDSTONE);
+
         wallItem(EMBlocks.ETHERSTONE_BRICK_WALL, EMBlocks.ETHERSTONE_BRICKS);
 
         fenceItem(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS);
@@ -37,6 +45,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         saplingItem(EMBlocks.SLIMY_SAPLING);
 
         saplingItem(EMBlocks.GLIMMER_BLOSSOM);
+        saplingItem(EMBlocks.RICH_GRASS);
 
     }
 

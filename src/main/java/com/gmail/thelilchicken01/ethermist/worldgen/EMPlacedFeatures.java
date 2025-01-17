@@ -26,6 +26,8 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_PLACED_TREE_KEY = registerKey("mega_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
+    public static final ResourceKey<PlacedFeature> BLUE_PLACED_ABYSSAL_MUSHROOM = registerKey("blue_abyssal_mushroom_placed");
+    public static final ResourceKey<PlacedFeature> ORANGE_PLACED_ABYSSAL_MUSHROOM = registerKey("orange_abyssal_mushroom_placed");
 
     public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_KEY = registerKey("ethermist_lava_lake_placed");
     public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
@@ -45,6 +47,24 @@ public class EMPlacedFeatures {
         register(context, SLIMY_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SLIMY_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.1f, 2),
                         EMBlocks.SLIMY_SAPLING.get()));
+
+        register(context, BLUE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.BLUE_ABYSSAL_MUSHROOM_KEY),
+                List.of(
+                        NoiseBasedCountPlacement.of(10, 10.0, 0.0),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_TOP_SOLID,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, ORANGE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.ORANGE_ABYSSAL_MUSHROOM_KEY),
+                List.of(
+                        NoiseBasedCountPlacement.of(10, 10.0, 0.0),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_TOP_SOLID,
+                        BiomeFilter.biome()
+                )
+        );
 
         register(context, ETHERMIST_LAVA_LAKE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE),
                 List.of(
