@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "redstone",
-  "group": "etherstone",
+  "group": "buttons",
   "ingredients": [
     {
       "item": "ethermist:etherstone"
