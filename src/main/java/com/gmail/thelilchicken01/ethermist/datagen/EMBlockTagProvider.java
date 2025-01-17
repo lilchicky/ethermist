@@ -68,6 +68,13 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_STAIRS.get())
                 .add(EMBlocks.SLIMY_SLAB.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
+                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+
+        tag(BlockTags.MINEABLE_WITH_HOE)
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
