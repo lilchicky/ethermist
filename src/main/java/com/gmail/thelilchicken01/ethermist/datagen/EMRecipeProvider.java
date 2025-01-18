@@ -237,6 +237,31 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
+        
+        // Cubed Abyssal Mushroom
+        stairBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("stairs")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
+        buttonBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("buttons")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+        pressurePlate(output, EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
+        fenceBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("fences")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+        fenceGateBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("fence_gates")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+        doorBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("doors")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+        trapdoorBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("trapdoors")
+                .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), 4)
+                .requires(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get())
+                .unlockedBy("has_blue_abyssal_mushroom_stem", has(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_blue"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), 4)
+                .requires(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
+                .unlockedBy("has_orange_abyssal_mushroom_stem", has(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_orange"));
 
     }
 

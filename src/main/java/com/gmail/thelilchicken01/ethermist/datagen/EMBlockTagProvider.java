@@ -68,16 +68,30 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_STAIRS.get())
                 .add(EMBlocks.SLIMY_SLAB.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
+
                 .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
-                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get())
+
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get())
-                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
+
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());
@@ -120,7 +134,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.FENCE_GATES)
                 .add(EMBlocks.ANCIENT_FENCE_GATE.get())
-                .add(EMBlocks.SLIMY_FENCE_GATE.get());
+                .add(EMBlocks.SLIMY_FENCE_GATE.get())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
 
         tag(BlockTags.WALLS)
                 .add(EMBlocks.ETHERSTONE_WALL.get())
@@ -138,9 +153,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         addRedstone(EMBlocks.SLIMY_BUTTON.get(), EMBlocks.SLIMY_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), false);
+        addRedstone(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), true);
 
         addFences(EMBlocks.ANCIENT_FENCE.get(), true);
         addFences(EMBlocks.SLIMY_FENCE.get(), true);
+        addFences(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), true);
 
         addLogs(EMBlocks.ANCIENT_LOG.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), EMBlocks.ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_WOOD.get(), true);
         addLogs(EMBlocks.SLIMY_LOG.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), EMBlocks.SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_WOOD.get(), true);
@@ -148,6 +165,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         addDoors(EMBlocks.ANCIENT_DOOR.get(), EMBlocks.ANCIENT_TRAPDOOR.get(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get(), EMBlocks.SLIMY_TRAPDOOR.get(), true);
+        addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), true);
 
     }
 

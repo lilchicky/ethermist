@@ -45,6 +45,10 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.SLIMY_DOOR.asItem());
         saplingItem(EMBlocks.SLIMY_SAPLING);
 
+        fenceItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+        buttonItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+        basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());
+
         saplingItem(EMBlocks.GLIMMER_BLOSSOM);
         saplingItem(EMBlocks.RICH_GRASS);
 

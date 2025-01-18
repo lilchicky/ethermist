@@ -1,8 +1,11 @@
-// 1.21.1	2025-01-17T20:51:23.4951912	Item Models: ethermist
+// 1.21.1	2025-01-18T01:13:07.2036013	Item Models: ethermist
 5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
 faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
 44076821cbc977d3d8b2d750336eb7b98b16b961 assets/ethermist/models/item/ancient_sapling.json
+c1cbc72f955d9133c8152590077492404e398edf assets/ethermist/models/item/cubed_abyssal_mushroom_button.json
+0525bc9890b5a0453e1588f6f9fb109e13d015c0 assets/ethermist/models/item/cubed_abyssal_mushroom_door.json
+eb4b6cc26e01f7cfd66a73f31eed08262c27f1a8 assets/ethermist/models/item/cubed_abyssal_mushroom_fence.json
 694bbe10f2b369e9a63955238a7020288b8eeda2 assets/ethermist/models/item/dull_wand.json
 ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone_brick_wall.json
 96c65a3fbb10da01cd872c6aef7fcfb2b563d438 assets/ethermist/models/item/etherstone_button.json

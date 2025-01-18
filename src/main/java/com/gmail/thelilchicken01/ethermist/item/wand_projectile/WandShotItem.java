@@ -1,0 +1,37 @@
+package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+
+public class WandShotItem extends Item {
+
+    private final int DAMAGE;
+
+    public WandShotItem(Properties properties, int damage) {
+        super(properties);
+        this.DAMAGE = damage;
+    }
+
+    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter) {
+
+        WandProjectile shot = new WandProjectile(level, shooter);
+
+        shot.setItem(item);
+        shot.setDamage(DAMAGE);
+        return shot;
+
+    }
+
+    public double modifyDamage(double damage, WandProjectile projectile, Entity target, @Nullable Entity shooter, Level level) {
+        return damage;
+    }
+
+    public void onLivingEntityHit(WandProjectile projectile, LivingEntity target, @Nullable Entity shooter, Level level) {
+    }
+
+}

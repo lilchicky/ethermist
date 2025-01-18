@@ -119,7 +119,7 @@ public class EMPortalForcer {
             for(int j2 = -1; j2 < 4; ++j2) {
                 if (l1 == -1 || l1 == 2 || j2 == -1 || j2 == 3) {
                     mutBlockPos.setWithOffset(blockpos, l1 * direction.getStepX(), j2, l1 * direction.getStepZ());
-                    level.setBlock(mutBlockPos, FRAME, 3);
+                    level.setBlock(mutBlockPos, FRAME, NetherPortalBlock.UPDATE_ALL);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class EMPortalForcer {
         for(int k2 = 0; k2 < 2; ++k2) {
             for(int l2 = 0; l2 < 3; ++l2) {
                 mutBlockPos.setWithOffset(blockpos, k2 * direction.getStepX(), l2, k2 * direction.getStepZ());
-                level.setBlock(mutBlockPos, blockstate, 18);
+                level.setBlock(mutBlockPos, blockstate, NetherPortalBlock.UPDATE_ALL);
             }
         }
 

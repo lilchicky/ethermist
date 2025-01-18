@@ -133,6 +133,18 @@ public class EMBlocks {
     public static final DeferredBlock<RotatedPillarBlock> BLUE_ABYSSAL_MUSHROOM_STEM = registerBlock("blue_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
     public static final DeferredBlock<RotatedPillarBlock> ORANGE_ABYSSAL_MUSHROOM_STEM = registerBlock("orange_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
 
+    public static final DeferredBlock<Block> CUBED_ABYSSAL_MUSHROOM = registerBlock("cubed_abyssal_mushroom", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    
+    public static final DeferredBlock<StairBlock> CUBED_ABYSSAL_MUSHROOM_STAIRS = registerBlock("cubed_abyssal_mushroom_stairs", () -> new StairBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
+    public static final DeferredBlock<SlabBlock> CUBED_ABYSSAL_MUSHROOM_SLAB = registerBlock("cubed_abyssal_mushroom_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
+    public static final DeferredBlock<PressurePlateBlock> CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE = registerBlock("cubed_abyssal_mushroom_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
+    public static final DeferredBlock<ButtonBlock> CUBED_ABYSSAL_MUSHROOM_BUTTON = registerBlock("cubed_abyssal_mushroom_button", () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noCollission()));
+    public static final DeferredBlock<FenceBlock> CUBED_ABYSSAL_MUSHROOM_FENCE = registerBlock("cubed_abyssal_mushroom_fence", () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
+    public static final DeferredBlock<FenceGateBlock> CUBED_ABYSSAL_MUSHROOM_FENCE_GATE = registerBlock("cubed_abyssal_mushroom_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
+    public static final DeferredBlock<DoorBlock> CUBED_ABYSSAL_MUSHROOM_DOOR = registerBlock("cubed_abyssal_mushroom_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> CUBED_ABYSSAL_MUSHROOM_TRAPDOOR = registerBlock("cubed_abyssal_mushroom_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noOcclusion()));
+
+
 
     // Unobtainable
     public static final DeferredBlock<Block> ETHERMIST_PORTAL = registerBlock("ethermist_portal_block", EMPortalBlock::new);

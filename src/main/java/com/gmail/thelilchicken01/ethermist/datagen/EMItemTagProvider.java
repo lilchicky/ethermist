@@ -45,7 +45,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.PLANKS)
                 .add(EMBlocks.ANCIENT_PLANKS.get().asItem())
-                .add(EMBlocks.SLIMY_PLANKS.get().asItem());
+                .add(EMBlocks.SLIMY_PLANKS.get().asItem())
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().asItem());
 
         tag(ItemTags.LOGS)
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get().asItem())
@@ -76,9 +77,11 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addRedstone(EMBlocks.SLIMY_BUTTON.get().asItem(), EMBlocks.SLIMY_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get().asItem(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get().asItem(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get().asItem(), false);
+        addRedstone(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get().asItem(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get().asItem(), true);
 
         addFences(EMBlocks.ANCIENT_FENCE.get().asItem(), true);
         addFences(EMBlocks.SLIMY_FENCE.get().asItem(), true);
+        addFences(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get().asItem(), true);
 
         addLogs(EMBlocks.ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_ANCIENT_LOG.get().asItem(), EMBlocks.ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_ANCIENT_WOOD.get().asItem(), true);
         addLogs(EMBlocks.PEEKING_ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get().asItem(), EMBlocks.PEEKING_ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get().asItem(), true);
@@ -86,6 +89,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         addDoors(EMBlocks.ANCIENT_DOOR.get().asItem(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get().asItem(), true);
+        addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get().asItem(), true);
 
     }
 

@@ -159,6 +159,18 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get());
         dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get());
+        add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get()));
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get());
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get());
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
+        add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(),
+                block -> createDoorTable(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get()));
+        dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get());
+
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));
 

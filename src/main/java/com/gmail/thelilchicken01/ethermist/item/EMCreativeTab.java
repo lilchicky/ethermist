@@ -64,6 +64,16 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
                 output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
 
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE);
+                output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON);
+
                 // Etherstone
                 output.accept(EMBlocks.ETHERSTONE);
                 output.accept(EMBlocks.ETHERSTONE_STAIRS);

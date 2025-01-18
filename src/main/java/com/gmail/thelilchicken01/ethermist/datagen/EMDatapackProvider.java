@@ -19,7 +19,8 @@ public class EMDatapackProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, EMConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, EMPlacedFeatures::bootstrap)
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, EMBiomeModifiers::bootstrap);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, EMBiomeModifiers::bootstrap)
+            .add(Registries.DAMAGE_TYPE, EMDamageTypesProvider::bootstrap);
 
     public EMDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Ethermist.MODID));

@@ -157,7 +157,7 @@ public class EMPortalShape {
     public void createPortalBlocks() {
         BlockState blockstate = EMBlocks.ETHERMIST_PORTAL.get().defaultBlockState().setValue(EMPortalBlock.AXIS, this.axis);
         BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1))
-                .forEach((BlockPos pos) -> this.level.setBlock(pos, blockstate, 18));
+                .forEach((BlockPos pos) -> this.level.setBlock(pos, blockstate, NetherPortalBlock.UPDATE_ALL));
     }
 
     public boolean isComplete() {

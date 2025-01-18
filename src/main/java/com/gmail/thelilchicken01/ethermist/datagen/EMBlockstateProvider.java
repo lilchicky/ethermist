@@ -78,7 +78,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD);
         blockItem(EMBlocks.ANCIENT_SAPLING);
 
-        // Ancient Wood
+        // Slimy Wood
         logBlock((RotatedPillarBlock) EMBlocks.SLIMY_LOG.get());
         logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_LOG.get());
         axisBlock((RotatedPillarBlock) EMBlocks.SLIMY_WOOD.get(), blockTexture(EMBlocks.SLIMY_LOG.get()));
@@ -162,6 +162,23 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         blockItem(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
         blockItem(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
+
+        simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+
+        stairsBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        slabBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        buttonBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        pressurePlateBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        fenceBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        fenceGateBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
+        doorBlockWithRenderType(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), modLoc("block/cubed_abyssal_mushroom_door_bottom"), modLoc("block/cubed_abyssal_mushroom_door_top"), "cutout");
+        trapdoorBlockWithRenderType(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), modLoc("block/cubed_abyssal_mushroom_trapdoor"), true, "cutout");
+
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR, "_bottom");
 
     }
 
