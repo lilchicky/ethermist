@@ -157,9 +157,11 @@ public class EMBlockstateProvider extends BlockStateProvider {
         // Abyssal Mushrooms
         simpleBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
         simpleBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
-        logBlock(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
+        logBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get());
+        logBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
-        blockItem(EMBlocks.ABYSSAL_MUSHROOM_STEM);
+        blockItem(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
+        blockItem(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
 
     }
 

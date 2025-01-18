@@ -5,13 +5,20 @@ import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.particle.EMSuspendedParticle;
+import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.neoforged.neoforge.client.model.renderable.ITextureRenderTypeLookup;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -33,8 +40,10 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class Ethermist {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "ethermist";
+
+    public static final ResourceKey<Level> ETHERMIST = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ethermist"));
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -55,6 +64,7 @@ public class Ethermist {
 
         EMTrunkPlacerType.register(modEventBus);
         EMBlockStateProviderType.register(modEventBus);
+        EMPOIs.register(modEventBus);
 
         EMBlocks.register(modEventBus);
         EMItems.register(modEventBus);

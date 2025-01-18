@@ -3,13 +3,13 @@ package com.gmail.thelilchicken01.ethermist.block;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
@@ -130,7 +130,12 @@ public class EMBlocks {
     // Abyssal Mushroom
     public static final DeferredBlock<Block> BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
     public static final DeferredBlock<Block> ORANGE_ABYSSAL_MUSHROOM_TOP = registerBlock("orange_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
-    public static final DeferredBlock<RotatedPillarBlock> ABYSSAL_MUSHROOM_STEM = registerBlock("abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+    public static final DeferredBlock<RotatedPillarBlock> BLUE_ABYSSAL_MUSHROOM_STEM = registerBlock("blue_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+    public static final DeferredBlock<RotatedPillarBlock> ORANGE_ABYSSAL_MUSHROOM_STEM = registerBlock("orange_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+
+
+    // Unobtainable
+    public static final DeferredBlock<Block> ETHERMIST_PORTAL = registerBlock("ethermist_portal_block", EMPortalBlock::new);
 
     /*
     Register Functions

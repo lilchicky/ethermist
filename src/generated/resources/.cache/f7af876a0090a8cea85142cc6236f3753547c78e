@@ -1,14 +1,15 @@
-// 1.21.1	2025-01-17T01:32:39.512659	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-01-17T20:51:23.4931893	Tags for minecraft:item mod id ethermist
 ff2aef55946c4bbb3214a14ccc58aa60437e61d3 data/c/tags/item/gems.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/item/gravels.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
 6a636d549fad0270217d0c44e9e125535086d846 data/c/tags/item/stones.json
+a8b10ebe6c9c537c4a9fc36f061e34be91b9b681 data/ethermist/tags/item/wands.json
 6550961426ff29f2cf1f1d9297393a888c209083 data/minecraft/tags/item/buttons.json
 7353ba8dd468402139c44a0e15f46416b9210b18 data/minecraft/tags/item/doors.json
 ee2863966ecbbb1c0b4f4e6f345f926d08cff900 data/minecraft/tags/item/fences.json
 0e25031afd14b4a7be0a97a073ca5c72d2a7e9b8 data/minecraft/tags/item/flowers.json
 8c89b91c72d936d2e8338726a3bf8dc2f2cf48b7 data/minecraft/tags/item/leaves.json
-71200d336b987962759b862f308a999c18d375d2 data/minecraft/tags/item/logs.json
+7650415651e252d7a2fc9990604993fb080ec4c8 data/minecraft/tags/item/logs.json
 2c44aad46f6c79a8da258a0a1f2ffad39c612875 data/minecraft/tags/item/logs_that_burn.json
 6b58dc9fee7c7e6a8ce651fa5a1d270537b09ac3 data/minecraft/tags/item/planks.json
 3cf9b64fb3ce23424db7226247b146f02587739e data/minecraft/tags/item/sand.json

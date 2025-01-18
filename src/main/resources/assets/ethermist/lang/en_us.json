@@ -1,5 +1,7 @@
 {
   "_comment": "-------BLOCKS-------",
+  "block.ethermist.ethermist_portal_block": "Ethermist Portal Block",
+
   "block.ethermist.glimmerbug_hive": "Glimmerbug Hive",
 
   "block.ethermist.rich_grass_block": "Rich Grass Block",
@@ -57,7 +59,8 @@
 
   "block.ethermist.blue_abyssal_mushroom_top": "Blue Abyssal Mushroom Top",
   "block.ethermist.orange_abyssal_mushroom_top": "Orange Abyssal Mushroom Top",
-  "block.ethermist.abyssal_mushroom_stem": "Abyssal Mushroom Stem",
+  "block.ethermist.blue_abyssal_mushroom_stem": "Blue Abyssal Mushroom Stem",
+  "block.ethermist.orange_abyssal_mushroom_stem": "Orange Abyssal Mushroom Stem",
 
   "block.ethermist.sparkling_sand": "Sparkling Sand",
   "block.ethermist.sparkling_sandstone": "Sparkling Sandstone",
@@ -93,5 +96,10 @@
   "block.ethermist.glimmer_blossom_flower_pot": "Glimmer Blossom Flower Pot",
   "block.ethermist.rich_grass": "Rich Grass",
 
-  "creativetab.ethermist.em_creative_tab": "Ethermist"
+  "_comment": "--------------- ITEMS ---------------",
+  "item.ethermist.dull_wand": "Dull Wand",
+
+  "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
+  "creativetab.ethermist.em_item_tab": "Ethermist Items"
+
 }

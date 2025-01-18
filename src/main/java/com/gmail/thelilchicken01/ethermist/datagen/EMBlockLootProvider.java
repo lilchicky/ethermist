@@ -156,7 +156,8 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         // Abyssal Mushrooms
         dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get());
         dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
-        dropSelf(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));

@@ -48,7 +48,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.SLIMY_PLANKS.get().asItem());
 
         tag(ItemTags.LOGS)
-                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get().asItem());
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get().asItem())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get().asItem());
 
         tag(ItemTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get().asItem())
@@ -66,6 +67,9 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.GEMS)
                 .add(EMItems.MIST_GEM.get());
+
+        tag(EMTags.Items.WANDS)
+                .add(EMItems.DULL_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);

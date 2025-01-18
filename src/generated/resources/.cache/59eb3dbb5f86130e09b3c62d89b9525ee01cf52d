@@ -1,5 +1,4 @@
-// 1.21.1	2025-01-17T01:32:39.5206662	Loot Tables
-7047e88ac6ac9afee23ec16b4fa5fd54cab18bae data/ethermist/loot_table/blocks/abyssal_mushroom_stem.json
+// 1.21.1	2025-01-17T15:07:21.4044675	Loot Tables
 21d670ae1fa81407116f0de0cfca19ce9913cdae data/ethermist/loot_table/blocks/ancient_button.json
 8e7a8ca4b51d3e38cf7e0d7bff0245204c24d924 data/ethermist/loot_table/blocks/ancient_door.json
 ebda84777ce5cc739f00fe65390d725469830943 data/ethermist/loot_table/blocks/ancient_fence.json
@@ -13,6 +12,7 @@ a3a53c3ccc618d3a91967783b5e53e79f50630d8 data/ethermist/loot_table/blocks/ancien
 ce2851f439df78895400a4325a8d8bbe9110acf7 data/ethermist/loot_table/blocks/ancient_stairs.json
 7d1155e7205b3823f8237d1678dbc26b53f2d079 data/ethermist/loot_table/blocks/ancient_trapdoor.json
 0bdcd219971d04e436b42f135cdbaa51a604c6a5 data/ethermist/loot_table/blocks/ancient_wood.json
+b4f2f813307dbc76429233ce9f29cec343b88dc1 data/ethermist/loot_table/blocks/blue_abyssal_mushroom_stem.json
 aae5cf8cdc85392f0a03c1d62884ad2dd3e92033 data/ethermist/loot_table/blocks/blue_abyssal_mushroom_top.json
 7d7b3e189169ffe0b71f0fe9f52d6fe5a3d77a2e data/ethermist/loot_table/blocks/crumbling_etherstone.json
 7665231d9b88ee1dfd724aba6658c0019d43a6dd data/ethermist/loot_table/blocks/etherstone.json
@@ -29,6 +29,7 @@ c040115c2ee5b31782b37fef3adb6806c1a864d2 data/ethermist/loot_table/blocks/ethers
 4fc68e950b2933e2b814dd86989c04fd34621946 data/ethermist/loot_table/blocks/glimmer_blossom.json
 e8bb96dbabe75b7b9a9e7a481be3523950f8f636 data/ethermist/loot_table/blocks/glimmer_blossom_flower_pot.json
 6eac858f41dd976524fe368e4fbf8a16d851f630 data/ethermist/loot_table/blocks/mist_gem_ore.json
+3a6b89b3e1876bfc0008decea90021917168a2d3 data/ethermist/loot_table/blocks/orange_abyssal_mushroom_stem.json
 da7dfed3b0e1462ddcccdcfb0cdb71234f48f553 data/ethermist/loot_table/blocks/orange_abyssal_mushroom_top.json
 6d4c352ba023f3729d57831e3efa6900e8534233 data/ethermist/loot_table/blocks/polished_timeworn_sandstone.json
 e47486af291af109b4b9c4ec55f01776cf720e79 data/ethermist/loot_table/blocks/polished_timeworn_sandstone_button.json

@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"axis=z": {"model": "ethermist:block/ethermist_portal_block_ew" },
+		"axis=x": {"model": "ethermist:block/ethermist_portal_block_ns" }
+	}
+}

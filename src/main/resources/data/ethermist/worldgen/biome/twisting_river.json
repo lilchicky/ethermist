@@ -72,16 +72,13 @@
     ],
     [
       "minecraft:glow_lichen",
+      "ethermist:rich_grass_patch_placed",
       "minecraft:trees_water",
-      "minecraft:flower_default",
-      "minecraft:patch_grass_badlands",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
       "minecraft:seagrass_deep",
-      "minecraft:seagrass_simple",
-      "minecraft:kelp_cold"
+      "minecraft:seagrass_simple"
     ],
     [
       "minecraft:freeze_top_layer"

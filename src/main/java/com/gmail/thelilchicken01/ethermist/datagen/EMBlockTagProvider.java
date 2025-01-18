@@ -68,14 +68,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_STAIRS.get())
                 .add(EMBlocks.SLIMY_SLAB.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
-                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get())
-                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(EMBlocks.MIST_GEM_ORE.get());
@@ -85,7 +87,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SPARKLING_SANDSTONE.get());
 
         tag(BlockTags.LOGS)
-                .add(EMBlocks.ABYSSAL_MUSHROOM_STEM.get());
+                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get())
@@ -126,6 +129,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
+
+        tag(EMTags.Blocks.PORTAL_FRAME_BLOCKS)
+                .add(EMBlocks.ETHERSTONE_BRICKS.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);

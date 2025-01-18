@@ -11,15 +11,12 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -31,16 +28,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-
-import java.util.List;
 
 public class EMConfiguredFeatures {
 
@@ -52,6 +44,7 @@ public class EMConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_GRASS_PATCH = registerKey("rich_grass_patch");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -128,7 +121,7 @@ public class EMConfiguredFeatures {
         );
 
         register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                BlockStateProvider.simple(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
                 new ForkingTrunkPlacer(
                         2,
                         3,
@@ -143,7 +136,7 @@ public class EMConfiguredFeatures {
         );
 
         register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                BlockStateProvider.simple(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
                 new ForkingTrunkPlacer(
                         2,
                         3,
@@ -161,6 +154,10 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(Blocks.LAVA),
                 BlockStateProvider.simple(EMBlocks.ETHERSTONE.get())
         ));
+
+        register(context, RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
+                FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())))
+        );
 
         register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(

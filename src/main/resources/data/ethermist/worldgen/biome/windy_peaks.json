@@ -81,7 +81,8 @@
       "minecraft:spring_lava_frozen"
     ],
     [
-      "minecraft:glow_lichen"
+      "minecraft:glow_lichen",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

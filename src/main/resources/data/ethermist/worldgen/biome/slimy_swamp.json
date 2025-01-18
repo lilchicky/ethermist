@@ -24,8 +24,8 @@
       "sound": "minecraft:music.overworld.swamp"
     },
     "sky_color": 9912472,
-    "water_color": 6388580,
-    "water_fog_color": 2302743
+    "water_color": 12032,
+    "water_fog_color": 18688
   },
   "features": [
     [],
@@ -80,8 +80,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:flower_swamp",
-      "minecraft:patch_grass_normal",
+      "ethermist:rich_grass_patch_placed",
       "minecraft:patch_dead_bush",
       "minecraft:patch_waterlily",
       "minecraft:brown_mushroom_swamp",
@@ -89,7 +88,6 @@
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane_swamp",
-      "minecraft:patch_pumpkin",
       "minecraft:seagrass_swamp",
       "ethermist:slimy_tree_placed"
     ],

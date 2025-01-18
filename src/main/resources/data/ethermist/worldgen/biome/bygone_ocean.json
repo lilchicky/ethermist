@@ -72,6 +72,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "ethermist:rich_grass_patch_placed",
       "ethermist:blue_abyssal_mushroom_placed",
       "ethermist:orange_abyssal_mushroom_placed"
     ],

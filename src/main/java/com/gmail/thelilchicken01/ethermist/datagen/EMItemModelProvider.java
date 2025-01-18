@@ -10,6 +10,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class EMItemModelProvider extends ItemModelProvider {
 
@@ -46,6 +47,8 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         saplingItem(EMBlocks.GLIMMER_BLOSSOM);
         saplingItem(EMBlocks.RICH_GRASS);
+
+        wandItem(EMItems.DULL_WAND);
 
     }
 
@@ -85,6 +88,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + block.getId().getPath()));
+    }
+
+    public void wandItem(DeferredItem<?> item) {
+        this.withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/handheld")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + item.getId().getPath()));
     }
 
 }
