@@ -7,6 +7,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -81,12 +84,24 @@ public class WandProjectile extends Fireball {
             );
             boolean damaged = target.hurt(damageSource, (float) shot.modifyDamage(damage, this, target, shooter, level()));
 
-            if(damaged && target instanceof LivingEntity) {
-                LivingEntity livingTarget = (LivingEntity) target;
+            if(damaged && target instanceof LivingEntity livingTarget) {
+
                 if (knockbackStrength != 0) {
                     Vec3 vec = getDeltaMovement().multiply(1, 0, 1).normalize().scale(knockbackStrength);
                     if (vec.lengthSqr() > 0) {
                         livingTarget.push(vec.x, 0.1, vec.z);
+                    }
+                }
+
+                switch (shot.getModifier()) {
+                    case FLAME_WAND -> {
+                        livingTarget.setRemainingFireTicks(200);
+                    }
+                    case GENERIC_WAND -> {
+                        livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
+                    }
+                    default -> {
+                        break;
                     }
                 }
 

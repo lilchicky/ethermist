@@ -9,7 +9,6 @@ import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -41,11 +40,9 @@ public class WandItem extends Item {
 
         ItemStack wand = player.getItemInHand(usedHand);
 
-        WandShotItem shotItem = EMItems.MIST_GEM.get();
-
         if(!player.getCooldowns().isOnCooldown(this)) {
-            ItemStack shotItemStack = new ItemStack(EMItems.MIST_GEM.get());
-            shoot(level, player, shotItemStack, shotItem);
+            ItemStack shotItemStack = new ItemStack(getShotItem());
+            shoot(level, player, shotItemStack, getShotItem());
 
             level.playSound(player,
                     player.getX(),
@@ -104,6 +101,9 @@ public class WandItem extends Item {
     }
     public int getCooldownSeconds() {
         return 1;
+    }
+    public WandShotItem getShotItem() {
+        return EMItems.GENERIC_SHOT.get();
     }
 
     /*

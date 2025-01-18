@@ -1,7 +1,8 @@
-package com.gmail.thelilchicken01.ethermist.item;
+package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -148,8 +149,7 @@ public class EMCreativeTab {
 
                 // Wands
                 output.accept(EMItems.DULL_WAND.get());
-
-                output.accept(EMItems.MIST_GEM);
+                output.accept(EMItems.FLAME_WAND.get());
 
             }).build());
 

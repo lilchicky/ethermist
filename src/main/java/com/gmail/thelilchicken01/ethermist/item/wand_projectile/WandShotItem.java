@@ -11,10 +11,12 @@ import javax.annotation.Nullable;
 public class WandShotItem extends Item {
 
     private final int DAMAGE;
+    private final WandModifiers WAND_MODIFIER;
 
-    public WandShotItem(Properties properties, int damage) {
-        super(properties);
+    public WandShotItem(int damage, WandModifiers modifier) {
+        super(new Item.Properties().stacksTo(1));
         this.DAMAGE = damage;
+        this.WAND_MODIFIER = modifier;
     }
 
     public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter) {
@@ -25,6 +27,10 @@ public class WandShotItem extends Item {
         shot.setDamage(DAMAGE);
         return shot;
 
+    }
+
+    public WandModifiers getModifier() {
+        return WAND_MODIFIER;
     }
 
     public double modifyDamage(double damage, WandProjectile projectile, Entity target, @Nullable Entity shooter, Level level) {

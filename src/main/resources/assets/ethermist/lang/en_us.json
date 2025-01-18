@@ -108,6 +108,7 @@
 
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.dull_wand": "Dull Wand",
+  "item.ethermist.flame_wand": "Flame Wand",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

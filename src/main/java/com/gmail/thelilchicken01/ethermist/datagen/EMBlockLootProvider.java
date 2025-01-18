@@ -172,7 +172,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get());
 
         add(EMBlocks.MIST_GEM_ORE.get(),
-                block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.MIST_GEM.get(), 1, 3));
+                block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.GENERIC_SHOT.get(), 1, 3));
 
     }
 

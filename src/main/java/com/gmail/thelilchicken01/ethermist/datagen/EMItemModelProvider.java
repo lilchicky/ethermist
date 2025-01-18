@@ -6,7 +6,6 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -20,7 +19,8 @@ public class EMItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(EMItems.MIST_GEM.get());
+        basicItem(EMItems.GENERIC_SHOT.get());
+        basicItem(EMItems.FLAME_SHOT.get());
 
         buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
         wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
@@ -53,6 +53,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         saplingItem(EMBlocks.RICH_GRASS);
 
         wandItem(EMItems.DULL_WAND);
+        wandItem(EMItems.FLAME_WAND);
 
     }
 

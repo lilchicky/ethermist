@@ -1,8 +1,11 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.FlameShotItem;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.GenericShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.DullWand;
+import com.gmail.thelilchicken01.ethermist.item.wands.FlameWand;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -12,9 +15,11 @@ public class EMItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Ethermist.MODID);
 
-    public static final DeferredItem<WandShotItem> MIST_GEM = ITEMS.register("mist_gem", () -> new WandShotItem(new Item.Properties().stacksTo(1), 5));
+    public static final DeferredItem<WandShotItem> GENERIC_SHOT = ITEMS.register("generic_shot", GenericShotItem::new);
+    public static final DeferredItem<WandShotItem> FLAME_SHOT = ITEMS.register("flame_shot", FlameShotItem::new);
 
     public static final DeferredItem<Item> DULL_WAND = ITEMS.register("dull_wand", DullWand::new);
+    public static final DeferredItem<Item> FLAME_WAND = ITEMS.register("flame_wand", FlameWand::new);
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);

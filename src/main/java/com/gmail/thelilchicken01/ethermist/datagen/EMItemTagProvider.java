@@ -67,7 +67,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem());
 
         tag(Tags.Items.GEMS)
-                .add(EMItems.MIST_GEM.get());
+                .add(EMItems.GENERIC_SHOT.get());
 
         tag(EMTags.Items.WANDS)
                 .add(EMItems.DULL_WAND.get());

@@ -2,16 +2,13 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.item.EMCreativeTab;
+import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.particle.EMSuspendedParticle;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -21,8 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.client.model.renderable.ITextureRenderTypeLookup;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;

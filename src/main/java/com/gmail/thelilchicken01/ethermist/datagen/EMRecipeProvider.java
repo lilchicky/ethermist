@@ -25,8 +25,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         List<ItemLike> MIST_GEM_SMELTABLES = List.of(EMBlocks.MIST_GEM_ORE);
 
-        oreSmelting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 200, "mist_gem");
-        oreBlasting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.MIST_GEM.get(), 0.25f, 100, "mist_gem");
+        oreSmelting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.GENERIC_SHOT.get(), 0.25f, 200, "mist_gem");
+        oreBlasting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.GENERIC_SHOT.get(), 0.25f, 100, "mist_gem");
 
         //Etherstone
         stairBuilder(EMBlocks.ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("stairs")

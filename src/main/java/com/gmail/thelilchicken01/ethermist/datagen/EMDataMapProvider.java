@@ -18,7 +18,7 @@ public class EMDataMapProvider extends DataMapProvider {
     @Override
     protected void gather() {
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
-                .add(EMItems.MIST_GEM.getId(), new FurnaceFuel(1200), false);
+                .add(EMItems.GENERIC_SHOT.getId(), new FurnaceFuel(1200), false);
     }
 
 }
