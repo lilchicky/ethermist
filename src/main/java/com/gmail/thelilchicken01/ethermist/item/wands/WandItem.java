@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandEnchantHandler;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
@@ -41,8 +42,8 @@ public class WandItem extends Item {
         ItemStack wand = player.getItemInHand(usedHand);
 
         if(!player.getCooldowns().isOnCooldown(this)) {
-            ItemStack shotItemStack = new ItemStack(getShotItem());
-            shoot(level, player, shotItemStack, getShotItem());
+
+            WandEnchantHandler.processShot(level, player, wand, this);
 
             level.playSound(player,
                     player.getX(),
@@ -52,28 +53,14 @@ public class WandItem extends Item {
                     SoundSource.PLAYERS,
                     1.0f,
                     level.getRandom().nextFloat() * 0.4f + 0.8f);
+
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, this.getCooldownSeconds() * 20);
 
             wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
 
         }
 
         return super.use(level, player, usedHand);
-
-    }
-
-    private void shoot(Level level, Player player, ItemStack shotStack, WandShotItem shotItem) {
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player);
-        shot.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, this.getProjectileSpeed(), this.getInaccuracy());
-
-        shot.setDamage(shot.getDamage() + this.getBonusDamage());
-        shot.setLifetime(this.getLifespanSeconds() * 20);
-        shot.setTrail(this.getTrail());
-        shot.setCanIgnite(this.getCanIgnite());
-        shot.setKnockbackStrength(this.getKnockback());
-
-        level.addFreshEntity(shot);
 
     }
 
@@ -99,8 +86,8 @@ public class WandItem extends Item {
     public double getKnockback() {
         return 1.0;
     }
-    public int getCooldownSeconds() {
-        return 1;
+    public int getCooldown() {
+        return 20 * 4;
     }
     public WandShotItem getShotItem() {
         return EMItems.GENERIC_SHOT.get();

@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantmentEffects;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
@@ -69,6 +70,8 @@ public class Ethermist {
         EMItems.register(modEventBus);
 
         EMEntityTypes.register(modEventBus);
+
+        EMEnchantmentEffects.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

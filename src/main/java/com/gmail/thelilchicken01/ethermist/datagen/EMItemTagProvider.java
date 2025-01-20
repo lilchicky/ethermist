@@ -70,7 +70,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.GENERIC_SHOT.get());
 
         tag(EMTags.Items.WANDS)
-                .add(EMItems.DULL_WAND.get());
+                .add(EMItems.DULL_WAND.get())
+                .add(EMItems.FLAME_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);

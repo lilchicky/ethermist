@@ -74,40 +74,7 @@ public class WandProjectile extends Fireball {
             Entity shooter = getOwner();
             WandShotItem shot = (WandShotItem) getItem().getItem();
 
-            if(isOnFire() || canIgnite) target.setRemainingFireTicks(100);
-
-            DamageSource damageSource = new DamageSource(
-                    registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.GENERIC_MAGIC),
-                    shooter,
-                    this,
-                    null
-            );
-            boolean damaged = target.hurt(damageSource, (float) shot.modifyDamage(damage, this, target, shooter, level()));
-
-            if(damaged && target instanceof LivingEntity livingTarget) {
-
-                if (knockbackStrength != 0) {
-                    Vec3 vec = getDeltaMovement().multiply(1, 0, 1).normalize().scale(knockbackStrength);
-                    if (vec.lengthSqr() > 0) {
-                        livingTarget.push(vec.x, 0.1, vec.z);
-                    }
-                }
-
-                switch (shot.getModifier()) {
-                    case FLAME_WAND -> {
-                        livingTarget.setRemainingFireTicks(200);
-                    }
-                    case GENERIC_WAND -> {
-                        livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
-                    }
-                    default -> {
-                        break;
-                    }
-                }
-
-                shot.onLivingEntityHit(this, livingTarget, shooter, level());
-
-            }
+            WandEnchantHandler.processHitEntity(level(), shooter, target, shot, this);
 
         }
     }
@@ -115,9 +82,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        if (!level().isClientSide() && (!noPhysics || result.getType() != HitResult.Type.BLOCK)) {
-            remove(RemovalReason.KILLED);
-        }
+        WandEnchantHandler.processHit(level(),  result.getLocation(), result.getType(), this);
     }
 
     // Math courtesy of Guns n Roses

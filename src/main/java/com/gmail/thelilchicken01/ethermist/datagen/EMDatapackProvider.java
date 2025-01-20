@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.worldgen.EMBiomeModifiers;
 import com.gmail.thelilchicken01.ethermist.worldgen.EMConfiguredFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.EMPlacedFeatures;
@@ -20,7 +21,8 @@ public class EMDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.CONFIGURED_FEATURE, EMConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, EMPlacedFeatures::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, EMBiomeModifiers::bootstrap)
-            .add(Registries.DAMAGE_TYPE, EMDamageTypesProvider::bootstrap);
+            .add(Registries.DAMAGE_TYPE, EMDamageTypesProvider::bootstrap)
+            .add(Registries.ENCHANTMENT, EMEnchantments::bootstrap);
 
     public EMDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Ethermist.MODID));

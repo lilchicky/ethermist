@@ -110,6 +110,9 @@
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
 
+  "_comment": "--------------- ENCHANTMENTS ---------------",
+  "enchantment.ethermist.quick_cast": "Scroll of Quick Cast",
+
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"
 
