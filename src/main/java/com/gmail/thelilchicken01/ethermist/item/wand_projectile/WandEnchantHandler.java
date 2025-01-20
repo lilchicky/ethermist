@@ -18,15 +18,31 @@ import net.minecraft.world.phys.Vec3;
 
 public class WandEnchantHandler {
 
+    private static int cooldownModifier = 0;
+
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand) {
 
         ItemStack shotStack = new ItemStack(wand.getShotItem());
         shoot(level, player, shotStack, wand);
 
         player.getCooldowns().addCooldown(wand,
-                QuickCastEnchant.modifyCooldown(thisWand.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
-                        .getHolderOrThrow(EMEnchantments.QUICK_CAST)), wand.getCooldown())
+                (QuickCastEnchant.modifyCooldown(thisWand.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                        .getHolderOrThrow(EMEnchantments.QUICK_CAST)), wand.getCooldown()) + cooldownModifier)
         );
+
+    }
+
+    private static void shoot(Level level, Player player, ItemStack shotStack, WandItem wand) {
+        WandProjectile shot = wand.getShotItem().createProjectile(level, shotStack, player);
+        shot.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, wand.getProjectileSpeed(), wand.getInaccuracy());
+
+        shot.setDamage(shot.getDamage() + wand.getBonusDamage());
+        shot.setLifetime(wand.getLifespanSeconds() * 20);
+        shot.setTrail(wand.getTrail());
+        shot.setCanIgnite(wand.getCanIgnite());
+        shot.setKnockbackStrength(wand.getKnockback());
+
+        level.addFreshEntity(shot);
 
     }
 
@@ -78,20 +94,6 @@ public class WandEnchantHandler {
         if (!level.isClientSide() && (!shot.noPhysics || type != HitResult.Type.BLOCK)) {
             shot.remove(Entity.RemovalReason.KILLED);
         }
-
-    }
-
-    private static void shoot(Level level, Player player, ItemStack shotStack, WandItem wand) {
-        WandProjectile shot = wand.getShotItem().createProjectile(level, shotStack, player);
-        shot.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, wand.getProjectileSpeed(), wand.getInaccuracy());
-
-        shot.setDamage(shot.getDamage() + wand.getBonusDamage());
-        shot.setLifetime(wand.getLifespanSeconds() * 20);
-        shot.setTrail(wand.getTrail());
-        shot.setCanIgnite(wand.getCanIgnite());
-        shot.setKnockbackStrength(wand.getKnockback());
-
-        level.addFreshEntity(shot);
 
     }
 
