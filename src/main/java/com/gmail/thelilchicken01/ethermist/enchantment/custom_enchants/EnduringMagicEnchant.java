@@ -4,9 +4,9 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 
-public record GreaterDistanceEnchant() implements EnchantmentValueEffect {
+public record EnduringMagicEnchant() implements EnchantmentValueEffect {
 
-    public static final MapCodec<GreaterDistanceEnchant> CODEC = MapCodec.unit(GreaterDistanceEnchant::new);
+    public static final MapCodec<EnduringMagicEnchant> CODEC = MapCodec.unit(EnduringMagicEnchant::new);
 
     @Override
     public float process(int level, RandomSource randomSource, float v) {

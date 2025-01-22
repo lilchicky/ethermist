@@ -40,6 +40,7 @@ public class EMTags {
     public static final class Enchantments {
 
         public static final TagKey<Enchantment> MAIN_DAMAGE_SPELLS = mod("main_damage_spells");
+        public static final TagKey<Enchantment> AUGMENT_SPELLS = mod("augment_spells");
 
         private static TagKey<Enchantment> mod(String path) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

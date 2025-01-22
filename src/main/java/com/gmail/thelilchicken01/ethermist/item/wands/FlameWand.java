@@ -14,17 +14,12 @@ public class FlameWand extends WandItem {
 
     @Override
     public float getInaccuracy() {
-        return 0.7f;
+        return 15.0f;
     }
 
     @Override
     public boolean getCanIgnite() {
         return true;
-    }
-
-    @Override
-    public ParticleOptions getTrail() {
-        return ParticleTypes.SMOKE;
     }
 
     @Override

@@ -21,10 +21,7 @@ public record AncientPowerEnchant() implements EnchantmentValueEffect {
         return CODEC;
     }
 
-    public static int modifyDamage(Holder<Enchantment> enchHolder, int level, int damage) {
-        if (enchHolder.is(EMEnchantments.ANCIENT_POWER.location())) {
-            return damage + level;
-        }
-        return -1;
+    public static int modifyDamage(int level, int damage) {
+        return damage + level;
     }
 }

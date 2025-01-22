@@ -13,7 +13,7 @@ public class DullWand extends WandItem {
 
     @Override
     public float getInaccuracy() {
-        return 0.5f;
+        return 25.0f;
     }
 
 }

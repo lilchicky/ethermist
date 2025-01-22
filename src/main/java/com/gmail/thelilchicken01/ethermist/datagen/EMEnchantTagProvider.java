@@ -32,10 +32,16 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "arcane_velocity"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "quick_cast"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "greater_distance"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_power"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "enduring_magic"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "runic_power"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_power"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
 
         tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS);
+
+        tag(EMTags.Enchantments.AUGMENT_SPELLS)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
 
 
     }

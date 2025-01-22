@@ -1,13 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.enchantment;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.AncientPowerEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.ArcaneVelocityEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.GreaterDistanceEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.QuickCastEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,12 +17,18 @@ public class EMEnchantmentEffects {
 
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> QUICK_CAST = ENCH_VALUE_EFFECTS.register("quick_cast",
             () -> QuickCastEnchant.CODEC);
-    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> GREATER_DISTANCE = ENCH_VALUE_EFFECTS.register("greater_distance",
-            () -> GreaterDistanceEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> ENDURING_MAGIC = ENCH_VALUE_EFFECTS.register("enduring_magic",
+            () -> EnduringMagicEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> ARCANE_VELOCITY = ENCH_VALUE_EFFECTS.register("arcane_velocity",
             () -> ArcaneVelocityEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> ANCIENT_POWER = ENCH_VALUE_EFFECTS.register("ancient_power",
             () -> AncientPowerEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> RUNIC_FORCE = ENCH_VALUE_EFFECTS.register("runic_force",
+            () -> RunicForceEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> STABLE_ORB = ENCH_VALUE_EFFECTS.register("stable_orb",
+            () -> StableOrbEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_SPLIT = ENCH_VALUE_EFFECTS.register("augment_split",
+            () -> AugmentSplitEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);

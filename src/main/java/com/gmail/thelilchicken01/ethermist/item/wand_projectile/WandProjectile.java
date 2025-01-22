@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -19,7 +20,7 @@ public class WandProjectile extends Fireball {
     protected double damage = 2;
     protected double lifetime = 120;
     protected double knockbackStrength = 1;
-    protected ParticleOptions trail;
+    protected ParticleOptions trail = null;
     protected boolean canIgnite = false;
 
     private int ticksSinceFired = 0;
@@ -124,10 +125,6 @@ public class WandProjectile extends Fireball {
 
     public void setLifetime(int lifetime) {
         this.lifetime = lifetime;
-    }
-
-    public void setTrail(ParticleOptions trail) {
-        this.trail = trail;
     }
 
     public void setCanIgnite(boolean canIgnite) {
