@@ -1,19 +1,12 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -57,9 +50,7 @@ public class WandProjectile extends Fireball {
 
         if(!this.level().isClientSide()) {
             ticksSinceFired++;
-            if (ticksSinceFired > lifetime || getDeltaMovement().lengthSqr() < STOP_THRESHOLD) {
-                remove(RemovalReason.KILLED);
-            }
+            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired);
         }
 
     }
@@ -116,7 +107,7 @@ public class WandProjectile extends Fireball {
 
     @Override
     public boolean isOnFire() {
-        return false;
+        return canIgnite;
     }
 
     @Override
@@ -126,9 +117,6 @@ public class WandProjectile extends Fireball {
 
     public void setDamage(double damage) {
         this.damage = damage;
-    }
-    public double getDamage() {
-        return damage;
     }
     public void setKnockbackStrength(double knockbackStrength) {
         this.knockbackStrength = knockbackStrength;

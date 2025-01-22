@@ -12,11 +12,6 @@ public class DullWand extends WandItem {
     }
 
     @Override
-    public int getLifespanSeconds() {
-        return 1;
-    }
-
-    @Override
     public float getInaccuracy() {
         return 0.5f;
     }

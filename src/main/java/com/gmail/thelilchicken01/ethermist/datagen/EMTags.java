@@ -2,11 +2,14 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -30,6 +33,16 @@ public class EMTags {
 
         private static TagKey<Item> mod(String path) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+        }
+
+    }
+
+    public static final class Enchantments {
+
+        public static final TagKey<Enchantment> MAIN_DAMAGE_SPELLS = mod("main_damage_spells");
+
+        private static TagKey<Enchantment> mod(String path) {
+            return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
         }
 
     }

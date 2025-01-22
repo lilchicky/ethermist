@@ -69,9 +69,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.GEMS)
                 .add(EMItems.GENERIC_SHOT.get());
 
-        tag(EMTags.Items.WANDS)
-                .add(EMItems.DULL_WAND.get())
-                .add(EMItems.FLAME_WAND.get());
+        addWands(EMItems.DULL_WAND.get());
+        addWands(EMItems.FLAME_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);
@@ -95,6 +94,11 @@ public class EMItemTagProvider extends ItemTagsProvider {
     }
 
     // Functions to make sure I don't miss any tags
+
+    private void addWands(Item wand) {
+        tag(EMTags.Items.WANDS).add(wand);
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(wand);
+    }
 
     private void addRedstone(Item button, Item plate, Boolean wooden) {
 

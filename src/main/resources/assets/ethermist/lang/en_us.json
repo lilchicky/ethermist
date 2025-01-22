@@ -110,8 +110,22 @@
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
 
+  "_comment": "--------------- WAND DESCRIPTIONS ---------------",
+  "attribute.ethermist.wand.cooldown": "Second Cooldown",
+  "attribute.ethermist.wand.damage": "Damage",
+
+  "item.ethermist.dull_wand.wand_desc": "No wand effects.",
+  "item.ethermist.flame_wand.wand_desc": "Ignites entities hit for a long time.",
+
   "_comment": "--------------- ENCHANTMENTS ---------------",
-  "enchantment.ethermist.quick_cast": "Scroll of Quick Cast",
+  "enchantment.ethermist.quick_cast": "Quick Cast",
+  "enchantment.ethermist.quick_cast.desc": "Decreases cooldown of Wand items.",
+  "enchantment.ethermist.greater_distance": "Enduring Magic",
+  "enchantment.ethermist.greater_distance.desc": "Increases range of Wand items.",
+  "enchantment.ethermist.arcane_velocity": "Arcane Velocity",
+  "enchantment.ethermist.arcane_velocity.desc": "Increases projectile speed of Wand items.",
+  "enchantment.ethermist.ancient_power": "Ancient Power",
+  "enchantment.ethermist.ancient_power.desc": "Increases damage of Wand items.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

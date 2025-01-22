@@ -33,17 +33,18 @@ public class DataGenerators {
                 List.of(new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK)),
                 lookupProvider));
 
+        gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
+
         gen.addProvider(event.includeServer(), new EMRecipeProvider(packOutput, lookupProvider));
 
         gen.addProvider(event.includeServer(), new EMDataMapProvider(packOutput, lookupProvider));
 
         gen.addProvider(event.includeServer(), blockTagsProvider);
         gen.addProvider(event.includeServer(), new EMItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookupProvider, existingFileHelper));
 
         gen.addProvider(event.includeClient(), new EMBlockstateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeClient(), new EMItemModelProvider(packOutput, existingFileHelper));
-
-        gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
 
         gen.addProvider(event.includeClient(), new EMParticleProvider(packOutput, existingFileHelper));
 
