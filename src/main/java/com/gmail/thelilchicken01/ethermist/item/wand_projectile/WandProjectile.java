@@ -22,6 +22,8 @@ public class WandProjectile extends Fireball {
     protected double knockbackStrength = 1;
     protected ParticleOptions trail = null;
     protected boolean canIgnite = false;
+    protected boolean isHoming = false;
+    protected LivingEntity target;
 
     private int ticksSinceFired = 0;
 
@@ -33,6 +35,12 @@ public class WandProjectile extends Fireball {
 
     public WandProjectile(Level level, LivingEntity shooter) {
         this(level, shooter, 0, 0, 0);
+        setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
+    }
+
+    public WandProjectile(Level level, LivingEntity shooter, LivingEntity target) {
+        this(level, shooter, 0, 0, 0);
+        this.target = target;
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
@@ -51,7 +59,7 @@ public class WandProjectile extends Fireball {
 
         if(!this.level().isClientSide()) {
             ticksSinceFired++;
-            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired);
+            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, target);
         }
 
     }
@@ -129,6 +137,10 @@ public class WandProjectile extends Fireball {
 
     public void setCanIgnite(boolean canIgnite) {
         this.canIgnite = canIgnite;
+    }
+
+    public void setHoming(boolean isHoming) {
+        this.isHoming = isHoming;
     }
 
 }

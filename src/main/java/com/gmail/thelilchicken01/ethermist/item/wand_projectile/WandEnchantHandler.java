@@ -1,6 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.QuickCastEnchant;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -10,15 +12,20 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.Nullable;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class WandEnchantHandler {
 
@@ -32,16 +39,38 @@ public class WandEnchantHandler {
 
         float pSpeed = (float)getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
 
-        shoot(level, player, pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand);
+        List<LivingEntity> nearbyEntities = getNearbyEntities(level, (int)(newLifespan * 10), player);
+        LivingEntity target = nearbyEntities.stream().filter(iterate ->
+                player.hasLineOfSight(iterate) && !iterate.isInvulnerable()).findFirst().orElse(null);
+
+        AtomicBoolean augmentedShot = new AtomicBoolean(false);
+        AtomicBoolean isHoming = new AtomicBoolean(false);
+
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
+            if (enchantHolder.is(EMEnchantments.AUGMENT_HOMING.location())) {
+                isHoming.set(true);
+            }
+        });
+
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
+            if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
+                shootSplit(level, player, target, pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand, enchantLevel, isHoming.get());
+                augmentedShot.set(true);
+            }
+        });
+
+        if (!augmentedShot.get()) {
+            shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand, isHoming.get());
+        }
 
         player.getCooldowns().addCooldown(wand, (int)(getAttribute(thisWand, WandItem.COOLDOWN_ID) * 20));
 
     }
 
-    private static void shoot(Level level, Player player, float pSpeed, int lifespan,
-                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem) {
+    private static void shoot(Level level, Player player, @Nullable LivingEntity target, float pSpeed, int lifespan,
+                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
         shot.shootFromRotation(
                 player,
@@ -57,14 +86,79 @@ public class WandEnchantHandler {
         shot.setLifetime(lifespan * 20);
         shot.setCanIgnite(wand.getCanIgnite());
         shot.setKnockbackStrength(getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+        shot.setHoming(isHoming);
 
         level.addFreshEntity(shot);
+
+    }
+
+    private static void shootSplit(Level level, Player player, @Nullable LivingEntity target, float pSpeed, int lifespan,
+                                   ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations, boolean isHoming) {
+
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+
+        shot.shootFromRotation(
+                player,
+                player.getXRot(),
+                player.getYRot(),
+                0,
+                pSpeed,
+                (float)(100 - (getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+
+        shot.setDamage((int)getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
+        shot.setLifetime(lifespan * 20);
+        shot.setCanIgnite(wand.getCanIgnite());
+        shot.setKnockbackStrength(getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+        shot.setHoming(isHoming);
+
+        level.addFreshEntity(shot);
+
+        for (int x = 0; x < iterations; x++) {
+
+            WandProjectile splitShot = shotItem.createProjectile(level, shotStack, player, target);
+            WandProjectile splitShot2 = shotItem.createProjectile(level, shotStack, player, target);
+
+            splitShot.shootFromRotation(
+                    player,
+                    player.getXRot(),
+                    player.getYRot() + (10 * x),
+                    0,
+                    pSpeed,
+                    (float)(100 - (getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+
+            splitShot2.shootFromRotation(
+                    player,
+                    player.getXRot(),
+                    player.getYRot() - (10 * x),
+                    0,
+                    pSpeed,
+                    (float)(100 - (getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+
+            splitShot.setDamage((int)getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
+            splitShot.setLifetime(lifespan * 20);
+            splitShot.setCanIgnite(wand.getCanIgnite());
+            splitShot.setKnockbackStrength(getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+            splitShot.setHoming(isHoming);
+
+            splitShot2.setDamage((int)getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
+            splitShot2.setLifetime(lifespan * 20);
+            splitShot2.setCanIgnite(wand.getCanIgnite());
+            splitShot2.setKnockbackStrength(getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+            splitShot2.setHoming(isHoming);
+
+            level.addFreshEntity(splitShot);
+            level.addFreshEntity(splitShot2);
+
+        }
 
     }
 
     public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot) {
 
         if(shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
+
+        int lastHurtResistant = target.invulnerableTime;
+        target.invulnerableTime = 0;
 
         DamageSource damageSource = new DamageSource(
                 level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.GENERIC_MAGIC),
@@ -101,6 +195,7 @@ public class WandEnchantHandler {
             shotItem.onLivingEntityHit(shot, livingTarget, shooter, level);
 
         }
+        else if (!damaged) target.invulnerableTime = lastHurtResistant;
 
     }
 
@@ -112,11 +207,24 @@ public class WandEnchantHandler {
 
     }
 
-    public static void processTick(WandProjectile shot, double threshold, int ticksSinceFired) {
+    public static void processTick(WandProjectile shot, double threshold, int ticksSinceFired, LivingEntity target) {
 
         if (ticksSinceFired > shot.lifetime || shot.getDeltaMovement().lengthSqr() < threshold) {
             shot.remove(Entity.RemovalReason.KILLED);
         }
+        if (ticksSinceFired > 10) {
+
+            if (!(target == null) && !target.isDeadOrDying()) {
+
+                Vec3 currentPos = shot.getPosition(1.0f);
+                Vec3 targetPos = target.getPosition(1.0f).add(0.0, target.getEyeHeight() * 0.5, 0.0);
+                Vec3 newVector = targetPos.subtract(currentPos).normalize();
+
+                shot.setDeltaMovement(newVector);
+            }
+
+        }
+
     }
 
     private static double getAttribute(ItemStack wandItem, ResourceLocation attributeID) {
@@ -136,6 +244,17 @@ public class WandEnchantHandler {
         lore.add(Component.empty());
 
         return lore;
+    }
+
+    public static List<LivingEntity> getNearbyEntities(Level level, int range, Player player) {
+
+        return level.getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT, player, new AABB(
+                player.getX() - range,
+                player.getY() - range,
+                player.getZ() - range,
+                player.getX() + range,
+                player.getY() + range,
+                player.getZ() + range));
     }
 
 }

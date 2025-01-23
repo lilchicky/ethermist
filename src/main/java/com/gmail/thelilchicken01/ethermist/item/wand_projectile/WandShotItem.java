@@ -19,9 +19,9 @@ public class WandShotItem extends Item {
         this.WAND_MODIFIER = modifier;
     }
 
-    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter) {
+    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, LivingEntity target) {
 
-        WandProjectile shot = new WandProjectile(level, shooter);
+        WandProjectile shot = new WandProjectile(level, shooter, target);
 
         shot.setItem(item);
         shot.setDamage(DAMAGE);

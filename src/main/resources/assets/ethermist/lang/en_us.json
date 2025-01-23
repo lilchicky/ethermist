@@ -136,6 +136,8 @@
   "enchantment.ethermist.stable_orb.desc": "Increases accuracy of wands.",
   "enchantment.ethermist.augment_split": "Augment: Split",
   "enchantment.ethermist.augment_split.desc": "Wand shoots multiple projectiles at once.",
+  "enchantment.ethermist.augment_homing": "Augment: Seek",
+  "enchantment.ethermist.augment_homing.desc": "Wand projectiles now seek targets.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

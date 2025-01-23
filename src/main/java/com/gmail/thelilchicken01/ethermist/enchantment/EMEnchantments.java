@@ -28,6 +28,7 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> RUNIC_FORCE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "runic_force"));
     public static final ResourceKey<Enchantment> STABLE_ORB = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"));
     public static final ResourceKey<Enchantment> AUGMENT_SPLIT = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
+    public static final ResourceKey<Enchantment> AUGMENT_HOMING = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -124,6 +125,19 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentSplitEnchant())
+        );
+
+        register(context, AUGMENT_HOMING, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(5, 7),
+                        Enchantment.dynamicCost(25, 8),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
         );
 
     }

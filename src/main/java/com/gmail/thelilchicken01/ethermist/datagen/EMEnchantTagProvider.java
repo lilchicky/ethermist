@@ -38,10 +38,14 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
 
+        tag(EnchantmentTags.TREASURE)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
+
         tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS);
 
         tag(EMTags.Enchantments.AUGMENT_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
 
 
     }

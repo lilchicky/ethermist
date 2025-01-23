@@ -29,6 +29,8 @@ public class EMEnchantmentEffects {
             () -> StableOrbEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_SPLIT = ENCH_VALUE_EFFECTS.register("augment_split",
             () -> AugmentSplitEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_HOMING = ENCH_VALUE_EFFECTS.register("augment_homing",
+            () -> AugmentHomingEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);
