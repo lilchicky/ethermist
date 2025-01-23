@@ -30,6 +30,9 @@ public class EMTags {
     public static final class Items {
 
         public static final TagKey<Item> WANDS = mod("wands");
+        public static final TagKey<Item> MAGIC_ENCHANTABLE = mod("magic_enchantable");
+        public static final TagKey<Item> TOMES = mod("tomes");
+        public static final TagKey<Item> ORBS = mod("orbs");
 
         private static TagKey<Item> mod(String path) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
@@ -41,6 +44,7 @@ public class EMTags {
 
         public static final TagKey<Enchantment> MAIN_DAMAGE_SPELLS = mod("main_damage_spells");
         public static final TagKey<Enchantment> AUGMENT_SPELLS = mod("augment_spells");
+        public static final TagKey<Enchantment> FOCUS_SPELLS = mod("focus_spells");
 
         private static TagKey<Enchantment> mod(String path) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

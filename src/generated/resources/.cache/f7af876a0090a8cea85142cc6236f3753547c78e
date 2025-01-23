@@ -1,12 +1,14 @@
-// 1.21.1	2025-01-20T23:19:24.0971867	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-01-22T23:38:58.8864947	Tags for minecraft:item mod id ethermist
 d5cf529847a165fc54aa8054d2b1a5e0120db94d data/c/tags/item/gems.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/item/gravels.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
 6a636d549fad0270217d0c44e9e125535086d846 data/c/tags/item/stones.json
-a3dfcf0adebdc318371b78e181b08fabdd431b41 data/ethermist/tags/item/wands.json
+8d4505b861a0cccf69a57be185b54ed82c0babbe data/ethermist/tags/item/magic_enchantable.json
+cf4659580ee718d7f27633bff0f94943571b50b0 data/ethermist/tags/item/tomes.json
+a5797c4d610dcd8221aa8095f47456368229df83 data/ethermist/tags/item/wands.json
 59b2776fbb911bac040a923f320912bc6039f2a5 data/minecraft/tags/item/buttons.json
 a7f836237e31170df5ab703b4b40d109ecbc0ec6 data/minecraft/tags/item/doors.json
-a3dfcf0adebdc318371b78e181b08fabdd431b41 data/minecraft/tags/item/enchantable/durability.json
+a5797c4d610dcd8221aa8095f47456368229df83 data/minecraft/tags/item/enchantable/durability.json
 0939414a4f8416eb2773bf8c7032c2c23ae7cc4e data/minecraft/tags/item/fences.json
 0e25031afd14b4a7be0a97a073ca5c72d2a7e9b8 data/minecraft/tags/item/flowers.json
 8c89b91c72d936d2e8338726a3bf8dc2f2cf48b7 data/minecraft/tags/item/leaves.json

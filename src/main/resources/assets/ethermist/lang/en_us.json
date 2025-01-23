@@ -110,12 +110,17 @@
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
 
+  "item.ethermist.focus_tome": "Focus Tome",
+  "item.ethermist.focus_tome.desc": "Enchant in an enchanting table to obtain wand Focuses.",
+  "item.ethermist.wand_tome": "Wand Tome",
+  "item.ethermist.wand_tome.desc": "Can be enchanted with Wand enchantments.",
+
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "Second Cooldown",
   "attribute.ethermist.wand.base_damage": "Bolt Damage",
   "attribute.ethermist.wand.projectile_speed": "Bolt Speed",
   "attribute.ethermist.wand.knockback": "Bolt Knockback",
-  "attribute.ethermist.wand.lifespan": "Second Bolt Duration",
+  "attribute.ethermist.wand.lifespan": "Second Bolt Lifetime",
   "attribute.ethermist.wand.wand_accuracy": "Accuracy",
 
   "item.ethermist.dull_wand.wand_desc": "No wand effects.",
@@ -137,7 +142,13 @@
   "enchantment.ethermist.augment_split": "Augment: Split",
   "enchantment.ethermist.augment_split.desc": "Wand shoots multiple projectiles at once.",
   "enchantment.ethermist.augment_homing": "Augment: Seek",
-  "enchantment.ethermist.augment_homing.desc": "Wand projectiles now seek targets.",
+  "enchantment.ethermist.augment_homing.desc": "Wand projectiles now seek the closest target.",
+  "enchantment.ethermist.focus_monsters": "Focus: Monsters",
+  "enchantment.ethermist.focus_monsters.desc": "Wand projectiles can only damage monsters.",
+  "enchantment.ethermist.focus_animals": "Focus: Animals",
+  "enchantment.ethermist.focus_animals.desc": "Wand projectiles can only damage animals.",
+  "enchantment.ethermist.focus_players": "Focus: Players",
+  "enchantment.ethermist.focus_players.desc": "Wand projectiles can only damage players.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

@@ -31,6 +31,12 @@ public class EMEnchantmentEffects {
             () -> AugmentSplitEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_HOMING = ENCH_VALUE_EFFECTS.register("augment_homing",
             () -> AugmentHomingEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_MONSTERS = ENCH_VALUE_EFFECTS.register("focus_monsters",
+            () -> FocusMonstersEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_ANIMALS = ENCH_VALUE_EFFECTS.register("focus_animals",
+            () -> FocusAnimalsEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_PLAYERS = ENCH_VALUE_EFFECTS.register("focus_players",
+            () -> FocusPlayersEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);

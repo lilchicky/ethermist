@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-18T03:47:50.6197003	Item Models: ethermist
+// 1.21.1	2025-01-22T23:38:58.888496	Item Models: ethermist
 5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
 faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
@@ -12,6 +12,7 @@ ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone
 e34243c92f72fd62234f14f0cb53bb8232bd401b assets/ethermist/models/item/etherstone_wall.json
 fc3f36aeddefa110c78be61efbcd9332930b0481 assets/ethermist/models/item/flame_shot.json
 95f023b4e255a8ba3e0ce961fce966cbb549f317 assets/ethermist/models/item/flame_wand.json
+dc7bc4a6b722b57acba72a135846dc9d086868d2 assets/ethermist/models/item/focus_tome.json
 1947af0f82e5384bc7f1fd64ff6ed39342951e97 assets/ethermist/models/item/generic_shot.json
 b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_blossom.json
 9cc19ac1bfc4724b57722866b7d66ec747835703 assets/ethermist/models/item/polished_timeworn_sandstone_button.json
@@ -25,3 +26,4 @@ b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_bl
 c34bef977b1af9dd5a06d8612df3d87848d7210e assets/ethermist/models/item/sparkling_sandstone_button.json
 20b1887ed3e71ed1f80c143dea5f9f1a48510ee4 assets/ethermist/models/item/sparkling_sandstone_wall.json
 c7f7ed178d7fb6275a7b0e0951ce5c11cdaf5aaf assets/ethermist/models/item/timeworn_sandstone_wall.json
+0ec714eaad69533994c32d5044fc7fd5a8173e04 assets/ethermist/models/item/wand_tome.json

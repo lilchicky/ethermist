@@ -24,6 +24,7 @@ public class WandProjectile extends Fireball {
     protected boolean canIgnite = false;
     protected boolean isHoming = false;
     protected LivingEntity target;
+    protected TargetType targetType = TargetType.ALL;
 
     private int ticksSinceFired = 0;
 
@@ -141,6 +142,10 @@ public class WandProjectile extends Fireball {
 
     public void setHoming(boolean isHoming) {
         this.isHoming = isHoming;
+    }
+
+    public void setTargetType(TargetType targetType) {
+        this.targetType = targetType;
     }
 
 }

@@ -151,6 +151,10 @@ public class EMCreativeTab {
                 output.accept(EMItems.DULL_WAND.get());
                 output.accept(EMItems.FLAME_WAND.get());
 
+                // Misc
+                output.accept(EMItems.FOCUS_TOME.get());
+                output.accept(EMItems.WAND_TOME.get());
+
             }).build());
 
     public static void register (IEventBus bus) {

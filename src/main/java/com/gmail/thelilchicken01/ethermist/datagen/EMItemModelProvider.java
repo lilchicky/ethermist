@@ -55,6 +55,9 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.DULL_WAND);
         wandItem(EMItems.FLAME_WAND);
 
+        basicItem(EMItems.FOCUS_TOME.get());
+        basicItem(EMItems.WAND_TOME.get());
+
     }
 
     // By Kaupenjoe

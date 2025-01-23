@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -262,6 +263,22 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
                 .unlockedBy("has_orange_abyssal_mushroom_stem", has(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_orange"));
+
+        // Tomes
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.FOCUS_TOME.get(), 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', Items.SPYGLASS)
+                .unlockedBy("has_spyglass", has(Items.SPYGLASS)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_TOME.get(), 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', EMTags.Items.ORBS)
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS)).save(output);
 
     }
 

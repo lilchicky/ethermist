@@ -4,22 +4,18 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
-import net.minecraft.world.item.enchantment.effects.AddValue;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.function.UnaryOperator;
 
 public class EMEnchantments {
+
+    private static final int focusColor = 0x57B9FF;
+    private static final int augmentColor = 0xBF77F6;
 
     public static final ResourceKey<Enchantment> QUICK_CAST = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "quick_cast"));
     public static final ResourceKey<Enchantment> ENDURING_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "enduring_magic"));
@@ -29,6 +25,9 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> STABLE_ORB = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"));
     public static final ResourceKey<Enchantment> AUGMENT_SPLIT = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
     public static final ResourceKey<Enchantment> AUGMENT_HOMING = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
+    public static final ResourceKey<Enchantment> FOCUS_MONSTERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"));
+    public static final ResourceKey<Enchantment> FOCUS_ANIMALS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_animals"));
+    public static final ResourceKey<Enchantment> FOCUS_PLAYERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -37,12 +36,12 @@ public class EMEnchantments {
         // Thorns = 1, Unbreaking = 5, Sharpness = 10
 
         register(context, QUICK_CAST, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         5,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -50,12 +49,12 @@ public class EMEnchantments {
         );
 
         register(context, ENDURING_MAGIC, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         5,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -63,12 +62,12 @@ public class EMEnchantments {
         );
 
         register(context, ARCANE_VELOCITY, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         5,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -76,12 +75,12 @@ public class EMEnchantments {
         );
 
         register(context, ANCIENT_POWER, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         5,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -89,12 +88,12 @@ public class EMEnchantments {
         );
 
         register(context, RUNIC_FORCE, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         3,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -102,12 +101,12 @@ public class EMEnchantments {
         );
 
         register(context, STABLE_ORB, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         5,
                         4,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(5, 8),
+                        Enchantment.dynamicCost(55, 8),
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
@@ -115,29 +114,73 @@ public class EMEnchantments {
         );
 
         register(context, AUGMENT_SPLIT, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         3,
                         4,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
                         2,
                         EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentSplitEnchant())
         );
 
         register(context, AUGMENT_HOMING, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         1,
                         1,
-                        Enchantment.dynamicCost(5, 7),
-                        Enchantment.dynamicCost(25, 8),
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
                         2,
                         EquipmentSlotGroup.HAND))
-                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withCustomName(c -> c.withColor(augmentColor))
+                .exclusiveWith(HolderSet.empty())
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
+        );
+
+        register(context, FOCUS_MONSTERS, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.TOMES),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(focusColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusMonstersEnchant())
+        );
+
+        register(context, FOCUS_ANIMALS, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.TOMES),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(focusColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusAnimalsEnchant())
+        );
+
+        register(context, FOCUS_PLAYERS, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.TOMES),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(focusColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusPlayersEnchant())
         );
 
     }
