@@ -15,6 +15,7 @@ public class EMEnchantmentEffects {
     public static final DeferredRegister<MapCodec<? extends EnchantmentValueEffect>> ENCH_VALUE_EFFECTS =
             DeferredRegister.create(BuiltInRegistries.ENCHANTMENT_VALUE_EFFECT_TYPE, Ethermist.MODID);
 
+    // Base Enchants
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> QUICK_CAST = ENCH_VALUE_EFFECTS.register("quick_cast",
             () -> QuickCastEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> ENDURING_MAGIC = ENCH_VALUE_EFFECTS.register("enduring_magic",
@@ -27,10 +28,20 @@ public class EMEnchantmentEffects {
             () -> RunicForceEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> STABLE_ORB = ENCH_VALUE_EFFECTS.register("stable_orb",
             () -> StableOrbEnchant.CODEC);
+
+    // Augment Enchants
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_SPLIT = ENCH_VALUE_EFFECTS.register("augment_split",
             () -> AugmentSplitEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_HOMING = ENCH_VALUE_EFFECTS.register("augment_homing",
             () -> AugmentHomingEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_AOE = ENCH_VALUE_EFFECTS.register("augment_aoe",
+            () -> AugmentAOEEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_SPRAY = ENCH_VALUE_EFFECTS.register("augment_spray",
+            () -> AugmentSprayEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_METEOR = ENCH_VALUE_EFFECTS.register("augment_meteor",
+            () -> AugmentMeteorEnchant.CODEC);
+
+    // Focus Enchants
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_MONSTERS = ENCH_VALUE_EFFECTS.register("focus_monsters",
             () -> FocusMonstersEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_ANIMALS = ENCH_VALUE_EFFECTS.register("focus_animals",

@@ -10,6 +10,7 @@ import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandEnchantHandl
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +22,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -33,20 +36,28 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class WandItem extends Item {
 
-    private final SoundEvent SHOOT_SOUND;
+    public final SoundEvent SHOOT_SOUND;
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
     public static final ResourceLocation WAND_KNOCKBACK_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "knockback");
     public static final ResourceLocation LIFESPAN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "lifespan");
     public static final ResourceLocation ACCURACY_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "accuracy");
+    public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
+    public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
+
+    private int fireTicks;
 
     public WandItem(Properties properties, SoundEvent shootSound) {
         super(properties.stacksTo(1));
@@ -58,9 +69,9 @@ public class WandItem extends Item {
 
         ItemStack wand = player.getItemInHand(usedHand);
 
-        if(!player.getCooldowns().isOnCooldown(this)) {
+        if(!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get()) {
 
-            WandEnchantHandler.processShot(level, player, wand, this);
+            WandEnchantHandler.processShot(level, player, wand, this, null, null);
 
             level.playSound(player,
                     player.getX(),
@@ -125,11 +136,15 @@ public class WandItem extends Item {
 
         var builder = ItemAttributeModifiers.builder();
         AtomicInteger newCD = new AtomicInteger(getCooldown());
-        AtomicInteger newDamage = new AtomicInteger(getSpellDamage() + getBonusDamage());
+        AtomicDouble newDamage = new AtomicDouble(getSpellDamage() + getBonusDamage());
         AtomicInteger newLifespan = new AtomicInteger(getLifespanSeconds());
         AtomicDouble newPSpeed = new AtomicDouble(getProjectileSpeed());
         AtomicDouble newKnockback = new AtomicDouble(getKnockback());
         AtomicDouble newAccuracy = new AtomicDouble(getInaccuracy());
+        AtomicInteger sprayLevel = new AtomicInteger(0);
+
+        AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
+        AtomicBoolean isSprayLocal = new AtomicBoolean(false);
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
@@ -150,8 +165,24 @@ public class WandItem extends Item {
             if (enchantHolder.is(EMEnchantments.STABLE_ORB.location())) {
                 newAccuracy.set(StableOrbEnchant.modifyAccuracy(enchantLevel, newAccuracy.get()));
             }
+            if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
+                sprayLevel.set(enchantLevel);
+                isSprayLocal.set(true);
+            }
+            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
+                isMeteorLocal.set(true);
+            }
 
         });
+        if (isMeteorLocal.get()) {
+            newDamage.set(newDamage.get() * 3);
+            newLifespan.set(newLifespan.get() * 2);
+            newAccuracy.set(newAccuracy.get() * 0.1);
+        }
+        else if (isSprayLocal.get()) {
+            newDamage.set(newDamage.get() / (1 + (0.75 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
+            newCD.set(1);
+        }
 
         builder.add(
                 EMAttributes.PROJECTILE_SPEED,
@@ -207,12 +238,42 @@ public class WandItem extends Item {
                 ),
                 EquipmentSlotGroup.HAND
         );
+        if (isMeteorLocal.get()) {
+            builder.add(
+                    Attributes.BLOCK_INTERACTION_RANGE,
+                    new AttributeModifier(
+                            BLOCK_INTERACTION_RANGE_ID,
+                            16,
+                            AttributeModifier.Operation.ADD_VALUE
+                    ),
+                    EquipmentSlotGroup.HAND
+            );
+            builder.add(
+                    Attributes.ENTITY_INTERACTION_RANGE,
+                    new AttributeModifier(
+                            ENTITY_INTERACTION_RANGE_ID,
+                            16,
+                            AttributeModifier.Operation.ADD_VALUE
+                    ),
+                    EquipmentSlotGroup.HAND
+            );
+        }
         return builder.build();
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, WandEnchantHandler.getHoverText(stack,this, context, tooltipComponents), tooltipFlag);
+    }
+
+    private AtomicBoolean isMeteor(ItemStack stack) {
+        AtomicBoolean isMeteor = new AtomicBoolean(false);
+        EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
+            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
+                isMeteor.set(true);
+            }
+        });
+        return isMeteor;
     }
 
     /*
@@ -244,10 +305,74 @@ public class WandItem extends Item {
             }
         }
         else {
-            this.use(context.getLevel(), context.getPlayer(), context.getHand());
-            return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
+            Player player = context.getPlayer();
+            Level level = context.getLevel();
+
+            ItemStack wand = player.getItemInHand(context.getHand());
+
+            if (!isMeteor(wand).get()) {
+                this.use(level, player, context.getHand());
+                return InteractionResult.sidedSuccess(level.isClientSide());
+            }
+            else {
+
+                if(!player.getCooldowns().isOnCooldown(this)) {
+
+                    WandEnchantHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
+
+                    level.playSound(player,
+                            player.getX(),
+                            player.getY(),
+                            player.getZ(),
+                            SHOOT_SOUND,
+                            SoundSource.PLAYERS,
+                            1.0f,
+                            level.getRandom().nextFloat() * 0.4f + 0.8f);
+
+                    player.awardStat(Stats.ITEM_USED.get(this));
+
+                    wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+                }
+
+                return InteractionResult.sidedSuccess(level.isClientSide());
+            }
         }
         return InteractionResult.FAIL;
+    }
+
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity interactionTarget, InteractionHand usedHand) {
+
+        ItemStack wand = player.getItemInHand(usedHand);
+
+        if (isMeteor(wand).get()) {
+
+            Level level = player.level();
+
+            if(!player.getCooldowns().isOnCooldown(this)) {
+
+                WandEnchantHandler.processShot(level, player, wand, this, null, interactionTarget);
+
+                level.playSound(player,
+                        player.getX(),
+                        player.getY(),
+                        player.getZ(),
+                        SHOOT_SOUND,
+                        SoundSource.PLAYERS,
+                        1.0f,
+                        level.getRandom().nextFloat() * 0.4f + 0.8f);
+
+                player.awardStat(Stats.ITEM_USED.get(this));
+
+                wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+            }
+
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+
+        return super.interactLivingEntity(stack, player, interactionTarget, usedHand);
     }
 
     public static Optional<EMPortalShape> findPortalShape(LevelAccessor accessor, BlockPos pos, Predicate<EMPortalShape> shape, Direction.Axis axis) {

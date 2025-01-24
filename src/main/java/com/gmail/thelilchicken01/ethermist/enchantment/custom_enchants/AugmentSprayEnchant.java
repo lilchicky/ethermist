@@ -1,15 +1,12 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants;
 
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.mojang.serialization.MapCodec;
-import net.minecraft.core.Holder;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 
-public record AncientPowerEnchant() implements EnchantmentValueEffect {
+public record AugmentSprayEnchant() implements EnchantmentValueEffect {
 
-    public static final MapCodec<AncientPowerEnchant> CODEC = MapCodec.unit(AncientPowerEnchant::new);
+    public static final MapCodec<AugmentSprayEnchant> CODEC = MapCodec.unit(AugmentSprayEnchant::new);
 
     @Override
     public float process(int level, RandomSource randomSource, float v) {
@@ -21,7 +18,4 @@ public record AncientPowerEnchant() implements EnchantmentValueEffect {
         return CODEC;
     }
 
-    public static double modifyDamage(int level, double damage) {
-        return damage + level;
-    }
 }

@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class WandShotItem extends Item {
 
@@ -19,9 +20,19 @@ public class WandShotItem extends Item {
         this.WAND_MODIFIER = modifier;
     }
 
-    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, LivingEntity target) {
+    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends LivingEntity> target) {
 
         WandProjectile shot = new WandProjectile(level, shooter, target);
+
+        shot.setItem(item);
+        shot.setDamage(DAMAGE);
+        return shot;
+
+    }
+
+    public WandProjectile createNonTargetProjectile(Level level, ItemStack item, LivingEntity shooter) {
+
+        WandProjectile shot = new WandProjectile(level, shooter);
 
         shot.setItem(item);
         shot.setDamage(DAMAGE);

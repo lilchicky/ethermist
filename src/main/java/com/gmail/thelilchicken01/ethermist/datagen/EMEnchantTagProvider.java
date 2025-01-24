@@ -39,7 +39,10 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_animals"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
 
         tag(EnchantmentTags.TREASURE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
@@ -52,7 +55,14 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"));
 
         tag(EMTags.Enchantments.AUGMENT_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
+
+        tag(EMTags.Enchantments.AUGMENT_SPECIAL)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
 
 
     }

@@ -14,7 +14,7 @@ public class FlameWand extends WandItem {
 
     @Override
     public float getInaccuracy() {
-        return 15.0f;
+        return 7.5f;
     }
 
     @Override

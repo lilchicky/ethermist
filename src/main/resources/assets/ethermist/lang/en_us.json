@@ -149,6 +149,12 @@
   "enchantment.ethermist.focus_animals.desc": "Wand projectiles can only damage animals.",
   "enchantment.ethermist.focus_players": "Focus: Players",
   "enchantment.ethermist.focus_players.desc": "Wand projectiles can only damage players.",
+  "enchantment.ethermist.augment_aoe": "Augment: AoE",
+  "enchantment.ethermist.augment_aoe.desc": "Wand shoots projectiles in a circle around you.",
+  "enchantment.ethermist.augment_spray": "Augment: Spray",
+  "enchantment.ethermist.augment_spray.desc": "Hold down [Right Click] to shoot a stream of lower damage projectiles.",
+  "enchantment.ethermist.augment_meteor": "Augment: Meteor",
+  "enchantment.ethermist.augment_meteor.desc": "Projectiles now launch from the sky towards a right clicked location. Deals double damage.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

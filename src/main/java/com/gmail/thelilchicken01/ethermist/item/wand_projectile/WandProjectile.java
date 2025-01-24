@@ -15,6 +15,8 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public class WandProjectile extends Fireball {
 
     protected double damage = 2;
@@ -23,10 +25,11 @@ public class WandProjectile extends Fireball {
     protected ParticleOptions trail = null;
     protected boolean canIgnite = false;
     protected boolean isHoming = false;
-    protected LivingEntity target;
+    protected List<? extends LivingEntity> target;
     protected TargetType targetType = TargetType.ALL;
 
     private int ticksSinceFired = 0;
+    private int counter = 0;
 
     private static final double STOP_THRESHOLD = 0.01;
 
@@ -39,7 +42,7 @@ public class WandProjectile extends Fireball {
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
-    public WandProjectile(Level level, LivingEntity shooter, LivingEntity target) {
+    public WandProjectile(Level level, LivingEntity shooter, List<? extends LivingEntity> target) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
@@ -60,7 +63,8 @@ public class WandProjectile extends Fireball {
 
         if(!this.level().isClientSide()) {
             ticksSinceFired++;
-            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, target);
+            counter++;
+            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, counter, target);
         }
 
     }

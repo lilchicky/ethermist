@@ -14,8 +14,8 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 
 public class EMEnchantments {
 
-    private static final int focusColor = 0x57B9FF;
-    private static final int augmentColor = 0xBF77F6;
+    private static final int focusColor = 0x5555FF;
+    private static final int augmentColor = 0x55a4ff;
 
     public static final ResourceKey<Enchantment> QUICK_CAST = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "quick_cast"));
     public static final ResourceKey<Enchantment> ENDURING_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "enduring_magic"));
@@ -28,12 +28,19 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> FOCUS_MONSTERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"));
     public static final ResourceKey<Enchantment> FOCUS_ANIMALS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_animals"));
     public static final ResourceKey<Enchantment> FOCUS_PLAYERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"));
+    public static final ResourceKey<Enchantment> AUGMENT_AOE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"));
+    public static final ResourceKey<Enchantment> AUGMENT_SPRAY = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"));
+    public static final ResourceKey<Enchantment> AUGMENT_METEOR = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
         var items = context.lookup(Registries.ITEM);
 
         // Thorns = 1, Unbreaking = 5, Sharpness = 10
+
+        /*
+        ---------- Base Enchants ----------
+         */
 
         register(context, QUICK_CAST, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
@@ -113,6 +120,10 @@ public class EMEnchantments {
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new StableOrbEnchant())
         );
 
+        /*
+        ---------- Augment Enchants ----------
+         */
+
         register(context, AUGMENT_SPLIT, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
@@ -137,9 +148,55 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
-                .exclusiveWith(HolderSet.empty())
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPECIAL))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
         );
+
+        register(context, AUGMENT_AOE, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        3,
+                        4,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(augmentColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentAOEEnchant())
+        );
+
+        register(context, AUGMENT_SPRAY, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        3,
+                        4,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(augmentColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentSprayEnchant())
+        );
+
+        register(context, AUGMENT_METEOR, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        3,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(augmentColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPECIAL))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentMeteorEnchant())
+        );
+
+        /*
+        ---------- Focus Enchants ----------
+         */
 
         register(context, FOCUS_MONSTERS, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
