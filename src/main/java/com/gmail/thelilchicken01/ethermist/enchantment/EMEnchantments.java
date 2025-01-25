@@ -142,13 +142,13 @@ public class EMEnchantments {
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         1,
-                        1,
+                        4,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
                         2,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
-                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPECIAL))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
         );
 
@@ -190,7 +190,7 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
-                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPECIAL))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentMeteorEnchant())
         );
 

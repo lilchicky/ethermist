@@ -180,8 +180,13 @@ public class WandItem extends Item {
             newAccuracy.set(newAccuracy.get() * 0.1);
         }
         else if (isSprayLocal.get()) {
-            newDamage.set(newDamage.get() / (1 + (0.75 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
-            newCD.set(1);
+            newDamage.set(newDamage.get() / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
+            newLifespan.set((int) (newLifespan.get() * 0.1));
+            if (newLifespan.get() == 0) {
+                newLifespan.set(1);
+            }
+            newPSpeed.set(newPSpeed.get() * 0.5);
+            newCD.set(5);
         }
 
         builder.add(

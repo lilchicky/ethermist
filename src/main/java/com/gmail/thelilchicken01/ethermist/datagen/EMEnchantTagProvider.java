@@ -58,11 +58,8 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
-
-        tag(EMTags.Enchantments.AUGMENT_SPECIAL)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"));
 
 
     }

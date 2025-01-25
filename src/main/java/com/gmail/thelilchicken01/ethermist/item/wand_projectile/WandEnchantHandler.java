@@ -31,6 +31,8 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import javax.crypto.ExemptionMechanism;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -112,13 +114,18 @@ public class WandEnchantHandler {
             }
             if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
                 if (!level.isClientSide()) {
+
                     MinecraftServer server = level.getServer();
+
                     if (!(server == null)) {
+
                         for (int x = 0; x < enchantLevel + 2; x++) {
-                            int scheduleShot = server.getTickCount() + (x);
+
+                            int scheduleShot = server.getTickCount() + (x * 2);
+
                             Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
                                 shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand, isHoming.get(), type.get());
-                                level.playSound(player,
+                                level.playSound(null,
                                         player.getX(),
                                         player.getY(),
                                         player.getZ(),
@@ -127,6 +134,40 @@ public class WandEnchantHandler {
                                         1.0f,
                                         level.getRandom().nextFloat() * 0.4f + 0.8f);
                             });
+                        }
+                    }
+                }
+                augmentedShot.set(true);
+            }
+            if (enchantHolder.is(EMEnchantments.AUGMENT_HOMING.location())) {
+                if (!level.isClientSide()) {
+
+                    MinecraftServer server = level.getServer();
+                    int numShots = Math.min(enchantLevel * 8, target.size());
+
+                    if (numShots == 0) {
+                        shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand, isHoming.get(), type.get());
+                    }
+                    else {
+                        if (!(server == null)) {
+                            for (int x = 0; x < numShots; x++) {
+
+                                int scheduleShot = server.getTickCount() + (x * 3);
+
+                                LivingEntity singleTarget = target.removeLast();
+
+                                Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
+                                    shoot(level, player, List.of(singleTarget), pSpeed, newLifespan, shotStack, wand, itemSkin, thisWand, isHoming.get(), type.get());
+                                    level.playSound(null,
+                                            player.getX(),
+                                            player.getY(),
+                                            player.getZ(),
+                                            wand.SHOOT_SOUND,
+                                            SoundSource.PLAYERS,
+                                            1.0f,
+                                            level.getRandom().nextFloat() * 0.4f + 0.8f);
+                                });
+                            }
                         }
                     }
                 }
