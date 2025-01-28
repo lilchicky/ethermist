@@ -16,6 +16,7 @@ public class EMEnchantments {
 
     private static final int focusColor = 0x5555FF;
     private static final int augmentColor = 0x55a4ff;
+    private static final int mainSpellColor = 0xffffff;
 
     public static final ResourceKey<Enchantment> QUICK_CAST = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "quick_cast"));
     public static final ResourceKey<Enchantment> ENDURING_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "enduring_magic"));
@@ -31,6 +32,8 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> AUGMENT_AOE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"));
     public static final ResourceKey<Enchantment> AUGMENT_SPRAY = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"));
     public static final ResourceKey<Enchantment> AUGMENT_METEOR = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
+    public static final ResourceKey<Enchantment> FIREBALL = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"));
+    public static final ResourceKey<Enchantment> CHAOS_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -142,13 +145,13 @@ public class EMEnchantments {
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
                         items.getOrThrow(EMTags.Items.WANDS),
                         1,
-                        4,
+                        1,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
                         2,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
-                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .exclusiveWith(HolderSet.empty())
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
         );
 
@@ -238,6 +241,38 @@ public class EMEnchantments {
                 .withCustomName(c -> c.withColor(focusColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
                 .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusPlayersEnchant())
+        );
+
+        /*
+        ---------- Focus Enchants ----------
+         */
+
+        register(context, FIREBALL, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        3,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(mainSpellColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FireballEnchant())
+        );
+
+        register(context, CHAOS_MAGIC, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        3,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(mainSpellColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withEffect(EnchantmentEffectComponents.AMMO_USE, new ChaosMagicEnchant())
         );
 
     }

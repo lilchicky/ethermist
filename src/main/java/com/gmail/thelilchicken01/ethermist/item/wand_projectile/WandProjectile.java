@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -26,7 +25,9 @@ public class WandProjectile extends Fireball {
     protected boolean canIgnite = false;
     protected boolean isHoming = false;
     protected List<? extends LivingEntity> target;
-    protected TargetType targetType = TargetType.ALL;
+    protected SpellModifiers.TargetType targetType = SpellModifiers.TargetType.ALL;
+    protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
+    protected int spellLevel = 0;
 
     private int ticksSinceFired = 0;
     private int counter = 0;
@@ -64,7 +65,7 @@ public class WandProjectile extends Fireball {
         if(!this.level().isClientSide()) {
             ticksSinceFired++;
             counter++;
-            WandEnchantHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, counter, target);
+            WandProjectileHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, counter, target);
         }
 
     }
@@ -79,7 +80,7 @@ public class WandProjectile extends Fireball {
             Entity shooter = getOwner();
             WandShotItem shot = (WandShotItem) getItem().getItem();
 
-            WandEnchantHandler.processHitEntity(level(), shooter, target, shot, this);
+            WandProjectileHandler.processHitEntity(level(), shooter, target, shot, this);
 
         }
     }
@@ -87,7 +88,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandEnchantHandler.processHit(level(),  result.getLocation(), result.getType(), this);
+        WandProjectileHandler.processHit(level(),  result.getLocation(), result.getType(), this);
     }
 
     // Math courtesy of Guns n Roses
@@ -148,8 +149,16 @@ public class WandProjectile extends Fireball {
         this.isHoming = isHoming;
     }
 
-    public void setTargetType(TargetType targetType) {
+    public void setTargetType(SpellModifiers.TargetType targetType) {
         this.targetType = targetType;
+    }
+
+    public void setSpellType(SpellModifiers.SpellType spellType) {
+        this.spellType = spellType;
+    }
+
+    public void setSpellLevel(int spellLevel) {
+        this.spellLevel = spellLevel;
     }
 
 }

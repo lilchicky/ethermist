@@ -6,7 +6,7 @@ import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandEnchantHandler;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
@@ -71,7 +71,7 @@ public class WandItem extends Item {
 
         if(!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get()) {
 
-            WandEnchantHandler.processShot(level, player, wand, this, null, null);
+            WandProjectileHandler.processShot(level, player, wand, this, null, null);
 
             level.playSound(player,
                     player.getX(),
@@ -142,9 +142,11 @@ public class WandItem extends Item {
         AtomicDouble newKnockback = new AtomicDouble(getKnockback());
         AtomicDouble newAccuracy = new AtomicDouble(getInaccuracy());
         AtomicInteger sprayLevel = new AtomicInteger(0);
+        AtomicInteger chaosMagicLevel = new AtomicInteger(0);
 
         AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
         AtomicBoolean isSprayLocal = new AtomicBoolean(false);
+        AtomicBoolean isChaosMagic = new AtomicBoolean(false);
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
@@ -172,6 +174,10 @@ public class WandItem extends Item {
             if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
                 isMeteorLocal.set(true);
             }
+            if (enchantHolder.is(EMEnchantments.CHAOS_MAGIC.location())) {
+                isChaosMagic.set(true);
+                chaosMagicLevel.set(enchantLevel);
+            }
 
         });
         if (isMeteorLocal.get()) {
@@ -179,7 +185,10 @@ public class WandItem extends Item {
             newLifespan.set(newLifespan.get() * 2);
             newAccuracy.set(newAccuracy.get() * 0.1);
         }
-        else if (isSprayLocal.get()) {
+        if (isChaosMagic.get()) {
+            newDamage.set(newDamage.get() * chaosMagicLevel.get());
+        }
+        if (isSprayLocal.get()) {
             newDamage.set(newDamage.get() / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
             newLifespan.set((int) (newLifespan.get() * 0.1));
             if (newLifespan.get() == 0) {
@@ -267,8 +276,12 @@ public class WandItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, WandEnchantHandler.getHoverText(stack,this, context, tooltipComponents), tooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
+
+        lore.add(Component.translatable(this.getDescriptionId() + ".wand_desc").withColor(0xAAAAAA));
+        lore.add(Component.empty());
+
+        super.appendHoverText(stack, context, lore, tooltipFlag);
     }
 
     private AtomicBoolean isMeteor(ItemStack stack) {
@@ -323,7 +336,7 @@ public class WandItem extends Item {
 
                 if(!player.getCooldowns().isOnCooldown(this)) {
 
-                    WandEnchantHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
+                    WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
 
                     level.playSound(player,
                             player.getX(),
@@ -357,7 +370,7 @@ public class WandItem extends Item {
 
             if(!player.getCooldowns().isOnCooldown(this)) {
 
-                WandEnchantHandler.processShot(level, player, wand, this, null, interactionTarget);
+                WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget);
 
                 level.playSound(player,
                         player.getX(),

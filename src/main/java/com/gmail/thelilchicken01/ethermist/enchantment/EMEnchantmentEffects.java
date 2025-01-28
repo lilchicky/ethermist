@@ -49,6 +49,12 @@ public class EMEnchantmentEffects {
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_PLAYERS = ENCH_VALUE_EFFECTS.register("focus_players",
             () -> FocusPlayersEnchant.CODEC);
 
+    // Main Spells
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FIREBALL = ENCH_VALUE_EFFECTS.register("fireball",
+            () -> FireballEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> CHAOS_MAGIC = ENCH_VALUE_EFFECTS.register("chaos_magic",
+            () -> ChaosMagicEnchant.CODEC);
+
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);
     }

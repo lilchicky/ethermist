@@ -115,6 +115,10 @@
   "item.ethermist.wand_tome": "Wand Tome",
   "item.ethermist.wand_tome.desc": "Can be enchanted with Wand enchantments.",
 
+  "item.ethermist.generic_shot": "Generic Shot",
+  "item.ethermist.flame_shot": "Flame Shot",
+  "item.ethermist.meteor_shot": "Meteor Shot",
+
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "Second Cooldown",
   "attribute.ethermist.wand.base_damage": "Bolt Damage",
@@ -155,6 +159,10 @@
   "enchantment.ethermist.augment_spray.desc": "Hold down [Right Click] to shoot a stream of weaker projectiles.",
   "enchantment.ethermist.augment_meteor": "Augment: Meteor",
   "enchantment.ethermist.augment_meteor.desc": "Projectiles now launch from the sky towards a right clicked location. Deals much higher damage.",
+  "enchantment.ethermist.fireball": "Fireball",
+  "enchantment.ethermist.fireball.desc": "Projectiles now explode.",
+  "enchantment.ethermist.chaos_magic": "Chaos Magic",
+  "enchantment.ethermist.chaos_magic.desc": "Roll the dice.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

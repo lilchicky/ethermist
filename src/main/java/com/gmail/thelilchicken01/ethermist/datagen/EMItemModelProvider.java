@@ -19,8 +19,6 @@ public class EMItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(EMItems.GENERIC_SHOT.get());
-        basicItem(EMItems.FLAME_SHOT.get());
 
         buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
         wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
@@ -54,6 +52,10 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         wandItem(EMItems.DULL_WAND);
         wandItem(EMItems.FLAME_WAND);
+
+        shotItem(EMItems.GENERIC_SHOT);
+        shotItem(EMItems.FLAME_SHOT);
+        shotItem(EMItems.METEOR_SHOT);
 
         basicItem(EMItems.FOCUS_TOME.get());
         basicItem(EMItems.WAND_TOME.get());
@@ -102,6 +104,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + item.getId().getPath()));
+    }
+
+    public void shotItem(DeferredItem<?> item) {
+        this.withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/shots/" + item.getId().getPath()));
     }
 
 }
