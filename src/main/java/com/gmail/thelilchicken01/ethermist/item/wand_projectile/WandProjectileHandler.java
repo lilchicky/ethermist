@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -38,9 +40,13 @@ public class WandProjectileHandler {
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
                                    @Nullable BlockPos pos, @Nullable LivingEntity clickedEntity) {
 
+        int newLifespan = (int)getAttribute(thisWand, WandItem.LIFESPAN_ID);
+        float pSpeed = (float)getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
+
         AtomicBoolean augmentedShot = new AtomicBoolean(false);
         AtomicBoolean isHoming = new AtomicBoolean(false);
         AtomicBoolean isMeteor = new AtomicBoolean(false);
+        AtomicBoolean isRush = new AtomicBoolean(false);
         AtomicReference<SpellModifiers.TargetType> type = new AtomicReference<>(SpellModifiers.TargetType.ALL);
         AtomicReference<SpellModifiers.SpellType> spellType = new AtomicReference<>(SpellModifiers.SpellType.GENERIC);
         AtomicInteger spellLevel = new AtomicInteger(0);
@@ -69,6 +75,14 @@ public class WandProjectileHandler {
                 spellType.set(SpellModifiers.SpellType.CHAOS_MAGIC);
                 spellLevel.set(enchantLevel);
             }
+            if (enchantHolder.is(EMEnchantments.THUNDERSTRIKE.location())) {
+                spellType.set(SpellModifiers.SpellType.THUNDERSTRIKE);
+                spellLevel.set(enchantLevel);
+            }
+            if (enchantHolder.is(EMEnchantments.KINETIC_RUSH.location())) {
+                isRush.set(true);
+                augmentedShot.set(true);
+            }
         });
 
         WandShotItem shotItem;
@@ -84,9 +98,6 @@ public class WandProjectileHandler {
             shotItem = wand.getShotItem();
             shotStack = new ItemStack(wand.getShotItem());
         }
-
-        int newLifespan = (int)getAttribute(thisWand, WandItem.LIFESPAN_ID);
-        float pSpeed = (float)getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
 
         List<? extends LivingEntity> target;
         switch (type.get()) {
@@ -109,65 +120,88 @@ public class WandProjectileHandler {
         }
 
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
-            if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
-                if (target != null && !target.isEmpty()) {
-                    WandShotHandler.shootSplit(level, player, List.of(target.getLast()), pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+            if (!isRush.get()) {
+                if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
+                    if (target != null && !target.isEmpty()) {
+                        WandShotHandler.shootSplit(level, player, List.of(target.getLast()), pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+                                enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                    } else {
+                        WandShotHandler.shootSplit(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+                                enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                    }
+                    augmentedShot.set(true);
+                }
+                if (enchantHolder.is(EMEnchantments.AUGMENT_AOE.location())) {
+                    WandShotHandler.shootAOE(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
                             enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                    augmentedShot.set(true);
                 }
-                else {
-                    WandShotHandler.shootSplit(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                            enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
+                    if (pos != null) {
+                        WandShotHandler.shootAtPos(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+                                isHoming.get(), type.get(), spellType.get(), spellLevel.get(), pos);
+                    } else if (clickedEntity != null) {
+                        WandShotHandler.shootAtEntity(level, player, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+                                isHoming.get(), type.get(), spellType.get(), spellLevel.get(), clickedEntity);
+                    }
+                    augmentedShot.set(true);
                 }
-                augmentedShot.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_AOE.location())) {
-                WandShotHandler.shootAOE(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                        enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
-                augmentedShot.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
-                if (pos != null) {
-                    WandShotHandler.shootAtPos(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                            isHoming.get(), type.get(), spellType.get(), spellLevel.get(), pos);
-                }
-                else if (clickedEntity != null) {
-                    WandShotHandler.shootAtEntity(level, player, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                            isHoming.get(), type.get(), spellType.get(), spellLevel.get(), clickedEntity);
-                }
-                augmentedShot.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
-                if (!level.isClientSide()) {
+                if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
+                    if (!level.isClientSide()) {
 
-                    MinecraftServer server = level.getServer();
+                        MinecraftServer server = level.getServer();
 
-                    if (!(server == null)) {
+                        if (!(server == null)) {
 
-                        for (int x = 0; x < enchantLevel + 2; x++) {
+                            for (int x = 0; x < enchantLevel + 2; x++) {
 
-                            int scheduleShot = server.getTickCount() + (x * 2);
+                                int scheduleShot = server.getTickCount() + (x * 2);
 
-                            Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
-                                WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                        isHoming.get(), type.get(), spellType.get(), spellLevel.get());
-                                level.playSound(null,
-                                        player.getX(),
-                                        player.getY(),
-                                        player.getZ(),
-                                        wand.SHOOT_SOUND,
-                                        SoundSource.PLAYERS,
-                                        0.5f,
-                                        level.getRandom().nextFloat() * 0.4f + 0.8f);
-                            });
+                                Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
+                                    WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
+                                            isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                                    level.playSound(null,
+                                            player.getX(),
+                                            player.getY(),
+                                            player.getZ(),
+                                            wand.SHOOT_SOUND,
+                                            SoundSource.PLAYERS,
+                                            0.5f,
+                                            level.getRandom().nextFloat() * 0.4f + 0.8f);
+                                });
+                            }
                         }
                     }
+                    augmentedShot.set(true);
                 }
-                augmentedShot.set(true);
             }
         });
 
         if (!augmentedShot.get()) {
             WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+        }
+        if (isRush.get()) {
+            if (!level.isClientSide()) {
+                RandomSource random = RandomSource.create();
+
+                double power = getAttribute(thisWand, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
+                double inaccuracy = 1 - getAttribute(thisWand, WandItem.ACCURACY_ID);
+
+                Vec3 launch = player.getLookAngle();
+
+                double xOff = (random.nextDouble() * 2 - 1) * inaccuracy;
+                double yOff = (random.nextDouble() * 2 - 1) * inaccuracy;
+                double zOff = (random.nextDouble() * 2 - 1) * inaccuracy;
+
+                Vec3 offsetLaunch = new Vec3(
+                        launch.x + xOff,
+                        launch.y + yOff,
+                        launch.z + zOff
+                ).normalize().scale(power);
+
+                player.setDeltaMovement(offsetLaunch);
+                player.hurtMarked = true;
+            }
         }
 
         player.getCooldowns().addCooldown(wand, (int) (getAttribute(thisWand, WandItem.COOLDOWN_ID) * 20));
@@ -235,9 +269,7 @@ public class WandProjectileHandler {
 
     public static void processHit(Level level, Vec3 pos, HitResult.Type type, WandProjectile shot) {
 
-        if (type == HitResult.Type.BLOCK) {
-            WandSpellHandler.processSpells(level, null, null, pos, shot);
-        }
+        WandSpellHandler.processSpells(level, null, null, pos, shot);
 
         if (!level.isClientSide() && (!shot.noPhysics || type != HitResult.Type.BLOCK)) {
             shot.remove(Entity.RemovalReason.KILLED);

@@ -147,6 +147,7 @@ public class WandItem extends Item {
         AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
         AtomicBoolean isSprayLocal = new AtomicBoolean(false);
         AtomicBoolean isChaosMagic = new AtomicBoolean(false);
+        AtomicBoolean isThunderstrike = new AtomicBoolean(false);
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
@@ -178,6 +179,9 @@ public class WandItem extends Item {
                 isChaosMagic.set(true);
                 chaosMagicLevel.set(enchantLevel);
             }
+            if (enchantHolder.is(EMEnchantments.THUNDERSTRIKE.location())) {
+                isThunderstrike.set(true);
+            }
 
         });
         if (isMeteorLocal.get()) {
@@ -196,6 +200,14 @@ public class WandItem extends Item {
             }
             newPSpeed.set(newPSpeed.get() * 0.5);
             newCD.set(5);
+        }
+        if (isThunderstrike.get()) {
+            if (isSprayLocal.get()) {
+                newCD.set(40);
+            }
+            else {
+                newCD.set(newCD.get() * 3);
+            }
         }
 
         builder.add(
@@ -278,8 +290,10 @@ public class WandItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
 
-        lore.add(Component.translatable(this.getDescriptionId() + ".wand_desc").withColor(0xAAAAAA));
-        lore.add(Component.empty());
+        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA));
+        if (stack.isEnchanted()) {
+            lore.add(Component.empty());
+        }
 
         super.appendHoverText(stack, context, lore, tooltipFlag);
     }

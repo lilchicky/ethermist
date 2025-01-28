@@ -7,6 +7,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.DullWand;
 import com.gmail.thelilchicken01.ethermist.item.wands.FlameWand;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.world.item.BookItem;
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -19,11 +20,15 @@ public class EMItems {
     public static final DeferredItem<WandShotItem> FLAME_SHOT = ITEMS.register("flame_shot", () -> new WandShotItem(WandModifiers.FLAME_WAND));
     public static final DeferredItem<WandShotItem> METEOR_SHOT = ITEMS.register("meteor_shot", () -> new WandShotItem());
 
+    public static final DeferredItem<Item> WAND_HANDLE = ITEMS.register("wand_handle", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", DullWand::new);
     public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", FlameWand::new);
 
     public static final DeferredItem<BookItem> FOCUS_TOME = ITEMS.register("focus_tome", TomeItem::new);
     public static final DeferredItem<BookItem> WAND_TOME = ITEMS.register("wand_tome", TomeItem::new);
+
+    public static final DeferredItem<Item> DULL_ORB = ITEMS.register("dull_orb", OrbItem::new);
+    public static final DeferredItem<Item> FLAME_ORB = ITEMS.register("flame_orb", OrbItem::new);
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);

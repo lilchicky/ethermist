@@ -54,6 +54,10 @@ public class EMEnchantmentEffects {
             () -> FireballEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> CHAOS_MAGIC = ENCH_VALUE_EFFECTS.register("chaos_magic",
             () -> ChaosMagicEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> THUNDERSTRIKE = ENCH_VALUE_EFFECTS.register("thunderstrike",
+            () -> ThunderstrikeEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> KINETIC_RUSH = ENCH_VALUE_EFFECTS.register("kinetic_rush",
+            () -> KineticRushEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);

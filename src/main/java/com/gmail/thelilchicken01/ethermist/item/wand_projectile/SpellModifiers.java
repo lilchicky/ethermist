@@ -6,13 +6,14 @@ public class SpellModifiers {
         MONSTERS,
         ANIMALS,
         PLAYERS,
-        ALL;
+        ALL
     }
 
     public enum SpellType {
         GENERIC,
         FIREBALL,
-        CHAOS_MAGIC;
+        CHAOS_MAGIC,
+        THUNDERSTRIKE
     }
 
 }

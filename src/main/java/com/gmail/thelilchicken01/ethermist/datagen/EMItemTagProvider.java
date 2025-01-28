@@ -75,6 +75,10 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(EMTags.Items.MAGIC_ENCHANTABLE)
                 .add(EMItems.FOCUS_TOME.get());
 
+        tag(EMTags.Items.ORBS)
+                .add(EMItems.DULL_ORB.get())
+                .add(EMItems.FLAME_ORB.get());
+
         addWands(EMItems.DULL_WAND.get());
         addWands(EMItems.FLAME_WAND.get());
         addWands(EMItems.WAND_TOME.get());

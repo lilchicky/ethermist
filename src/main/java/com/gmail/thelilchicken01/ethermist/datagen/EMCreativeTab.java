@@ -147,7 +147,12 @@ public class EMCreativeTab {
             .title(Component.translatable("creativetab.ethermist.em_item_tab"))
             .displayItems((itemDisplayParameters, output) -> {
 
+                // Orbs
+                output.accept(EMItems.DULL_ORB.get());
+                output.accept(EMItems.FLAME_ORB.get());
+
                 // Wands
+                output.accept(EMItems.WAND_HANDLE.get());
                 output.accept(EMItems.DULL_WAND.get());
                 output.accept(EMItems.FLAME_WAND.get());
 

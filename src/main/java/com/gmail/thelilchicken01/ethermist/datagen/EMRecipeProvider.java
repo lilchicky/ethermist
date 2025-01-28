@@ -3,15 +3,21 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -280,6 +286,53 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('b', EMTags.Items.ORBS)
                 .unlockedBy("has_orb", has(EMTags.Items.ORBS)).save(output);
 
+        // Wands
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bab")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD)).save(output);
+
+        List<Item> wands = new ArrayList<>(List.of(
+                EMItems.DULL_WAND.get(),
+                EMItems.FLAME_WAND.get(),
+                EMItems.WAND_HANDLE.get()
+        ));
+        List<Item> orbs = new ArrayList<>(List.of(
+                EMItems.DULL_ORB.get(),
+                EMItems.FLAME_ORB.get()
+        ));
+
+        for (Item wand : wands) {
+            for (Item orb : orbs) {
+                Item result = getWandFromOrb(orb);
+                if (result != null && result != wand) {
+                    SmithingTransformRecipeBuilder.smithing(
+                            Ingredient.EMPTY,
+                            Ingredient.of(wand),
+                            Ingredient.of(orb),
+                            RecipeCategory.COMBAT,
+                            result
+                    ).unlocks("has_" + getItemName(orb), has(orb))
+                            .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
+                                    getItemName(result) + "_from_" + getItemName(orb) + "_and_" + getItemName(wand)));
+                }
+            }
+        }
+
+    }
+
+    protected static Item getWandFromOrb(Item orb) {
+        if (orb == EMItems.DULL_ORB.get()) {
+            return EMItems.DULL_WAND.get();
+        } else if (orb == EMItems.FLAME_ORB.get()) {
+            return EMItems.FLAME_WAND.get();
+        }
+        else {
+            return null;
+        }
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
@@ -303,7 +356,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
     }
 
     protected static void stonecutting(RecipeOutput recipeOutput, RecipeCategory category, ItemLike result, ItemLike material, int resultCount) {
-        SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(Ingredient.of(new ItemLike[]{material}), category, result, resultCount).unlockedBy(getHasName(material), has(material));
+        SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(Ingredient.of(material), category, result, resultCount).unlockedBy(getHasName(material), has(material));
         String id = getConversionRecipeName(result, material);
         builder.save(recipeOutput, Ethermist.MODID + ":" + id + "_stonecutting");
     }

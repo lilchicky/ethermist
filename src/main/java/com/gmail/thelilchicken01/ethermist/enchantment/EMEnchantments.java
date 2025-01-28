@@ -34,6 +34,8 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> AUGMENT_METEOR = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
     public static final ResourceKey<Enchantment> FIREBALL = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"));
     public static final ResourceKey<Enchantment> CHAOS_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"));
+    public static final ResourceKey<Enchantment> THUNDERSTRIKE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"));
+    public static final ResourceKey<Enchantment> KINETIC_RUSH = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -55,7 +57,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new QuickCastEnchant())
         );
 
         register(context, ENDURING_MAGIC, Enchantment.enchantment(Enchantment.definition(
@@ -68,7 +69,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new EnduringMagicEnchant())
         );
 
         register(context, ARCANE_VELOCITY, Enchantment.enchantment(Enchantment.definition(
@@ -81,7 +81,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new ArcaneVelocityEnchant())
         );
 
         register(context, ANCIENT_POWER, Enchantment.enchantment(Enchantment.definition(
@@ -94,7 +93,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AncientPowerEnchant())
         );
 
         register(context, RUNIC_FORCE, Enchantment.enchantment(Enchantment.definition(
@@ -107,7 +105,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new RunicForceEnchant())
         );
 
         register(context, STABLE_ORB, Enchantment.enchantment(Enchantment.definition(
@@ -120,7 +117,6 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new StableOrbEnchant())
         );
 
         /*
@@ -138,7 +134,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentSplitEnchant())
         );
 
         register(context, AUGMENT_HOMING, Enchantment.enchantment(Enchantment.definition(
@@ -152,7 +147,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(HolderSet.empty())
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentHomingEnchant())
         );
 
         register(context, AUGMENT_AOE, Enchantment.enchantment(Enchantment.definition(
@@ -166,7 +160,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentAOEEnchant())
         );
 
         register(context, AUGMENT_SPRAY, Enchantment.enchantment(Enchantment.definition(
@@ -180,7 +173,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentSprayEnchant())
         );
 
         register(context, AUGMENT_METEOR, Enchantment.enchantment(Enchantment.definition(
@@ -194,7 +186,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new AugmentMeteorEnchant())
         );
 
         /*
@@ -212,7 +203,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(focusColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusMonstersEnchant())
         );
 
         register(context, FOCUS_ANIMALS, Enchantment.enchantment(Enchantment.definition(
@@ -226,7 +216,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(focusColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusAnimalsEnchant())
         );
 
         register(context, FOCUS_PLAYERS, Enchantment.enchantment(Enchantment.definition(
@@ -240,7 +229,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(focusColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.FOCUS_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FocusPlayersEnchant())
         );
 
         /*
@@ -258,7 +246,6 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new FireballEnchant())
         );
 
         register(context, CHAOS_MAGIC, Enchantment.enchantment(Enchantment.definition(
@@ -272,7 +259,32 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
-                .withEffect(EnchantmentEffectComponents.AMMO_USE, new ChaosMagicEnchant())
+        );
+
+        register(context, THUNDERSTRIKE, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        3,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(mainSpellColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+        );
+
+        register(context, KINETIC_RUSH, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(mainSpellColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
         );
 
     }

@@ -107,8 +107,16 @@
   "block.ethermist.rich_grass": "Rich Grass",
 
   "_comment": "--------------- ITEMS ---------------",
+  "item.ethermist.wand_handle": "Wand Handle",
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
+
+  "item.ethermist.orb_description.line_1": "Combine with a wand handle or another wand",
+  "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a wand of this type.",
+  "item.ethermist.dull_orb": "Dull Orb",
+  "item.ethermist.dull_orb.desc": "Doesn't seem to do much.",
+  "item.ethermist.flame_orb": "Flame Orb",
+  "item.ethermist.flame_orb.desc": "Filled with the flame of the Nether.",
 
   "item.ethermist.focus_tome": "Focus Tome",
   "item.ethermist.focus_tome.desc": "Enchant in an enchanting table to obtain wand Focuses.",
@@ -127,8 +135,8 @@
   "attribute.ethermist.wand.lifespan": "Second Bolt Lifetime",
   "attribute.ethermist.wand.wand_accuracy": "Accuracy",
 
-  "item.ethermist.dull_wand.wand_desc": "No wand effects.",
-  "item.ethermist.flame_wand.wand_desc": "Ignites entities hit for a long time.",
+  "item.ethermist.dull_wand.desc": "No wand effects.",
+  "item.ethermist.flame_wand.desc": "Ignites entities hit for a long time.",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -163,6 +171,10 @@
   "enchantment.ethermist.fireball.desc": "Projectiles now explode.",
   "enchantment.ethermist.chaos_magic": "Chaos Magic",
   "enchantment.ethermist.chaos_magic.desc": "Roll the dice.",
+  "enchantment.ethermist.thunderstrike": "Thunderstrike",
+  "enchantment.ethermist.thunderstrike.desc": "Call lightning down upon your foes.",
+  "enchantment.ethermist.kinetic_rush": "Kinetic Rush",
+  "enchantment.ethermist.kinetic_rush.desc": "Converts damage to forward momentum.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

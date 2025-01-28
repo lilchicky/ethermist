@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-28T01:47:54.5128838	Item Models: ethermist
+// 1.21.1	2025-01-28T09:10:43.2752043	Item Models: ethermist
 5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
 faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
@@ -6,10 +6,12 @@ faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fe
 c1cbc72f955d9133c8152590077492404e398edf assets/ethermist/models/item/cubed_abyssal_mushroom_button.json
 0525bc9890b5a0453e1588f6f9fb109e13d015c0 assets/ethermist/models/item/cubed_abyssal_mushroom_door.json
 eb4b6cc26e01f7cfd66a73f31eed08262c27f1a8 assets/ethermist/models/item/cubed_abyssal_mushroom_fence.json
+07bf960be9b7ec8b60a54a1fb3131c4869851f83 assets/ethermist/models/item/dull_orb.json
 694bbe10f2b369e9a63955238a7020288b8eeda2 assets/ethermist/models/item/dull_wand.json
 ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone_brick_wall.json
 96c65a3fbb10da01cd872c6aef7fcfb2b563d438 assets/ethermist/models/item/etherstone_button.json
 e34243c92f72fd62234f14f0cb53bb8232bd401b assets/ethermist/models/item/etherstone_wall.json
+93c3323bd2077bc465dc1b08712ce0c3281f29f8 assets/ethermist/models/item/flame_orb.json
 a30b0b0472325d5e6e554821aa1f43ab4ada2336 assets/ethermist/models/item/flame_shot.json
 95f023b4e255a8ba3e0ce961fce966cbb549f317 assets/ethermist/models/item/flame_wand.json
 dc7bc4a6b722b57acba72a135846dc9d086868d2 assets/ethermist/models/item/focus_tome.json
@@ -27,4 +29,5 @@ b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_bl
 c34bef977b1af9dd5a06d8612df3d87848d7210e assets/ethermist/models/item/sparkling_sandstone_button.json
 20b1887ed3e71ed1f80c143dea5f9f1a48510ee4 assets/ethermist/models/item/sparkling_sandstone_wall.json
 c7f7ed178d7fb6275a7b0e0951ce5c11cdaf5aaf assets/ethermist/models/item/timeworn_sandstone_wall.json
+601f46ec1ceeb2caa35432b3b11af5ef0f3ec288 assets/ethermist/models/item/wand_handle.json
 0ec714eaad69533994c32d5044fc7fd5a8173e04 assets/ethermist/models/item/wand_tome.json

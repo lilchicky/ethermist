@@ -50,8 +50,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         saplingItem(EMBlocks.GLIMMER_BLOSSOM);
         saplingItem(EMBlocks.RICH_GRASS);
 
+        basicHandheld(EMItems.WAND_HANDLE);
         wandItem(EMItems.DULL_WAND);
         wandItem(EMItems.FLAME_WAND);
+
+        orbItem(EMItems.DULL_ORB);
+        orbItem(EMItems.FLAME_ORB);
 
         shotItem(EMItems.GENERIC_SHOT);
         shotItem(EMItems.FLAME_SHOT);
@@ -104,6 +108,18 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + item.getId().getPath()));
+    }
+
+    public void orbItem(DeferredItem<?> item) {
+        this.withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/orbs/" + item.getId().getPath()));
+    }
+
+    public void basicHandheld(DeferredItem<?> item) {
+        this.withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/handheld")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/" + item.getId().getPath()));
     }
 
     public void shotItem(DeferredItem<?> item) {

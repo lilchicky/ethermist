@@ -8,6 +8,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -227,6 +229,15 @@ public class WandSpellHandler {
                                             level.getRandom().nextFloat() * 0.4f + 0.8f);
                                 }
                             }
+                        }
+                    }
+                }
+                case THUNDERSTRIKE -> {
+                    for (int x = 0; x < shot.spellLevel; x++) {
+                        LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
+                        if (bolt != null) {
+                            bolt.moveTo(shot.getX(), shot.getY(), shot.getZ());
+                            level.addFreshEntity(bolt);
                         }
                     }
                 }

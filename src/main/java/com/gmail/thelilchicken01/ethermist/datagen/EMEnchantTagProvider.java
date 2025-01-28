@@ -43,7 +43,9 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"));
 
         tag(EnchantmentTags.TREASURE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"))
@@ -51,7 +53,9 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
 
         tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"));
 
         tag(EMTags.Enchantments.FOCUS_SPELLS)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"))
