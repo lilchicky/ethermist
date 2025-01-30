@@ -1,11 +1,11 @@
-// 1.21.1	2025-01-28T09:10:43.2732028	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-01-30T08:35:24.3244048	Tags for minecraft:item mod id ethermist
 d5cf529847a165fc54aa8054d2b1a5e0120db94d data/c/tags/item/gems.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/item/gravels.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
 6a636d549fad0270217d0c44e9e125535086d846 data/c/tags/item/stones.json
-8d4505b861a0cccf69a57be185b54ed82c0babbe data/ethermist/tags/item/magic_enchantable.json
+360bb189379877f3e4da62d109eaa3e25fe83dff data/ethermist/tags/item/magic_enchantable.json
 cf91b3ee8d158c214f6ecc0640bc80e027fd1510 data/ethermist/tags/item/orbs.json
-cf4659580ee718d7f27633bff0f94943571b50b0 data/ethermist/tags/item/tomes.json
+98aae6f3cd9fe29a7ae9a1af9275b9635365af29 data/ethermist/tags/item/tomes.json
 a5797c4d610dcd8221aa8095f47456368229df83 data/ethermist/tags/item/wands.json
 59b2776fbb911bac040a923f320912bc6039f2a5 data/minecraft/tags/item/buttons.json
 a7f836237e31170df5ab703b4b40d109ecbc0ec6 data/minecraft/tags/item/doors.json

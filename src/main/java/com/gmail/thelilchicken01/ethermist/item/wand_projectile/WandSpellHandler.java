@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
@@ -46,7 +48,7 @@ public class WandSpellHandler {
 
     }
 
-    public static void processSpells(Level level, @Nullable Player player, @Nullable Entity target, @Nullable Vec3 hitPos, WandProjectile shot) {
+    public static void processSpells(Level level, Entity shooter, @Nullable Entity target, @Nullable BlockPos hitPos, WandProjectile shot) {
 
         if (!level.isClientSide()) {
 
@@ -90,7 +92,7 @@ public class WandSpellHandler {
                             common, // Regen
                             uncommon, // Resistance
                             common, // Haste
-                            1000, // Cake
+                            legendary, // Cake
                             legendary, // Spawn Egg
                             legendary, // Duplicate Mob
                             uncommon, // Saturation
@@ -107,7 +109,7 @@ public class WandSpellHandler {
                         Random random = new Random();
                         int entityChoice = random.nextInt(totalEntityWeight);
 
-                        if (player != null && target != null) {
+                        if (shooter != null && target != null) {
 
                             int currentWeight = 0;
                             int index = -1;
@@ -121,7 +123,7 @@ public class WandSpellHandler {
 
                             switch (index) {
                                 case 0 -> {
-                                    player.teleportTo(target.getX(), target.getY(), target.getZ());
+                                    shooter.teleportTo(target.getX(), target.getY(), target.getZ());
                                     level.playSound(null,
                                             shot.getX(),
                                             shot.getY(),
@@ -132,7 +134,7 @@ public class WandSpellHandler {
                                             level.getRandom().nextFloat() * 0.4f + 0.8f);
                                 }
                                 case 1 -> {
-                                    target.teleportTo(player.getX(), player.getY(), player.getZ());
+                                    target.teleportTo(shooter.getX(), shooter.getY(), shooter.getZ());
                                     level.playSound(null,
                                             shot.getX(),
                                             shot.getY(),
@@ -145,46 +147,68 @@ public class WandSpellHandler {
                                 case 2 -> {
                                     level.explode(
                                             null,
-                                            player.getX(),
-                                            player.getY(),
-                                            player.getZ(),
+                                            shooter.getX(),
+                                            shooter.getY(),
+                                            shooter.getZ(),
                                             (float) shot.spellLevel,
                                             false,
                                             Level.ExplosionInteraction.NONE
                                     );
                                     level.playSound(null,
-                                            player.getX(),
-                                            player.getY(),
-                                            player.getZ(),
+                                            shooter.getX(),
+                                            shooter.getY(),
+                                            shooter.getZ(),
                                             SoundEvents.GENERIC_EXPLODE,
                                             SoundSource.PLAYERS,
                                             1.0f,
                                             level.getRandom().nextFloat() * 0.4f + 0.8f);
                                 }
                                 case 3 -> {
-                                    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    if (shooter instanceof Player player) {
+                                        player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    }
                                     if (target instanceof LivingEntity livingTarget) {
                                         livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
                                     }
                                 }
-                                case 4 ->
+                                case 4 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 * shot.spellLevel, 100 * shot.spellLevel));
-                                case 5 ->
+                                    }
+                                }
+                                case 5 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, 200 * shot.spellLevel, 2 * shot.spellLevel));
-                                case 6 ->
+                                    }
+                                }
+                                case 6 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 400 * shot.spellLevel));
+                                    }
+                                }
                                 case 7 -> {
-                                    player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    if (shooter instanceof Player player) {
+                                        player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    }
                                     if (target instanceof LivingEntity livingTarget) {
                                         livingTarget.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
                                     }
                                 }
-                                case 8 ->
+                                case 8 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 * shot.spellLevel, shot.spellLevel));
-                                case 9 ->
+                                    }
+                                }
+                                case 9 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100 * shot.spellLevel, shot.spellLevel));
-                                case 10 ->
+                                    }
+                                }
+                                case 10 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 100 * shot.spellLevel, shot.spellLevel));
+                                    }
+                                }
                                 case 11 -> {
                                     level.setBlock(BlockPos.containing(new Vec3(target.getX(), target.getY(), target.getZ())), Blocks.CAKE.defaultBlockState(), 3);
                                     if (!(target instanceof Player)) {
@@ -221,8 +245,11 @@ public class WandSpellHandler {
                                         }
                                     }
                                 }
-                                case 14 ->
+                                case 14 -> {
+                                    if (shooter instanceof Player player) {
                                         player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 10 * shot.spellLevel));
+                                    }
+                                }
                                 case 15 -> {
                                     level.explode(
                                             null,
@@ -255,7 +282,22 @@ public class WandSpellHandler {
                         }
                     }
                 }
-                default -> {
+                case SEISMIC_SURGE -> {
+                    if (target == null && hitPos != null) {
+                        Block block = level.getBlockState(hitPos).getBlock();
+                        float playerBreakSpeed = (float)((Math.pow(shot.damage + shot.spellLevel, 2)) / 18);
+                        if (block.defaultDestroyTime() <= playerBreakSpeed && block.defaultDestroyTime() > 0.0f) {
+                            level.destroyBlock(hitPos, true, shooter);
+                            shot.remove(Entity.RemovalReason.KILLED);
+                        }
+                        else {
+                            shot.remove(Entity.RemovalReason.KILLED);
+                        }
+                    } else {
+                        if (target instanceof LivingEntity livingTarget) {
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, shot.spellLevel * 40, shot.spellLevel));
+                        }
+                    }
                 }
             }
         }
@@ -280,9 +322,9 @@ public class WandSpellHandler {
                     );
 
                     int range = (shot.spellLevel + 1) * 2;
-                    List<Entity> closeTargets = WandUtil.getNearbyEntities(level, range, shot, shot.targetType.getTargetClass());
+                    List<Entity> closeTargets = WandUtil.getNearbyEntities(level, range, shot);
 
-                    closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner());
+                    closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner(), shot.targetType);
 
                     if (!closeTargets.isEmpty()) {
                         closeTargets.getLast().hurt(damageSource, (float) shot.damage);

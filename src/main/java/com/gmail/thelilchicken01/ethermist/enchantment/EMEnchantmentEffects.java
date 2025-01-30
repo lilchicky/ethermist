@@ -40,14 +40,16 @@ public class EMEnchantmentEffects {
             () -> AugmentSprayEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_METEOR = ENCH_VALUE_EFFECTS.register("augment_meteor",
             () -> AugmentMeteorEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_ABUNDANCE = ENCH_VALUE_EFFECTS.register("augment_abundance",
+            () -> AugmentAbundanceEnchant.CODEC);
 
     // Focus Enchants
-    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_MONSTERS = ENCH_VALUE_EFFECTS.register("focus_monsters",
-            () -> FocusMonstersEnchant.CODEC);
-    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_ANIMALS = ENCH_VALUE_EFFECTS.register("focus_animals",
-            () -> FocusAnimalsEnchant.CODEC);
-    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FOCUS_PLAYERS = ENCH_VALUE_EFFECTS.register("focus_players",
-            () -> FocusPlayersEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> EXCLUDE_MONSTERS = ENCH_VALUE_EFFECTS.register("exclude_monsters",
+            () -> ExcludeMonstersEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> EXCLUDE_ANIMALS = ENCH_VALUE_EFFECTS.register("exclude_animals",
+            () -> ExcludeAnimalsEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> EXCLUDE_PLAYERS = ENCH_VALUE_EFFECTS.register("exclude_players",
+            () -> ExcludePlayersEnchant.CODEC);
 
     // Main Spells
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> FIREBALL = ENCH_VALUE_EFFECTS.register("fireball",
@@ -60,6 +62,8 @@ public class EMEnchantmentEffects {
             () -> KineticRushEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> VOLATILE_ENERGY = ENCH_VALUE_EFFECTS.register("volatile_energy",
             () -> VolatileEnergyEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> SEISMIC_SURGE = ENCH_VALUE_EFFECTS.register("seismic_surge",
+            () -> SeismicSurgeEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);

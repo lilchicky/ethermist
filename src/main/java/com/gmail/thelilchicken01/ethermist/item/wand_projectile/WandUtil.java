@@ -19,7 +19,6 @@ import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.neoforged.neoforge.common.Tags;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
@@ -28,8 +27,8 @@ import java.util.stream.Collectors;
 
 public class WandUtil {
 
-    public static <T extends Entity> List<Entity> getNearbyEntities(Level level, int range, Entity center, @Nullable Class<T> type) {
-        List<Entity> nearby = level.getEntities(EntityTypeTest.forClass(Entity.class), new AABB(
+    public static <T extends Entity> List<Entity> getNearbyEntities(Level level, int range, Entity center) {
+        return level.getEntities(EntityTypeTest.forClass(Entity.class), new AABB(
                         center.getX() - range,
                         center.getY() - range,
                         center.getZ() - range,
@@ -38,19 +37,16 @@ public class WandUtil {
                         center.getZ() + range),
                 entity -> true
         );
-
-        if (type != null) {
-            return nearby.stream()
-                    .filter(type::isInstance)
-                    .collect(Collectors.toList());
-        }
-        else {
-            return nearby;
-        }
     }
 
-    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner) {
-        return entities.stream().filter(iterate ->
+    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<SpellModifiers.TargetType> types) {
+        List<Entity> filteredEntities = entities;
+        for (SpellModifiers.TargetType type : types) {
+            if (type.getTargetClass() != null) {
+                filteredEntities = filteredEntities.stream().filter(iterate -> !type.getTargetClass().isInstance(iterate)).toList();
+            }
+        }
+        return filteredEntities.stream().filter(iterate ->
                         !iterate.isInvulnerable() &&
                                 iterate.distanceTo(self) < 24 &&
                                 iterate.isAlive() &&

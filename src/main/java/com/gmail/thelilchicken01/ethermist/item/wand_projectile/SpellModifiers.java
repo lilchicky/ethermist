@@ -30,7 +30,8 @@ public class SpellModifiers {
         FIREBALL,
         CHAOS_MAGIC,
         THUNDERSTRIKE,
-        VOLATILE_ENERGY
+        VOLATILE_ENERGY,
+        SEISMIC_SURGE
     }
 
 }

@@ -61,7 +61,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         shotItem(EMItems.FLAME_SHOT);
         shotItem(EMItems.METEOR_SHOT);
 
-        basicItem(EMItems.FOCUS_TOME.get());
+        basicItem(EMItems.EXCLUSION_TOME.get());
         basicItem(EMItems.WAND_TOME.get());
 
     }

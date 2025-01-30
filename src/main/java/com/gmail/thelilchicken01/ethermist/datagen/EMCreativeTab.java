@@ -157,7 +157,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.FLAME_WAND.get());
 
                 // Misc
-                output.accept(EMItems.FOCUS_TOME.get());
+                output.accept(EMItems.EXCLUSION_TOME.get());
                 output.accept(EMItems.WAND_TOME.get());
 
             }).build());

@@ -24,7 +24,7 @@ public class EMItems {
     public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", DullWand::new);
     public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", FlameWand::new);
 
-    public static final DeferredItem<BookItem> FOCUS_TOME = ITEMS.register("focus_tome", TomeItem::new);
+    public static final DeferredItem<BookItem> EXCLUSION_TOME = ITEMS.register("exclusion_tome", TomeItem::new);
     public static final DeferredItem<BookItem> WAND_TOME = ITEMS.register("wand_tome", TomeItem::new);
 
     public static final DeferredItem<Item> DULL_ORB = ITEMS.register("dull_orb", OrbItem::new);

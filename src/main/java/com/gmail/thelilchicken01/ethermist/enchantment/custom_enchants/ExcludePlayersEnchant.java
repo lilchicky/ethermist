@@ -4,9 +4,9 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 
-public record FocusPlayersEnchant() implements EnchantmentValueEffect {
+public record ExcludePlayersEnchant() implements EnchantmentValueEffect {
 
-    public static final MapCodec<FocusPlayersEnchant> CODEC = MapCodec.unit(FocusPlayersEnchant::new);
+    public static final MapCodec<ExcludePlayersEnchant> CODEC = MapCodec.unit(ExcludePlayersEnchant::new);
 
     @Override
     public float process(int level, RandomSource randomSource, float v) {

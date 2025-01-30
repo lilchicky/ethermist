@@ -1,20 +1,11 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantmentEffects;
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EnchantmentTagsProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.EnchantmentTags;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,16 +28,18 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_power"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_animals"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_monsters"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_animals"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_players"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "seismic_surge"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
 
         tag(EnchantmentTags.TREASURE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"))
@@ -57,12 +50,13 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"));
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "seismic_surge"));
 
-        tag(EMTags.Enchantments.FOCUS_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_monsters"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_animals"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "focus_players"));
+        tag(EMTags.Enchantments.EXCLUDE_SPELLS)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_monsters"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_animals"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_players"));
 
         tag(EMTags.Enchantments.AUGMENT_SPELLS)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))

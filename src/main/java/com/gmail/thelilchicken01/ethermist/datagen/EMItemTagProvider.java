@@ -70,10 +70,10 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.GENERIC_SHOT.get());
 
         tag(EMTags.Items.TOMES)
-                .add(EMItems.FOCUS_TOME.get());
+                .add(EMItems.EXCLUSION_TOME.get());
 
         tag(EMTags.Items.MAGIC_ENCHANTABLE)
-                .add(EMItems.FOCUS_TOME.get());
+                .add(EMItems.EXCLUSION_TOME.get());
 
         tag(EMTags.Items.ORBS)
                 .add(EMItems.DULL_ORB.get())

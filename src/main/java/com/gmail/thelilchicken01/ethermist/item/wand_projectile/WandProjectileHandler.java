@@ -17,11 +17,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.lang.annotation.Target;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,7 +42,7 @@ public class WandProjectileHandler {
         AtomicBoolean isHoming = new AtomicBoolean(false);
         AtomicBoolean isMeteor = new AtomicBoolean(false);
         AtomicBoolean isRush = new AtomicBoolean(false);
-        AtomicReference<SpellModifiers.TargetType> type = new AtomicReference<>(SpellModifiers.TargetType.ALL);
+        List<SpellModifiers.TargetType> types = new ArrayList<>();
         AtomicReference<SpellModifiers.SpellType> spellType = new AtomicReference<>(SpellModifiers.SpellType.GENERIC);
         AtomicInteger spellLevel = new AtomicInteger(0);
 
@@ -47,14 +50,14 @@ public class WandProjectileHandler {
             if (enchantHolder.is(EMEnchantments.AUGMENT_HOMING.location())) {
                 isHoming.set(true);
             }
-            if (enchantHolder.is(EMEnchantments.FOCUS_MONSTERS.location())) {
-                type.set(SpellModifiers.TargetType.MONSTERS);
+            if (enchantHolder.is(EMEnchantments.EXCLUDE_MONSTERS.location())) {
+                types.add(SpellModifiers.TargetType.MONSTERS);
             }
-            if (enchantHolder.is(EMEnchantments.FOCUS_ANIMALS.location())) {
-                type.set(SpellModifiers.TargetType.ANIMALS);
+            if (enchantHolder.is(EMEnchantments.EXCLUDE_ANIMALS.location())) {
+                types.add(SpellModifiers.TargetType.ANIMALS);
             }
-            if (enchantHolder.is(EMEnchantments.FOCUS_PLAYERS.location())) {
-                type.set(SpellModifiers.TargetType.PLAYERS);
+            if (enchantHolder.is(EMEnchantments.EXCLUDE_PLAYERS.location())) {
+                types.add(SpellModifiers.TargetType.PLAYERS);
             }
             if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
                 isMeteor.set(true);
@@ -79,7 +82,15 @@ public class WandProjectileHandler {
                 spellType.set(SpellModifiers.SpellType.VOLATILE_ENERGY);
                 spellLevel.set(enchantLevel);
             }
+            if (enchantHolder.is(EMEnchantments.SEISMIC_SURGE.location())) {
+                spellType.set(SpellModifiers.SpellType.SEISMIC_SURGE);
+                spellLevel.set(enchantLevel);
+            }
         });
+
+        if (types.isEmpty()) {
+            types.add(SpellModifiers.TargetType.ALL);
+        }
 
         WandShotItem shotItem;
         ItemStack shotStack;
@@ -95,33 +106,33 @@ public class WandProjectileHandler {
             shotStack = new ItemStack(wand.getShotItem());
         }
 
-        List<Entity> nearby = WandUtil.getNearbyEntities(level, newLifespan * 10, player, type.get().getTargetClass());
-        List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null);
+        List<Entity> nearby = WandUtil.getNearbyEntities(level, newLifespan * 10, player);
+        List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null, types);
 
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
             if (!isRush.get()) {
                 if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
                     if (!target.isEmpty()) {
                         WandShotHandler.shootSplit(level, player, List.of(target.getLast()), pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                                enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
                     } else {
                         WandShotHandler.shootSplit(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                                enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
                     }
                     augmentedShot.set(true);
                 }
                 if (enchantHolder.is(EMEnchantments.AUGMENT_AOE.location())) {
                     WandShotHandler.shootAOE(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                            enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                            enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
                     augmentedShot.set(true);
                 }
                 if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
                     if (pos != null) {
                         WandShotHandler.shootAtPos(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                isHoming.get(), type.get(), spellType.get(), spellLevel.get(), pos);
+                                isHoming.get(), types, spellType.get(), spellLevel.get(), pos);
                     } else if (clickedEntity != null) {
                         WandShotHandler.shootAtEntity(level, player, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                isHoming.get(), type.get(), spellType.get(), spellLevel.get(), clickedEntity);
+                                isHoming.get(), types, spellType.get(), spellLevel.get(), clickedEntity);
                     }
                     augmentedShot.set(true);
                 }
@@ -138,7 +149,7 @@ public class WandProjectileHandler {
 
                                 Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
                                     WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                            isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+                                            isHoming.get(), types, spellType.get(), spellLevel.get());
                                     level.playSound(null,
                                             player.getX(),
                                             player.getY(),
@@ -157,7 +168,7 @@ public class WandProjectileHandler {
         });
 
         if (!augmentedShot.get()) {
-            WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
+            WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand, isHoming.get(), types, spellType.get(), spellLevel.get());
         }
         if (isRush.get()) {
             if (!level.isClientSide()) {
@@ -202,24 +213,19 @@ public class WandProjectileHandler {
         );
 
         boolean damaged;
+        boolean canBeHurt = true;
         if (!(target == shooter)) {
-            switch (shot.targetType) {
-                case SpellModifiers.TargetType.MONSTERS -> {
-                    damaged = !(target instanceof Monster) &&
-                            target.hurt(damageSource, (float) shot.damage);
+            for (SpellModifiers.TargetType type : shot.targetType) {
+                switch (type) {
+                    case MONSTERS -> canBeHurt = !(target instanceof Monster);
+                    case ANIMALS -> canBeHurt = !(target instanceof Animal);
+                    case PLAYERS -> canBeHurt = !(target instanceof Player);
                 }
-                case SpellModifiers.TargetType.ANIMALS -> {
-                    damaged = !(target instanceof Animal) &&
-                            target.hurt(damageSource, (float) shot.damage);
-                }
-                case SpellModifiers.TargetType.PLAYERS -> {
-                    damaged = !(target instanceof Player) &&
-                            target.hurt(damageSource, (float) shot.damage);
-                }
-                default -> {
-                    damaged = target.hurt(damageSource, (float) shot.damage);
-                }
+                if (!canBeHurt) break;
             }
+
+            damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
+
         }
         else {
             damaged = false;
@@ -238,7 +244,7 @@ public class WandProjectileHandler {
             // Wand Specific Modifiers
             if(shooter instanceof Player player) {
                 WandSpellHandler.processWandModifiers(shotItem, target, player);
-                WandSpellHandler.processSpells(level, player, target, hitPos, shot);
+                WandSpellHandler.processSpells(level, player, target, null, shot);
             }
 
         }
@@ -257,9 +263,16 @@ public class WandProjectileHandler {
 
             processHitEntity(level, shooter, target, shotItem, shot, pos);
         }
+        else if (result.getType() == HitResult.Type.BLOCK) {
+            BlockHitResult blockResult = (BlockHitResult) result;
+            BlockPos hitPos = blockResult.getBlockPos();
+            WandSpellHandler.processSpells(level, shooter, null, hitPos, shot);
+        }
 
-        if (!level.isClientSide() && (!shot.noPhysics || result.getType() != HitResult.Type.BLOCK)) {
-            shot.remove(Entity.RemovalReason.KILLED);
+        if (!shot.spellType.equals(SpellModifiers.SpellType.SEISMIC_SURGE)) {
+            if (!level.isClientSide() && (!shot.noPhysics || result.getType() != HitResult.Type.BLOCK)) {
+                shot.remove(Entity.RemovalReason.KILLED);
+            }
         }
 
     }

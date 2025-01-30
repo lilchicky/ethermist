@@ -2,13 +2,11 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,11 +14,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -34,7 +33,7 @@ public class WandProjectile extends Fireball {
     protected boolean isHoming = false;
     protected List<? extends Entity> target;
     protected Player shooter = null;
-    protected SpellModifiers.TargetType targetType = SpellModifiers.TargetType.ALL;
+    protected List<SpellModifiers.TargetType> targetType = List.of(SpellModifiers.TargetType.ALL);
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
     protected int spellLevel = 0;
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
@@ -148,7 +147,7 @@ public class WandProjectile extends Fireball {
         this.isHoming = isHoming;
     }
 
-    public void setTargetType(SpellModifiers.TargetType targetType) {
+    public void setTargetType(List<SpellModifiers.TargetType> targetType) {
         this.targetType = targetType;
     }
 
