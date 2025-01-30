@@ -27,7 +27,7 @@ public class EMPortalShape {
 
     private static final int MIN_WIDTH = 2;
     public static final int MAX_WIDTH = 21;
-    private static final int MIN_HEIGHT = 2;
+    private static final int MIN_HEIGHT = 1;
     public static final int MAX_HEIGHT = 21;
     private static final BlockBehaviour.StatePredicate FRAME = (state, getter, pos) -> state.is(EMTags.Blocks.PORTAL_FRAME_BLOCKS);
     private final LevelAccessor level;

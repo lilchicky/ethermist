@@ -6,10 +6,7 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
-import com.gmail.thelilchicken01.ethermist.particle.EMSuspendedParticle;
-import com.gmail.thelilchicken01.ethermist.particle.VolatileEnergyTetherParticle;
-import com.gmail.thelilchicken01.ethermist.particle.WandTrailParticle;
+import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
@@ -124,6 +121,7 @@ public class Ethermist {
             event.registerSpriteSet(EMParticleTypes.GLIMMERBUG_AIR.get(), EMSuspendedParticle.GlimmerbugAirProvider::new);
             event.registerSpriteSet(EMParticleTypes.VOLATILE_ENERGY_TETHER.get(), VolatileEnergyTetherParticle.Provider::new);
             event.registerSpriteSet(EMParticleTypes.GENERIC_TRAIL.get(), WandTrailParticle.Provider::new);
+            event.registerSpriteSet(EMParticleTypes.ETHERMIST_PORTAL.get(), EthermistPortalParticle.Provider::new);
         }
     }
 }

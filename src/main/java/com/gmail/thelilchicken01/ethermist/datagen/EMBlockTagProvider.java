@@ -146,7 +146,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
 
         tag(EMTags.Blocks.PORTAL_FRAME_BLOCKS)
-                .add(EMBlocks.ETHERSTONE_BRICKS.get());
+                .add(EMBlocks.ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);

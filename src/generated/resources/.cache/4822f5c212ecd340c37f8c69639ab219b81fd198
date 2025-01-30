@@ -1,7 +1,7 @@
-// 1.21.1	2025-01-17T22:45:46.5380506	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-01-30T09:11:04.9601124	Tags for minecraft:block mod id ethermist
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/block/gravels.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/block/sandstone/blocks.json
-19db95a988506252121a4068f1f08af5e7354510 data/ethermist/tags/block/portal_frame_blocks.json
+87aae77f8bb1e17945835280ea75f98ba7579ba5 data/ethermist/tags/block/portal_frame_blocks.json
 59b2776fbb911bac040a923f320912bc6039f2a5 data/minecraft/tags/block/buttons.json
 b224f7d1c0b47557ad9e1f06a9a3dbe1b084c407 data/minecraft/tags/block/dirt.json
 a7f836237e31170df5ab703b4b40d109ecbc0ec6 data/minecraft/tags/block/doors.json

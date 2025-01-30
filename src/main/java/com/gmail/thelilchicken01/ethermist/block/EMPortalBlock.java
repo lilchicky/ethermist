@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalForcer;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import net.minecraft.BlockUtil;
@@ -191,14 +192,14 @@ public class EMPortalBlock extends Block implements Portal {
             double d5 = ((double)random.nextFloat() - (double)0.5F) * (double)0.5F;
             int j = random.nextInt(2) * 2 - 1;
             if (!level.getBlockState(pos.west()).is(this) && !level.getBlockState(pos.east()).is(this)) {
-                d0 = (double)pos.getX() + (double)0.5F + (double)0.25F * (double)j;
-                d3 = (double)(random.nextFloat() * 2.0F * (float)j);
+                d0 = (double)pos.getX() + (double)0.5F + (double)0.25F * (double)j + (random.nextFloat() - 0.5) * 0.5;
+                d3 = random.nextFloat() * 2.0F * (float)j;
             } else {
-                d2 = (double)pos.getZ() + (double)0.5F + (double)0.25F * (double)j;
-                d5 = (double)(random.nextFloat() * 2.0F * (float)j);
+                d2 = (double)pos.getZ() + (double)0.5F + (double)0.25F * (double)j + (random.nextFloat() - 0.5) * 0.5;
+                d5 = random.nextFloat() * 2.0F * (float)j;
             }
 
-            level.addParticle(ParticleTypes.PORTAL, d0, d1, d2, d3, d4, d5);
+            level.addParticle(EMParticleTypes.ETHERMIST_PORTAL.get(), d0, d1, d2, d3, d4, d5);
         }
 
     }

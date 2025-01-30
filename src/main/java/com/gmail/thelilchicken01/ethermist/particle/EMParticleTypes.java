@@ -17,6 +17,8 @@ public class EMParticleTypes {
 
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> VOLATILE_ENERGY_TETHER = EM_PARTICLE_TYPES.register(
             "volatile_energy_tether", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ETHERMIST_PORTAL = EM_PARTICLE_TYPES.register(
+            "ethermist_portal", () -> new SimpleParticleType(false));
 
     // Wand Trail Particles
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GENERIC_TRAIL = EM_PARTICLE_TYPES.register(
