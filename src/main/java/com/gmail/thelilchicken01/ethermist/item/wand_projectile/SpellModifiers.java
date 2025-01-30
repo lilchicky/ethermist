@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
@@ -11,15 +12,15 @@ public class SpellModifiers {
         MONSTERS(Monster.class),
         ANIMALS(Animal.class),
         PLAYERS(Player.class),
-        ALL(LivingEntity.class);
+        ALL(null);
 
-        private final Class<? extends LivingEntity> targetClass;
+        private final Class<? extends Entity> targetClass;
 
-        TargetType(Class<? extends LivingEntity> targetClass) {
+        TargetType(Class<? extends Entity> targetClass) {
             this.targetClass = targetClass;
         }
 
-        public Class<? extends LivingEntity> getTargetClass() {
+        public Class<? extends Entity> getTargetClass() {
             return this.targetClass;
         }
     }

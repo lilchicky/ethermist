@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -13,9 +14,9 @@ import java.util.List;
 
 public class WandShotHandler {
 
-    public static void shoot(Level level, Player player, @Nullable List<? extends LivingEntity> target, float pSpeed, int lifespan,
-                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
-                              boolean isHoming, SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel) {
+    public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
+                             ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
+                             boolean isHoming, SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
         WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
@@ -25,7 +26,7 @@ public class WandShotHandler {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
         float yaw = (float) Math.toRadians(player.getYRot());
         float pitch = (float) Math.toRadians(player.getXRot());
@@ -51,7 +52,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootSplit(Level level, Player player, @Nullable List<? extends LivingEntity> target, float pSpeed, int lifespan,
+    public static void shootSplit(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations,
                                    boolean isHoming, SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
@@ -63,7 +64,7 @@ public class WandShotHandler {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
         setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
 
@@ -80,7 +81,7 @@ public class WandShotHandler {
                     player.getYRot() + (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
             splitShot2.shootFromRotation(
                     player,
@@ -88,7 +89,7 @@ public class WandShotHandler {
                     player.getYRot() - (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
             setShotInfo(splitShot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
             setShotInfo(splitShot2, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
@@ -100,7 +101,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootAOE(Level level, Player player, @Nullable List<? extends LivingEntity> target, float pSpeed, int lifespan,
+    public static void shootAOE(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
                                  ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations,
                                  boolean isHoming, SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
@@ -141,7 +142,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootAtPos(Level level, Player player, @Nullable List<? extends LivingEntity> target, float pSpeed, int lifespan,
+    public static void shootAtPos(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
                                    SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel, BlockPos pos) {
 
@@ -156,7 +157,7 @@ public class WandShotHandler {
                 targetVector.y + 0.1,
                 targetVector.z,
                 pSpeed,
-                (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
         shot.setPos(shot.getX(),
                 shot.getY() + 4.0,
                 shot.getZ());
@@ -169,7 +170,7 @@ public class WandShotHandler {
 
     public static void shootAtEntity(Level level, Player player, float pSpeed, int lifespan,
                                       ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
-                                      SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel, LivingEntity targetLoc) {
+                                      SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel, Entity targetLoc) {
 
         WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(targetLoc));
 
@@ -182,7 +183,7 @@ public class WandShotHandler {
                 targetVector.y + 0.1,
                 targetVector.z,
                 pSpeed,
-                (float)(100 - (WandProjectileHandler.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
         shot.setPos(shot.getX(),
                 shot.getY() + 4.0,
@@ -197,10 +198,10 @@ public class WandShotHandler {
     private static void setShotInfo(WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
                                     SpellModifiers.TargetType targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
-        shot.setDamage((int)WandProjectileHandler.getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
+        shot.setDamage((int)WandUtil.getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime(lifespan * 20);
         shot.setCanIgnite(wand.getCanIgnite());
-        shot.setKnockbackStrength(WandProjectileHandler.getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+        shot.setKnockbackStrength(WandUtil.getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setSpellType(spellType);

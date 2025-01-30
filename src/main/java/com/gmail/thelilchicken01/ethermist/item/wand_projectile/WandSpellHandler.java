@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,25 +21,24 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class WandSpellHandler {
 
-    public static void processWandModifiers(WandShotItem shotItem, LivingEntity target, Player player) {
+    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player) {
 
         switch (shotItem.getModifier()) {
             case FLAME_WAND -> {
                 target.setRemainingFireTicks(200);
             }
             case LEVITATION_WAND -> {
-                target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
+                if (target instanceof LivingEntity livingTarget) {
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
+                }
             }
             default -> {
             }
@@ -48,7 +46,7 @@ public class WandSpellHandler {
 
     }
 
-    public static void processSpells(Level level, @Nullable Player player, @Nullable LivingEntity target, @Nullable Vec3 hitPos, WandProjectile shot) {
+    public static void processSpells(Level level, @Nullable Player player, @Nullable Entity target, @Nullable Vec3 hitPos, WandProjectile shot) {
 
         if (!level.isClientSide()) {
 
@@ -92,7 +90,7 @@ public class WandSpellHandler {
                             common, // Regen
                             uncommon, // Resistance
                             common, // Haste
-                            legendary, // Instakill
+                            1000, // Cake
                             legendary, // Spawn Egg
                             legendary, // Duplicate Mob
                             uncommon, // Saturation
@@ -165,7 +163,9 @@ public class WandSpellHandler {
                                 }
                                 case 3 -> {
                                     player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
-                                    target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    if (target instanceof LivingEntity livingTarget) {
+                                        livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    }
                                 }
                                 case 4 ->
                                         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 * shot.spellLevel, 100 * shot.spellLevel));
@@ -175,7 +175,9 @@ public class WandSpellHandler {
                                         player.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 400 * shot.spellLevel));
                                 case 7 -> {
                                     player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
-                                    target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    if (target instanceof LivingEntity livingTarget) {
+                                        livingTarget.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    }
                                 }
                                 case 8 ->
                                         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 * shot.spellLevel, shot.spellLevel));
@@ -185,7 +187,9 @@ public class WandSpellHandler {
                                         player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 100 * shot.spellLevel, shot.spellLevel));
                                 case 11 -> {
                                     level.setBlock(BlockPos.containing(new Vec3(target.getX(), target.getY(), target.getZ())), Blocks.CAKE.defaultBlockState(), 3);
-                                    target.remove(Entity.RemovalReason.KILLED);
+                                    if (!(target instanceof Player)) {
+                                        target.kill();
+                                    }
                                 }
                                 case 12 -> {
                                     ResourceLocation id = ResourceLocation.bySeparator(target.getType().getDescriptionId(), '.');
@@ -208,9 +212,9 @@ public class WandSpellHandler {
                                     if (clone != null) {
                                         clone.moveTo(target.getX(), target.getY(), target.getZ(), target.getYRot(), target.getXRot());
                                         clone.setDeltaMovement(target.getDeltaMovement());
-                                        if (clone instanceof LivingEntity livingClone) {
-                                            livingClone.setHealth(target.getHealth());
-                                            for (MobEffectInstance effect : target.getActiveEffects()) {
+                                        if (clone instanceof LivingEntity livingClone && target instanceof LivingEntity livingTarget) {
+                                            livingClone.setHealth(livingTarget.getHealth());
+                                            for (MobEffectInstance effect : livingTarget.getActiveEffects()) {
                                                 livingClone.addEffect(effect);
                                             }
                                             level.addFreshEntity(livingClone);
@@ -258,7 +262,7 @@ public class WandSpellHandler {
 
     }
 
-    public static void processSpellTick(WandProjectile shot, int tick, List<? extends LivingEntity> target) {
+    public static void processSpellTick(WandProjectile shot, int tick, List<? extends Entity> target) {
 
         Level level = shot.level();
 
@@ -276,23 +280,9 @@ public class WandSpellHandler {
                     );
 
                     int range = (shot.spellLevel + 1) * 2;
-                    List<? extends LivingEntity> closeTargets = level.getEntitiesOfClass(shot.targetType.getTargetClass(), new AABB(
-                            shot.getX() - range,
-                            shot.getY() - range,
-                            shot.getZ() - range,
-                            shot.getX() + range,
-                            shot.getY() + range,
-                            shot.getZ() + range));
+                    List<Entity> closeTargets = WandUtil.getNearbyEntities(level, range, shot, shot.targetType.getTargetClass());
 
-                    closeTargets = closeTargets.stream()
-                            .filter(iterate ->
-                                    !iterate.isInvulnerable() &&
-                                            iterate.isAlive() &&
-                                            !iterate.isSpectator() &&
-                                            !(iterate instanceof Player player && player.isCreative()) &&
-                                            iterate.hasLineOfSight(shot))
-                            .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceToSqr(shot)))
-                            .toList();
+                    closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner());
 
                     if (!closeTargets.isEmpty()) {
                         closeTargets.getLast().hurt(damageSource, (float) shot.damage);

@@ -1,48 +1,39 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
 
 public class WandProjectileHandler {
 
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
-                                   @Nullable BlockPos pos, @Nullable LivingEntity clickedEntity) {
+                                   @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
-        int newLifespan = (int)getAttribute(thisWand, WandItem.LIFESPAN_ID);
-        float pSpeed = (float)getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
+        int newLifespan = (int)WandUtil.getAttribute(thisWand, WandItem.LIFESPAN_ID);
+        float pSpeed = (float)WandUtil.getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
 
         AtomicBoolean augmentedShot = new AtomicBoolean(false);
         AtomicBoolean isHoming = new AtomicBoolean(false);
@@ -104,8 +95,8 @@ public class WandProjectileHandler {
             shotStack = new ItemStack(wand.getShotItem());
         }
 
-        List<? extends LivingEntity> nearby = getNearbyEntities(level, newLifespan * 10, player, type.get().getTargetClass());
-        List<? extends LivingEntity> target = getClosestEntity(nearby, player);
+        List<Entity> nearby = WandUtil.getNearbyEntities(level, newLifespan * 10, player, type.get().getTargetClass());
+        List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null);
 
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
             if (!isRush.get()) {
@@ -172,8 +163,8 @@ public class WandProjectileHandler {
             if (!level.isClientSide()) {
                 RandomSource random = RandomSource.create();
 
-                double power = getAttribute(thisWand, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
-                double inaccuracy = 1 - getAttribute(thisWand, WandItem.ACCURACY_ID);
+                double power = WandUtil.getAttribute(thisWand, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
+                double inaccuracy = 1 - WandUtil.getAttribute(thisWand, WandItem.ACCURACY_ID);
 
                 Vec3 launch = player.getLookAngle();
 
@@ -192,11 +183,11 @@ public class WandProjectileHandler {
             }
         }
 
-        player.getCooldowns().addCooldown(wand, (int) (getAttribute(thisWand, WandItem.COOLDOWN_ID) * 20));
+        player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(thisWand, WandItem.COOLDOWN_ID) * 20));
 
     }
 
-    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot) {
+    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos) {
 
         if(shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
 
@@ -214,15 +205,15 @@ public class WandProjectileHandler {
         if (!(target == shooter)) {
             switch (shot.targetType) {
                 case SpellModifiers.TargetType.MONSTERS -> {
-                    damaged = target instanceof Monster &&
+                    damaged = !(target instanceof Monster) &&
                             target.hurt(damageSource, (float) shot.damage);
                 }
                 case SpellModifiers.TargetType.ANIMALS -> {
-                    damaged = target instanceof Animal &&
+                    damaged = !(target instanceof Animal) &&
                             target.hurt(damageSource, (float) shot.damage);
                 }
                 case SpellModifiers.TargetType.PLAYERS -> {
-                    damaged = target instanceof Player &&
+                    damaged = !(target instanceof Player) &&
                             target.hurt(damageSource, (float) shot.damage);
                 }
                 default -> {
@@ -234,32 +225,37 @@ public class WandProjectileHandler {
             damaged = false;
         }
 
-        if(damaged && target instanceof LivingEntity livingTarget) {
+        if(damaged) {
 
             // Knockback Math
             if (shot.knockbackStrength != 0) {
                 Vec3 vec = shot.getDeltaMovement().multiply(1, 0, 1).normalize().scale(shot.knockbackStrength);
                 if (vec.lengthSqr() > 0) {
-                    livingTarget.push(vec.x, 0.1, vec.z);
+                    target.push(vec.x, 0.1, vec.z);
                 }
             }
 
             // Wand Specific Modifiers
             if(shooter instanceof Player player) {
-                WandSpellHandler.processWandModifiers(shotItem, livingTarget, player);
-                WandSpellHandler.processSpells(level, player, livingTarget, null, shot);
+                WandSpellHandler.processWandModifiers(shotItem, target, player);
+                WandSpellHandler.processSpells(level, player, target, hitPos, shot);
             }
 
         }
-        else if (!damaged) target.invulnerableTime = lastHurtResistant;
+        else {
+            target.invulnerableTime = lastHurtResistant;
+        }
 
     }
 
-    public static void processHit(Level level, Vec3 pos, HitResult result, WandProjectile shot) {
+    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot) {
 
         if (result.getType() == HitResult.Type.ENTITY) {
             EntityHitResult entityResult = (EntityHitResult) result;
-            WandSpellHandler.processSpells(level, null, entityResult.getEntity(), pos, shot);
+            Entity target = entityResult.getEntity();
+            WandShotItem shotItem = (WandShotItem) shot.getItem().getItem();
+
+            processHitEntity(level, shooter, target, shotItem, shot, pos);
         }
 
         if (!level.isClientSide() && (!shot.noPhysics || result.getType() != HitResult.Type.BLOCK)) {
@@ -269,7 +265,7 @@ public class WandProjectileHandler {
     }
 
     public static void processTick(WandProjectile shot, double threshold, int ticksSinceFired, int tick,
-                                   List<? extends LivingEntity> target) {
+                                   List<? extends Entity> target) {
 
         if (!shot.level().isClientSide() && (ticksSinceFired > shot.lifetime ||
                 (shot.getDeltaMovement().lengthSqr() < threshold && shot.spellType != SpellModifiers.SpellType.VOLATILE_ENERGY))) {
@@ -280,9 +276,9 @@ public class WandProjectileHandler {
 
         if (!shot.level().isClientSide() && ticksSinceFired > 5 && shot.isHoming) {
 
-            for (LivingEntity entity : target) {
+            for (Entity entity : target) {
 
-                if (!entity.isDeadOrDying()) {
+                if (entity.isAlive()) {
                     Vec3 currentPos = shot.getPosition(1.0f);
                     Vec3 targetPos = entity.getPosition(1.0f).add(0.0, entity.getEyeHeight() * 0.5, 0.0);
                     Vec3 newVector = targetPos.subtract(currentPos).normalize();
@@ -294,39 +290,6 @@ public class WandProjectileHandler {
 
         }
 
-    }
-
-    public static double getAttribute(ItemStack wandItem, ResourceLocation attributeID) {
-        List<ItemAttributeModifiers.Entry> modifiers = wandItem.getAttributeModifiers().modifiers();
-
-        for (ItemAttributeModifiers.Entry entries : modifiers) {
-            if (entries.modifier().is(attributeID)) {
-                return entries.modifier().amount();
-            }
-        }
-        return 0;
-    }
-
-    public static <T extends LivingEntity> List<T> getNearbyEntities(Level level, int range, Player player, Class<T> type) {
-        return level.getNearbyEntities(type, TargetingConditions.DEFAULT, player, new AABB(
-                player.getX() - range,
-                player.getY() - range,
-                player.getZ() - range,
-                player.getX() + range,
-                player.getY() + range,
-                player.getZ() + range));
-    }
-
-    public static List<? extends LivingEntity> getClosestEntity(List<? extends LivingEntity> entities, Player player) {
-        return entities.stream().filter(iterate ->
-                        player.hasLineOfSight(iterate) &&
-                                !iterate.isInvulnerable() &&
-                                iterate.distanceTo(player) < 24 &&
-                                iterate.isAlive() &&
-                                !(iterate instanceof Player otherPlayer && otherPlayer.isCreative()) &&
-                                !iterate.isSpectator())
-                .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceTo(player)))
-                .collect(Collectors.toList());
     }
 
 }

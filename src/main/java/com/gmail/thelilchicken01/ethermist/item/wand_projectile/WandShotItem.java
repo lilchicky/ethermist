@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +21,7 @@ public class WandShotItem extends Item {
         super(new Item.Properties().stacksTo(1));
     }
 
-    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends LivingEntity> target) {
+    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends Entity> target) {
 
         WandProjectile shot = new WandProjectile(level, shooter, target);
 

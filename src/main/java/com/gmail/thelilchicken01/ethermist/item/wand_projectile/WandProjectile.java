@@ -32,7 +32,7 @@ public class WandProjectile extends Fireball {
     protected ParticleOptions trail = null;
     protected boolean canIgnite = false;
     protected boolean isHoming = false;
-    protected List<? extends LivingEntity> target;
+    protected List<? extends Entity> target;
     protected Player shooter = null;
     protected SpellModifiers.TargetType targetType = SpellModifiers.TargetType.ALL;
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
@@ -52,7 +52,7 @@ public class WandProjectile extends Fireball {
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
-    public WandProjectile(Level level, LivingEntity shooter, List<? extends LivingEntity> target) {
+    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
         if (shooter instanceof Player player) {
@@ -85,24 +85,9 @@ public class WandProjectile extends Fireball {
     }
 
     @Override
-    protected void onHitEntity(EntityHitResult result) {
-        super.onHitEntity(result);
-
-        if (!level().isClientSide()) {
-
-            Entity target = result.getEntity();
-            Entity shooter = getOwner();
-            WandShotItem shot = (WandShotItem) getItem().getItem();
-
-            WandProjectileHandler.processHitEntity(level(), shooter, target, shot, this);
-
-        }
-    }
-
-    @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandProjectileHandler.processHit(level(),  result.getLocation(), result, this);
+        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this);
     }
 
     // Math courtesy of Guns n Roses

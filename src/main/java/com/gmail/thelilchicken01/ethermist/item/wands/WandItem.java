@@ -28,6 +28,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -117,7 +118,7 @@ public class WandItem extends Item {
         return 0;
     }
     public int getSpellDamage() {
-        return 2;
+        return 4;
     }
     public float getInaccuracy() {
         return 0.0f;
