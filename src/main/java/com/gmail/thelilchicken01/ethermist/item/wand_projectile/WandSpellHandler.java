@@ -1,10 +1,15 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -17,10 +22,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class WandSpellHandler {
 
@@ -155,8 +164,8 @@ public class WandSpellHandler {
                                             level.getRandom().nextFloat() * 0.4f + 0.8f);
                                 }
                                 case 3 -> {
-                                        player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
-                                        target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
+                                    target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * shot.spellLevel, 2 * shot.spellLevel));
                                 }
                                 case 4 ->
                                         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 * shot.spellLevel, 100 * shot.spellLevel));
@@ -165,8 +174,8 @@ public class WandSpellHandler {
                                 case 6 ->
                                         player.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 400 * shot.spellLevel));
                                 case 7 -> {
-                                        player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
-                                        target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
+                                    target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * shot.spellLevel));
                                 }
                                 case 8 ->
                                         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 * shot.spellLevel, shot.spellLevel));
@@ -208,7 +217,8 @@ public class WandSpellHandler {
                                         }
                                     }
                                 }
-                                case 14 -> player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 10 * shot.spellLevel));
+                                case 14 ->
+                                        player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 10 * shot.spellLevel));
                                 case 15 -> {
                                     level.explode(
                                             null,
@@ -246,6 +256,66 @@ public class WandSpellHandler {
             }
         }
 
+    }
+
+    public static void processSpellTick(WandProjectile shot, int tick, List<? extends LivingEntity> target) {
+
+        Level level = shot.level();
+
+        switch (shot.spellType) {
+
+            case VOLATILE_ENERGY -> {
+
+                if (tick % 2 == 0 && shot.shooter != null) {
+
+                    DamageSource damageSource = new DamageSource(
+                            level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(shot.damageType),
+                            shot,
+                            shot.shooter,
+                            null
+                    );
+
+                    int range = (shot.spellLevel + 1) * 2;
+                    List<? extends LivingEntity> closeTargets = level.getEntitiesOfClass(shot.targetType.getTargetClass(), new AABB(
+                            shot.getX() - range,
+                            shot.getY() - range,
+                            shot.getZ() - range,
+                            shot.getX() + range,
+                            shot.getY() + range,
+                            shot.getZ() + range));
+
+                    closeTargets = closeTargets.stream()
+                            .filter(iterate ->
+                                    !iterate.isInvulnerable() &&
+                                            iterate.isAlive() &&
+                                            !iterate.isSpectator() &&
+                                            !(iterate instanceof Player player && player.isCreative()) &&
+                                            iterate.hasLineOfSight(shot))
+                            .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceToSqr(shot)))
+                            .toList();
+
+                    if (!closeTargets.isEmpty()) {
+                        closeTargets.getLast().hurt(damageSource, (float) shot.damage);
+                        drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) level);
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    /*
+    ---------- Helper Methods ----------
+     */
+
+    private static void drawLine(Vec3 start, Vec3 end, ServerLevel level) {
+        int num = 24;
+        Vec3 step = end.subtract(start).scale(1.0 / num);
+        for (int x = 0; x <= num; x++) {
+            Vec3 pos = start.add(step.scale(x));
+            level.sendParticles(EMParticleTypes.VOLATILE_ENERGY_TETHER.get(), pos.x, pos.y, pos.z, 1, 0, 0, 0, 0);
+        }
     }
 
 }

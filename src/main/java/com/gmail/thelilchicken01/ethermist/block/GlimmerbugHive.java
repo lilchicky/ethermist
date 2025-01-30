@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -35,7 +34,7 @@ public class GlimmerbugHive extends Block {
             blockpos$mutableblockpos.set(i + Mth.nextInt(rand, -10, 10), j - rand.nextInt(10), k + Mth.nextInt(rand, -10, 10));
             BlockState blockstate = level.getBlockState(blockpos$mutableblockpos);
             if (!blockstate.isCollisionShapeFullBlock(level, blockpos$mutableblockpos)) {
-                level.addParticle(EMParticleTypes.GILMMERBUG_AIR.get(), (double)blockpos$mutableblockpos.getX() + rand.nextDouble(), (double)blockpos$mutableblockpos.getY() + rand.nextDouble(), (double)blockpos$mutableblockpos.getZ() + rand.nextDouble(), (double)0.0F, (double)0.0F, (double)0.0F);
+                level.addParticle(EMParticleTypes.GLIMMERBUG_AIR.get(), (double)blockpos$mutableblockpos.getX() + rand.nextDouble(), (double)blockpos$mutableblockpos.getY() + rand.nextDouble(), (double)blockpos$mutableblockpos.getZ() + rand.nextDouble(), (double)0.0F, (double)0.0F, (double)0.0F);
             }
         }
 

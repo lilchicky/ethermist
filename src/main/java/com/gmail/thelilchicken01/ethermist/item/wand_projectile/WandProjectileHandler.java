@@ -24,6 +24,7 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
@@ -83,6 +84,10 @@ public class WandProjectileHandler {
                 isRush.set(true);
                 augmentedShot.set(true);
             }
+            if (enchantHolder.is(EMEnchantments.VOLATILE_ENERGY.location())) {
+                spellType.set(SpellModifiers.SpellType.VOLATILE_ENERGY);
+                spellLevel.set(enchantLevel);
+            }
         });
 
         WandShotItem shotItem;
@@ -99,30 +104,13 @@ public class WandProjectileHandler {
             shotStack = new ItemStack(wand.getShotItem());
         }
 
-        List<? extends LivingEntity> target;
-        switch (type.get()) {
-            case SpellModifiers.TargetType.MONSTERS -> {
-                List<Monster> nearbyEntities = getNearbyEntities(level, newLifespan * 10, player, Monster.class);
-                target = getClosestEntity(nearbyEntities, Monster.class, player);
-            }
-            case SpellModifiers.TargetType.ANIMALS -> {
-                List<Animal> nearbyEntities = getNearbyEntities(level, newLifespan * 10, player, Animal.class);
-                target = getClosestEntity(nearbyEntities, Animal.class, player);
-            }
-            case SpellModifiers.TargetType.PLAYERS -> {
-                List<Player> nearbyEntities = getNearbyEntities(level, newLifespan * 10, player, Player.class);
-                target = getClosestEntity(nearbyEntities, Player.class, player);
-            }
-            default -> {
-                List<LivingEntity> nearbyEntities = getNearbyEntities(level, newLifespan * 10, player, LivingEntity.class);
-                target = getClosestEntity(nearbyEntities, LivingEntity.class, player);
-            }
-        }
+        List<? extends LivingEntity> nearby = getNearbyEntities(level, newLifespan * 10, player, type.get().getTargetClass());
+        List<? extends LivingEntity> target = getClosestEntity(nearby, player);
 
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
             if (!isRush.get()) {
                 if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
-                    if (target != null && !target.isEmpty()) {
+                    if (!target.isEmpty()) {
                         WandShotHandler.shootSplit(level, player, List.of(target.getLast()), pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
                                 enchantLevel, isHoming.get(), type.get(), spellType.get(), spellLevel.get());
                     } else {
@@ -216,7 +204,7 @@ public class WandProjectileHandler {
         target.invulnerableTime = 0;
 
         DamageSource damageSource = new DamageSource(
-                level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.GENERIC_MAGIC),
+                level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(shot.damageType),
                 shot,
                 shooter,
                 null
@@ -267,24 +255,30 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHit(Level level, Vec3 pos, HitResult.Type type, WandProjectile shot) {
+    public static void processHit(Level level, Vec3 pos, HitResult result, WandProjectile shot) {
 
-        WandSpellHandler.processSpells(level, null, null, pos, shot);
+        if (result.getType() == HitResult.Type.ENTITY) {
+            EntityHitResult entityResult = (EntityHitResult) result;
+            WandSpellHandler.processSpells(level, null, entityResult.getEntity(), pos, shot);
+        }
 
-        if (!level.isClientSide() && (!shot.noPhysics || type != HitResult.Type.BLOCK)) {
+        if (!level.isClientSide() && (!shot.noPhysics || result.getType() != HitResult.Type.BLOCK)) {
             shot.remove(Entity.RemovalReason.KILLED);
         }
 
     }
 
-    public static void processTick(WandProjectile shot, double threshold, int ticksSinceFired, int counter,
+    public static void processTick(WandProjectile shot, double threshold, int ticksSinceFired, int tick,
                                    List<? extends LivingEntity> target) {
 
-        if (ticksSinceFired > shot.lifetime || shot.getDeltaMovement().lengthSqr() < threshold) {
+        if (!shot.level().isClientSide() && (ticksSinceFired > shot.lifetime ||
+                (shot.getDeltaMovement().lengthSqr() < threshold && shot.spellType != SpellModifiers.SpellType.VOLATILE_ENERGY))) {
             shot.remove(Entity.RemovalReason.KILLED);
         }
 
-        if (ticksSinceFired > 5 && shot.isHoming) {
+        WandSpellHandler.processSpellTick(shot, tick, target);
+
+        if (!shot.level().isClientSide() && ticksSinceFired > 5 && shot.isHoming) {
 
             for (LivingEntity entity : target) {
 
@@ -323,9 +317,14 @@ public class WandProjectileHandler {
                 player.getZ() + range));
     }
 
-    public static <T extends LivingEntity> List<T> getClosestEntity(List<T> entities, Class<T> type, Player player) {
+    public static List<? extends LivingEntity> getClosestEntity(List<? extends LivingEntity> entities, Player player) {
         return entities.stream().filter(iterate ->
-                        player.hasLineOfSight(iterate) && !iterate.isInvulnerable() && iterate.distanceTo(player) < 24)
+                        player.hasLineOfSight(iterate) &&
+                                !iterate.isInvulnerable() &&
+                                iterate.distanceTo(player) < 24 &&
+                                iterate.isAlive() &&
+                                !(iterate instanceof Player otherPlayer && otherPlayer.isCreative()) &&
+                                !iterate.isSpectator())
                 .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceTo(player)))
                 .collect(Collectors.toList());
     }

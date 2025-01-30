@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.particle;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.mojang.serialization.Decoder;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
@@ -13,8 +12,15 @@ public class EMParticleTypes {
 
     public static final DeferredRegister<ParticleType<?>> EM_PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, Ethermist.MODID);
 
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GILMMERBUG_AIR = EM_PARTICLE_TYPES.register(
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GLIMMERBUG_AIR = EM_PARTICLE_TYPES.register(
             "glimmerbug_air", () -> new SimpleParticleType(false));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> VOLATILE_ENERGY_TETHER = EM_PARTICLE_TYPES.register(
+            "volatile_energy_tether", () -> new SimpleParticleType(false));
+
+    // Wand Trail Particles
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GENERIC_TRAIL = EM_PARTICLE_TYPES.register(
+            "generic_trail", () -> new SimpleParticleType(false));
 
     public static void register (IEventBus bus) {
         EM_PARTICLE_TYPES.register(bus);

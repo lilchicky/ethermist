@@ -12,17 +12,6 @@ import java.util.Optional;
 
 public class EMSuspendedParticle extends TextureSheetParticle {
 
-    protected EMSuspendedParticle(ClientLevel level, SpriteSet sprites, double x, double y, double z) {
-        super(level, x, y - 0.125, z);
-        this.setSize(0.01F, 0.01F);
-        this.pickSprite(sprites);
-        this.quadSize = this.quadSize * (this.random.nextFloat() * 0.6F + 0.2F);
-        this.lifetime = (int)(16.0 / (Math.random() * 0.8 + 0.2));
-        this.hasPhysics = false;
-        this.friction = 1.0F;
-        this.gravity = 0.0F;
-    }
-
     EMSuspendedParticle(
             ClientLevel level, SpriteSet sprites, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed
     ) {

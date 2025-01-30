@@ -1,12 +1,19 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -15,6 +22,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Random;
 
 public class WandProjectile extends Fireball {
 
@@ -25,14 +33,15 @@ public class WandProjectile extends Fireball {
     protected boolean canIgnite = false;
     protected boolean isHoming = false;
     protected List<? extends LivingEntity> target;
+    protected Player shooter = null;
     protected SpellModifiers.TargetType targetType = SpellModifiers.TargetType.ALL;
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
     protected int spellLevel = 0;
+    protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
 
     private int ticksSinceFired = 0;
-    private int counter = 0;
 
-    private static final double STOP_THRESHOLD = 0.01;
+    private static final double STOP_THRESHOLD = 0.00001;
 
     public WandProjectile(EntityType<? extends Fireball> entityType, Level level) {
         super(entityType, level);
@@ -46,6 +55,9 @@ public class WandProjectile extends Fireball {
     public WandProjectile(Level level, LivingEntity shooter, List<? extends LivingEntity> target) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
+        if (shooter instanceof Player player) {
+            this.shooter = player;
+        }
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
@@ -62,12 +74,14 @@ public class WandProjectile extends Fireball {
 
         super.tick();
 
-        if(!this.level().isClientSide()) {
-            ticksSinceFired++;
-            counter++;
-            WandProjectileHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, counter, target);
-        }
+        ticksSinceFired++;
+        WandProjectileHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, this.tickCount, target);
 
+        if (this.level() instanceof ServerLevel level && this.trail != null) {
+            Random random = new Random();
+            level.sendParticles(this.trail, this.getX(), this.getY() + (this.getEyeHeight() * 0.5), this.getZ(), 1,
+                    (random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1, 1);
+        }
     }
 
     @Override
@@ -88,7 +102,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandProjectileHandler.processHit(level(),  result.getLocation(), result.getType(), this);
+        WandProjectileHandler.processHit(level(),  result.getLocation(), result, this);
     }
 
     // Math courtesy of Guns n Roses
@@ -159,6 +173,14 @@ public class WandProjectile extends Fireball {
 
     public void setSpellLevel(int spellLevel) {
         this.spellLevel = spellLevel;
+    }
+
+    public void setDamageType(ResourceKey<DamageType> damageType) {
+        this.damageType = damageType;
+    }
+
+    public void setTrail(@Nullable ParticleOptions trail) {
+        this.trail = trail;
     }
 
 }

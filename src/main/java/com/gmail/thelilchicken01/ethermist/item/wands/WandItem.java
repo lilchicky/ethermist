@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
+import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
@@ -8,11 +9,15 @@ import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.*;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -21,6 +26,8 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -130,6 +137,12 @@ public class WandItem extends Item {
     public WandShotItem getShotItem() {
         return EMItems.GENERIC_SHOT.get();
     }
+    public ResourceKey<DamageType> getDamageType() {
+        return EMDamageTypes.GENERIC_MAGIC;
+    }
+    public ParticleOptions getTrail() {
+        return EMParticleTypes.GENERIC_TRAIL.get();
+    }
 
     @Override
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
@@ -148,6 +161,7 @@ public class WandItem extends Item {
         AtomicBoolean isSprayLocal = new AtomicBoolean(false);
         AtomicBoolean isChaosMagic = new AtomicBoolean(false);
         AtomicBoolean isThunderstrike = new AtomicBoolean(false);
+        AtomicBoolean isVolatileEnergy = new AtomicBoolean(false);
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
@@ -182,15 +196,16 @@ public class WandItem extends Item {
             if (enchantHolder.is(EMEnchantments.THUNDERSTRIKE.location())) {
                 isThunderstrike.set(true);
             }
-
+            if (enchantHolder.is(EMEnchantments.VOLATILE_ENERGY.location())) {
+                isVolatileEnergy.set(true);
+            }
         });
+
+        // Augment Modifiers
         if (isMeteorLocal.get()) {
             newDamage.set(newDamage.get() * 3);
             newLifespan.set(newLifespan.get() * 2);
             newAccuracy.set(newAccuracy.get() * 0.1);
-        }
-        if (isChaosMagic.get()) {
-            newDamage.set(newDamage.get() * chaosMagicLevel.get());
         }
         if (isSprayLocal.get()) {
             newDamage.set(newDamage.get() / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
@@ -201,6 +216,11 @@ public class WandItem extends Item {
             newPSpeed.set(newPSpeed.get() * 0.5);
             newCD.set(5);
         }
+
+        // Spell Modifiers
+        if (isChaosMagic.get()) {
+            newDamage.set(newDamage.get() * chaosMagicLevel.get());
+        }
         if (isThunderstrike.get()) {
             if (isSprayLocal.get()) {
                 newCD.set(40);
@@ -209,7 +229,11 @@ public class WandItem extends Item {
                 newCD.set(newCD.get() * 3);
             }
         }
+        if (isVolatileEnergy.get()) {
+            newDamage.set(newDamage.get() * 0.5);
+        }
 
+        // Set Attributes
         builder.add(
                 EMAttributes.PROJECTILE_SPEED,
                 new AttributeModifier(

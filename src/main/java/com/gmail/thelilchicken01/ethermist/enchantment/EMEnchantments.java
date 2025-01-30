@@ -36,6 +36,7 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> CHAOS_MAGIC = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"));
     public static final ResourceKey<Enchantment> THUNDERSTRIKE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"));
     public static final ResourceKey<Enchantment> KINETIC_RUSH = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"));
+    public static final ResourceKey<Enchantment> VOLATILE_ENERGY = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -279,6 +280,19 @@ public class EMEnchantments {
                         items.getOrThrow(EMTags.Items.WANDS),
                         1,
                         1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(mainSpellColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+        );
+
+        register(context, VOLATILE_ENERGY, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        1,
+                        3,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
                         2,

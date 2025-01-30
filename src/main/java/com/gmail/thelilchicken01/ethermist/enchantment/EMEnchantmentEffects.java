@@ -58,6 +58,8 @@ public class EMEnchantmentEffects {
             () -> ThunderstrikeEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> KINETIC_RUSH = ENCH_VALUE_EFFECTS.register("kinetic_rush",
             () -> KineticRushEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> VOLATILE_ENERGY = ENCH_VALUE_EFFECTS.register("volatile_energy",
+            () -> VolatileEnergyEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         ENCH_VALUE_EFFECTS.register(bus);

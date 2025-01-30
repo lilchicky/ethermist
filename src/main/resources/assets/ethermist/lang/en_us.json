@@ -111,8 +111,8 @@
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
 
-  "item.ethermist.orb_description.line_1": "Combine with a wand handle or another wand",
-  "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a wand of this type.",
+  "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
+  "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
   "item.ethermist.dull_orb": "Dull Orb",
   "item.ethermist.dull_orb.desc": "Doesn't seem to do much.",
   "item.ethermist.flame_orb": "Flame Orb",
@@ -136,7 +136,7 @@
   "attribute.ethermist.wand.wand_accuracy": "Accuracy",
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
-  "item.ethermist.flame_wand.desc": "Ignites entities hit for a long time.",
+  "item.ethermist.flame_wand.desc": "Ignites entities hit.",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -175,6 +175,8 @@
   "enchantment.ethermist.thunderstrike.desc": "Call lightning down upon your foes.",
   "enchantment.ethermist.kinetic_rush": "Kinetic Rush",
   "enchantment.ethermist.kinetic_rush.desc": "Converts damage to forward momentum.",
+  "enchantment.ethermist.volatile_energy": "Volatile Energy",
+  "enchantment.ethermist.volatile_energy.desc": "Lower damage projectiles now lash out at nearby mobs.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

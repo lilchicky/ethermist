@@ -205,6 +205,8 @@ public class WandShotHandler {
         shot.setTargetType(targetType);
         shot.setSpellType(spellType);
         shot.setSpellLevel(spellLevel);
+        shot.setDamageType(wand.getDamageType());
+        shot.setTrail(wand.getTrail());
 
     }
 
