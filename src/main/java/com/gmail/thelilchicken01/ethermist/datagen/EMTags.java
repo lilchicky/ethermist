@@ -37,6 +37,8 @@ public class EMTags {
 
     public static final class Enchantments {
 
+        public static final TagKey<Enchantment> WAND_ENCHANTMENTS = mod("wand_enchantments");
+
         public static final TagKey<Enchantment> MAIN_DAMAGE_SPELLS = mod("main_damage_spells");
         public static final TagKey<Enchantment> AUGMENT_SPELLS = mod("augment_spells");
         public static final TagKey<Enchantment> EXCLUDE_SPELLS = mod("focus_spells");

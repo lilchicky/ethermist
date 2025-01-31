@@ -2,8 +2,11 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.TomeItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -11,7 +14,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -19,7 +26,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.util.ObfuscationReflectionHelper;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.AnvilUpdateEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
+import net.neoforged.neoforge.event.entity.player.AnvilRepairEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -29,6 +39,7 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -108,6 +119,26 @@ public class EMCommonEvents {
 
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onAnvilUpdate(AnvilUpdateEvent event) {
+        ItemStack left = event.getLeft();
+        ItemStack right = event.getRight();
+
+        if (left.getItem() instanceof TomeItem && right.getItem() == Items.ENCHANTED_BOOK) {
+
+            ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(right));
+            ItemStack newBook = right.copy();
+
+            EnchantmentHelper.setEnchantments(newBook, enchantments.toImmutable());
+
+            event.setOutput(newBook);
+            event.setCost(Math.max(1, event.getCost()));
+            event.setMaterialCost(1);
+
+        }
+
     }
 
 }

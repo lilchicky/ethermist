@@ -1,12 +1,16 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 
 import java.util.List;
 
 public class TomeItem extends BookItem {
+
     public TomeItem() {
         super(new Item.Properties());
     }

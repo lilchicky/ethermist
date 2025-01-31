@@ -20,51 +20,70 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
-        tag(EnchantmentTags.IN_ENCHANTING_TABLE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "arcane_velocity"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "quick_cast"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "enduring_magic"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "runic_power"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_power"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "stable_orb"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_monsters"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_animals"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_players"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "seismic_surge"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+        addBaseEnchantment("arcane_velocity");
+        addBaseEnchantment("quick_cast");
+        addBaseEnchantment("enduring_magic");
+        addBaseEnchantment("runic_power");
+        addBaseEnchantment("ancient_power");
+        addBaseEnchantment("stable_orb");
 
-        tag(EnchantmentTags.TREASURE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_homing"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"));
+        addAugmentEnchantment("augment_split", true);
+        addAugmentEnchantment("augment_aoe", true);
+        addAugmentEnchantment("augment_spray", true);
+        addAugmentEnchantment("augment_meteor", true);
+        addAugmentEnchantment("augment_abundance", false);
+        addTreasureAugmentEnchantment("augment_homing", false);
 
-        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "fireball"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "chaos_magic"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "thunderstrike"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "kinetic_rush"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "seismic_surge"));
+        addExcludeEnchantment("exclude_monsters");
+        addExcludeEnchantment("exclude_animals");
+        addExcludeEnchantment("exclude_players");
 
-        tag(EMTags.Enchantments.EXCLUDE_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_monsters"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_animals"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_players"));
+        addMainEnchantment("fireball");
+        addMainEnchantment("thunderstrike");
+        addMainEnchantment("kinetic_rush");
+        addMainEnchantment("volatile_energy");
+        addMainEnchantment("seismic_surge");
+        addTreasureMainEnchantment("chaos_magic");
 
-        tag(EMTags.Enchantments.AUGMENT_SPELLS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_split"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
+    }
 
+    private void addMainEnchantment(String ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    }
 
+    private void addExcludeEnchantment(String ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.EXCLUDE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    }
+
+    private void addAugmentEnchantment(String ench, boolean exclusive) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        if (!exclusive) {
+            tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        }
+    }
+
+    private void addTreasureMainEnchantment(String ench) {
+        tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    }
+
+    private void addTreasureAugmentEnchantment(String ench, boolean exclusive) {
+        tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        if (!exclusive) {
+            tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        }
+    }
+
+    private void addBaseEnchantment(String ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
     }
 
 }
