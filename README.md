@@ -1,25 +1,31 @@
 
-Installation information
+Welcome to the Ethermist!
 =======
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+The Ethermist is both a dimension mod and a magic mod. The main features are two fold:
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+1. A magic system using Minecraft's enchanting system. Find Orbs in the world (any dimension!) that can be crafted
+    into a wand with effects dependent on the orb. You can then enchant your wand with a few types of enchantments:
+    Base enchantments that change the wand stats, Augment enchantments that change how the wand shoots, Exclusion
+    enchantments that filter what you can hit, and Main enchantments. These main enchantments are the "spice" of the mod,
+    seriously affecting how your wand behaves - the Fireball enchantment, for example, turns your projectiles into a big
+    explosion.
+2. A new dimension, the Ethermist. This dimension serves as a mystical, mysterious place full of new blocks, structures, 
+    and cool new bosses to use your new magical wands on. You can get here by building a portal out of Ethermist blocks found
+    in structures scattered around the Overworld, and ignite it using any wand.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
+Installation
 ============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+The mod will be installable on both Modrinth and CurseForge when it is released. There are currently no dependencies.
 
-Additional Resources: 
+Wiki 
 ==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+After the mod is officially released, I will begin work on a wiki to help out with enchantments and info on new mobs,
+especially bosses and their mechanics.
+
+Issues
+======
+Please report all issues to the GitHub issue tracker. I will do my best to work out any incompatibilities with other mods,
+but I will most likely not see these if they are posted in comments.
+
+If this mod actually becomes popular enough, I will consider backports and ports to other modloaders.
