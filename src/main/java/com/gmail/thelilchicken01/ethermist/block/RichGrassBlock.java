@@ -32,7 +32,7 @@ public class RichGrassBlock extends SpreadingSnowyDirtBlock {
     private static boolean canBeGrass(BlockState state, LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = levelReader.getBlockState(blockpos);
-        if (blockstate.is(Blocks.SNOW) && (Integer)blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
+        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else if (blockstate.getFluidState().getAmount() == 8) {
             return false;

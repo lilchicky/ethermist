@@ -12,9 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class FlammableGlimmerbugBlocks extends EMFlammableRotatedPillarBlock {
 
     public FlammableGlimmerbugBlocks() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).emissiveRendering((state, getter, pos) -> {
-            return false;
-        }).lightLevel((state) -> 12));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).lightLevel((state) -> 12));
     }
 
     @Override
@@ -22,9 +20,6 @@ public class FlammableGlimmerbugBlocks extends EMFlammableRotatedPillarBlock {
         int i = pos.getX();
         int j = pos.getY();
         int k = pos.getZ();
-        double d0 = (double)i + rand.nextDouble();
-        double d1 = (double)j + 0.7;
-        double d2 = (double)k + rand.nextDouble();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
         for(int l = 0; l < 14; ++l) {

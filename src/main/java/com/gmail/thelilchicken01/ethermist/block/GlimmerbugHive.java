@@ -14,9 +14,8 @@ public class GlimmerbugHive extends Block {
 
     public GlimmerbugHive() {
 
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.SHROOMLIGHT).emissiveRendering((state, getter, pos) -> {
-            return true;
-        }).lightLevel((state) -> 15));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.SHROOMLIGHT).emissiveRendering((state, getter, pos) -> true)
+                .lightLevel((state) -> 15));
 
     }
 
@@ -25,9 +24,6 @@ public class GlimmerbugHive extends Block {
         int i = pos.getX();
         int j = pos.getY();
         int k = pos.getZ();
-        double d0 = (double)i + rand.nextDouble();
-        double d1 = (double)j + 0.7;
-        double d2 = (double)k + rand.nextDouble();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
         for(int l = 0; l < 14; ++l) {

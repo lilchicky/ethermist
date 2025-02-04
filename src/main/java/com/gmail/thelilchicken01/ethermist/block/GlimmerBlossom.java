@@ -15,9 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GlimmerBlossom extends FlowerBlock {
 
     public GlimmerBlossom() {
-        super(MobEffects.GLOWING, 15, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY).emissiveRendering((state, getter, pos) -> {
-            return true;
-        }).lightLevel((state) -> 8));
+        super(MobEffects.GLOWING, 15, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY).emissiveRendering((state, getter, pos) -> true).lightLevel((state) -> 8));
     }
 
 }
