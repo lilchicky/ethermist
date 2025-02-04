@@ -11,4 +11,8 @@ public class EMDamageTypes {
             Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "generic_damage")
     );
 
+    public static final ResourceKey<DamageType> ICICLE = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "icicle")
+    );
+
 }

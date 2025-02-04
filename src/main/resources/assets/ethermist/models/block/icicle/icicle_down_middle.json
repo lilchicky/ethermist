@@ -1,0 +1,6 @@
+{
+  "parent": "ethermist:block/icicle/icicle",
+  "textures": {
+    "cross": "ethermist:block/icicle/icicle_down_middle"
+  }
+}

@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-04T03:17:09.3836859	Loot Tables
+// 1.21.1	2025-02-04T04:47:56.4385719	Loot Tables
 21d670ae1fa81407116f0de0cfca19ce9913cdae data/ethermist/loot_table/blocks/ancient_button.json
 8e7a8ca4b51d3e38cf7e0d7bff0245204c24d924 data/ethermist/loot_table/blocks/ancient_door.json
 ebda84777ce5cc739f00fe65390d725469830943 data/ethermist/loot_table/blocks/ancient_fence.json
@@ -50,6 +50,7 @@ bed44d7bc6f693fcdf228ba0997deb18a2c7f119 data/ethermist/loot_table/blocks/frostp
 9e61cfbde581eb47c49050e0c553fd03b0cacc5c data/ethermist/loot_table/blocks/glimmerbug_hive.json
 4fc68e950b2933e2b814dd86989c04fd34621946 data/ethermist/loot_table/blocks/glimmer_blossom.json
 e8bb96dbabe75b7b9a9e7a481be3523950f8f636 data/ethermist/loot_table/blocks/glimmer_blossom_flower_pot.json
+5230f096c5db60c6f35c68b117599100b035b78f data/ethermist/loot_table/blocks/icicle.json
 c334aa0caa5a7b9df10e7ad29eda62183b6a5109 data/ethermist/loot_table/blocks/mist_gem_ore.json
 3a6b89b3e1876bfc0008decea90021917168a2d3 data/ethermist/loot_table/blocks/orange_abyssal_mushroom_stem.json
 da7dfed3b0e1462ddcccdcfb0cdb71234f48f553 data/ethermist/loot_table/blocks/orange_abyssal_mushroom_top.json

@@ -165,6 +165,8 @@ public class EMBlocks {
     public static final DeferredBlock<DoorBlock> CUBED_ABYSSAL_MUSHROOM_DOOR = registerBlock("cubed_abyssal_mushroom_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noOcclusion()));
     public static final DeferredBlock<TrapDoorBlock> CUBED_ABYSSAL_MUSHROOM_TRAPDOOR = registerBlock("cubed_abyssal_mushroom_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noOcclusion()));
 
+    // Misc
+    public static final DeferredBlock<Block> ICICLE = registerBlock("icicle", Icicle::new);
 
 
     // Unobtainable

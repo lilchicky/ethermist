@@ -17,6 +17,7 @@ public class EMDamageTypesProvider {
 
     public static void bootstrap(BootstrapContext<DamageType> context) {
         context.register(EMDamageTypes.GENERIC_MAGIC, new DamageType("generic_magic", 0.1f));
+        context.register(EMDamageTypes.ICICLE, new DamageType("icicle", 0.1f));
     }
 
 }

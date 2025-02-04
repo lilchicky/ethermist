@@ -152,6 +152,9 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
                 output.accept(EMBlocks.ETHERMIST_PORTAL);
 
+                // Misc
+                output.accept(EMBlocks.ICICLE);
+
             })
             .build());
 

@@ -194,6 +194,9 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.MIST_GEM_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.GENERIC_SHOT.get(), 1, 3));
 
+        // Misc
+        dropSelf(EMBlocks.ICICLE.get());
+
     }
 
     // By kaupenjoe
