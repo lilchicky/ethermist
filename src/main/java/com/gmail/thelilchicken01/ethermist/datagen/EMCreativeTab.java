@@ -144,6 +144,7 @@ public class EMCreativeTab {
                 // Plants
                 output.accept(EMBlocks.ANCIENT_SAPLING);
                 output.accept(EMBlocks.SLIMY_SAPLING);
+                output.accept(EMBlocks.FROSTPINE_SAPLING);
                 output.accept(EMBlocks.RICH_GRASS);
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);
 
