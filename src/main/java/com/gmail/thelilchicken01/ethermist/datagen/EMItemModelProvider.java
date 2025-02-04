@@ -43,6 +43,11 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.SLIMY_DOOR.asItem());
         saplingItem(EMBlocks.SLIMY_SAPLING);
 
+        fenceItem(EMBlocks.FROSTPINE_FENCE, EMBlocks.FROSTPINE_PLANKS);
+        buttonItem(EMBlocks.FROSTPINE_BUTTON, EMBlocks.FROSTPINE_PLANKS);
+        basicItem(EMBlocks.FROSTPINE_DOOR.asItem());
+        saplingItem(EMBlocks.FROSTPINE_SAPLING);
+
         fenceItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
         buttonItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());

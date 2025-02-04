@@ -87,6 +87,27 @@ public class EMBlocks {
     public static final DeferredBlock<DoorBlock> SLIMY_DOOR = registerBlock("slimy_door", () -> new DoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
     public static final DeferredBlock<TrapDoorBlock> SLIMY_TRAPDOOR = registerBlock("slimy_trapdoor", () -> new TrapDoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
 
+    // Frostpine Wood
+    public static final DeferredBlock<Block> FROSTPINE_LOG = registerBlock("frostpine_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> FROSTPINE_WOOD = registerBlock("frostpine_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_LOG = registerBlock("stripped_frostpine_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_WOOD = registerBlock("stripped_frostpine_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD)));
+
+    public static final DeferredBlock<Block> FROSTPINE_PLANKS = registerBlock("frostpine_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> FROSTPINE_LEAVES = registerBlock("frostpine_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).sound(SoundType.GLASS)));
+
+    public static final DeferredBlock<Block> FROSTPINE_SAPLING = registerBlock("frostpine_sapling", () -> new SaplingBlock(EMTreeGrowers.FROSTPINE_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<StairBlock> FROSTPINE_STAIRS = registerBlock("frostpine_stairs", () -> new StairBlock(EMBlocks.FROSTPINE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get())));
+    public static final DeferredBlock<SlabBlock> FROSTPINE_SLAB = registerBlock("frostpine_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get())));
+    public static final DeferredBlock<PressurePlateBlock> FROSTPINE_PRESSURE_PLATE = registerBlock("frostpine_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get())));
+    public static final DeferredBlock<ButtonBlock> FROSTPINE_BUTTON = registerBlock("frostpine_button", () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noCollission()));
+    public static final DeferredBlock<FenceBlock> FROSTPINE_FENCE = registerBlock("frostpine_fence", () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get())));
+    public static final DeferredBlock<FenceGateBlock> FROSTPINE_FENCE_GATE = registerBlock("frostpine_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get())));
+    public static final DeferredBlock<DoorBlock> FROSTPINE_DOOR = registerBlock("frostpine_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> FROSTPINE_TRAPDOOR = registerBlock("frostpine_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noOcclusion()));
+
+
     // Sparkling Sand
     public static final DeferredBlock<FallingBlock> SPARKLING_SAND = registerBlock("sparkling_sand", () -> new SparklingSand(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<Block> SPARKLING_SANDSTONE = registerBlock("sparkling_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));

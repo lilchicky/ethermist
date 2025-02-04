@@ -102,6 +102,26 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.SLIMY_DOOR.get()));
         dropSelf(EMBlocks.SLIMY_TRAPDOOR.get());
 
+        // Frostpine Wood
+        dropSelf(EMBlocks.FROSTPINE_LOG.get());
+        dropSelf(EMBlocks.STRIPPED_FROSTPINE_LOG.get());
+        dropSelf(EMBlocks.FROSTPINE_WOOD.get());
+        dropSelf(EMBlocks.STRIPPED_FROSTPINE_WOOD.get());
+        dropSelf(EMBlocks.FROSTPINE_PLANKS.get());
+        this.add(EMBlocks.FROSTPINE_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.FROSTPINE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(EMBlocks.FROSTPINE_SAPLING.get());
+        dropSelf(EMBlocks.FROSTPINE_STAIRS.get());
+        add(EMBlocks.FROSTPINE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.FROSTPINE_SLAB.get()));
+        dropSelf(EMBlocks.FROSTPINE_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.FROSTPINE_BUTTON.get());
+        dropSelf(EMBlocks.FROSTPINE_FENCE.get());
+        dropSelf(EMBlocks.FROSTPINE_FENCE_GATE.get());
+        add(EMBlocks.FROSTPINE_DOOR.get(),
+                block -> createDoorTable(EMBlocks.FROSTPINE_DOOR.get()));
+        dropSelf(EMBlocks.FROSTPINE_TRAPDOOR.get());
+
         // Sparkling Sand
         dropSelf(EMBlocks.SPARKLING_SAND.get());
         dropSelf(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get());

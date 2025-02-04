@@ -20,4 +20,7 @@ public class EMTreeGrowers {
     public static final TreeGrower ORANGE_ABYSSAL_MUSHROOM = new TreeGrower(Ethermist.MODID + ":orange_abyssal_mushroom",
             Optional.empty(), Optional.of(EMConfiguredFeatures.ORANGE_ABYSSAL_MUSHROOM_KEY), Optional.empty());
 
+    public static final TreeGrower FROSTPINE_TREE = new TreeGrower(Ethermist.MODID + ":frostpine_tree",
+            Optional.empty(), Optional.of(EMConfiguredFeatures.FROSTPINE_TREE_KEY), Optional.empty());
+
 }

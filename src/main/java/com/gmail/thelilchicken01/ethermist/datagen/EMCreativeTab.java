@@ -58,6 +58,22 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.SLIMY_PRESSURE_PLATE);
                 output.accept(EMBlocks.SLIMY_BUTTON);
 
+                // Frostpine Wood
+                output.accept(EMBlocks.FROSTPINE_LOG);
+                output.accept(EMBlocks.FROSTPINE_WOOD);
+                output.accept(EMBlocks.STRIPPED_FROSTPINE_LOG);
+                output.accept(EMBlocks.STRIPPED_FROSTPINE_WOOD);
+
+                output.accept(EMBlocks.FROSTPINE_PLANKS);
+                output.accept(EMBlocks.FROSTPINE_STAIRS);
+                output.accept(EMBlocks.FROSTPINE_SLAB);
+                output.accept(EMBlocks.FROSTPINE_FENCE);
+                output.accept(EMBlocks.FROSTPINE_FENCE_GATE);
+                output.accept(EMBlocks.FROSTPINE_DOOR);
+                output.accept(EMBlocks.FROSTPINE_TRAPDOOR);
+                output.accept(EMBlocks.FROSTPINE_PRESSURE_PLATE);
+                output.accept(EMBlocks.FROSTPINE_BUTTON);
+
                 // Abyssal Mushrooms
                 output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
                 output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);

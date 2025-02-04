@@ -108,6 +108,36 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_SLIMY_WOOD);
         blockItem(EMBlocks.SLIMY_SAPLING);
 
+        // Frostpine Wood
+        logBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_LOG.get());
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_LOG.get());
+        axisBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_WOOD.get(), blockTexture(EMBlocks.FROSTPINE_LOG.get()));
+        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), blockTexture(EMBlocks.STRIPPED_FROSTPINE_LOG.get()));
+
+        simpleBlock(EMBlocks.FROSTPINE_PLANKS);
+        leavesBlock(EMBlocks.FROSTPINE_LEAVES);
+        saplingBlock(EMBlocks.FROSTPINE_SAPLING);
+
+        stairsBlock(EMBlocks.FROSTPINE_STAIRS.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        slabBlock(EMBlocks.FROSTPINE_SLAB.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        buttonBlock(EMBlocks.FROSTPINE_BUTTON.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        pressurePlateBlock(EMBlocks.FROSTPINE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        fenceBlock(EMBlocks.FROSTPINE_FENCE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        fenceGateBlock(EMBlocks.FROSTPINE_FENCE_GATE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
+        doorBlockWithRenderType(EMBlocks.FROSTPINE_DOOR.get(), modLoc("block/frostpine_door_bottom"), modLoc("block/frostpine_door_top"), "cutout");
+        trapdoorBlockWithRenderType(EMBlocks.FROSTPINE_TRAPDOOR.get(), modLoc("block/frostpine_trapdoor"), true, "cutout");
+
+        blockItem(EMBlocks.FROSTPINE_STAIRS);
+        blockItem(EMBlocks.FROSTPINE_SLAB);
+        blockItem(EMBlocks.FROSTPINE_PRESSURE_PLATE);
+        blockItem(EMBlocks.FROSTPINE_FENCE_GATE);
+        blockItem(EMBlocks.FROSTPINE_TRAPDOOR, "_bottom");
+        blockItem(EMBlocks.FROSTPINE_LOG);
+        blockItem(EMBlocks.STRIPPED_FROSTPINE_LOG);
+        blockItem(EMBlocks.FROSTPINE_WOOD);
+        blockItem(EMBlocks.STRIPPED_FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_SAPLING);
+
         // Sparkling Sand
         simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS);
 

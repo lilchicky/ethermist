@@ -173,6 +173,49 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.STRIPPED_SLIMY_LOG.get())
                 .unlockedBy("has_slimy_wood", has(EMBlocks.STRIPPED_SLIMY_LOG)).save(output);
 
+        // Frostpine Wood
+        stairBuilder(EMBlocks.FROSTPINE_STAIRS.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("stairs")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_SLAB.get(), EMBlocks.FROSTPINE_PLANKS.get());
+        buttonBuilder(EMBlocks.FROSTPINE_BUTTON.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("buttons")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+        pressurePlate(output, EMBlocks.FROSTPINE_PRESSURE_PLATE.get(), EMBlocks.FROSTPINE_PLANKS.get());
+        fenceBuilder(EMBlocks.FROSTPINE_FENCE.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("fences")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+        fenceGateBuilder(EMBlocks.FROSTPINE_FENCE_GATE.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("fence_gates")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+        doorBuilder(EMBlocks.FROSTPINE_DOOR.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("doors")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+        trapdoorBuilder(EMBlocks.FROSTPINE_TRAPDOOR.get(), Ingredient.of(EMBlocks.FROSTPINE_PLANKS)).group("trapdoors")
+                .unlockedBy("has_frostpine_planks", has(EMBlocks.FROSTPINE_PLANKS)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_PLANKS.get(), 4)
+                .requires(EMBlocks.FROSTPINE_LOG.get())
+                .unlockedBy("has_frostpine_log", has(EMBlocks.FROSTPINE_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.FROSTPINE_PLANKS.getId().getPath() + "_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_PLANKS.get(), 4)
+                .requires(EMBlocks.FROSTPINE_WOOD.get())
+                .unlockedBy("has_frostpine_wood", has(EMBlocks.FROSTPINE_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.FROSTPINE_PLANKS.getId().getPath() + "_wood"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_FROSTPINE_LOG.get())
+                .unlockedBy("has_stripped_frostpine_log", has(EMBlocks.STRIPPED_FROSTPINE_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.FROSTPINE_PLANKS.getId().getPath() + "_stripped_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_FROSTPINE_WOOD.get())
+                .unlockedBy("has_stripped_frostpine_wood", has(EMBlocks.STRIPPED_FROSTPINE_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.FROSTPINE_PLANKS.getId().getPath() + "_stripped_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.FROSTPINE_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.FROSTPINE_LOG.get())
+                .unlockedBy("has_frostpine_log", has(EMBlocks.FROSTPINE_LOG)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.STRIPPED_FROSTPINE_LOG.get())
+                .unlockedBy("has_frostpine_wood", has(EMBlocks.STRIPPED_FROSTPINE_LOG)).save(output);
+
         // Sparkling Sand
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE.get())
                 .pattern("aa")

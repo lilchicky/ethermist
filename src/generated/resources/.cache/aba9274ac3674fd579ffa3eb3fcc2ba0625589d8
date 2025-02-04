@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-30T08:35:24.3264067	Item Models: ethermist
+// 1.21.1	2025-02-04T03:17:09.3746784	Item Models: ethermist
 5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
 faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
@@ -15,6 +15,10 @@ e34243c92f72fd62234f14f0cb53bb8232bd401b assets/ethermist/models/item/etherstone
 93c3323bd2077bc465dc1b08712ce0c3281f29f8 assets/ethermist/models/item/flame_orb.json
 a30b0b0472325d5e6e554821aa1f43ab4ada2336 assets/ethermist/models/item/flame_shot.json
 95f023b4e255a8ba3e0ce961fce966cbb549f317 assets/ethermist/models/item/flame_wand.json
+ce3d9f61c1d9ae1ebacfaf926abc94fe8964c079 assets/ethermist/models/item/frostpine_button.json
+061bf29c7abd909c2874eada02c686dcebca9724 assets/ethermist/models/item/frostpine_door.json
+603646b59096b0997efa9c39840d25b26e347fad assets/ethermist/models/item/frostpine_fence.json
+e9f2bdd0fd245c8aa27ee4a69218e7063310c1a1 assets/ethermist/models/item/frostpine_sapling.json
 59ef62b0f9a7a904e21fba704a34003e3f1328ee assets/ethermist/models/item/generic_shot.json
 b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_blossom.json
 0e94f9bbe6406fc0cdc7ac0382b379bac2ac21cd assets/ethermist/models/item/meteor_shot.json
