@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.nbt.Tag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
@@ -157,6 +158,13 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
+
+        tag(EMTags.Blocks.CAN_GROW_ICICLE)
+                .add(EMBlocks.FROSTPINE_LEAVES.get())
+                .add(EMBlocks.RICH_GRASS.get())
+                .add(EMBlocks.RICH_DIRT.get())
+                .addTag(Tags.Blocks.STONES)
+                .addTag(BlockTags.ICE);
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);

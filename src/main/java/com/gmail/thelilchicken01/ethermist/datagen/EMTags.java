@@ -15,6 +15,7 @@ public class EMTags {
     public static final class Blocks {
 
         public static final TagKey<Block> PORTAL_FRAME_BLOCKS = mod("portal_frame_blocks");
+        public static final TagKey<Block> CAN_GROW_ICICLE = mod("can_grow_icicle");
 
         private static TagKey<Block> mod(String path) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

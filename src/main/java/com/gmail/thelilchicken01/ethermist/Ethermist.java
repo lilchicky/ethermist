@@ -9,9 +9,11 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMBlockStateProviderType;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterNamedRenderTypesEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
@@ -69,6 +72,7 @@ public class Ethermist {
         EMTrunkPlacerType.register(modEventBus);
         EMBlockStateProviderType.register(modEventBus);
         EMPOIs.register(modEventBus);
+        EMTreeDecorators.register(modEventBus);
 
         EMBlocks.register(modEventBus);
         EMItems.register(modEventBus);

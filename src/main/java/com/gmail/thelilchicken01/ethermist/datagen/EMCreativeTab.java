@@ -140,6 +140,7 @@ public class EMCreativeTab {
                 // Leaves
                 output.accept(EMBlocks.ANCIENT_LEAVES);
                 output.accept(EMBlocks.SLIMY_LEAVES);
+                output.accept(EMBlocks.FROSTPINE_LEAVES);
 
                 // Plants
                 output.accept(EMBlocks.ANCIENT_SAPLING);

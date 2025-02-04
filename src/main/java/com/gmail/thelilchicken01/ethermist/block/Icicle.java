@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
@@ -72,14 +73,17 @@ public class Icicle extends PointedDripstoneBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(TIP_DIRECTION, Direction.UP).setValue(THICKNESS, DripstoneThickness.TIP).setValue(WATERLOGGED, false));
     }
 
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(TIP_DIRECTION, THICKNESS, WATERLOGGED);
     }
 
+    @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         return isValidIciclePlacement(level, pos, state.getValue(TIP_DIRECTION));
     }
 
+    @Override
     protected BlockState updateShape(BlockState state, Direction p_direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
@@ -107,6 +111,7 @@ public class Icicle extends PointedDripstoneBlock {
         }
     }
 
+    @Override
     protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
         if (!level.isClientSide) {
             BlockPos blockpos = hit.getBlockPos();
@@ -133,12 +138,13 @@ public class Icicle extends PointedDripstoneBlock {
         if (canDrip(state)) {
             float f = random.nextFloat();
             if (!(f > 0.12F)) {
-                getFluidAboveStalactite(level, pos, state).filter((p_221848_) -> f < 0.02F);
+                getFluidAboveStalactite(level, pos, state).filter((p_221848_) -> f < 0.02F).ifPresent((fluidInfo) -> spawnDripParticle(level, pos, state, fluidInfo.fluid));
             }
         }
 
     }
 
+    @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (isStalagmite(state) && !this.canSurvive(state, level, pos)) {
             level.destroyBlock(pos, true);
@@ -148,10 +154,10 @@ public class Icicle extends PointedDripstoneBlock {
 
     }
 
+    @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        maybeTransferFluid(state, level, pos, random.nextFloat());
         if (random.nextFloat() < 0.011377778F && isStalactiteStartPos(state, level, pos)) {
-            growStalactiteOrStalagmiteIfPossible(state, level, pos, random);
+            growIcicleIfPossible(state, level, pos, random);
         }
 
     }
@@ -171,14 +177,17 @@ public class Icicle extends PointedDripstoneBlock {
         }
     }
 
+    @Override
     protected FluidState getFluidState(BlockState state) {
         return (Boolean)state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
+    @Override
     protected VoxelShape getOcclusionShape(BlockState state, BlockGetter level, BlockPos pos) {
         return Shapes.empty();
     }
 
+    @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         DripstoneThickness dripstonethickness = (DripstoneThickness)state.getValue(THICKNESS);
         VoxelShape voxelshape;
@@ -202,14 +211,17 @@ public class Icicle extends PointedDripstoneBlock {
         return voxelshape.move(vec3.x, (double)0.0F, vec3.z);
     }
 
+    @Override
     protected boolean isCollisionShapeFullBlock(BlockState state, BlockGetter level, BlockPos pos) {
         return false;
     }
 
+    @Override
     protected float getMaxHorizontalOffset() {
         return 0.125F;
     }
 
+    @Override
     public void onBrokenAfterFall(Level level, BlockPos pos, FallingBlockEntity fallingBlock) {
         if (!fallingBlock.isSilent() && level instanceof ServerLevel serverLevel) {
             level.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -220,6 +232,7 @@ public class Icicle extends PointedDripstoneBlock {
 
     }
 
+    @Override
     public DamageSource getFallDamageSource(Entity entity) {
         return new DamageSource(
                 entity.level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.ICICLE), entity
@@ -243,8 +256,7 @@ public class Icicle extends PointedDripstoneBlock {
 
     }
 
-    @VisibleForTesting
-    public static void growStalactiteOrStalagmiteIfPossible(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public static void growIcicleIfPossible(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         BlockState blockstate = level.getBlockState(pos.above(1));
         BlockState blockstate1 = level.getBlockState(pos.above(2));
         if (canGrow(blockstate, blockstate1)) {
@@ -302,7 +314,7 @@ public class Icicle extends PointedDripstoneBlock {
     }
 
     private static void createDripstone(LevelAccessor level, BlockPos pos, Direction direction, DripstoneThickness thickness) {
-        BlockState blockstate = (BlockState)((BlockState)((BlockState)EMBlocks.ICICLE.get().defaultBlockState().setValue(TIP_DIRECTION, direction)).setValue(THICKNESS, thickness)).setValue(WATERLOGGED, level.getFluidState(pos).getType() == Fluids.WATER);
+        BlockState blockstate = EMBlocks.ICICLE.get().defaultBlockState().setValue(TIP_DIRECTION, direction).setValue(THICKNESS, thickness).setValue(WATERLOGGED, level.getFluidState(pos).getType() == Fluids.WATER);
         level.setBlock(pos, blockstate, 3);
     }
 
@@ -321,13 +333,8 @@ public class Icicle extends PointedDripstoneBlock {
         createDripstone(level, blockpos1, Direction.UP, DripstoneThickness.TIP_MERGE);
     }
 
-    public static void spawnDripParticle(Level level, BlockPos pos, BlockState state) {
-        getFluidAboveStalactite(level, pos, state).ifPresent((p_221856_) -> spawnDripParticle(level, pos, state, p_221856_.fluid));
-    }
-
     private static void spawnDripParticle(Level level, BlockPos pos, BlockState state, Fluid p_fluid) {
         Vec3 vec3 = state.getOffset(level, pos);
-        double d0 = (double)0.0625F;
         double d1 = (double)pos.getX() + (double)0.5F + vec3.x;
         double d2 = (double)((float)(pos.getY() + 1) - 0.6875F) - (double)0.0625F;
         double d3 = (double)pos.getZ() + (double)0.5F + vec3.z;
@@ -391,7 +398,7 @@ public class Icicle extends PointedDripstoneBlock {
     }
 
     private static boolean canTipGrow(BlockState state, ServerLevel level, BlockPos pos) {
-        Direction direction = (Direction)state.getValue(TIP_DIRECTION);
+        Direction direction = state.getValue(TIP_DIRECTION);
         BlockPos blockpos = pos.relative(direction);
         BlockState blockstate = level.getBlockState(blockpos);
         if (!blockstate.getFluidState().isEmpty()) {
@@ -462,7 +469,7 @@ public class Icicle extends PointedDripstoneBlock {
     }
 
     private static boolean canGrow(BlockState dripstoneState, BlockState state) {
-        return dripstoneState.is(EMBlocks.ICICLE) && state.is(Blocks.WATER) && state.getFluidState().isSource();
+        return dripstoneState.is(EMTags.Blocks.CAN_GROW_ICICLE) && state.is(Blocks.WATER) && state.getFluidState().isSource();
     }
 
     private static Fluid getDripFluid(Level level, Fluid fluid) {

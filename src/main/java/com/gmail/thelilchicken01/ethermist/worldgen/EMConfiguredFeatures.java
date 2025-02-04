@@ -3,7 +3,10 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.RandomizedBlockStateProvider;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -35,6 +38,8 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+
+import java.util.List;
 
 public class EMConfiguredFeatures {
 
@@ -166,7 +171,9 @@ public class EMConfiguredFeatures {
                         ConstantInt.of(2),
                         ConstantInt.of(16)
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get()))
+                .decorators(ImmutableList.of(new IcicleDecorator(0.4f))).build()
         );
 
         register(context, ETHERMIST_LAVA_LAKE, Feature.LAKE, new LakeFeature.Configuration(

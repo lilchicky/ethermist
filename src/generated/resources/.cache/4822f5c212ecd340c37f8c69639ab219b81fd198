@@ -1,6 +1,7 @@
-// 1.21.1	2025-02-04T03:17:09.3916962	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-02-04T09:30:19.2197701	Tags for minecraft:block mod id ethermist
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/block/gravels.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/block/sandstone/blocks.json
+2a092f63e9ebed29074f48ff62fba2b21ce436ef data/ethermist/tags/block/can_grow_icicle.json
 87aae77f8bb1e17945835280ea75f98ba7579ba5 data/ethermist/tags/block/portal_frame_blocks.json
 e6a6ef3fe30e6e1d53afa60edbf590d6483450b5 data/minecraft/tags/block/buttons.json
 b224f7d1c0b47557ad9e1f06a9a3dbe1b084c407 data/minecraft/tags/block/dirt.json
