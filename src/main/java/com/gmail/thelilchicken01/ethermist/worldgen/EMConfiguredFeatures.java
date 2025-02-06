@@ -3,7 +3,6 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
-import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.RandomizedBlockStateProvider;
 import com.google.common.collect.ImmutableList;
@@ -39,12 +38,10 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 
-import java.util.List;
-
 public class EMConfiguredFeatures {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_ANCIENT_TREE_KEY = registerKey("mega_ancient_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE_KEY = registerKey("ancient_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_GLIMMERING_ANCIENT_TREE_KEY = registerKey("mega_glimmering_ancient_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERING_ANCIENT_TREE_KEY = registerKey("glimmering_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
@@ -56,8 +53,8 @@ public class EMConfiguredFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
-        register(context, MEGA_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.PEEKING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
+        register(context, MEGA_GLIMMERING_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                new RandomizedBlockStateProvider(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
                 new AncientTrunkPlacer(
                         11,
                         3,
@@ -76,8 +73,8 @@ public class EMConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
         );
 
-        register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.ANCIENT_LOG.get().defaultBlockState(), EMBlocks.PEEKING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
+        register(context, GLIMMERING_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                new RandomizedBlockStateProvider(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
                 new CherryTrunkPlacer(
                         6,
                         1,

@@ -46,40 +46,40 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.ETHERSTONE_BRICK_WALL.get());
 
         // Ancient Wood
-        dropSelf(EMBlocks.ANCIENT_LOG.get());
-        dropSelf(EMBlocks.STRIPPED_ANCIENT_LOG.get());
-        dropSelf(EMBlocks.ANCIENT_WOOD.get());
-        dropSelf(EMBlocks.STRIPPED_ANCIENT_WOOD.get());
-        dropSelf(EMBlocks.ANCIENT_PLANKS.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_LOG.get());
+        dropSelf(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_WOOD.get());
+        dropSelf(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get());
         this.add(EMBlocks.ANCIENT_LEAVES.get(), block ->
-                createLeavesDrops(block, EMBlocks.ANCIENT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
-        dropSelf(EMBlocks.ANCIENT_SAPLING.get());
-        dropSelf(EMBlocks.ANCIENT_STAIRS.get());
-        add(EMBlocks.ANCIENT_SLAB.get(),
-                block -> createSlabItemTable(EMBlocks.ANCIENT_SLAB.get()));
-        dropSelf(EMBlocks.ANCIENT_PRESSURE_PLATE.get());
-        dropSelf(EMBlocks.ANCIENT_BUTTON.get());
-        dropSelf(EMBlocks.ANCIENT_FENCE.get());
-        dropSelf(EMBlocks.ANCIENT_FENCE_GATE.get());
-        add(EMBlocks.ANCIENT_DOOR.get(),
-                block -> createDoorTable(EMBlocks.ANCIENT_DOOR.get()));
-        dropSelf(EMBlocks.ANCIENT_TRAPDOOR.get());
+                createLeavesDrops(block, EMBlocks.GLIMMERING_ANCIENT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get());
+        add(EMBlocks.GLIMMERING_ANCIENT_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.GLIMMERING_ANCIENT_SLAB.get()));
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_FENCE.get());
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get());
+        add(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(),
+                block -> createDoorTable(EMBlocks.GLIMMERING_ANCIENT_DOOR.get()));
+        dropSelf(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get());
 
-        add(EMBlocks.PEEKING_ANCIENT_LOG.get(),
-                block -> createSilkTouchDispatchTable(EMBlocks.PEEKING_ANCIENT_LOG.get(),
-                        LootItem.lootTableItem(EMBlocks.ANCIENT_LOG.get())
+        add(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(),
+                        LootItem.lootTableItem(EMBlocks.GLIMMERING_ANCIENT_LOG.get())
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
-        add(EMBlocks.PEEKING_ANCIENT_WOOD.get(),
-                block -> createSilkTouchDispatchTable(EMBlocks.PEEKING_ANCIENT_WOOD.get(),
-                        LootItem.lootTableItem(EMBlocks.ANCIENT_WOOD.get())
+        add(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(),
+                        LootItem.lootTableItem(EMBlocks.GLIMMERING_ANCIENT_WOOD.get())
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
-        add(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(),
-                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(),
-                        LootItem.lootTableItem(EMBlocks.STRIPPED_ANCIENT_LOG.get())
+        add(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(),
+                        LootItem.lootTableItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get())
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
-        add(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(),
-                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(),
-                        LootItem.lootTableItem(EMBlocks.STRIPPED_ANCIENT_WOOD.get())
+        add(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(),
+                        LootItem.lootTableItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get())
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
         // Slimy Wood

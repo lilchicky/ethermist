@@ -40,43 +40,43 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB);
 
         // Ancient Wood
-        logBlock((RotatedPillarBlock) EMBlocks.ANCIENT_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.ANCIENT_WOOD.get(), blockTexture(EMBlocks.ANCIENT_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_ANCIENT_LOG.get()));
+        logBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_LOG.get());
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get());
+        axisBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_LOG.get()));
+        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get()));
 
-        logBlock((RotatedPillarBlock) EMBlocks.PEEKING_ANCIENT_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.PEEKING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.PEEKING_ANCIENT_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get()));
+        logBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get());
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get());
+        axisBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get()));
+        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get()));
 
-        simpleBlock(EMBlocks.ANCIENT_PLANKS);
+        simpleBlock(EMBlocks.GLIMMERING_ANCIENT_PLANKS);
         leavesBlock(EMBlocks.ANCIENT_LEAVES);
-        saplingBlock(EMBlocks.ANCIENT_SAPLING);
+        saplingBlock(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
 
-        stairsBlock(EMBlocks.ANCIENT_STAIRS.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        slabBlock(EMBlocks.ANCIENT_SLAB.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        buttonBlock(EMBlocks.ANCIENT_BUTTON.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        pressurePlateBlock(EMBlocks.ANCIENT_PRESSURE_PLATE.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        fenceBlock(EMBlocks.ANCIENT_FENCE.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        fenceGateBlock(EMBlocks.ANCIENT_FENCE_GATE.get(), blockTexture(EMBlocks.ANCIENT_PLANKS.get()));
-        doorBlockWithRenderType(EMBlocks.ANCIENT_DOOR.get(), modLoc("block/ancient_door_bottom"), modLoc("block/ancient_door_top"), "cutout");
-        trapdoorBlockWithRenderType(EMBlocks.ANCIENT_TRAPDOOR.get(), modLoc("block/ancient_trapdoor"), true, "cutout");
+        stairsBlock(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        slabBlock(EMBlocks.GLIMMERING_ANCIENT_SLAB.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        buttonBlock(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        pressurePlateBlock(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        fenceBlock(EMBlocks.GLIMMERING_ANCIENT_FENCE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        fenceGateBlock(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
+        doorBlockWithRenderType(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(), modLoc("block/glimmering_ancient_door_bottom"), modLoc("block/glimmering_ancient_door_top"), "cutout");
+        trapdoorBlockWithRenderType(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get(), modLoc("block/glimmering_ancient_trapdoor"), true, "cutout");
 
-        blockItem(EMBlocks.ANCIENT_STAIRS);
-        blockItem(EMBlocks.ANCIENT_SLAB);
-        blockItem(EMBlocks.ANCIENT_PRESSURE_PLATE);
-        blockItem(EMBlocks.ANCIENT_FENCE_GATE);
-        blockItem(EMBlocks.ANCIENT_TRAPDOOR, "_bottom");
-        blockItem(EMBlocks.ANCIENT_LOG);
-        blockItem(EMBlocks.STRIPPED_ANCIENT_LOG);
-        blockItem(EMBlocks.ANCIENT_WOOD);
-        blockItem(EMBlocks.STRIPPED_ANCIENT_WOOD);
-        blockItem(EMBlocks.PEEKING_ANCIENT_LOG);
-        blockItem(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG);
-        blockItem(EMBlocks.PEEKING_ANCIENT_WOOD);
-        blockItem(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD);
-        blockItem(EMBlocks.ANCIENT_SAPLING);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_STAIRS);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_SLAB);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR, "_bottom");
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_LOG);
+        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_WOOD);
+        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD);
+        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
+        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
+        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
+        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
 
         // Slimy Wood
         logBlock((RotatedPillarBlock) EMBlocks.SLIMY_LOG.get());

@@ -2,8 +2,6 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -11,20 +9,15 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.VegetationPatchFeature;
-import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
 public class EMPlacedFeatures {
 
-    public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_PLACED_TREE_KEY = registerKey("mega_ancient_tree_placed");
-    public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
+    public static final ResourceKey<PlacedFeature> MEGA_GLIMMERING_ANCIENT_PLACED_TREE_KEY = registerKey("mega_glimmering_ancient_tree_placed");
+    public static final ResourceKey<PlacedFeature> GLIMMERING_ANCIENT_PLACED_TREE_KEY = registerKey("glimmering_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
     public static final ResourceKey<PlacedFeature> BLUE_PLACED_ABYSSAL_MUSHROOM = registerKey("blue_abyssal_mushroom_placed");
     public static final ResourceKey<PlacedFeature> ORANGE_PLACED_ABYSSAL_MUSHROOM = registerKey("orange_abyssal_mushroom_placed");
@@ -38,13 +31,13 @@ public class EMPlacedFeatures {
 
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, MEGA_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.MEGA_ANCIENT_TREE_KEY),
+        register(context, MEGA_GLIMMERING_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.MEGA_GLIMMERING_ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
-                        EMBlocks.ANCIENT_SAPLING.get()));
+                        EMBlocks.GLIMMERING_ANCIENT_SAPLING.get()));
 
-        register(context, ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ANCIENT_TREE_KEY),
+        register(context, GLIMMERING_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMERING_ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.5f, 2),
-                        EMBlocks.ANCIENT_SAPLING.get()));
+                        EMBlocks.GLIMMERING_ANCIENT_SAPLING.get()));
 
         register(context, SLIMY_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SLIMY_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.1f, 2),

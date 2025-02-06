@@ -1,8 +1,4 @@
-// 1.21.1	2025-02-04T03:17:09.3746784	Item Models: ethermist
-5aecc548a3a1ab62aa1ed95d44c15e2cc64abf71 assets/ethermist/models/item/ancient_button.json
-2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
-faa54fc78f5bab8d7712067afa4e4d8b951d3c1a assets/ethermist/models/item/ancient_fence.json
-44076821cbc977d3d8b2d750336eb7b98b16b961 assets/ethermist/models/item/ancient_sapling.json
+// 1.21.1	2025-02-06T03:47:27.1090342	Item Models: ethermist
 c1cbc72f955d9133c8152590077492404e398edf assets/ethermist/models/item/cubed_abyssal_mushroom_button.json
 0525bc9890b5a0453e1588f6f9fb109e13d015c0 assets/ethermist/models/item/cubed_abyssal_mushroom_door.json
 eb4b6cc26e01f7cfd66a73f31eed08262c27f1a8 assets/ethermist/models/item/cubed_abyssal_mushroom_fence.json
@@ -20,6 +16,10 @@ ce3d9f61c1d9ae1ebacfaf926abc94fe8964c079 assets/ethermist/models/item/frostpine_
 603646b59096b0997efa9c39840d25b26e347fad assets/ethermist/models/item/frostpine_fence.json
 e9f2bdd0fd245c8aa27ee4a69218e7063310c1a1 assets/ethermist/models/item/frostpine_sapling.json
 59ef62b0f9a7a904e21fba704a34003e3f1328ee assets/ethermist/models/item/generic_shot.json
+4cd301e16b0efd27ed79e4cac17c4a48a7d42fb9 assets/ethermist/models/item/glimmering_ancient_button.json
+930e66b3e059a2c7528882de0d4b6f1ed451f7ae assets/ethermist/models/item/glimmering_ancient_door.json
+af50bdba8c23bacc787cf08f2194ac15b31a8052 assets/ethermist/models/item/glimmering_ancient_fence.json
+6e0d311b6658ada1e7e8efbc9dda31ed229732e8 assets/ethermist/models/item/glimmering_ancient_sapling.json
 b5d2a4fed9c6bae2144aec245a1a5a99e4087203 assets/ethermist/models/item/glimmer_blossom.json
 0e94f9bbe6406fc0cdc7ac0382b379bac2ac21cd assets/ethermist/models/item/meteor_shot.json
 9cc19ac1bfc4724b57722866b7d66ec747835703 assets/ethermist/models/item/polished_timeworn_sandstone_button.json

@@ -33,10 +33,10 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         wallItem(EMBlocks.ETHERSTONE_BRICK_WALL, EMBlocks.ETHERSTONE_BRICKS);
 
-        fenceItem(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS);
-        buttonItem(EMBlocks.ANCIENT_BUTTON, EMBlocks.ANCIENT_PLANKS);
-        basicItem(EMBlocks.ANCIENT_DOOR.asItem());
-        saplingItem(EMBlocks.ANCIENT_SAPLING);
+        fenceItem(EMBlocks.GLIMMERING_ANCIENT_FENCE, EMBlocks.GLIMMERING_ANCIENT_PLANKS);
+        buttonItem(EMBlocks.GLIMMERING_ANCIENT_BUTTON, EMBlocks.GLIMMERING_ANCIENT_PLANKS);
+        basicItem(EMBlocks.GLIMMERING_ANCIENT_DOOR.asItem());
+        saplingItem(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
 
         fenceItem(EMBlocks.SLIMY_FENCE, EMBlocks.SLIMY_PLANKS);
         buttonItem(EMBlocks.SLIMY_BUTTON, EMBlocks.SLIMY_PLANKS);

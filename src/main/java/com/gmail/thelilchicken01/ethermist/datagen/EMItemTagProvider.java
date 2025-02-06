@@ -44,7 +44,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get().asItem());
 
         tag(ItemTags.PLANKS)
-                .add(EMBlocks.ANCIENT_PLANKS.get().asItem())
+                .add(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get().asItem())
                 .add(EMBlocks.SLIMY_PLANKS.get().asItem())
                 .add(EMBlocks.FROSTPINE_PLANKS.get().asItem())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().asItem());
@@ -59,7 +59,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.FROSTPINE_LEAVES.get().asItem());
 
         tag(ItemTags.SAPLINGS)
-                .add(EMBlocks.ANCIENT_SAPLING.get().asItem())
+                .add(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get().asItem())
                 .add(EMBlocks.SLIMY_SAPLING.get().asItem())
                 .add(EMBlocks.FROSTPINE_SAPLING.get().asItem());
 
@@ -87,24 +87,24 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.WAND_TOME.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
-        addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);
+        addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get().asItem(), EMBlocks.SLIMY_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.FROSTPINE_BUTTON.get().asItem(), EMBlocks.FROSTPINE_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get().asItem(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get().asItem(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get().asItem(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get().asItem(), true);
 
-        addFences(EMBlocks.ANCIENT_FENCE.get().asItem(), true);
+        addFences(EMBlocks.GLIMMERING_ANCIENT_FENCE.get().asItem(), true);
         addFences(EMBlocks.SLIMY_FENCE.get().asItem(), true);
         addFences(EMBlocks.FROSTPINE_FENCE.get().asItem(), true);
         addFences(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get().asItem(), true);
 
-        addLogs(EMBlocks.ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_ANCIENT_LOG.get().asItem(), EMBlocks.ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_ANCIENT_WOOD.get().asItem(), true);
-        addLogs(EMBlocks.PEEKING_ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get().asItem(), EMBlocks.PEEKING_ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get().asItem(), true);
+        addLogs(EMBlocks.GLIMMERING_ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get().asItem(), true);
+        addLogs(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().asItem(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().asItem(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get().asItem(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get().asItem(), true);
         addLogs(EMBlocks.SLIMY_LOG.get().asItem(), EMBlocks.STRIPPED_SLIMY_LOG.get().asItem(), EMBlocks.SLIMY_WOOD.get().asItem(), EMBlocks.STRIPPED_SLIMY_WOOD.get().asItem(), true);
         addLogs(EMBlocks.FROSTPINE_LOG.get().asItem(), EMBlocks.STRIPPED_FROSTPINE_LOG.get().asItem(), EMBlocks.FROSTPINE_WOOD.get().asItem(), EMBlocks.STRIPPED_FROSTPINE_WOOD.get().asItem(), true);
 
-        addDoors(EMBlocks.ANCIENT_DOOR.get().asItem(), true);
+        addDoors(EMBlocks.GLIMMERING_ANCIENT_DOOR.get().asItem(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get().asItem(), true);
         addDoors(EMBlocks.FROSTPINE_DOOR.get().asItem(), true);
         addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get().asItem(), true);

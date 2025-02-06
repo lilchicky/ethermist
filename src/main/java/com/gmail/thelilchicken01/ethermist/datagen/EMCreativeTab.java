@@ -21,26 +21,33 @@ public class EMCreativeTab {
             .title(Component.translatable("creativetab.ethermist.em_block_tab"))
             .displayItems((itemDisplayParameters, output) -> {
 
+                /*
+                    For new wood, remember to add:
+                    - Wood Block
+                    - Sapling
+                    - Leaves
+                 */
+
                 // Ancient Wood
-                output.accept(EMBlocks.ANCIENT_LOG);
-                output.accept(EMBlocks.ANCIENT_WOOD);
-                output.accept(EMBlocks.STRIPPED_ANCIENT_LOG);
-                output.accept(EMBlocks.STRIPPED_ANCIENT_WOOD);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_LOG);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_WOOD);
+                output.accept(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG);
+                output.accept(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD);
 
-                output.accept(EMBlocks.PEEKING_ANCIENT_LOG);
-                output.accept(EMBlocks.PEEKING_ANCIENT_WOOD);
-                output.accept(EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG);
-                output.accept(EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD);
+                output.accept(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
+                output.accept(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
+                output.accept(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
+                output.accept(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
 
-                output.accept(EMBlocks.ANCIENT_PLANKS);
-                output.accept(EMBlocks.ANCIENT_STAIRS);
-                output.accept(EMBlocks.ANCIENT_SLAB);
-                output.accept(EMBlocks.ANCIENT_FENCE);
-                output.accept(EMBlocks.ANCIENT_FENCE_GATE);
-                output.accept(EMBlocks.ANCIENT_DOOR);
-                output.accept(EMBlocks.ANCIENT_TRAPDOOR);
-                output.accept(EMBlocks.ANCIENT_PRESSURE_PLATE);
-                output.accept(EMBlocks.ANCIENT_BUTTON);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_PLANKS);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_STAIRS);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_SLAB);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_FENCE);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_DOOR);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_BUTTON);
 
                 // Slimy Wood
                 output.accept(EMBlocks.SLIMY_LOG);
@@ -143,7 +150,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.FROSTPINE_LEAVES);
 
                 // Plants
-                output.accept(EMBlocks.ANCIENT_SAPLING);
+                output.accept(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
                 output.accept(EMBlocks.SLIMY_SAPLING);
                 output.accept(EMBlocks.FROSTPINE_SAPLING);
                 output.accept(EMBlocks.RICH_GRASS);

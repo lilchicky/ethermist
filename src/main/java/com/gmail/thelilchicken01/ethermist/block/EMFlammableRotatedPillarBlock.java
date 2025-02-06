@@ -35,11 +35,11 @@ public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
     public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
 
         if (context.getItemInHand().getItem() instanceof AxeItem) {
-            if (state.is(EMBlocks.ANCIENT_LOG)) {
-                return EMBlocks.STRIPPED_ANCIENT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if (state.is(EMBlocks.GLIMMERING_ANCIENT_LOG)) {
+                return EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
-            if (state.is(EMBlocks.ANCIENT_WOOD)) {
-                return EMBlocks.STRIPPED_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if (state.is(EMBlocks.GLIMMERING_ANCIENT_WOOD)) {
+                return EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
             if (state.is(EMBlocks.SLIMY_LOG)) {
                 return EMBlocks.STRIPPED_SLIMY_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
@@ -47,11 +47,17 @@ public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
             if (state.is(EMBlocks.SLIMY_WOOD)) {
                 return EMBlocks.STRIPPED_SLIMY_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
-            if (state.is(EMBlocks.PEEKING_ANCIENT_LOG)) {
-                return EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if (state.is(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG)) {
+                return EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
-            if (state.is(EMBlocks.PEEKING_ANCIENT_WOOD)) {
-                return EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if (state.is(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD)) {
+                return EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.FROSTPINE_LOG)) {
+                return EMBlocks.STRIPPED_FROSTPINE_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.FROSTPINE_WOOD)) {
+                return EMBlocks.STRIPPED_FROSTPINE_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
 

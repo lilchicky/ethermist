@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public class EMTreeGrowers {
 
-    public static final TreeGrower ANCIENT_TREE = new TreeGrower(Ethermist.MODID + ":ancient_tree",
-            Optional.of(EMConfiguredFeatures.MEGA_ANCIENT_TREE_KEY), Optional.of(EMConfiguredFeatures.ANCIENT_TREE_KEY), Optional.empty());
+    public static final TreeGrower GLIMMERING_ANCIENT_TREE = new TreeGrower(Ethermist.MODID + ":glimmering_ancient_tree",
+            Optional.of(EMConfiguredFeatures.MEGA_GLIMMERING_ANCIENT_TREE_KEY), Optional.of(EMConfiguredFeatures.GLIMMERING_ANCIENT_TREE_KEY), Optional.empty());
 
     public static final TreeGrower SLIMY_TREE = new TreeGrower(Ethermist.MODID + ":slimy_tree",
             Optional.empty(), Optional.of(EMConfiguredFeatures.SLIMY_TREE_KEY), Optional.empty());

@@ -4,7 +4,6 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.nbt.Tag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
@@ -60,10 +59,10 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.TIMEWORN_SAND.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(EMBlocks.ANCIENT_PLANKS.get())
-                .add(EMBlocks.ANCIENT_STAIRS.get())
-                .add(EMBlocks.ANCIENT_SLAB.get())
-                .add(EMBlocks.ANCIENT_FENCE_GATE.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_SLAB.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get())
                 
                 .add(EMBlocks.SLIMY_PLANKS.get())
                 .add(EMBlocks.SLIMY_STAIRS.get())
@@ -116,7 +115,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.FROSTPINE_LEAVES.get());
 
         tag(BlockTags.SAPLINGS)
-                .add(EMBlocks.ANCIENT_SAPLING.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get())
                 .add(EMBlocks.SLIMY_SAPLING.get())
                 .add(EMBlocks.FROSTPINE_SAPLING.get());
 
@@ -141,7 +140,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)
-                .add(EMBlocks.ANCIENT_FENCE_GATE.get())
+                .add(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
                 .add(EMBlocks.FROSTPINE_FENCE_GATE.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
@@ -167,24 +166,24 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.ICE);
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
-        addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);
+        addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get(), EMBlocks.SLIMY_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.FROSTPINE_BUTTON.get(), EMBlocks.FROSTPINE_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), true);
 
-        addFences(EMBlocks.ANCIENT_FENCE.get(), true);
+        addFences(EMBlocks.GLIMMERING_ANCIENT_FENCE.get(), true);
         addFences(EMBlocks.SLIMY_FENCE.get(), true);
         addFences(EMBlocks.FROSTPINE_FENCE.get(), true);
         addFences(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), true);
 
-        addLogs(EMBlocks.ANCIENT_LOG.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), EMBlocks.ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_WOOD.get(), true);
+        addLogs(EMBlocks.GLIMMERING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get(), true);
         addLogs(EMBlocks.SLIMY_LOG.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), EMBlocks.SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_WOOD.get(), true);
         addLogs(EMBlocks.FROSTPINE_LOG.get(), EMBlocks.STRIPPED_FROSTPINE_LOG.get(), EMBlocks.FROSTPINE_WOOD.get(), EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), true);
-        addLogs(EMBlocks.PEEKING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_PEEKING_ANCIENT_LOG.get(), EMBlocks.PEEKING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_PEEKING_ANCIENT_WOOD.get(), true);
+        addLogs(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), true);
 
-        addDoors(EMBlocks.ANCIENT_DOOR.get(), EMBlocks.ANCIENT_TRAPDOOR.get(), true);
+        addDoors(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(), EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get(), EMBlocks.SLIMY_TRAPDOOR.get(), true);
         addDoors(EMBlocks.FROSTPINE_DOOR.get(), EMBlocks.FROSTPINE_TRAPDOOR.get(), true);
         addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), true);
