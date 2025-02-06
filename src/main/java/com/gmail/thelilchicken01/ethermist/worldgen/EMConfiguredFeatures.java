@@ -67,7 +67,7 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
                         ConstantInt.of(4),
-                        ConstantInt.of(3),
+                        ConstantInt.of(1),
                         ConstantInt.of(4),
                         0.25F,
                         0.5F,
@@ -97,7 +97,7 @@ public class EMConfiguredFeatures {
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
                 new CherryFoliagePlacer(
-                        ConstantInt.of(4),
+                        ConstantInt.of(3),
                         ConstantInt.of(1),
                         ConstantInt.of(4),
                         0.25F,
