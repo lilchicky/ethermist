@@ -4,7 +4,6 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
-import com.gmail.thelilchicken01.ethermist.worldgen.tree.RandomizedBlockStateProvider;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -54,7 +53,12 @@ public class EMConfiguredFeatures {
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
         register(context, MEGA_GLIMMERING_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 985)
+                                .add(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 15)
+                                .build()
+                ),
                 new AncientTrunkPlacer(
                         11,
                         3,
@@ -74,7 +78,12 @@ public class EMConfiguredFeatures {
         );
 
         register(context, GLIMMERING_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new RandomizedBlockStateProvider(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 0.985),
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(EMBlocks.GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 985)
+                                .add(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 15)
+                                .build()
+                ),
                 new CherryTrunkPlacer(
                         6,
                         1,
