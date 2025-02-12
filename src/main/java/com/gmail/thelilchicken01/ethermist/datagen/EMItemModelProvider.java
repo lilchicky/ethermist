@@ -11,6 +11,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
+import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
+
 public class EMItemModelProvider extends ItemModelProvider {
 
     public EMItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -20,40 +22,45 @@ public class EMItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
-        buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE);
-        wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE);
+        buttonItemFolder(EMBlocks.ETHERSTONE_BUTTON, EMBlocks.ETHERSTONE, ETHERSTONE);
+        wallItemFolder(EMBlocks.ETHERSTONE_WALL, EMBlocks.ETHERSTONE, ETHERSTONE);
 
-        buttonItemFolder(EMBlocks.SPARKLING_SANDSTONE_BUTTON, EMBlocks.SPARKLING_SANDSTONE);
-        wallItemFolder(EMBlocks.SPARKLING_SANDSTONE_WALL, EMBlocks.SPARKLING_SANDSTONE);
+        buttonItemFolder(EMBlocks.SPARKLING_SANDSTONE_BUTTON, EMBlocks.SPARKLING_SANDSTONE, SPARKLING_SANDSTONE);
+        wallItemFolder(EMBlocks.SPARKLING_SANDSTONE_WALL, EMBlocks.SPARKLING_SANDSTONE, SPARKLING_SANDSTONE);
         wallItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL, EMBlocks.SPARKLING_SANDSTONE_BRICKS);
 
         buttonItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON, EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
         wallItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL, EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
-        wallItemFolder(EMBlocks.TIMEWORN_SANDSTONE_WALL, EMBlocks.TIMEWORN_SANDSTONE);
+        wallItemFolder(EMBlocks.TIMEWORN_SANDSTONE_WALL, EMBlocks.TIMEWORN_SANDSTONE, TIMEWORN_SANDSTONE);
 
         wallItem(EMBlocks.ETHERSTONE_BRICK_WALL, EMBlocks.ETHERSTONE_BRICKS);
 
-        fenceItem(EMBlocks.GLIMMERING_ANCIENT_FENCE, EMBlocks.GLIMMERING_ANCIENT_PLANKS);
-        buttonItem(EMBlocks.GLIMMERING_ANCIENT_BUTTON, EMBlocks.GLIMMERING_ANCIENT_PLANKS);
+        fenceItemFolder(EMBlocks.GLIMMERING_ANCIENT_FENCE, EMBlocks.GLIMMERING_ANCIENT_PLANKS, GLIMMERING_WOOD);
+        buttonItemFolder(EMBlocks.GLIMMERING_ANCIENT_BUTTON, EMBlocks.GLIMMERING_ANCIENT_PLANKS, GLIMMERING_WOOD);
         basicItem(EMBlocks.GLIMMERING_ANCIENT_DOOR.asItem());
-        saplingItem(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
+        saplingItemFolder(EMBlocks.GLIMMERING_ANCIENT_SAPLING, GLIMMERING_WOOD);
 
-        fenceItem(EMBlocks.SLIMY_FENCE, EMBlocks.SLIMY_PLANKS);
-        buttonItem(EMBlocks.SLIMY_BUTTON, EMBlocks.SLIMY_PLANKS);
+        fenceItemFolder(EMBlocks.ANCIENT_FENCE, EMBlocks.ANCIENT_PLANKS, ANCIENT_WOOD);
+        buttonItemFolder(EMBlocks.ANCIENT_BUTTON, EMBlocks.ANCIENT_PLANKS, ANCIENT_WOOD);
+        basicItem(EMBlocks.ANCIENT_DOOR.asItem());
+        saplingItemFolder(EMBlocks.ANCIENT_SAPLING, ANCIENT_WOOD);
+
+        fenceItemFolder(EMBlocks.SLIMY_FENCE, EMBlocks.SLIMY_PLANKS, SLIMY_WOOD);
+        buttonItemFolder(EMBlocks.SLIMY_BUTTON, EMBlocks.SLIMY_PLANKS, SLIMY_WOOD);
         basicItem(EMBlocks.SLIMY_DOOR.asItem());
-        saplingItem(EMBlocks.SLIMY_SAPLING);
+        saplingItemFolder(EMBlocks.SLIMY_SAPLING, SLIMY_WOOD);
 
-        fenceItem(EMBlocks.FROSTPINE_FENCE, EMBlocks.FROSTPINE_PLANKS);
-        buttonItem(EMBlocks.FROSTPINE_BUTTON, EMBlocks.FROSTPINE_PLANKS);
+        fenceItemFolder(EMBlocks.FROSTPINE_FENCE, EMBlocks.FROSTPINE_PLANKS, FROSTPINE_WOOD);
+        buttonItemFolder(EMBlocks.FROSTPINE_BUTTON, EMBlocks.FROSTPINE_PLANKS, FROSTPINE_WOOD);
         basicItem(EMBlocks.FROSTPINE_DOOR.asItem());
-        saplingItem(EMBlocks.FROSTPINE_SAPLING);
+        saplingItemFolder(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
 
-        fenceItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
-        buttonItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+        fenceItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
+        buttonItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());
 
-        saplingItem(EMBlocks.GLIMMER_BLOSSOM);
-        saplingItem(EMBlocks.RICH_GRASS);
+        crossItem(EMBlocks.GLIMMER_BLOSSOM);
+        crossItem(EMBlocks.RICH_GRASS);
 
         basicHandheld(EMItems.WAND_HANDLE);
         wandItem(EMItems.DULL_WAND);
@@ -78,10 +85,10 @@ public class EMItemModelProvider extends ItemModelProvider {
                         "block/" + baseBlock.getId().getPath()));
     }
 
-    public void buttonItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
+    public void buttonItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock, String folder) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
                 .texture("texture",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
-                        "block/" + baseBlock.getId().getPath() + "/" + baseBlock.getId().getPath()));
+                        "block/" + folder + "/" + baseBlock.getId().getPath()));
     }
 
     public void fenceItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
@@ -90,23 +97,35 @@ public class EMItemModelProvider extends ItemModelProvider {
                         "block/" + baseBlock.getId().getPath()));
     }
 
+    public void fenceItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock, String folder) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
+                        "block/" + folder + "/" + baseBlock.getId().getPath()));
+    }
+
     public void wallItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
                         "block/" + baseBlock.getId().getPath()));
     }
 
-    public void wallItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
+    public void wallItemFolder(DeferredBlock<?> block, DeferredBlock<Block> baseBlock, String folder) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
-                        "block/" + baseBlock.getId().getPath() + "/" + baseBlock.getId().getPath()));
+                        "block/" + folder + "/" + baseBlock.getId().getPath()));
     }
 
 
-    public void saplingItem(DeferredBlock<?> block) {
+    public void crossItem(DeferredBlock<?> block) {
         this.withExistingParent(block.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + block.getId().getPath()));
+    }
+
+    public void saplingItemFolder(DeferredBlock<?> block, String folder) {
+        this.withExistingParent(block.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + folder + "/" + block.getId().getPath()));
     }
 
     public void wandItem(DeferredItem<?> item) {

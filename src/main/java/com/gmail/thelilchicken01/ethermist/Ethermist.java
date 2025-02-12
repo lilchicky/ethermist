@@ -47,6 +47,16 @@ public class Ethermist {
 
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    // Blockstate Datagen Folder Locations
+    public static final String ETHERSTONE = "etherstone";
+    public static final String GLIMMERING_WOOD = "glimmering_wood";
+    public static final String ANCIENT_WOOD = "ancient_wood";
+    public static final String SLIMY_WOOD = "slimy_wood";
+    public static final String FROSTPINE_WOOD = "frostpine_wood";
+    public static final String SPARKLING_SANDSTONE = "sparkling_sandstone";
+    public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
+    public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Ethermist(IEventBus modEventBus, ModContainer modContainer) {

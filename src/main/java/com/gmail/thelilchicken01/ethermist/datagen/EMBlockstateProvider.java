@@ -6,10 +6,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+
+import javax.annotation.Nullable;
+
+import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
 
 public class EMBlockstateProvider extends BlockStateProvider {
 
@@ -19,165 +24,195 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(EMBlocks.GLIMMERBUG_HIVE);
-        simpleBlock(EMBlocks.MIST_GEM_ORE);
+
+        simpleBlock(EMBlocks.GLIMMERBUG_HIVE, null);
+        simpleBlock(EMBlocks.MIST_GEM_ORE, null);
 
         // Etherstone
-        stairsBlock(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
-        slabBlock(EMBlocks.ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
-        buttonBlock(EMBlocks.ETHERSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
-        pressurePlateBlock(EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
-        wallBlock(EMBlocks.ETHERSTONE_WALL.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get()));
-        blockItem(EMBlocks.ETHERSTONE_STAIRS);
-        blockItem(EMBlocks.ETHERSTONE_SLAB);
-        blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
+        stairsBlockFolder(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
+        slabBlockFolder(EMBlocks.ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
+        buttonBlockFolder(EMBlocks.ETHERSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
+        pressurePlateBlockFolder(EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
+        wallBlock(EMBlocks.ETHERSTONE_WALL.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE));
+        blockItem(EMBlocks.ETHERSTONE_STAIRS, ETHERSTONE);
+        blockItem(EMBlocks.ETHERSTONE_SLAB, ETHERSTONE);
+        blockItem(EMBlocks.ETHERSTONE_PRESSURE_PLATE, ETHERSTONE);
 
-        simpleBlock(EMBlocks.ETHERSTONE_BRICKS);
+        simpleBlock(EMBlocks.ETHERSTONE_BRICKS, null);
         stairsBlock(EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
         slabBlock(EMBlocks.ETHERSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
         wallBlock(EMBlocks.ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
-        blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS);
-        blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB);
+        blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
+        blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
+
+        // Glimmering Ancient Wood
+        logBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+
+        logBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);
+
+        simpleBlock(EMBlocks.GLIMMERING_ANCIENT_PLANKS, GLIMMERING_WOOD);
+        leavesBlock(EMBlocks.ANCIENT_LEAVES);
+        saplingBlock(EMBlocks.GLIMMERING_ANCIENT_SAPLING, GLIMMERING_WOOD);
+
+        stairsBlockFolder(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        slabBlockFolder(EMBlocks.GLIMMERING_ANCIENT_SLAB.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        buttonBlockFolder(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        pressurePlateBlockFolder(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        fenceBlockFolder(EMBlocks.GLIMMERING_ANCIENT_FENCE.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        fenceGateBlockFolder(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get(), blockTextureFolder(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get(), GLIMMERING_WOOD), GLIMMERING_WOOD);
+        doorBlock(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(), GLIMMERING_WOOD);
+        trapdoorBlock(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get(), GLIMMERING_WOOD);
+
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_STAIRS, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_SLAB, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR, "_bottom", GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_LOG, GLIMMERING_WOOD);
+        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_WOOD, GLIMMERING_WOOD);
+        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD, GLIMMERING_WOOD);
+        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG, GLIMMERING_WOOD);
+        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG, GLIMMERING_WOOD);
+        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD, GLIMMERING_WOOD);
+        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD, GLIMMERING_WOOD);
+        blockItem(EMBlocks.GLIMMERING_ANCIENT_SAPLING, GLIMMERING_WOOD);
 
         // Ancient Wood
-        logBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get()));
+        logBlock((RotatedPillarBlock) EMBlocks.ANCIENT_LOG.get(), ANCIENT_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_LOG.get(), ANCIENT_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.ANCIENT_WOOD.get(), EMBlocks.ANCIENT_LOG.get(), ANCIENT_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), ANCIENT_WOOD);
+        
+        simpleBlock(EMBlocks.ANCIENT_PLANKS, ANCIENT_WOOD);
+        saplingBlock(EMBlocks.ANCIENT_SAPLING, ANCIENT_WOOD);
 
-        logBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), blockTexture(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get()));
+        stairsBlockFolder(EMBlocks.ANCIENT_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        slabBlockFolder(EMBlocks.ANCIENT_SLAB.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        buttonBlockFolder(EMBlocks.ANCIENT_BUTTON.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        pressurePlateBlockFolder(EMBlocks.ANCIENT_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        fenceBlockFolder(EMBlocks.ANCIENT_FENCE.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        fenceGateBlockFolder(EMBlocks.ANCIENT_FENCE_GATE.get(), blockTextureFolder(EMBlocks.ANCIENT_PLANKS.get(), ANCIENT_WOOD), ANCIENT_WOOD);
+        doorBlock(EMBlocks.ANCIENT_DOOR.get(), ANCIENT_WOOD);
+        trapdoorBlock(EMBlocks.ANCIENT_TRAPDOOR.get(), ANCIENT_WOOD);
 
-        simpleBlock(EMBlocks.GLIMMERING_ANCIENT_PLANKS);
-        leavesBlock(EMBlocks.ANCIENT_LEAVES);
-        saplingBlock(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
-
-        stairsBlock(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        slabBlock(EMBlocks.GLIMMERING_ANCIENT_SLAB.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        buttonBlock(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        pressurePlateBlock(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        fenceBlock(EMBlocks.GLIMMERING_ANCIENT_FENCE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        fenceGateBlock(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get(), blockTexture(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()));
-        doorBlockWithRenderType(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(), modLoc("block/glimmering_ancient_door_bottom"), modLoc("block/glimmering_ancient_door_top"), "cutout");
-        trapdoorBlockWithRenderType(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get(), modLoc("block/glimmering_ancient_trapdoor"), true, "cutout");
-
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_STAIRS);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_SLAB);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR, "_bottom");
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_LOG);
-        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_WOOD);
-        blockItem(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD);
-        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
-        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG);
-        blockItem(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
-        blockItem(EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD);
-        blockItem(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
+        blockItem(EMBlocks.ANCIENT_STAIRS, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_SLAB, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_PRESSURE_PLATE, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_FENCE_GATE, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_TRAPDOOR, "_bottom", ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_LOG, ANCIENT_WOOD);
+        blockItem(EMBlocks.STRIPPED_ANCIENT_LOG, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_WOOD, ANCIENT_WOOD);
+        blockItem(EMBlocks.STRIPPED_ANCIENT_WOOD, ANCIENT_WOOD);
+        blockItem(EMBlocks.ANCIENT_SAPLING, ANCIENT_WOOD);
 
         // Slimy Wood
-        logBlock((RotatedPillarBlock) EMBlocks.SLIMY_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.SLIMY_WOOD.get(), blockTexture(EMBlocks.SLIMY_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_WOOD.get(), blockTexture(EMBlocks.STRIPPED_SLIMY_LOG.get()));
+        logBlock((RotatedPillarBlock) EMBlocks.SLIMY_LOG.get(), SLIMY_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_LOG.get(), SLIMY_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.SLIMY_WOOD.get(), EMBlocks.SLIMY_LOG.get(), SLIMY_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), SLIMY_WOOD);
 
-        simpleBlock(EMBlocks.SLIMY_PLANKS);
+        simpleBlock(EMBlocks.SLIMY_PLANKS, SLIMY_WOOD);
         leavesBlock(EMBlocks.SLIMY_LEAVES);
-        saplingBlock(EMBlocks.SLIMY_SAPLING);
+        saplingBlock(EMBlocks.SLIMY_SAPLING, SLIMY_WOOD);
 
-        stairsBlock(EMBlocks.SLIMY_STAIRS.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        slabBlock(EMBlocks.SLIMY_SLAB.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        buttonBlock(EMBlocks.SLIMY_BUTTON.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        pressurePlateBlock(EMBlocks.SLIMY_PRESSURE_PLATE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        fenceBlock(EMBlocks.SLIMY_FENCE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        fenceGateBlock(EMBlocks.SLIMY_FENCE_GATE.get(), blockTexture(EMBlocks.SLIMY_PLANKS.get()));
-        doorBlockWithRenderType(EMBlocks.SLIMY_DOOR.get(), modLoc("block/slimy_door_bottom"), modLoc("block/slimy_door_top"), "cutout");
-        trapdoorBlockWithRenderType(EMBlocks.SLIMY_TRAPDOOR.get(), modLoc("block/slimy_trapdoor"), true, "cutout");
+        stairsBlockFolder(EMBlocks.SLIMY_STAIRS.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        slabBlockFolder(EMBlocks.SLIMY_SLAB.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        buttonBlockFolder(EMBlocks.SLIMY_BUTTON.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        pressurePlateBlockFolder(EMBlocks.SLIMY_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        fenceBlockFolder(EMBlocks.SLIMY_FENCE.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        fenceGateBlockFolder(EMBlocks.SLIMY_FENCE_GATE.get(), blockTextureFolder(EMBlocks.SLIMY_PLANKS.get(), SLIMY_WOOD), SLIMY_WOOD);
+        doorBlock(EMBlocks.SLIMY_DOOR.get(), SLIMY_WOOD);
+        trapdoorBlock(EMBlocks.SLIMY_TRAPDOOR.get(), SLIMY_WOOD);
 
-        blockItem(EMBlocks.SLIMY_STAIRS);
-        blockItem(EMBlocks.SLIMY_SLAB);
-        blockItem(EMBlocks.SLIMY_PRESSURE_PLATE);
-        blockItem(EMBlocks.SLIMY_FENCE_GATE);
-        blockItem(EMBlocks.SLIMY_TRAPDOOR, "_bottom");
-        blockItem(EMBlocks.SLIMY_LOG);
-        blockItem(EMBlocks.STRIPPED_SLIMY_LOG);
-        blockItem(EMBlocks.SLIMY_WOOD);
-        blockItem(EMBlocks.STRIPPED_SLIMY_WOOD);
-        blockItem(EMBlocks.SLIMY_SAPLING);
+        blockItem(EMBlocks.SLIMY_STAIRS, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_SLAB, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_PRESSURE_PLATE, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_FENCE_GATE, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_TRAPDOOR, "_bottom", SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_LOG, SLIMY_WOOD);
+        blockItem(EMBlocks.STRIPPED_SLIMY_LOG, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_WOOD, SLIMY_WOOD);
+        blockItem(EMBlocks.STRIPPED_SLIMY_WOOD, SLIMY_WOOD);
+        blockItem(EMBlocks.SLIMY_SAPLING, SLIMY_WOOD);
 
         // Frostpine Wood
-        logBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_LOG.get());
-        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_LOG.get());
-        axisBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_WOOD.get(), blockTexture(EMBlocks.FROSTPINE_LOG.get()));
-        axisBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), blockTexture(EMBlocks.STRIPPED_FROSTPINE_LOG.get()));
+        logBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_LOG.get(), FROSTPINE_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_LOG.get(), FROSTPINE_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.FROSTPINE_WOOD.get(), EMBlocks.FROSTPINE_LOG.get(), FROSTPINE_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), EMBlocks.STRIPPED_FROSTPINE_LOG.get(), FROSTPINE_WOOD);
 
-        simpleBlock(EMBlocks.FROSTPINE_PLANKS);
+        simpleBlock(EMBlocks.FROSTPINE_PLANKS, FROSTPINE_WOOD);
         leavesBlock(EMBlocks.FROSTPINE_LEAVES);
-        saplingBlock(EMBlocks.FROSTPINE_SAPLING);
+        saplingBlock(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
 
-        stairsBlock(EMBlocks.FROSTPINE_STAIRS.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        slabBlock(EMBlocks.FROSTPINE_SLAB.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        buttonBlock(EMBlocks.FROSTPINE_BUTTON.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        pressurePlateBlock(EMBlocks.FROSTPINE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        fenceBlock(EMBlocks.FROSTPINE_FENCE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        fenceGateBlock(EMBlocks.FROSTPINE_FENCE_GATE.get(), blockTexture(EMBlocks.FROSTPINE_PLANKS.get()));
-        doorBlockWithRenderType(EMBlocks.FROSTPINE_DOOR.get(), modLoc("block/frostpine_door_bottom"), modLoc("block/frostpine_door_top"), "cutout");
-        trapdoorBlockWithRenderType(EMBlocks.FROSTPINE_TRAPDOOR.get(), modLoc("block/frostpine_trapdoor"), true, "cutout");
+        stairsBlockFolder(EMBlocks.FROSTPINE_STAIRS.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        slabBlockFolder(EMBlocks.FROSTPINE_SLAB.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        buttonBlockFolder(EMBlocks.FROSTPINE_BUTTON.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        pressurePlateBlockFolder(EMBlocks.FROSTPINE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        fenceBlockFolder(EMBlocks.FROSTPINE_FENCE.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        fenceGateBlockFolder(EMBlocks.FROSTPINE_FENCE_GATE.get(), blockTextureFolder(EMBlocks.FROSTPINE_PLANKS.get(), FROSTPINE_WOOD), FROSTPINE_WOOD);
+        doorBlock(EMBlocks.FROSTPINE_DOOR.get(), FROSTPINE_WOOD);
+        trapdoorBlock(EMBlocks.FROSTPINE_TRAPDOOR.get(), FROSTPINE_WOOD);
 
-        blockItem(EMBlocks.FROSTPINE_STAIRS);
-        blockItem(EMBlocks.FROSTPINE_SLAB);
-        blockItem(EMBlocks.FROSTPINE_PRESSURE_PLATE);
-        blockItem(EMBlocks.FROSTPINE_FENCE_GATE);
-        blockItem(EMBlocks.FROSTPINE_TRAPDOOR, "_bottom");
-        blockItem(EMBlocks.FROSTPINE_LOG);
-        blockItem(EMBlocks.STRIPPED_FROSTPINE_LOG);
-        blockItem(EMBlocks.FROSTPINE_WOOD);
-        blockItem(EMBlocks.STRIPPED_FROSTPINE_WOOD);
-        blockItem(EMBlocks.FROSTPINE_SAPLING);
+        blockItem(EMBlocks.FROSTPINE_STAIRS, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_SLAB, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_PRESSURE_PLATE, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_FENCE_GATE, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_TRAPDOOR, "_bottom", FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_LOG, FROSTPINE_WOOD);
+        blockItem(EMBlocks.STRIPPED_FROSTPINE_LOG, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_WOOD, FROSTPINE_WOOD);
+        blockItem(EMBlocks.STRIPPED_FROSTPINE_WOOD, FROSTPINE_WOOD);
+        blockItem(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
 
         // Sparkling Sand
-        simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS);
+        simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS, null);
 
-        stairsBlock(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
-        slabBlock(EMBlocks.SPARKLING_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
-        buttonBlock(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
-        pressurePlateBlock(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
-        wallBlock(EMBlocks.SPARKLING_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get()));
-        blockItem(EMBlocks.SPARKLING_SANDSTONE_STAIRS);
-        blockItem(EMBlocks.SPARKLING_SANDSTONE_SLAB);
-        blockItem(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE);
+        stairsBlockFolder(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE), SPARKLING_SANDSTONE);
+        slabBlockFolder(EMBlocks.SPARKLING_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE), SPARKLING_SANDSTONE);
+        buttonBlockFolder(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE), SPARKLING_SANDSTONE);
+        pressurePlateBlockFolder(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE), SPARKLING_SANDSTONE);
+        wallBlock(EMBlocks.SPARKLING_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.SPARKLING_SANDSTONE.get(), SPARKLING_SANDSTONE));
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_STAIRS, SPARKLING_SANDSTONE);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_SLAB, SPARKLING_SANDSTONE);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE, SPARKLING_SANDSTONE);
 
         stairsBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
         slabBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
         wallBlock(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get()));
-        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS);
-        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_STAIRS, null);
+        blockItem(EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB, null);
 
         // Timeworn Sand
-        simpleBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
+        simpleBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE, null);
 
         stairsBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
         slabBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
         buttonBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
         pressurePlateBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
         wallBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
-        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS);
-        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB);
-        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE);
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS, null);
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB, null);
+        blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE, null);
         
-        stairsBlock(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
-        slabBlock(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
-        wallBlock(EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get()));
-        blockItem(EMBlocks.TIMEWORN_SANDSTONE_STAIRS);
-        blockItem(EMBlocks.TIMEWORN_SANDSTONE_SLAB);
+        stairsBlockFolder(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), TIMEWORN_SANDSTONE);
+        slabBlockFolder(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), TIMEWORN_SANDSTONE);
+        wallBlock(EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE));
+        blockItem(EMBlocks.TIMEWORN_SANDSTONE_STAIRS, TIMEWORN_SANDSTONE);
+        blockItem(EMBlocks.TIMEWORN_SANDSTONE_SLAB, TIMEWORN_SANDSTONE);
 
         // Rich Dirt
         simpleBlock(EMBlocks.RICH_GRASS_BLOCK.get(), models().cubeBottomTop("rich_grass_block",
                 modLoc("block/rich_grass_block_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_block_top")));
-        blockItem(EMBlocks.RICH_GRASS_BLOCK);
+        blockItem(EMBlocks.RICH_GRASS_BLOCK, null);
 
         // Flowers
         plantBlock(EMBlocks.GLIMMER_BLOSSOM);
@@ -185,48 +220,57 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.RICH_GRASS);
 
         // Abyssal Mushrooms
-        simpleBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
-        simpleBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
-        logBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get());
-        logBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
+        simpleBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP, null);
+        simpleBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP, null);
+        logBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
+        logBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
 
-        blockItem(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
-        blockItem(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
+        blockItem(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
 
-        simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM);
+        simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
 
-        stairsBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        slabBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        buttonBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        pressurePlateBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        fenceBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        fenceGateBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get(), blockTexture(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()));
-        doorBlockWithRenderType(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), modLoc("block/cubed_abyssal_mushroom_door_bottom"), modLoc("block/cubed_abyssal_mushroom_door_top"), "cutout");
-        trapdoorBlockWithRenderType(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), modLoc("block/cubed_abyssal_mushroom_trapdoor"), true, "cutout");
+        stairsBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        slabBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        buttonBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        pressurePlateBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        fenceBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        fenceGateBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
+        doorBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), ABYSSAL_MUSHROOM);
+        trapdoorBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), ABYSSAL_MUSHROOM);
 
-        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS);
-        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB);
-        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE);
-        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE);
-        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR, "_bottom");
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR, "_bottom", ABYSSAL_MUSHROOM);
 
     }
 
-    private void simpleBlock(DeferredBlock<?> block) {
-        simpleBlockWithItem(block.get(), cubeAll(block.get()));
+    private void simpleBlock(DeferredBlock<?> block, @Nullable String folder) {
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block.get());
+        simpleBlockWithItem(block.get(), models().cubeAll(
+                folder != null ? "ethermist:block/" + folder + "/" + name.getPath() : name.getPath(),
+                folder != null ? this.blockTextureFolder(block.get(), folder) : blockTexture(block.get())
+        ));
     }
 
-    private void blockItem(DeferredBlock<?> block) {
-        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile("ethermist:block/" + block.getId().getPath()));
+    private void blockItem(DeferredBlock<?> block, @Nullable String folder) {
+        String path = folder == null ? "ethermist:block/" + block.getId().getPath() : "ethermist:block/" + folder + "/" + block.getId().getPath();
+        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(path));
     }
 
-    private void blockItem(DeferredBlock<?> block, String appendix) {
-        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile("ethermist:block/" + block.getId().getPath() + appendix));
+    private void blockItem(DeferredBlock<?> block, String appendix, @Nullable String folder) {
+        String path = folder == null ? "ethermist:block/" + block.getId().getPath() + appendix : "ethermist:block/" + folder + "/" + block.getId().getPath() + appendix;
+        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(path));
     }
 
-    private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {
-        simpleBlock(blockRegistryObject.get(),
-                models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    private void saplingBlock(DeferredBlock<Block> block, @Nullable String folder) {
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block.get());
+        simpleBlock(block.get(), models().cross(
+                folder != null ? "ethermist:block/" + folder + "/" + name.getPath() : name.getPath(),
+                folder != null ? this.blockTextureFolder(block.get(), folder) : blockTexture(block.get())
+        ));
     }
 
     private void plantBlock(DeferredBlock<?> blockRegistryObject) {
@@ -245,9 +289,93 @@ public class EMBlockstateProvider extends BlockStateProvider {
                         "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
-    public ResourceLocation blockTextureFolder(Block block) {
+    public void woodBlock(RotatedPillarBlock block, Block log, String folder) {
+        ResourceLocation texture = blockTextureFolder(log, folder);
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        axisBlock(block, models().cubeColumn(baseName, texture, texture),
+                models().cubeColumnHorizontal(baseName + "_horizontal", texture, texture));
+    }
+
+    private void logBlock(RotatedPillarBlock block, String folder) {
+        ResourceLocation texture = blockTextureFolder(block, folder);
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        axisBlock(block, models().cubeColumn(baseName, texture, ResourceLocation.parse(texture + "_top")),
+                models().cubeColumnHorizontal(baseName + "_horizontal", texture, ResourceLocation.parse(texture + "_top")));
+    }
+
+    private void doorBlock(DoorBlock block, String folder) {
         ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block);
-        return ResourceLocation.fromNamespaceAndPath(name.getNamespace(), "block/" + name.getPath() + "/" + name.getPath());
+        ResourceLocation top = modLoc("block/" + folder + "/" + name.getPath() + "_top");
+        ResourceLocation bottom = modLoc("block/" + folder + "/" + name.getPath() + "_bottom");
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+
+        ModelFile bottomLeft = (models().doorBottomLeft(baseName + "_bottom_left", bottom, top)).renderType("cutout");
+        ModelFile bottomLeftOpen = (models().doorBottomLeftOpen(baseName + "_bottom_left_open", bottom, top)).renderType("cutout");
+        ModelFile bottomRight = (models().doorBottomRight(baseName + "_bottom_right", bottom, top)).renderType("cutout");
+        ModelFile bottomRightOpen = (models().doorBottomRightOpen(baseName + "_bottom_right_open", bottom, top)).renderType("cutout");
+        ModelFile topLeft = (models().doorTopLeft(baseName + "_top_left", bottom, top)).renderType("cutout");
+        ModelFile topLeftOpen = (models().doorTopLeftOpen(baseName + "_top_left_open", bottom, top)).renderType("cutout");
+        ModelFile topRight = (models().doorTopRight(baseName + "_top_right", bottom, top)).renderType("cutout");
+        ModelFile topRightOpen = (models().doorTopRightOpen(baseName + "_top_right_open", bottom, top)).renderType("cutout");
+        this.doorBlock(block, bottomLeft, bottomLeftOpen, bottomRight, bottomRightOpen, topLeft, topLeftOpen, topRight, topRightOpen);
+    }
+
+    private void trapdoorBlock(TrapDoorBlock block, String folder) {
+        ResourceLocation texture = blockTextureFolder(block, folder);
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile bottom = models().trapdoorOrientableBottom(baseName + "_bottom", texture).renderType("cutout");
+        ModelFile top = models().trapdoorOrientableTop(baseName + "_top", texture).renderType("cutout");
+        ModelFile open = models().trapdoorOrientableOpen(baseName + "_open", texture).renderType("cutout");
+        trapdoorBlock(block, bottom, top, open, true);
+    }
+
+    private void stairsBlockFolder(StairBlock block, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile stairs = this.models().stairs(baseName, texture, texture, texture);
+        ModelFile stairsInner = this.models().stairsInner(baseName + "_inner", texture, texture, texture);
+        ModelFile stairsOuter = this.models().stairsOuter(baseName + "_outer", texture, texture, texture);
+        this.stairsBlock(block, stairs, stairsInner, stairsOuter);
+    }
+
+    private void slabBlockFolder(SlabBlock block, ResourceLocation doubleSlab, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        slabBlock(block,
+                this.models().slab(baseName, texture, texture, texture),
+                this.models().slabTop(baseName + "_top", texture, texture, texture),
+                this.models().getExistingFile(doubleSlab));
+    }
+
+    private void buttonBlockFolder(ButtonBlock block, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile button = this.models().button(baseName, texture);
+        ModelFile buttonPressed = this.models().buttonPressed(baseName + "_pressed", texture);
+        this.buttonBlock(block, button, buttonPressed);
+    }
+
+    private void pressurePlateBlockFolder(PressurePlateBlock block, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile pressurePlate = this.models().pressurePlate(baseName, texture);
+        ModelFile pressurePlateDown = this.models().pressurePlateDown(baseName + "_down", texture);
+        this.pressurePlateBlock(block, pressurePlate, pressurePlateDown);
+    }
+
+    private void fenceBlockFolder(FenceBlock block, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        fourWayBlock(block, this.models().fencePost(baseName + "_post", texture), this.models().fenceSide(baseName + "_side", texture));
+    }
+
+    private void fenceGateBlockFolder(FenceGateBlock block, ResourceLocation texture, String folder) {
+        String baseName = "block/" + folder + "/" + BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile gate = this.models().fenceGate(baseName, texture);
+        ModelFile gateOpen = this.models().fenceGateOpen(baseName + "_open", texture);
+        ModelFile gateWall = this.models().fenceGateWall(baseName + "_wall", texture);
+        ModelFile gateWallOpen = this.models().fenceGateWallOpen(baseName + "_wall_open", texture);
+        fenceGateBlock(block, gate, gateOpen, gateWall, gateWallOpen);
+    }
+
+    public ResourceLocation blockTextureFolder(Block block, String folder) {
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block);
+        return modLoc("block/" + folder + "/" + name.getPath());
     }
 
 }

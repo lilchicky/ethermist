@@ -41,6 +41,8 @@ public class EMConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_GLIMMERING_ANCIENT_TREE_KEY = registerKey("mega_glimmering_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERING_ANCIENT_TREE_KEY = registerKey("glimmering_ancient_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_ANCIENT_TREE_KEY = registerKey("mega_ancient_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE_KEY = registerKey("ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
@@ -84,6 +86,52 @@ public class EMConfiguredFeatures {
                                 .add(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get().defaultBlockState(), 15)
                                 .build()
                 ),
+                new CherryTrunkPlacer(
+                        6,
+                        1,
+                        0,
+                        new WeightedListInt(
+                                SimpleWeightedRandomList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()
+                        ),
+                        UniformInt.of(2, 4),
+                        UniformInt.of(-4, -3),
+                        UniformInt.of(-1, 0)
+                ),
+                BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
+                new CherryFoliagePlacer(
+                        ConstantInt.of(3),
+                        ConstantInt.of(1),
+                        ConstantInt.of(4),
+                        0.25F,
+                        0.5F,
+                        0.16666667F,
+                        0.33333334F
+                ),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
+        );
+
+        register(context, MEGA_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.ANCIENT_LOG.get()),
+                new AncientTrunkPlacer(
+                        11,
+                        3,
+                        1
+                ),
+                BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
+                new CherryFoliagePlacer(
+                        ConstantInt.of(4),
+                        ConstantInt.of(1),
+                        ConstantInt.of(4),
+                        0.25F,
+                        0.5F,
+                        0.16666667F,
+                        0.33333334F
+                ),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
+        );
+
+        register(context, ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.ANCIENT_LOG.get()),
                 new CherryTrunkPlacer(
                         6,
                         1,

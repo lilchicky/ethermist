@@ -41,6 +41,12 @@ public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
             if (state.is(EMBlocks.GLIMMERING_ANCIENT_WOOD)) {
                 return EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
+            if (state.is(EMBlocks.ANCIENT_LOG)) {
+                return EMBlocks.STRIPPED_ANCIENT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.ANCIENT_WOOD)) {
+                return EMBlocks.STRIPPED_ANCIENT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
             if (state.is(EMBlocks.SLIMY_LOG)) {
                 return EMBlocks.STRIPPED_SLIMY_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }

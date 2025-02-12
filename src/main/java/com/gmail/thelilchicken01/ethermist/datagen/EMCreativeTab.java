@@ -29,6 +29,22 @@ public class EMCreativeTab {
                  */
 
                 // Ancient Wood
+                output.accept(EMBlocks.ANCIENT_LOG);
+                output.accept(EMBlocks.ANCIENT_WOOD);
+                output.accept(EMBlocks.STRIPPED_ANCIENT_LOG);
+                output.accept(EMBlocks.STRIPPED_ANCIENT_WOOD);
+
+                output.accept(EMBlocks.ANCIENT_PLANKS);
+                output.accept(EMBlocks.ANCIENT_STAIRS);
+                output.accept(EMBlocks.ANCIENT_SLAB);
+                output.accept(EMBlocks.ANCIENT_FENCE);
+                output.accept(EMBlocks.ANCIENT_FENCE_GATE);
+                output.accept(EMBlocks.ANCIENT_DOOR);
+                output.accept(EMBlocks.ANCIENT_TRAPDOOR);
+                output.accept(EMBlocks.ANCIENT_PRESSURE_PLATE);
+                output.accept(EMBlocks.ANCIENT_BUTTON);
+
+                // Glimmering Ancient Wood
                 output.accept(EMBlocks.GLIMMERING_ANCIENT_LOG);
                 output.accept(EMBlocks.GLIMMERING_ANCIENT_WOOD);
                 output.accept(EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG);
@@ -150,6 +166,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.FROSTPINE_LEAVES);
 
                 // Plants
+                output.accept(EMBlocks.ANCIENT_SAPLING);
                 output.accept(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
                 output.accept(EMBlocks.SLIMY_SAPLING);
                 output.accept(EMBlocks.FROSTPINE_SAPLING);
