@@ -20,14 +20,25 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GLIMMERING_ANCIENT_PLACED_TREE_KEY = registerKey("glimmering_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_PLACED_TREE_KEY = registerKey("mega_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
+    public static final ResourceKey<PlacedFeature> SPARSE_ANCIENT_PLACED_TREE_KEY = registerKey("sparse_ancient_tree_placed");
+
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
+
     public static final ResourceKey<PlacedFeature> BLUE_PLACED_ABYSSAL_MUSHROOM = registerKey("blue_abyssal_mushroom_placed");
+
     public static final ResourceKey<PlacedFeature> ORANGE_PLACED_ABYSSAL_MUSHROOM = registerKey("orange_abyssal_mushroom_placed");
+
     public static final ResourceKey<PlacedFeature> FROSTPINE_PLACED_TREE_KEY = registerKey("frostpine_tree_placed");
 
     public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_KEY = registerKey("ethermist_lava_lake_placed");
+    public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_boulder_placed");
+
     public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
+    public static final ResourceKey<PlacedFeature> NIGHT_LAVENDER_PATCH_KEY = registerKey("night_lavender_patch_placed");
+
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_RICH_GRASS_PATCH_KEY = registerKey("dense_rich_grass_patch_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 
@@ -48,6 +59,15 @@ public class EMPlacedFeatures {
         register(context, ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.5f, 2),
                         EMBlocks.ANCIENT_SAPLING.get()));
+
+        register(context, SPARSE_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ANCIENT_TREE_KEY),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(64),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
 
         register(context, SLIMY_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SLIMY_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.1f, 2),
@@ -84,6 +104,15 @@ public class EMPlacedFeatures {
                 )
         );
 
+        register(context, ETHERSTONE_BOULDER_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_BOULDER_KEY),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(8),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
         register(context, GLIMMER_BLOSSOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMER_BLOSSOM_PATCH),
                 List.of(
                         RarityFilter.onAverageOnceEvery(1),
@@ -93,9 +122,31 @@ public class EMPlacedFeatures {
                 )
         );
 
+        register(context, NIGHT_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHT_LAVENDER_PATCH),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(16),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
         register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_GRASS_PATCH),
                 List.of(
                         RarityFilter.onAverageOnceEvery(2),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.BONEMEAL_RICH_GRASS_PATCH),
+                List.of()
+        );
+
+        register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_RICH_GRASS_PATCH),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(1),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()

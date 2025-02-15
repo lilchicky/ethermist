@@ -190,6 +190,11 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.GLIMMER_BLOSSOM.get());
         add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.GLIMMER_BLOSSOM.get().asItem()));
+
+        dropSelf(EMBlocks.NIGHT_LAVENDER.get());
+        add(EMBlocks.NIGHT_LAVENDER_FLOWER_POT.get(),
+                block -> createPotFlowerItemTable(EMBlocks.NIGHT_LAVENDER.get().asItem()));
+
         add(EMBlocks.RICH_GRASS.get(),
                 block -> createGrassDrops(EMBlocks.RICH_GRASS.get()));
 

@@ -137,13 +137,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         tag(BlockTags.FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get());
+                .add(EMBlocks.GLIMMER_BLOSSOM.get())
+                .add(EMBlocks.NIGHT_LAVENDER.get());
 
         tag(BlockTags.SMALL_FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get());
+                .add(EMBlocks.GLIMMER_BLOSSOM.get())
+                .add(EMBlocks.NIGHT_LAVENDER.get());
 
         tag(BlockTags.FLOWER_POTS)
-                .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get());
+                .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get())
+                .add(EMBlocks.NIGHT_LAVENDER_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)
                 .add(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get())

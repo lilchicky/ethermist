@@ -1,22 +1,30 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
+import com.gmail.thelilchicken01.ethermist.worldgen.EMPlacedFeatures;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SnowLayerBlock;
-import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class RichGrassBlock extends SpreadingSnowyDirtBlock {
+import java.util.List;
+import java.util.Optional;
+
+public class RichGrassBlock extends SpreadingSnowyDirtBlock implements BonemealableBlock {
 
     public static final MapCodec<RichGrassBlock> CODEC = simpleCodec(RichGrassBlock::new);
 
@@ -71,6 +79,30 @@ public class RichGrassBlock extends SpreadingSnowyDirtBlock {
             }
         }
 
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        return levelReader.getBlockState(blockPos.above()).isAir();
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        return true;
+    }
+
+    @Override
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
+                .registryOrThrow(Registries.PLACED_FEATURE)
+                .getHolder(EMPlacedFeatures.RICH_GRASS_BONEMEAL_KEY);
+
+        optional.ifPresent(placedFeatureReference -> placedFeatureReference.value().place(
+                level,
+                level.getChunkSource().getGenerator(),
+                random,
+                pos.above())
+        );
     }
 
 }

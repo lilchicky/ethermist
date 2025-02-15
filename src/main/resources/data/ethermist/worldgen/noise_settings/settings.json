@@ -331,7 +331,7 @@
       }
     }
   },
-  "ore_veins_enabled": false,
+  "ore_veins_enabled": true,
   "sea_level": 63,
   "spawn_target": [
     {
@@ -430,6 +430,105 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
+                        "ethermist:amethyst_gardens"
+                      ]
+                    },
+                    "then_run": {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:y_above",
+                        "add_stone_depth": false,
+                        "anchor": {
+                          "absolute": 97
+                        },
+                        "surface_depth_multiplier": 2
+                      },
+                      "then_run": {
+                        "type": "minecraft:sequence",
+                        "sequence": [
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "max_threshold": -0.5454,
+                              "min_threshold": -0.909,
+                              "noise": "minecraft:surface"
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "minecraft:calcite"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "max_threshold": 0.1818,
+                              "min_threshold": -0.1818,
+                              "noise": "minecraft:surface"
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "minecraft:calcite"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "max_threshold": 0.909,
+                              "min_threshold": 0.5454,
+                              "noise": "minecraft:surface"
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "ethermist:etherstone"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:water",
+                                  "add_stone_depth": false,
+                                  "offset": 0,
+                                  "surface_depth_multiplier": 0
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "ethermist:rich_grass_block",
+                                    "Properties": {
+                                      "snowy": "false"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "ethermist:rich_dirt"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:biome",
+                      "biome_is": [
                         "ethermist:slimy_swamp"
                       ]
                     },
@@ -476,57 +575,270 @@
                         }
                       }
                     }
-                  },
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "ethermist:burning_crags"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
                   {
                     "type": "minecraft:condition",
                     "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "ethermist:slimy_swamp"
-                      ]
+                      "type": "minecraft:stone_depth",
+                      "add_surface_depth": false,
+                      "offset": 0,
+                      "secondary_depth_range": 0,
+                      "surface_type": "floor"
                     },
                     "then_run": {
-                      "type": "minecraft:condition",
-                      "if_true": {
-                        "type": "minecraft:y_above",
-                        "add_stone_depth": false,
-                        "anchor": {
-                          "absolute": 60
-                        },
-                        "surface_depth_multiplier": 0
-                      },
-                      "then_run": {
-                        "type": "minecraft:condition",
-                        "if_true": {
-                          "type": "minecraft:not",
-                          "invert": {
-                            "type": "minecraft:y_above",
-                            "add_stone_depth": false,
-                            "anchor": {
-                              "absolute": 63
-                            },
-                            "surface_depth_multiplier": 0
-                          }
-                        },
-                        "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
                           "type": "minecraft:condition",
                           "if_true": {
                             "type": "minecraft:noise_threshold",
-                            "max_threshold": 1.7976931348623157e+308,
-                            "min_threshold": 0,
-                            "noise": "minecraft:surface_swamp"
+                            "max_threshold": -0.909,
+                            "min_threshold": -0.5454,
+                            "noise": "minecraft:surface"
                           },
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:water",
-                              "Properties": {
-                                "level": "0"
-                              }
+                              "Name": "minecraft:blackstone"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:noise_threshold",
+                            "max_threshold": -0.1818,
+                            "min_threshold": -0.5454,
+                            "noise": "minecraft:surface"
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "ethermist:crumbling_etherstone"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:noise_threshold",
+                            "max_threshold": 0.1818,
+                            "min_threshold": -0.1818,
+                            "noise": "minecraft:surface"
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "ethermist:etherstone"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:noise_threshold",
+                            "max_threshold": 0.5454,
+                            "min_threshold": 0.1818,
+                            "noise": "minecraft:surface"
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:blackstone"
                             }
                           }
                         }
-                      }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": -0.909,
+                      "min_threshold": -0.5454,
+                      "noise": "minecraft:surface"
+                    },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": -0.1818,
+                      "min_threshold": -0.5454,
+                      "noise": "minecraft:surface"
+                    },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:crumbling_etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:crumbling_etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:crumbling_etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:crumbling_etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:crumbling_etherstone"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.1818,
+                      "min_threshold": -0.1818,
+                      "noise": "minecraft:surface"
+                    },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:etherstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "ethermist:etherstone"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "max_threshold": 0.5454,
+                      "min_threshold": 0.1818,
+                      "noise": "minecraft:surface"
+                    },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:blackstone"
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -552,63 +864,6 @@
                 "then_run": {
                   "type": "minecraft:sequence",
                   "sequence": [
-                    {
-                      "type": "minecraft:condition",
-                      "if_true": {
-                        "type": "minecraft:biome",
-                        "biome_is": [
-                          "ethermist:bygone_ocean",
-                          "ethermist:bygone_ocean"
-                        ]
-                      },
-                      "then_run": {
-                        "type": "minecraft:condition",
-                        "if_true": {
-                          "type": "minecraft:hole"
-                        },
-                        "then_run": {
-                          "type": "minecraft:sequence",
-                          "sequence": [
-                            {
-                              "type": "minecraft:condition",
-                              "if_true": {
-                                "type": "minecraft:water",
-                                "add_stone_depth": false,
-                                "offset": 0,
-                                "surface_depth_multiplier": 0
-                              },
-                              "then_run": {
-                                "type": "minecraft:block",
-                                "result_state": {
-                                  "Name": "minecraft:air"
-                                }
-                              }
-                            },
-                            {
-                              "type": "minecraft:condition",
-                              "if_true": {
-                                "type": "minecraft:temperature"
-                              },
-                              "then_run": {
-                                "type": "minecraft:block",
-                                "result_state": {
-                                  "Name": "minecraft:ice"
-                                }
-                              }
-                            },
-                            {
-                              "type": "minecraft:block",
-                              "result_state": {
-                                "Name": "minecraft:water",
-                                "Properties": {
-                                  "level": "0"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    },
                     {
                       "type": "minecraft:sequence",
                       "sequence": [
@@ -684,84 +939,8 @@
                           }
                         },
                         {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:biome",
-                            "biome_is": [
-                              "ethermist:windy_peaks"
-                            ]
-                          },
-                          "then_run": {
-                            "type": "minecraft:sequence",
-                            "sequence": [
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:steep"
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "ethermist:etherstone"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:water",
-                                  "add_stone_depth": false,
-                                  "offset": 0,
-                                  "surface_depth_multiplier": 0
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "minecraft:snow_block"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        {
                           "type": "minecraft:sequence",
                           "sequence": [
-                            {
-                              "type": "minecraft:condition",
-                              "if_true": {
-                                "type": "minecraft:biome",
-                                "biome_is": [
-                                  "ethermist:windy_peaks"
-                                ]
-                              },
-                              "then_run": {
-                                "type": "minecraft:sequence",
-                                "sequence": [
-                                  {
-                                    "type": "minecraft:condition",
-                                    "if_true": {
-                                      "type": "minecraft:noise_threshold",
-                                      "max_threshold": 0.0125,
-                                      "min_threshold": -0.0125,
-                                      "noise": "minecraft:calcite"
-                                    },
-                                    "then_run": {
-                                      "type": "minecraft:block",
-                                      "result_state": {
-                                        "Name": "minecraft:calcite"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "ethermist:etherstone"
-                                    }
-                                  }
-                                ]
-                              }
-                            },
                             {
                               "type": "minecraft:condition",
                               "if_true": {
@@ -823,9 +1002,9 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "ethermist:bygone_ocean",
+                                  "ethermist:abyssal_depths",
                                   "ethermist:sparkling_beach",
-                                  "ethermist:sparkling_beach"
+                                  "ethermist:forgotten_ocean"
                                 ]
                               },
                               "then_run": {
@@ -891,8 +1070,91 @@
                                   }
                                 ]
                               }
+                            },
+                            {
+                              "type": "minecraft:condition",
+                              "if_true": {
+                                "type": "minecraft:biome",
+                                "biome_is": [
+                                  "minecraft:dripstone_caves"
+                                ]
+                              },
+                              "then_run": {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "ethermist:etherstone"
+                                }
+                              }
                             }
                           ]
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "ethermist:frozen_expanse"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 1.7976931348623157e+308,
+                                  "min_threshold": 0.21212121212121213,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:snow_block"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 1.7976931348623157e+308,
+                                  "min_threshold": -0.11515151515151514,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:packed_ice"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "ethermist:frostpine_forest"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "max_threshold": 1.2,
+                              "min_threshold": 0.21212121212121213,
+                              "noise": "minecraft:surface"
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "minecraft:snow_block"
+                              }
+                            }
+                          }
                         },
                         {
                           "type": "minecraft:sequence",
@@ -940,41 +1202,6 @@
               "then_run": {
                 "type": "minecraft:sequence",
                 "sequence": [
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:stone_depth",
-                      "add_surface_depth": false,
-                      "offset": 0,
-                      "secondary_depth_range": 0,
-                      "surface_type": "floor"
-                    },
-                    "then_run": {
-                      "type": "minecraft:condition",
-                      "if_true": {
-                        "type": "minecraft:biome",
-                        "biome_is": [
-                          "ethermist:bygone_ocean",
-                          "ethermist:bygone_ocean"
-                        ]
-                      },
-                      "then_run": {
-                        "type": "minecraft:condition",
-                        "if_true": {
-                          "type": "minecraft:hole"
-                        },
-                        "then_run": {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:water",
-                            "Properties": {
-                              "level": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
                   {
                     "type": "minecraft:condition",
                     "if_true": {
@@ -1059,58 +1286,8 @@
                           }
                         },
                         {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:biome",
-                            "biome_is": [
-                              "ethermist:windy_peaks"
-                            ]
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "ethermist:etherstone"
-                            }
-                          }
-                        },
-                        {
                           "type": "minecraft:sequence",
                           "sequence": [
-                            {
-                              "type": "minecraft:condition",
-                              "if_true": {
-                                "type": "minecraft:biome",
-                                "biome_is": [
-                                  "ethermist:windy_peaks"
-                                ]
-                              },
-                              "then_run": {
-                                "type": "minecraft:sequence",
-                                "sequence": [
-                                  {
-                                    "type": "minecraft:condition",
-                                    "if_true": {
-                                      "type": "minecraft:noise_threshold",
-                                      "max_threshold": 0.0125,
-                                      "min_threshold": -0.0125,
-                                      "noise": "minecraft:calcite"
-                                    },
-                                    "then_run": {
-                                      "type": "minecraft:block",
-                                      "result_state": {
-                                        "Name": "minecraft:calcite"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "ethermist:etherstone"
-                                    }
-                                  }
-                                ]
-                              }
-                            },
                             {
                               "type": "minecraft:condition",
                               "if_true": {
@@ -1172,9 +1349,9 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "ethermist:bygone_ocean",
+                                  "ethermist:abyssal_depths",
                                   "ethermist:sparkling_beach",
-                                  "ethermist:sparkling_beach"
+                                  "ethermist:forgotten_ocean"
                                 ]
                               },
                               "then_run": {
@@ -1240,6 +1417,21 @@
                                   }
                                 ]
                               }
+                            },
+                            {
+                              "type": "minecraft:condition",
+                              "if_true": {
+                                "type": "minecraft:biome",
+                                "biome_is": [
+                                  "minecraft:dripstone_caves"
+                                ]
+                              },
+                              "then_run": {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "ethermist:etherstone"
+                                }
+                              }
                             }
                           ]
                         },
@@ -1257,9 +1449,9 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
-                        "ethermist:bygone_ocean",
+                        "ethermist:abyssal_depths",
                         "ethermist:sparkling_beach",
-                        "ethermist:sparkling_beach"
+                        "ethermist:forgotten_ocean"
                       ]
                     },
                     "then_run": {
@@ -1324,7 +1516,6 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
-                        "ethermist:windy_peaks",
                         "ethermist:windy_peaks"
                       ]
                     },
@@ -1340,9 +1531,8 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
-                        "ethermist:bygone_ocean",
-                        "ethermist:bygone_ocean",
-                        "ethermist:bygone_ocean"
+                        "ethermist:abyssal_ocean",
+                        "ethermist:forgotten_ocean"
                       ]
                     },
                     "then_run": {

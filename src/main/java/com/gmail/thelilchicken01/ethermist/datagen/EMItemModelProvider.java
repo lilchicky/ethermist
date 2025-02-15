@@ -60,6 +60,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());
 
         crossItem(EMBlocks.GLIMMER_BLOSSOM);
+        crossItem(EMBlocks.NIGHT_LAVENDER);
         crossItem(EMBlocks.RICH_GRASS);
 
         basicHandheld(EMItems.WAND_HANDLE);

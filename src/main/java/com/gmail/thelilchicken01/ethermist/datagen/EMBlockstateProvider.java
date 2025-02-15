@@ -217,6 +217,10 @@ public class EMBlockstateProvider extends BlockStateProvider {
         // Flowers
         plantBlock(EMBlocks.GLIMMER_BLOSSOM);
         flowerPotBlock(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM);
+
+        plantBlock(EMBlocks.NIGHT_LAVENDER);
+        flowerPotBlock(EMBlocks.NIGHT_LAVENDER_FLOWER_POT, EMBlocks.NIGHT_LAVENDER);
+
         plantBlock(EMBlocks.RICH_GRASS);
 
         // Abyssal Mushrooms
@@ -270,7 +274,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(block.get(), models().cross(
                 folder != null ? "ethermist:block/" + folder + "/" + name.getPath() : name.getPath(),
                 folder != null ? this.blockTextureFolder(block.get(), folder) : blockTexture(block.get())
-        ));
+        ).renderType("cutout"));
     }
 
     private void plantBlock(DeferredBlock<?> blockRegistryObject) {

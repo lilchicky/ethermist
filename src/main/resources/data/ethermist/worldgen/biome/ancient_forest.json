@@ -33,7 +33,8 @@
       "ethermist:ethermist_lava_lake_placed"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:etherstone_boulder_placed"
     ],
     [
       "minecraft:monster_room",
@@ -79,10 +80,10 @@
     ],
     [
       "minecraft:glow_lichen",
+      "ethermist:night_lavender_patch_placed",
       "ethermist:rich_grass_patch_placed",
       "ethermist:mega_ancient_tree_placed",
-      "ethermist:ancient_tree_placed",
-      "ethermist:glimmer_blossom_patch_placed"
+      "ethermist:ancient_tree_placed"
     ],
     [
       "minecraft:freeze_top_layer"

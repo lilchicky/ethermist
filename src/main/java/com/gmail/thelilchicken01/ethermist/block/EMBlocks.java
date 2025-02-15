@@ -164,6 +164,10 @@ public class EMBlocks {
     // Flowers
     public static final DeferredBlock<FlowerBlock> GLIMMER_BLOSSOM = registerBlock("glimmer_blossom", GlimmerBlossom::new);
     public static final DeferredBlock<FlowerPotBlock> GLIMMER_BLOSSOM_FLOWER_POT = BLOCKS.register("glimmer_blossom_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
+    public static final DeferredBlock<FlowerBlock> NIGHT_LAVENDER = registerBlock("night_lavender", NightLavender::new);
+    public static final DeferredBlock<FlowerPotBlock> NIGHT_LAVENDER_FLOWER_POT = BLOCKS.register("night_lavender_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.NIGHT_LAVENDER, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
 
     // Abyssal Mushroom

@@ -23,10 +23,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
@@ -49,8 +46,14 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTPINE_TREE_KEY = registerKey("frostpine_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHT_LAVENDER_PATCH = registerKey("night_lavender_patch");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_GRASS_PATCH = registerKey("rich_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_RICH_GRASS_PATCH = registerKey("dense_rich_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BONEMEAL_RICH_GRASS_PATCH = registerKey("bonemeal_rich_grass_patch");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -230,14 +233,62 @@ public class EMConfiguredFeatures {
                 .decorators(ImmutableList.of(new IcicleDecorator(0.4f))).build()
         );
 
+        /*
+        ---------- Random Features ----------
+         */
+
         register(context, ETHERMIST_LAVA_LAKE, Feature.LAKE, new LakeFeature.Configuration(
                 BlockStateProvider.simple(Blocks.LAVA),
                 BlockStateProvider.simple(EMBlocks.ETHERSTONE.get())
         ));
 
+        register(context, ETHERSTONE_BOULDER_KEY, Feature.FOREST_ROCK, new BlockStateConfiguration(EMBlocks.ETHERSTONE.get().defaultBlockState()));
+
+        /*
+        ---------- Rich Grass ----------
+         */
+
         register(context, RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
                 FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())))
         );
+
+        register(context, BONEMEAL_RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        64,
+                        2,
+                        2,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
+
+        register(context, DENSE_RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        512,
+                        16,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
+
+        /*
+                    Flower Patches
+         */
 
         register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(
@@ -251,6 +302,27 @@ public class EMConfiguredFeatures {
                                                 SimpleWeightedRandomList.<BlockState>builder()
                                                         .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 6)
                                                         .add(EMBlocks.GLIMMER_BLOSSOM.get().defaultBlockState(), 1)
+                                        )
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
+
+        register(context, NIGHT_LAVENDER_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        128,
+                        8,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        new WeightedStateProvider(
+                                                SimpleWeightedRandomList.<BlockState>builder()
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 3)
+                                                        .add(EMBlocks.NIGHT_LAVENDER.get().defaultBlockState(), 1)
                                         )
                                 ),
                                 BlockPredicate.allOf(
