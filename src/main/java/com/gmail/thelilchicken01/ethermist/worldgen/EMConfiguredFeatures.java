@@ -2,6 +2,8 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeConfiguration;
+import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
 import com.google.common.collect.ImmutableList;
@@ -13,10 +15,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.IntProvider;
-import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -47,6 +46,8 @@ public class EMConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AMETHYST_SPIKE_KEY = registerKey("amethyst_spike");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_AMETHYST_SPIKE_KEY = registerKey("small_amethyst_spike");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHT_LAVENDER_PATCH = registerKey("night_lavender_patch");
@@ -242,7 +243,29 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(EMBlocks.ETHERSTONE.get())
         ));
 
-        register(context, ETHERSTONE_BOULDER_KEY, Feature.FOREST_ROCK, new BlockStateConfiguration(EMBlocks.ETHERSTONE.get().defaultBlockState()));
+        register(context, ETHERSTONE_BOULDER_KEY, Feature.FOREST_ROCK, new BlockStateConfiguration(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().defaultBlockState()));
+
+        register(context, AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+                UniformInt.of(12, 32),
+                UniformFloat.of(4.0f, 5.0f),
+                UniformInt.of(-30, 30),
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(Blocks.AMETHYST_BLOCK.defaultBlockState(), 4)
+                                .add(Blocks.BUDDING_AMETHYST.defaultBlockState(), 1)
+                )
+        ));
+
+        register(context, SMALL_AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+                UniformInt.of(2, 4),
+                UniformFloat.of(0.5f, 2.0f),
+                UniformInt.of(-15, 15),
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(Blocks.AMETHYST_BLOCK.defaultBlockState(), 4)
+                                .add(Blocks.BUDDING_AMETHYST.defaultBlockState(), 1)
+                )
+        ));
 
         /*
         ---------- Rich Grass ----------

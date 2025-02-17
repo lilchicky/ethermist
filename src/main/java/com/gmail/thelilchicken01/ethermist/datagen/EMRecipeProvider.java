@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.ArrayList;
@@ -58,7 +59,42 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.ETHERSTONE.get())
-                .unlockedBy("has_timeworn_sand", has(EMBlocks.ETHERSTONE)).save(output);
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
+
+        oreSmelting(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
+                RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE.get(), 0.25f, 200, "stone");
+        
+        // Cobbled Etherstone
+        stairBuilder(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.COBBLED_ETHERSTONE)).group("stairs")
+                .unlockedBy("has_cobbled_etherstone", has(EMBlocks.COBBLED_ETHERSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.COBBLED_ETHERSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_WALL.get(), EMBlocks.COBBLED_ETHERSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_WALL.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 1);
+
+        // Mossy Cobbled Etherstone
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 1)
+                .requires(EMBlocks.COBBLED_ETHERSTONE.get())
+                .requires(Blocks.VINE)
+                .unlockedBy("has_cobbled_etherstone", has(EMBlocks.COBBLED_ETHERSTONE))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.MOSSY_COBBLED_ETHERSTONE.getId().getPath() + "_vine"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 1)
+                .requires(EMBlocks.COBBLED_ETHERSTONE.get())
+                .requires(Blocks.MOSS_BLOCK)
+                .unlockedBy("has_cobbled_etherstone", has(EMBlocks.COBBLED_ETHERSTONE))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.MOSSY_COBBLED_ETHERSTONE.getId().getPath() + "_moss_block"));
+
+        stairBuilder(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.MOSSY_COBBLED_ETHERSTONE)).group("stairs")
+                .unlockedBy("has_mossy_cobbled_etherstone", has(EMBlocks.MOSSY_COBBLED_ETHERSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 1);
 
         // Glimmering Ancient Wood
         stairBuilder(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get(), Ingredient.of(EMBlocks.GLIMMERING_ANCIENT_PLANKS)).group("stairs")
@@ -264,12 +300,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.SPARKLING_SAND.get())
-                .unlockedBy("has_timeworn_sand", has(EMBlocks.SPARKLING_SAND)).save(output);
+                .unlockedBy("has_sparkling_sand", has(EMBlocks.SPARKLING_SAND)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 4)
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.SPARKLING_SANDSTONE.get())
-                .unlockedBy("has_timeworn_sandstone", has(EMBlocks.SPARKLING_SANDSTONE)).save(output);
+                .unlockedBy("has_sparkling_sandstone", has(EMBlocks.SPARKLING_SANDSTONE)).save(output);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), EMBlocks.SPARKLING_SANDSTONE.get(), 1);
 
         stairBuilder(EMBlocks.SPARKLING_SANDSTONE_STAIRS.get(), Ingredient.of(EMBlocks.SPARKLING_SANDSTONE)).group("stairs")

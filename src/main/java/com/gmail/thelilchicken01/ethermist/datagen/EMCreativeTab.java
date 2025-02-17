@@ -127,6 +127,16 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_BRICK_SLAB);
                 output.accept(EMBlocks.ETHERSTONE_BRICK_WALL);
 
+                output.accept(EMBlocks.COBBLED_ETHERSTONE);
+                output.accept(EMBlocks.COBBLED_ETHERSTONE_STAIRS);
+                output.accept(EMBlocks.COBBLED_ETHERSTONE_SLAB);
+                output.accept(EMBlocks.COBBLED_ETHERSTONE_WALL);
+
+                output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE);
+                output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS);
+                output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB);
+                output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL);
+
                 // Sparkling Sand
                 output.accept(EMBlocks.SPARKLING_SANDSTONE);
                 output.accept(EMBlocks.SPARKLING_SANDSTONE_STAIRS);

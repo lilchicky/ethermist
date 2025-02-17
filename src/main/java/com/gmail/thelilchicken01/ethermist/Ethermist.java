@@ -7,6 +7,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.*;
+import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
@@ -77,6 +78,7 @@ public class Ethermist {
         EMTrunkPlacerType.register(modEventBus);
         EMPOIs.register(modEventBus);
         EMTreeDecorators.register(modEventBus);
+        EMFeatures.register(modEventBus);
 
         EMBlocks.register(modEventBus);
         EMItems.register(modEventBus);

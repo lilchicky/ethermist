@@ -417,9 +417,9 @@
               "type": "minecraft:condition",
               "if_true": {
                 "type": "minecraft:stone_depth",
-                "add_surface_depth": false,
+                "add_surface_depth": true,
                 "offset": 0,
-                "secondary_depth_range": 0,
+                "secondary_depth_range": 6,
                 "surface_type": "floor"
               },
               "then_run": {
@@ -472,7 +472,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:calcite"
+                                "Name": "minecraft:smooth_basalt"
                               }
                             }
                           },
@@ -487,7 +487,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "ethermist:etherstone"
+                                "Name": "minecraft:calcite"
                               }
                             }
                           },
@@ -505,17 +505,14 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "ethermist:rich_grass_block",
-                                    "Properties": {
-                                      "snowy": "false"
-                                    }
+                                    "Name": "ethermist:etherstone"
                                   }
                                 }
                               },
                               {
                                 "type": "minecraft:block",
                                 "result_state": {
-                                  "Name": "ethermist:rich_dirt"
+                                  "Name": "ethermist:etherstone"
                                 }
                               }
                             ]
@@ -596,7 +593,7 @@
                       "type": "minecraft:stone_depth",
                       "add_surface_depth": false,
                       "offset": 0,
-                      "secondary_depth_range": 0,
+                      "secondary_depth_range": 6,
                       "surface_type": "floor"
                     },
                     "then_run": {
@@ -681,30 +678,6 @@
                           "result_state": {
                             "Name": "minecraft:blackstone"
                           }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
                         }
                       ]
                     }
@@ -720,30 +693,6 @@
                     "then_run": {
                       "type": "minecraft:sequence",
                       "sequence": [
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:crumbling_etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:crumbling_etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:crumbling_etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:crumbling_etherstone"
-                          }
-                        },
                         {
                           "type": "minecraft:block",
                           "result_state": {
@@ -769,30 +718,6 @@
                           "result_state": {
                             "Name": "ethermist:etherstone"
                           }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:etherstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "ethermist:etherstone"
-                          }
                         }
                       ]
                     }
@@ -808,30 +733,6 @@
                     "then_run": {
                       "type": "minecraft:sequence",
                       "sequence": [
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:blackstone"
-                          }
-                        },
                         {
                           "type": "minecraft:block",
                           "result_state": {

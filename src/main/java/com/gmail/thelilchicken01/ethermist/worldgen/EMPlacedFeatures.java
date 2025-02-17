@@ -30,8 +30,10 @@ public class EMPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> FROSTPINE_PLACED_TREE_KEY = registerKey("frostpine_tree_placed");
 
-    public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_KEY = registerKey("ethermist_lava_lake_placed");
-    public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_boulder_placed");
+    public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_PLACED_KEY = registerKey("ethermist_lava_lake_placed");
+    public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER_PLACED_KEY = registerKey("etherstone_boulder_placed");
+    public static final ResourceKey<PlacedFeature> AMETHYST_SPIKE_PLACED_KEY = registerKey("amethyst_spike_placed");
+    public static final ResourceKey<PlacedFeature> SMALL_AMETHYST_SPIKE_PLACED_KEY = registerKey("small_amethyst_spike_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
     public static final ResourceKey<PlacedFeature> NIGHT_LAVENDER_PATCH_KEY = registerKey("night_lavender_patch_placed");
@@ -95,7 +97,7 @@ public class EMPlacedFeatures {
                 )
         );
 
-        register(context, ETHERMIST_LAVA_LAKE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE),
+        register(context, ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE),
                 List.of(
                         RarityFilter.onAverageOnceEvery(200),
                         InSquarePlacement.spread(),
@@ -104,9 +106,27 @@ public class EMPlacedFeatures {
                 )
         );
 
-        register(context, ETHERSTONE_BOULDER_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_BOULDER_KEY),
+        register(context, ETHERSTONE_BOULDER_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_BOULDER_KEY),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(8),
+                        RarityFilter.onAverageOnceEvery(2),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.AMETHYST_SPIKE_KEY),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(3),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SMALL_AMETHYST_SPIKE_KEY),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(1),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()

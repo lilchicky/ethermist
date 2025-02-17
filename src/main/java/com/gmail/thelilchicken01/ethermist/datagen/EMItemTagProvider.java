@@ -28,6 +28,18 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.STONES)
                 .add(EMBlocks.ETHERSTONE.asItem());
 
+        tag(Tags.Items.COBBLESTONES_NORMAL)
+                .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
+
+        tag(Tags.Items.COBBLESTONES_MOSSY)
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().asItem());
+
+        tag(ItemTags.STONE_CRAFTING_MATERIALS)
+                .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
+
+        tag(ItemTags.STONE_TOOL_MATERIALS)
+                .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
+
         tag(ItemTags.SAND)
                 .add(EMBlocks.SPARKLING_SAND.get().asItem())
                 .add(EMBlocks.TIMEWORN_SAND.get().asItem());

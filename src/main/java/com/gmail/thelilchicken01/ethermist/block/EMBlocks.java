@@ -157,6 +157,16 @@ public class EMBlocks {
     public static final DeferredBlock<ButtonBlock> POLISHED_TIMEWORN_SANDSTONE_BUTTON = registerBlock("polished_timeworn_sandstone_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()).noCollission()));
     public static final DeferredBlock<WallBlock> POLISHED_TIMEWORN_SANDSTONE_WALL = registerBlock("polished_timeworn_sandstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get())));
 
+    // Cobbled Etherstone
+    public static final DeferredBlock<Block> COBBLED_ETHERSTONE = registerBlock("cobbled_etherstone", CobbledEtherstone::new);
+    public static final DeferredBlock<StairBlock> COBBLED_ETHERSTONE_STAIRS = registerBlock("cobbled_etherstone_stairs", () -> new StairBlock(EMBlocks.COBBLED_ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.COBBLED_ETHERSTONE.get())));
+    public static final DeferredBlock<SlabBlock> COBBLED_ETHERSTONE_SLAB = registerBlock("cobbled_etherstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.COBBLED_ETHERSTONE.get())));
+    public static final DeferredBlock<WallBlock> COBBLED_ETHERSTONE_WALL = registerBlock("cobbled_etherstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.COBBLED_ETHERSTONE.get())));
+
+    public static final DeferredBlock<Block> MOSSY_COBBLED_ETHERSTONE = registerBlock("mossy_cobbled_etherstone", CobbledEtherstone::new);
+    public static final DeferredBlock<StairBlock> MOSSY_COBBLED_ETHERSTONE_STAIRS = registerBlock("mossy_cobbled_etherstone_stairs", () -> new StairBlock(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get())));
+    public static final DeferredBlock<SlabBlock> MOSSY_COBBLED_ETHERSTONE_SLAB = registerBlock("mossy_cobbled_etherstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get())));
+    public static final DeferredBlock<WallBlock> MOSSY_COBBLED_ETHERSTONE_WALL = registerBlock("mossy_cobbled_etherstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get())));
 
     // Crumbling Etherstone
     public static final DeferredBlock<FallingBlock> CRUMBLING_ETHERSTONE = registerBlock("crumbling_etherstone", () -> new CrumblingEtherstone(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL)));
@@ -165,7 +175,7 @@ public class EMBlocks {
     public static final DeferredBlock<FlowerBlock> GLIMMER_BLOSSOM = registerBlock("glimmer_blossom", GlimmerBlossom::new);
     public static final DeferredBlock<FlowerPotBlock> GLIMMER_BLOSSOM_FLOWER_POT = BLOCKS.register("glimmer_blossom_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
-    public static final DeferredBlock<FlowerBlock> NIGHT_LAVENDER = registerBlock("night_lavender", NightLavender::new);
+    public static final DeferredBlock<FlowerBlock> NIGHT_LAVENDER = registerBlock("night_lavender", Bluebell::new);
     public static final DeferredBlock<FlowerPotBlock> NIGHT_LAVENDER_FLOWER_POT = BLOCKS.register("night_lavender_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.NIGHT_LAVENDER, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));

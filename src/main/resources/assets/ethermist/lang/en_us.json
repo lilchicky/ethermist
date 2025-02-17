@@ -15,9 +15,19 @@
   "block.ethermist.etherstone_wall": "Etherstone Wall",
 
   "block.ethermist.etherstone_bricks": "Etherstone Bricks",
-  "block.ethermist.etherstone_brick_stairs": "Etherstone Stairs",
-  "block.ethermist.etherstone_brick_slab": "Etherstone Slab",
-  "block.ethermist.etherstone_brick_wall": "Etherstone Wall",
+  "block.ethermist.etherstone_brick_stairs": "Etherstone Brick Stairs",
+  "block.ethermist.etherstone_brick_slab": "Etherstone Brick Slab",
+  "block.ethermist.etherstone_brick_wall": "Etherstone Brick Wall",
+
+  "block.ethermist.cobbled_etherstone": "Cobbled Etherstone",
+  "block.ethermist.cobbled_etherstone_stairs": "Cobbled Etherstone Stairs",
+  "block.ethermist.cobbled_etherstone_slab": "Cobbled Etherstone Slab",
+  "block.ethermist.cobbled_etherstone_wall": "Cobbled Etherstone Wall",
+
+  "block.ethermist.mossy_cobbled_etherstone": "Mossy Cobbled Etherstone",
+  "block.ethermist.mossy_cobbled_etherstone_stairs": "Mossy Cobbled Etherstone Stairs",
+  "block.ethermist.mossy_cobbled_etherstone_slab": "Mossy Cobbled Etherstone Slab",
+  "block.ethermist.mossy_cobbled_etherstone_wall": "Mossy Cobbled Etherstone Wall",
 
   "block.ethermist.glimmering_ancient_log": "Glimmering Ancient Log",
   "block.ethermist.stripped_glimmering_ancient_log": "Stripped Glimmering Ancient Log",

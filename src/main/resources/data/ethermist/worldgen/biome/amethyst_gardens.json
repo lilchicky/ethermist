@@ -32,17 +32,15 @@
       "ethermist:ethermist_lava_lake_placed"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:amethyst_spike_placed",
+      "ethermist:small_amethyst_spike_placed"
     ],
     [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [
-      "minecraft:desert_well"
-    ],
+    [],
     [],
     [
       "minecraft:ore_dirt",
@@ -82,11 +80,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_desert"
+      "ethermist:night_lavender_patch_placed",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

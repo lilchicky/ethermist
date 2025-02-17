@@ -44,6 +44,22 @@ public class EMBlockstateProvider extends BlockStateProvider {
         wallBlock(EMBlocks.ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
         blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
+        
+        // Cobbled Etherstone
+        simpleBlock(EMBlocks.COBBLED_ETHERSTONE, null);
+        stairsBlock(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()));
+        slabBlock(EMBlocks.COBBLED_ETHERSTONE_SLAB.get(), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()));
+        wallBlock(EMBlocks.COBBLED_ETHERSTONE_WALL.get(), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()));
+        blockItem(EMBlocks.COBBLED_ETHERSTONE_STAIRS, null);
+        blockItem(EMBlocks.COBBLED_ETHERSTONE_SLAB, null);
+
+        // Mossy Cobbled Etherstone
+        simpleBlock(EMBlocks.MOSSY_COBBLED_ETHERSTONE, null);
+        stairsBlock(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get()));
+        slabBlock(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get(), blockTexture(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get()), blockTexture(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get()));
+        wallBlock(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get(), blockTexture(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get()));
+        blockItem(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS, null);
+        blockItem(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB, null);
 
         // Glimmering Ancient Wood
         logBlock((RotatedPillarBlock) EMBlocks.GLIMMERING_ANCIENT_LOG.get(), GLIMMERING_WOOD);

@@ -31,7 +31,10 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.GLIMMERBUG_HIVE.get());
 
         // Etherstone
-        dropSelf(EMBlocks.ETHERSTONE.get());
+        add(EMBlocks.ETHERSTONE.get(),
+                block -> createSilkTouchDispatchTable(EMBlocks.ETHERSTONE.get(),
+                        LootItem.lootTableItem(EMBlocks.COBBLED_ETHERSTONE.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
         dropSelf(EMBlocks.ETHERSTONE_STAIRS.get());
         add(EMBlocks.ETHERSTONE_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.ETHERSTONE_SLAB.get()));
@@ -44,6 +47,20 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.ETHERSTONE_BRICK_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.ETHERSTONE_BRICK_SLAB.get()));
         dropSelf(EMBlocks.ETHERSTONE_BRICK_WALL.get());
+
+        // Cobbled Etherstone
+        dropSelf(EMBlocks.COBBLED_ETHERSTONE.get());
+        dropSelf(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get());
+        add(EMBlocks.COBBLED_ETHERSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.COBBLED_ETHERSTONE_SLAB.get()));
+        dropSelf(EMBlocks.COBBLED_ETHERSTONE_WALL.get());
+
+        // Mossy Cobbled Etherstone
+        dropSelf(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
+        dropSelf(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS.get());
+        add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get()));
+        dropSelf(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get());
 
         // Glimmering Ancient Wood
         dropSelf(EMBlocks.GLIMMERING_ANCIENT_LOG.get());

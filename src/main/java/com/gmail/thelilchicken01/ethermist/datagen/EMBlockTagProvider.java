@@ -27,6 +27,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_WALL.get())
 
+                .add(EMBlocks.COBBLED_ETHERSTONE.get())
+                .add(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get())
+                .add(EMBlocks.COBBLED_ETHERSTONE_SLAB.get())
+                .add(EMBlocks.COBBLED_ETHERSTONE_WALL.get())
+
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get())
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS.get())
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB.get())
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get())
+
                 .add(EMBlocks.ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_STAIRS.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_SLAB.get())
@@ -158,6 +168,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.WALLS)
                 .add(EMBlocks.ETHERSTONE_WALL.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
+                .add(EMBlocks.COBBLED_ETHERSTONE_WALL.get())
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_WALL.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
@@ -171,8 +183,15 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(EMTags.Blocks.CAN_GROW_ICICLE)
                 .add(EMBlocks.FROSTPINE_LEAVES.get())
                 .addTag(Tags.Blocks.STONES)
+                .addTag(Tags.Blocks.COBBLESTONES)
                 .addTag(BlockTags.DIRT)
                 .addTag(BlockTags.ICE);
+
+        tag(Tags.Blocks.COBBLESTONES_NORMAL)
+                .add(EMBlocks.COBBLED_ETHERSTONE.get());
+
+        tag(Tags.Blocks.COBBLESTONES_MOSSY)
+                .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), true);
