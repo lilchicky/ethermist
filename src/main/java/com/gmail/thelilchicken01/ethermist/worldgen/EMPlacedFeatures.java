@@ -65,7 +65,7 @@ public class EMPlacedFeatures {
 
         register(context, SPARSE_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ANCIENT_TREE_KEY),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(64),
+                        RarityFilter.onAverageOnceEvery(48),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()
@@ -145,7 +145,7 @@ public class EMPlacedFeatures {
 
         register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHTBELL_PATCH),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(16),
+                        RarityFilter.onAverageOnceEvery(12),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()
@@ -163,7 +163,7 @@ public class EMPlacedFeatures {
 
         register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_GRASS_PATCH),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(2),
+                        RarityFilter.onAverageOnceEvery(1),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()

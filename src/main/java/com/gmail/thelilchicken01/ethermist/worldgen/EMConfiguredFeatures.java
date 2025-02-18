@@ -200,7 +200,7 @@ public class EMConfiguredFeatures {
                         ConstantInt.of(2),
                         ConstantInt.of(0)
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
         );
 
         register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -215,7 +215,7 @@ public class EMConfiguredFeatures {
                         ConstantInt.of(2),
                         ConstantInt.of(0)
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
         );
 
         register(context, FROSTPINE_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -274,7 +274,20 @@ public class EMConfiguredFeatures {
          */
 
         register(context, RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
-                FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())))
+                new RandomPatchConfiguration(
+                        256,
+                        16,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
         );
 
         register(context, BONEMEAL_RICH_GRASS_PATCH, Feature.RANDOM_PATCH,
