@@ -80,10 +80,10 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:nightbell_patch_placed",
-      "ethermist:rich_grass_patch_placed",
       "ethermist:mega_ancient_tree_placed",
-      "ethermist:ancient_tree_placed"
+      "ethermist:ancient_tree_placed",
+      "ethermist:nightbell_patch_placed",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

@@ -79,9 +79,9 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:rich_grass_patch_placed",
       "ethermist:mega_glimmering_ancient_tree_placed",
       "ethermist:glimmering_ancient_tree_placed",
+      "ethermist:rich_grass_patch_placed",
       "ethermist:glimmer_blossom_patch_placed"
     ],
     [
