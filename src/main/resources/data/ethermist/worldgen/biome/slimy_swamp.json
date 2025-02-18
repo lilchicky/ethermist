@@ -81,14 +81,8 @@
     [
       "minecraft:glow_lichen",
       "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_dead_bush",
+      "ethermist:dense_slimy_allium_placed",
       "minecraft:patch_waterlily",
-      "minecraft:brown_mushroom_swamp",
-      "minecraft:red_mushroom_swamp",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_swamp",
-      "minecraft:seagrass_swamp",
       "ethermist:slimy_tree_placed"
     ],
     [

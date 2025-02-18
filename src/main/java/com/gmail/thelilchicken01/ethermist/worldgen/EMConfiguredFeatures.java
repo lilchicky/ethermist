@@ -50,7 +50,9 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_AMETHYST_SPIKE_KEY = registerKey("small_amethyst_spike");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHT_LAVENDER_PATCH = registerKey("night_lavender_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_GRASS_PATCH = registerKey("rich_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_RICH_GRASS_PATCH = registerKey("dense_rich_grass_patch");
@@ -310,7 +312,7 @@ public class EMConfiguredFeatures {
         );
 
         /*
-                    Flower Patches
+        ---------- Flower Patches ----------
          */
 
         register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH,
@@ -334,7 +336,7 @@ public class EMConfiguredFeatures {
                 )
         );
 
-        register(context, NIGHT_LAVENDER_PATCH, Feature.RANDOM_PATCH,
+        register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(
                         128,
                         8,
@@ -345,7 +347,28 @@ public class EMConfiguredFeatures {
                                         new WeightedStateProvider(
                                                 SimpleWeightedRandomList.<BlockState>builder()
                                                         .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 3)
-                                                        .add(EMBlocks.NIGHT_LAVENDER.get().defaultBlockState(), 1)
+                                                        .add(EMBlocks.NIGHTBELL.get().defaultBlockState(), 1)
+                                        )
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
+
+        register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        512,
+                        16,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        new WeightedStateProvider(
+                                                SimpleWeightedRandomList.<BlockState>builder()
+                                                        .add(EMBlocks.SLIMY_ALLIUM.get().defaultBlockState(), 8)
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
                                         )
                                 ),
                                 BlockPredicate.allOf(

@@ -6,7 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -234,8 +233,10 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.GLIMMER_BLOSSOM);
         flowerPotBlock(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM);
 
-        plantBlock(EMBlocks.NIGHT_LAVENDER);
-        flowerPotBlock(EMBlocks.NIGHT_LAVENDER_FLOWER_POT, EMBlocks.NIGHT_LAVENDER);
+        plantBlock(EMBlocks.NIGHTBELL);
+        flowerPotBlock(EMBlocks.NIGHTBELL_FLOWER_POT, EMBlocks.NIGHTBELL);
+
+        plantBlock(EMBlocks.SLIMY_ALLIUM);
 
         plantBlock(EMBlocks.RICH_GRASS);
 

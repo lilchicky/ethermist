@@ -394,10 +394,22 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_glimmer_blossom", has(EMBlocks.GLIMMER_BLOSSOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.GLIMMER_BLOSSOM.getId().getPath() + "_orange_dye"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.BLUE_DYE, 1)
-                .requires(EMBlocks.NIGHT_LAVENDER.get())
-                .unlockedBy("has_night_lavender", has(EMBlocks.NIGHT_LAVENDER))
-                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.NIGHT_LAVENDER.getId().getPath() + "_blue_dye"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.LIGHT_BLUE_DYE, 1)
+                .requires(EMBlocks.NIGHTBELL.get())
+                .unlockedBy("has_nightbell", has(EMBlocks.NIGHTBELL))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.NIGHTBELL.getId().getPath() + "_light_blue_dye"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.LIME_DYE, 1)
+                .requires(EMBlocks.SLIMY_ALLIUM.get())
+                .unlockedBy("has_slimy_allium", has(EMBlocks.SLIMY_ALLIUM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_ALLIUM.getId().getPath() + "_lime_dye"));
+
+        // Misc Recipes
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.SLIMY_ALLIUM.get())
+                .unlockedBy("has_slimy_allium", has(EMBlocks.SLIMY_ALLIUM)).save(output);
 
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)

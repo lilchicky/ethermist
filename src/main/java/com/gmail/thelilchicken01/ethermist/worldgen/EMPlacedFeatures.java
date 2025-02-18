@@ -36,7 +36,8 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SMALL_AMETHYST_SPIKE_PLACED_KEY = registerKey("small_amethyst_spike_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
-    public static final ResourceKey<PlacedFeature> NIGHT_LAVENDER_PATCH_KEY = registerKey("night_lavender_patch_placed");
+    public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
 
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
@@ -142,9 +143,18 @@ public class EMPlacedFeatures {
                 )
         );
 
-        register(context, NIGHT_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHT_LAVENDER_PATCH),
+        register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHTBELL_PATCH),
                 List.of(
                         RarityFilter.onAverageOnceEvery(16),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_SLIMY_ALLIUM_PATCH),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(2),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome()

@@ -182,7 +182,8 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.FROSTPINE_SAPLING);
                 output.accept(EMBlocks.RICH_GRASS);
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);
-                output.accept(EMBlocks.NIGHT_LAVENDER);
+                output.accept(EMBlocks.NIGHTBELL);
+                output.accept(EMBlocks.SLIMY_ALLIUM);
 
                 output.accept(EMBlocks.MIST_GEM_ORE);
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);

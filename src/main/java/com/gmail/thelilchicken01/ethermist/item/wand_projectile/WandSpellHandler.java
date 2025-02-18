@@ -42,8 +42,6 @@ public class WandSpellHandler {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
                 }
             }
-            default -> {
-            }
         }
 
     }
@@ -327,8 +325,9 @@ public class WandSpellHandler {
                     closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner(), shot.targetType);
 
                     if (!closeTargets.isEmpty()) {
-                        closeTargets.getLast().hurt(damageSource, (float) shot.damage);
+                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter);
                         drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) level);
+                        closeTargets.getLast().hurt(damageSource, (float) shot.damage);
                     }
                 }
             }
