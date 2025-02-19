@@ -317,8 +317,8 @@ public class WandItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
 
-        lore.add(Component.translatable("item." + Ethermist.MODID + ".wand.dyeable").withColor(0xAAAAAA));
-        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA));
+        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA)
+                        .append(" ").append(Component.translatable("item." + Ethermist.MODID + ".wand.dyeable").withColor(0xAAAAAA)));
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
         }
@@ -366,11 +366,13 @@ public class WandItem extends Item {
         }
         else if (context.getLevel().getBlockState(context.getClickedPos()).is(Blocks.WATER_CAULDRON)) {
             BlockState cauldron = context.getLevel().getBlockState(context.getClickedPos());
-            if (cauldron.getValue(LayeredCauldronBlock.LEVEL) > 0) {
+            int fillLevel = cauldron.getValue(LayeredCauldronBlock.LEVEL);
+            if (fillLevel > 0) {
                 ItemStack wand = context.getItemInHand();
                 if (wand.get(DataComponents.DYED_COLOR).rgb() != Ethermist.WAND_COLOR) {
                     System.out.println(wand.get(DataComponents.DYED_COLOR).rgb());
                     wand.set(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false));
+                    LayeredCauldronBlock.lowerFillLevel(cauldron, context.getLevel(), context.getClickedPos());
                     return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
                 }
             }

@@ -125,9 +125,9 @@ public class WandDyeRecipe extends CustomRecipe {
             l2 = (int)((float)l2 * f / f1);
             i3 = (int)((float)i3 * f / f1);
             k3 = (int)((float)k3 * f / f1);
-            int l3 = FastColor.ARGB32.color(0, l2, i3, k3);
-            boolean flag = dyeditemcolor == null || dyeditemcolor.showInTooltip();
-            itemstack.set(DataComponents.DYED_COLOR, new DyedItemColor(l3, flag));
+            int finalColor = FastColor.ARGB32.color(0, l2, i3, k3);
+            boolean showColorTooltip = dyeditemcolor == null || dyeditemcolor.showInTooltip();
+            itemstack.set(DataComponents.DYED_COLOR, new DyedItemColor(finalColor, showColorTooltip));
             return itemstack;
         }
     }

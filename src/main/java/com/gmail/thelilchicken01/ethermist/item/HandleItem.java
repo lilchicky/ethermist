@@ -26,11 +26,13 @@ public class HandleItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         if (context.getLevel().getBlockState(context.getClickedPos()).is(Blocks.WATER_CAULDRON)) {
             BlockState cauldron = context.getLevel().getBlockState(context.getClickedPos());
-            if (cauldron.getValue(LayeredCauldronBlock.LEVEL) > 0) {
+            int fillLevel = cauldron.getValue(LayeredCauldronBlock.LEVEL);
+            if (fillLevel > 0) {
                 ItemStack wand = context.getItemInHand();
                 if (wand.get(DataComponents.DYED_COLOR).rgb() != Ethermist.WAND_COLOR) {
                     System.out.println(wand.get(DataComponents.DYED_COLOR).rgb());
                     wand.set(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, true));
+                    LayeredCauldronBlock.lowerFillLevel(cauldron, context.getLevel(), context.getClickedPos());
                     return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
                 }
             }

@@ -185,7 +185,7 @@
   "item.ethermist.dull_wand.desc": "No wand effects.",
   "item.ethermist.flame_wand.desc": "Ignites entities hit.",
 
-  "item.ethermist.wand.dyeable": "Dyeable",
+  "item.ethermist.wand.dyeable": "Can be dyed.",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",

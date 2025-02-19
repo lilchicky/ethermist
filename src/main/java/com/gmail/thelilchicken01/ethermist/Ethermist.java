@@ -66,7 +66,7 @@ public class Ethermist {
     public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
 
     // Default Color
-    public static final int WAND_COLOR = -6265536;
+    public static final int WAND_COLOR = 9004839;
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
