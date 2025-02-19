@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeSerializer;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantmentEffects;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
@@ -11,14 +12,20 @@ import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
@@ -58,6 +65,9 @@ public class Ethermist {
     public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
     public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
 
+    // Default Color
+    public static final int WAND_COLOR = -6265536;
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Ethermist(IEventBus modEventBus, ModContainer modContainer) {
@@ -79,6 +89,8 @@ public class Ethermist {
         EMPOIs.register(modEventBus);
         EMTreeDecorators.register(modEventBus);
         EMFeatures.register(modEventBus);
+
+        EMRecipeSerializer.register(modEventBus);
 
         EMBlocks.register(modEventBus);
         EMItems.register(modEventBus);
@@ -135,6 +147,17 @@ public class Ethermist {
             event.registerSpriteSet(EMParticleTypes.VOLATILE_ENERGY_TETHER.get(), VolatileEnergyTetherParticle.Provider::new);
             event.registerSpriteSet(EMParticleTypes.GENERIC_TRAIL.get(), WandTrailParticle.Provider::new);
             event.registerSpriteSet(EMParticleTypes.ETHERMIST_PORTAL.get(), EthermistPortalParticle.Provider::new);
+        }
+
+        @SubscribeEvent
+        public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
+            event.register((stack, layer) -> {
+                if (layer == 0) {
+                    DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
+                    return color != null ? (0xFF << 24) | color.rgb() : 0xFFFFFFFF;
+                }
+                return 0xFFFFFFFF;
+            }, EMItems.WAND_HANDLE.get(), EMItems.DULL_WAND.get(), EMItems.FLAME_WAND.get());
         }
     }
 }

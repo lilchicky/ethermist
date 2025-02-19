@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.HolderLookup;
@@ -62,7 +62,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
     private void addAugmentEnchantment(String ench, boolean exclusive) {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        if (!exclusive) {
+        if (exclusive) {
             tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         }
     }
@@ -76,7 +76,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
     private void addTreasureAugmentEnchantment(String ench, boolean exclusive) {
         tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        if (!exclusive) {
+        if (exclusive) {
             tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         }
     }

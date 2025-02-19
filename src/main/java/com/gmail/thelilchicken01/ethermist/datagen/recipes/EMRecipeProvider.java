@@ -1,14 +1,19 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.recipes;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -462,6 +467,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 }
             }
         }
+
+        SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
     }
 

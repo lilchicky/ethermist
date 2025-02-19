@@ -185,6 +185,8 @@
   "item.ethermist.dull_wand.desc": "No wand effects.",
   "item.ethermist.flame_wand.desc": "Ignites entities hit.",
 
+  "item.ethermist.wand.dyeable": "Dyeable",
+
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
   "enchantment.ethermist.quick_cast.desc": "Decreases cooldown of wands.",

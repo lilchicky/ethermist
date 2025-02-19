@@ -1,7 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.enchantment;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;

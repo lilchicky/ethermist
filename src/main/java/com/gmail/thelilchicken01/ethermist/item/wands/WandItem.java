@@ -2,7 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
@@ -14,8 +14,8 @@ import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.*;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -26,9 +26,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -37,11 +35,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -68,7 +70,7 @@ public class WandItem extends Item {
     private int fireTicks;
 
     public WandItem(Properties properties, SoundEvent shootSound) {
-        super(properties.stacksTo(1));
+        super(properties.stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
         this.SHOOT_SOUND = shootSound;
     }
 
@@ -315,6 +317,7 @@ public class WandItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
 
+        lore.add(Component.translatable("item." + Ethermist.MODID + ".wand.dyeable").withColor(0xAAAAAA));
         lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA));
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
@@ -359,6 +362,17 @@ public class WandItem extends Item {
                 }
 
                 return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
+            }
+        }
+        else if (context.getLevel().getBlockState(context.getClickedPos()).is(Blocks.WATER_CAULDRON)) {
+            BlockState cauldron = context.getLevel().getBlockState(context.getClickedPos());
+            if (cauldron.getValue(LayeredCauldronBlock.LEVEL) > 0) {
+                ItemStack wand = context.getItemInHand();
+                if (wand.get(DataComponents.DYED_COLOR).rgb() != Ethermist.WAND_COLOR) {
+                    System.out.println(wand.get(DataComponents.DYED_COLOR).rgb());
+                    wand.set(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false));
+                    return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
+                }
             }
         }
         else {

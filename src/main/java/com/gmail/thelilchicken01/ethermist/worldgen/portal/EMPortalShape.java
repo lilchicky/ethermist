@@ -2,13 +2,11 @@ package com.gmail.thelilchicken01.ethermist.worldgen.portal;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.block.EMPortalBlock;
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
-import net.minecraft.BlockUtil;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.level.LevelAccessor;

@@ -3,13 +3,17 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 public class EMCreativeTab {
@@ -210,6 +214,13 @@ public class EMCreativeTab {
 
                 // Wands
                 output.accept(EMItems.WAND_HANDLE.get());
+
+                //for (int color : Arrays.stream(DyeColor.values()).mapToInt(DyeColor::getTextColor).toArray()) {
+                //    ItemStack coloredHandle = new ItemStack(EMItems.WAND_HANDLE.get());
+                //    coloredHandle.set(DataComponents.DYED_COLOR, new DyedItemColor(color, true));
+                //    output.accept(coloredHandle);
+                //}
+
                 output.accept(EMItems.DULL_WAND.get());
                 output.accept(EMItems.FLAME_WAND.get());
 

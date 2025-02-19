@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;

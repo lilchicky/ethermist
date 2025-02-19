@@ -1,10 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
-import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
-import com.google.common.annotations.VisibleForTesting;
-import com.mojang.serialization.MapCodec;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -30,7 +27,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -39,7 +35,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.fluids.FluidType;
 
 import javax.annotation.Nullable;
 import java.util.Optional;

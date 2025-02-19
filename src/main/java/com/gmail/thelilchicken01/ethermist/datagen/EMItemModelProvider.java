@@ -11,6 +11,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
+import java.util.List;
+
 import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
 
 public class EMItemModelProvider extends ItemModelProvider {
@@ -66,9 +68,9 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.SLIMY_ALLIUM);
         crossItem(EMBlocks.RICH_GRASS);
 
-        basicHandheld(EMItems.WAND_HANDLE);
-        wandItem(EMItems.DULL_WAND);
-        wandItem(EMItems.FLAME_WAND);
+        wandHandle(EMItems.WAND_HANDLE);
+        wandItem("dull_wand");
+        wandItem("flame_wand");
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
@@ -132,10 +134,11 @@ public class EMItemModelProvider extends ItemModelProvider {
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + folder + "/" + block.getId().getPath()));
     }
 
-    public void wandItem(DeferredItem<?> item) {
-        this.withExistingParent(item.getId().getPath(),
-                ResourceLocation.parse("item/handheld")).texture("layer0",
-                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + item.getId().getPath()));
+    public void wandItem(String orbID) {
+        this.withExistingParent(orbID, ResourceLocation.parse("item/handheld"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_overlay"))
+                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + orbID));
     }
 
     public void orbItem(DeferredItem<?> item) {
@@ -148,6 +151,13 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/" + item.getId().getPath()));
+    }
+
+    public void wandHandle(DeferredItem<?> item) {
+        this.withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/handheld"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + item.getId().getPath()))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + item.getId().getPath() + "_overlay"));
     }
 
     public void shotItem(DeferredItem<?> item) {

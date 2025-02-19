@@ -1,6 +1,10 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMBlockTagProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEnchantTagProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMItemTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

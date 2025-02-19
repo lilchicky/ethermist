@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist;
 
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.item.TomeItem;
 import net.minecraft.server.level.ServerLevel;

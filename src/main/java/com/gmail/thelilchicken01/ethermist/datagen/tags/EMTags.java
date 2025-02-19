@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.registries.Registries;
@@ -26,6 +26,7 @@ public class EMTags {
     public static final class Items {
 
         public static final TagKey<Item> WANDS = mod("wands");
+        public static final TagKey<Item> DYEABLE_WANDS = mod("dyeable_wands");
         public static final TagKey<Item> MAGIC_ENCHANTABLE = mod("magic_enchantable");
         public static final TagKey<Item> TOMES = mod("tomes");
         public static final TagKey<Item> ORBS = mod("orbs");

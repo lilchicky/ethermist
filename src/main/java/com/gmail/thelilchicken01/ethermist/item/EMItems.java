@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.DullWand;
@@ -21,8 +20,10 @@ public class EMItems {
     public static final DeferredItem<WandShotItem> FLAME_SHOT = ITEMS.register("flame_shot", () -> new WandShotItem(WandModifiers.FLAME_WAND));
     public static final DeferredItem<WandShotItem> METEOR_SHOT = ITEMS.register("meteor_shot", () -> new WandShotItem());
 
-    public static final DeferredItem<Item> WAND_HANDLE = ITEMS.register("wand_handle", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> WAND_HANDLE = ITEMS.register("wand_handle", HandleItem::new);
+
     public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", DullWand::new);
+
     public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", FlameWand::new);
 
     public static final DeferredItem<BookItem> EXCLUSION_TOME = ITEMS.register("exclusion_tome", TomeItem::new);

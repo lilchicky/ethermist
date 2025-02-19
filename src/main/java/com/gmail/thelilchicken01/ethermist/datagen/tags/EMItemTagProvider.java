@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
@@ -97,9 +97,15 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.DULL_ORB.get())
                 .add(EMItems.FLAME_ORB.get());
 
+        tag(EMTags.Items.WANDS).add(EMItems.WAND_TOME.get());
+        tag(EMTags.Items.MAGIC_ENCHANTABLE).add(EMItems.WAND_TOME.get());
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(EMItems.WAND_TOME.get());
+
+        tag(EMTags.Items.DYEABLE_WANDS)
+                .add(EMItems.WAND_HANDLE.get());
+
         addWands(EMItems.DULL_WAND.get());
         addWands(EMItems.FLAME_WAND.get());
-        addWands(EMItems.WAND_TOME.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);
@@ -136,6 +142,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(EMTags.Items.WANDS).add(wand);
         tag(EMTags.Items.MAGIC_ENCHANTABLE).add(wand);
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(wand);
+        tag(EMTags.Items.DYEABLE_WANDS).add(wand);
     }
 
     private void addRedstone(Item button, Item plate, Boolean wooden) {
