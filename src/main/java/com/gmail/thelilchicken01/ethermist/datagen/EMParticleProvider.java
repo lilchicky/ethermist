@@ -27,7 +27,7 @@ public class EMParticleProvider extends ParticleDescriptionProvider {
         animatedParticle(EMParticleTypes.ETHERMIST_PORTAL, 3, true);
 
         // Wand Trail Particles
-        animatedParticle(EMParticleTypes.GENERIC_TRAIL, 3, true);
+        animatedParticle(EMParticleTypes.WAND_TRAIL, 3, true);
 
     }
 

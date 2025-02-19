@@ -46,9 +46,7 @@ public class WandShotHandler {
                 shot.getZ() + zOffset
         );
 
-        setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-        level.addFreshEntity(shot);
+        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
@@ -66,9 +64,7 @@ public class WandShotHandler {
                 pSpeed,
                 (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
-        setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-        level.addFreshEntity(shot);
+        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         for (int x = 0; x < iterations; x++) {
 
@@ -91,11 +87,8 @@ public class WandShotHandler {
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
 
-            setShotInfo(splitShot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-            setShotInfo(splitShot2, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-            level.addFreshEntity(splitShot);
-            level.addFreshEntity(splitShot2);
+            level.addFreshEntity(setShotInfo(splitShot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+            level.addFreshEntity(setShotInfo(splitShot2, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         }
 
@@ -134,9 +127,7 @@ public class WandShotHandler {
 
             shot.setPos(shot.getX(), player.getEyeHeight() * 0.8 + player.getY(), shot.getZ());
 
-            setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-            level.addFreshEntity(shot);
+            level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         }
 
@@ -162,9 +153,7 @@ public class WandShotHandler {
                 shot.getY() + 4.0,
                 shot.getZ());
 
-        setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-        level.addFreshEntity(shot);
+        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
@@ -189,13 +178,11 @@ public class WandShotHandler {
                 shot.getY() + 4.0,
                 shot.getZ());
 
-        setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel);
-
-        level.addFreshEntity(shot);
+        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
-    private static void setShotInfo(WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
+    private static WandProjectile setShotInfo(WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
                                     List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
         shot.setDamage((int)WandUtil.getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
@@ -207,7 +194,9 @@ public class WandShotHandler {
         shot.setSpellType(spellType);
         shot.setSpellLevel(spellLevel);
         shot.setDamageType(wand.getDamageType());
-        shot.setTrail(wand.getTrail());
+        shot.setTrailColor(wand.getTrailColor(wandItem));
+
+        return shot;
 
     }
 

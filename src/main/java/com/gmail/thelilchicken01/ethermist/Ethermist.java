@@ -12,9 +12,6 @@ import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.item.ItemColors;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -145,7 +142,7 @@ public class Ethermist {
         public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(EMParticleTypes.GLIMMERBUG_AIR.get(), EMSuspendedParticle.GlimmerbugAirProvider::new);
             event.registerSpriteSet(EMParticleTypes.VOLATILE_ENERGY_TETHER.get(), VolatileEnergyTetherParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.GENERIC_TRAIL.get(), WandTrailParticle.Provider::new);
+            event.registerSpriteSet(EMParticleTypes.WAND_TRAIL.get(), WandTrailParticle.Provider::new);
             event.registerSpriteSet(EMParticleTypes.ETHERMIST_PORTAL.get(), EthermistPortalParticle.Provider::new);
         }
 

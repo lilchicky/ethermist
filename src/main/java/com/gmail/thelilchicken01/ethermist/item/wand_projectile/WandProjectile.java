@@ -2,10 +2,14 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
@@ -18,10 +22,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class WandProjectile extends Fireball {
 
@@ -37,6 +38,10 @@ public class WandProjectile extends Fireball {
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
     protected int spellLevel = 0;
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
+
+    public static final EntityDataAccessor<Float> TRAIL_COLOR_RED;
+    public static final EntityDataAccessor<Float> TRAIL_COLOR_GREEN;
+    public static final EntityDataAccessor<Float> TRAIL_COLOR_BLUE;
 
     private int ticksSinceFired = 0;
 
@@ -76,10 +81,13 @@ public class WandProjectile extends Fireball {
         ticksSinceFired++;
         WandProjectileHandler.processTick(this, STOP_THRESHOLD, ticksSinceFired, this.tickCount, target);
 
-        if (this.level() instanceof ServerLevel level && this.trail != null) {
-            Random random = new Random();
-            level.sendParticles(this.trail, this.getX(), this.getY() + (this.getEyeHeight() * 0.5), this.getZ(), 1,
-                    (random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1, 1);
+        float[] trail = this.getTrailColor();
+        if (this.level().isClientSide()) {
+            Minecraft.getInstance().particleEngine.createParticle(
+                    EMParticleTypes.WAND_TRAIL.get(),
+                    this.getX(), this.getY() + (this.getEyeHeight() * 0.5), this.getZ(),
+                    trail[0], trail[1], trail[2]
+            );
         }
     }
 
@@ -163,8 +171,33 @@ public class WandProjectile extends Fireball {
         this.damageType = damageType;
     }
 
-    public void setTrail(@Nullable ParticleOptions trail) {
-        this.trail = trail;
+    public void setTrailColor(float[] trailColor) {
+        this.entityData.set(TRAIL_COLOR_RED, trailColor[0]);
+        this.entityData.set(TRAIL_COLOR_GREEN, trailColor[1]);
+        this.entityData.set(TRAIL_COLOR_BLUE, trailColor[2]);
+    }
+
+    public float[] getTrailColor() {
+        float r = this.entityData.get(TRAIL_COLOR_RED);
+        float g = this.entityData.get(TRAIL_COLOR_GREEN);
+        float b = this.entityData.get(TRAIL_COLOR_BLUE);
+        return new float[]{r, g, b};
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(TRAIL_COLOR_RED, 1.0f);
+        builder.define(TRAIL_COLOR_GREEN, 1.0f);
+        builder.define(TRAIL_COLOR_BLUE, 1.0f);
+    }
+
+    static {
+
+        TRAIL_COLOR_RED = SynchedEntityData.defineId(WandProjectile.class, EntityDataSerializers.FLOAT);
+        TRAIL_COLOR_GREEN = SynchedEntityData.defineId(WandProjectile.class, EntityDataSerializers.FLOAT);
+        TRAIL_COLOR_BLUE = SynchedEntityData.defineId(WandProjectile.class, EntityDataSerializers.FLOAT);
+
     }
 
 }

@@ -28,8 +28,8 @@ public class FlameWand extends WandItem {
     }
 
     @Override
-    public ParticleOptions getTrail() {
-        return ParticleTypes.SMOKE;
+    public float[] getDefaultTrailColor() {
+        return new float[]{1.0f, 0.1f, 0.1f};
     }
 
     @Override

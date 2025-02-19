@@ -144,8 +144,20 @@ public class WandItem extends Item {
     public ResourceKey<DamageType> getDamageType() {
         return EMDamageTypes.GENERIC_MAGIC;
     }
-    public ParticleOptions getTrail() {
-        return EMParticleTypes.GENERIC_TRAIL.get();
+    public float[] getDefaultTrailColor() {
+        return new float[]{0.50196f, 0.38431f, 0.64314f};
+    }
+    public float[] getTrailColor(ItemStack stack) {
+        int color = stack.get(DataComponents.DYED_COLOR).rgb();
+        if (color != Ethermist.WAND_COLOR) {
+            float r = (color >> 16 & 255) / 255.0f;
+            float g = (color >> 8 & 255) / 255.0f;
+            float b = (color & 255) / 255.0f;
+            return new float[]{r, g, b};
+        }
+        else {
+            return getDefaultTrailColor();
+        }
     }
 
     @Override

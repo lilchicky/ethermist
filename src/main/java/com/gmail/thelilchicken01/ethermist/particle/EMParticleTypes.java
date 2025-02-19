@@ -21,8 +21,8 @@ public class EMParticleTypes {
             "ethermist_portal", () -> new SimpleParticleType(false));
 
     // Wand Trail Particles
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GENERIC_TRAIL = EM_PARTICLE_TYPES.register(
-            "generic_trail", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WAND_TRAIL = EM_PARTICLE_TYPES.register(
+            "wand_trail", () -> new SimpleParticleType(false));
 
     public static void register (IEventBus bus) {
         EM_PARTICLE_TYPES.register(bus);
