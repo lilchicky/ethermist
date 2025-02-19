@@ -31,7 +31,7 @@ public class HandleItem extends Item {
                 ItemStack wand = context.getItemInHand();
                 if (wand.get(DataComponents.DYED_COLOR).rgb() != Ethermist.WAND_COLOR) {
                     System.out.println(wand.get(DataComponents.DYED_COLOR).rgb());
-                    wand.set(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, true));
+                    wand.set(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false));
                     LayeredCauldronBlock.lowerFillLevel(cauldron, context.getLevel(), context.getClickedPos());
                     return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
                 }

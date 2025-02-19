@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
+import com.gmail.thelilchicken01.ethermist.EMConfig;
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
@@ -458,4 +459,8 @@ public class WandItem extends Item {
         }
     }
 
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return !EMConfig.hideGlint && super.isFoil(stack);
+    }
 }
