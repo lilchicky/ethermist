@@ -106,6 +106,7 @@ public class Ethermist {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.GLIMMER_BLOSSOM.getId(), EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.NIGHTBELL.getId(), EMBlocks.NIGHTBELL_FLOWER_POT);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.WITCH_LAVENDER.getId(), EMBlocks.WITCH_LAVENDER_FLOWER_POT);
         });
 
     }

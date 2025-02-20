@@ -236,6 +236,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.NIGHTBELL);
         flowerPotBlock(EMBlocks.NIGHTBELL_FLOWER_POT, EMBlocks.NIGHTBELL);
 
+        plantBlock(EMBlocks.WITCH_LAVENDER);
+        flowerPotBlock(EMBlocks.WITCH_LAVENDER_FLOWER_POT, EMBlocks.WITCH_LAVENDER);
+
         plantBlock(EMBlocks.SLIMY_ALLIUM);
 
         plantBlock(EMBlocks.RICH_GRASS);

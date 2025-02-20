@@ -51,6 +51,7 @@ public class EMConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
@@ -359,8 +360,29 @@ public class EMConfiguredFeatures {
                                 new SimpleBlockConfiguration(
                                         new WeightedStateProvider(
                                                 SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 3)
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
                                                         .add(EMBlocks.NIGHTBELL.get().defaultBlockState(), 1)
+                                        )
+                                ),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+                                )
+                        )
+                )
+        );
+
+        register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        128,
+                        8,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        new WeightedStateProvider(
+                                                SimpleWeightedRandomList.<BlockState>builder()
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
+                                                        .add(EMBlocks.WITCH_LAVENDER.get().defaultBlockState(), 1)
                                         )
                                 ),
                                 BlockPredicate.allOf(

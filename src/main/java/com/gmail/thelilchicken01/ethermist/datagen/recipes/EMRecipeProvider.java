@@ -405,6 +405,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_slimy_allium", has(EMBlocks.SLIMY_ALLIUM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SLIMY_ALLIUM.getId().getPath() + "_lime_dye"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PURPLE_DYE, 1)
+                .requires(EMBlocks.WITCH_LAVENDER.get())
+                .unlockedBy("has_witch_lavender", has(EMBlocks.WITCH_LAVENDER))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.WITCH_LAVENDER.getId().getPath() + "_purple_dye"));
+
         // Misc Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
                 .pattern("aa")

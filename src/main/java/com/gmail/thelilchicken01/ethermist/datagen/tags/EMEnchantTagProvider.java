@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EnchantmentTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,23 +47,32 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         addMainEnchantment("seismic_surge");
         addTreasureMainEnchantment("chaos_magic");
 
+        tag(Tags.Enchantments.INCREASE_BLOCK_DROPS)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+
+        tag(Tags.Enchantments.INCREASE_ENTITY_DROPS)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+
     }
 
     private void addMainEnchantment(String ench) {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
     }
 
     private void addExcludeEnchantment(String ench) {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.EXCLUDE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
     }
 
     private void addAugmentEnchantment(String ench, boolean exclusive) {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         if (exclusive) {
             tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         }
@@ -72,11 +82,13 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.ON_RANDOM_LOOT).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
     }
 
     private void addTreasureAugmentEnchantment(String ench, boolean exclusive) {
         tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.ON_RANDOM_LOOT).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         if (exclusive) {
             tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         }
@@ -85,6 +97,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
     private void addBaseEnchantment(String ench) {
         tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
         tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
     }
 
 }

@@ -80,11 +80,13 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.FLOWERS)
                 .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem())
                 .add(EMBlocks.SLIMY_ALLIUM.get().asItem())
+                .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
         tag(ItemTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem())
                 .add(EMBlocks.SLIMY_ALLIUM.get().asItem())
+                .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
         tag(EMTags.Items.TOMES)
