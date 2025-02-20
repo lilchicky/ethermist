@@ -6,7 +6,7 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -19,7 +19,7 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.desert"
+      "sound": "minecraft:music.overworld.flower_forest"
     },
     "sky_color": 9912472,
     "water_color": 4159204,

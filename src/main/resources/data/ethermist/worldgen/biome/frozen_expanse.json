@@ -1,4 +1,5 @@
 {
+  "temperature_modifier": "frozen",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -6,7 +7,7 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0,
+  "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -19,7 +20,7 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.desert"
+      "sound": "minecraft:music.overworld.snowy_slopes"
     },
     "sky_color": 9912472,
     "water_color": 4159204,
