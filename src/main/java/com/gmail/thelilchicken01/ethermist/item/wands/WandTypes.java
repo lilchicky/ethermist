@@ -30,7 +30,7 @@ public enum WandTypes {
             () -> Ingredient.of(
                     Items.AMETHYST_SHARD
             ),
-            SoundEvents.SHULKER_SHOOT
+            SoundEvents.EVOKER_CAST_SPELL
     ),
 
     FLAME_WAND(
@@ -51,6 +51,46 @@ public enum WandTypes {
                     Items.BLAZE_POWDER
             ),
             SoundEvents.BLAZE_SHOOT
+    ),
+
+    POISON_WAND(
+            1.7,
+            11,
+            2,
+            5,
+            9.5f,
+            0.35f,
+            false,
+            0.25,
+            80,
+            EMItems.POISON_SHOT.get(),
+            EMDamageTypes.GENERIC_MAGIC,
+            new float[]{0.396f, 0.455f, 0.196f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.SPIDER_EYE
+            ),
+            SoundEvents.SPIDER_HURT
+    ),
+
+    LEVITATION_WAND(
+            4.2,
+            25,
+            3,
+            11,
+            0.5f,
+            0.2f,
+            false,
+            0.25,
+            30,
+            EMItems.LEVITATION_SHOT.get(),
+            EMDamageTypes.GENERIC_MAGIC,
+            new float[]{0.95f, 0.95f, 0.95f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.PHANTOM_MEMBRANE
+            ),
+            SoundEvents.SHULKER_SHOOT
     );
 
     private final double durabilityMult;

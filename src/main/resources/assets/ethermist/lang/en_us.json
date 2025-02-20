@@ -157,6 +157,8 @@
   "item.ethermist.wand_handle": "Wand Handle",
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
+  "item.ethermist.poison_wand": "Poison Wand",
+  "item.ethermist.levitation_wand": "Levitation Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -164,6 +166,10 @@
   "item.ethermist.dull_orb.desc": "Doesn't seem to do much.",
   "item.ethermist.flame_orb": "Flame Orb",
   "item.ethermist.flame_orb.desc": "Filled with the flame of the Nether.",
+  "item.ethermist.poison_orb": "Poison Orb",
+  "item.ethermist.poison_orb.desc": "Filled with the venom of Cave Spiders.",
+  "item.ethermist.levitation_orb": "Levitation Orb",
+  "item.ethermist.levitation_orb.desc": "Filled with essence of Shulkers.",
 
   "item.ethermist.exclusion_tome": "Exclusion Tome",
   "item.ethermist.exclusion_tome.desc": "Enchant in an enchanting table to obtain wand targeting filters.",
@@ -173,6 +179,8 @@
   "item.ethermist.generic_shot": "Generic Shot",
   "item.ethermist.flame_shot": "Flame Shot",
   "item.ethermist.meteor_shot": "Meteor Shot",
+  "item.ethermist.poison_shot": "Poison Shot",
+  "item.ethermist.levitation_shot": "Levitation Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "Second Cooldown",
@@ -184,6 +192,8 @@
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
   "item.ethermist.flame_wand.desc": "Ignites entities hit.",
+  "item.ethermist.poison_wand.desc": "Poisons entities hit.",
+  "item.ethermist.levitation_wand.desc": "Levitates entities hit.",
 
   "item.ethermist.wand.dyeable": "Can be dyed.",
 

@@ -95,6 +95,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(EMTags.Items.ORBS)
                 .add(EMItems.DULL_ORB.get())
+                .add(EMItems.POISON_WAND.get())
+                .add(EMItems.LEVITATION_ORB.get())
                 .add(EMItems.FLAME_ORB.get());
 
         tag(EMTags.Items.WANDS).add(EMItems.WAND_TOME.get());
@@ -106,6 +108,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         addWands(EMItems.DULL_WAND.get());
         addWands(EMItems.FLAME_WAND.get());
+        addWands(EMItems.POISON_WAND.get());
+        addWands(EMItems.LEVITATION_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);

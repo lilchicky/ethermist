@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -34,10 +33,15 @@ public class WandSpellHandler {
     public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player) {
 
         switch (shotItem.getModifier()) {
-            case FLAME_WAND -> {
+            case FLAME -> {
                 target.setRemainingFireTicks(200);
             }
-            case LEVITATION_WAND -> {
+            case POISON -> {
+                if (target instanceof LivingEntity livingTarget) {
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2));
+                }
+            }
+            case LEVITATION -> {
                 if (target instanceof LivingEntity livingTarget) {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
                 }

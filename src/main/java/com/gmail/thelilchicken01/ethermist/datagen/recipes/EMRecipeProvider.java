@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.OrbItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
@@ -31,11 +32,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildRecipes(RecipeOutput output) {
-
-        List<ItemLike> MIST_GEM_SMELTABLES = List.of(EMBlocks.MIST_GEM_ORE);
-
-        oreSmelting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.GENERIC_SHOT.get(), 0.25f, 200, "mist_gem");
-        oreBlasting(output, MIST_GEM_SMELTABLES, RecipeCategory.MISC, EMItems.GENERIC_SHOT.get(), 0.25f, 100, "mist_gem");
 
         //Etherstone
         stairBuilder(EMBlocks.ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE)).group("stairs")
@@ -444,16 +440,20 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         List<Item> wands = new ArrayList<>(List.of(
                 EMItems.DULL_WAND.get(),
                 EMItems.FLAME_WAND.get(),
-                EMItems.WAND_HANDLE.get()
+                EMItems.WAND_HANDLE.get(),
+                EMItems.LEVITATION_WAND.get(),
+                EMItems.POISON_WAND.get()
         ));
-        List<Item> orbs = new ArrayList<>(List.of(
+        List<OrbItem> orbs = new ArrayList<>(List.of(
                 EMItems.DULL_ORB.get(),
-                EMItems.FLAME_ORB.get()
+                EMItems.FLAME_ORB.get(),
+                EMItems.LEVITATION_ORB.get(),
+                EMItems.POISON_ORB.get()
         ));
 
         for (Item wand : wands) {
-            for (Item orb : orbs) {
-                Item result = getWandFromOrb(orb);
+            for (OrbItem orb : orbs) {
+                Item result = orb.getWand();
                 if (result != null && result != wand) {
                     SmithingTransformRecipeBuilder.smithing(
                             Ingredient.EMPTY,
@@ -470,17 +470,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
-    }
-
-    protected static Item getWandFromOrb(Item orb) {
-        if (orb == EMItems.DULL_ORB.get()) {
-            return EMItems.DULL_WAND.get();
-        } else if (orb == EMItems.FLAME_ORB.get()) {
-            return EMItems.FLAME_WAND.get();
-        }
-        else {
-            return null;
-        }
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

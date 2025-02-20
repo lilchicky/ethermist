@@ -151,10 +151,16 @@ public class Ethermist {
             event.register((stack, layer) -> {
                 if (layer == 0) {
                     DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
-                    return color != null ? (0xFF << 24) | color.rgb() : 0xFFFFFFFF;
+                    return color != null ? (0xFF << 24) | color.rgb() : WAND_COLOR;
                 }
                 return 0xFFFFFFFF;
-            }, EMItems.WAND_HANDLE.get(), EMItems.DULL_WAND.get(), EMItems.FLAME_WAND.get());
+            },
+                    EMItems.WAND_HANDLE.get(),
+                    EMItems.DULL_WAND.get(),
+                    EMItems.FLAME_WAND.get(),
+                    EMItems.POISON_WAND.get(),
+                    EMItems.LEVITATION_WAND.get()
+            );
         }
     }
 }

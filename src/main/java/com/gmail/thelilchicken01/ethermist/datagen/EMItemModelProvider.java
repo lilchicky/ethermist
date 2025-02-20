@@ -71,13 +71,19 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandHandle(EMItems.WAND_HANDLE);
         wandItem(EMItems.FLAME_WAND, EMItems.WAND_HANDLE);
         wandItem(EMItems.DULL_WAND, EMItems.WAND_HANDLE);
+        wandItem(EMItems.POISON_WAND, EMItems.WAND_HANDLE);
+        wandItem(EMItems.LEVITATION_WAND, EMItems.WAND_HANDLE);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
+        orbItem(EMItems.POISON_ORB);
+        orbItem(EMItems.LEVITATION_ORB);
 
         shotItem(EMItems.GENERIC_SHOT);
         shotItem(EMItems.FLAME_SHOT);
         shotItem(EMItems.METEOR_SHOT);
+        shotItem(EMItems.POISON_SHOT);
+        shotItem(EMItems.LEVITATION_SHOT);
 
         basicItem(EMItems.EXCLUSION_TOME.get());
         basicItem(EMItems.WAND_TOME.get());
