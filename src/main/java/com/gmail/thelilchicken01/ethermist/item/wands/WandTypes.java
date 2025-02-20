@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -44,7 +45,7 @@ public enum WandTypes {
             0.25,
             80,
             EMItems.FLAME_SHOT.get(),
-            EMDamageTypes.GENERIC_MAGIC,
+            EMDamageTypes.FLAME_MAGIC,
             new float[]{1.0f, 0.1f, 0.1f},
             () -> Ingredient.of(
                     Items.AMETHYST_SHARD,
@@ -64,7 +65,7 @@ public enum WandTypes {
             0.25,
             80,
             EMItems.POISON_SHOT.get(),
-            EMDamageTypes.GENERIC_MAGIC,
+            EMDamageTypes.POISON_MAGIC,
             new float[]{0.396f, 0.455f, 0.196f},
             () -> Ingredient.of(
                     Items.AMETHYST_SHARD,
@@ -84,13 +85,33 @@ public enum WandTypes {
             0.25,
             30,
             EMItems.LEVITATION_SHOT.get(),
-            EMDamageTypes.GENERIC_MAGIC,
+            EMDamageTypes.LEVITATION_MAGIC,
             new float[]{0.95f, 0.95f, 0.95f},
             () -> Ingredient.of(
                     Items.AMETHYST_SHARD,
                     Items.PHANTOM_MEMBRANE
             ),
             SoundEvents.SHULKER_SHOOT
+    ),
+
+    WITHER_WAND(
+            2.7,
+            20,
+            1,
+            8,
+            8.5f,
+            0.25f,
+            false,
+            0.25,
+            100,
+            EMItems.WITHER_SHOT.get(),
+            EMDamageTypes.WITHER_MAGIC,
+            new float[]{0.1f, 0.1f, 0.1f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.COAL
+            ),
+            SoundEvents.WITHER_SHOOT
     );
 
     private final double durabilityMult;

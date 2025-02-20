@@ -159,6 +159,7 @@
   "item.ethermist.flame_wand": "Flame Wand",
   "item.ethermist.poison_wand": "Poison Wand",
   "item.ethermist.levitation_wand": "Levitation Wand",
+  "item.ethermist.wither_wand": "Wither Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -169,18 +170,27 @@
   "item.ethermist.poison_orb": "Poison Orb",
   "item.ethermist.poison_orb.desc": "Filled with the venom of Cave Spiders.",
   "item.ethermist.levitation_orb": "Levitation Orb",
-  "item.ethermist.levitation_orb.desc": "Filled with essence of Shulkers.",
+  "item.ethermist.levitation_orb.desc": "Filled with the essence of Shulkers.",
+  "item.ethermist.wither_orb": "Wither Orb",
+  "item.ethermist.wither_orb.desc": "Filled with the hate of the Wither.",
 
-  "item.ethermist.exclusion_tome": "Exclusion Tome",
-  "item.ethermist.exclusion_tome.desc": "Enchant in an enchanting table to obtain wand targeting filters.",
-  "item.ethermist.wand_tome": "Wand Tome",
-  "item.ethermist.wand_tome.desc": "Can be enchanted with Wand enchantments.",
+  "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
+  "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
+  "item.ethermist.wand_spell_tome": "Wand Spell Tome",
+  "item.ethermist.wand_spell_tome.desc": "Can be enchanted with any wand enchantment in an enchanting table.",
+  "item.ethermist.base_spell_tome": "Base Spell Tome",
+  "item.ethermist.base_spell_tome.desc": "Can be enchanted with base wand enchantments in an enchanting table.",
+  "item.ethermist.augment_spell_tome": "Augment Spell Tome",
+  "item.ethermist.augment_spell_tome.desc": "Can be enchanted with Augment enchantments in an enchanting table.",
+  "item.ethermist.main_spell_tome": "Main Spell Tome",
+  "item.ethermist.main_spell_tome.desc": "Can be enchanted with main wand enchantments in an enchanting table.",
 
   "item.ethermist.generic_shot": "Generic Shot",
   "item.ethermist.flame_shot": "Flame Shot",
   "item.ethermist.meteor_shot": "Meteor Shot",
   "item.ethermist.poison_shot": "Poison Shot",
   "item.ethermist.levitation_shot": "Levitation Shot",
+  "item.ethermist.wither_shot": "Wither Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "Second Cooldown",
@@ -194,6 +204,7 @@
   "item.ethermist.flame_wand.desc": "Ignites entities hit.",
   "item.ethermist.poison_wand.desc": "Poisons entities hit.",
   "item.ethermist.levitation_wand.desc": "Levitates entities hit.",
+  "item.ethermist.wither_wand.desc": "Withers entities hit.",
 
   "item.ethermist.wand.dyeable": "Can be dyed.",
 

@@ -420,6 +420,31 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', Items.BOOK)
                 .define('b', Items.SPYGLASS)
                 .unlockedBy("has_spyglass", has(Items.SPYGLASS)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.AUGMENT_TOME.get(), 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', Items.REDSTONE)
+                .unlockedBy("has_redstone", has(Items.REDSTONE)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.MAIN_SPELL_TOME.get(), 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', Items.DIAMOND)
+                .unlockedBy("has_diamond", has(Items.DIAMOND)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.BASE_SPELL_TOME.get(), 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD)).save(output);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_TOME.get(), 8)
                 .pattern("aaa")
                 .pattern("aba")
@@ -442,12 +467,14 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 EMItems.FLAME_WAND.get(),
                 EMItems.WAND_HANDLE.get(),
                 EMItems.LEVITATION_WAND.get(),
+                EMItems.WITHER_WAND.get(),
                 EMItems.POISON_WAND.get()
         ));
         List<OrbItem> orbs = new ArrayList<>(List.of(
                 EMItems.DULL_ORB.get(),
                 EMItems.FLAME_ORB.get(),
                 EMItems.LEVITATION_ORB.get(),
+                EMItems.WITHER_ORB.get(),
                 EMItems.POISON_ORB.get()
         ));
 

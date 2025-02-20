@@ -88,28 +88,59 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
         tag(EMTags.Items.TOMES)
-                .add(EMItems.EXCLUSION_TOME.get());
-
-        tag(EMTags.Items.MAGIC_ENCHANTABLE)
-                .add(EMItems.EXCLUSION_TOME.get());
-
-        tag(EMTags.Items.ORBS)
-                .add(EMItems.DULL_ORB.get())
-                .add(EMItems.POISON_WAND.get())
-                .add(EMItems.LEVITATION_ORB.get())
-                .add(EMItems.FLAME_ORB.get());
+                .add(EMItems.EXCLUSION_TOME.get())
+                .add(EMItems.AUGMENT_TOME.get())
+                .add(EMItems.WAND_TOME.get())
+                .add(EMItems.MAIN_SPELL_TOME.get())
+                .add(EMItems.BASE_SPELL_TOME.get());
 
         tag(EMTags.Items.WANDS).add(EMItems.WAND_TOME.get());
-        tag(EMTags.Items.MAGIC_ENCHANTABLE).add(EMItems.WAND_TOME.get());
-        tag(ItemTags.DURABILITY_ENCHANTABLE).add(EMItems.WAND_TOME.get());
+
+        tag(EMTags.Items.MAGIC_ENCHANTABLE)
+                .add(EMItems.WAND_TOME.get())
+                .add(EMItems.AUGMENT_TOME.get())
+                .add(EMItems.MAIN_SPELL_TOME.get())
+                .add(EMItems.BASE_SPELL_TOME.get())
+                .add(EMItems.EXCLUSION_TOME.get());
+
+        tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(EMItems.WAND_TOME.get())
+                .add(EMItems.BASE_SPELL_TOME.get());
 
         tag(EMTags.Items.DYEABLE_WANDS)
                 .add(EMItems.WAND_HANDLE.get());
+
+        tag(EMTags.Items.ENCHANTABLE_BASE)
+                .addTag(EMTags.Items.WANDS)
+                .add(EMItems.BASE_SPELL_TOME.get());
+
+        tag(EMTags.Items.ENCHANTABLE_EXCLUSIONS)
+                .add(EMItems.EXCLUSION_TOME.get());
+
+        tag(EMTags.Items.ENCHANTABLE_AUGMENTS)
+                .addTag(EMTags.Items.WANDS)
+                .add(EMItems.AUGMENT_TOME.get());
+
+        tag(EMTags.Items.ENCHANTABLE_MAIN_SPELLS)
+                .addTag(EMTags.Items.WANDS)
+                .add(EMItems.MAIN_SPELL_TOME.get());
+
+        /*
+        ---------- Wand Stuff ----------
+         */
+
+        tag(EMTags.Items.ORBS)
+                .add(EMItems.DULL_ORB.get())
+                .add(EMItems.POISON_ORB.get())
+                .add(EMItems.LEVITATION_ORB.get())
+                .add(EMItems.WITHER_ORB.get())
+                .add(EMItems.FLAME_ORB.get());
 
         addWands(EMItems.DULL_WAND.get());
         addWands(EMItems.FLAME_WAND.get());
         addWands(EMItems.POISON_WAND.get());
         addWands(EMItems.LEVITATION_WAND.get());
+        addWands(EMItems.WITHER_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);

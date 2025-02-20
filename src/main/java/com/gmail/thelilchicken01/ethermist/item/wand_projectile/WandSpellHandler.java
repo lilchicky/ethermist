@@ -41,6 +41,11 @@ public class WandSpellHandler {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2));
                 }
             }
+            case WITHER -> {
+                if (target instanceof LivingEntity livingTarget) {
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
+                }
+            }
             case LEVITATION -> {
                 if (target instanceof LivingEntity livingTarget) {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));

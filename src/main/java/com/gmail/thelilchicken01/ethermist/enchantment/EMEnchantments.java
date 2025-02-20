@@ -51,7 +51,7 @@ public class EMEnchantments {
 
         register(context, QUICK_CAST, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         5,
                         Enchantment.dynamicCost(5, 8),
@@ -63,7 +63,7 @@ public class EMEnchantments {
 
         register(context, ENDURING_MAGIC, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         5,
                         Enchantment.dynamicCost(5, 8),
@@ -75,7 +75,7 @@ public class EMEnchantments {
 
         register(context, ARCANE_VELOCITY, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         5,
                         Enchantment.dynamicCost(5, 8),
@@ -87,7 +87,7 @@ public class EMEnchantments {
 
         register(context, ANCIENT_POWER, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         5,
                         Enchantment.dynamicCost(5, 8),
@@ -99,7 +99,7 @@ public class EMEnchantments {
 
         register(context, RUNIC_FORCE, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         3,
                         Enchantment.dynamicCost(5, 8),
@@ -111,7 +111,7 @@ public class EMEnchantments {
 
         register(context, STABLE_ORB, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_BASE),
                         5,
                         4,
                         Enchantment.dynamicCost(5, 8),
@@ -127,7 +127,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_SPLIT, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         4,
                         Enchantment.dynamicCost(1, 11),
@@ -140,7 +140,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_HOMING, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         1,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -153,7 +153,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_AOE, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         4,
                         Enchantment.dynamicCost(1, 11),
@@ -166,7 +166,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_SPRAY, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         4,
                         Enchantment.dynamicCost(1, 11),
@@ -179,7 +179,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_METEOR, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -192,7 +192,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_ABUNDANCE, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         4,
                         Enchantment.dynamicCost(1, 11),
@@ -205,7 +205,7 @@ public class EMEnchantments {
 
         register(context, AUGMENT_FOCUS, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_AUGMENTS),
                         3,
                         4,
                         Enchantment.dynamicCost(1, 11),
@@ -222,7 +222,7 @@ public class EMEnchantments {
 
         register(context, EXCLUDE_MONSTERS, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.TOMES),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_EXCLUSIONS),
                         1,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -235,7 +235,7 @@ public class EMEnchantments {
 
         register(context, EXCLUDE_ANIMALS, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.TOMES),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_EXCLUSIONS),
                         1,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -248,7 +248,7 @@ public class EMEnchantments {
 
         register(context, EXCLUDE_PLAYERS, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.TOMES),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_EXCLUSIONS),
                         1,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -265,7 +265,7 @@ public class EMEnchantments {
 
         register(context, FIREBALL, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         3,
                         Enchantment.dynamicCost(1, 11),
@@ -278,7 +278,7 @@ public class EMEnchantments {
 
         register(context, CHAOS_MAGIC, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         3,
                         Enchantment.dynamicCost(1, 11),
@@ -291,7 +291,7 @@ public class EMEnchantments {
 
         register(context, THUNDERSTRIKE, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         3,
                         Enchantment.dynamicCost(1, 11),
@@ -304,7 +304,7 @@ public class EMEnchantments {
 
         register(context, KINETIC_RUSH, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         1,
                         Enchantment.dynamicCost(1, 11),
@@ -317,7 +317,7 @@ public class EMEnchantments {
 
         register(context, VOLATILE_ENERGY, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         3,
                         Enchantment.dynamicCost(1, 11),
@@ -330,7 +330,7 @@ public class EMEnchantments {
 
         register(context, SEISMIC_SURGE, Enchantment.enchantment(Enchantment.definition(
                         items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
-                        items.getOrThrow(EMTags.Items.WANDS),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_MAIN_SPELLS),
                         1,
                         3,
                         Enchantment.dynamicCost(1, 11),

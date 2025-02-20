@@ -8,7 +8,19 @@ import net.minecraft.world.damagesource.DamageType;
 public class EMDamageTypes {
 
     public static final ResourceKey<DamageType> GENERIC_MAGIC = ResourceKey.create(
-            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "generic_damage")
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "generic_magic_damage")
+    );
+    public static final ResourceKey<DamageType> POISON_MAGIC = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "poison_magic_damage")
+    );
+    public static final ResourceKey<DamageType> FLAME_MAGIC = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "flame_magic_damage")
+    );
+    public static final ResourceKey<DamageType> WITHER_MAGIC = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wither_magic_damage")
+    );
+    public static final ResourceKey<DamageType> LEVITATION_MAGIC = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "levitation_magic_damage")
     );
 
     public static final ResourceKey<DamageType> ICICLE = ResourceKey.create(

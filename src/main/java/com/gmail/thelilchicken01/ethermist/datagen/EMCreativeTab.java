@@ -212,6 +212,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.DULL_ORB.get());
                 output.accept(EMItems.POISON_ORB.get());
                 output.accept(EMItems.FLAME_ORB.get());
+                output.accept(EMItems.WITHER_ORB.get());
                 output.accept(EMItems.LEVITATION_ORB.get());
 
                 // Wands
@@ -226,11 +227,15 @@ public class EMCreativeTab {
                 output.accept(EMItems.DULL_WAND.get());
                 output.accept(EMItems.POISON_WAND.get());
                 output.accept(EMItems.FLAME_WAND.get());
+                output.accept(EMItems.WITHER_WAND.get());
                 output.accept(EMItems.LEVITATION_WAND.get());
 
                 // Misc
-                output.accept(EMItems.EXCLUSION_TOME.get());
                 output.accept(EMItems.WAND_TOME.get());
+                output.accept(EMItems.BASE_SPELL_TOME.get());
+                output.accept(EMItems.AUGMENT_TOME.get());
+                output.accept(EMItems.MAIN_SPELL_TOME.get());
+                output.accept(EMItems.EXCLUSION_TOME.get());
 
             }).build());
 

@@ -26,6 +26,10 @@ public class EMTags {
     public static final class Items {
 
         public static final TagKey<Item> WANDS = mod("wands");
+        public static final TagKey<Item> ENCHANTABLE_BASE = mod("enchantable_base");
+        public static final TagKey<Item> ENCHANTABLE_AUGMENTS = mod("enchantable_augments");
+        public static final TagKey<Item> ENCHANTABLE_EXCLUSIONS = mod("enchantable_exclusions");
+        public static final TagKey<Item> ENCHANTABLE_MAIN_SPELLS = mod("enchantable_main_spells");
         public static final TagKey<Item> DYEABLE_WANDS = mod("dyeable_wands");
         public static final TagKey<Item> MAGIC_ENCHANTABLE = mod("magic_enchantable");
         public static final TagKey<Item> TOMES = mod("tomes");

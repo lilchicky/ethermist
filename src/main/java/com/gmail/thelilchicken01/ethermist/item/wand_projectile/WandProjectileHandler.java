@@ -187,7 +187,7 @@ public class WandProjectileHandler {
                 double power = WandUtil.getAttribute(thisWand, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
                 double inaccuracy = 1 - WandUtil.getAttribute(thisWand, WandItem.ACCURACY_ID);
 
-                Vec3 launch = player.getLookAngle();
+                Vec3 launch = player.getViewVector(1.0f);
 
                 double xOff = (random.nextDouble() * 2 - 1) * inaccuracy;
                 double yOff = (random.nextDouble() * 2 - 1) * inaccuracy;
