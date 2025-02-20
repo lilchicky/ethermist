@@ -68,8 +68,6 @@ public class WandItem extends Item {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    private int fireTicks;
-
     public WandItem(Properties properties, SoundEvent shootSound) {
         super(properties.stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
         this.SHOOT_SOUND = shootSound;
