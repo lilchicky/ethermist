@@ -42,6 +42,8 @@ public class EMEnchantmentEffects {
             () -> AugmentMeteorEnchant.CODEC);
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_ABUNDANCE = ENCH_VALUE_EFFECTS.register("augment_abundance",
             () -> AugmentAbundanceEnchant.CODEC);
+    public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> AUGMENT_FOCUS = ENCH_VALUE_EFFECTS.register("augment_focus",
+            () -> AugmentFocusEnchant.CODEC);
 
     // Focus Enchants
     public static final Supplier<MapCodec<? extends EnchantmentValueEffect>> EXCLUDE_MONSTERS = ENCH_VALUE_EFFECTS.register("exclude_monsters",

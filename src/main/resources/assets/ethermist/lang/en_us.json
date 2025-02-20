@@ -230,6 +230,8 @@
   "enchantment.ethermist.seismic_surge.desc": "Projectiles break blocks and stun mobs. Damage influences hardest block broken.",
   "enchantment.ethermist.augment_abundance": "Augment: Abundance",
   "enchantment.ethermist.augment_abundance.desc": "Blocks and mobs killed by projectiles drop extra loot and experience.",
+  "enchantment.ethermist.augment_focus": "Augment: Focus",
+  "enchantment.ethermist.augment_focus.desc": "Wand has a longer cooldown, perfect accuracy, higher damage, and faster projectile velocity.",
 
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"

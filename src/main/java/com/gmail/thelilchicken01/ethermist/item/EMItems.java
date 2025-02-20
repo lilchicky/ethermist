@@ -3,9 +3,8 @@ package com.gmail.thelilchicken01.ethermist.item;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.DullWand;
-import com.gmail.thelilchicken01.ethermist.item.wands.FlameWand;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTypes;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -22,9 +21,9 @@ public class EMItems {
 
     public static final DeferredItem<Item> WAND_HANDLE = ITEMS.register("wand_handle", HandleItem::new);
 
-    public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", DullWand::new);
+    public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", () -> new WandItem(WandTypes.DULL_WAND));
 
-    public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", FlameWand::new);
+    public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", () -> new WandItem(WandTypes.FLAME_WAND));
 
     public static final DeferredItem<BookItem> EXCLUSION_TOME = ITEMS.register("exclusion_tome", TomeItem::new);
     public static final DeferredItem<BookItem> WAND_TOME = ITEMS.register("wand_tome", TomeItem::new);

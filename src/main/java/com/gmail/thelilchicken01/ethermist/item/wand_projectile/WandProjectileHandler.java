@@ -42,6 +42,7 @@ public class WandProjectileHandler {
         AtomicBoolean isHoming = new AtomicBoolean(false);
         AtomicBoolean isMeteor = new AtomicBoolean(false);
         AtomicBoolean isRush = new AtomicBoolean(false);
+        AtomicBoolean isFocus = new AtomicBoolean(false);
         List<SpellModifiers.TargetType> types = new ArrayList<>();
         AtomicReference<SpellModifiers.SpellType> spellType = new AtomicReference<>(SpellModifiers.SpellType.GENERIC);
         AtomicInteger spellLevel = new AtomicInteger(0);
@@ -97,13 +98,13 @@ public class WandProjectileHandler {
 
         if (isMeteor.get()) {
             shotItem = EMItems.METEOR_SHOT.get();
-            shotItem.setModifier(wand.getShotItem().getModifier());
+            shotItem.setModifier(wand.getTier().getShotItem().getModifier());
 
             shotStack = new ItemStack(EMItems.METEOR_SHOT.get());
         }
         else {
-            shotItem = wand.getShotItem();
-            shotStack = new ItemStack(wand.getShotItem());
+            shotItem = wand.getTier().getShotItem();
+            shotStack = new ItemStack(wand.getTier().getShotItem());
         }
 
         List<Entity> nearby = WandUtil.getNearbyEntities(level, newLifespan * 10, player);
@@ -164,11 +165,20 @@ public class WandProjectileHandler {
                     }
                     augmentedShot.set(true);
                 }
+                if (enchantHolder.is(EMEnchantments.AUGMENT_FOCUS.location())) {
+                    isFocus.set(true);
+                }
             }
         });
 
         if (!augmentedShot.get()) {
             WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand, isHoming.get(), types, spellType.get(), spellLevel.get());
+        }
+        if (isFocus.get() && !isRush.get()) {
+            if (!level.isClientSide()) {
+                player.setDeltaMovement(player.getDeltaMovement().add(player.getLookAngle().scale(-0.3f)));
+                player.hurtMarked = true;
+            }
         }
         if (isRush.get()) {
             if (!level.isClientSide()) {

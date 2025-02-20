@@ -32,6 +32,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         addAugmentEnchantment("augment_spray", true);
         addAugmentEnchantment("augment_meteor", true);
         addAugmentEnchantment("augment_abundance", false);
+        addAugmentEnchantment("augment_focus", true);
         addTreasureAugmentEnchantment("augment_homing", false);
 
         addExcludeEnchantment("exclude_monsters");

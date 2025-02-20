@@ -37,6 +37,7 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> VOLATILE_ENERGY = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "volatile_energy"));
     public static final ResourceKey<Enchantment> SEISMIC_SURGE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "seismic_surge"));
     public static final ResourceKey<Enchantment> AUGMENT_ABUNDANCE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+    public static final ResourceKey<Enchantment> AUGMENT_FOCUS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_focus"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchants = context.lookup(Registries.ENCHANTMENT);
@@ -200,6 +201,19 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(HolderSet.empty())
+        );
+
+        register(context, AUGMENT_FOCUS, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.WANDS),
+                        3,
+                        4,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        2,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(augmentColor))
+                .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
         );
 
         /*

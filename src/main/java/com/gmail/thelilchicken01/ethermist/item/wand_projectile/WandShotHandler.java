@@ -187,13 +187,13 @@ public class WandShotHandler {
 
         shot.setDamage((int)WandUtil.getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime(lifespan * 20);
-        shot.setCanIgnite(wand.getCanIgnite());
+        shot.setCanIgnite(wand.getTier().getCanIgnite());
         shot.setKnockbackStrength(WandUtil.getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setSpellType(spellType);
         shot.setSpellLevel(spellLevel);
-        shot.setDamageType(wand.getDamageType());
+        shot.setDamageType(wand.getTier().getDamageType());
         shot.setTrailColor(wand.getTrailColor(wandItem));
 
         return shot;
