@@ -1,24 +1,18 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.EMConfig;
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
-import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -27,7 +21,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -59,6 +52,7 @@ import java.util.function.Predicate;
 public class WandItem extends Item {
 
     public final SoundEvent SHOOT_SOUND;
+    public final WandTypes TIER;
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
@@ -68,9 +62,12 @@ public class WandItem extends Item {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    public WandItem(Properties properties, SoundEvent shootSound) {
-        super(properties.stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
-        this.SHOOT_SOUND = shootSound;
+    public WandItem(WandTypes tier) {
+        super(new Item.Properties().stacksTo(1)
+                .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
+                .durability((int)(128 * tier.getDurabilityMult())));
+        this.SHOOT_SOUND = tier.getShootSound();
+        this.TIER = tier;
     }
 
     @Override
@@ -108,43 +105,18 @@ public class WandItem extends Item {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return 5;
+        return TIER.getEnchantability();
     }
 
-    // DEFAULTS
-    public int getLifespanSeconds() {
-        return 1;
+    @Override
+    public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
+        return stack.isDamaged() && TIER.getRepairItem().get().test(repairItem);
     }
-    public int getBonusDamage() {
-        return 0;
+
+    public WandTypes getTier() {
+        return TIER;
     }
-    public int getSpellDamage() {
-        return 4;
-    }
-    public float getInaccuracy() {
-        return 0.0f;
-    }
-    public float getProjectileSpeed() {
-        return 0.25f;
-    }
-    public boolean getCanIgnite() {
-        return false;
-    }
-    public double getKnockback() {
-        return 0.25;
-    }
-    public int getCooldown() {
-        return 20 * 4;
-    }
-    public WandShotItem getShotItem() {
-        return EMItems.GENERIC_SHOT.get();
-    }
-    public ResourceKey<DamageType> getDamageType() {
-        return EMDamageTypes.GENERIC_MAGIC;
-    }
-    public float[] getDefaultTrailColor() {
-        return new float[]{0.50196f, 0.38431f, 0.64314f};
-    }
+
     public float[] getTrailColor(ItemStack stack) {
         int color = stack.get(DataComponents.DYED_COLOR).rgb();
         if (color != Ethermist.WAND_COLOR) {
@@ -154,7 +126,7 @@ public class WandItem extends Item {
             return new float[]{r, g, b};
         }
         else {
-            return getDefaultTrailColor();
+            return TIER.getTrailColor();
         }
     }
 
@@ -162,20 +134,22 @@ public class WandItem extends Item {
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
 
         var builder = ItemAttributeModifiers.builder();
-        AtomicInteger newCD = new AtomicInteger(getCooldown());
-        AtomicDouble newDamage = new AtomicDouble(getSpellDamage() + getBonusDamage());
-        AtomicInteger newLifespan = new AtomicInteger(getLifespanSeconds());
-        AtomicDouble newPSpeed = new AtomicDouble(getProjectileSpeed());
-        AtomicDouble newKnockback = new AtomicDouble(getKnockback());
-        AtomicDouble newAccuracy = new AtomicDouble(getInaccuracy());
+        AtomicInteger newCD = new AtomicInteger(TIER.getCooldown());
+        AtomicDouble newDamage = new AtomicDouble(TIER.getSpellDamage());
+        AtomicInteger newLifespan = new AtomicInteger(TIER.getLifespanSeconds());
+        AtomicDouble newPSpeed = new AtomicDouble(TIER.getProjectileSpeed());
+        AtomicDouble newKnockback = new AtomicDouble(TIER.getKnockback());
+        AtomicDouble newAccuracy = new AtomicDouble(TIER.getInaccuracy());
         AtomicInteger sprayLevel = new AtomicInteger(0);
         AtomicInteger chaosMagicLevel = new AtomicInteger(0);
+        AtomicInteger focusLevel = new AtomicInteger(0);
 
         AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
         AtomicBoolean isSprayLocal = new AtomicBoolean(false);
         AtomicBoolean isChaosMagic = new AtomicBoolean(false);
         AtomicBoolean isThunderstrike = new AtomicBoolean(false);
         AtomicBoolean isVolatileEnergy = new AtomicBoolean(false);
+        AtomicBoolean isAugmentFocus = new AtomicBoolean(false);
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
@@ -213,6 +187,10 @@ public class WandItem extends Item {
             if (enchantHolder.is(EMEnchantments.VOLATILE_ENERGY.location())) {
                 isVolatileEnergy.set(true);
             }
+            if (enchantHolder.is(EMEnchantments.AUGMENT_FOCUS.location())) {
+                isAugmentFocus.set(true);
+                focusLevel.set(enchantLevel);
+            }
         });
 
         // Augment Modifiers
@@ -230,6 +208,12 @@ public class WandItem extends Item {
             newPSpeed.set(newPSpeed.get() * 0.5);
             newCD.set(5);
         }
+        if (isAugmentFocus.get()) {
+            newDamage.set(newDamage.get() * (focusLevel.get() * 1.5));
+            newPSpeed.set(newPSpeed.get() * 4.5);
+            newAccuracy.set(0.0);
+            newCD.set(newCD.get() * 4);
+        }
 
         // Spell Modifiers
         if (isChaosMagic.get()) {
@@ -238,6 +222,9 @@ public class WandItem extends Item {
         if (isThunderstrike.get()) {
             if (isSprayLocal.get()) {
                 newCD.set(40);
+            }
+            else if (isAugmentFocus.get()) {
+                newCD.set(newCD.get() + 40);
             }
             else {
                 newCD.set(newCD.get() * 3);
