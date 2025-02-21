@@ -3,17 +3,13 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.Arrays;
 import java.util.function.Supplier;
 
 public class EMCreativeTab {
@@ -194,6 +190,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ANCIENT_LEAVES);
                 output.accept(EMBlocks.SLIMY_LEAVES);
                 output.accept(EMBlocks.FROSTPINE_LEAVES);
+                output.accept(EMBlocks.GREEN_AMBERWOOD_LEAVES);
                 output.accept(EMBlocks.RED_AMBERWOOD_LEAVES);
                 output.accept(EMBlocks.ORANGE_AMBERWOOD_LEAVES);
                 output.accept(EMBlocks.YELLOW_AMBERWOOD_LEAVES);
@@ -203,7 +200,10 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
                 output.accept(EMBlocks.SLIMY_SAPLING);
                 output.accept(EMBlocks.FROSTPINE_SAPLING);
-                output.accept(EMBlocks.AMBERWOOD_SAPLING);
+                output.accept(EMBlocks.GREEN_AMBERWOOD_SAPLING);
+                output.accept(EMBlocks.RED_AMBERWOOD_SAPLING);
+                output.accept(EMBlocks.ORANGE_AMBERWOOD_SAPLING);
+                output.accept(EMBlocks.YELLOW_AMBERWOOD_SAPLING);
 
                 output.accept(EMBlocks.RICH_GRASS);
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);

@@ -73,13 +73,17 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.RED_AMBERWOOD_LEAVES.get().asItem())
                 .add(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get().asItem())
                 .add(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get().asItem())
+                .add(EMBlocks.GREEN_AMBERWOOD_LEAVES.get().asItem())
                 .add(EMBlocks.FROSTPINE_LEAVES.get().asItem());
 
         tag(ItemTags.SAPLINGS)
                 .add(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get().asItem())
                 .add(EMBlocks.ANCIENT_SAPLING.get().asItem())
                 .add(EMBlocks.SLIMY_SAPLING.get().asItem())
-                .add(EMBlocks.AMBERWOOD_SAPLING.get().asItem())
+                .add(EMBlocks.GREEN_AMBERWOOD_SAPLING.get().asItem())
+                .add(EMBlocks.RED_AMBERWOOD_SAPLING.get().asItem())
+                .add(EMBlocks.ORANGE_AMBERWOOD_SAPLING.get().asItem())
+                .add(EMBlocks.YELLOW_AMBERWOOD_SAPLING.get().asItem())
                 .add(EMBlocks.FROSTPINE_SAPLING.get().asItem());
 
         tag(ItemTags.FLOWERS)

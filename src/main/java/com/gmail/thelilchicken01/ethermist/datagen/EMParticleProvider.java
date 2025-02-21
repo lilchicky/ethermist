@@ -24,6 +24,10 @@ public class EMParticleProvider extends ParticleDescriptionProvider {
         simpleParticle(EMParticleTypes.GLIMMERBUG_AIR);
         simpleParticle(EMParticleTypes.VOLATILE_ENERGY_TETHER);
 
+        simpleParticle(EMParticleTypes.RED_LEAVES);
+        simpleParticle(EMParticleTypes.ORANGE_LEAVES);
+        simpleParticle(EMParticleTypes.YELLOW_LEAVES);
+
         animatedParticle(EMParticleTypes.ETHERMIST_PORTAL, 3, true);
 
         // Wand Trail Particles

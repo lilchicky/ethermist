@@ -11,8 +11,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-import java.util.List;
-
 import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
 
 public class EMItemModelProvider extends ItemModelProvider {
@@ -62,7 +60,10 @@ public class EMItemModelProvider extends ItemModelProvider {
         fenceItemFolder(EMBlocks.AMBERWOOD_FENCE, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
         buttonItemFolder(EMBlocks.AMBERWOOD_BUTTON, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
         basicItem(EMBlocks.AMBERWOOD_DOOR.asItem());
-        saplingItemFolder(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingItemFolder(EMBlocks.GREEN_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingItemFolder(EMBlocks.RED_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingItemFolder(EMBlocks.ORANGE_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingItemFolder(EMBlocks.YELLOW_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
 
         fenceItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
         buttonItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);

@@ -24,6 +24,14 @@ public class EMParticleTypes {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WAND_TRAIL = EM_PARTICLE_TYPES.register(
             "wand_trail", () -> new SimpleParticleType(false));
 
+    // Leaf Particles
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> RED_LEAVES = EM_PARTICLE_TYPES.register(
+            "red_leaves", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ORANGE_LEAVES = EM_PARTICLE_TYPES.register(
+            "orange_leaves", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> YELLOW_LEAVES = EM_PARTICLE_TYPES.register(
+            "yellow_leaves", () -> new SimpleParticleType(false));
+
     public static void register (IEventBus bus) {
         EM_PARTICLE_TYPES.register(bus);
     }

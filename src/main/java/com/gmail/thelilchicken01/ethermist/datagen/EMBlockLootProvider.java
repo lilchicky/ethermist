@@ -166,12 +166,17 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.STRIPPED_AMBERWOOD_WOOD.get());
         dropSelf(EMBlocks.AMBERWOOD_PLANKS.get());
         this.add(EMBlocks.RED_AMBERWOOD_LEAVES.get(), block ->
-                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+                createLeavesDrops(block, EMBlocks.RED_AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         this.add(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get(), block ->
-                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+                createLeavesDrops(block, EMBlocks.ORANGE_AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         this.add(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get(), block ->
-                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
-        dropSelf(EMBlocks.AMBERWOOD_SAPLING.get());
+                createLeavesDrops(block, EMBlocks.YELLOW_AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(EMBlocks.GREEN_AMBERWOOD_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.GREEN_AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(EMBlocks.GREEN_AMBERWOOD_SAPLING.get());
+        dropSelf(EMBlocks.RED_AMBERWOOD_SAPLING.get());
+        dropSelf(EMBlocks.ORANGE_AMBERWOOD_SAPLING.get());
+        dropSelf(EMBlocks.YELLOW_AMBERWOOD_SAPLING.get());
         dropSelf(EMBlocks.AMBERWOOD_STAIRS.get());
         add(EMBlocks.AMBERWOOD_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.AMBERWOOD_SLAB.get()));

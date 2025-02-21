@@ -25,9 +25,12 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> RED_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_red_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> ORANGE_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_orange_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> YELLOW_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_yellow_amberwood_tree_placed");
+    public static final ResourceKey<PlacedFeature> GREEN_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_green_amberwood_tree_placed");
+
     public static final ResourceKey<PlacedFeature> RED_AMBERWOOD_PLACED_TREE_KEY = registerKey("red_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> ORANGE_AMBERWOOD_PLACED_TREE_KEY = registerKey("orange_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> YELLOW_AMBERWOOD_PLACED_TREE_KEY = registerKey("yellow_amberwood_tree_placed");
+    public static final ResourceKey<PlacedFeature> GREEN_AMBERWOOD_PLACED_TREE_KEY = registerKey("green_amberwood_tree_placed");
 
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
 
@@ -90,18 +93,21 @@ public class EMPlacedFeatures {
 
         register(context, RED_MEGA_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RED_MEGA_AMBERWOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.5f, 2),
-                        EMBlocks.AMBERWOOD_SAPLING.get()));
+                        EMBlocks.GREEN_AMBERWOOD_SAPLING.get()));
 
         // Small Amberwood Tree
         register(context, RED_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RED_AMBERWOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
-                        EMBlocks.AMBERWOOD_SAPLING.get()));
+                        EMBlocks.RED_AMBERWOOD_SAPLING.get()));
         register(context, ORANGE_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ORANGE_AMBERWOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
-                        EMBlocks.AMBERWOOD_SAPLING.get()));
+                        EMBlocks.ORANGE_AMBERWOOD_SAPLING.get()));
         register(context, YELLOW_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.YELLOW_AMBERWOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
-                        EMBlocks.AMBERWOOD_SAPLING.get()));
+                        EMBlocks.YELLOW_AMBERWOOD_SAPLING.get()));
+        register(context, GREEN_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GREEN_AMBERWOOD_TREE_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
+                        EMBlocks.GREEN_AMBERWOOD_SAPLING.get()));
 
 
         register(context, BLUE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.BLUE_ABYSSAL_MUSHROOM_KEY),

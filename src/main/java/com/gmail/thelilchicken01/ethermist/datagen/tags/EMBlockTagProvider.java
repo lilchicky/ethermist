@@ -135,13 +135,17 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.RED_AMBERWOOD_LEAVES.get())
                 .add(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get())
                 .add(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get())
+                .add(EMBlocks.GREEN_AMBERWOOD_LEAVES.get())
                 .add(EMBlocks.FROSTPINE_LEAVES.get());
 
         tag(BlockTags.SAPLINGS)
                 .add(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get())
                 .add(EMBlocks.ANCIENT_SAPLING.get())
                 .add(EMBlocks.SLIMY_SAPLING.get())
-                .add(EMBlocks.AMBERWOOD_SAPLING.get())
+                .add(EMBlocks.GREEN_AMBERWOOD_SAPLING.get())
+                .add(EMBlocks.RED_AMBERWOOD_SAPLING.get())
+                .add(EMBlocks.ORANGE_AMBERWOOD_SAPLING.get())
+                .add(EMBlocks.YELLOW_AMBERWOOD_SAPLING.get())
                 .add(EMBlocks.FROSTPINE_SAPLING.get());
 
         tag(BlockTags.DIRT)

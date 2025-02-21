@@ -43,12 +43,16 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTPINE_TREE_KEY = registerKey("frostpine_tree");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_AMBERWOOD_TREE_KEY = registerKey("red_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_AMBERWOOD_TREE_KEY = registerKey("orange_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_AMBERWOOD_TREE_KEY = registerKey("yellow_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_AMBERWOOD_TREE_KEY = registerKey("green_amberwood_tree");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MEGA_AMBERWOOD_TREE_KEY = registerKey("red_mega_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MEGA_AMBERWOOD_TREE_KEY = registerKey("orange_mega_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MEGA_AMBERWOOD_TREE_KEY = registerKey("yellow_mega_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_MEGA_AMBERWOOD_TREE_KEY = registerKey("green_mega_amberwood_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
@@ -246,10 +250,12 @@ public class EMConfiguredFeatures {
         register(context, RED_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.RED_AMBERWOOD_LEAVES.get()));
         register(context, ORANGE_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
         register(context, YELLOW_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
+        register(context, GREEN_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.GREEN_AMBERWOOD_LEAVES.get()));
 
         register(context, RED_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.RED_AMBERWOOD_LEAVES.get()));
         register(context, ORANGE_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
         register(context, YELLOW_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
+        register(context, GREEN_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.GREEN_AMBERWOOD_LEAVES.get()));
 
         /*
         ---------- Random Features ----------
@@ -433,13 +439,13 @@ public class EMConfiguredFeatures {
         return new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(EMBlocks.AMBERWOOD_LOG.get().defaultBlockState()),
                 new StraightTrunkPlacer(
-                        6,
+                        4,
                         2,
                         4
                 ),
                 BlockStateProvider.simple(leaf.defaultBlockState()),
                 new CherryFoliagePlacer(
-                        ConstantInt.of(3),
+                        ConstantInt.of(4),
                         ConstantInt.of(0),
                         ConstantInt.of(4),
                         0.25F,
@@ -457,8 +463,8 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(EMBlocks.AMBERWOOD_LOG.get().defaultBlockState()),
                 new MegaJungleTrunkPlacer(
                         8,
-                        6,
-                        14
+                        4,
+                        8
                 ),
                 BlockStateProvider.simple(leaf.defaultBlockState()),
                 new CherryFoliagePlacer(

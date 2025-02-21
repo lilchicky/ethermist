@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -132,11 +133,15 @@ public class EMBlocks {
     public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_WOOD = registerBlock("stripped_amberwood_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD)));
 
     public static final DeferredBlock<Block> AMBERWOOD_PLANKS = registerBlock("amberwood_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> RED_AMBERWOOD_LEAVES = registerBlock("red_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
-    public static final DeferredBlock<Block> ORANGE_AMBERWOOD_LEAVES = registerBlock("orange_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
-    public static final DeferredBlock<Block> YELLOW_AMBERWOOD_LEAVES = registerBlock("yellow_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final DeferredBlock<Block> RED_AMBERWOOD_LEAVES = registerBlock("red_amberwood_leaves", () -> new EMAnimatedFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES), EMParticleTypes.RED_LEAVES::get));
+    public static final DeferredBlock<Block> ORANGE_AMBERWOOD_LEAVES = registerBlock("orange_amberwood_leaves", () -> new EMAnimatedFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES), EMParticleTypes.ORANGE_LEAVES::get));
+    public static final DeferredBlock<Block> YELLOW_AMBERWOOD_LEAVES = registerBlock("yellow_amberwood_leaves", () -> new EMAnimatedFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES), EMParticleTypes.YELLOW_LEAVES::get));
+    public static final DeferredBlock<Block> GREEN_AMBERWOOD_LEAVES = registerBlock("green_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
 
-    public static final DeferredBlock<Block> AMBERWOOD_SAPLING = registerBlock("amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.RED_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> GREEN_AMBERWOOD_SAPLING = registerBlock("green_amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.GREEN_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> RED_AMBERWOOD_SAPLING = registerBlock("red_amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.RED_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> ORANGE_AMBERWOOD_SAPLING = registerBlock("orange_amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.ORANGE_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> YELLOW_AMBERWOOD_SAPLING = registerBlock("yellow_amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.YELLOW_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
     public static final DeferredBlock<StairBlock> AMBERWOOD_STAIRS = registerBlock("amberwood_stairs", () -> new StairBlock(EMBlocks.AMBERWOOD_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
     public static final DeferredBlock<SlabBlock> AMBERWOOD_SLAB = registerBlock("amberwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
@@ -146,7 +151,7 @@ public class EMBlocks {
     public static final DeferredBlock<FenceGateBlock> AMBERWOOD_FENCE_GATE = registerBlock("amberwood_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
     public static final DeferredBlock<DoorBlock> AMBERWOOD_DOOR = registerBlock("amberwood_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
     public static final DeferredBlock<TrapDoorBlock> AMBERWOOD_TRAPDOOR = registerBlock("amberwood_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
-    
+
     // Sparkling Sand
     public static final DeferredBlock<FallingBlock> SPARKLING_SAND = registerBlock("sparkling_sand", () -> new SparklingSand(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<Block> SPARKLING_SANDSTONE = registerBlock("sparkling_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));

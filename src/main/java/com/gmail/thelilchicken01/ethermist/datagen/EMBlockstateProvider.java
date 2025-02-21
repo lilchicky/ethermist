@@ -198,7 +198,11 @@ public class EMBlockstateProvider extends BlockStateProvider {
         leavesBlock(EMBlocks.RED_AMBERWOOD_LEAVES);
         leavesBlock(EMBlocks.ORANGE_AMBERWOOD_LEAVES);
         leavesBlock(EMBlocks.YELLOW_AMBERWOOD_LEAVES);
-        saplingBlock(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        leavesBlock(EMBlocks.GREEN_AMBERWOOD_LEAVES);
+        saplingBlock(EMBlocks.GREEN_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingBlock(EMBlocks.RED_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingBlock(EMBlocks.ORANGE_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        saplingBlock(EMBlocks.YELLOW_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
 
         stairsBlockFolder(EMBlocks.AMBERWOOD_STAIRS.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
         slabBlockFolder(EMBlocks.AMBERWOOD_SLAB.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
@@ -218,7 +222,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_AMBERWOOD_LOG, AMBERWOOD_WOOD);
         blockItem(EMBlocks.AMBERWOOD_WOOD, AMBERWOOD_WOOD);
         blockItem(EMBlocks.STRIPPED_AMBERWOOD_WOOD, AMBERWOOD_WOOD);
-        blockItem(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.GREEN_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
 
         // Sparkling Sand
         simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS, null);

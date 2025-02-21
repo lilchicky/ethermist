@@ -28,5 +28,11 @@ public class EMTreeGrowers {
 
     public static final TreeGrower RED_AMBERWOOD_TREE = new TreeGrower(Ethermist.MODID + ":red_amberwood_tree",
             Optional.of(EMConfiguredFeatures.RED_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.RED_AMBERWOOD_TREE_KEY), Optional.empty());
+    public static final TreeGrower GREEN_AMBERWOOD_TREE = new TreeGrower(Ethermist.MODID + ":green_amberwood_tree",
+            Optional.of(EMConfiguredFeatures.GREEN_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.GREEN_AMBERWOOD_TREE_KEY), Optional.empty());
+    public static final TreeGrower ORANGE_AMBERWOOD_TREE = new TreeGrower(Ethermist.MODID + ":orange_amberwood_tree",
+            Optional.of(EMConfiguredFeatures.ORANGE_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.ORANGE_AMBERWOOD_TREE_KEY), Optional.empty());
+    public static final TreeGrower YELLOW_AMBERWOOD_TREE = new TreeGrower(Ethermist.MODID + ":yellow_amberwood_tree",
+            Optional.of(EMConfiguredFeatures.YELLOW_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.YELLOW_AMBERWOOD_TREE_KEY), Optional.empty());
 
 }
