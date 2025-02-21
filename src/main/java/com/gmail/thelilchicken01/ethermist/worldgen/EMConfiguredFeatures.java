@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -24,13 +25,12 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 
 public class EMConfiguredFeatures {
@@ -43,6 +43,12 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTPINE_TREE_KEY = registerKey("frostpine_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_AMBERWOOD_TREE_KEY = registerKey("red_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_AMBERWOOD_TREE_KEY = registerKey("orange_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_AMBERWOOD_TREE_KEY = registerKey("yellow_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MEGA_AMBERWOOD_TREE_KEY = registerKey("red_mega_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MEGA_AMBERWOOD_TREE_KEY = registerKey("orange_mega_amberwood_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MEGA_AMBERWOOD_TREE_KEY = registerKey("yellow_mega_amberwood_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
@@ -237,6 +243,14 @@ public class EMConfiguredFeatures {
                 .decorators(ImmutableList.of(new IcicleDecorator(0.4f))).build()
         );
 
+        register(context, RED_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.RED_AMBERWOOD_LEAVES.get()));
+        register(context, ORANGE_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
+        register(context, YELLOW_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
+
+        register(context, RED_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.RED_AMBERWOOD_LEAVES.get()));
+        register(context, ORANGE_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
+        register(context, YELLOW_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
+
         /*
         ---------- Random Features ----------
          */
@@ -413,6 +427,52 @@ public class EMConfiguredFeatures {
                 )
         );
 
+    }
+
+    private static TreeConfiguration createAmberwoodTree(Block leaf) {
+        return new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.AMBERWOOD_LOG.get().defaultBlockState()),
+                new StraightTrunkPlacer(
+                        6,
+                        2,
+                        4
+                ),
+                BlockStateProvider.simple(leaf.defaultBlockState()),
+                new CherryFoliagePlacer(
+                        ConstantInt.of(3),
+                        ConstantInt.of(0),
+                        ConstantInt.of(4),
+                        0.25F,
+                        0.5F,
+                        0.16666667F,
+                        0.33333334F
+                ),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get()))
+                .build();
+    }
+
+    private static TreeConfiguration createMegaAmberwoodTree(Block leaf) {
+        return new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.AMBERWOOD_LOG.get().defaultBlockState()),
+                new MegaJungleTrunkPlacer(
+                        8,
+                        6,
+                        14
+                ),
+                BlockStateProvider.simple(leaf.defaultBlockState()),
+                new CherryFoliagePlacer(
+                        ConstantInt.of(4),
+                        ConstantInt.of(0),
+                        ConstantInt.of(4),
+                        0.25F,
+                        0.5F,
+                        0.16666667F,
+                        0.33333334F
+                ),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get()))
+                .build();
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

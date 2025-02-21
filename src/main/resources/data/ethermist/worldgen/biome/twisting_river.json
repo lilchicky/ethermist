@@ -73,10 +73,6 @@
     [
       "minecraft:glow_lichen",
       "ethermist:rich_grass_patch_placed",
-      "minecraft:trees_water",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
       "minecraft:seagrass_deep",
       "minecraft:seagrass_simple"
     ],

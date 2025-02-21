@@ -188,6 +188,38 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_FROSTPINE_WOOD, FROSTPINE_WOOD);
         blockItem(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
 
+        // Amberwood Wood
+        logBlock((RotatedPillarBlock) EMBlocks.AMBERWOOD_LOG.get(), AMBERWOOD_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_AMBERWOOD_LOG.get(), AMBERWOOD_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.AMBERWOOD_WOOD.get(), EMBlocks.AMBERWOOD_LOG.get(), AMBERWOOD_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_AMBERWOOD_WOOD.get(), EMBlocks.STRIPPED_AMBERWOOD_LOG.get(), AMBERWOOD_WOOD);
+
+        simpleBlock(EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
+        leavesBlock(EMBlocks.RED_AMBERWOOD_LEAVES);
+        leavesBlock(EMBlocks.ORANGE_AMBERWOOD_LEAVES);
+        leavesBlock(EMBlocks.YELLOW_AMBERWOOD_LEAVES);
+        saplingBlock(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+
+        stairsBlockFolder(EMBlocks.AMBERWOOD_STAIRS.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        slabBlockFolder(EMBlocks.AMBERWOOD_SLAB.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        buttonBlockFolder(EMBlocks.AMBERWOOD_BUTTON.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        pressurePlateBlockFolder(EMBlocks.AMBERWOOD_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        fenceBlockFolder(EMBlocks.AMBERWOOD_FENCE.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        fenceGateBlockFolder(EMBlocks.AMBERWOOD_FENCE_GATE.get(), blockTextureFolder(EMBlocks.AMBERWOOD_PLANKS.get(), AMBERWOOD_WOOD), AMBERWOOD_WOOD);
+        doorBlock(EMBlocks.AMBERWOOD_DOOR.get(), AMBERWOOD_WOOD);
+        trapdoorBlock(EMBlocks.AMBERWOOD_TRAPDOOR.get(), AMBERWOOD_WOOD);
+
+        blockItem(EMBlocks.AMBERWOOD_STAIRS, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_SLAB, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_PRESSURE_PLATE, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_FENCE_GATE, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_TRAPDOOR, "_bottom", AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_LOG, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.STRIPPED_AMBERWOOD_LOG, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_WOOD, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.STRIPPED_AMBERWOOD_WOOD, AMBERWOOD_WOOD);
+        blockItem(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+
         // Sparkling Sand
         simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS, null);
 

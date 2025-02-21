@@ -61,6 +61,7 @@ public class Ethermist {
     public static final String SPARKLING_SANDSTONE = "sparkling_sandstone";
     public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
     public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
+    public static final String AMBERWOOD_WOOD = "amberwood_wood";
 
     // Default Color
     public static final int WAND_COLOR = 9004839;

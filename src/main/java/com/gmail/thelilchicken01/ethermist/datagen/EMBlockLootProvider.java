@@ -159,6 +159,30 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.FROSTPINE_DOOR.get()));
         dropSelf(EMBlocks.FROSTPINE_TRAPDOOR.get());
 
+        // Amberwood Wood
+        dropSelf(EMBlocks.AMBERWOOD_LOG.get());
+        dropSelf(EMBlocks.STRIPPED_AMBERWOOD_LOG.get());
+        dropSelf(EMBlocks.AMBERWOOD_WOOD.get());
+        dropSelf(EMBlocks.STRIPPED_AMBERWOOD_WOOD.get());
+        dropSelf(EMBlocks.AMBERWOOD_PLANKS.get());
+        this.add(EMBlocks.RED_AMBERWOOD_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get(), block ->
+                createLeavesDrops(block, EMBlocks.AMBERWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(EMBlocks.AMBERWOOD_SAPLING.get());
+        dropSelf(EMBlocks.AMBERWOOD_STAIRS.get());
+        add(EMBlocks.AMBERWOOD_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.AMBERWOOD_SLAB.get()));
+        dropSelf(EMBlocks.AMBERWOOD_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.AMBERWOOD_BUTTON.get());
+        dropSelf(EMBlocks.AMBERWOOD_FENCE.get());
+        dropSelf(EMBlocks.AMBERWOOD_FENCE_GATE.get());
+        add(EMBlocks.AMBERWOOD_DOOR.get(),
+                block -> createDoorTable(EMBlocks.AMBERWOOD_DOOR.get()));
+        dropSelf(EMBlocks.AMBERWOOD_TRAPDOOR.get());
+
         // Sparkling Sand
         dropSelf(EMBlocks.SPARKLING_SAND.get());
         dropSelf(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get());

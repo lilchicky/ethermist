@@ -89,6 +89,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.FROSTPINE_SLAB.get())
                 .add(EMBlocks.FROSTPINE_FENCE_GATE.get())
 
+                .add(EMBlocks.AMBERWOOD_PLANKS.get())
+                .add(EMBlocks.AMBERWOOD_STAIRS.get())
+                .add(EMBlocks.AMBERWOOD_SLAB.get())
+                .add(EMBlocks.AMBERWOOD_FENCE_GATE.get())
+
                 .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get())
@@ -127,12 +132,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get())
                 .add(EMBlocks.SLIMY_LEAVES.get())
+                .add(EMBlocks.RED_AMBERWOOD_LEAVES.get())
+                .add(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get())
+                .add(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get())
                 .add(EMBlocks.FROSTPINE_LEAVES.get());
 
         tag(BlockTags.SAPLINGS)
                 .add(EMBlocks.GLIMMERING_ANCIENT_SAPLING.get())
                 .add(EMBlocks.ANCIENT_SAPLING.get())
                 .add(EMBlocks.SLIMY_SAPLING.get())
+                .add(EMBlocks.AMBERWOOD_SAPLING.get())
                 .add(EMBlocks.FROSTPINE_SAPLING.get());
 
         tag(BlockTags.DIRT)
@@ -168,6 +177,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ANCIENT_FENCE_GATE.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
                 .add(EMBlocks.FROSTPINE_FENCE_GATE.get())
+                .add(EMBlocks.AMBERWOOD_FENCE_GATE.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
 
         tag(BlockTags.WALLS)
@@ -206,24 +216,28 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         addRedstone(EMBlocks.SPARKLING_SANDSTONE_BUTTON.get(), EMBlocks.SPARKLING_SANDSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_BUTTON.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get(), true);
+        addRedstone(EMBlocks.AMBERWOOD_BUTTON.get(), EMBlocks.AMBERWOOD_PRESSURE_PLATE.get(), true);
 
         addFences(EMBlocks.GLIMMERING_ANCIENT_FENCE.get(), true);
         addFences(EMBlocks.ANCIENT_FENCE.get(), true);
         addFences(EMBlocks.SLIMY_FENCE.get(), true);
         addFences(EMBlocks.FROSTPINE_FENCE.get(), true);
         addFences(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE.get(), true);
+        addFences(EMBlocks.AMBERWOOD_FENCE.get(), true);
 
         addLogs(EMBlocks.GLIMMERING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_GLIMMERING_ANCIENT_WOOD.get(), true);
         addLogs(EMBlocks.ANCIENT_LOG.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), EMBlocks.ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_WOOD.get(), true);
         addLogs(EMBlocks.SLIMY_LOG.get(), EMBlocks.STRIPPED_SLIMY_LOG.get(), EMBlocks.SLIMY_WOOD.get(), EMBlocks.STRIPPED_SLIMY_WOOD.get(), true);
         addLogs(EMBlocks.FROSTPINE_LOG.get(), EMBlocks.STRIPPED_FROSTPINE_LOG.get(), EMBlocks.FROSTPINE_WOOD.get(), EMBlocks.STRIPPED_FROSTPINE_WOOD.get(), true);
         addLogs(EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG.get(), EMBlocks.SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD.get(), true);
+        addLogs(EMBlocks.AMBERWOOD_LOG.get(), EMBlocks.STRIPPED_AMBERWOOD_LOG.get(), EMBlocks.AMBERWOOD_WOOD.get(), EMBlocks.STRIPPED_AMBERWOOD_WOOD.get(), true);
 
         addDoors(EMBlocks.GLIMMERING_ANCIENT_DOOR.get(), EMBlocks.GLIMMERING_ANCIENT_TRAPDOOR.get(), true);
         addDoors(EMBlocks.ANCIENT_DOOR.get(), EMBlocks.ANCIENT_TRAPDOOR.get(), true);
         addDoors(EMBlocks.SLIMY_DOOR.get(), EMBlocks.SLIMY_TRAPDOOR.get(), true);
         addDoors(EMBlocks.FROSTPINE_DOOR.get(), EMBlocks.FROSTPINE_TRAPDOOR.get(), true);
         addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get(), true);
+        addDoors(EMBlocks.AMBERWOOD_DOOR.get(), EMBlocks.AMBERWOOD_TRAPDOOR.get(), true);
 
     }
 

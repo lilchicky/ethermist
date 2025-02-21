@@ -101,6 +101,22 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.FROSTPINE_PRESSURE_PLATE);
                 output.accept(EMBlocks.FROSTPINE_BUTTON);
 
+                // Amberwood Wood
+                output.accept(EMBlocks.AMBERWOOD_LOG);
+                output.accept(EMBlocks.AMBERWOOD_WOOD);
+                output.accept(EMBlocks.STRIPPED_AMBERWOOD_LOG);
+                output.accept(EMBlocks.STRIPPED_AMBERWOOD_WOOD);
+
+                output.accept(EMBlocks.AMBERWOOD_PLANKS);
+                output.accept(EMBlocks.AMBERWOOD_STAIRS);
+                output.accept(EMBlocks.AMBERWOOD_SLAB);
+                output.accept(EMBlocks.AMBERWOOD_FENCE);
+                output.accept(EMBlocks.AMBERWOOD_FENCE_GATE);
+                output.accept(EMBlocks.AMBERWOOD_DOOR);
+                output.accept(EMBlocks.AMBERWOOD_TRAPDOOR);
+                output.accept(EMBlocks.AMBERWOOD_PRESSURE_PLATE);
+                output.accept(EMBlocks.AMBERWOOD_BUTTON);
+
                 // Abyssal Mushrooms
                 output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
                 output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
@@ -178,12 +194,17 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ANCIENT_LEAVES);
                 output.accept(EMBlocks.SLIMY_LEAVES);
                 output.accept(EMBlocks.FROSTPINE_LEAVES);
+                output.accept(EMBlocks.RED_AMBERWOOD_LEAVES);
+                output.accept(EMBlocks.ORANGE_AMBERWOOD_LEAVES);
+                output.accept(EMBlocks.YELLOW_AMBERWOOD_LEAVES);
 
                 // Plants
                 output.accept(EMBlocks.ANCIENT_SAPLING);
                 output.accept(EMBlocks.GLIMMERING_ANCIENT_SAPLING);
                 output.accept(EMBlocks.SLIMY_SAPLING);
                 output.accept(EMBlocks.FROSTPINE_SAPLING);
+                output.accept(EMBlocks.AMBERWOOD_SAPLING);
+
                 output.accept(EMBlocks.RICH_GRASS);
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);
                 output.accept(EMBlocks.NIGHTBELL);

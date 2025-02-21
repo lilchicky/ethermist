@@ -125,7 +125,28 @@ public class EMBlocks {
     public static final DeferredBlock<DoorBlock> FROSTPINE_DOOR = registerBlock("frostpine_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noOcclusion()));
     public static final DeferredBlock<TrapDoorBlock> FROSTPINE_TRAPDOOR = registerBlock("frostpine_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noOcclusion()));
 
+    // Amberwood Wood
+    public static final DeferredBlock<Block> AMBERWOOD_LOG = registerBlock("amberwood_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> AMBERWOOD_WOOD = registerBlock("amberwood_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_LOG = registerBlock("stripped_amberwood_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_WOOD = registerBlock("stripped_amberwood_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD)));
 
+    public static final DeferredBlock<Block> AMBERWOOD_PLANKS = registerBlock("amberwood_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> RED_AMBERWOOD_LEAVES = registerBlock("red_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final DeferredBlock<Block> ORANGE_AMBERWOOD_LEAVES = registerBlock("orange_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final DeferredBlock<Block> YELLOW_AMBERWOOD_LEAVES = registerBlock("yellow_amberwood_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+
+    public static final DeferredBlock<Block> AMBERWOOD_SAPLING = registerBlock("amberwood_sapling", () -> new SaplingBlock(EMTreeGrowers.RED_AMBERWOOD_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<StairBlock> AMBERWOOD_STAIRS = registerBlock("amberwood_stairs", () -> new StairBlock(EMBlocks.AMBERWOOD_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
+    public static final DeferredBlock<SlabBlock> AMBERWOOD_SLAB = registerBlock("amberwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
+    public static final DeferredBlock<PressurePlateBlock> AMBERWOOD_PRESSURE_PLATE = registerBlock("amberwood_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
+    public static final DeferredBlock<ButtonBlock> AMBERWOOD_BUTTON = registerBlock("amberwood_button", () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noCollission()));
+    public static final DeferredBlock<FenceBlock> AMBERWOOD_FENCE = registerBlock("amberwood_fence", () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
+    public static final DeferredBlock<FenceGateBlock> AMBERWOOD_FENCE_GATE = registerBlock("amberwood_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get())));
+    public static final DeferredBlock<DoorBlock> AMBERWOOD_DOOR = registerBlock("amberwood_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> AMBERWOOD_TRAPDOOR = registerBlock("amberwood_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
+    
     // Sparkling Sand
     public static final DeferredBlock<FallingBlock> SPARKLING_SAND = registerBlock("sparkling_sand", () -> new SparklingSand(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<Block> SPARKLING_SANDSTONE = registerBlock("sparkling_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));

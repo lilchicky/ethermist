@@ -26,4 +26,7 @@ public class EMTreeGrowers {
     public static final TreeGrower FROSTPINE_TREE = new TreeGrower(Ethermist.MODID + ":frostpine_tree",
             Optional.empty(), Optional.of(EMConfiguredFeatures.FROSTPINE_TREE_KEY), Optional.empty());
 
+    public static final TreeGrower RED_AMBERWOOD_TREE = new TreeGrower(Ethermist.MODID + ":red_amberwood_tree",
+            Optional.of(EMConfiguredFeatures.RED_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.RED_AMBERWOOD_TREE_KEY), Optional.empty());
+
 }

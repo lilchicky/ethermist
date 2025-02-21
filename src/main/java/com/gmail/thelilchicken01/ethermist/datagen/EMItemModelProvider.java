@@ -59,6 +59,11 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.FROSTPINE_DOOR.asItem());
         saplingItemFolder(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
 
+        fenceItemFolder(EMBlocks.AMBERWOOD_FENCE, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
+        buttonItemFolder(EMBlocks.AMBERWOOD_BUTTON, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
+        basicItem(EMBlocks.AMBERWOOD_DOOR.asItem());
+        saplingItemFolder(EMBlocks.AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
+
         fenceItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
         buttonItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());

@@ -65,6 +65,12 @@ public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
             if (state.is(EMBlocks.FROSTPINE_WOOD)) {
                 return EMBlocks.STRIPPED_FROSTPINE_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
+            if (state.is(EMBlocks.AMBERWOOD_LOG)) {
+                return EMBlocks.STRIPPED_AMBERWOOD_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.AMBERWOOD_WOOD)) {
+                return EMBlocks.STRIPPED_AMBERWOOD_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
         }
 
         return super.getToolModifiedState(state, context, itemAbility, simulate);
