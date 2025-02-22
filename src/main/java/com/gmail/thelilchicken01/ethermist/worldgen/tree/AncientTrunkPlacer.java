@@ -67,8 +67,6 @@ public class AncientTrunkPlacer extends TrunkPlacer {
             }
         }
 
-        //list.add(new FoliagePlacer.FoliageAttachment(new BlockPos(j1, treeMaxPos, k1), 0, true));
-
         for(int x = -1; x <= 2; ++x) {
             for(int y = -1; y <= 2; ++y) {
                 if ((x < 0 || x > 1 || y < 0 || y > 1) && random.nextInt(3) <= 2) {

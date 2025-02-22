@@ -6,15 +6,12 @@ import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.OrbItem;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.DyeColor;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -339,6 +336,49 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.STRIPPED_AMBERWOOD_LOG.get())
                 .unlockedBy("has_amberwood_wood", has(EMBlocks.STRIPPED_AMBERWOOD_LOG)).save(output);
 
+        // Charred Wood
+        stairBuilder(EMBlocks.CHARRED_STAIRS.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("stairs")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_SLAB.get(), EMBlocks.CHARRED_PLANKS.get());
+        buttonBuilder(EMBlocks.CHARRED_BUTTON.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("buttons")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+        pressurePlate(output, EMBlocks.CHARRED_PRESSURE_PLATE.get(), EMBlocks.CHARRED_PLANKS.get());
+        fenceBuilder(EMBlocks.CHARRED_FENCE.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("fences")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+        fenceGateBuilder(EMBlocks.CHARRED_FENCE_GATE.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("fence_gates")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+        doorBuilder(EMBlocks.CHARRED_DOOR.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("doors")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+        trapdoorBuilder(EMBlocks.CHARRED_TRAPDOOR.get(), Ingredient.of(EMBlocks.CHARRED_PLANKS)).group("trapdoors")
+                .unlockedBy("has_charred_planks", has(EMBlocks.CHARRED_PLANKS)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_PLANKS.get(), 4)
+                .requires(EMBlocks.CHARRED_LOG.get())
+                .unlockedBy("has_charred_log", has(EMBlocks.CHARRED_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_PLANKS.getId().getPath() + "_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_PLANKS.get(), 4)
+                .requires(EMBlocks.CHARRED_WOOD.get())
+                .unlockedBy("has_charred_wood", has(EMBlocks.CHARRED_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_PLANKS.getId().getPath() + "_wood"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_CHARRED_LOG.get())
+                .unlockedBy("has_stripped_charred_log", has(EMBlocks.STRIPPED_CHARRED_LOG))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_PLANKS.getId().getPath() + "_stripped_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_PLANKS.get(), 4)
+                .requires(EMBlocks.STRIPPED_CHARRED_WOOD.get())
+                .unlockedBy("has_stripped_charred_wood", has(EMBlocks.STRIPPED_CHARRED_WOOD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_PLANKS.getId().getPath() + "_stripped_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHARRED_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.CHARRED_LOG.get())
+                .unlockedBy("has_charred_log", has(EMBlocks.CHARRED_LOG)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.STRIPPED_CHARRED_WOOD.get(), 3)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.STRIPPED_CHARRED_LOG.get())
+                .unlockedBy("has_charred_wood", has(EMBlocks.STRIPPED_CHARRED_LOG)).save(output);
+
         // Sparkling Sand
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE.get())
                 .pattern("aa")
@@ -464,6 +504,18 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .define('a', EMBlocks.SLIMY_ALLIUM.get())
                 .unlockedBy("has_slimy_allium", has(EMBlocks.SLIMY_ALLIUM)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.CHARCOAL, 1)
+                .requires(EMBlocks.CHARRED_SAPLING.get())
+                .unlockedBy("has_charred_sapling", has(EMBlocks.CHARRED_SAPLING))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_SAPLING.getId().getPath() + "_charcoal"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.CHARRED_SAPLING, 1)
+                .requires(ItemTags.SAPLINGS)
+                .requires(Items.FLINT_AND_STEEL)
+                .unlockedBy("has_sapling", has(ItemTags.SAPLINGS))
+                .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_SAPLING.getId().getPath() + "_crafting"));
 
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)

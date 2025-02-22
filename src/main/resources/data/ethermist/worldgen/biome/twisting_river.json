@@ -72,6 +72,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "ethermist:sparse_ancient_tree_placed",
       "ethermist:nightbell_patch_placed",
       "ethermist:witch_lavender_patch_placed",
       "ethermist:dawning_hyacinth_patch_placed",

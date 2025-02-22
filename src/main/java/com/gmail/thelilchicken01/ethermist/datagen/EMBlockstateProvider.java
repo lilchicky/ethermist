@@ -6,7 +6,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -14,6 +16,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import javax.annotation.Nullable;
 
 import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
+import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
 
 public class EMBlockstateProvider extends BlockStateProvider {
 
@@ -27,6 +30,8 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.GLIMMERBUG_HIVE, null);
 
         // Etherstone
+        simpleBlock(EMBlocks.MOLTEN_ETHERSTONE.get());
+
         stairsBlockFolder(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
         slabBlockFolder(EMBlocks.ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
         buttonBlockFolder(EMBlocks.ETHERSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
@@ -223,6 +228,35 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.STRIPPED_AMBERWOOD_WOOD, AMBERWOOD_WOOD);
         blockItem(EMBlocks.GREEN_AMBERWOOD_SAPLING, AMBERWOOD_WOOD);
 
+        // Ashen Wood
+        logBlock((RotatedPillarBlock) EMBlocks.CHARRED_LOG.get(), ASHEN_WOOD);
+        logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_CHARRED_LOG.get(), ASHEN_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.CHARRED_WOOD.get(), EMBlocks.CHARRED_LOG.get(), ASHEN_WOOD);
+        woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_CHARRED_WOOD.get(), EMBlocks.STRIPPED_CHARRED_LOG.get(), ASHEN_WOOD);
+
+        simpleBlock(EMBlocks.CHARRED_PLANKS, ASHEN_WOOD);
+        saplingBlock(EMBlocks.CHARRED_SAPLING, ASHEN_WOOD);
+
+        stairsBlockFolder(EMBlocks.CHARRED_STAIRS.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        slabBlockFolder(EMBlocks.CHARRED_SLAB.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        buttonBlockFolder(EMBlocks.CHARRED_BUTTON.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        pressurePlateBlockFolder(EMBlocks.CHARRED_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        fenceBlockFolder(EMBlocks.CHARRED_FENCE.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        fenceGateBlockFolder(EMBlocks.CHARRED_FENCE_GATE.get(), blockTextureFolder(EMBlocks.CHARRED_PLANKS.get(), ASHEN_WOOD), ASHEN_WOOD);
+        doorBlock(EMBlocks.CHARRED_DOOR.get(), ASHEN_WOOD);
+        trapdoorBlock(EMBlocks.CHARRED_TRAPDOOR.get(), ASHEN_WOOD);
+
+        blockItem(EMBlocks.CHARRED_STAIRS, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_SLAB, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_PRESSURE_PLATE, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_FENCE_GATE, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_TRAPDOOR, "_bottom", ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_LOG, ASHEN_WOOD);
+        blockItem(EMBlocks.STRIPPED_CHARRED_LOG, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_WOOD, ASHEN_WOOD);
+        blockItem(EMBlocks.STRIPPED_CHARRED_WOOD, ASHEN_WOOD);
+        blockItem(EMBlocks.CHARRED_SAPLING, ASHEN_WOOD);
+
         // Sparkling Sand
         simpleBlock(EMBlocks.SPARKLING_SANDSTONE_BRICKS, null);
 
@@ -260,8 +294,17 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.TIMEWORN_SANDSTONE_SLAB, TIMEWORN_SANDSTONE);
 
         // Rich Dirt
-        simpleBlock(EMBlocks.RICH_GRASS_BLOCK.get(), models().cubeBottomTop("rich_grass_block",
-                modLoc("block/rich_grass_block_side"), modLoc("block/rich_dirt/rich_dirt"), modLoc("block/rich_grass_block_top")));
+        getVariantBuilder(EMBlocks.RICH_GRASS_BLOCK.get()).forAllStates((state -> {
+            boolean snowy = state.getValue(BlockStateProperties.SNOWY);
+
+            return ConfiguredModel.builder()
+                    .modelFile(models().cubeBottomTop("rich_grass_block" + (snowy ? "_snowy" : ""),
+                            modLoc("block/rich_grass_block_side" + (snowy ? "_snowy" : "")),
+                            modLoc("block/rich_dirt/rich_dirt"),
+                            modLoc("block/rich_grass_block_top" + (snowy ? "_snowy" : ""))
+                    )).build();
+        }));
+
         blockItem(EMBlocks.RICH_GRASS_BLOCK, null);
 
         // Flowers

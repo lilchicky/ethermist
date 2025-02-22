@@ -15,6 +15,14 @@ public class EMFeatures {
             SpikeFeature::new
     );
 
+    public static final DeferredHolder<Feature<?>, GroundIcicleFeature> GROUND_ICICLE_FEATURE = EM_FEATURES.register("ground_icicle",
+            GroundIcicleFeature::new
+    );
+
+    public static final DeferredHolder<Feature<?>, DeadLogFeature> DEAD_LOG_FEATURE = EM_FEATURES.register("dead_log",
+            DeadLogFeature::new
+    );
+
     public static void register (IEventBus bus) {
         EM_FEATURES.register(bus);
     }

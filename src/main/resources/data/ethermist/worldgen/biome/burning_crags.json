@@ -29,10 +29,12 @@
     [],
     [
       "minecraft:lake_lava_underground",
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake_placed",
+      "ethermist:dense_ethermist_lava_lake_placed"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:crag_spike_placed"
     ],
     [
       "minecraft:fossil_upper",
@@ -82,6 +84,9 @@
     ],
     [
       "minecraft:glow_lichen",
+      "ethermist:charred_tree_stump_placed",
+      "ethermist:charred_tree_placed",
+      "ethermist:charred_dead_log_placed",
       "ethermist:rich_grass_patch_placed",
       "minecraft:patch_dead_bush_2",
       "minecraft:brown_mushroom_normal",

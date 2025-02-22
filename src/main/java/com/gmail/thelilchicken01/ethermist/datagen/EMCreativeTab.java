@@ -113,6 +113,22 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.AMBERWOOD_PRESSURE_PLATE);
                 output.accept(EMBlocks.AMBERWOOD_BUTTON);
 
+                // Ashen Wood
+                output.accept(EMBlocks.CHARRED_LOG);
+                output.accept(EMBlocks.CHARRED_WOOD);
+                output.accept(EMBlocks.STRIPPED_CHARRED_LOG);
+                output.accept(EMBlocks.STRIPPED_CHARRED_WOOD);
+
+                output.accept(EMBlocks.CHARRED_PLANKS);
+                output.accept(EMBlocks.CHARRED_STAIRS);
+                output.accept(EMBlocks.CHARRED_SLAB);
+                output.accept(EMBlocks.CHARRED_FENCE);
+                output.accept(EMBlocks.CHARRED_FENCE_GATE);
+                output.accept(EMBlocks.CHARRED_DOOR);
+                output.accept(EMBlocks.CHARRED_TRAPDOOR);
+                output.accept(EMBlocks.CHARRED_PRESSURE_PLATE);
+                output.accept(EMBlocks.CHARRED_BUTTON);
+
                 // Abyssal Mushrooms
                 output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
                 output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
@@ -186,6 +202,9 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.TIMEWORN_SAND);
                 output.accept(EMBlocks.SPARKLING_SAND);
 
+                // Misc Natural Blocks
+                output.accept(EMBlocks.MOLTEN_ETHERSTONE.get());
+
                 // Leaves
                 output.accept(EMBlocks.ANCIENT_LEAVES);
                 output.accept(EMBlocks.SLIMY_LEAVES);
@@ -204,6 +223,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.RED_AMBERWOOD_SAPLING);
                 output.accept(EMBlocks.ORANGE_AMBERWOOD_SAPLING);
                 output.accept(EMBlocks.YELLOW_AMBERWOOD_SAPLING);
+                output.accept(EMBlocks.CHARRED_SAPLING);
 
                 output.accept(EMBlocks.RICH_GRASS);
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);

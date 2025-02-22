@@ -23,6 +23,18 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
+    // Folder Locations
+    public static final String ETHERSTONE = "etherstone";
+    public static final String GLIMMERING_WOOD = "glimmering_wood";
+    public static final String ANCIENT_WOOD = "ancient_wood";
+    public static final String SLIMY_WOOD = "slimy_wood";
+    public static final String FROSTPINE_WOOD = "frostpine_wood";
+    public static final String SPARKLING_SANDSTONE = "sparkling_sandstone";
+    public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
+    public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
+    public static final String AMBERWOOD_WOOD = "amberwood_wood";
+    public static final String ASHEN_WOOD = "charred_wood";
+
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
 

@@ -505,6 +505,35 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
+                        "ethermist:frozen_expanse"
+                      ]
+                    },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:noise_threshold",
+                            "max_threshold": 1.2,
+                            "min_threshold": -0.11515151515151514,
+                            "noise": "minecraft:surface"
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:packed_ice"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:biome",
+                      "biome_is": [
                         "ethermist:slimy_swamp"
                       ]
                     },
@@ -604,7 +633,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "ethermist:crumbling_etherstone"
+                              "Name": "ethermist:molten_etherstone"
                             }
                           }
                         },
@@ -883,6 +912,7 @@
                                 "type": "minecraft:biome",
                                 "biome_is": [
                                   "ethermist:abyssal_depths",
+                                  "ethermist:abyssal_flats",
                                   "ethermist:sparkling_beach",
                                   "ethermist:forgotten_ocean"
                                 ]
@@ -983,22 +1013,7 @@
                                 "type": "minecraft:condition",
                                 "if_true": {
                                   "type": "minecraft:noise_threshold",
-                                  "max_threshold": 1.7976931348623157e+308,
-                                  "min_threshold": 0.21212121212121213,
-                                  "noise": "minecraft:surface"
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "minecraft:snow_block"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:noise_threshold",
-                                  "max_threshold": 1.7976931348623157e+308,
+                                  "max_threshold": 1.2,
                                   "min_threshold": -0.11515151515151514,
                                   "noise": "minecraft:surface"
                                 },
@@ -1230,6 +1245,7 @@
                                 "type": "minecraft:biome",
                                 "biome_is": [
                                   "ethermist:abyssal_depths",
+                                  "ethermist:abyssal_flats",
                                   "ethermist:sparkling_beach",
                                   "ethermist:forgotten_ocean"
                                 ]
@@ -1330,6 +1346,7 @@
                       "type": "minecraft:biome",
                       "biome_is": [
                         "ethermist:abyssal_depths",
+                        "ethermist:abyssal_flats",
                         "ethermist:sparkling_beach",
                         "ethermist:forgotten_ocean"
                       ]

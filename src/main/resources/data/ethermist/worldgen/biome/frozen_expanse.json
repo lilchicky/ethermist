@@ -1,5 +1,5 @@
 {
-  "temperature_modifier": "frozen",
+  "temperature_modifier": "none",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -33,7 +33,8 @@
       "ethermist:ethermist_lava_lake_placed"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:icicle_ground_placed"
     ],
     [
       "minecraft:fossil_upper",
@@ -83,11 +84,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_desert"
+      "ethermist:sparse_frostpine_tree_placed",
+      "ethermist:nightbell_patch_placed",
+      "ethermist:witch_lavender_patch_placed",
+      "ethermist:dawning_hyacinth_patch_placed",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -181,5 +182,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 2
+  "temperature": 0
 }

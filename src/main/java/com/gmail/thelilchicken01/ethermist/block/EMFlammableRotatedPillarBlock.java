@@ -12,13 +12,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
 
-    public EMFlammableRotatedPillarBlock(Properties properties) {
+    private final boolean FLAMMABLE;
+
+    public EMFlammableRotatedPillarBlock(Properties properties, boolean flammable) {
         super(properties);
+        this.FLAMMABLE = flammable;
     }
 
     @Override
     public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        return true;
+        return FLAMMABLE;
     }
 
     @Override
@@ -70,6 +73,12 @@ public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
             }
             if (state.is(EMBlocks.AMBERWOOD_WOOD)) {
                 return EMBlocks.STRIPPED_AMBERWOOD_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.CHARRED_LOG)) {
+                return EMBlocks.STRIPPED_CHARRED_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if (state.is(EMBlocks.CHARRED_WOOD)) {
+                return EMBlocks.STRIPPED_CHARRED_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
 

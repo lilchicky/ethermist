@@ -15,8 +15,8 @@ public record SpikeConfiguration(
 
     // Codec for AmethystSpikeConfig
     public static final Codec<SpikeConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            IntProvider.codec(1, 64).fieldOf("height").forGetter(SpikeConfiguration::height),
-            FloatProvider.codec(0.5F, 10.0F).fieldOf("baseRadius").forGetter(SpikeConfiguration::baseRadius),
+            IntProvider.codec(1, 128).fieldOf("height").forGetter(SpikeConfiguration::height),
+            FloatProvider.codec(0.5F, 16.0F).fieldOf("baseRadius").forGetter(SpikeConfiguration::baseRadius),
             IntProvider.codec(-90, 90).fieldOf("tilt").forGetter(SpikeConfiguration::tilt),
             BlockStateProvider.CODEC.fieldOf("state_provider").forGetter(SpikeConfiguration::blockStateProvider)  // Add BlockStateProvider to codec
     ).apply(instance, SpikeConfiguration::new));

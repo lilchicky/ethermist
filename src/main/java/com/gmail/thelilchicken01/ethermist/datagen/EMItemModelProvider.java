@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
+import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
 
 public class EMItemModelProvider extends ItemModelProvider {
 
@@ -56,6 +57,11 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItemFolder(EMBlocks.FROSTPINE_BUTTON, EMBlocks.FROSTPINE_PLANKS, FROSTPINE_WOOD);
         basicItem(EMBlocks.FROSTPINE_DOOR.asItem());
         saplingItemFolder(EMBlocks.FROSTPINE_SAPLING, FROSTPINE_WOOD);
+
+        fenceItemFolder(EMBlocks.CHARRED_FENCE, EMBlocks.CHARRED_PLANKS, ASHEN_WOOD);
+        buttonItemFolder(EMBlocks.CHARRED_BUTTON, EMBlocks.CHARRED_PLANKS, ASHEN_WOOD);
+        basicItem(EMBlocks.CHARRED_DOOR.asItem());
+        saplingItemFolder(EMBlocks.CHARRED_SAPLING, ASHEN_WOOD);
 
         fenceItemFolder(EMBlocks.AMBERWOOD_FENCE, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);
         buttonItemFolder(EMBlocks.AMBERWOOD_BUTTON, EMBlocks.AMBERWOOD_PLANKS, AMBERWOOD_WOOD);

@@ -2,15 +2,15 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.worldgen.feature.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeConfiguration;
-import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.CharredStumpPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -43,6 +43,8 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTPINE_TREE_KEY = registerKey("frostpine_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_TREE_STUMP_KEY = registerKey("charred_tree_stump");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_TREE_KEY = registerKey("charred_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_AMBERWOOD_TREE_KEY = registerKey("red_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_AMBERWOOD_TREE_KEY = registerKey("orange_amberwood_tree");
@@ -58,6 +60,9 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMETHYST_SPIKE_KEY = registerKey("amethyst_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_AMETHYST_SPIKE_KEY = registerKey("small_amethyst_spike");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_GROUND_KEY = registerKey("icicle_ground");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_SPIKE_KEY = registerKey("crag_spike");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_DEAD_LOG_KEY = registerKey("charred_dead_log");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
@@ -248,6 +253,36 @@ public class EMConfiguredFeatures {
                 .decorators(ImmutableList.of(new IcicleDecorator(0.4f))).build()
         );
 
+        register(context, CHARRED_TREE_STUMP_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.CHARRED_LOG.get()),
+                new CharredStumpPlacer(
+                        3,
+                        2,
+                        4
+                ),
+                BlockStateProvider.simple(Blocks.VOID_AIR),
+                new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
+        );
+
+        register(context, CHARRED_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.CHARRED_LOG.get()),
+                new CherryTrunkPlacer(
+                        6,
+                        1,
+                        0,
+                        new WeightedListInt(
+                                SimpleWeightedRandomList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()
+                        ),
+                        UniformInt.of(2, 4),
+                        UniformInt.of(-4, -3),
+                        UniformInt.of(-1, 0)
+                ),
+                BlockStateProvider.simple(Blocks.VOID_AIR),
+                new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
+        );
+
         register(context, RED_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.RED_AMBERWOOD_LEAVES.get()));
         register(context, ORANGE_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
         register(context, YELLOW_AMBERWOOD_TREE_KEY, Feature.TREE, createAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
@@ -280,6 +315,18 @@ public class EMConfiguredFeatures {
                 )
         ));
 
+        register(context, CRAG_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+                UniformInt.of(32, 96),
+                UniformFloat.of(4.0f, 8.0f),
+                UniformInt.of(-8, 8),
+                BlockStateProvider.simple(EMBlocks.COBBLED_ETHERSTONE.get().defaultBlockState())
+        ));
+
+        register(context, ICICLE_GROUND_KEY, EMFeatures.GROUND_ICICLE_FEATURE.get(), new GroundIcicleConfiguration(
+                UniformInt.of(1, 6),
+                UniformInt.of(2, 4)
+        ));
+
         register(context, SMALL_AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
                 UniformInt.of(2, 4),
                 UniformFloat.of(0.5f, 2.0f),
@@ -289,6 +336,11 @@ public class EMConfiguredFeatures {
                                 .add(Blocks.AMETHYST_BLOCK.defaultBlockState(), 4)
                                 .add(Blocks.BUDDING_AMETHYST.defaultBlockState(), 1)
                 )
+        ));
+
+        register(context, CHARRED_DEAD_LOG_KEY, EMFeatures.DEAD_LOG_FEATURE.get(), new DeadLogConfiguration(
+                UniformInt.of(4, 8),
+                BlockStateProvider.simple(EMBlocks.CHARRED_LOG.get())
         ));
 
         /*

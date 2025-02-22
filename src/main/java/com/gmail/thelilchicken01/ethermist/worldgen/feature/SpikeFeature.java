@@ -44,7 +44,7 @@ public class SpikeFeature extends Feature<SpikeConfiguration> {
 
                         BlockState blockState = config.blockStateProvider().getState(random, basePos);
 
-                        level.setBlock(spikePos, blockState, 2);
+                        level.setBlock(spikePos, blockState, 3);
 
                         if (blockState.is(Blocks.BUDDING_AMETHYST)) {
                             for (Direction direction : Direction.values()) {
@@ -57,7 +57,7 @@ public class SpikeFeature extends Feature<SpikeConfiguration> {
                                         default -> Blocks.AMETHYST_CLUSTER.defaultBlockState();
                                     };
                                     cluster = cluster.setValue(BlockStateProperties.FACING, direction);
-                                    level.setBlock(adjacentPos, cluster, 2);
+                                    level.setBlock(adjacentPos, cluster, 3);
                                 }
                             }
                         }

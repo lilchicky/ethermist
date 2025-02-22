@@ -7,6 +7,8 @@
   "block.ethermist.rich_grass_block": "Rich Grass Block",
   "block.ethermist.rich_dirt": "Rich Dirt",
 
+  "block.ethermist.molten_etherstone": "Molten Etherstone",
+
   "block.ethermist.etherstone": "Etherstone",
   "block.ethermist.etherstone_stairs": "Etherstone Stairs",
   "block.ethermist.etherstone_slab": "Etherstone Slab",
@@ -119,6 +121,22 @@
   "block.ethermist.amberwood_fence_gate": "Amberwood Fence Gate",
   "block.ethermist.amberwood_door": "Amberwood Door",
   "block.ethermist.amberwood_trapdoor": "Amberwood Trapdoor",
+
+  "block.ethermist.charred_log": "Charred Log",
+  "block.ethermist.stripped_charred_log": "Stripped Charred Log",
+  "block.ethermist.charred_wood": "Charred Wood",
+  "block.ethermist.stripped_charred_wood": "Stripped Charred Wood",
+  "block.ethermist.charred_leaves": "Charred Leaves",
+  "block.ethermist.charred_sapling": "Charred Sapling",
+  "block.ethermist.charred_planks": "Charred Planks",
+  "block.ethermist.charred_stairs": "Charred Stairs",
+  "block.ethermist.charred_slab": "Charred Slab",
+  "block.ethermist.charred_pressure_plate": "Charred Pressure Plate",
+  "block.ethermist.charred_button": "Charred Button",
+  "block.ethermist.charred_fence": "Charred Fence",
+  "block.ethermist.charred_fence_gate": "Charred Fence Gate",
+  "block.ethermist.charred_door": "Charred Door",
+  "block.ethermist.charred_trapdoor": "Charred Trapdoor",
 
   "block.ethermist.cubed_abyssal_mushroom": "Cubed Abyssal Mushroom",
   "block.ethermist.cubed_abyssal_mushroom_stairs": "Cubed Abyssal Mushroom Stairs",

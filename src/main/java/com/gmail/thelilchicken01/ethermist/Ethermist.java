@@ -52,17 +52,6 @@ public class Ethermist {
 
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // Blockstate Datagen Folder Locations
-    public static final String ETHERSTONE = "etherstone";
-    public static final String GLIMMERING_WOOD = "glimmering_wood";
-    public static final String ANCIENT_WOOD = "ancient_wood";
-    public static final String SLIMY_WOOD = "slimy_wood";
-    public static final String FROSTPINE_WOOD = "frostpine_wood";
-    public static final String SPARKLING_SANDSTONE = "sparkling_sandstone";
-    public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
-    public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
-    public static final String AMBERWOOD_WOOD = "amberwood_wood";
-
     // Default Color
     public static final int WAND_COLOR = 9004839;
 

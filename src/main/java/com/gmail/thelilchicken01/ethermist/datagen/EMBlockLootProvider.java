@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -31,6 +30,8 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.GLIMMERBUG_HIVE.get());
 
         // Etherstone
+        dropSelf(EMBlocks.MOLTEN_ETHERSTONE.get());
+
         add(EMBlocks.ETHERSTONE.get(),
                 block -> createSilkTouchDispatchTable(EMBlocks.ETHERSTONE.get(),
                         LootItem.lootTableItem(EMBlocks.COBBLED_ETHERSTONE.get())
@@ -187,6 +188,24 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.AMBERWOOD_DOOR.get(),
                 block -> createDoorTable(EMBlocks.AMBERWOOD_DOOR.get()));
         dropSelf(EMBlocks.AMBERWOOD_TRAPDOOR.get());
+
+        // Ashen Wood
+        dropSelf(EMBlocks.CHARRED_LOG.get());
+        dropSelf(EMBlocks.STRIPPED_CHARRED_LOG.get());
+        dropSelf(EMBlocks.CHARRED_WOOD.get());
+        dropSelf(EMBlocks.STRIPPED_CHARRED_WOOD.get());
+        dropSelf(EMBlocks.CHARRED_PLANKS.get());
+        dropSelf(EMBlocks.CHARRED_SAPLING.get());
+        dropSelf(EMBlocks.CHARRED_STAIRS.get());
+        add(EMBlocks.CHARRED_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.CHARRED_SLAB.get()));
+        dropSelf(EMBlocks.CHARRED_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.CHARRED_BUTTON.get());
+        dropSelf(EMBlocks.CHARRED_FENCE.get());
+        dropSelf(EMBlocks.CHARRED_FENCE_GATE.get());
+        add(EMBlocks.CHARRED_DOOR.get(),
+                block -> createDoorTable(EMBlocks.CHARRED_DOOR.get()));
+        dropSelf(EMBlocks.CHARRED_TRAPDOOR.get());
 
         // Sparkling Sand
         dropSelf(EMBlocks.SPARKLING_SAND.get());
