@@ -36,6 +36,6 @@ public class EMTreeGrowers {
             Optional.of(EMConfiguredFeatures.YELLOW_MEGA_AMBERWOOD_TREE_KEY), Optional.of(EMConfiguredFeatures.YELLOW_AMBERWOOD_TREE_KEY), Optional.empty());
 
     public static final TreeGrower CHARRED_TREE = new TreeGrower(Ethermist.MODID + ":charred_tree",
-            Optional.empty(), Optional.of(EMConfiguredFeatures.CHARRED_TREE_STUMP_KEY), Optional.empty());
+            Optional.empty(), Optional.of(EMConfiguredFeatures.CHARRED_TREE_KEY), Optional.empty());
 
 }

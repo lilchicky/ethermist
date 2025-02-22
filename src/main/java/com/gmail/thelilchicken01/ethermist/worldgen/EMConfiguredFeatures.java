@@ -311,7 +311,7 @@ public class EMConfiguredFeatures {
         register(context, MOLTEN_ETHERSTONE_DISK_KEY, Feature.DISK, new DiskConfiguration(
                 RuleBasedBlockStateProvider.simple(EMBlocks.MOLTEN_ETHERSTONE.get()),
                 BlockPredicate.matchesBlocks(
-                        List.of(EMBlocks.ETHERSTONE.get(), EMBlocks.COBBLED_ETHERSTONE.get(), Blocks.BLACKSTONE)
+                        List.of(EMBlocks.ETHERSTONE.get(), EMBlocks.COBBLED_ETHERSTONE.get())
                 ),
                 UniformInt.of(2, 3),
                 1
