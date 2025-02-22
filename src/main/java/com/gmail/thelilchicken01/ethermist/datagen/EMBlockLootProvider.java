@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -10,10 +11,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.LootItemFunctions;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -247,9 +254,9 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         // Rich Dirt
         dropSelf(EMBlocks.RICH_DIRT.get());
         add(EMBlocks.RICH_GRASS_BLOCK.get(),
-            block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS_BLOCK.get(),
-                    LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
-                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+                block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS_BLOCK.get(),
+                        LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
         // Flowers
         dropSelf(EMBlocks.GLIMMER_BLOSSOM.get());
@@ -268,9 +275,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.DAWNING_HYACINTH.get().asItem()));
 
-        dropSelf(EMBlocks.CINDERBLOOM.get());
-        add(EMBlocks.CINDERBLOOM_FLOWER_POT.get(),
-                block -> createPotFlowerItemTable(EMBlocks.CINDERBLOOM.get().asItem()));
+        add(EMBlocks.CINDERBLOOM.get(), generateMultiblockDrops(EMBlocks.CINDERBLOOM.get()));
 
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
 
@@ -316,4 +321,24 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
     protected Iterable<Block> getKnownBlocks() {
         return EMBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
+
+    private LootTable.Builder generateMultiblockDrops(Block block) {
+
+        IntegerProperty FLOWER_AMOUNT = IntegerProperty.create("flower_amount", 1, 4);
+
+        LootPool.Builder poolBuilder = LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1.0F));
+
+        for (int flowerCount : FLOWER_AMOUNT.getPossibleValues()) {
+            poolBuilder.add(LootItem.lootTableItem(block)
+                    .when(LootItemBlockStatePropertyCondition
+                            .hasBlockStateProperties(block)
+                            .setProperties(StatePropertiesPredicate.Builder.properties()
+                                    .hasProperty(FLOWER_AMOUNT, flowerCount)))
+                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(flowerCount))));
+        }
+
+        return LootTable.lootTable().withPool(poolBuilder);
+    }
+
 }

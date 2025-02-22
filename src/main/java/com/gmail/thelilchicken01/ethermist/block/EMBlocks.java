@@ -228,9 +228,7 @@ public class EMBlocks {
     public static final DeferredBlock<FlowerBlock> DAWNING_HYACINTH = registerBlock("dawning_hyacinth", DawningHyacinth::new);
     public static final DeferredBlock<FlowerPotBlock> DAWNING_HYACINTH_FLOWER_POT = BLOCKS.register("dawning_hyacinth_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.DAWNING_HYACINTH, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
-    public static final DeferredBlock<FlowerBlock> CINDERBLOOM = registerBlock("cinderbloom", Cinderbloom::new);
-    public static final DeferredBlock<FlowerPotBlock> CINDERBLOOM_FLOWER_POT = BLOCKS.register("cinderbloom_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.CINDERBLOOM, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
-
+    public static final DeferredBlock<Block> CINDERBLOOM = registerBlock("cinderbloom", Cinderbloom::new);
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));

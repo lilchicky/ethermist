@@ -15,7 +15,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 
 import javax.annotation.Nullable;
 
-import static com.gmail.thelilchicken01.ethermist.Ethermist.*;
 import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
 
 public class EMBlockstateProvider extends BlockStateProvider {
@@ -319,9 +318,6 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         plantBlock(EMBlocks.DAWNING_HYACINTH);
         flowerPotBlock(EMBlocks.DAWNING_HYACINTH_FLOWER_POT, EMBlocks.DAWNING_HYACINTH);
-
-        plantBlock(EMBlocks.CINDERBLOOM);
-        flowerPotBlock(EMBlocks.CINDERBLOOM_FLOWER_POT, EMBlocks.CINDERBLOOM);
 
         plantBlock(EMBlocks.SLIMY_ALLIUM);
 

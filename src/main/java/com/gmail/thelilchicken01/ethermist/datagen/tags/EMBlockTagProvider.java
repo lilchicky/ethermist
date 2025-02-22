@@ -186,7 +186,6 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get())
                 .add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get())
                 .add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get())
-                .add(EMBlocks.CINDERBLOOM_FLOWER_POT.get())
                 .add(EMBlocks.NIGHTBELL_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)

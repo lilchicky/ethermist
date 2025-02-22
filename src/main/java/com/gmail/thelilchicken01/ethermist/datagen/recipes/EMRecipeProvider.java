@@ -473,10 +473,10 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_orange"));
 
         // Flowers to Dyes
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.ORANGE_DYE, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.YELLOW_DYE, 1)
                 .requires(EMBlocks.GLIMMER_BLOSSOM.get())
                 .unlockedBy("has_glimmer_blossom", has(EMBlocks.GLIMMER_BLOSSOM))
-                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.GLIMMER_BLOSSOM.getId().getPath() + "_orange_dye"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.GLIMMER_BLOSSOM.getId().getPath() + "_yellow_dye"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.LIGHT_BLUE_DYE, 1)
                 .requires(EMBlocks.NIGHTBELL.get())
@@ -498,10 +498,10 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_dawning_hyacinth", has(EMBlocks.DAWNING_HYACINTH))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.DAWNING_HYACINTH.getId().getPath() + "_pink_dye"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.RED_DYE, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.ORANGE_DYE, 1)
                 .requires(EMBlocks.CINDERBLOOM.get())
                 .unlockedBy("has_cinderbloom", has(EMBlocks.CINDERBLOOM))
-                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CINDERBLOOM.getId().getPath() + "_red_dye"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CINDERBLOOM.getId().getPath() + "_orange_dye"));
 
         // Misc Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
