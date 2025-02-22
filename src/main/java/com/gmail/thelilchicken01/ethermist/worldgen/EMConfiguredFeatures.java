@@ -70,7 +70,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_SPIKE_KEY = registerKey("crag_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_DEAD_LOG_KEY = registerKey("charred_dead_log");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERBUD_PATCH = registerKey("glimmerbud_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
@@ -417,7 +417,7 @@ public class EMConfiguredFeatures {
         ---------- Flower Patches ----------
          */
 
-        register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.GLIMMER_BLOSSOM.get(), 256, 16, 6, 1));
+        register(context, GLIMMERBUD_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.GLIMMERBUD.get(), 256, 16, 6, 1));
         register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 128, 8, 1, 1));
         register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 128, 8, 1, 1));
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));

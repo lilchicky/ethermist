@@ -167,7 +167,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
         tag(BlockTags.FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get())
+                .add(EMBlocks.GLIMMERBUD.get())
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
@@ -175,7 +175,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.SMALL_FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get())
+                .add(EMBlocks.GLIMMERBUD.get())
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
@@ -183,7 +183,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.FLOWER_POTS)
-                .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get())
+                .add(EMBlocks.GLIMMERBUD_FLOWER_POT.get())
                 .add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get())
                 .add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get())
                 .add(EMBlocks.NIGHTBELL_FLOWER_POT.get());

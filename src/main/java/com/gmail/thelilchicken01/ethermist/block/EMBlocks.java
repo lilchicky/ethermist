@@ -216,8 +216,8 @@ public class EMBlocks {
     public static final DeferredBlock<FallingBlock> CRUMBLING_ETHERSTONE = registerBlock("crumbling_etherstone", () -> new CrumblingEtherstone(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL)));
 
     // Flowers
-    public static final DeferredBlock<FlowerBlock> GLIMMER_BLOSSOM = registerBlock("glimmer_blossom", GlimmerBlossom::new);
-    public static final DeferredBlock<FlowerPotBlock> GLIMMER_BLOSSOM_FLOWER_POT = BLOCKS.register("glimmer_blossom_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+    public static final DeferredBlock<FlowerBlock> GLIMMERBUD = registerBlock("glimmerbud", Glimmerbud::new);
+    public static final DeferredBlock<FlowerPotBlock> GLIMMERBUD_FLOWER_POT = BLOCKS.register("glimmerbud_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.GLIMMERBUD, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
     public static final DeferredBlock<FlowerBlock> NIGHTBELL = registerBlock("nightbell", Nightbell::new);
     public static final DeferredBlock<FlowerPotBlock> NIGHTBELL_FLOWER_POT = BLOCKS.register("nightbell_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.NIGHTBELL, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));

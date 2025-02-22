@@ -74,7 +74,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItemFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON, EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.asItem());
 
-        crossItem(EMBlocks.GLIMMER_BLOSSOM);
+        crossItem(EMBlocks.GLIMMERBUD);
         crossItem(EMBlocks.NIGHTBELL);
         crossItem(EMBlocks.SLIMY_ALLIUM);
         crossItem(EMBlocks.WITCH_LAVENDER);

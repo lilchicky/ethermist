@@ -29,7 +29,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.GLIMMERBUG_HIVE, null);
 
         // Etherstone
-        simpleBlock(EMBlocks.MOLTEN_ETHERSTONE.get());
+        simpleBlock(EMBlocks.MOLTEN_ETHERSTONE, null);
 
         stairsBlockFolder(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
         slabBlockFolder(EMBlocks.ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
@@ -307,8 +307,8 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.RICH_GRASS_BLOCK, null);
 
         // Flowers
-        plantBlock(EMBlocks.GLIMMER_BLOSSOM);
-        flowerPotBlock(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT, EMBlocks.GLIMMER_BLOSSOM);
+        plantBlock(EMBlocks.GLIMMERBUD);
+        flowerPotBlock(EMBlocks.GLIMMERBUD_FLOWER_POT, EMBlocks.GLIMMERBUD);
 
         plantBlock(EMBlocks.NIGHTBELL);
         flowerPotBlock(EMBlocks.NIGHTBELL_FLOWER_POT, EMBlocks.NIGHTBELL);

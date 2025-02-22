@@ -474,9 +474,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         // Flowers to Dyes
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.YELLOW_DYE, 1)
-                .requires(EMBlocks.GLIMMER_BLOSSOM.get())
-                .unlockedBy("has_glimmer_blossom", has(EMBlocks.GLIMMER_BLOSSOM))
-                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.GLIMMER_BLOSSOM.getId().getPath() + "_yellow_dye"));
+                .requires(EMBlocks.GLIMMERBUD.get())
+                .unlockedBy("has_glimmerbud", has(EMBlocks.GLIMMERBUD))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.GLIMMERBUD.getId().getPath() + "_yellow_dye"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.LIGHT_BLUE_DYE, 1)
                 .requires(EMBlocks.NIGHTBELL.get())

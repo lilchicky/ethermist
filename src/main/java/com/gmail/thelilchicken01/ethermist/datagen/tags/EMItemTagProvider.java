@@ -89,7 +89,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.FROSTPINE_SAPLING.get().asItem());
 
         tag(ItemTags.FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem())
+                .add(EMBlocks.GLIMMERBUD.get().asItem())
                 .add(EMBlocks.SLIMY_ALLIUM.get().asItem())
                 .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.DAWNING_HYACINTH.get().asItem())
@@ -97,7 +97,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
         tag(ItemTags.SMALL_FLOWERS)
-                .add(EMBlocks.GLIMMER_BLOSSOM.get().asItem())
+                .add(EMBlocks.GLIMMERBUD.get().asItem())
                 .add(EMBlocks.SLIMY_ALLIUM.get().asItem())
                 .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.DAWNING_HYACINTH.get().asItem())

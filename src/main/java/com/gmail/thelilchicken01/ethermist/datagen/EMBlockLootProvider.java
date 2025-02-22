@@ -16,11 +16,8 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctions;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -259,9 +256,9 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
 
         // Flowers
-        dropSelf(EMBlocks.GLIMMER_BLOSSOM.get());
-        add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get(),
-                block -> createPotFlowerItemTable(EMBlocks.GLIMMER_BLOSSOM.get().asItem()));
+        dropSelf(EMBlocks.GLIMMERBUD.get());
+        add(EMBlocks.GLIMMERBUD_FLOWER_POT.get(),
+                block -> createPotFlowerItemTable(EMBlocks.GLIMMERBUD.get().asItem()));
 
         dropSelf(EMBlocks.NIGHTBELL.get());
         add(EMBlocks.NIGHTBELL_FLOWER_POT.get(),

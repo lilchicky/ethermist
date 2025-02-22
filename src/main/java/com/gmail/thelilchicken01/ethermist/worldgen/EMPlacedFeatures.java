@@ -50,7 +50,7 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CRAG_SPIKE_PLACED_KEY = registerKey("crag_spike_placed");
     public static final ResourceKey<PlacedFeature> CHARRED_DEAD_LOG_PLACED_KEY = registerKey("charred_dead_log_placed");
 
-    public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
+    public static final ResourceKey<PlacedFeature> GLIMMERBUD_PATCH_KEY = registerKey("glimmerbud_patch_placed");
     public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
     public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH_KEY = registerKey("witch_lavender_patch_placed");
     public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
@@ -180,7 +180,7 @@ public class EMPlacedFeatures {
         ---------- Flowers ----------
          */
 
-        register(context, GLIMMER_BLOSSOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMER_BLOSSOM_PATCH), simpleSpawn(1));
+        register(context, GLIMMERBUD_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMERBUD_PATCH), simpleSpawn(1));
         register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHTBELL_PATCH), simpleSpawn(12));
         register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
         register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));

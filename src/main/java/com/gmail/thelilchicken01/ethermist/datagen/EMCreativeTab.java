@@ -226,7 +226,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CHARRED_SAPLING);
 
                 output.accept(EMBlocks.RICH_GRASS);
-                output.accept(EMBlocks.GLIMMER_BLOSSOM);
+                output.accept(EMBlocks.GLIMMERBUD);
                 output.accept(EMBlocks.NIGHTBELL);
                 output.accept(EMBlocks.WITCH_LAVENDER);
                 output.accept(EMBlocks.DAWNING_HYACINTH);
