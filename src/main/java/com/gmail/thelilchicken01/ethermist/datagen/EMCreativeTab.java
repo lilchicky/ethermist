@@ -209,9 +209,9 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.GLIMMER_BLOSSOM);
                 output.accept(EMBlocks.NIGHTBELL);
                 output.accept(EMBlocks.WITCH_LAVENDER);
+                output.accept(EMBlocks.DAWNING_HYACINTH);
                 output.accept(EMBlocks.SLIMY_ALLIUM);
 
-                output.accept(EMBlocks.MIST_GEM_ORE);
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
                 output.accept(EMBlocks.ETHERMIST_PORTAL);
 

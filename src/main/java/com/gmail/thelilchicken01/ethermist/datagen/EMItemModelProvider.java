@@ -73,6 +73,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.NIGHTBELL);
         crossItem(EMBlocks.SLIMY_ALLIUM);
         crossItem(EMBlocks.WITCH_LAVENDER);
+        crossItem(EMBlocks.DAWNING_HYACINTH);
         crossItem(EMBlocks.RICH_GRASS);
 
         wandHandle(EMItems.WAND_HANDLE);

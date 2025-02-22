@@ -58,9 +58,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get())
-                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get())
-
-                .add(EMBlocks.MIST_GEM_ORE.get());
+                .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(EMBlocks.RICH_DIRT.get())
@@ -118,9 +116,6 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE.get());
 
-        tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(EMBlocks.MIST_GEM_ORE.get());
-
         tag(Tags.Blocks.SANDSTONE_BLOCKS)
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE.get());
@@ -163,17 +158,20 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.GLIMMER_BLOSSOM.get())
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
+                .add(EMBlocks.DAWNING_HYACINTH.get())
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMER_BLOSSOM.get())
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
+                .add(EMBlocks.DAWNING_HYACINTH.get())
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.FLOWER_POTS)
                 .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get())
                 .add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get())
+                .add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get())
                 .add(EMBlocks.NIGHTBELL_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)

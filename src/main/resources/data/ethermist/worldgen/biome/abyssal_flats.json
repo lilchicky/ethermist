@@ -82,11 +82,12 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_desert"
+      "ethermist:blue_abyssal_mushroom_placed",
+      "ethermist:orange_abyssal_mushroom_placed",
+      "ethermist:nightbell_patch_placed",
+      "ethermist:witch_lavender_patch_placed",
+      "ethermist:dawning_hyacinth_patch_placed",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

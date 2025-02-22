@@ -35,9 +35,6 @@ public class EMBlocks {
     public static final DeferredBlock<SlabBlock> ETHERSTONE_BRICK_SLAB = registerBlock("etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
     public static final DeferredBlock<WallBlock> ETHERSTONE_BRICK_WALL = registerBlock("etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
 
-    // Mist Gem Ore
-    public static final DeferredBlock<Block> MIST_GEM_ORE = registerBlock("mist_gem_ore", Etherstone::new);
-
     // Rich Dirt
     public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);
     public static final DeferredBlock<Block> RICH_GRASS_BLOCK = registerBlock("rich_grass_block", () -> new RichGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
@@ -206,6 +203,9 @@ public class EMBlocks {
 
     public static final DeferredBlock<FlowerBlock> WITCH_LAVENDER = registerBlock("witch_lavender", WitchLavender::new);
     public static final DeferredBlock<FlowerPotBlock> WITCH_LAVENDER_FLOWER_POT = BLOCKS.register("witch_lavender_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.WITCH_LAVENDER, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
+    public static final DeferredBlock<FlowerBlock> DAWNING_HYACINTH = registerBlock("dawning_hyacinth", DawningHyacinth::new);
+    public static final DeferredBlock<FlowerPotBlock> DAWNING_HYACINTH_FLOWER_POT = BLOCKS.register("dawning_hyacinth_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.DAWNING_HYACINTH, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
 

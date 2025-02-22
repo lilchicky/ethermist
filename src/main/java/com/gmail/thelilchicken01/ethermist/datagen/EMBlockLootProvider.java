@@ -245,6 +245,10 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.WITCH_LAVENDER.get().asItem()));
 
+        dropSelf(EMBlocks.DAWNING_HYACINTH.get());
+        add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get(),
+                block -> createPotFlowerItemTable(EMBlocks.DAWNING_HYACINTH.get().asItem()));
+
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
 
         add(EMBlocks.RICH_GRASS.get(),
@@ -268,8 +272,8 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get()));
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get());
 
-        add(EMBlocks.MIST_GEM_ORE.get(),
-                block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.GENERIC_SHOT.get(), 1, 3));
+//        add(EMBlocks.MIST_GEM_ORE.get(),
+//                block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.GENERIC_SHOT.get(), 1, 3));
 
         // Misc
         dropSelf(EMBlocks.ICICLE.get());

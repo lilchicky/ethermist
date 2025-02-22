@@ -62,6 +62,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMER_BLOSSOM_PATCH = registerKey("glimmer_blossom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
@@ -349,90 +350,33 @@ public class EMConfiguredFeatures {
         ---------- Flower Patches ----------
          */
 
-        register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(
-                        256,
-                        16,
-                        8,
-                        PlacementUtils.filtered(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(
-                                        new WeightedStateProvider(
-                                                SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 6)
-                                                        .add(EMBlocks.GLIMMER_BLOSSOM.get().defaultBlockState(), 1)
-                                        )
-                                ),
-                                BlockPredicate.allOf(
-                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
+        register(context, GLIMMER_BLOSSOM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.GLIMMER_BLOSSOM.get(), 256, 16, 6, 1));
+        register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 128, 8, 1, 1));
+        register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 128, 8, 1, 1));
+        register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
+        register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.SLIMY_ALLIUM.get(), 512, 16, 1, 8));
+
+    }
+
+    private static RandomPatchConfiguration createFlowerPatch(Block block, int tries, int spread, int grassWeight, int flowerWeight) {
+        return new RandomPatchConfiguration(
+                tries,
+                spread,
+                8,
+                PlacementUtils.filtered(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(
+                                new WeightedStateProvider(
+                                        SimpleWeightedRandomList.<BlockState>builder()
+                                                .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), grassWeight)
+                                                .add(block.defaultBlockState(), flowerWeight)
                                 )
+                        ),
+                        BlockPredicate.allOf(
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
                         )
                 )
         );
-
-        register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(
-                        128,
-                        8,
-                        8,
-                        PlacementUtils.filtered(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(
-                                        new WeightedStateProvider(
-                                                SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
-                                                        .add(EMBlocks.NIGHTBELL.get().defaultBlockState(), 1)
-                                        )
-                                ),
-                                BlockPredicate.allOf(
-                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
-                                )
-                        )
-                )
-        );
-
-        register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(
-                        128,
-                        8,
-                        8,
-                        PlacementUtils.filtered(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(
-                                        new WeightedStateProvider(
-                                                SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
-                                                        .add(EMBlocks.WITCH_LAVENDER.get().defaultBlockState(), 1)
-                                        )
-                                ),
-                                BlockPredicate.allOf(
-                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
-                                )
-                        )
-                )
-        );
-
-        register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(
-                        512,
-                        16,
-                        8,
-                        PlacementUtils.filtered(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(
-                                        new WeightedStateProvider(
-                                                SimpleWeightedRandomList.<BlockState>builder()
-                                                        .add(EMBlocks.SLIMY_ALLIUM.get().defaultBlockState(), 8)
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 1)
-                                        )
-                                ),
-                                BlockPredicate.allOf(
-                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
-                                )
-                        )
-                )
-        );
-
     }
 
     private static TreeConfiguration createAmberwoodTree(Block leaf) {

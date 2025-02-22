@@ -25,7 +25,6 @@ public class EMBlockstateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         simpleBlock(EMBlocks.GLIMMERBUG_HIVE, null);
-        simpleBlock(EMBlocks.MIST_GEM_ORE, null);
 
         // Etherstone
         stairsBlockFolder(EMBlocks.ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ETHERSTONE.get(), ETHERSTONE), ETHERSTONE);
@@ -274,6 +273,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         plantBlock(EMBlocks.WITCH_LAVENDER);
         flowerPotBlock(EMBlocks.WITCH_LAVENDER_FLOWER_POT, EMBlocks.WITCH_LAVENDER);
+
+        plantBlock(EMBlocks.DAWNING_HYACINTH);
+        flowerPotBlock(EMBlocks.DAWNING_HYACINTH_FLOWER_POT, EMBlocks.DAWNING_HYACINTH);
 
         plantBlock(EMBlocks.SLIMY_ALLIUM);
 

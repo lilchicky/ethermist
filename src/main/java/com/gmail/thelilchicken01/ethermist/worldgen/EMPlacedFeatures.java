@@ -22,11 +22,6 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SPARSE_ANCIENT_PLACED_TREE_KEY = registerKey("sparse_ancient_tree_placed");
 
-    public static final ResourceKey<PlacedFeature> RED_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_red_amberwood_tree_placed");
-    public static final ResourceKey<PlacedFeature> ORANGE_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_orange_amberwood_tree_placed");
-    public static final ResourceKey<PlacedFeature> YELLOW_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_yellow_amberwood_tree_placed");
-    public static final ResourceKey<PlacedFeature> GREEN_MEGA_AMBERWOOD_PLACED_TREE_KEY = registerKey("mega_green_amberwood_tree_placed");
-
     public static final ResourceKey<PlacedFeature> RED_AMBERWOOD_PLACED_TREE_KEY = registerKey("red_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> ORANGE_AMBERWOOD_PLACED_TREE_KEY = registerKey("orange_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> YELLOW_AMBERWOOD_PLACED_TREE_KEY = registerKey("yellow_amberwood_tree_placed");
@@ -48,6 +43,7 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GLIMMER_BLOSSOM_PATCH_KEY = registerKey("glimmer_blossom_patch_placed");
     public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
     public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH_KEY = registerKey("witch_lavender_patch_placed");
+    public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
 
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
@@ -90,10 +86,6 @@ public class EMPlacedFeatures {
         register(context, FROSTPINE_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.FROSTPINE_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.1f, 2),
                         EMBlocks.FROSTPINE_SAPLING.get()));
-
-        register(context, RED_MEGA_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RED_MEGA_AMBERWOOD_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.5f, 2),
-                        EMBlocks.GREEN_AMBERWOOD_SAPLING.get()));
 
         // Small Amberwood Tree
         register(context, RED_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RED_AMBERWOOD_TREE_KEY),
@@ -183,6 +175,15 @@ public class EMPlacedFeatures {
         );
 
         register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.WITCH_LAVENDER_PATCH),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(12),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DAWNING_HYACINTH_PATCH),
                 List.of(
                         RarityFilter.onAverageOnceEvery(12),
                         InSquarePlacement.spread(),

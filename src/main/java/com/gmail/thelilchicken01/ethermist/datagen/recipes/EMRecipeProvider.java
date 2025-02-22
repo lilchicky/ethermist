@@ -453,6 +453,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_witch_lavender", has(EMBlocks.WITCH_LAVENDER))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.WITCH_LAVENDER.getId().getPath() + "_purple_dye"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE, 1)
+                .requires(EMBlocks.DAWNING_HYACINTH.get())
+                .unlockedBy("has_dawning_hyacinth", has(EMBlocks.DAWNING_HYACINTH))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.DAWNING_HYACINTH.getId().getPath() + "_pink_dye"));
+
         // Misc Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
                 .pattern("aa")
