@@ -73,9 +73,7 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "minecraft:disk_sand",
-      "minecraft:disk_clay",
-      "minecraft:disk_gravel"
+      "ethermist:molten_etherstone_disk_placed"
     ],
     [],
     [
@@ -87,11 +85,8 @@
       "ethermist:charred_tree_stump_placed",
       "ethermist:charred_tree_placed",
       "ethermist:charred_dead_log_placed",
-      "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_desert"
+      "ethermist:cinderbloom_patch_placed",
+      "ethermist:rich_grass_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

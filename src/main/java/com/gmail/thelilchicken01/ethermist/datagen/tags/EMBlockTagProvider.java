@@ -171,6 +171,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
+                .add(EMBlocks.CINDERBLOOM.get())
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.SMALL_FLOWERS)
@@ -178,12 +179,14 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SLIMY_ALLIUM.get())
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
+                .add(EMBlocks.CINDERBLOOM.get())
                 .add(EMBlocks.NIGHTBELL.get());
 
         tag(BlockTags.FLOWER_POTS)
                 .add(EMBlocks.GLIMMER_BLOSSOM_FLOWER_POT.get())
                 .add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get())
                 .add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get())
+                .add(EMBlocks.CINDERBLOOM_FLOWER_POT.get())
                 .add(EMBlocks.NIGHTBELL_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)
@@ -221,6 +224,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .addTag(Tags.Blocks.STONES)
                 .addTag(BlockTags.DIRT)
                 .addTag(Tags.Blocks.GRAVELS)
+                .addTag(Tags.Blocks.COBBLESTONES)
                 .add(Blocks.BLACKSTONE)
                 .add(EMBlocks.MOLTEN_ETHERSTONE.get());
 

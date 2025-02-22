@@ -633,7 +633,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "ethermist:molten_etherstone"
+                              "Name": "ethermist:cobbled_etherstone"
                             }
                           }
                         },
@@ -704,7 +704,7 @@
                         {
                           "type": "minecraft:block",
                           "result_state": {
-                            "Name": "ethermist:crumbling_etherstone"
+                            "Name": "ethermist:cobbled_etherstone"
                           }
                         }
                       ]

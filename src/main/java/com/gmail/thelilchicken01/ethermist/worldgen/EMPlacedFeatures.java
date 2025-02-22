@@ -43,6 +43,7 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_PLACED_KEY = registerKey("ethermist_lava_lake_placed");
     public static final ResourceKey<PlacedFeature> DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY = registerKey("dense_ethermist_lava_lake_placed");
     public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER_PLACED_KEY = registerKey("etherstone_boulder_placed");
+    public static final ResourceKey<PlacedFeature> MOLTEN_ETHERSTONE_DISK_PLACED_KEY = registerKey("molten_etherstone_disk_placed");
     public static final ResourceKey<PlacedFeature> AMETHYST_SPIKE_PLACED_KEY = registerKey("amethyst_spike_placed");
     public static final ResourceKey<PlacedFeature> SMALL_AMETHYST_SPIKE_PLACED_KEY = registerKey("small_amethyst_spike_placed");
     public static final ResourceKey<PlacedFeature> ICICLE_GROUND_PLACED_KEY = registerKey("icicle_ground_placed");
@@ -54,6 +55,7 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH_KEY = registerKey("witch_lavender_patch_placed");
     public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
+    public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
 
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
@@ -118,8 +120,14 @@ public class EMPlacedFeatures {
         );
 
         register(context, CHARRED_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CHARRED_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1f, 1),
-                        EMBlocks.CHARRED_SAPLING.get()));
+                List.of(
+                        RarityFilter.onAverageOnceEvery(2),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome(),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(EMBlocks.CHARRED_SAPLING.get().defaultBlockState(), BlockPos.ZERO))
+                )
+        );
 
         // Small Amberwood Tree
         register(context, RED_AMBERWOOD_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RED_AMBERWOOD_TREE_KEY),
@@ -154,145 +162,48 @@ public class EMPlacedFeatures {
                 )
         );
 
-        register(context, ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(200),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        /*
+        ---------- Biome Features ----------
+         */
 
-        register(context, DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(2),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        register(context, ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(200));
+        register(context, DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(2));
+        register(context, ETHERSTONE_BOULDER_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_BOULDER_KEY), simpleSpawn(2));
+        register(context, MOLTEN_ETHERSTONE_DISK_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.MOLTEN_ETHERSTONE_DISK_KEY), simpleSpawn(2));
+        register(context, AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.AMETHYST_SPIKE_KEY), simpleSpawn(3));
+        register(context, CRAG_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CRAG_SPIKE_KEY), simpleSpawn(24));
+        register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SMALL_AMETHYST_SPIKE_KEY), simpleSpawn(1));
+        register(context, ICICLE_GROUND_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ICICLE_GROUND_KEY), simpleSpawn(1));
+        register(context, CHARRED_DEAD_LOG_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CHARRED_DEAD_LOG_KEY), simpleSpawn(4));
 
-        register(context, ETHERSTONE_BOULDER_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_BOULDER_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(2),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        /*
+        ---------- Flowers ----------
+         */
 
-        register(context, AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.AMETHYST_SPIKE_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(3),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        register(context, GLIMMER_BLOSSOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMER_BLOSSOM_PATCH), simpleSpawn(1));
+        register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHTBELL_PATCH), simpleSpawn(12));
+        register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
+        register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
+        register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
+        register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CINDERBLOOM_PATCH), simpleSpawn(3));
 
-        register(context, CRAG_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CRAG_SPIKE_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(24),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        /*
+        ---------- Misc Plants ----------
+         */
 
-        register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SMALL_AMETHYST_SPIKE_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(1),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+        register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_GRASS_PATCH), simpleSpawn(1));
+        register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());
+        register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
 
-        register(context, ICICLE_GROUND_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ICICLE_GROUND_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(1),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
+    }
 
-        register(context, CHARRED_DEAD_LOG_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CHARRED_DEAD_LOG_KEY),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(4),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
+    private static List<PlacementModifier> simpleSpawn(int chance) {
+        return List.of(
+                RarityFilter.onAverageOnceEvery(chance),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome()
         );
-
-        register(context, GLIMMER_BLOSSOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.GLIMMER_BLOSSOM_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(1),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.NIGHTBELL_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(12),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.WITCH_LAVENDER_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(12),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DAWNING_HYACINTH_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(12),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_SLIMY_ALLIUM_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(2),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_GRASS_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(1),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
-        register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.BONEMEAL_RICH_GRASS_PATCH),
-                List.of()
-        );
-
-        register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_RICH_GRASS_PATCH),
-                List.of(
-                        RarityFilter.onAverageOnceEvery(1),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                        BiomeFilter.biome()
-                )
-        );
-
     }
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {

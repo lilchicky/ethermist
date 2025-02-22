@@ -98,6 +98,7 @@ public class Ethermist {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.NIGHTBELL.getId(), EMBlocks.NIGHTBELL_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.WITCH_LAVENDER.getId(), EMBlocks.WITCH_LAVENDER_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.DAWNING_HYACINTH.getId(), EMBlocks.DAWNING_HYACINTH_FLOWER_POT);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.CINDERBLOOM.getId(), EMBlocks.CINDERBLOOM_FLOWER_POT);
         });
 
     }

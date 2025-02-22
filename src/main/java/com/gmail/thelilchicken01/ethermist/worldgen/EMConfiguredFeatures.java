@@ -27,11 +27,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+
+import java.util.List;
 
 public class EMConfiguredFeatures {
 
@@ -58,6 +61,7 @@ public class EMConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOLTEN_ETHERSTONE_DISK_KEY = registerKey("molten_etherstone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMETHYST_SPIKE_KEY = registerKey("amethyst_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_AMETHYST_SPIKE_KEY = registerKey("small_amethyst_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_GROUND_KEY = registerKey("icicle_ground");
@@ -68,6 +72,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
@@ -303,6 +308,14 @@ public class EMConfiguredFeatures {
         ));
 
         register(context, ETHERSTONE_BOULDER_KEY, Feature.FOREST_ROCK, new BlockStateConfiguration(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().defaultBlockState()));
+        register(context, MOLTEN_ETHERSTONE_DISK_KEY, Feature.DISK, new DiskConfiguration(
+                RuleBasedBlockStateProvider.simple(EMBlocks.MOLTEN_ETHERSTONE.get()),
+                BlockPredicate.matchesBlocks(
+                        List.of(EMBlocks.ETHERSTONE.get(), EMBlocks.COBBLED_ETHERSTONE.get(), Blocks.BLACKSTONE)
+                ),
+                UniformInt.of(2, 3),
+                1
+        ));
 
         register(context, AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
                 UniformInt.of(12, 32),
@@ -407,6 +420,7 @@ public class EMConfiguredFeatures {
         register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 128, 8, 1, 1));
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
         register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.SLIMY_ALLIUM.get(), 512, 16, 1, 8));
+        register(context, CINDERBLOOM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.CINDERBLOOM.get(), 256, 8, 1, 1));
 
     }
 
