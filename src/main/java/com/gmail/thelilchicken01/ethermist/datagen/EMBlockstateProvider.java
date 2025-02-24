@@ -327,7 +327,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         plantBlock(EMBlocks.SLIMY_ALLIUM);
         plantBlock(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
-
+        doublePlantBlock(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM);
 
         plantBlock(EMBlocks.RICH_GRASS);
 
@@ -393,15 +393,15 @@ public class EMBlockstateProvider extends BlockStateProvider {
     public void doublePlantBlock(DeferredBlock<?> block) {
         Function<BlockState, ConfiguredModel[]> function = state -> customDoubleBlockStates(state, block);
 
-        getVariantBuilder(block).forAllStates(function);
+        getVariantBuilder(block.get()).forAllStates(function);
     }
 
 
     private ConfiguredModel[] customDoubleBlockStates(BlockState state, DeferredBlock<?> block) {
         DoubleBlockHalf blockHalf = state.getValue(TallFlowerBlock.HALF);
         List<ConfiguredModel> models = new ArrayList<>();
-        String lowerModelName = block.getId().getPath() + "_bottom";
-        String upperModelName = block.getId().getPath() + "_top";
+        String lowerModelName = BuiltInRegistries.BLOCK.getKey(block.get()).getPath() + "_lower";
+        String upperModelName = BuiltInRegistries.BLOCK.getKey(block.get()).getPath() + "_upper";
 
         if (blockHalf == DoubleBlockHalf.LOWER) {
             models.add(new ConfiguredModel(models().cross(lowerModelName,

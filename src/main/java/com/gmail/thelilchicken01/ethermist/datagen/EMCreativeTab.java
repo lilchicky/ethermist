@@ -233,6 +233,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CINDERBLOOM);
                 output.accept(EMBlocks.SLIMY_ALLIUM);
                 output.accept(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
+                output.accept(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM);
 
                 // Misc
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
