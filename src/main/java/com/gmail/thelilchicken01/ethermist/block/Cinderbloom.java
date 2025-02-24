@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.block;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.client.renderer.block.model.multipart.MultiPart;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,7 +34,7 @@ public class Cinderbloom extends PinkPetalsBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return super.mayPlaceOn(state, level, pos) || state.is(EMTags.Blocks.CAN_SUPPORT_CHARRED_TREE);
+        return super.mayPlaceOn(state, level, pos) || state.isFaceSturdy(level, pos, Direction.UP);
     }
 
 }

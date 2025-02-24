@@ -185,7 +185,7 @@ public class EMPlacedFeatures {
         register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
         register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
-        register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CINDERBLOOM_PATCH), simpleSpawn(3));
+        register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CINDERBLOOM_PATCH), simpleSpawn(2));
 
         /*
         ---------- Misc Plants ----------

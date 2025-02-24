@@ -98,12 +98,12 @@ public class EMBlocks {
 
     public static final DeferredBlock<StairBlock> SLIMY_STAIRS = registerBlock("slimy_stairs", () -> new StairBlock(EMBlocks.SLIMY_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
     public static final DeferredBlock<SlabBlock> SLIMY_SLAB = registerBlock("slimy_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
-    public static final DeferredBlock<PressurePlateBlock> SLIMY_PRESSURE_PLATE = registerBlock("slimy_pressure_plate", () -> new PressurePlateBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
-    public static final DeferredBlock<ButtonBlock> SLIMY_BUTTON = registerBlock("slimy_button", () -> new ButtonBlock(BlockSetType.CHERRY, 30, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noCollission()));
+    public static final DeferredBlock<PressurePlateBlock> SLIMY_PRESSURE_PLATE = registerBlock("slimy_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
+    public static final DeferredBlock<ButtonBlock> SLIMY_BUTTON = registerBlock("slimy_button", () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noCollission()));
     public static final DeferredBlock<FenceBlock> SLIMY_FENCE = registerBlock("slimy_fence", () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
-    public static final DeferredBlock<FenceGateBlock> SLIMY_FENCE_GATE = registerBlock("slimy_fence_gate", () -> new FenceGateBlock(WoodType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
-    public static final DeferredBlock<DoorBlock> SLIMY_DOOR = registerBlock("slimy_door", () -> new DoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
-    public static final DeferredBlock<TrapDoorBlock> SLIMY_TRAPDOOR = registerBlock("slimy_trapdoor", () -> new TrapDoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
+    public static final DeferredBlock<FenceGateBlock> SLIMY_FENCE_GATE = registerBlock("slimy_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get())));
+    public static final DeferredBlock<DoorBlock> SLIMY_DOOR = registerBlock("slimy_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> SLIMY_TRAPDOOR = registerBlock("slimy_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
 
     // Frostpine Wood
     public static final DeferredBlock<Block> FROSTPINE_LOG = registerBlock("frostpine_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD), true));

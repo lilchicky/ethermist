@@ -522,6 +522,15 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_SAPLING.getId().getPath() + "_crafting"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.MOLTEN_ETHERSTONE.get(), 1)
+                .pattern("ab")
+                .pattern("ba")
+                .define('a', EMBlocks.ETHERSTONE.get())
+                .define('b', Items.MAGMA_CREAM)
+                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE))
+                .unlockedBy("has_magma_cream", has(Items.MAGMA_CREAM))
+                .save(output);
+
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)
                 .pattern("aaa")

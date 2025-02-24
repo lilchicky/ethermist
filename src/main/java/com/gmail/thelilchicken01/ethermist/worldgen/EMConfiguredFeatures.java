@@ -439,7 +439,7 @@ public class EMConfiguredFeatures {
                 CINDERBLOOM_PATCH,
                 Feature.FLOWER,
                 new RandomPatchConfiguration(
-                        128, 6, 2,
+                        96, 6, 6,
                         PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))
                 )
         );
