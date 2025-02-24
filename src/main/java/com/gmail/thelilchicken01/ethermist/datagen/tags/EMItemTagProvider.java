@@ -105,7 +105,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
         tag(Tags.Items.MUSHROOMS)
-                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().asItem());
+                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().asItem())
+                .add(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get().asItem());
 
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())

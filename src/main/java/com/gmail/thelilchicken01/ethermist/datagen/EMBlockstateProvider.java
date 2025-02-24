@@ -6,7 +6,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -14,6 +16,10 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
 import javax.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 
 import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
 
@@ -322,6 +328,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.SLIMY_ALLIUM);
         plantBlock(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
 
+
         plantBlock(EMBlocks.RICH_GRASS);
 
         // Abyssal Mushrooms
@@ -381,6 +388,30 @@ public class EMBlockstateProvider extends BlockStateProvider {
     private void plantBlock(DeferredBlock<?> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    public void doublePlantBlock(DeferredBlock<?> block) {
+        Function<BlockState, ConfiguredModel[]> function = state -> customDoubleBlockStates(state, block);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+
+    private ConfiguredModel[] customDoubleBlockStates(BlockState state, DeferredBlock<?> block) {
+        DoubleBlockHalf blockHalf = state.getValue(TallFlowerBlock.HALF);
+        List<ConfiguredModel> models = new ArrayList<>();
+        String lowerModelName = block.getId().getPath() + "_bottom";
+        String upperModelName = block.getId().getPath() + "_top";
+
+        if (blockHalf == DoubleBlockHalf.LOWER) {
+            models.add(new ConfiguredModel(models().cross(lowerModelName,
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + lowerModelName)).renderType("cutout")));
+        } else if (blockHalf == DoubleBlockHalf.UPPER) {
+            models.add(new ConfiguredModel(models().cross(upperModelName,
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + upperModelName)).renderType("cutout")));
+        }
+
+        return models.toArray(new ConfiguredModel[0]);
     }
 
     private void flowerPotBlock(DeferredBlock<FlowerPotBlock> block, DeferredBlock<FlowerBlock> flower) {

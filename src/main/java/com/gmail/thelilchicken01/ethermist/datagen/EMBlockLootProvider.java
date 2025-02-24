@@ -1,23 +1,33 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -276,6 +286,12 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
         dropSelf(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get());
+        add(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get(),
+                block -> generateDoubleBlockShearsDrops(
+                        EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get(),
+                        EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(),
+                        EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get())
+        );
 
         add(EMBlocks.RICH_GRASS.get(),
                 block -> createGrassDrops(EMBlocks.RICH_GRASS.get()));
@@ -337,6 +353,56 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         }
 
         return LootTable.lootTable().withPool(poolBuilder);
+    }
+
+    protected LootTable.Builder generateDoubleBlockShearsDrops(Block block, Block noShears, Block sheared) {
+        LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(sheared)
+                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))
+                .when(HAS_SHEARS)
+                .otherwise(
+                        ((LootPoolSingletonContainer.Builder<?>) this.applyExplosionCondition(block, LootItem.lootTableItem(noShears)))
+                                .when(LootItemRandomChanceCondition.randomChance(1.0f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
+                );
+        return LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool()
+                                .add(builder)
+                                .when(
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
+                                )
+                                .when(
+                                        LocationCheck.checkLocation(
+                                                LocationPredicate.Builder.location()
+                                                        .setBlock(
+                                                                BlockPredicate.Builder.block()
+                                                                        .of(block)
+                                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
+                                                        ),
+                                                new BlockPos(0, 1, 0)
+                                        )
+                                )
+                )
+                .withPool(
+                        LootPool.lootPool()
+                                .add(builder)
+                                .when(
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
+                                )
+                                .when(
+                                        LocationCheck.checkLocation(
+                                                LocationPredicate.Builder.location()
+                                                        .setBlock(
+                                                                BlockPredicate.Builder.block()
+                                                                        .of(block)
+                                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
+                                                        ),
+                                                new BlockPos(0, -1, 0)
+                                        )
+                                )
+                );
     }
 
 }

@@ -233,6 +233,7 @@ public class EMBlocks {
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
 
     public static final DeferredBlock<FlowerBlock> SMALL_ABYSSAL_MUSHROOM = registerBlock("small_abyssal_mushroom", SmallAbyssalMushroom::new);
+    public static final DeferredBlock<DoublePlantBlock> TALL_LARGE_ABYSSAL_MUSHROOM = registerBlock("tall_large_abyssal_mushroom", TallLargeAbyssalMushroom::new);
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
 

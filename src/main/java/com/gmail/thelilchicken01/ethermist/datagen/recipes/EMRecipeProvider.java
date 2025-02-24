@@ -527,7 +527,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_flint_and_steel", has(Items.FLINT_AND_STEEL))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHARRED_SAPLING.getId().getPath() + "_crafting"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMBlocks.MOLTEN_ETHERSTONE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOLTEN_ETHERSTONE.get(), 1)
                 .pattern("ab")
                 .pattern("ba")
                 .define('a', EMBlocks.ETHERSTONE.get())
@@ -535,6 +535,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE))
                 .unlockedBy("has_magma_cream", has(Items.MAGMA_CREAM))
                 .save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.SMALL_ABYSSAL_MUSHROOM, 3)
+                .requires(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get())
+                .unlockedBy("has_tall_large_abyssal_mushroom", has(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)
