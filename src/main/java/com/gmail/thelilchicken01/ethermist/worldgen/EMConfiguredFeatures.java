@@ -22,9 +22,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.LakeFeature;
+import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
@@ -64,6 +62,8 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOLTEN_ETHERSTONE_DISK_KEY = registerKey("molten_etherstone_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRUMBLING_ETHERSTONE_DISK_KEY = registerKey("crumbling_etherstone_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPARKLING_SAND_DISK_KEY = registerKey("sparkling_sand_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMETHYST_SPIKE_KEY = registerKey("amethyst_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_AMETHYST_SPIKE_KEY = registerKey("small_amethyst_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_GROUND_KEY = registerKey("icicle_ground");
@@ -75,6 +75,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
@@ -209,7 +210,7 @@ public class EMConfiguredFeatures {
                         0.16666667F,
                         0.33333334F
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.VOID_AIR)).build()
         );
 
         register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -224,7 +225,7 @@ public class EMConfiguredFeatures {
                         ConstantInt.of(2),
                         ConstantInt.of(0)
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.VOID_AIR)).build()
         );
 
         register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -316,6 +317,22 @@ public class EMConfiguredFeatures {
                         List.of(EMBlocks.ETHERSTONE.get(), EMBlocks.COBBLED_ETHERSTONE.get())
                 ),
                 UniformInt.of(2, 3),
+                1
+        ));
+        register(context, CRUMBLING_ETHERSTONE_DISK_KEY, Feature.DISK, new DiskConfiguration(
+                RuleBasedBlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get()),
+                BlockPredicate.matchesBlocks(
+                        List.of(EMBlocks.SPARKLING_SAND.get(), EMBlocks.ETHERSTONE.get())
+                ),
+                UniformInt.of(6, 8),
+                1
+        ));
+        register(context, SPARKLING_SAND_DISK_KEY, Feature.DISK, new DiskConfiguration(
+                RuleBasedBlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get()),
+                BlockPredicate.matchesBlocks(
+                        List.of(EMBlocks.CRUMBLING_ETHERSTONE.get(), EMBlocks.ETHERSTONE.get())
+                ),
+                UniformInt.of(6, 8),
                 1
         ));
 
@@ -434,7 +451,7 @@ public class EMConfiguredFeatures {
             }
         }
 
-        FeatureUtils.register(
+        register(
                 context,
                 CINDERBLOOM_PATCH,
                 Feature.FLOWER,
@@ -442,6 +459,19 @@ public class EMConfiguredFeatures {
                         96, 6, 6,
                         PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))
                 )
+        );
+
+        register(context, SMALL_ABYSSAL_MUSHROOM_PATCH, EMFeatures.WATERLOGGED_FEATURE.get(), new EMWaterloggedFeature.EMWaterloggedConfiguration(
+                ConstantInt.of(24),
+                ConstantInt.of(8),
+                BlockStateProvider.simple(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get()),
+                BlockPredicate.matchesBlocks(
+                        EMBlocks.CRUMBLING_ETHERSTONE.get(),
+                        EMBlocks.ETHERSTONE.get(),
+                        EMBlocks.SPARKLING_SAND.get(),
+                        EMBlocks.RICH_DIRT.get(),
+                        EMBlocks.RICH_GRASS_BLOCK.get()
+                ))
         );
 
     }

@@ -275,6 +275,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.CINDERBLOOM.get(), generateMultiblockDrops(EMBlocks.CINDERBLOOM.get()));
 
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
+        dropSelf(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get());
 
         add(EMBlocks.RICH_GRASS.get(),
                 block -> createGrassDrops(EMBlocks.RICH_GRASS.get()));

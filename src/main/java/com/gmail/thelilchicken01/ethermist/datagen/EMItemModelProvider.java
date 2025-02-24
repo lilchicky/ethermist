@@ -80,6 +80,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.WITCH_LAVENDER);
         crossItem(EMBlocks.DAWNING_HYACINTH);
         crossItem(EMBlocks.RICH_GRASS);
+        crossItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
 
         wandHandle(EMItems.WAND_HANDLE);
         wandItem(EMItems.FLAME_WAND, EMItems.WAND_HANDLE);

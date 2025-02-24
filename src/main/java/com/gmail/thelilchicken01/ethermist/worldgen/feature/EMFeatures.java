@@ -23,6 +23,10 @@ public class EMFeatures {
             DeadLogFeature::new
     );
 
+    public static final DeferredHolder<Feature<?>, EMWaterloggedFeature> WATERLOGGED_FEATURE = EM_FEATURES.register("waterlogged_feature",
+            EMWaterloggedFeature::new
+    );
+
     public static void register (IEventBus bus) {
         EM_FEATURES.register(bus);
     }

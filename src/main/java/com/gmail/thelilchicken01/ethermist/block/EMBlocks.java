@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
+import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -230,6 +231,8 @@ public class EMBlocks {
 
     public static final DeferredBlock<Block> CINDERBLOOM = registerBlock("cinderbloom", Cinderbloom::new);
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
+
+    public static final DeferredBlock<FlowerBlock> SMALL_ABYSSAL_MUSHROOM = registerBlock("small_abyssal_mushroom", SmallAbyssalMushroom::new);
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
 

@@ -232,11 +232,12 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.DAWNING_HYACINTH);
                 output.accept(EMBlocks.CINDERBLOOM);
                 output.accept(EMBlocks.SLIMY_ALLIUM);
+                output.accept(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
 
+                // Misc
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
                 output.accept(EMBlocks.ETHERMIST_PORTAL);
 
-                // Misc
                 output.accept(EMBlocks.ICICLE);
 
             })
