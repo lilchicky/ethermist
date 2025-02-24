@@ -210,7 +210,7 @@ public class EMConfiguredFeatures {
                         0.16666667F,
                         0.33333334F
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.VOID_AIR)).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
         );
 
         register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -225,7 +225,7 @@ public class EMConfiguredFeatures {
                         ConstantInt.of(2),
                         ConstantInt.of(0)
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.VOID_AIR)).build()
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
         );
 
         register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
