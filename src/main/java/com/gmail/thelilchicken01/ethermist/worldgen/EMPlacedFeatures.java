@@ -60,9 +60,12 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
     public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
+
     public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
 
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> RICH_TALL_GRASS_PATCH_KEY = registerKey("rich_tall_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
     public static final ResourceKey<PlacedFeature> DENSE_RICH_GRASS_PATCH_KEY = registerKey("dense_rich_grass_patch_placed");
 
@@ -181,12 +184,14 @@ public class EMPlacedFeatures {
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
         register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CINDERBLOOM_PATCH), simpleSpawn(2));
         register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
+        register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
 
         /*
         ---------- Misc Plants ----------
          */
 
         register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_GRASS_PATCH), simpleSpawn(1));
+        register(context, RICH_TALL_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_TALL_GRASS_PATCH), simpleSpawn(2));
         register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());
         register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
 

@@ -1,10 +1,10 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,31 +15,29 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterloggedBlock, BonemealableBlock {
+public class AbyssalMushroom extends BushBlock implements SimpleWaterloggedBlock, BonemealableBlock {
 
+    public static final MapCodec<AbyssalMushroom> CODEC = MapCodec.unit(AbyssalMushroom::new);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 8, 11);
 
-    public SmallAbyssalMushroom() {
-        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE));
-        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
+    public AbyssalMushroom() {
+        super(Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.COLOR_BLUE));
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() {
+        return CODEC;
     }
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         return super.mayPlaceOn(state, level, pos) || state.isFaceSturdy(level, pos, Direction.UP);
-    }
-
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
     }
 
     @Override
@@ -79,10 +77,22 @@ public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterlogg
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
 
-        BlockState shroom = EMBlocks.ABYSSAL_MUSHROOM.get().defaultBlockState();
-        shroom = shroom.setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED));
+        BlockState stateAbove = level.getBlockState(pos.above());
 
-        level.setBlock(pos, shroom, 3);
+        if (!(stateAbove.isAir() || stateAbove.is(Blocks.WATER))) {
+            return;
+        }
+
+        BlockState tallMushroom = EMBlocks.TALL_ABYSSAL_MUSHROOM.get().defaultBlockState();
+
+        BlockState bottom = tallMushroom.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+                .setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED));
+
+        BlockState top = tallMushroom.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+                .setValue(BlockStateProperties.WATERLOGGED, stateAbove.is(Blocks.WATER));
+
+        level.setBlock(pos, bottom, 3);
+        level.setBlock(pos.above(), top, 3);
 
     }
 }

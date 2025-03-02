@@ -4,7 +4,6 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
-import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -233,15 +232,17 @@ public class EMBlocks {
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
 
     public static final DeferredBlock<FlowerBlock> SMALL_ABYSSAL_MUSHROOM = registerBlock("small_abyssal_mushroom", SmallAbyssalMushroom::new);
-    public static final DeferredBlock<DoublePlantBlock> TALL_LARGE_ABYSSAL_MUSHROOM = registerBlock("tall_large_abyssal_mushroom", TallLargeAbyssalMushroom::new);
+    public static final DeferredBlock<DoublePlantBlock> TALL_ABYSSAL_MUSHROOM = registerBlock("tall_abyssal_mushroom", TallAbyssalMushroom::new);
+    public static final DeferredBlock<BushBlock> ABYSSAL_MUSHROOM = registerBlock("abyssal_mushroom", AbyssalMushroom::new);
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final DeferredBlock<DoublePlantBlock> RICH_TALL_GRASS = registerBlock("rich_tall_grass", RichTallGrass::new);
 
     // Abyssal Mushroom
-    public static final DeferredBlock<Block> BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
-    public static final DeferredBlock<Block> ORANGE_ABYSSAL_MUSHROOM_TOP = registerBlock("orange_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
-    public static final DeferredBlock<RotatedPillarBlock> BLUE_ABYSSAL_MUSHROOM_STEM = registerBlock("blue_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
-    public static final DeferredBlock<RotatedPillarBlock> ORANGE_ABYSSAL_MUSHROOM_STEM = registerBlock("orange_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+    public static final DeferredBlock<Block> LARGE_BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
+    public static final DeferredBlock<Block> LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_orange_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
+    public static final DeferredBlock<RotatedPillarBlock> LARGE_BLUE_ABYSSAL_MUSHROOM_STEM = registerBlock("large_blue_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+    public static final DeferredBlock<RotatedPillarBlock> LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM = registerBlock("large_orange_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
 
     public static final DeferredBlock<Block> CUBED_ABYSSAL_MUSHROOM = registerBlock("cubed_abyssal_mushroom", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     

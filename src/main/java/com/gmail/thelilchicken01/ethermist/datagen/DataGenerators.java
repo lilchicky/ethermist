@@ -31,7 +31,7 @@ public class DataGenerators {
     public static final String FROSTPINE_WOOD = "frostpine_wood";
     public static final String SPARKLING_SANDSTONE = "sparkling_sandstone";
     public static final String TIMEWORN_SANDSTONE = "timeworn_sandstone";
-    public static final String ABYSSAL_MUSHROOM = "abyssal_mushroom";
+    public static final String ABYSSAL_MUSHROOM = "large_abyssal_mushroom";
     public static final String AMBERWOOD_WOOD = "amberwood_wood";
     public static final String ASHEN_WOOD = "charred_wood";
 

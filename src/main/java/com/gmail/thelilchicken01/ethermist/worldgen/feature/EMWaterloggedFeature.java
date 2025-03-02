@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.worldgen.feature;
 
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -7,8 +8,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -43,7 +46,6 @@ public class EMWaterloggedFeature extends Feature<EMWaterloggedFeature.EMWaterlo
 
         int spread = config.spread().sample(random);
         int tries = config.tries().sample(random);
-        BlockState state = config.state().getState(random, pos);
         BlockPredicate canPlace = config.canPlace();
 
         for (int x = 0; x < tries; x++) {
@@ -52,18 +54,49 @@ public class EMWaterloggedFeature extends Feature<EMWaterloggedFeature.EMWaterlo
             int j = random.nextInt(spread) - random.nextInt(spread);
             int k = level.getHeight(Heightmap.Types.OCEAN_FLOOR, pos.getX() + i, pos.getZ() + j);
             BlockPos placementPos = new BlockPos(pos.getX() + i, k, pos.getZ() + j);
+            BlockState state = config.state().getState(random, pos);
 
             if (state.hasProperty(BlockStateProperties.WATERLOGGED) && state.canSurvive(level, placementPos)
                     && (level.getBlockState(placementPos).isAir() || level.getBlockState(placementPos).is(Blocks.WATER))
                     && canPlace.test(level, placementPos.below())) {
 
-                state = level.getBlockState(placementPos).is(Blocks.WATER) ?
-                        state.setValue(BlockStateProperties.WATERLOGGED, true) :
-                        state.setValue(BlockStateProperties.WATERLOGGED, false);
+                if (state.is(EMBlocks.TALL_ABYSSAL_MUSHROOM.get())) {
 
-                level.setBlock(placementPos, state, 2);
+                    if (level.getBlockState(placementPos.above()).isAir() || level.getBlockState(placementPos.above()).is(Blocks.WATER)) {
 
-                flag = true;
+                        BlockState top = level.getBlockState(placementPos.above()).is(Blocks.WATER) ?
+                                state.setValue(BlockStateProperties.WATERLOGGED, true) :
+                                state.setValue(BlockStateProperties.WATERLOGGED, false);
+                        top = top.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER);
+
+                        BlockState bottom = level.getBlockState(placementPos).is(Blocks.WATER) ?
+                                state.setValue(BlockStateProperties.WATERLOGGED, true) :
+                                state.setValue(BlockStateProperties.WATERLOGGED, false);
+                        bottom = bottom.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
+
+                        level.setBlock(placementPos, bottom, 3);
+                        level.setBlock(placementPos.above(), top, 3);
+
+                        flag = true;
+
+                    }
+
+                    else {
+                        flag = false;
+                    }
+
+                }
+                else {
+
+                    state = level.getBlockState(placementPos).is(Blocks.WATER) ?
+                            state.setValue(BlockStateProperties.WATERLOGGED, true) :
+                            state.setValue(BlockStateProperties.WATERLOGGED, false);
+
+                    level.setBlock(placementPos, state, 3);
+
+                    flag = true;
+
+                }
             }
 
         }

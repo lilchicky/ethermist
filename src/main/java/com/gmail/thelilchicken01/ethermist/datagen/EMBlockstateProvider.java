@@ -327,18 +327,20 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         plantBlock(EMBlocks.SLIMY_ALLIUM);
         plantBlock(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
-        doublePlantBlock(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM);
+        doublePlantBlock(EMBlocks.TALL_ABYSSAL_MUSHROOM);
+        plantBlockCustomTexture(EMBlocks.ABYSSAL_MUSHROOM, "tall_abyssal_mushroom_upper");
 
         plantBlock(EMBlocks.RICH_GRASS);
+        doublePlantBlock(EMBlocks.RICH_TALL_GRASS);
 
         // Abyssal Mushrooms
-        simpleBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP, null);
-        simpleBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP, null);
-        logBlock(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
-        logBlock(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
+        simpleBlock(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP, null);
+        simpleBlock(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP, null);
+        logBlock(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
+        logBlock(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
 
-        blockItem(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
-        blockItem(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
 
         simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
 
@@ -388,6 +390,12 @@ public class EMBlockstateProvider extends BlockStateProvider {
     private void plantBlock(DeferredBlock<?> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void plantBlockCustomTexture(DeferredBlock<?> blockRegistryObject, String loc) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(),
+                        ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + loc)).renderType("cutout"));
     }
 
     public void doublePlantBlock(DeferredBlock<?> block) {

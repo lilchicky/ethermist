@@ -130,11 +130,11 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CHARRED_BUTTON);
 
                 // Abyssal Mushrooms
-                output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM);
-                output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM);
+                output.accept(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM);
+                output.accept(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM);
 
-                output.accept(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP);
-                output.accept(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP);
+                output.accept(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP);
+                output.accept(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP);
 
                 output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM);
                 output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS);
@@ -226,6 +226,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CHARRED_SAPLING);
 
                 output.accept(EMBlocks.RICH_GRASS);
+                output.accept(EMBlocks.RICH_TALL_GRASS);
                 output.accept(EMBlocks.GLIMMERBUD);
                 output.accept(EMBlocks.NIGHTBELL);
                 output.accept(EMBlocks.WITCH_LAVENDER);
@@ -233,7 +234,8 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CINDERBLOOM);
                 output.accept(EMBlocks.SLIMY_ALLIUM);
                 output.accept(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
-                output.accept(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM);
+                output.accept(EMBlocks.ABYSSAL_MUSHROOM);
+                output.accept(EMBlocks.TALL_ABYSSAL_MUSHROOM);
 
                 // Misc
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);

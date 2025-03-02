@@ -3,9 +3,12 @@ package com.gmail.thelilchicken01.ethermist.worldgen.feature;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.block.Icicle;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -13,11 +16,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class GroundIcicleFeature extends Feature<GroundIcicleConfiguration> {
+public class GroundIcicleFeature extends Feature<GroundIcicleFeature.GroundIcicleConfiguration> {
+
+    public record GroundIcicleConfiguration(IntProvider height, IntProvider spread) implements FeatureConfiguration {
+
+        public static final Codec<GroundIcicleConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                IntProvider.codec(1, 16).fieldOf("height").forGetter(GroundIcicleConfiguration::height),
+                IntProvider.codec(1, 16).fieldOf("spread").forGetter(GroundIcicleConfiguration::spread)
+        ).apply(instance, GroundIcicleConfiguration::new));
+    }
 
     public GroundIcicleFeature() {
         super(GroundIcicleConfiguration.CODEC);

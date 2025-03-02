@@ -1,16 +1,36 @@
 package com.gmail.thelilchicken01.ethermist.worldgen.feature;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-public class SpikeFeature extends Feature<SpikeConfiguration> {
+public class SpikeFeature extends Feature<SpikeFeature.SpikeConfiguration> {
+
+    public record SpikeConfiguration(
+            IntProvider height,
+            FloatProvider baseRadius,
+            IntProvider tilt,
+            BlockStateProvider blockStateProvider) implements FeatureConfiguration {
+
+        public static final Codec<SpikeConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                IntProvider.codec(1, 128).fieldOf("height").forGetter(SpikeConfiguration::height),
+                FloatProvider.codec(0.5F, 16.0F).fieldOf("baseRadius").forGetter(SpikeConfiguration::baseRadius),
+                IntProvider.codec(-90, 90).fieldOf("tilt").forGetter(SpikeConfiguration::tilt),
+                BlockStateProvider.CODEC.fieldOf("state_provider").forGetter(SpikeConfiguration::blockStateProvider)  // Add BlockStateProvider to codec
+        ).apply(instance, SpikeConfiguration::new));
+    }
 
     public SpikeFeature() {
         super(SpikeConfiguration.CODEC);

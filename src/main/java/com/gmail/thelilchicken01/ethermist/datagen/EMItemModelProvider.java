@@ -80,7 +80,10 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.WITCH_LAVENDER);
         crossItem(EMBlocks.DAWNING_HYACINTH);
         crossItem(EMBlocks.RICH_GRASS);
+        crossItemCustomTexture(EMBlocks.RICH_TALL_GRASS, "rich_tall_grass_upper");
         crossItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
+        basicItem(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
+        crossItemCustomTexture(EMBlocks.ABYSSAL_MUSHROOM, "tall_abyssal_mushroom_upper");
 
         wandHandle(EMItems.WAND_HANDLE);
         wandItem(EMItems.FLAME_WAND, EMItems.WAND_HANDLE);
@@ -152,6 +155,12 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + block.getId().getPath()));
+    }
+
+    public void crossItemCustomTexture(DeferredBlock<?> block, String loc) {
+        this.withExistingParent(block.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + loc));
     }
 
     public void saplingItemFolder(DeferredBlock<?> block, String folder) {

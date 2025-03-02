@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -25,11 +26,10 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.Set;
 
@@ -286,21 +286,37 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
         dropSelf(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get());
-        add(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get(),
+        add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get(),
                 block -> generateDoubleBlockShearsDrops(
-                        EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get(),
+                        EMBlocks.TALL_ABYSSAL_MUSHROOM.get(),
                         EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(),
-                        EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get())
+                        EMBlocks.TALL_ABYSSAL_MUSHROOM.get(),
+                        1.0f
+                )
+        );
+        add(EMBlocks.ABYSSAL_MUSHROOM.get(),
+                block -> createSimpleMushroomDrops(
+                        EMBlocks.ABYSSAL_MUSHROOM.get(),
+                        EMBlocks.SMALL_ABYSSAL_MUSHROOM.get()
+                )
         );
 
         add(EMBlocks.RICH_GRASS.get(),
                 block -> createGrassDrops(EMBlocks.RICH_GRASS.get()));
+        add(EMBlocks.RICH_TALL_GRASS.get(),
+                block -> generateDoubleBlockShearsDrops(
+                        EMBlocks.RICH_TALL_GRASS.get(),
+                        Items.WHEAT_SEEDS,
+                        EMBlocks.RICH_TALL_GRASS.get(),
+                        0.125f
+                )
+        );
 
         // Abyssal Mushrooms
-        dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get());
-        dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get());
-        dropSelf(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get());
-        dropSelf(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get());
+        dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+        dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get());
 
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get());
@@ -336,32 +352,55 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         return EMBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
 
+    protected LootTable.Builder createSimpleMushroomDrops(Block block, Block noShears) {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block)
+                                .when(AnyOfCondition.anyOf(
+                                        HAS_SHEARS,
+                                        hasSilkTouch()
+                                ))
+                                .otherwise(
+                                        ((LootPoolSingletonContainer.Builder<?>) this.applyExplosionCondition(block, LootItem.lootTableItem(noShears)))
+                                                .when(LootItemRandomChanceCondition.randomChance(1.0f))
+                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
+                                )
+                        )
+                );
+
+    }
+
     private LootTable.Builder generateMultiblockDrops(Block block) {
 
-        IntegerProperty FLOWER_AMOUNT = IntegerProperty.create("flower_amount", 1, 4);
+        IntegerProperty flower_amount = IntegerProperty.create("flower_amount", 1, 4);
 
         LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1.0F));
 
-        for (int flowerCount : FLOWER_AMOUNT.getPossibleValues()) {
+        for (int flowerCount : flower_amount.getPossibleValues()) {
             poolBuilder.add(LootItem.lootTableItem(block)
                     .when(LootItemBlockStatePropertyCondition
                             .hasBlockStateProperties(block)
                             .setProperties(StatePropertiesPredicate.Builder.properties()
-                                    .hasProperty(FLOWER_AMOUNT, flowerCount)))
+                                    .hasProperty(flower_amount, flowerCount)))
                     .apply(SetItemCountFunction.setCount(ConstantValue.exactly(flowerCount))));
         }
 
         return LootTable.lootTable().withPool(poolBuilder);
     }
 
-    protected LootTable.Builder generateDoubleBlockShearsDrops(Block block, Block noShears, Block sheared) {
+    protected LootTable.Builder generateDoubleBlockShearsDrops(Block block, ItemLike noShears, Block sheared, float otherwiseChance) {
+
         LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(sheared)
-                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))
-                .when(HAS_SHEARS)
+                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
+                .when(AnyOfCondition.anyOf(
+                        HAS_SHEARS,
+                        hasSilkTouch()
+                ))
                 .otherwise(
                         ((LootPoolSingletonContainer.Builder<?>) this.applyExplosionCondition(block, LootItem.lootTableItem(noShears)))
-                                .when(LootItemRandomChanceCondition.randomChance(1.0f))
+                                .when(LootItemRandomChanceCondition.randomChance(otherwiseChance))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
                 );
         return LootTable.lootTable()

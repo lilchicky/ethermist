@@ -71,7 +71,6 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
       "ethermist:sparkling_sand_disk_placed"
     ],
     [],
@@ -84,6 +83,7 @@
       "ethermist:blue_abyssal_mushroom_placed",
       "ethermist:orange_abyssal_mushroom_placed",
       "ethermist:small_abyssal_mushroom_patch_placed",
+      "ethermist:large_abyssal_mushroom_patch_placed",
       "ethermist:nightbell_patch_placed",
       "ethermist:witch_lavender_patch_placed",
       "ethermist:dawning_hyacinth_patch_placed",

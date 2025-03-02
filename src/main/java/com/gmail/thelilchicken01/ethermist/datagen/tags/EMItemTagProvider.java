@@ -65,8 +65,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().asItem());
 
         tag(ItemTags.LOGS)
-                .add(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get().asItem())
-                .add(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get().asItem());
+                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get().asItem())
+                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get().asItem());
 
         tag(ItemTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get().asItem())
@@ -106,7 +106,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.MUSHROOMS)
                 .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().asItem())
-                .add(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get().asItem());
+                .add(EMBlocks.ABYSSAL_MUSHROOM.get().asItem())
+                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
 
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())

@@ -464,13 +464,22 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), 4)
-                .requires(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get())
-                .unlockedBy("has_blue_abyssal_mushroom_stem", has(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM))
+                .requires(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get())
+                .unlockedBy("has_large_blue_abyssal_mushroom_stem", has(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_blue"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), 4)
-                .requires(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get())
-                .unlockedBy("has_orange_abyssal_mushroom_stem", has(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM))
+                .requires(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get())
+                .unlockedBy("has_large_orange_abyssal_mushroom_stem", has(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CUBED_ABYSSAL_MUSHROOM.getId().getPath() + "_orange"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 9)
+                .requires(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get())
+                .unlockedBy("has_large_orange_abyssal_mushroom_top", has(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SMALL_ABYSSAL_MUSHROOM.getId().getPath() + "_orange"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 9)
+                .requires(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
+                .unlockedBy("has_large_blue_abyssal_mushroom_top", has(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SMALL_ABYSSAL_MUSHROOM.getId().getPath() + "_blue"));
 
         // Flowers to Dyes
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.YELLOW_DYE, 1)
@@ -536,10 +545,15 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_magma_cream", has(Items.MAGMA_CREAM))
                 .save(output);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.SMALL_ABYSSAL_MUSHROOM, 6)
+                .requires(EMBlocks.TALL_ABYSSAL_MUSHROOM.get())
+                .unlockedBy("has_tall_abyssal_mushroom", has(EMBlocks.TALL_ABYSSAL_MUSHROOM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.TALL_ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, EMBlocks.SMALL_ABYSSAL_MUSHROOM, 3)
-                .requires(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.get())
-                .unlockedBy("has_tall_large_abyssal_mushroom", has(EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM))
-                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.TALL_LARGE_ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
+                .requires(EMBlocks.ABYSSAL_MUSHROOM.get())
+                .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)

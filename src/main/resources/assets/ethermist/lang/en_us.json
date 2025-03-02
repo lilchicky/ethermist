@@ -148,10 +148,10 @@
   "block.ethermist.cubed_abyssal_mushroom_door": "Cubed Abyssal Mushroom Door",
   "block.ethermist.cubed_abyssal_mushroom_trapdoor": "Cubed Abyssal Mushroom Trapdoor",
 
-  "block.ethermist.blue_abyssal_mushroom_top": "Blue Abyssal Mushroom Top",
-  "block.ethermist.orange_abyssal_mushroom_top": "Orange Abyssal Mushroom Top",
-  "block.ethermist.blue_abyssal_mushroom_stem": "Blue Abyssal Mushroom Stem",
-  "block.ethermist.orange_abyssal_mushroom_stem": "Orange Abyssal Mushroom Stem",
+  "block.ethermist.large_blue_abyssal_mushroom_top": "Large Blue Abyssal Mushroom Top",
+  "block.ethermist.large_orange_abyssal_mushroom_top": "Large Orange Abyssal Mushroom Top",
+  "block.ethermist.large_blue_abyssal_mushroom_stem": "Large Blue Abyssal Mushroom Stem",
+  "block.ethermist.large_orange_abyssal_mushroom_stem": "Large Orange Abyssal Mushroom Stem",
 
   "block.ethermist.sparkling_sand": "Sparkling Sand",
   "block.ethermist.sparkling_sandstone": "Sparkling Sandstone",
@@ -200,8 +200,11 @@
 
   "block.ethermist.slimy_allium": "Slimy Allium",
   "block.ethermist.small_abyssal_mushroom": "Small Abyssal Mushroom",
+  "block.ethermist.abyssal_mushroom": "Abyssal Mushroom",
+  "block.ethermist.tall_abyssal_mushroom": "Tall Abyssal Mushroom",
 
   "block.ethermist.rich_grass": "Rich Grass",
+  "block.ethermist.rich_tall_grass": "Rich Tall Grass",
 
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wand_handle": "Wand Handle",

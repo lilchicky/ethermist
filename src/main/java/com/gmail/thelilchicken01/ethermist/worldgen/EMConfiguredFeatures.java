@@ -3,7 +3,7 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.*;
-import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeConfiguration;
+import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeFeature;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.CharredStumpPlacer;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
@@ -75,11 +75,14 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ABYSSAL_MUSHROOM_PATCH = registerKey("large_abyssal_mushroom_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_SLIMY_ALLIUM_PATCH = registerKey("dense_slimy_allium_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_GRASS_PATCH = registerKey("rich_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_TALL_GRASS_PATCH = registerKey("rich_tall_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_RICH_GRASS_PATCH = registerKey("dense_rich_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BONEMEAL_RICH_GRASS_PATCH = registerKey("bonemeal_rich_grass_patch");
 
@@ -214,13 +217,13 @@ public class EMConfiguredFeatures {
         );
 
         register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.BLUE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                BlockStateProvider.simple(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
                 new ForkingTrunkPlacer(
                         2,
                         3,
                         1
                 ),
-                BlockStateProvider.simple(EMBlocks.BLUE_ABYSSAL_MUSHROOM_TOP.get()),
+                BlockStateProvider.simple(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get()),
                 new AcaciaFoliagePlacer(
                         ConstantInt.of(2),
                         ConstantInt.of(0)
@@ -229,13 +232,13 @@ public class EMConfiguredFeatures {
         );
 
         register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                BlockStateProvider.simple(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
                 new ForkingTrunkPlacer(
                         2,
                         3,
                         1
                 ),
-                BlockStateProvider.simple(EMBlocks.ORANGE_ABYSSAL_MUSHROOM_TOP.get()),
+                BlockStateProvider.simple(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get()),
                 new AcaciaFoliagePlacer(
                         ConstantInt.of(2),
                         ConstantInt.of(0)
@@ -336,7 +339,7 @@ public class EMConfiguredFeatures {
                 1
         ));
 
-        register(context, AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+        register(context, AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeFeature.SpikeConfiguration(
                 UniformInt.of(12, 32),
                 UniformFloat.of(4.0f, 5.0f),
                 UniformInt.of(-30, 30),
@@ -347,19 +350,19 @@ public class EMConfiguredFeatures {
                 )
         ));
 
-        register(context, CRAG_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+        register(context, CRAG_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeFeature.SpikeConfiguration(
                 UniformInt.of(32, 96),
                 UniformFloat.of(4.0f, 8.0f),
                 UniformInt.of(-8, 8),
                 BlockStateProvider.simple(EMBlocks.COBBLED_ETHERSTONE.get().defaultBlockState())
         ));
 
-        register(context, ICICLE_GROUND_KEY, EMFeatures.GROUND_ICICLE_FEATURE.get(), new GroundIcicleConfiguration(
+        register(context, ICICLE_GROUND_KEY, EMFeatures.GROUND_ICICLE_FEATURE.get(), new GroundIcicleFeature.GroundIcicleConfiguration(
                 UniformInt.of(1, 6),
                 UniformInt.of(2, 4)
         ));
 
-        register(context, SMALL_AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeConfiguration(
+        register(context, SMALL_AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeFeature.SpikeConfiguration(
                 UniformInt.of(2, 4),
                 UniformFloat.of(0.5f, 2.0f),
                 UniformInt.of(-15, 15),
@@ -370,7 +373,7 @@ public class EMConfiguredFeatures {
                 )
         ));
 
-        register(context, CHARRED_DEAD_LOG_KEY, EMFeatures.DEAD_LOG_FEATURE.get(), new DeadLogConfiguration(
+        register(context, CHARRED_DEAD_LOG_KEY, EMFeatures.DEAD_LOG_FEATURE.get(), new DeadLogFeature.DeadLogConfiguration(
                 UniformInt.of(4, 8),
                 BlockStateProvider.simple(EMBlocks.CHARRED_LOG.get())
         ));
@@ -430,6 +433,14 @@ public class EMConfiguredFeatures {
                 )
         );
 
+        register(context, RICH_TALL_GRASS_PATCH, Feature.RANDOM_PATCH,
+                FeatureUtils.simplePatchConfiguration(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(EMBlocks.RICH_TALL_GRASS.get())
+                        )
+                )
+        );
+
         /*
         ---------- Flower Patches ----------
          */
@@ -465,6 +476,24 @@ public class EMConfiguredFeatures {
                 ConstantInt.of(24),
                 ConstantInt.of(8),
                 BlockStateProvider.simple(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get()),
+                BlockPredicate.matchesBlocks(
+                        EMBlocks.CRUMBLING_ETHERSTONE.get(),
+                        EMBlocks.ETHERSTONE.get(),
+                        EMBlocks.SPARKLING_SAND.get(),
+                        EMBlocks.RICH_DIRT.get(),
+                        EMBlocks.RICH_GRASS_BLOCK.get()
+                ))
+        );
+
+        register(context, LARGE_ABYSSAL_MUSHROOM_PATCH, EMFeatures.WATERLOGGED_FEATURE.get(), new EMWaterloggedFeature.EMWaterloggedConfiguration(
+                ConstantInt.of(24),
+                ConstantInt.of(16),
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(EMBlocks.ABYSSAL_MUSHROOM.get().defaultBlockState())
+                                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().defaultBlockState())
+                                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().defaultBlockState())
+                ),
                 BlockPredicate.matchesBlocks(
                         EMBlocks.CRUMBLING_ETHERSTONE.get(),
                         EMBlocks.ETHERSTONE.get(),
