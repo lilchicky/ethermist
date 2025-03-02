@@ -83,7 +83,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItemCustomTexture(EMBlocks.RICH_TALL_GRASS, "rich_tall_grass_upper");
         crossItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
-        crossItemCustomTexture(EMBlocks.ABYSSAL_MUSHROOM, "tall_abyssal_mushroom_upper");
+        crossItem(EMBlocks.ABYSSAL_MUSHROOM);
 
         wandHandle(EMItems.WAND_HANDLE);
         wandItem(EMItems.FLAME_WAND, EMItems.WAND_HANDLE);

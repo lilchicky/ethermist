@@ -328,7 +328,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.SLIMY_ALLIUM);
         plantBlock(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
         doublePlantBlock(EMBlocks.TALL_ABYSSAL_MUSHROOM);
-        plantBlockCustomTexture(EMBlocks.ABYSSAL_MUSHROOM, "tall_abyssal_mushroom_upper");
+        plantBlock(EMBlocks.ABYSSAL_MUSHROOM);
 
         plantBlock(EMBlocks.RICH_GRASS);
         doublePlantBlock(EMBlocks.RICH_TALL_GRASS);

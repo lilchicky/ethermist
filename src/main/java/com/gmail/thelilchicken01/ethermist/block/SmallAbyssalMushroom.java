@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
@@ -28,7 +29,7 @@ public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterlogg
     public static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 8, 11);
 
     public SmallAbyssalMushroom() {
-        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE));
+        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE).offsetType(OffsetType.XZ));
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
     }
 
@@ -39,7 +40,8 @@ public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterlogg
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
+        Vec3 vec3 = state.getOffset(level, pos);
+        return SHAPE.move(vec3.x, vec3.y, vec3.z);
     }
 
     @Override
