@@ -65,8 +65,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().asItem());
 
         tag(ItemTags.LOGS)
-                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get().asItem())
-                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get().asItem());
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get().asItem());
 
         tag(ItemTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get().asItem())

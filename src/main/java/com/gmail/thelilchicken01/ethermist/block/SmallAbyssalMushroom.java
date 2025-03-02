@@ -29,7 +29,7 @@ public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterlogg
     public static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 8, 11);
 
     public SmallAbyssalMushroom() {
-        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE).offsetType(OffsetType.XZ));
+        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE).offsetType(OffsetType.XZ).sound(SoundType.MUD));
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
     }
 

@@ -28,11 +28,8 @@ public class TallAbyssalMushroom extends DoublePlantBlock implements SimpleWater
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<DoubleBlockHalf> HALF = DoublePlantBlock.HALF;
 
-    private final TreeGrower TREE_GROWER_BLUE = EMTreeGrowers.BLUE_ABYSSAL_MUSHROOM;
-    private final TreeGrower TREE_GROWER_ORANGE = EMTreeGrowers.ORANGE_ABYSSAL_MUSHROOM;
-
     public TallAbyssalMushroom() {
-        super(Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.COLOR_BLUE));
+        super(Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.COLOR_BLUE).sound(SoundType.MUD));
     }
 
     @Override
@@ -85,7 +82,7 @@ public class TallAbyssalMushroom extends DoublePlantBlock implements SimpleWater
             return;
         }
 
-        TreeGrower tree = random.nextBoolean() ? TREE_GROWER_BLUE : TREE_GROWER_ORANGE;
+        TreeGrower tree = EMTreeGrowers.LARGE_ABYSSAL_MUSHROOM;
 
         level.removeBlock(bottomPos, false);
         level.removeBlock(bottomPos.above(), false);

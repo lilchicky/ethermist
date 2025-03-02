@@ -336,11 +336,10 @@ public class EMBlockstateProvider extends BlockStateProvider {
         // Abyssal Mushrooms
         simpleBlock(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP, null);
         simpleBlock(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP, null);
-        logBlock(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
-        logBlock(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
+        woodBlock(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get(), EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get(), ABYSSAL_MUSHROOM);
+        woodBlock((RotatedPillarBlock) EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get(), EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get(), ABYSSAL_MUSHROOM);
 
-        blockItem(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
-        blockItem(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM, ABYSSAL_MUSHROOM);
 
         simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
 
@@ -358,6 +357,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_PRESSURE_PLATE, ABYSSAL_MUSHROOM);
         blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE, ABYSSAL_MUSHROOM);
         blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR, "_bottom", ABYSSAL_MUSHROOM);
+        blockItem(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS, ABYSSAL_MUSHROOM);
 
     }
 

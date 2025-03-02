@@ -100,10 +100,10 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CHARRED_SLAB.get())
                 .add(EMBlocks.CHARRED_FENCE_GATE.get())
 
-                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get())
-                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get())
                 .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get())
 
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get())
@@ -113,8 +113,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
                 .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get())
-                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get())
-                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get())
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get())
 
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get())
@@ -128,9 +128,13 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE.get());
 
+        tag(BlockTags.REPLACEABLE_BY_TREES)
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get())
+                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+
         tag(BlockTags.LOGS)
-                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get())
-                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get());
+                .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get());
 
         tag(BlockTags.LEAVES)
                 .add(EMBlocks.ANCIENT_LEAVES.get())

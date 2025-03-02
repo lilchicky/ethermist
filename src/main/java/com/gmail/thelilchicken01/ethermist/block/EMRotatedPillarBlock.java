@@ -10,11 +10,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
-public class EMFlammableRotatedPillarBlock extends RotatedPillarBlock {
+public class EMRotatedPillarBlock extends RotatedPillarBlock {
 
     private final boolean FLAMMABLE;
 
-    public EMFlammableRotatedPillarBlock(Properties properties, boolean flammable) {
+    public EMRotatedPillarBlock(Properties properties, boolean flammable) {
         super(properties);
         this.FLAMMABLE = flammable;
     }

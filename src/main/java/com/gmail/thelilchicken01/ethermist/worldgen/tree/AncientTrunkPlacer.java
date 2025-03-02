@@ -20,7 +20,7 @@ import java.util.function.BiConsumer;
 public class AncientTrunkPlacer extends TrunkPlacer {
 
     public static final MapCodec<AncientTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
-            p_70090_ -> trunkPlacerParts(p_70090_).apply(p_70090_, AncientTrunkPlacer::new)
+            instance -> trunkPlacerParts(instance).apply(instance, AncientTrunkPlacer::new)
     );
 
     public AncientTrunkPlacer(int baseHeight, int heightRandA, int heightRandB) {

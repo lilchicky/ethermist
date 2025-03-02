@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FlammableGlimmerbugBlocks extends EMFlammableRotatedPillarBlock {
+public class GlimmerbugBlocks extends EMRotatedPillarBlock {
 
-    public FlammableGlimmerbugBlocks() {
+    public GlimmerbugBlocks() {
         super(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).lightLevel((state) -> 12), true);
     }
 

@@ -80,8 +80,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "ethermist:blue_abyssal_mushroom_placed",
-      "ethermist:orange_abyssal_mushroom_placed",
+      "ethermist:sparse_large_abyssal_mushroom_placed",
       "ethermist:small_abyssal_mushroom_patch_placed",
       "ethermist:large_abyssal_mushroom_patch_placed",
       "ethermist:nightbell_patch_placed",

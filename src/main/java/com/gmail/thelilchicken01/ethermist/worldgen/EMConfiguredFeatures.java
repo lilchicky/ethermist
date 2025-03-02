@@ -4,9 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeFeature;
-import com.gmail.thelilchicken01.ethermist.worldgen.tree.AncientTrunkPlacer;
-import com.gmail.thelilchicken01.ethermist.worldgen.tree.CharredStumpPlacer;
-import com.gmail.thelilchicken01.ethermist.worldgen.tree.IcicleDecorator;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.*;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -30,7 +28,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 
@@ -43,8 +40,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_ANCIENT_TREE_KEY = registerKey("mega_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE_KEY = registerKey("ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SLIMY_TREE_KEY = registerKey("slimy_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ABYSSAL_MUSHROOM_KEY = registerKey("blue_abyssal_mushroom");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_ABYSSAL_MUSHROOM_KEY = registerKey("orange_abyssal_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ABYSSAL_MUSHROOM_KEY = registerKey("large_abyssal_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTPINE_TREE_KEY = registerKey("frostpine_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_TREE_STUMP_KEY = registerKey("charred_tree_stump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_TREE_KEY = registerKey("charred_tree");
@@ -216,34 +212,25 @@ public class EMConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.RICH_DIRT.get())).build()
         );
 
-        register(context, BLUE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
-                new ForkingTrunkPlacer(
+        register(context, LARGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
+                new AbyssalMushroomTrunkPlacer(
                         2,
                         3,
                         1
                 ),
-                BlockStateProvider.simple(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get()),
-                new AcaciaFoliagePlacer(
-                        ConstantInt.of(2),
-                        ConstantInt.of(0)
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get().defaultBlockState(), 8)
+                                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get().defaultBlockState(), 1)
+                                .build()
                 ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
-        );
-
-        register(context, ORANGE_ABYSSAL_MUSHROOM_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get().defaultBlockState()),
-                new ForkingTrunkPlacer(
-                        2,
-                        3,
-                        1
+                new AbyssalMushroomCapPlacer(
+                        UniformInt.of(3, 4),
+                        ConstantInt.of(0),
+                        BlockStateProvider.simple(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get())
                 ),
-                BlockStateProvider.simple(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get()),
-                new AcaciaFoliagePlacer(
-                        ConstantInt.of(2),
-                        ConstantInt.of(0)
-                ),
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get())).build()
+                new TwoLayersFeatureSize(1, 0, 2)).build()
         );
 
         register(context, FROSTPINE_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -490,9 +477,9 @@ public class EMConfiguredFeatures {
                 ConstantInt.of(16),
                 new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(EMBlocks.ABYSSAL_MUSHROOM.get().defaultBlockState())
-                                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().defaultBlockState())
-                                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().defaultBlockState())
+                                .add(EMBlocks.ABYSSAL_MUSHROOM.get().defaultBlockState(), 2)
+                                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().defaultBlockState(), 1)
+                                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().defaultBlockState(), 1)
                 ),
                 BlockPredicate.matchesBlocks(
                         EMBlocks.CRUMBLING_ETHERSTONE.get(),

@@ -29,7 +29,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.Set;
 
@@ -315,8 +314,8 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         // Abyssal Mushrooms
         dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get());
         dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
-        dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM.get());
-        dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get());
+        dropSelf(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get());
 
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get());

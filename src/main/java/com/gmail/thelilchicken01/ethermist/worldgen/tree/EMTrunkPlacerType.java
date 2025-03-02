@@ -19,6 +19,10 @@ public class EMTrunkPlacerType {
             "charred_stump_placer",
             () -> new TrunkPlacerType<>(CharredStumpPlacer.CODEC));
 
+    public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<?>> ABYSSAL_MUSHROOM_TRUNK_PLACER = EM_TRUNK_PLACER.register(
+            "abyssal_mushroom_trunk_placer",
+            () -> new TrunkPlacerType<>(AbyssalMushroomTrunkPlacer.CODEC));
+
     public static void register (IEventBus bus) {
         EM_TRUNK_PLACER.register(bus);
     }

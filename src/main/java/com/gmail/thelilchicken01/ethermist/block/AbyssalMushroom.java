@@ -27,7 +27,7 @@ public class AbyssalMushroom extends BushBlock implements SimpleWaterloggedBlock
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public AbyssalMushroom() {
-        super(Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.COLOR_BLUE));
+        super(Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(MapColor.COLOR_BLUE).sound(SoundType.MUD));
     }
 
     @Override

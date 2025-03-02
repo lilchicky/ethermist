@@ -130,11 +130,11 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.CHARRED_BUTTON);
 
                 // Abyssal Mushrooms
-                output.accept(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_STEM);
-                output.accept(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM);
+                output.accept(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM);
 
                 output.accept(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP);
                 output.accept(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP);
+                output.accept(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS);
 
                 output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM);
                 output.accept(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS);

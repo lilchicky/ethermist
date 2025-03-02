@@ -10,6 +10,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
+import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMFoliagePlacerType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -57,10 +58,10 @@ public class Ethermist {
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public Ethermist(IEventBus modEventBus, ModContainer modContainer) {
+    public Ethermist(IEventBus bus, ModContainer modContainer) {
 
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        bus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
@@ -68,24 +69,25 @@ public class Ethermist {
         NeoForge.EVENT_BUS.register(this);
 
         // Register custom content
-        EMCreativeTab.register(modEventBus);
+        EMCreativeTab.register(bus);
 
-        EMParticleTypes.register(modEventBus);
+        EMParticleTypes.register(bus);
 
-        EMTrunkPlacerType.register(modEventBus);
-        EMPOIs.register(modEventBus);
-        EMTreeDecorators.register(modEventBus);
-        EMFeatures.register(modEventBus);
+        EMTrunkPlacerType.register(bus);
+        EMFoliagePlacerType.register(bus);
+        EMPOIs.register(bus);
+        EMTreeDecorators.register(bus);
+        EMFeatures.register(bus);
 
-        EMRecipeSerializer.register(modEventBus);
+        EMRecipeSerializer.register(bus);
 
-        EMBlocks.register(modEventBus);
-        EMItems.register(modEventBus);
+        EMBlocks.register(bus);
+        EMItems.register(bus);
 
-        EMEntityTypes.register(modEventBus);
+        EMEntityTypes.register(bus);
 
-        EMEnchantmentEffects.register(modEventBus);
-        EMAttributes.register(modEventBus);
+        EMEnchantmentEffects.register(bus);
+        EMAttributes.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, EMConfig.SPEC);

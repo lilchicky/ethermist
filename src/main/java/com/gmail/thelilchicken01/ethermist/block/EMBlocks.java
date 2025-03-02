@@ -42,15 +42,15 @@ public class EMBlocks {
     public static final DeferredBlock<Block> RICH_GRASS_BLOCK = registerBlock("rich_grass_block", () -> new RichGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
 
     // Glimmering Ancient Wood
-    public static final DeferredBlock<Block> GLIMMERING_ANCIENT_LOG = registerBlock("glimmering_ancient_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LOG), true));
-    public static final DeferredBlock<Block> GLIMMERING_ANCIENT_WOOD = registerBlock("glimmering_ancient_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_GLIMMERING_ANCIENT_LOG = registerBlock("stripped_glimmering_ancient_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_LOG), true));
-    public static final DeferredBlock<Block> STRIPPED_GLIMMERING_ANCIENT_WOOD = registerBlock("stripped_glimmering_ancient_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD), true));
+    public static final DeferredBlock<Block> GLIMMERING_ANCIENT_LOG = registerBlock("glimmering_ancient_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LOG), true));
+    public static final DeferredBlock<Block> GLIMMERING_ANCIENT_WOOD = registerBlock("glimmering_ancient_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_GLIMMERING_ANCIENT_LOG = registerBlock("stripped_glimmering_ancient_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_LOG), true));
+    public static final DeferredBlock<Block> STRIPPED_GLIMMERING_ANCIENT_WOOD = registerBlock("stripped_glimmering_ancient_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD), true));
 
-    public static final DeferredBlock<Block> SUSPICIOUS_GLIMMERING_ANCIENT_LOG = registerBlock("suspicious_glimmering_ancient_log", FlammableGlimmerbugBlocks::new);
-    public static final DeferredBlock<Block> SUSPICIOUS_GLIMMERING_ANCIENT_WOOD = registerBlock("suspicious_glimmering_ancient_wood", FlammableGlimmerbugBlocks::new);
-    public static final DeferredBlock<Block> STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG = registerBlock("stripped_suspicious_glimmering_ancient_log", FlammableGlimmerbugBlocks::new);
-    public static final DeferredBlock<Block> STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD = registerBlock("stripped_suspicious_glimmering_ancient_wood", FlammableGlimmerbugBlocks::new);
+    public static final DeferredBlock<Block> SUSPICIOUS_GLIMMERING_ANCIENT_LOG = registerBlock("suspicious_glimmering_ancient_log", GlimmerbugBlocks::new);
+    public static final DeferredBlock<Block> SUSPICIOUS_GLIMMERING_ANCIENT_WOOD = registerBlock("suspicious_glimmering_ancient_wood", GlimmerbugBlocks::new);
+    public static final DeferredBlock<Block> STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_LOG = registerBlock("stripped_suspicious_glimmering_ancient_log", GlimmerbugBlocks::new);
+    public static final DeferredBlock<Block> STRIPPED_SUSPICIOUS_GLIMMERING_ANCIENT_WOOD = registerBlock("stripped_suspicious_glimmering_ancient_wood", GlimmerbugBlocks::new);
 
     public static final DeferredBlock<Block> GLIMMERING_ANCIENT_PLANKS = registerBlock("glimmering_ancient_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
     public static final DeferredBlock<Block> ANCIENT_LEAVES = registerBlock("ancient_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES)));
@@ -67,10 +67,10 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> GLIMMERING_ANCIENT_TRAPDOOR = registerBlock("glimmering_ancient_trapdoor", () -> new TrapDoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get()).noOcclusion()));
 
     // Ancient Wood
-    public static final DeferredBlock<Block> ANCIENT_LOG = registerBlock("ancient_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LOG), true));
-    public static final DeferredBlock<Block> ANCIENT_WOOD = registerBlock("ancient_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_ANCIENT_LOG = registerBlock("stripped_ancient_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_LOG), true));
-    public static final DeferredBlock<Block> STRIPPED_ANCIENT_WOOD = registerBlock("stripped_ancient_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD), true));
+    public static final DeferredBlock<Block> ANCIENT_LOG = registerBlock("ancient_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LOG), true));
+    public static final DeferredBlock<Block> ANCIENT_WOOD = registerBlock("ancient_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_ANCIENT_LOG = registerBlock("stripped_ancient_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_LOG), true));
+    public static final DeferredBlock<Block> STRIPPED_ANCIENT_WOOD = registerBlock("stripped_ancient_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD), true));
 
     public static final DeferredBlock<Block> ANCIENT_PLANKS = registerBlock("ancient_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
 
@@ -86,10 +86,10 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> ANCIENT_TRAPDOOR = registerBlock("ancient_trapdoor", () -> new TrapDoorBlock(BlockSetType.CHERRY, BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_PLANKS.get()).noOcclusion()));
 
     // Slimy Wood
-    public static final DeferredBlock<Block> SLIMY_LOG = registerBlock("slimy_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.SLIME_BLOCK), true));
-    public static final DeferredBlock<Block> SLIMY_WOOD = registerBlock("slimy_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.SLIME_BLOCK), true));
-    public static final DeferredBlock<Block> STRIPPED_SLIMY_LOG = registerBlock("stripped_slimy_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.SLIME_BLOCK), true));
-    public static final DeferredBlock<Block> STRIPPED_SLIMY_WOOD = registerBlock("stripped_slimy_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.SLIME_BLOCK), true));
+    public static final DeferredBlock<Block> SLIMY_LOG = registerBlock("slimy_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.SLIME_BLOCK), true));
+    public static final DeferredBlock<Block> SLIMY_WOOD = registerBlock("slimy_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.SLIME_BLOCK), true));
+    public static final DeferredBlock<Block> STRIPPED_SLIMY_LOG = registerBlock("stripped_slimy_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.SLIME_BLOCK), true));
+    public static final DeferredBlock<Block> STRIPPED_SLIMY_WOOD = registerBlock("stripped_slimy_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.SLIME_BLOCK), true));
 
     public static final DeferredBlock<Block> SLIMY_PLANKS = registerBlock("slimy_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.SLIME_BLOCK)));
     public static final DeferredBlock<Block> SLIMY_LEAVES = registerBlock("slimy_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).sound(SoundType.SLIME_BLOCK)));
@@ -106,10 +106,10 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> SLIMY_TRAPDOOR = registerBlock("slimy_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.SLIMY_PLANKS.get()).noOcclusion()));
 
     // Frostpine Wood
-    public static final DeferredBlock<Block> FROSTPINE_LOG = registerBlock("frostpine_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> FROSTPINE_WOOD = registerBlock("frostpine_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_LOG = registerBlock("stripped_frostpine_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_WOOD = registerBlock("stripped_frostpine_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> FROSTPINE_LOG = registerBlock("frostpine_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> FROSTPINE_WOOD = registerBlock("frostpine_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_LOG = registerBlock("stripped_frostpine_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_FROSTPINE_WOOD = registerBlock("stripped_frostpine_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD), true));
 
     public static final DeferredBlock<Block> FROSTPINE_PLANKS = registerBlock("frostpine_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> FROSTPINE_LEAVES = registerBlock("frostpine_leaves", () -> new EMFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).sound(SoundType.GLASS)));
@@ -126,10 +126,10 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> FROSTPINE_TRAPDOOR = registerBlock("frostpine_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.FROSTPINE_PLANKS.get()).noOcclusion()));
 
     // Amberwood Wood
-    public static final DeferredBlock<Block> AMBERWOOD_LOG = registerBlock("amberwood_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> AMBERWOOD_WOOD = registerBlock("amberwood_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_LOG = registerBlock("stripped_amberwood_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD), true));
-    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_WOOD = registerBlock("stripped_amberwood_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> AMBERWOOD_LOG = registerBlock("amberwood_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> AMBERWOOD_WOOD = registerBlock("amberwood_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_LOG = registerBlock("stripped_amberwood_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD), true));
+    public static final DeferredBlock<Block> STRIPPED_AMBERWOOD_WOOD = registerBlock("stripped_amberwood_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD), true));
 
     public static final DeferredBlock<Block> AMBERWOOD_PLANKS = registerBlock("amberwood_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> RED_AMBERWOOD_LEAVES = registerBlock("red_amberwood_leaves", () -> new EMAnimatedFlammableLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES), EMParticleTypes.RED_LEAVES::get));
@@ -152,10 +152,10 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> AMBERWOOD_TRAPDOOR = registerBlock("amberwood_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
 
     // Charred Wood
-    public static final DeferredBlock<Block> CHARRED_LOG = registerBlock("charred_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> CHARRED_WOOD = registerBlock("charred_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> STRIPPED_CHARRED_LOG = registerBlock("stripped_charred_log", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> STRIPPED_CHARRED_WOOD = registerBlock("stripped_charred_wood", () -> new EMFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> CHARRED_LOG = registerBlock("charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> CHARRED_WOOD = registerBlock("charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> STRIPPED_CHARRED_LOG = registerBlock("stripped_charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> STRIPPED_CHARRED_WOOD = registerBlock("stripped_charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
 
     public static final DeferredBlock<Block> CHARRED_PLANKS = registerBlock("charred_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(1.5F, 2.0F)));
 
@@ -239,12 +239,12 @@ public class EMBlocks {
     public static final DeferredBlock<DoublePlantBlock> RICH_TALL_GRASS = registerBlock("rich_tall_grass", RichTallGrass::new);
 
     // Abyssal Mushroom
-    public static final DeferredBlock<Block> LARGE_BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
-    public static final DeferredBlock<Block> LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_orange_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f)));
-    public static final DeferredBlock<RotatedPillarBlock> LARGE_BLUE_ABYSSAL_MUSHROOM_STEM = registerBlock("large_blue_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
-    public static final DeferredBlock<RotatedPillarBlock> LARGE_ORANGE_ABYSSAL_MUSHROOM_STEM = registerBlock("large_orange_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f)));
+    public static final DeferredBlock<Block> LARGE_BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f).sound(SoundType.MUD)));
+    public static final DeferredBlock<Block> LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_orange_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f).sound(SoundType.MUD)));
+    public static final DeferredBlock<Block> LARGE_ABYSSAL_MUSHROOM_GILLS = registerBlock("large_abyssal_mushroom_gills", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.8F, 1.0F).sound(SoundType.MUD), false));
+    public static final DeferredBlock<RotatedPillarBlock> LARGE_ABYSSAL_MUSHROOM_STEM = registerBlock("large_abyssal_mushroom_stem", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).strength(2.0f).sound(SoundType.MUD)));
 
-    public static final DeferredBlock<Block> CUBED_ABYSSAL_MUSHROOM = registerBlock("cubed_abyssal_mushroom", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> CUBED_ABYSSAL_MUSHROOM = registerBlock("cubed_abyssal_mushroom", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.MUDDY_MANGROVE_ROOTS)));
     
     public static final DeferredBlock<StairBlock> CUBED_ABYSSAL_MUSHROOM_STAIRS = registerBlock("cubed_abyssal_mushroom_stairs", () -> new StairBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));
     public static final DeferredBlock<SlabBlock> CUBED_ABYSSAL_MUSHROOM_SLAB = registerBlock("cubed_abyssal_mushroom_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())));

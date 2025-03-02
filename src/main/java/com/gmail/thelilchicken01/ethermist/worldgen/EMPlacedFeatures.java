@@ -34,11 +34,8 @@ public class EMPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
 
-    public static final ResourceKey<PlacedFeature> BLUE_PLACED_ABYSSAL_MUSHROOM = registerKey("blue_abyssal_mushroom_placed");
-    public static final ResourceKey<PlacedFeature> SPARSE_BLUE_PLACED_ABYSSAL_MUSHROOM = registerKey("sparse_blue_abyssal_mushroom_placed");
-
-    public static final ResourceKey<PlacedFeature> ORANGE_PLACED_ABYSSAL_MUSHROOM = registerKey("orange_abyssal_mushroom_placed");
-    public static final ResourceKey<PlacedFeature> SPARSE_ORANGE_PLACED_ABYSSAL_MUSHROOM = registerKey("sparse_orange_abyssal_mushroom_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PLACED = registerKey("large_abyssal_mushroom_placed");
+    public static final ResourceKey<PlacedFeature> SPARSE_LARGE_ABYSSAL_MUSHROOM_PLACED = registerKey("sparse_large_abyssal_mushroom_placed");
 
     public static final ResourceKey<PlacedFeature> FROSTPINE_PLACED_TREE_KEY = registerKey("frostpine_tree_placed");
 
@@ -151,11 +148,8 @@ public class EMPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
                         EMBlocks.GREEN_AMBERWOOD_SAPLING.get()));
 
-        register(context, BLUE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.BLUE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(10));
-        register(context, SPARSE_BLUE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.BLUE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(4));
-
-        register(context, ORANGE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.ORANGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(10));
-        register(context, SPARSE_ORANGE_PLACED_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMConfiguredFeatures.ORANGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(4));
+        register(context, LARGE_ABYSSAL_MUSHROOM_PLACED, configuredFeatures.getOrThrow(EMConfiguredFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(10));
+        register(context, SPARSE_LARGE_ABYSSAL_MUSHROOM_PLACED, configuredFeatures.getOrThrow(EMConfiguredFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(4));
 
         /*
         ---------- Biome Features ----------
