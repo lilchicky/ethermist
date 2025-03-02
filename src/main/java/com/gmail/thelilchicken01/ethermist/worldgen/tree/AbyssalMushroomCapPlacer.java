@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.worldgen.tree;
 
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -64,7 +65,14 @@ public class AbyssalMushroomCapPlacer extends FoliagePlacer {
                 BlockPos posBottom = new BlockPos(centerX + x, centerY, centerZ + z);
 
                 if (distSquared <= radius * radius) {
-                    tryPlaceLeaf(level, setter, random, config, posBottom);
+                    if (!level.isStateAtPosition(posBottom, state -> state.is(gills.getState(random, posBottom).getBlock()))) {
+                        tryPlaceLeaf(level, setter, random, config, posBottom);
+                    }
+                }
+
+                if (distSquared <= topRadius * topRadius) {
+                    BlockPos posTop = new BlockPos(centerX + x, centerY + 1, centerZ + z);
+                    tryPlaceLeaf(level, setter, random, config, posTop);
                 }
 
                 if (distSquared <= (radius - 1) * (radius - 1)) {
@@ -86,10 +94,6 @@ public class AbyssalMushroomCapPlacer extends FoliagePlacer {
                     }
                 }
 
-                if (distSquared <= topRadius * topRadius) {
-                    BlockPos posTop = new BlockPos(centerX + x, centerY + 1, centerZ + z);
-                    tryPlaceLeaf(level, setter, random, config, posTop);
-                }
             }
         }
     }
