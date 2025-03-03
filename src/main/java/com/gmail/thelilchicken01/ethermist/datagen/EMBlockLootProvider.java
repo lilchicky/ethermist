@@ -329,8 +329,9 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createDoorTable(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get()));
         dropSelf(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR.get());
 
-//        add(EMBlocks.MIST_GEM_ORE.get(),
-//                block -> createMultipleOreDrops(EMBlocks.MIST_GEM_ORE.get(), EMItems.GENERIC_SHOT.get(), 1, 3));
+        // Ores
+        add(EMBlocks.ETHERSTONE_COPPER_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ETHERSTONE_COPPER_ORE.get(), Items.RAW_COPPER, 2, 5));
 
         // Misc
         dropSelf(EMBlocks.ICICLE.get());

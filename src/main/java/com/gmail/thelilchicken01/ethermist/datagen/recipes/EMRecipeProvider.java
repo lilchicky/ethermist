@@ -555,6 +555,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
+        // Ores
+        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
+                RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
+        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
+                RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 100, "copper_ingot");
+
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)
                 .pattern("aaa")

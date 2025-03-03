@@ -205,6 +205,9 @@ public class EMCreativeTab {
                 // Misc Natural Blocks
                 output.accept(EMBlocks.MOLTEN_ETHERSTONE.get());
 
+                // Ores
+                output.accept(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
                 // Leaves
                 output.accept(EMBlocks.ANCIENT_LEAVES);
                 output.accept(EMBlocks.SLIMY_LEAVES);

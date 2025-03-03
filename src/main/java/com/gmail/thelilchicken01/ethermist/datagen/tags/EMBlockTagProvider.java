@@ -285,6 +285,28 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         addDoors(EMBlocks.AMBERWOOD_DOOR.get(), EMBlocks.AMBERWOOD_TRAPDOOR.get(), true);
         addDoors(EMBlocks.CHARRED_DOOR.get(), EMBlocks.CHARRED_TRAPDOOR.get(), true);
 
+        /*
+        ----------  Ores ----------
+         */
+
+        tag(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES)
+                .add(EMBlocks.ETHERSTONE.get());
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
+        tag(Tags.Blocks.ORES)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
+        // Ore Specific
+        tag(BlockTags.COPPER_ORES)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+        tag(Tags.Blocks.ORES_COPPER)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
     }
 
     // Functions to make sure I don't miss any tags

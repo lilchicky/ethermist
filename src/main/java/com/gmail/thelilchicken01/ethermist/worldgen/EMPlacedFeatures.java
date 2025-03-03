@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -66,6 +67,8 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> RICH_TALL_GRASS_PATCH_KEY = registerKey("rich_tall_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
     public static final ResourceKey<PlacedFeature> DENSE_RICH_GRASS_PATCH_KEY = registerKey("dense_rich_grass_patch_placed");
+
+    public static final ResourceKey<PlacedFeature> ETHERSTONE_COPPER_ORE_PLACED = registerKey("etherstone_copper_ore_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 
@@ -190,6 +193,19 @@ public class EMPlacedFeatures {
         register(context, RICH_TALL_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.RICH_TALL_GRASS_PATCH), simpleSpawn(2));
         register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());
         register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
+
+        /*
+        ---------- Etherstone Ores ----------
+         */
+
+        register(context, ETHERSTONE_COPPER_ORE_PLACED, configuredFeatures.getOrThrow(EMConfiguredFeatures.ETHERSTONE_COPPER_ORE_KEY),
+                List.of(
+                        CountPlacement.of(20),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(96)),
+                        BiomeFilter.biome()
+                )
+        );
 
     }
 

@@ -6,6 +6,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -197,6 +198,19 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addDoors(EMBlocks.CUBED_ABYSSAL_MUSHROOM_DOOR.get().asItem(), true);
         addDoors(EMBlocks.AMBERWOOD_DOOR.get().asItem(), true);
         addDoors(EMBlocks.CHARRED_DOOR.get().asItem(), true);
+
+        /*
+        ----------  Ores ----------
+         */
+
+        tag(Tags.Items.ORES)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
+
+        // Ore Specific
+        tag(ItemTags.COPPER_ORES)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
+        tag(Tags.Items.ORES_COPPER)
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
 
     }
 

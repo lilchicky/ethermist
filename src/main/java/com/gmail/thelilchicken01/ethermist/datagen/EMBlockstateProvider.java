@@ -359,6 +359,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.CUBED_ABYSSAL_MUSHROOM_TRAPDOOR, "_bottom", ABYSSAL_MUSHROOM);
         blockItem(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS, ABYSSAL_MUSHROOM);
 
+        // Ores
+        simpleBlock(EMBlocks.ETHERSTONE_COPPER_ORE, "ores");
+
     }
 
     private void simpleBlock(DeferredBlock<?> block, @Nullable String folder) {

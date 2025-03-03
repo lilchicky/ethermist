@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeFeature;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.*;
@@ -34,11 +35,15 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
 
 public class EMConfiguredFeatures {
+
+    public static final RuleTest ETHERSTONE_REPLACEABLES = new TagMatchTest(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_GLIMMERING_ANCIENT_TREE_KEY = registerKey("mega_glimmering_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERING_ANCIENT_TREE_KEY = registerKey("glimmering_ancient_tree");
@@ -87,6 +92,8 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_TALL_GRASS_PATCH = registerKey("rich_tall_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_RICH_GRASS_PATCH = registerKey("dense_rich_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BONEMEAL_RICH_GRASS_PATCH = registerKey("bonemeal_rich_grass_patch");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_COPPER_ORE_KEY = registerKey("etherstone_copper_ore_key");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -520,6 +527,15 @@ public class EMConfiguredFeatures {
                         EMBlocks.RICH_GRASS_BLOCK.get()
                 ))
         );
+
+        /*
+        ---------- Ores ----------
+         */
+
+        register(context, ETHERSTONE_COPPER_ORE_KEY, Feature.ORE, new OreConfiguration(
+                List.of(OreConfiguration.target(ETHERSTONE_REPLACEABLES, EMBlocks.ETHERSTONE_COPPER_ORE.get().defaultBlockState())),
+                10
+        ));
 
     }
 

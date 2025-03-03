@@ -206,6 +206,8 @@
   "block.ethermist.rich_grass": "Rich Grass",
   "block.ethermist.rich_tall_grass": "Rich Tall Grass",
 
+  "block.ethermist.etherstone_copper_ore": "Etherstone Copper Ore",
+
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wand_handle": "Wand Handle",
   "item.ethermist.dull_wand": "Dull Wand",
