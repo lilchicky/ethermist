@@ -207,6 +207,13 @@
   "block.ethermist.rich_tall_grass": "Rich Tall Grass",
 
   "block.ethermist.etherstone_copper_ore": "Etherstone Copper Ore",
+  "block.ethermist.etherstone_iron_ore": "Etherstone Iron Ore",
+  "block.ethermist.etherstone_coal_ore": "Etherstone Coal Ore",
+  "block.ethermist.etherstone_gold_ore": "Etherstone Gold Ore",
+  "block.ethermist.etherstone_diamond_ore": "Etherstone Diamond Ore",
+  "block.ethermist.etherstone_emerald_ore": "Etherstone Emerald Ore",
+  "block.ethermist.etherstone_redstone_ore": "Etherstone Redstone Ore",
+  "block.ethermist.etherstone_lapis_ore": "Etherstone Lapis Ore",
 
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wand_handle": "Wand Handle",

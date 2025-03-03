@@ -2,9 +2,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
-import com.gmail.thelilchicken01.ethermist.worldgen.EMBiomeModifiers;
-import com.gmail.thelilchicken01.ethermist.worldgen.EMConfiguredFeatures;
-import com.gmail.thelilchicken01.ethermist.worldgen.EMPlacedFeatures;
+import com.gmail.thelilchicken01.ethermist.worldgen.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

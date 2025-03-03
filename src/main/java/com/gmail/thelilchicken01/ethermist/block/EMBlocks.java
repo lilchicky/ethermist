@@ -4,6 +4,8 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -256,7 +258,14 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> CUBED_ABYSSAL_MUSHROOM_TRAPDOOR = registerBlock("cubed_abyssal_mushroom_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get()).noOcclusion()));
 
     // Ores
-    public static final DeferredBlock<Block> ETHERSTONE_COPPER_ORE = registerBlock("etherstone_copper_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_COPPER_ORE = registerBlock("etherstone_copper_ore", () -> new DropExperienceBlock(ConstantInt.of(0), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_IRON_ORE = registerBlock("etherstone_iron_ore", () -> new DropExperienceBlock(ConstantInt.of(0), BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_COAL_ORE = registerBlock("etherstone_coal_ore", () -> new DropExperienceBlock(UniformInt.of(0, 2), BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_REDSTONE_ORE = registerBlock("etherstone_redstone_ore", () -> new RedStoneOreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_LAPIS_ORE = registerBlock("etherstone_lapis_ore", () -> new DropExperienceBlock(UniformInt.of(2, 5), BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_DIAMOND_ORE = registerBlock("etherstone_diamond_ore", () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_GOLD_ORE = registerBlock("etherstone_gold_ore", () -> new DropExperienceBlock(ConstantInt.of(0), BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_ORE)));
+    public static final DeferredBlock<Block> ETHERSTONE_EMERALD_ORE = registerBlock("etherstone_emerald_ore", () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_ORE)));
 
     // Misc
     public static final DeferredBlock<Block> ICICLE = registerBlock("icicle", Icicle::new);

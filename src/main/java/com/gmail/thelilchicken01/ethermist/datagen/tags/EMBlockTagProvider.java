@@ -293,12 +293,34 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get())
+                .add(EMBlocks.ETHERSTONE_COAL_ORE.get())
+                .add(EMBlocks.ETHERSTONE_REDSTONE_ORE.get())
+                .add(EMBlocks.ETHERSTONE_DIAMOND_ORE.get())
+                .add(EMBlocks.ETHERSTONE_LAPIS_ORE.get())
+                .add(EMBlocks.ETHERSTONE_EMERALD_ORE.get())
+                .add(EMBlocks.ETHERSTONE_GOLD_ORE.get())
                 .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
 
         tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get())
                 .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
 
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(EMBlocks.ETHERSTONE_DIAMOND_ORE.get())
+                .add(EMBlocks.ETHERSTONE_EMERALD_ORE.get())
+                .add(EMBlocks.ETHERSTONE_REDSTONE_ORE.get())
+                .add(EMBlocks.ETHERSTONE_LAPIS_ORE.get())
+                .add(EMBlocks.ETHERSTONE_GOLD_ORE.get());
+
         tag(Tags.Blocks.ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get())
+                .add(EMBlocks.ETHERSTONE_COAL_ORE.get())
+                .add(EMBlocks.ETHERSTONE_REDSTONE_ORE.get())
+                .add(EMBlocks.ETHERSTONE_DIAMOND_ORE.get())
+                .add(EMBlocks.ETHERSTONE_LAPIS_ORE.get())
+                .add(EMBlocks.ETHERSTONE_EMERALD_ORE.get())
+                .add(EMBlocks.ETHERSTONE_GOLD_ORE.get())
                 .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
 
         // Ore Specific
@@ -306,6 +328,41 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
         tag(Tags.Blocks.ORES_COPPER)
                 .add(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+
+        tag(BlockTags.IRON_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_IRON)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.GOLD_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_GOLD)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.COAL_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_COAL)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.DIAMOND_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_DIAMOND)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.EMERALD_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_EMERALD)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.LAPIS_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_LAPIS)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+
+        tag(BlockTags.REDSTONE_ORES)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
+        tag(Tags.Blocks.ORES_REDSTONE)
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get());
 
     }
 

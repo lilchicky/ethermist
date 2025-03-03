@@ -206,7 +206,14 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.MOLTEN_ETHERSTONE.get());
 
                 // Ores
+                output.accept(EMBlocks.ETHERSTONE_COAL_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_IRON_ORE.get());
                 output.accept(EMBlocks.ETHERSTONE_COPPER_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_GOLD_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_REDSTONE_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_EMERALD_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_LAPIS_ORE.get());
+                output.accept(EMBlocks.ETHERSTONE_DIAMOND_ORE.get());
 
                 // Leaves
                 output.accept(EMBlocks.ANCIENT_LEAVES);

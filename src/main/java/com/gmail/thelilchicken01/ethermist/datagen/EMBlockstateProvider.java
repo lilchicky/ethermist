@@ -361,6 +361,13 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         // Ores
         simpleBlock(EMBlocks.ETHERSTONE_COPPER_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_IRON_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_COAL_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_GOLD_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_DIAMOND_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_EMERALD_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_REDSTONE_ORE, "ores");
+        simpleBlock(EMBlocks.ETHERSTONE_LAPIS_ORE, "ores");
 
     }
 
