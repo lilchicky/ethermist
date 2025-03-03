@@ -1,0 +1,15 @@
+{
+  "type": "ethermist:ground_icicle",
+  "config": {
+    "height": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 6,
+      "min_inclusive": 1
+    },
+    "spread": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 4,
+      "min_inclusive": 2
+    }
+  }
+}

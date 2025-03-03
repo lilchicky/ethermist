@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "ethermist:amberwood_wood"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ethermist:amberwood_planks"
+  }
+}

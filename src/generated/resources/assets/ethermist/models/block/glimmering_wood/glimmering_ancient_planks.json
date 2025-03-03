@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ethermist:block/glimmering_wood/glimmering_ancient_planks"
+  }
+}

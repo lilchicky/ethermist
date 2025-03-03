@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "ethermist:block/charred_wood/charred_planks"
+  }
+}

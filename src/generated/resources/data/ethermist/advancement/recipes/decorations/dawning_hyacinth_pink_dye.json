@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dawning_hyacinth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:dawning_hyacinth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:dawning_hyacinth_pink_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dawning_hyacinth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:dawning_hyacinth_pink_dye"
+    ]
+  }
+}

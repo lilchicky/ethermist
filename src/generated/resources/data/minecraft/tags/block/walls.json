@@ -1,0 +1,12 @@
+{
+  "values": [
+    "ethermist:etherstone_wall",
+    "ethermist:etherstone_brick_wall",
+    "ethermist:cobbled_etherstone_wall",
+    "ethermist:mossy_cobbled_etherstone_wall",
+    "ethermist:sparkling_sandstone_wall",
+    "ethermist:sparkling_sandstone_brick_wall",
+    "ethermist:timeworn_sandstone_wall",
+    "ethermist:polished_timeworn_sandstone_wall"
+  ]
+}

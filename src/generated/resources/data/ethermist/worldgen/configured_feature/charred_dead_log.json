@@ -1,0 +1,19 @@
+{
+  "type": "ethermist:dead_log",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "ethermist:charred_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "length": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 8,
+      "min_inclusive": 4
+    }
+  }
+}

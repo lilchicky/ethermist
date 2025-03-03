@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "ethermist:exclude_monsters",
+      "required": false
+    },
+    {
+      "id": "ethermist:exclude_animals",
+      "required": false
+    },
+    {
+      "id": "ethermist:exclude_players",
+      "required": false
+    }
+  ]
+}

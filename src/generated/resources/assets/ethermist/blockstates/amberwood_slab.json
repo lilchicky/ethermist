@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/amberwood_wood/amberwood_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/amberwood_wood/amberwood_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/amberwood_wood/amberwood_slab_top"
+    }
+  }
+}

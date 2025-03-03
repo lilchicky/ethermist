@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ethermist:block/ancient_wood/stripped_ancient_log_top",
+    "side": "ethermist:block/ancient_wood/stripped_ancient_log"
+  }
+}

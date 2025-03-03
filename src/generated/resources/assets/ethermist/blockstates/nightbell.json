@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ethermist:block/nightbell"
+    }
+  }
+}

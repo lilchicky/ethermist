@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "ethermist:block/slimy_wood/slimy_pressure_plate"
+    },
+    "powered=true": {
+      "model": "ethermist:block/slimy_wood/slimy_pressure_plate_down"
+    }
+  }
+}

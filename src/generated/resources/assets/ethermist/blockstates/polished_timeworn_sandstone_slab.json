@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/polished_timeworn_sandstone_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/polished_timeworn_sandstone"
+    },
+    "type=top": {
+      "model": "ethermist:block/polished_timeworn_sandstone_slab_top"
+    }
+  }
+}

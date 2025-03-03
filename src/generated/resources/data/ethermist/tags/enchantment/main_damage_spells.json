@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "ethermist:fireball",
+      "required": false
+    },
+    {
+      "id": "ethermist:thunderstrike",
+      "required": false
+    },
+    {
+      "id": "ethermist:kinetic_rush",
+      "required": false
+    },
+    {
+      "id": "ethermist:volatile_energy",
+      "required": false
+    },
+    {
+      "id": "ethermist:seismic_surge",
+      "required": false
+    },
+    {
+      "id": "ethermist:chaos_magic",
+      "required": false
+    }
+  ]
+}

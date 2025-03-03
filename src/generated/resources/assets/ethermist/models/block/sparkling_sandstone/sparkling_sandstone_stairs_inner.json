@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "ethermist:block/sparkling_sandstone/sparkling_sandstone",
+    "side": "ethermist:block/sparkling_sandstone/sparkling_sandstone",
+    "top": "ethermist:block/sparkling_sandstone/sparkling_sandstone"
+  }
+}

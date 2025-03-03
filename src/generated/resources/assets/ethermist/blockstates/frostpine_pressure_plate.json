@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "ethermist:block/frostpine_wood/frostpine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "ethermist:block/frostpine_wood/frostpine_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+    },
+    "type=top": {
+      "model": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom_slab_top"
+    }
+  }
+}

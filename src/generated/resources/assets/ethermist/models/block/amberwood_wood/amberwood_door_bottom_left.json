@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "ethermist:block/amberwood_wood/amberwood_door_bottom",
+    "top": "ethermist:block/amberwood_wood/amberwood_door_top"
+  }
+}

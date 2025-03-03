@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "ethermist:block/rich_tall_grass_lower"
+    },
+    "half=upper": {
+      "model": "ethermist:block/rich_tall_grass_upper"
+    }
+  }
+}

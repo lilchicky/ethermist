@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/frostpine_wood/frostpine_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/frostpine_wood/frostpine_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/frostpine_wood/frostpine_slab_top"
+    }
+  }
+}

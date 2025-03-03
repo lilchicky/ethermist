@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ethermist:block/charred_wood/stripped_charred_log_top",
+    "side": "ethermist:block/charred_wood/stripped_charred_log"
+  }
+}

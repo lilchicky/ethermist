@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ethermist:block/glimmering_wood/suspicious_glimmering_ancient_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ethermist:block/glimmering_wood/suspicious_glimmering_ancient_log"
+    },
+    "axis=z": {
+      "model": "ethermist:block/glimmering_wood/suspicious_glimmering_ancient_log_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_frostpine_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:stripped_frostpine_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:frostpine_planks_stripped_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_frostpine_wood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:frostpine_planks_stripped_wood"
+    ]
+  }
+}

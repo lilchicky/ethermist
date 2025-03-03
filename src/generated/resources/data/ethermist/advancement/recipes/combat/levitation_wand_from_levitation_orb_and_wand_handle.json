@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_levitation_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:levitation_orb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:levitation_wand_from_levitation_orb_and_wand_handle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_levitation_orb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:levitation_wand_from_levitation_orb_and_wand_handle"
+    ]
+  }
+}

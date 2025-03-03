@@ -1,0 +1,92 @@
+{
+  "values": [
+    {
+      "id": "ethermist:arcane_velocity",
+      "required": false
+    },
+    {
+      "id": "ethermist:quick_cast",
+      "required": false
+    },
+    {
+      "id": "ethermist:enduring_magic",
+      "required": false
+    },
+    {
+      "id": "ethermist:runic_power",
+      "required": false
+    },
+    {
+      "id": "ethermist:ancient_power",
+      "required": false
+    },
+    {
+      "id": "ethermist:stable_orb",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_split",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_aoe",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_spray",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_meteor",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_abundance",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_focus",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_homing",
+      "required": false
+    },
+    {
+      "id": "ethermist:exclude_monsters",
+      "required": false
+    },
+    {
+      "id": "ethermist:exclude_animals",
+      "required": false
+    },
+    {
+      "id": "ethermist:exclude_players",
+      "required": false
+    },
+    {
+      "id": "ethermist:fireball",
+      "required": false
+    },
+    {
+      "id": "ethermist:thunderstrike",
+      "required": false
+    },
+    {
+      "id": "ethermist:kinetic_rush",
+      "required": false
+    },
+    {
+      "id": "ethermist:volatile_energy",
+      "required": false
+    },
+    {
+      "id": "ethermist:seismic_surge",
+      "required": false
+    },
+    {
+      "id": "ethermist:chaos_magic",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ethermist:block/slimy_wood/slimy_log",
+    "side": "ethermist:block/slimy_wood/slimy_log"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "ethermist:augment_split",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_aoe",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_spray",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_meteor",
+      "required": false
+    },
+    {
+      "id": "ethermist:augment_focus",
+      "required": false
+    }
+  ]
+}

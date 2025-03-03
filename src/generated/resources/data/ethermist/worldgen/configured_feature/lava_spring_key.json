@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:spring_feature",
+  "config": {
+    "hole_count": 1,
+    "requires_block_below": true,
+    "rock_count": 4,
+    "state": {
+      "Name": "minecraft:lava",
+      "Properties": {
+        "falling": "true"
+      }
+    },
+    "valid_blocks": [
+      "ethermist:etherstone",
+      "ethermist:cobbled_etherstone",
+      "ethermist:rich_dirt",
+      "minecraft:calcite",
+      "minecraft:blackstone",
+      "minecraft:smooth_basalt",
+      "minecraft:packed_ice",
+      "minecraft:snow_block"
+    ]
+  }
+}

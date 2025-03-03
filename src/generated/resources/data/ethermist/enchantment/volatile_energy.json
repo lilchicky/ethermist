@@ -1,0 +1,23 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "color": "#6B2EC7",
+    "translate": "enchantment.ethermist.volatile_energy"
+  },
+  "exclusive_set": "#ethermist:main_damage_spells",
+  "max_cost": {
+    "base": 21,
+    "per_level_above_first": 11
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 11
+  },
+  "primary_items": "#ethermist:enchantable_main_spells",
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#ethermist:magic_enchantable",
+  "weight": 1
+}

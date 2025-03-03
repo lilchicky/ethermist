@@ -1,0 +1,11 @@
+// 1.21.1	2025-02-20T02:56:54.6543026	Tags for minecraft:enchantment mod id ethermist
+a0ca1e4f805a2f8b5056fee3b43930bf370db749 data/c/tags/enchantment/increase_block_drops.json
+a0ca1e4f805a2f8b5056fee3b43930bf370db749 data/c/tags/enchantment/increase_entity_drops.json
+06b65c4e25510e2b3fd6da6340e5916adab0b48a data/ethermist/tags/enchantment/augment_spells.json
+a45b5ade469ce07a5b78fad842e024d6bbbf1c0b data/ethermist/tags/enchantment/focus_spells.json
+68b71fed6fdd9485a46dcbc9f86c0fdf9a02bdda data/ethermist/tags/enchantment/main_damage_spells.json
+a1ad5b6fcacaf438e48b0cd9a780f1b59d12c502 data/ethermist/tags/enchantment/wand_enchantments.json
+0540d3e33daddaa3d29a156d62394270c6e3c8fc data/minecraft/tags/enchantment/in_enchanting_table.json
+0540d3e33daddaa3d29a156d62394270c6e3c8fc data/minecraft/tags/enchantment/non_treasure.json
+c0aa1998f17049e28cfe0c531423ca0cdac22c4e data/minecraft/tags/enchantment/on_random_loot.json
+c0aa1998f17049e28cfe0c531423ca0cdac22c4e data/minecraft/tags/enchantment/treasure.json

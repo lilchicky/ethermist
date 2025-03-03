@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/glimmering_wood/glimmering_ancient_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/glimmering_wood/glimmering_ancient_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/glimmering_wood/glimmering_ancient_slab_top"
+    }
+  }
+}

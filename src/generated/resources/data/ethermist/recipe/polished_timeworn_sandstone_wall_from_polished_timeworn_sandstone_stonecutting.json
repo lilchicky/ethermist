@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ethermist:polished_timeworn_sandstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:polished_timeworn_sandstone_wall"
+  }
+}

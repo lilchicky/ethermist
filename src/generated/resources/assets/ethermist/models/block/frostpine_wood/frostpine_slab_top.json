@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "ethermist:block/frostpine_wood/frostpine_planks",
+    "side": "ethermist:block/frostpine_wood/frostpine_planks",
+    "top": "ethermist:block/frostpine_wood/frostpine_planks"
+  }
+}

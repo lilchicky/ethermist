@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "ethermist:block/ancient_wood/ancient_door_bottom",
+    "top": "ethermist:block/ancient_wood/ancient_door_top"
+  }
+}

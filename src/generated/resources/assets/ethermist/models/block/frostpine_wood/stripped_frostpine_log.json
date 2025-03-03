@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ethermist:block/frostpine_wood/stripped_frostpine_log_top",
+    "side": "ethermist:block/frostpine_wood/stripped_frostpine_log"
+  }
+}

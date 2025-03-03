@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/charred_wood/charred_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/charred_wood/charred_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/charred_wood/charred_slab_top"
+    }
+  }
+}

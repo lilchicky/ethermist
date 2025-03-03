@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobbled_etherstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:cobbled_etherstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:cobbled_etherstone_wall_from_cobbled_etherstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobbled_etherstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:cobbled_etherstone_wall_from_cobbled_etherstone_stonecutting"
+    ]
+  }
+}

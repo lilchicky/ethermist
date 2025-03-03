@@ -1,0 +1,26 @@
+{
+  "type": "ethermist:ethermist_spike",
+  "config": {
+    "baseRadius": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 8.0,
+      "min_inclusive": 4.0
+    },
+    "height": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 96,
+      "min_inclusive": 32
+    },
+    "state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "ethermist:cobbled_etherstone"
+      }
+    },
+    "tilt": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 8,
+      "min_inclusive": -8
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "ethermist:block/slimy_wood/slimy_door_bottom",
+    "top": "ethermist:block/slimy_wood/slimy_door_top"
+  }
+}

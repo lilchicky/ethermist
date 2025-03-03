@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "ethermist:block/slimy_wood/slimy_planks",
+    "side": "ethermist:block/slimy_wood/slimy_planks",
+    "top": "ethermist:block/slimy_wood/slimy_planks"
+  }
+}

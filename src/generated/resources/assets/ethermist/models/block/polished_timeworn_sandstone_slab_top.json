@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "ethermist:block/polished_timeworn_sandstone",
+    "side": "ethermist:block/polished_timeworn_sandstone",
+    "top": "ethermist:block/polished_timeworn_sandstone"
+  }
+}

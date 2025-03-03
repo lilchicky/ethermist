@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate_open",
+  "textures": {
+    "texture": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "ethermist:waterlogged_feature",
+  "config": {
+    "can_place": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "ethermist:crumbling_etherstone",
+        "ethermist:etherstone",
+        "ethermist:sparkling_sand",
+        "ethermist:rich_dirt",
+        "ethermist:rich_grass_block"
+      ]
+    },
+    "spread": 24,
+    "state": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "ethermist:abyssal_mushroom",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "ethermist:tall_abyssal_mushroom",
+            "Properties": {
+              "half": "lower",
+              "waterlogged": "true"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "ethermist:small_abyssal_mushroom",
+            "Properties": {
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "tries": 16
+  }
+}

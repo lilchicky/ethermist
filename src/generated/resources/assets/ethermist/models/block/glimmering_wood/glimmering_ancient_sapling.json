@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "ethermist:block/glimmering_wood/glimmering_ancient_sapling"
+  }
+}

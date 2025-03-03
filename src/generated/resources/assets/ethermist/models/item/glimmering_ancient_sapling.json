@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ethermist:block/glimmering_wood/glimmering_ancient_sapling"
+  }
+}

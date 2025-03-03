@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "ethermist:augment_abundance",
+      "required": false
+    }
+  ]
+}

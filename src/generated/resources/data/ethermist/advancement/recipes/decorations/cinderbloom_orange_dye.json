@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cinderbloom": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:cinderbloom"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:cinderbloom_orange_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cinderbloom"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:cinderbloom_orange_dye"
+    ]
+  }
+}

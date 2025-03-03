@@ -1,0 +1,26 @@
+{
+  "type": "ethermist:waterlogged_feature",
+  "config": {
+    "can_place": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "ethermist:crumbling_etherstone",
+        "ethermist:etherstone",
+        "ethermist:sparkling_sand",
+        "ethermist:rich_dirt",
+        "ethermist:rich_grass_block"
+      ]
+    },
+    "spread": 24,
+    "state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "ethermist:small_abyssal_mushroom",
+        "Properties": {
+          "waterlogged": "false"
+        }
+      }
+    },
+    "tries": 8
+  }
+}

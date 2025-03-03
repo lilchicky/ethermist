@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+  }
+}

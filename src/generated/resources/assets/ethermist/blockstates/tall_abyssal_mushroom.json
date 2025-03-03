@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "half=lower,waterlogged=false": {
+      "model": "ethermist:block/tall_abyssal_mushroom_lower"
+    },
+    "half=lower,waterlogged=true": {
+      "model": "ethermist:block/tall_abyssal_mushroom_lower"
+    },
+    "half=upper,waterlogged=false": {
+      "model": "ethermist:block/tall_abyssal_mushroom_upper"
+    },
+    "half=upper,waterlogged=true": {
+      "model": "ethermist:block/tall_abyssal_mushroom_upper"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "ethermist:block/amberwood_wood/stripped_amberwood_log_top",
+    "side": "ethermist:block/amberwood_wood/stripped_amberwood_log"
+  }
+}

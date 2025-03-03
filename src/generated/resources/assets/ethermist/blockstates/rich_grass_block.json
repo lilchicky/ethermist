@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "ethermist:block/rich_grass_block"
+    },
+    "snowy=true": {
+      "model": "ethermist:block/rich_grass_block_snowy"
+    }
+  }
+}

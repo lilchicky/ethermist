@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+  }
+}

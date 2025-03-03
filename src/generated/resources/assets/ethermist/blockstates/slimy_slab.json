@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/slimy_wood/slimy_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/slimy_wood/slimy_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/slimy_wood/slimy_slab_top"
+    }
+  }
+}

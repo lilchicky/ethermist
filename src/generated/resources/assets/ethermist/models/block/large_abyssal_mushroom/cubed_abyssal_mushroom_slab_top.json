@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom",
+    "side": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom",
+    "top": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+  }
+}

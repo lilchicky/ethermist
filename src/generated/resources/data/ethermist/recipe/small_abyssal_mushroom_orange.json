@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ethermist:large_orange_abyssal_mushroom_top"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "ethermist:small_abyssal_mushroom"
+  }
+}

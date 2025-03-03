@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/cobbled_etherstone_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/cobbled_etherstone"
+    },
+    "type=top": {
+      "model": "ethermist:block/cobbled_etherstone_slab_top"
+    }
+  }
+}

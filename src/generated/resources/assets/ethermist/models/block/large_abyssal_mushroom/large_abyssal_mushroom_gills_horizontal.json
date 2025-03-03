@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "ethermist:block/large_abyssal_mushroom/large_abyssal_mushroom_gills",
+    "side": "ethermist:block/large_abyssal_mushroom/large_abyssal_mushroom_gills"
+  }
+}

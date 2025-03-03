@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "ethermist:block/ancient_wood/ancient_pressure_plate"
+    },
+    "powered=true": {
+      "model": "ethermist:block/ancient_wood/ancient_pressure_plate_down"
+    }
+  }
+}

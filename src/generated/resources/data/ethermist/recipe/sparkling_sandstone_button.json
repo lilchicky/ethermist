@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "buttons",
+  "ingredients": [
+    {
+      "item": "ethermist:sparkling_sandstone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:sparkling_sandstone_button"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/ancient_wood/ancient_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/ancient_wood/ancient_planks"
+    },
+    "type=top": {
+      "model": "ethermist:block/ancient_wood/ancient_slab_top"
+    }
+  }
+}

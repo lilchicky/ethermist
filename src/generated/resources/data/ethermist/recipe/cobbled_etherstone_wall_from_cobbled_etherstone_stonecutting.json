@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ethermist:cobbled_etherstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:cobbled_etherstone_wall"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "ethermist:block/large_abyssal_mushroom/cubed_abyssal_mushroom"
+  }
+}

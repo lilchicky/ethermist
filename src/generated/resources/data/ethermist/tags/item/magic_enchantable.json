@@ -1,0 +1,14 @@
+{
+  "values": [
+    "ethermist:wand_spell_tome",
+    "ethermist:augment_spell_tome",
+    "ethermist:main_spell_tome",
+    "ethermist:base_spell_tome",
+    "ethermist:exclusion_spell_tome",
+    "ethermist:dull_wand",
+    "ethermist:flame_wand",
+    "ethermist:poison_wand",
+    "ethermist:levitation_wand",
+    "ethermist:wither_wand"
+  ]
+}

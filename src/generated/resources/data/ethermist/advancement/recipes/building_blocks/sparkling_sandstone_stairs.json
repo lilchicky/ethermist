@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sparkling_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:sparkling_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:sparkling_sandstone_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sparkling_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:sparkling_sandstone_stairs"
+    ]
+  }
+}

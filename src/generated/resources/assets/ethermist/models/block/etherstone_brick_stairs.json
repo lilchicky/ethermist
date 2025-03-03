@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "ethermist:block/etherstone_bricks",
+    "side": "ethermist:block/etherstone_bricks",
+    "top": "ethermist:block/etherstone_bricks"
+  }
+}

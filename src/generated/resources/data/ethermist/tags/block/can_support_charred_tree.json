@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#c:stones",
+    "#minecraft:dirt",
+    "#c:gravels",
+    "#c:cobblestones",
+    "minecraft:blackstone",
+    "ethermist:molten_etherstone"
+  ]
+}

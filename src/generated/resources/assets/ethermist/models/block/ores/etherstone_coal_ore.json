@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ethermist:block/ores/etherstone_coal_ore"
+  }
+}

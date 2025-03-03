@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_large_orange_abyssal_mushroom_top": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:large_orange_abyssal_mushroom_top"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:small_abyssal_mushroom_orange"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_large_orange_abyssal_mushroom_top"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:small_abyssal_mushroom_orange"
+    ]
+  }
+}

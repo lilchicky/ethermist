@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ethermist:block/large_abyssal_mushroom/large_abyssal_mushroom_gills_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ethermist:block/large_abyssal_mushroom/large_abyssal_mushroom_gills"
+    },
+    "axis=z": {
+      "model": "ethermist:block/large_abyssal_mushroom/large_abyssal_mushroom_gills_horizontal",
+      "x": 90
+    }
+  }
+}
