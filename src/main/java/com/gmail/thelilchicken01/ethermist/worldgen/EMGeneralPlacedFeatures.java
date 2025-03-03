@@ -10,8 +10,10 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
@@ -51,6 +53,9 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CRAG_SPIKE_PLACED_KEY = registerKey("crag_spike_placed");
     public static final ResourceKey<PlacedFeature> CHARRED_DEAD_LOG_PLACED_KEY = registerKey("charred_dead_log_placed");
     public static final ResourceKey<PlacedFeature> ABYSSAL_FOSSIL_KEY_PLACED = registerKey("abyssal_fossil_placed");
+
+    public static final ResourceKey<PlacedFeature> EM_LAVA_SPRING_PLACED = registerKey("lava_spring_placed");
+    public static final ResourceKey<PlacedFeature> EM_WATER_SPRING_PLACED = registerKey("water_spring_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMERBUD_PATCH_KEY = registerKey("glimmerbud_patch_placed");
     public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
@@ -168,6 +173,30 @@ public class EMGeneralPlacedFeatures {
         register(context, ICICLE_GROUND_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ICICLE_GROUND_KEY), simpleSpawn(1));
         register(context, CHARRED_DEAD_LOG_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHARRED_DEAD_LOG_KEY), simpleSpawn(4));
         register(context, ABYSSAL_FOSSIL_KEY_PLACED, configuredFeatures.getOrThrow(EMGeneralFeatures.ABYSSAL_FOSSIL_KEY), ignoreWaterSpawn(10));
+
+        register(
+                context,
+                EM_LAVA_SPRING_PLACED,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.EM_LAVA_SPRING_KEY),
+                List.of(
+                        CountPlacement.of(20),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.of(VeryBiasedToBottomHeight.of(VerticalAnchor.bottom(), VerticalAnchor.belowTop(8), 8)),
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(
+                context,
+                EM_WATER_SPRING_PLACED,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.EM_WATER_SPRING_KEY),
+                List.of(
+                        CountPlacement.of(25),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(192)),
+                        BiomeFilter.biome()
+                )
+        );
 
         /*
         ---------- Flowers ----------

@@ -57,8 +57,8 @@
     ],
     [],
     [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
+      "ethermist:water_spring_placed",
+      "ethermist:lava_spring_placed"
     ],
     [
       "minecraft:glow_lichen",

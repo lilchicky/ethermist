@@ -10,6 +10,8 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.ProcessorLists;
@@ -37,6 +39,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
 
@@ -75,6 +78,9 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_SPIKE_KEY = registerKey("crag_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_DEAD_LOG_KEY = registerKey("charred_dead_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ABYSSAL_FOSSIL_KEY = registerKey("abyssal_fossil");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> EM_LAVA_SPRING_KEY = registerKey("lava_spring_key");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> EM_WATER_SPRING_KEY = registerKey("water_spring_key");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERBUD_PATCH = registerKey("glimmerbud_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
@@ -395,6 +401,52 @@ public class EMGeneralFeatures {
                 processorHolder.getOrThrow(ProcessorLists.FOSSIL_COAL),
                 4
         ));
+
+        HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
+
+        register(
+                context,
+                EM_LAVA_SPRING_KEY,
+                Feature.SPRING,
+                new SpringConfiguration(
+                        Fluids.LAVA.defaultFluidState(),
+                        true,
+                        4,
+                        1,
+                        HolderSet.direct(
+                                blockGetter.getOrThrow(EMBlocks.ETHERSTONE.getKey()),
+                                blockGetter.getOrThrow(EMBlocks.COBBLED_ETHERSTONE.getKey()),
+                                blockGetter.getOrThrow(EMBlocks.RICH_DIRT.getKey()),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.CALCITE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.BLACKSTONE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.SMOOTH_BASALT))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.PACKED_ICE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.SNOW_BLOCK)))
+                        )
+                )
+        );
+
+        register(
+                context,
+                EM_WATER_SPRING_KEY,
+                Feature.SPRING,
+                new SpringConfiguration(
+                        Fluids.WATER.defaultFluidState(),
+                        true,
+                        4,
+                        1,
+                        HolderSet.direct(
+                                blockGetter.getOrThrow(EMBlocks.ETHERSTONE.getKey()),
+                                blockGetter.getOrThrow(EMBlocks.COBBLED_ETHERSTONE.getKey()),
+                                blockGetter.getOrThrow(EMBlocks.RICH_DIRT.getKey()),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.CALCITE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.BLACKSTONE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.SMOOTH_BASALT))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.PACKED_ICE))),
+                                blockGetter.getOrThrow(ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(Blocks.SNOW_BLOCK)))
+                        )
+                )
+        );
 
         /*
         ---------- Rich Grass ----------
