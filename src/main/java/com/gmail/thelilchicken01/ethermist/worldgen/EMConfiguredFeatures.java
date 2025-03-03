@@ -424,7 +424,7 @@ public class EMConfiguredFeatures {
                                         new WeightedStateProvider(
                                                 SimpleWeightedRandomList.<BlockState>builder()
                                                         .add(EMBlocks.RICH_TALL_GRASS.get().defaultBlockState(), 1)
-                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 2)
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 4)
                                         )
                                 ),
                                 BlockPredicate.allOf(
