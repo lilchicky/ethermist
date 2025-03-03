@@ -50,6 +50,7 @@ public class EMPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ICICLE_GROUND_PLACED_KEY = registerKey("icicle_ground_placed");
     public static final ResourceKey<PlacedFeature> CRAG_SPIKE_PLACED_KEY = registerKey("crag_spike_placed");
     public static final ResourceKey<PlacedFeature> CHARRED_DEAD_LOG_PLACED_KEY = registerKey("charred_dead_log_placed");
+    public static final ResourceKey<PlacedFeature> ABYSSAL_FOSSIL_KEY_PLACED = registerKey("abyssal_fossil_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMERBUD_PATCH_KEY = registerKey("glimmerbud_patch_placed");
     public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
@@ -166,6 +167,7 @@ public class EMPlacedFeatures {
         register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.SMALL_AMETHYST_SPIKE_KEY), simpleSpawn(1));
         register(context, ICICLE_GROUND_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.ICICLE_GROUND_KEY), simpleSpawn(1));
         register(context, CHARRED_DEAD_LOG_PLACED_KEY, configuredFeatures.getOrThrow(EMConfiguredFeatures.CHARRED_DEAD_LOG_KEY), simpleSpawn(4));
+        register(context, ABYSSAL_FOSSIL_KEY_PLACED, configuredFeatures.getOrThrow(EMConfiguredFeatures.ABYSSAL_FOSSIL_KEY), ignoreWaterSpawn(10));
 
         /*
         ---------- Flowers ----------
@@ -211,7 +213,7 @@ public class EMPlacedFeatures {
 
     private static List<PlacementModifier> ignoreWaterSpawnNoise(int noiseCount) {
         return List.of(
-                NoiseBasedCountPlacement.of(noiseCount, 10.0, 0.0),
+                NoiseBasedCountPlacement.of(noiseCount, 10.0, -0.1),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_TOP_SOLID,
                 BiomeFilter.biome()

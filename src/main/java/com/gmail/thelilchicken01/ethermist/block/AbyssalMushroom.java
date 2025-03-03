@@ -71,28 +71,15 @@ public class AbyssalMushroom extends BushBlock implements SimpleWaterloggedBlock
 
     @Override
     public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
-        return true;
+        BlockState stateAbove = level.getBlockState(pos.above());
+        return (stateAbove.isAir() || stateAbove.is(Blocks.WATER));
     }
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
 
-        BlockState stateAbove = level.getBlockState(pos.above());
-
-        if (!(stateAbove.isAir() || stateAbove.is(Blocks.WATER))) {
-            return;
-        }
-
         BlockState tallMushroom = EMBlocks.TALL_ABYSSAL_MUSHROOM.get().defaultBlockState();
-
-        BlockState bottom = tallMushroom.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
-                .setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED));
-
-        BlockState top = tallMushroom.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
-                .setValue(BlockStateProperties.WATERLOGGED, stateAbove.is(Blocks.WATER));
-
-        level.setBlock(pos, bottom, 3);
-        level.setBlock(pos.above(), top, 3);
+        DoublePlantBlock.placeAt(level, tallMushroom, pos, 2);
 
     }
 }

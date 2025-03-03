@@ -7,8 +7,11 @@ import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeFeature;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.*;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -30,6 +33,8 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 
 import java.util.List;
 
@@ -65,6 +70,7 @@ public class EMConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_GROUND_KEY = registerKey("icicle_ground");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_SPIKE_KEY = registerKey("crag_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHARRED_DEAD_LOG_KEY = registerKey("charred_dead_log");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ABYSSAL_FOSSIL_KEY = registerKey("abyssal_fossil");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERBUD_PATCH = registerKey("glimmerbud_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTBELL_PATCH = registerKey("nightbell_patch");
@@ -365,6 +371,27 @@ public class EMConfiguredFeatures {
                 BlockStateProvider.simple(EMBlocks.CHARRED_LOG.get())
         ));
 
+        HolderGetter<StructureProcessorList> processorHolder = context.lookup(Registries.PROCESSOR_LIST);
+        List<ResourceLocation> fossilParts = List.of(
+                ResourceLocation.withDefaultNamespace("fossil/spine_1"),
+                ResourceLocation.withDefaultNamespace("fossil/spine_2"),
+                ResourceLocation.withDefaultNamespace("fossil/spine_3"),
+                ResourceLocation.withDefaultNamespace("fossil/spine_4"),
+                ResourceLocation.withDefaultNamespace("fossil/skull_1"),
+                ResourceLocation.withDefaultNamespace("fossil/skull_2"),
+                ResourceLocation.withDefaultNamespace("fossil/skull_3"),
+                ResourceLocation.withDefaultNamespace("fossil/skull_4")
+        );
+        Holder<StructureProcessorList> fossilRotHolder = processorHolder.getOrThrow(ProcessorLists.FOSSIL_ROT);
+
+        register(context, ABYSSAL_FOSSIL_KEY, EMFeatures.FOSSIL_FEATURE.get(), new FossilFeatureConfiguration(
+                fossilParts,
+                fossilParts,
+                fossilRotHolder,
+                processorHolder.getOrThrow(ProcessorLists.FOSSIL_COAL),
+                4
+        ));
+
         /*
         ---------- Rich Grass ----------
          */
@@ -394,7 +421,11 @@ public class EMConfiguredFeatures {
                         PlacementUtils.filtered(
                                 Feature.SIMPLE_BLOCK,
                                 new SimpleBlockConfiguration(
-                                        BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())
+                                        new WeightedStateProvider(
+                                                SimpleWeightedRandomList.<BlockState>builder()
+                                                        .add(EMBlocks.RICH_TALL_GRASS.get().defaultBlockState(), 1)
+                                                        .add(EMBlocks.RICH_GRASS.get().defaultBlockState(), 2)
+                                        )
                                 ),
                                 BlockPredicate.allOf(
                                         BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))

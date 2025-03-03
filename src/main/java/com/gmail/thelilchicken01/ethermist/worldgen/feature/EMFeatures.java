@@ -27,6 +27,10 @@ public class EMFeatures {
             EMWaterloggedFeature::new
     );
 
+    public static final DeferredHolder<Feature<?>, EMFossilFeature> FOSSIL_FEATURE = EM_FEATURES.register("fossil_feature",
+            EMFossilFeature::new
+    );
+
     public static void register (IEventBus bus) {
         EM_FEATURES.register(bus);
     }

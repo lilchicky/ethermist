@@ -159,6 +159,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.INFINIBURN_OVERWORLD)
                 .add(EMBlocks.MOLTEN_ETHERSTONE.get());
 
+        tag(BlockTags.MOSS_REPLACEABLE)
+                .add(EMBlocks.ETHERSTONE.get());
+
+        tag(BlockTags.SCULK_REPLACEABLE)
+                .add(EMBlocks.SPARKLING_SAND.get())
+                .add(EMBlocks.SPARKLING_SANDSTONE.get())
+                .add(EMBlocks.TIMEWORN_SANDSTONE.get())
+                .add(EMBlocks.TIMEWORN_SAND.get())
+                .add(EMBlocks.ETHERSTONE.get());
+
         tag(BlockTags.DIRT)
                 .add(EMBlocks.RICH_GRASS_BLOCK.get())
                 .add(EMBlocks.RICH_DIRT.get());

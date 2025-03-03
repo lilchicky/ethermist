@@ -26,7 +26,8 @@
       "ethermist:ethermist_lava_lake_placed"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:abyssal_fossil_placed"
     ],
     [
       "minecraft:monster_room",
