@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "ethermist:block/ancient_etherstone/ancient_etherstone", "weight": 1
+      },
+      {
+        "model": "ethermist:block/ancient_etherstone/ancient_etherstone_1", "weight": 1
+      },
+      {
+        "model": "ethermist:block/ancient_etherstone/ancient_etherstone_2", "weight": 1
+      }
+    ]
+  }
+}

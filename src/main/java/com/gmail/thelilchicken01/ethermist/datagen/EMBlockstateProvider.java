@@ -53,6 +53,23 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
         
+        // Ancient Etherstone
+        stairsBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
+        slabBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
+        buttonBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
+        pressurePlateBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
+        wallBlock(EMBlocks.ANCIENT_ETHERSTONE_WALL.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE));
+        blockItem(EMBlocks.ANCIENT_ETHERSTONE_STAIRS, ANCIENT_ETHERSTONE);
+        blockItem(EMBlocks.ANCIENT_ETHERSTONE_SLAB, ANCIENT_ETHERSTONE);
+        blockItem(EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE, ANCIENT_ETHERSTONE);
+
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_BRICKS, null);
+        stairsBlock(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get()));
+        slabBlock(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get()), blockTexture(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get()));
+        wallBlock(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get()));
+        blockItem(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS, null);
+        blockItem(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB, null);
+        
         // Cobbled Etherstone
         simpleBlock(EMBlocks.COBBLED_ETHERSTONE, null);
         stairsBlock(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()));

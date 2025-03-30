@@ -18,6 +18,7 @@ public class EMTags {
         public static final TagKey<Block> CAN_GROW_ICICLE = mod("can_grow_icicle");
         public static final TagKey<Block> CAN_SUPPORT_CHARRED_TREE = mod("can_support_charred_tree");
         public static final TagKey<Block> ETHERSTONE_ORE_REPLACEABLES = mod("etherstone_ore_replaceables");
+        public static final TagKey<Block> ANCIENT_ETHERSTONE_ORE_REPLACEABLES = mod("ancient_etherstone_ore_replaceables");
 
         private static TagKey<Block> mod(String path) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

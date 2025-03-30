@@ -44,7 +44,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get(), 1);
 
         stairBuilder(EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE_BRICKS)).group("stairs")
-                .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE_BRICKS)).save(output);
+                .unlockedBy("has_etherstone_bricks", has(EMBlocks.ETHERSTONE_BRICKS)).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ETHERSTONE_BRICKS.get());
         wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_WALL.get(), EMBlocks.ETHERSTONE_BRICKS.get());
 
@@ -61,6 +61,35 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         oreSmelting(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
                 RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE.get(), 0.25f, 200, "stone");
+        
+        // Ancient Etherstone
+        stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE)).group("stairs")
+                .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE.get());
+        buttonBuilder(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE)).group("buttons")
+                .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
+        pressurePlate(output, EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get(), EMBlocks.ANCIENT_ETHERSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_WALL.get(), EMBlocks.ANCIENT_ETHERSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_WALL.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE_BRICKS)).group("stairs")
+                .unlockedBy("has_ancient_etherstone_bricks", has(EMBlocks.ANCIENT_ETHERSTONE_BRICKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get(), 1);
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 1);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get(), 4)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.ANCIENT_ETHERSTONE.get())
+                .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
         
         // Cobbled Etherstone
         stairBuilder(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.COBBLED_ETHERSTONE)).group("stairs")

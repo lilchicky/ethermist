@@ -25,6 +25,7 @@ public class DataGenerators {
 
     // Folder Locations
     public static final String ETHERSTONE = "etherstone";
+    public static final String ANCIENT_ETHERSTONE = "ancient_etherstone";
     public static final String GLIMMERING_WOOD = "glimmering_wood";
     public static final String ANCIENT_WOOD = "ancient_wood";
     public static final String SLIMY_WOOD = "slimy_wood";

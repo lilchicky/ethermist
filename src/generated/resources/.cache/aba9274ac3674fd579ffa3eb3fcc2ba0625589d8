@@ -1,10 +1,13 @@
-// 1.21.1	2025-03-01T18:24:00.9621554	Item Models: ethermist
+// 1.21.1	2025-03-30T00:55:22.3377191	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
 60a7241fc24343fec54af94b44b5b0517e173732 assets/ethermist/models/item/amberwood_fence.json
 2c6632dfe7ef7eae36de0364a619f41ba6ab0f44 assets/ethermist/models/item/ancient_button.json
 2d901081b0504b3d4d800f6922b50d896ce3758b assets/ethermist/models/item/ancient_door.json
+41992fda66f91889d99afb94a1682e1bc2696cf7 assets/ethermist/models/item/ancient_etherstone_brick_wall.json
+d9e27d6cab6e1d89a76b8b94c0cd31d767c6d948 assets/ethermist/models/item/ancient_etherstone_button.json
+9e48acd90f4f38983a990c230b3fa7b0af44e1bb assets/ethermist/models/item/ancient_etherstone_wall.json
 ac024094d6c395656b90d9de82cd18e8149c3413 assets/ethermist/models/item/ancient_fence.json
 5c20df86891fa690f2b321fd5f3f3fe0ac5071b9 assets/ethermist/models/item/ancient_sapling.json
 cb58c5f744d1e2c4c0b6bb8d92e31660cce32f7c assets/ethermist/models/item/augment_spell_tome.json

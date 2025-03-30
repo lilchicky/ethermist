@@ -27,7 +27,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(Tags.Items.STONES)
-                .add(EMBlocks.ETHERSTONE.asItem());
+                .add(EMBlocks.ETHERSTONE.asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE.asItem());
 
         tag(Tags.Items.COBBLESTONES_NORMAL)
                 .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
@@ -35,10 +36,15 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.COBBLESTONES_MOSSY)
                 .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().asItem());
 
+        tag(Tags.Items.COBBLESTONES_DEEPSLATE)
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get().asItem());
+
         tag(ItemTags.STONE_CRAFTING_MATERIALS)
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get().asItem())
                 .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
 
         tag(ItemTags.STONE_TOOL_MATERIALS)
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get().asItem())
                 .add(EMBlocks.COBBLED_ETHERSTONE.get().asItem());
 
         tag(ItemTags.SAND)
@@ -47,6 +53,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.STONE_BRICKS)
                 .add(EMBlocks.ETHERSTONE_BRICKS.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get().asItem())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get().asItem());
 
         tag(Tags.Items.SANDSTONE_BLOCKS)
@@ -165,6 +172,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.WITHER_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
+        addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get().asItem(), EMBlocks.SLIMY_PRESSURE_PLATE.get().asItem(), true);

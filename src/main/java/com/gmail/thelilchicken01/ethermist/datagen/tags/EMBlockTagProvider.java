@@ -30,6 +30,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_WALL.get())
 
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_SLAB.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_WALL.get())
+
                 .add(EMBlocks.COBBLED_ETHERSTONE.get())
                 .add(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get())
                 .add(EMBlocks.COBBLED_ETHERSTONE_SLAB.get())
@@ -44,6 +49,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_BRICK_STAIRS.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
+
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get())
 
                 .add(EMBlocks.SPARKLING_SANDSTONE.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
@@ -160,14 +170,16 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.MOLTEN_ETHERSTONE.get());
 
         tag(BlockTags.MOSS_REPLACEABLE)
-                .add(EMBlocks.ETHERSTONE.get());
+                .add(EMBlocks.ETHERSTONE.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.SCULK_REPLACEABLE)
                 .add(EMBlocks.SPARKLING_SAND.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.TIMEWORN_SAND.get())
-                .add(EMBlocks.ETHERSTONE.get());
+                .add(EMBlocks.ETHERSTONE.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.DIRT)
                 .add(EMBlocks.RICH_GRASS_BLOCK.get())
@@ -213,6 +225,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.WALLS)
                 .add(EMBlocks.ETHERSTONE_WALL.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_WALL.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
                 .add(EMBlocks.COBBLED_ETHERSTONE_WALL.get())
                 .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE_WALL.get())
@@ -223,6 +237,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(EMTags.Blocks.PORTAL_FRAME_BLOCKS)
                 .add(EMBlocks.ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
 
@@ -247,10 +262,15 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.COBBLESTONES_MOSSY)
                 .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
 
+        tag(Tags.Blocks.COBBLESTONES_DEEPSLATE)
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get());
+
         tag(Tags.Blocks.STONES)
-                .add(EMBlocks.ETHERSTONE.get());
+                .add(EMBlocks.ETHERSTONE.get())
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
+        addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get(), EMBlocks.SLIMY_PRESSURE_PLATE.get(), true);
@@ -291,6 +311,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES)
                 .add(EMBlocks.ETHERSTONE.get());
+
+        tag(EMTags.Blocks.ANCIENT_ETHERSTONE_ORE_REPLACEABLES)
+                .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(EMBlocks.ETHERSTONE_IRON_ORE.get())

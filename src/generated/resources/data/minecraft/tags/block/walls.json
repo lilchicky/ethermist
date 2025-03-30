@@ -1,6 +1,8 @@
 {
   "values": [
     "ethermist:etherstone_wall",
+    "ethermist:ancient_etherstone_wall",
+    "ethermist:ancient_etherstone_brick_wall",
     "ethermist:etherstone_brick_wall",
     "ethermist:cobbled_etherstone_wall",
     "ethermist:mossy_cobbled_etherstone_wall",

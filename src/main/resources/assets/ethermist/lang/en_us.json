@@ -16,10 +16,22 @@
   "block.ethermist.etherstone_button": "Etherstone Button",
   "block.ethermist.etherstone_wall": "Etherstone Wall",
 
+  "block.ethermist.ancient_etherstone": "Ancient Etherstone",
+  "block.ethermist.ancient_etherstone_stairs": "Ancient Etherstone Stairs",
+  "block.ethermist.ancient_etherstone_slab": "Ancient Etherstone Slab",
+  "block.ethermist.ancient_etherstone_pressure_plate": "Ancient Etherstone Pressure Plate",
+  "block.ethermist.ancient_etherstone_button": "Ancient Etherstone Button",
+  "block.ethermist.ancient_etherstone_wall": "Ancient Etherstone Wall",
+
   "block.ethermist.etherstone_bricks": "Etherstone Bricks",
   "block.ethermist.etherstone_brick_stairs": "Etherstone Brick Stairs",
   "block.ethermist.etherstone_brick_slab": "Etherstone Brick Slab",
   "block.ethermist.etherstone_brick_wall": "Etherstone Brick Wall",
+
+  "block.ethermist.ancient_etherstone_bricks": "Ancient Etherstone Bricks",
+  "block.ethermist.ancient_etherstone_brick_stairs": "Ancient Etherstone Brick Stairs",
+  "block.ethermist.ancient_etherstone_brick_slab": "Ancient Etherstone Brick Slab",
+  "block.ethermist.ancient_etherstone_brick_wall": "Ancient Etherstone Brick Wall",
 
   "block.ethermist.cobbled_etherstone": "Cobbled Etherstone",
   "block.ethermist.cobbled_etherstone_stairs": "Cobbled Etherstone Stairs",

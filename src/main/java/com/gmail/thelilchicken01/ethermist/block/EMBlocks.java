@@ -39,6 +39,19 @@ public class EMBlocks {
     public static final DeferredBlock<SlabBlock> ETHERSTONE_BRICK_SLAB = registerBlock("etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
     public static final DeferredBlock<WallBlock> ETHERSTONE_BRICK_WALL = registerBlock("etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
 
+    // Ancient Etherstone
+    public static final DeferredBlock<Block> ANCIENT_ETHERSTONE = registerBlock("ancient_etherstone", AncientEtherstone::new);
+    public static final DeferredBlock<StairBlock> ANCIENT_ETHERSTONE_STAIRS = registerBlock("ancient_etherstone_stairs", () -> new StairBlock(EMBlocks.ANCIENT_ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get())));
+    public static final DeferredBlock<SlabBlock> ANCIENT_ETHERSTONE_SLAB = registerBlock("ancient_etherstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get())));
+    public static final DeferredBlock<PressurePlateBlock> ANCIENT_ETHERSTONE_PRESSURE_PLATE = registerBlock("ancient_etherstone_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get())));
+    public static final DeferredBlock<ButtonBlock> ANCIENT_ETHERSTONE_BUTTON = registerBlock("ancient_etherstone_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get()).noCollission()));
+    public static final DeferredBlock<WallBlock> ANCIENT_ETHERSTONE_WALL = registerBlock("ancient_etherstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get())));
+
+    public static final DeferredBlock<Block> ANCIENT_ETHERSTONE_BRICKS = registerBlock("ancient_etherstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get()).strength(1.2f)));
+    public static final DeferredBlock<StairBlock> ANCIENT_ETHERSTONE_BRICK_STAIRS = registerBlock("ancient_etherstone_brick_stairs", () -> new StairBlock(EMBlocks.ANCIENT_ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())));
+    public static final DeferredBlock<SlabBlock> ANCIENT_ETHERSTONE_BRICK_SLAB = registerBlock("ancient_etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())));
+    public static final DeferredBlock<WallBlock> ANCIENT_ETHERSTONE_BRICK_WALL = registerBlock("ancient_etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())));
+
     // Rich Dirt
     public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);
     public static final DeferredBlock<Block> RICH_GRASS_BLOCK = registerBlock("rich_grass_block", () -> new RichGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
