@@ -227,6 +227,15 @@
   "block.ethermist.etherstone_redstone_ore": "Etherstone Redstone Ore",
   "block.ethermist.etherstone_lapis_ore": "Etherstone Lapis Ore",
 
+  "block.ethermist.ancient_etherstone_copper_ore": "Ancient Etherstone Copper Ore",
+  "block.ethermist.ancient_etherstone_iron_ore": "Ancient Etherstone Iron Ore",
+  "block.ethermist.ancient_etherstone_coal_ore": "Ancient Etherstone Coal Ore",
+  "block.ethermist.ancient_etherstone_gold_ore": "Ancient Etherstone Gold Ore",
+  "block.ethermist.ancient_etherstone_diamond_ore": "Ancient Etherstone Diamond Ore",
+  "block.ethermist.ancient_etherstone_emerald_ore": "Ancient Etherstone Emerald Ore",
+  "block.ethermist.ancient_etherstone_redstone_ore": "Ancient Etherstone Redstone Ore",
+  "block.ethermist.ancient_etherstone_lapis_ore": "Ancient Etherstone Lapis Ore",
+
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wand_handle": "Wand Handle",
   "item.ethermist.dull_wand": "Dull Wand",

@@ -64,7 +64,7 @@
       "ethermist:lava_spring_placed"
     ],
     [
-      "minecraft:glow_lichen",
+      "ethermist:ethermist_glow_lichen_placed",
       "ethermist:rich_grass_patch_placed",
       "minecraft:patch_dead_bush_2",
       "minecraft:brown_mushroom_normal",

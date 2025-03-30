@@ -40,31 +40,31 @@ public class EMOreFeatures {
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
         RuleTest etherstoneRule = new TagMatchTest(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES);
-        RuleTest ruletest2 = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest ancientEtherstoneRule = new TagMatchTest(EMTags.Blocks.ANCIENT_ETHERSTONE_ORE_REPLACEABLES);
 
         List<OreConfiguration.TargetBlockState> iron = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_IRON_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_IRON_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().defaultBlockState())
         );
         List<OreConfiguration.TargetBlockState> gold = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_GOLD_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_GOLD_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get().defaultBlockState())
         );
         List<OreConfiguration.TargetBlockState> diamond = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_DIAMOND_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_DIAMOND_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get().defaultBlockState())
         );
         List<OreConfiguration.TargetBlockState> lapis = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_LAPIS_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_LAPIS_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get().defaultBlockState())
         );
         List<OreConfiguration.TargetBlockState> copper = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_COPPER_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_COPPER_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get().defaultBlockState())
         );
         List<OreConfiguration.TargetBlockState> coal = List.of(
                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_COAL_ORE.get().defaultBlockState()),
-                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_COAL_ORE.defaultBlockState())
+                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get().defaultBlockState())
         );
 
         register(context, ETHERSTONE_ORE_COAL, Feature.ORE, new OreConfiguration(coal, 17));
@@ -80,7 +80,7 @@ public class EMOreFeatures {
                 new OreConfiguration(
                         List.of(
                                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_REDSTONE_ORE.get().defaultBlockState()),
-                                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_REDSTONE_ORE.defaultBlockState())
+                                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get().defaultBlockState())
                         ),
                         8
                 )
@@ -98,7 +98,7 @@ public class EMOreFeatures {
                 new OreConfiguration(
                         List.of(
                                 OreConfiguration.target(etherstoneRule, EMBlocks.ETHERSTONE_EMERALD_ORE.get().defaultBlockState()),
-                                OreConfiguration.target(ruletest2, Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState())
+                                OreConfiguration.target(ancientEtherstoneRule, EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get().defaultBlockState())
                         ),
                         3
                 )

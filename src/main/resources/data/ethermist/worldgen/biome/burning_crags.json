@@ -72,7 +72,7 @@
       "ethermist:lava_spring_placed"
     ],
     [
-      "minecraft:glow_lichen",
+      "ethermist:ethermist_glow_lichen_placed",
       "ethermist:charred_tree_stump_placed",
       "ethermist:charred_tree_placed",
       "ethermist:charred_dead_log_placed",

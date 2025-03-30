@@ -10,6 +10,8 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -63,6 +65,7 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
     public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
+    public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
 
     public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
     public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
@@ -219,6 +222,19 @@ public class EMGeneralPlacedFeatures {
         register(context, RICH_TALL_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_TALL_GRASS_PATCH), simpleSpawn(2));
         register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());
         register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
+
+        register(
+                context,
+                ETHERMIST_GLOW_LICHEN_KEY,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_GLOW_LICHEN),
+                List.of(
+                        CountPlacement.of(UniformInt.of(104, 157)),
+                        PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
+                        InSquarePlacement.spread(),
+                        SurfaceRelativeThresholdFilter.of(Heightmap.Types.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13),
+                        BiomeFilter.biome()
+                )
+        );
 
     }
 

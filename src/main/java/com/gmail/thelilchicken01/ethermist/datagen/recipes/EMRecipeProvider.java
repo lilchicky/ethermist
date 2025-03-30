@@ -625,6 +625,48 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         oreBlasting(output, List.of(EMBlocks.ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
+
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
+                RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
+                RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 100, "copper_ingot");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
+                RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 200, "iron_ingot");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
+                RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 100, "iron_ingot");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
+                RecipeCategory.MISC, Items.COAL, 0.7f, 200, "coal");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
+                RecipeCategory.MISC, Items.COAL, 0.7f, 100, "coal");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
+                RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 200, "gold_ingot");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
+                RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 100, "gold_ingot");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
+                RecipeCategory.MISC, Items.REDSTONE, 0.7f, 200, "redstone");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
+                RecipeCategory.MISC, Items.REDSTONE, 0.7f, 100, "redstone");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
+                RecipeCategory.MISC, Items.DIAMOND, 1.0f, 200, "diamond");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
+                RecipeCategory.MISC, Items.DIAMOND, 1.0f, 100, "diamond");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
+                RecipeCategory.MISC, Items.EMERALD, 1.0f, 200, "emerald");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
+                RecipeCategory.MISC, Items.EMERALD, 1.0f, 100, "emerald");
+
+        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
+                RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 200, "lapis_lazuli");
+        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
+                RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
+
         // Tomes
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)
                 .pattern("aaa")

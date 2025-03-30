@@ -58,7 +58,7 @@
       "ethermist:lava_spring_placed"
     ],
     [
-      "minecraft:glow_lichen",
+      "ethermist:ethermist_glow_lichen_placed",
       "ethermist:sparse_ancient_tree_placed",
       "ethermist:small_abyssal_mushroom_patch_placed",
       "ethermist:large_abyssal_mushroom_patch_placed",

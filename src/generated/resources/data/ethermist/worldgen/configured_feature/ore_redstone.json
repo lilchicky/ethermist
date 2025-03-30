@@ -18,14 +18,14 @@
       },
       {
         "state": {
-          "Name": "minecraft:deepslate_redstone_ore",
+          "Name": "ethermist:ancient_etherstone_redstone_ore",
           "Properties": {
             "lit": "false"
           }
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:deepslate_ore_replaceables"
+          "tag": "ethermist:ancient_etherstone_ore_replaceables"
         }
       }
     ]

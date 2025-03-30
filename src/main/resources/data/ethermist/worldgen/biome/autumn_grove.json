@@ -65,7 +65,7 @@
       "ethermist:lava_spring_placed"
     ],
     [
-      "minecraft:glow_lichen",
+      "ethermist:ethermist_glow_lichen_placed",
       "ethermist:red_amberwood_tree_placed",
       "ethermist:orange_amberwood_tree_placed",
       "ethermist:yellow_amberwood_tree_placed",

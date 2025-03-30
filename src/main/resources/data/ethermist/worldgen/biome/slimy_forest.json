@@ -65,7 +65,7 @@
       "ethermist:lava_spring_placed"
     ],
     [
-      "minecraft:glow_lichen",
+      "ethermist:ethermist_glow_lichen_placed",
       "ethermist:rich_grass_patch_placed",
       "ethermist:dense_slimy_allium_placed",
       "ethermist:slimy_tree_placed"

@@ -386,6 +386,15 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.ETHERSTONE_REDSTONE_ORE, "ores");
         simpleBlock(EMBlocks.ETHERSTONE_LAPIS_ORE, "ores");
 
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE, "ores");
+        simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE, "ores");
+
     }
 
     private void simpleBlock(DeferredBlock<?> block, @Nullable String folder) {

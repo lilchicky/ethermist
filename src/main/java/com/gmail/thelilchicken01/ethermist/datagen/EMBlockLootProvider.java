@@ -369,6 +369,31 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.ETHERSTONE_EMERALD_ORE.get(),
                 block -> createMultipleOreDrops(EMBlocks.ETHERSTONE_EMERALD_ORE.get(), Items.EMERALD, 1, 1));
 
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get(), Items.RAW_COPPER, 2, 5));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get(), Items.COAL, 1, 1));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get(), Items.RAW_IRON, 1, 1));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get(), Items.RAW_GOLD, 1, 1));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get(), Items.REDSTONE, 4, 5));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, 4, 8));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get(), Items.DIAMOND, 1, 1));
+
+        add(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get(),
+                block -> createMultipleOreDrops(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get(), Items.EMERALD, 1, 1));
+
         // Misc
         dropSelf(EMBlocks.ICICLE.get());
 

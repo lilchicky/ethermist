@@ -1,6 +1,8 @@
 {
   "values": [
     "ethermist:etherstone_iron_ore",
-    "ethermist:etherstone_copper_ore"
+    "ethermist:etherstone_copper_ore",
+    "ethermist:ancient_etherstone_iron_ore",
+    "ethermist:ancient_etherstone_copper_ore"
   ]
 }

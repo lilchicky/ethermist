@@ -4,6 +4,11 @@
     "ethermist:etherstone_emerald_ore",
     "ethermist:etherstone_redstone_ore",
     "ethermist:etherstone_lapis_ore",
-    "ethermist:etherstone_gold_ore"
+    "ethermist:etherstone_gold_ore",
+    "ethermist:ancient_etherstone_diamond_ore",
+    "ethermist:ancient_etherstone_emerald_ore",
+    "ethermist:ancient_etherstone_redstone_ore",
+    "ethermist:ancient_etherstone_lapis_ore",
+    "ethermist:ancient_etherstone_gold_ore"
   ]
 }

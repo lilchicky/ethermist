@@ -23,6 +23,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.MultifaceBlock;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -44,8 +45,6 @@ import net.minecraft.world.level.material.Fluids;
 import java.util.List;
 
 public class EMGeneralFeatures {
-
-    public static final RuleTest ETHERSTONE_REPLACEABLES = new TagMatchTest(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_GLIMMERING_ANCIENT_TREE_KEY = registerKey("mega_glimmering_ancient_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERING_ANCIENT_TREE_KEY = registerKey("glimmering_ancient_tree");
@@ -87,6 +86,7 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ABYSSAL_MUSHROOM_PATCH = registerKey("large_abyssal_mushroom_patch");
@@ -575,6 +575,25 @@ public class EMGeneralFeatures {
                         EMBlocks.RICH_DIRT.get(),
                         EMBlocks.RICH_GRASS_BLOCK.get()
                 ))
+        );
+
+        MultifaceBlock multifaceblock = (MultifaceBlock)Blocks.GLOW_LICHEN;
+        register(
+                context,
+                ETHERMIST_GLOW_LICHEN,
+                Feature.MULTIFACE_GROWTH,
+                new MultifaceGrowthConfiguration(
+                        multifaceblock,
+                        20,
+                        false,
+                        true,
+                        true,
+                        0.5F,
+                        HolderSet.direct(
+                                EMBlocks.ETHERSTONE,
+                                EMBlocks.ANCIENT_ETHERSTONE
+                        )
+                )
         );
 
     }

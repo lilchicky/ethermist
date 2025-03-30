@@ -219,48 +219,73 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.ETHERSTONE_LAPIS_ORE.get().asItem())
                 .add(EMBlocks.ETHERSTONE_EMERALD_ORE.get().asItem())
                 .add(EMBlocks.ETHERSTONE_GOLD_ORE.get().asItem())
-                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem())
+
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get().asItem());
 
         // Ore Specific
         tag(ItemTags.COPPER_ORES)
-                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get().asItem());
         tag(Tags.Items.ORES_COPPER)
-                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_COPPER_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get().asItem());
 
         tag(ItemTags.IRON_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_IRON)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.GOLD_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_GOLD)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.COAL_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_COAL)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.DIAMOND_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_DIAMOND)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.EMERALD_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_EMERALD)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.LAPIS_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_LAPIS)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
         tag(ItemTags.REDSTONE_ORES)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
         tag(Tags.Items.ORES_REDSTONE)
-                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem());
+                .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
+                .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
     }
 
