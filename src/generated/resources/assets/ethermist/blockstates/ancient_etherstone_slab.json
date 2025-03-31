@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/ancient_etherstone/ancient_etherstone_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/ancient_etherstone/ancient_etherstone"
+    },
+    "type=top": {
+      "model": "ethermist:block/ancient_etherstone/ancient_etherstone_slab_top"
+    }
+  }
+}

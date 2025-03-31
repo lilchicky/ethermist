@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:witchstone_slab_from_witchstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_witchstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:witchstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_witchstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:witchstone_slab_from_witchstone_stonecutting"
+    ]
+  }
+}

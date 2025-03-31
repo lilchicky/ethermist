@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ethermist:witchstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:witchstone_stairs"
+  }
+}

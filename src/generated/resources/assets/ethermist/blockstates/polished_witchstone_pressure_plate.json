@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "ethermist:block/polished_witchstone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "ethermist:block/polished_witchstone_pressure_plate_down"
+    }
+  }
+}

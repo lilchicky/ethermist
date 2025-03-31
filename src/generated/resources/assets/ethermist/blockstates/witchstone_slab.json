@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/witchstone_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/witchstone"
+    },
+    "type=top": {
+      "model": "ethermist:block/witchstone_slab_top"
+    }
+  }
+}

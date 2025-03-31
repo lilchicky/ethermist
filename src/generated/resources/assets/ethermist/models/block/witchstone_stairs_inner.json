@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "ethermist:block/witchstone",
+    "side": "ethermist:block/witchstone",
+    "top": "ethermist:block/witchstone"
+  }
+}

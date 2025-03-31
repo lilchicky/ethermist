@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "lapis_lazuli",
+  "ingredient": {
+    "item": "ethermist:ancient_etherstone_lapis_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:lapis_lazuli"
+  }
+}

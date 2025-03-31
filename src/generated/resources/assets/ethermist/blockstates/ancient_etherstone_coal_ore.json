@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ethermist:block/ores/ancient_etherstone_coal_ore"
+    }
+  }
+}
