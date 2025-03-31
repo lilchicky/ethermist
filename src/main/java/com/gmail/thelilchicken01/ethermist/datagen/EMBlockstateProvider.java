@@ -318,6 +318,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         // Timeworn Sand
         simpleBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE, null);
+        simpleBlock(EMBlocks.CHISELED_TIMEWORN_SANDSTONE, null);
 
         stairsBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));
         slabBlock(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()), blockTexture(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get()));

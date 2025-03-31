@@ -76,6 +76,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
                 .add(EMBlocks.TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get())
+                .add(EMBlocks.CHISELED_TIMEWORN_SANDSTONE.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())

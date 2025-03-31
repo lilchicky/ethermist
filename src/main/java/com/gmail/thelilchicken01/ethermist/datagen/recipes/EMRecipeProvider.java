@@ -495,6 +495,13 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(output, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
         wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHISELED_TIMEWORN_SANDSTONE.get())
+                .pattern("a")
+                .pattern("a")
+                .define('a', EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get())
+                .unlockedBy("has_polished_timeworn_sandstone_slab", has(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB)).save(output);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.CHISELED_TIMEWORN_SANDSTONE.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 1);
+
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get(), 1);

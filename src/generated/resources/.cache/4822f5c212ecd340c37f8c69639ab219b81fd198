@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-30T17:09:47.1801046	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-03-31T00:42:41.9315808	Tags for minecraft:block mod id ethermist
 bc9880498ac62b482bfd6daffe39d8ff82d1f1ad data/c/tags/block/cobblestones/deepslate.json
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/block/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/block/cobblestones/normal.json
@@ -41,7 +41,7 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/block/lapis_ores.js
 5b1465c972a724f5c59ed5e575c30bd0e3edc433 data/minecraft/tags/block/logs_that_burn.json
 4e2be2aa220605699d6414f1d41f13b3c5c8d6b0 data/minecraft/tags/block/mineable/axe.json
 58fdbf4d97d6684302c613138030bf878cfa9b4d data/minecraft/tags/block/mineable/hoe.json
-8c7b4de5524d7b3c89a3fee0a35100efee074e25 data/minecraft/tags/block/mineable/pickaxe.json
+cdf20ed27f6430bec1227524ad36f1bc16d12157 data/minecraft/tags/block/mineable/pickaxe.json
 aba6385c1b1114b6597ac88677dadcbc668ded9b data/minecraft/tags/block/mineable/shovel.json
 43a86d6721c1afcfa0e74d720d8acc750dac48e4 data/minecraft/tags/block/moss_replaceable.json
 3a9b338956629b6ab76a20f99f20d7610719b219 data/minecraft/tags/block/needs_iron_tool.json

@@ -272,6 +272,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.TIMEWORN_SAND.get());
         dropSelf(EMBlocks.TIMEWORN_SANDSTONE.get());
         dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
+        dropSelf(EMBlocks.CHISELED_TIMEWORN_SANDSTONE.get());
 
         dropSelf(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS.get());
         add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB.get(),

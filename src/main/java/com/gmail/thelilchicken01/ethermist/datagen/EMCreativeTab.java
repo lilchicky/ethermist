@@ -219,6 +219,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.TIMEWORN_SANDSTONE_SLAB);
                 output.accept(EMBlocks.TIMEWORN_SANDSTONE_WALL);
 
+                output.accept(EMBlocks.CHISELED_TIMEWORN_SANDSTONE);
                 output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE);
                 output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS);
                 output.accept(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB);

@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-30T17:09:47.1542354	Block States: ethermist
+// 1.21.1	2025-03-31T00:42:41.9045555	Block States: ethermist
 3ae376842b28c82134fe853e9acb41689b1fdeba assets/ethermist/blockstates/abyssal_mushroom.json
 0b5457259efae8f3d737d37059a36391387a8d95 assets/ethermist/blockstates/amberwood_button.json
 8c4637c409249471fd1365f09122b757705a6ca8 assets/ethermist/blockstates/amberwood_door.json
@@ -53,6 +53,7 @@ a093cb43758e1ea19605421a7e640b6a967e16ec assets/ethermist/blockstates/charred_sa
 454a559ddcc23fab27ea85033e89980456366b56 assets/ethermist/blockstates/charred_stairs.json
 2dbabb08d7758abb3e06ac2276c44b09b09b41a6 assets/ethermist/blockstates/charred_trapdoor.json
 035d2a066cc3a8dd2e2ce690b4c87ff800e27d3b assets/ethermist/blockstates/charred_wood.json
+4c9ac507362cd8b2306158732900582a98ca6d5d assets/ethermist/blockstates/chiseled_timeworn_sandstone.json
 02b8c9d018d70685f3112cd86c25ce97cbe5e91a assets/ethermist/blockstates/cobbled_etherstone.json
 04eee776c78628dfbddd915ba75fadfa057713f3 assets/ethermist/blockstates/cobbled_etherstone_slab.json
 fe16aa4b3726b072aa7aac7782a25a8a9f198ddb assets/ethermist/blockstates/cobbled_etherstone_stairs.json
@@ -331,6 +332,7 @@ f122650f25fcbde13c136ac1daf6437ac5c3ad49 assets/ethermist/models/block/charred_w
 e3a87269487948a9df6e44da9c3e0adc909e90c5 assets/ethermist/models/block/charred_wood/stripped_charred_log_horizontal.json
 d86037cd86735f5ea4941f30daed60892636296a assets/ethermist/models/block/charred_wood/stripped_charred_wood.json
 38e7da9c652d7d5a6c04c24c09b80585c1d69835 assets/ethermist/models/block/charred_wood/stripped_charred_wood_horizontal.json
+ada536a95a6dd5db17b0df90e0024f1d994dce07 assets/ethermist/models/block/chiseled_timeworn_sandstone.json
 f1702e7ccb2fdd430fd2d507d04ff821e6827aff assets/ethermist/models/block/cobbled_etherstone.json
 d1672ec524501849ce5c04fa348bf82284451f1b assets/ethermist/models/block/cobbled_etherstone_slab.json
 1ef50af0efca8f960f35019ebd684ccc71e30e2a assets/ethermist/models/block/cobbled_etherstone_slab_top.json
@@ -665,6 +667,7 @@ c65f44d8baa711aa510b73441a8fc64a66674a96 assets/ethermist/models/item/ancient_pr
 ec76960f564e02a313422fcbe6bbf105fd816c82 assets/ethermist/models/item/charred_stairs.json
 3537af7dbaeb628b1ec35c11141b3c50a0051f43 assets/ethermist/models/item/charred_trapdoor.json
 f607c57a9de0e70bf1c77e09c52d0c1703539ac3 assets/ethermist/models/item/charred_wood.json
+36deac1468b4b560d709a053a02f289e0a18ff22 assets/ethermist/models/item/chiseled_timeworn_sandstone.json
 2ffe0a62cd025dca8a59b19233c1e73726658546 assets/ethermist/models/item/cobbled_etherstone.json
 1dfee5ea045a02bc35b1bdd47ed07bd1af58c4d7 assets/ethermist/models/item/cobbled_etherstone_slab.json
 ed78e615864940b17becdf54e967c3c2105b4b06 assets/ethermist/models/item/cobbled_etherstone_stairs.json

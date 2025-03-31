@@ -218,6 +218,7 @@ public class EMBlocks {
     public static final DeferredBlock<FallingBlock> TIMEWORN_SAND = registerBlock("timeworn_sand", () -> new TimewornSand(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<Block> TIMEWORN_SANDSTONE = registerBlock("timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> POLISHED_TIMEWORN_SANDSTONE = registerBlock("polished_timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> CHISELED_TIMEWORN_SANDSTONE = registerBlock("chiseled_timeworn_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<StairBlock> TIMEWORN_SANDSTONE_STAIRS = registerBlock("timeworn_sandstone_stairs", () -> new StairBlock(EMBlocks.TIMEWORN_SANDSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.TIMEWORN_SANDSTONE.get())));
     public static final DeferredBlock<SlabBlock> TIMEWORN_SANDSTONE_SLAB = registerBlock("timeworn_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.TIMEWORN_SANDSTONE.get())));
