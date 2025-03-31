@@ -154,11 +154,27 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_PRESSURE_PLATE);
                 output.accept(EMBlocks.ETHERSTONE_BUTTON);
 
+                // Etherstone Bricks
                 output.accept(EMBlocks.ETHERSTONE_BRICKS);
                 output.accept(EMBlocks.ETHERSTONE_BRICK_STAIRS);
                 output.accept(EMBlocks.ETHERSTONE_BRICK_SLAB);
                 output.accept(EMBlocks.ETHERSTONE_BRICK_WALL);
 
+                // Witchstone
+                output.accept(EMBlocks.WITCHSTONE);
+                output.accept(EMBlocks.WITCHSTONE_STAIRS);
+                output.accept(EMBlocks.WITCHSTONE_SLAB);
+                output.accept(EMBlocks.WITCHSTONE_WALL);
+                
+                // Polished Witchstone
+                output.accept(EMBlocks.POLISHED_WITCHSTONE);
+                output.accept(EMBlocks.POLISHED_WITCHSTONE_STAIRS);
+                output.accept(EMBlocks.POLISHED_WITCHSTONE_SLAB);
+                output.accept(EMBlocks.POLISHED_WITCHSTONE_WALL);
+                output.accept(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE);
+                output.accept(EMBlocks.POLISHED_WITCHSTONE_BUTTON);
+
+                // Ancient Etherstone
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_STAIRS);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_SLAB);
@@ -166,16 +182,19 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_BUTTON);
 
+                // Ancient Etherstone Bricks
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_BRICKS);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB);
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL);
 
+                // Cobbled Etherstone
                 output.accept(EMBlocks.COBBLED_ETHERSTONE);
                 output.accept(EMBlocks.COBBLED_ETHERSTONE_STAIRS);
                 output.accept(EMBlocks.COBBLED_ETHERSTONE_SLAB);
                 output.accept(EMBlocks.COBBLED_ETHERSTONE_WALL);
 
+                // Mossy Cobbled Etherstone
                 output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE);
                 output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE_STAIRS);
                 output.accept(EMBlocks.MOSSY_COBBLED_ETHERSTONE_SLAB);
@@ -219,7 +238,7 @@ public class EMCreativeTab {
 
                 // Ores
                 output.accept(EMBlocks.ETHERSTONE_COAL_ORE.get());
-                output.accept(EMBlocks.ETHERSTONE_COAL_ORE.get());
+                output.accept(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get());
 
                 output.accept(EMBlocks.ETHERSTONE_IRON_ORE.get());
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get());

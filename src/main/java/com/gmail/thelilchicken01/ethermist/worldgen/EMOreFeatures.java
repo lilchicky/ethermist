@@ -37,8 +37,13 @@ public class EMOreFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_ORE_EMERALD = registerKey("ore_emerald");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_ORE_COPPER_SMALL = registerKey("ore_copper_small");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_DIRT_BLOB = registerKey("rich_dirt_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRUMBLING_ETHERSTONE_BLOB = registerKey("crumbling_etherstone_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WITCHSTONE_BLOB = registerKey("witchstone_blob");
+
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
+        RuleTest ethermistStones = new TagMatchTest(EMTags.Blocks.ETHERMIST_STONES);
         RuleTest etherstoneRule = new TagMatchTest(EMTags.Blocks.ETHERSTONE_ORE_REPLACEABLES);
         RuleTest ancientEtherstoneRule = new TagMatchTest(EMTags.Blocks.ANCIENT_ETHERSTONE_ORE_REPLACEABLES);
 
@@ -104,6 +109,10 @@ public class EMOreFeatures {
                 )
         );
         register(context, ETHERSTONE_ORE_COPPER_SMALL, Feature.ORE, new OreConfiguration(copper, 10));
+
+        register(context, RICH_DIRT_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.RICH_DIRT.get().defaultBlockState(), 33));
+        register(context, CRUMBLING_ETHERSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.CRUMBLING_ETHERSTONE.get().defaultBlockState(), 33));
+        register(context, WITCHSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.WITCHSTONE.get().defaultBlockState(), 64));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-30T00:55:22.3377191	Item Models: ethermist
+// 1.21.1	2025-03-30T17:09:47.1512323	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -54,6 +54,8 @@ f94f342fabe74c47cb96b2dcbb7b542ffe019bff assets/ethermist/models/item/orange_amb
 73f0480916e3935bb8844791c1d7a2755511ea73 assets/ethermist/models/item/poison_wand.json
 9cc19ac1bfc4724b57722866b7d66ec747835703 assets/ethermist/models/item/polished_timeworn_sandstone_button.json
 349da5339e0fc33b5011d301fcd289ab01e13e91 assets/ethermist/models/item/polished_timeworn_sandstone_wall.json
+0f61fd06f7d4ff88aa19fb74e7a45809037e84cd assets/ethermist/models/item/polished_witchstone_button.json
+3c1fe4ff5c5674811dc2887d6e5dacf2ae684bf0 assets/ethermist/models/item/polished_witchstone_wall.json
 662b6a8019ade3e16ee9bdac49a001c67b01407b assets/ethermist/models/item/red_amberwood_sapling.json
 1755e52233ca3f47ac8515f635d389ba819888a4 assets/ethermist/models/item/rich_grass.json
 5d7471593587702170797d80e27a3415f653777b assets/ethermist/models/item/rich_tall_grass.json
@@ -70,6 +72,7 @@ f5f9e618d215dd844d8b33041fe6b893ca8043ff assets/ethermist/models/item/tall_abyss
 c7f7ed178d7fb6275a7b0e0951ce5c11cdaf5aaf assets/ethermist/models/item/timeworn_sandstone_wall.json
 c40b8528abbbc77bea37e0a00461bbc1282c1091 assets/ethermist/models/item/wand_handle.json
 e62e534d148d8170074e824cf54426129f594c0a assets/ethermist/models/item/wand_spell_tome.json
+6b2fd71b3ee32a7cb43b894b308492ef7dfb8b90 assets/ethermist/models/item/witchstone_wall.json
 5c3eac2fd36a05928688ec4c08b9096658aa638b assets/ethermist/models/item/witch_lavender.json
 b35eb069cd8802422e61e47524c486d7ada2b7f1 assets/ethermist/models/item/wither_orb.json
 b1be305c117766b7db918254995226700beaa517 assets/ethermist/models/item/wither_shot.json

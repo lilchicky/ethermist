@@ -28,6 +28,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.STONES)
                 .add(EMBlocks.ETHERSTONE.asItem())
+                .add(EMBlocks.WITCHSTONE.asItem())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.asItem());
 
         tag(Tags.Items.COBBLESTONES_NORMAL)

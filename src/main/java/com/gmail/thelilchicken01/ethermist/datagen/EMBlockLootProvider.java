@@ -62,6 +62,22 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createSlabItemTable(EMBlocks.ETHERSTONE_BRICK_SLAB.get()));
         dropSelf(EMBlocks.ETHERSTONE_BRICK_WALL.get());
         
+        // Witchstone
+        dropSelf(EMBlocks.WITCHSTONE.get());
+        dropSelf(EMBlocks.WITCHSTONE_STAIRS.get());
+        add(EMBlocks.WITCHSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.WITCHSTONE_SLAB.get()));
+        dropSelf(EMBlocks.WITCHSTONE_WALL.get());
+        
+        // Polished Witchstone
+        dropSelf(EMBlocks.POLISHED_WITCHSTONE.get());
+        dropSelf(EMBlocks.POLISHED_WITCHSTONE_STAIRS.get());
+        add(EMBlocks.POLISHED_WITCHSTONE_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.POLISHED_WITCHSTONE_SLAB.get()));
+        dropSelf(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get());
+        dropSelf(EMBlocks.POLISHED_WITCHSTONE_WALL.get());
+        
         // Ancient Etherstone
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE.get());
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get());

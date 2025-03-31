@@ -53,6 +53,25 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
         
+        // Witchstone
+        simpleBlock(EMBlocks.WITCHSTONE, null);
+        stairsBlock(EMBlocks.WITCHSTONE_STAIRS.get(), blockTexture(EMBlocks.WITCHSTONE.get()));
+        slabBlock(EMBlocks.WITCHSTONE_SLAB.get(), blockTexture(EMBlocks.WITCHSTONE.get()), blockTexture(EMBlocks.WITCHSTONE.get()));
+        wallBlock(EMBlocks.WITCHSTONE_WALL.get(), blockTexture(EMBlocks.WITCHSTONE.get()));
+        blockItem(EMBlocks.WITCHSTONE_STAIRS, null);
+        blockItem(EMBlocks.WITCHSTONE_SLAB, null);
+
+        // Polished Witchstone
+        simpleBlock(EMBlocks.POLISHED_WITCHSTONE, null);
+        stairsBlock(EMBlocks.POLISHED_WITCHSTONE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()));
+        slabBlock(EMBlocks.POLISHED_WITCHSTONE_SLAB.get(), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()));
+        buttonBlock(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()));
+        pressurePlateBlock(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()));
+        wallBlock(EMBlocks.POLISHED_WITCHSTONE_WALL.get(), blockTexture(EMBlocks.POLISHED_WITCHSTONE.get()));
+        blockItem(EMBlocks.POLISHED_WITCHSTONE_STAIRS, null);
+        blockItem(EMBlocks.POLISHED_WITCHSTONE_SLAB, null);
+        blockItem(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE, null);
+        
         // Ancient Etherstone
         stairsBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
         slabBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);

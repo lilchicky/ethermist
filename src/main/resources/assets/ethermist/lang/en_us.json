@@ -16,6 +16,18 @@
   "block.ethermist.etherstone_button": "Etherstone Button",
   "block.ethermist.etherstone_wall": "Etherstone Wall",
 
+  "block.ethermist.witchstone": "Witchstone",
+  "block.ethermist.witchstone_stairs": "Witchstone Stairs",
+  "block.ethermist.witchstone_slab": "Witchstone Slab",
+  "block.ethermist.witchstone_wall": "Witchstone Wall",
+
+  "block.ethermist.polished_witchstone": "Polished Witchstone",
+  "block.ethermist.polished_witchstone_stairs": "Polished Witchstone Stairs",
+  "block.ethermist.polished_witchstone_slab": "Polished Witchstone Slab",
+  "block.ethermist.polished_witchstone_pressure_plate": "Polished Witchstone Pressure Plate",
+  "block.ethermist.polished_witchstone_button": "Polished Witchstone Button",
+  "block.ethermist.polished_witchstone_wall": "Polished Witchstone Wall",
+
   "block.ethermist.ancient_etherstone": "Ancient Etherstone",
   "block.ethermist.ancient_etherstone_stairs": "Ancient Etherstone Stairs",
   "block.ethermist.ancient_etherstone_slab": "Ancient Etherstone Slab",

@@ -43,6 +43,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_SLAB.get(), EMBlocks.ETHERSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_WALL.get(), EMBlocks.ETHERSTONE.get(), 1);
 
+        // Etherstone Bricks
         stairBuilder(EMBlocks.ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.ETHERSTONE_BRICKS)).group("stairs")
                 .unlockedBy("has_etherstone_bricks", has(EMBlocks.ETHERSTONE_BRICKS)).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ETHERSTONE_BRICKS.get());
@@ -58,9 +59,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .define('a', EMBlocks.ETHERSTONE.get())
                 .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
-
-        oreSmelting(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
-                RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE.get(), 0.25f, 200, "stone");
         
         // Ancient Etherstone
         stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE)).group("stairs")
@@ -75,6 +73,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_WALL.get(), EMBlocks.ANCIENT_ETHERSTONE.get(), 1);
 
+        // Ancient Etherstone Bricks
         stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE_BRICKS)).group("stairs")
                 .unlockedBy("has_ancient_etherstone_bricks", has(EMBlocks.ANCIENT_ETHERSTONE_BRICKS)).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get(), EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get());
@@ -91,6 +90,36 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.ANCIENT_ETHERSTONE.get())
                 .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
         
+        // Witchstone
+        stairBuilder(EMBlocks.WITCHSTONE_STAIRS.get(), Ingredient.of(EMBlocks.WITCHSTONE)).group("stairs")
+                .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.WITCHSTONE_SLAB.get(), EMBlocks.WITCHSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.WITCHSTONE_WALL.get(), EMBlocks.WITCHSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.WITCHSTONE_STAIRS.get(), EMBlocks.WITCHSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.WITCHSTONE_SLAB.get(), EMBlocks.WITCHSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.WITCHSTONE_WALL.get(), EMBlocks.WITCHSTONE.get(), 1);
+
+        // Polished Witchstone
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE.get(), 4)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.WITCHSTONE.get())
+                .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE)).save(output);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE.get(), EMBlocks.WITCHSTONE.get(), 1);
+
+        stairBuilder(EMBlocks.POLISHED_WITCHSTONE_STAIRS.get(), Ingredient.of(EMBlocks.POLISHED_WITCHSTONE)).group("stairs")
+                .unlockedBy("has_polished_witchstone", has(EMBlocks.POLISHED_WITCHSTONE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_SLAB.get(), EMBlocks.POLISHED_WITCHSTONE.get());
+        buttonBuilder(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), Ingredient.of(EMBlocks.POLISHED_WITCHSTONE)).group("buttons")
+                .unlockedBy("has_polished_witchstone", has(EMBlocks.POLISHED_WITCHSTONE)).save(output);
+        pressurePlate(output, EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), EMBlocks.POLISHED_WITCHSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_WALL.get(), EMBlocks.POLISHED_WITCHSTONE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_STAIRS.get(), EMBlocks.POLISHED_WITCHSTONE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_SLAB.get(), EMBlocks.POLISHED_WITCHSTONE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_WALL.get(), EMBlocks.POLISHED_WITCHSTONE.get(), 1);
+        
         // Cobbled Etherstone
         stairBuilder(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.COBBLED_ETHERSTONE)).group("stairs")
                 .unlockedBy("has_cobbled_etherstone", has(EMBlocks.COBBLED_ETHERSTONE)).save(output);
@@ -100,6 +129,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_WALL.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 1);
+
+        oreSmelting(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
+                RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE.get(), 0.25f, 200, "stone");
 
         // Mossy Cobbled Etherstone
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 1)

@@ -52,6 +52,20 @@ public class EMBlocks {
     public static final DeferredBlock<SlabBlock> ANCIENT_ETHERSTONE_BRICK_SLAB = registerBlock("ancient_etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())));
     public static final DeferredBlock<WallBlock> ANCIENT_ETHERSTONE_BRICK_WALL = registerBlock("ancient_etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())));
 
+    // Witchstone
+    public static final DeferredBlock<Block> WITCHSTONE = registerBlock("witchstone", Etherstone::new);
+    public static final DeferredBlock<StairBlock> WITCHSTONE_STAIRS = registerBlock("witchstone_stairs", () -> new StairBlock(EMBlocks.WITCHSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.WITCHSTONE.get())));
+    public static final DeferredBlock<SlabBlock> WITCHSTONE_SLAB = registerBlock("witchstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.WITCHSTONE.get())));
+    public static final DeferredBlock<WallBlock> WITCHSTONE_WALL = registerBlock("witchstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.WITCHSTONE.get())));
+
+    // Polished Witchstone
+    public static final DeferredBlock<Block> POLISHED_WITCHSTONE = registerBlock("polished_witchstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<StairBlock> POLISHED_WITCHSTONE_STAIRS = registerBlock("polished_witchstone_stairs", () -> new StairBlock(EMBlocks.POLISHED_WITCHSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get())));
+    public static final DeferredBlock<SlabBlock> POLISHED_WITCHSTONE_SLAB = registerBlock("polished_witchstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get())));
+    public static final DeferredBlock<PressurePlateBlock> POLISHED_WITCHSTONE_PRESSURE_PLATE = registerBlock("polished_witchstone_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get())));
+    public static final DeferredBlock<ButtonBlock> POLISHED_WITCHSTONE_BUTTON = registerBlock("polished_witchstone_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get()).noCollission()));
+    public static final DeferredBlock<WallBlock> POLISHED_WITCHSTONE_WALL = registerBlock("polished_witchstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get())));
+
     // Rich Dirt
     public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);
     public static final DeferredBlock<Block> RICH_GRASS_BLOCK = registerBlock("rich_grass_block", () -> new RichGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));

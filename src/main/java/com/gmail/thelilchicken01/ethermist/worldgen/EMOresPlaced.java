@@ -35,6 +35,11 @@ public class EMOresPlaced {
     public static final ResourceKey<PlacedFeature> ETHERSTONE_ORE_EMERALD = registerKey("etherstone_ore_emerald");
     public static final ResourceKey<PlacedFeature> ETHERSTONE_ORE_COPPER = registerKey("etherstone_ore_copper");
 
+    public static final ResourceKey<PlacedFeature> RICH_DIRT_BLOB_KEY = registerKey("rich_dirt_blob_placed");
+    public static final ResourceKey<PlacedFeature> CRUMBLING_ETHERSTONE_BLOB_KEY = registerKey("crumbling_etherstone_blob_placed");
+    public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_UPPER_KEY = registerKey("witchstone_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_LOWER_KEY = registerKey("witchstone_blob_lower_placed");
+
     private static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightRange) {
         return List.of(countPlacement, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
     }
@@ -64,7 +69,10 @@ public class EMOresPlaced {
         Holder<ConfiguredFeature<?, ?>> lapis_buried = holdergetter.getOrThrow(EMOreFeatures.ETHERSTONE_ORE_LAPIS_BURIED);
         Holder<ConfiguredFeature<?, ?>> emerald = holdergetter.getOrThrow(EMOreFeatures.ETHERSTONE_ORE_EMERALD);
         Holder<ConfiguredFeature<?, ?>> copper_small = holdergetter.getOrThrow(EMOreFeatures.ETHERSTONE_ORE_COPPER_SMALL);
-        
+        Holder<ConfiguredFeature<?, ?>> rich_dirt_blob = holdergetter.getOrThrow(EMOreFeatures.RICH_DIRT_BLOB);
+        Holder<ConfiguredFeature<?, ?>> crumbling_etherstone_blob = holdergetter.getOrThrow(EMOreFeatures.CRUMBLING_ETHERSTONE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> witchstone_blob = holdergetter.getOrThrow(EMOreFeatures.WITCHSTONE_BLOB);
+
         register(
                 context, ETHERSTONE_ORE_COAL_UPPER, coal, commonOrePlacement(30, HeightRangePlacement.uniform(VerticalAnchor.absolute(136), VerticalAnchor.top()))
         );
@@ -146,6 +154,36 @@ public class EMOresPlaced {
         register(
                 context, ETHERSTONE_ORE_COPPER, copper_small, commonOrePlacement(16, HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(112)))
         );
+
+        /*
+        ----------  Non Ore Placements ----------
+         */
+
+        register(
+                context,
+                RICH_DIRT_BLOB_KEY,
+                rich_dirt_blob,
+                commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(160)))
+        );
+        register(
+                context,
+                CRUMBLING_ETHERSTONE_BLOB_KEY,
+                crumbling_etherstone_blob,
+                commonOrePlacement(14, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()))
+        );
+        register(
+                context,
+                WITCHSTONE_BLOB_UPPER_KEY,
+                witchstone_blob,
+                rareOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                WITCHSTONE_BLOB_LOWER_KEY,
+                witchstone_blob,
+                commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
     }
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
