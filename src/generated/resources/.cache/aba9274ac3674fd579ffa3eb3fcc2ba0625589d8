@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-30T17:09:47.1512323	Item Models: ethermist
+// 1.21.1	2025-04-05T15:39:49.6187185	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -21,6 +21,7 @@ df499f8997b3786d8ca2553619b7ad20be0e2f21 assets/ethermist/models/item/cobbled_et
 0525bc9890b5a0453e1588f6f9fb109e13d015c0 assets/ethermist/models/item/cubed_abyssal_mushroom_door.json
 b9794045bbeff5312a501f20cdac40c21043e068 assets/ethermist/models/item/cubed_abyssal_mushroom_fence.json
 bfd60aea02e7335abb1c131a8b48f7b2cc39e9cf assets/ethermist/models/item/dawning_hyacinth.json
+4f2b15bee04e0b21483fa85a2cb99e1d2274a5aa assets/ethermist/models/item/dawnshale_wall.json
 07bf960be9b7ec8b60a54a1fb3131c4869851f83 assets/ethermist/models/item/dull_orb.json
 7d72b853274d29200803117dd8fae87bc96281ca assets/ethermist/models/item/dull_wand.json
 ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone_brick_wall.json
@@ -52,6 +53,8 @@ f94f342fabe74c47cb96b2dcbb7b542ffe019bff assets/ethermist/models/item/orange_amb
 0540ddb2139172cc4848c0ee713ffc11c308bdbc assets/ethermist/models/item/poison_orb.json
 5b85b1737e0014bdb6461f8d070bd1695a8c290c assets/ethermist/models/item/poison_shot.json
 73f0480916e3935bb8844791c1d7a2755511ea73 assets/ethermist/models/item/poison_wand.json
+a430d7e51c3ed41593cab8c5075f7295822bbdda assets/ethermist/models/item/polished_dawnshale_button.json
+fbd0bf1d2be3a8449f18e2ea4887e97aa2fdf3b7 assets/ethermist/models/item/polished_dawnshale_wall.json
 9cc19ac1bfc4724b57722866b7d66ec747835703 assets/ethermist/models/item/polished_timeworn_sandstone_button.json
 349da5339e0fc33b5011d301fcd289ab01e13e91 assets/ethermist/models/item/polished_timeworn_sandstone_wall.json
 0f61fd06f7d4ff88aa19fb74e7a45809037e84cd assets/ethermist/models/item/polished_witchstone_button.json

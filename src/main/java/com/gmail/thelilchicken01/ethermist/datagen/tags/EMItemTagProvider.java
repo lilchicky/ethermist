@@ -29,6 +29,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.STONES)
                 .add(EMBlocks.ETHERSTONE.asItem())
                 .add(EMBlocks.WITCHSTONE.asItem())
+                .add(EMBlocks.DAWNSHALE.asItem())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.asItem());
 
         tag(Tags.Items.COBBLESTONES_NORMAL)
@@ -36,9 +37,6 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.COBBLESTONES_MOSSY)
                 .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get().asItem());
-
-        tag(Tags.Items.COBBLESTONES_DEEPSLATE)
-                .add(EMBlocks.ANCIENT_ETHERSTONE.get().asItem());
 
         tag(ItemTags.STONE_CRAFTING_MATERIALS)
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get().asItem())
@@ -174,6 +172,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
+        addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get().asItem(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get().asItem(), false);
+        addRedstone(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get().asItem(), EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get().asItem(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get().asItem(), EMBlocks.ANCIENT_PRESSURE_PLATE.get().asItem(), true);
         addRedstone(EMBlocks.SLIMY_BUTTON.get().asItem(), EMBlocks.SLIMY_PRESSURE_PLATE.get().asItem(), true);

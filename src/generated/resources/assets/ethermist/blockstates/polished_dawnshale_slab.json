@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/polished_dawnshale_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/polished_dawnshale"
+    },
+    "type=top": {
+      "model": "ethermist:block/polished_dawnshale_slab_top"
+    }
+  }
+}

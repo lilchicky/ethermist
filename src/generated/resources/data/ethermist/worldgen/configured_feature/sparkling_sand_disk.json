@@ -1,11 +1,11 @@
 {
   "type": "minecraft:disk",
   "config": {
-    "half_height": 1,
+    "half_height": 2,
     "radius": {
       "type": "minecraft:uniform",
-      "max_inclusive": 8,
-      "min_inclusive": 6
+      "max_inclusive": 7,
+      "min_inclusive": 3
     },
     "state_provider": {
       "fallback": {
@@ -14,13 +14,32 @@
           "Name": "ethermist:sparkling_sand"
         }
       },
-      "rules": []
+      "rules": [
+        {
+          "if_true": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air",
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "ethermist:sparkling_sandstone"
+            }
+          }
+        }
+      ]
     },
     "target": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "ethermist:crumbling_etherstone",
-        "ethermist:etherstone"
+        "ethermist:rich_dirt",
+        "ethermist:rich_grass_block",
+        "ethermist:crumbling_etherstone"
       ]
     }
   }

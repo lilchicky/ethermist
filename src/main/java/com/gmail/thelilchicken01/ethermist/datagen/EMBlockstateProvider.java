@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -52,7 +53,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         wallBlock(EMBlocks.ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ETHERSTONE_BRICKS.get()));
         blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
-        
+
         // Witchstone
         simpleBlock(EMBlocks.WITCHSTONE, null);
         stairsBlock(EMBlocks.WITCHSTONE_STAIRS.get(), blockTexture(EMBlocks.WITCHSTONE.get()));
@@ -71,7 +72,27 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.POLISHED_WITCHSTONE_STAIRS, null);
         blockItem(EMBlocks.POLISHED_WITCHSTONE_SLAB, null);
         blockItem(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE, null);
-        
+
+        // Dawnshale
+        simpleBlock(EMBlocks.DAWNSHALE, null);
+        stairsBlock(EMBlocks.DAWNSHALE_STAIRS.get(), blockTexture(EMBlocks.DAWNSHALE.get()));
+        slabBlock(EMBlocks.DAWNSHALE_SLAB.get(), blockTexture(EMBlocks.DAWNSHALE.get()), blockTexture(EMBlocks.DAWNSHALE.get()));
+        wallBlock(EMBlocks.DAWNSHALE_WALL.get(), blockTexture(EMBlocks.DAWNSHALE.get()));
+        blockItem(EMBlocks.DAWNSHALE, null);
+        blockItem(EMBlocks.DAWNSHALE_STAIRS, null);
+        blockItem(EMBlocks.DAWNSHALE_SLAB, null);
+
+        // Polished Dawnshale
+        simpleBlock(EMBlocks.POLISHED_DAWNSHALE, null);
+        stairsBlock(EMBlocks.POLISHED_DAWNSHALE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
+        slabBlock(EMBlocks.POLISHED_DAWNSHALE_SLAB.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
+        buttonBlock(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
+        pressurePlateBlock(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
+        wallBlock(EMBlocks.POLISHED_DAWNSHALE_WALL.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
+        blockItem(EMBlocks.POLISHED_DAWNSHALE_STAIRS, null);
+        blockItem(EMBlocks.POLISHED_DAWNSHALE_SLAB, null);
+        blockItem(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE, null);
+
         // Ancient Etherstone
         stairsBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
         slabBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_SLAB.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
@@ -88,7 +109,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         wallBlock(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get()));
         blockItem(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB, null);
-        
+
         // Cobbled Etherstone
         simpleBlock(EMBlocks.COBBLED_ETHERSTONE, null);
         stairsBlock(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), blockTexture(EMBlocks.COBBLED_ETHERSTONE.get()));
@@ -149,7 +170,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         logBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_LOG.get(), ANCIENT_WOOD);
         woodBlock((RotatedPillarBlock) EMBlocks.ANCIENT_WOOD.get(), EMBlocks.ANCIENT_LOG.get(), ANCIENT_WOOD);
         woodBlock((RotatedPillarBlock) EMBlocks.STRIPPED_ANCIENT_WOOD.get(), EMBlocks.STRIPPED_ANCIENT_LOG.get(), ANCIENT_WOOD);
-        
+
         simpleBlock(EMBlocks.ANCIENT_PLANKS, ANCIENT_WOOD);
         saplingBlock(EMBlocks.ANCIENT_SAPLING, ANCIENT_WOOD);
 
@@ -328,7 +349,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_STAIRS, null);
         blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_SLAB, null);
         blockItem(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_PRESSURE_PLATE, null);
-        
+
         stairsBlockFolder(EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), TIMEWORN_SANDSTONE);
         slabBlockFolder(EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE), TIMEWORN_SANDSTONE);
         wallBlock(EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), blockTextureFolder(EMBlocks.TIMEWORN_SANDSTONE.get(), TIMEWORN_SANDSTONE));

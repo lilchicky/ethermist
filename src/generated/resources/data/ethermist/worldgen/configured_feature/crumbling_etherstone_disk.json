@@ -1,11 +1,11 @@
 {
   "type": "minecraft:disk",
   "config": {
-    "half_height": 1,
+    "half_height": 2,
     "radius": {
       "type": "minecraft:uniform",
-      "max_inclusive": 8,
-      "min_inclusive": 6
+      "max_inclusive": 6,
+      "min_inclusive": 2
     },
     "state_provider": {
       "fallback": {
@@ -19,8 +19,8 @@
     "target": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "ethermist:sparkling_sand",
-        "ethermist:etherstone"
+        "ethermist:rich_dirt",
+        "ethermist:rich_grass_block"
       ]
     }
   }

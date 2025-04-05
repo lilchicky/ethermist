@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ethermist:polished_dawnshale"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:polished_dawnshale_stairs"
+  }
+}

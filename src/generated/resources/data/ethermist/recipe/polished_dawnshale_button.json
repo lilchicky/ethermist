@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "ethermist:polished_dawnshale"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:polished_dawnshale_button"
+  }
+}

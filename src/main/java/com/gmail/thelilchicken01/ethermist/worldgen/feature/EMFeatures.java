@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.worldgen.feature;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

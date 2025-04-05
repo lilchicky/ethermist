@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
 
@@ -168,8 +169,29 @@ public class EMGeneralPlacedFeatures {
         register(context, DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(2));
         register(context, ETHERSTONE_BOULDER_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERSTONE_BOULDER_KEY), simpleSpawn(2));
         register(context, MOLTEN_ETHERSTONE_DISK_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.MOLTEN_ETHERSTONE_DISK_KEY), simpleSpawn(2));
-        register(context, CRUMBLING_ETHERSTONE_DISK_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CRUMBLING_ETHERSTONE_DISK_KEY), ignoreWaterSpawn(1));
-        register(context, SPARKLING_SAND_DISK_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SPARKLING_SAND_DISK_KEY), ignoreWaterSpawn(1));
+        register(
+                context,
+                CRUMBLING_ETHERSTONE_DISK_PLACED_KEY,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.CRUMBLING_ETHERSTONE_DISK_KEY),
+                List.of(
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_TOP_SOLID,
+                        BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)),
+                        BiomeFilter.biome()
+                )
+        );
+        register(
+                context,
+                SPARKLING_SAND_DISK_PLACED_KEY,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.SPARKLING_SAND_DISK_KEY),
+                List.of(
+                        CountPlacement.of(3),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_TOP_SOLID,
+                        BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)),
+                        BiomeFilter.biome()
+                )
+        );
         register(context, AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.AMETHYST_SPIKE_KEY), simpleSpawn(3));
         register(context, CRAG_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CRAG_SPIKE_KEY), simpleSpawn(24));
         register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_AMETHYST_SPIKE_KEY), simpleSpawn(1));

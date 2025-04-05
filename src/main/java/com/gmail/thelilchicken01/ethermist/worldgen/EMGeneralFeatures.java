@@ -328,18 +328,29 @@ public class EMGeneralFeatures {
         register(context, CRUMBLING_ETHERSTONE_DISK_KEY, Feature.DISK, new DiskConfiguration(
                 RuleBasedBlockStateProvider.simple(EMBlocks.CRUMBLING_ETHERSTONE.get()),
                 BlockPredicate.matchesBlocks(
-                        List.of(EMBlocks.SPARKLING_SAND.get(), EMBlocks.ETHERSTONE.get())
+                        List.of(EMBlocks.RICH_DIRT.get(), EMBlocks.RICH_GRASS_BLOCK.get())
                 ),
-                UniformInt.of(6, 8),
-                1
+                UniformInt.of(2, 6),
+                2
         ));
         register(context, SPARKLING_SAND_DISK_KEY, Feature.DISK, new DiskConfiguration(
-                RuleBasedBlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get()),
-                BlockPredicate.matchesBlocks(
-                        List.of(EMBlocks.CRUMBLING_ETHERSTONE.get(), EMBlocks.ETHERSTONE.get())
+                new RuleBasedBlockStateProvider(
+                        BlockStateProvider.simple(EMBlocks.SPARKLING_SAND.get()),
+                        List.of(
+                                new RuleBasedBlockStateProvider.Rule(
+                                        BlockPredicate.matchesBlocks(
+                                                Direction.DOWN.getNormal(),
+                                                Blocks.AIR
+                                        ),
+                                        BlockStateProvider.simple(EMBlocks.SPARKLING_SANDSTONE.get())
+                                )
+                        )
                 ),
-                UniformInt.of(6, 8),
-                1
+                BlockPredicate.matchesBlocks(
+                        List.of(EMBlocks.RICH_DIRT.get(), EMBlocks.RICH_GRASS_BLOCK.get(), EMBlocks.CRUMBLING_ETHERSTONE.get())
+                ),
+                UniformInt.of(3, 7),
+                2
         ));
 
         register(context, AMETHYST_SPIKE_KEY, EMFeatures.SPIKE_FEATURE.get(), new SpikeFeature.SpikeConfiguration(

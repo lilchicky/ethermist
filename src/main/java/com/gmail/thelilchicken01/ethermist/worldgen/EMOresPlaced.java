@@ -39,6 +39,15 @@ public class EMOresPlaced {
     public static final ResourceKey<PlacedFeature> CRUMBLING_ETHERSTONE_BLOB_KEY = registerKey("crumbling_etherstone_blob_placed");
     public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_UPPER_KEY = registerKey("witchstone_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_LOWER_KEY = registerKey("witchstone_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> DAWNSHALE_BLOB_UPPER_KEY = registerKey("dawnshale_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> DAWNSHALE_BLOB_LOWER_KEY = registerKey("dawnshale_blob_lower_placed");
+
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_UPPER_KEY = registerKey("blackstone_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_LOWER_KEY = registerKey("blackstone_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> CALCITE_BLOB_UPPER_KEY = registerKey("calcite_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> CALCITE_BLOB_LOWER_KEY = registerKey("calcite_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> BASALT_BLOB_UPPER_KEY = registerKey("basalt_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> BASALT_BLOB_LOWER_KEY = registerKey("basalt_blob_lower_placed");
 
     private static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightRange) {
         return List.of(countPlacement, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
@@ -72,6 +81,10 @@ public class EMOresPlaced {
         Holder<ConfiguredFeature<?, ?>> rich_dirt_blob = holdergetter.getOrThrow(EMOreFeatures.RICH_DIRT_BLOB);
         Holder<ConfiguredFeature<?, ?>> crumbling_etherstone_blob = holdergetter.getOrThrow(EMOreFeatures.CRUMBLING_ETHERSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> witchstone_blob = holdergetter.getOrThrow(EMOreFeatures.WITCHSTONE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> dawnshale_blob = holdergetter.getOrThrow(EMOreFeatures.DAWNSHALE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> blackstone_blob = holdergetter.getOrThrow(EMOreFeatures.BLACKSTONE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> calcite_blob = holdergetter.getOrThrow(EMOreFeatures.CALCITE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> basalt_blob = holdergetter.getOrThrow(EMOreFeatures.BASALT_BLOB);
 
         register(
                 context, ETHERSTONE_ORE_COAL_UPPER, coal, commonOrePlacement(30, HeightRangePlacement.uniform(VerticalAnchor.absolute(136), VerticalAnchor.top()))
@@ -165,12 +178,14 @@ public class EMOresPlaced {
                 rich_dirt_blob,
                 commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(160)))
         );
+
         register(
                 context,
                 CRUMBLING_ETHERSTONE_BLOB_KEY,
                 crumbling_etherstone_blob,
                 commonOrePlacement(14, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top()))
         );
+
         register(
                 context,
                 WITCHSTONE_BLOB_UPPER_KEY,
@@ -181,7 +196,59 @@ public class EMOresPlaced {
                 context,
                 WITCHSTONE_BLOB_LOWER_KEY,
                 witchstone_blob,
+                commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
+        register(
+                context,
+                DAWNSHALE_BLOB_UPPER_KEY,
+                dawnshale_blob,
+                rareOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                DAWNSHALE_BLOB_LOWER_KEY,
+                dawnshale_blob,
                 commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
+        register(
+                context,
+                BLACKSTONE_BLOB_UPPER_KEY,
+                blackstone_blob,
+                rareOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                BLACKSTONE_BLOB_LOWER_KEY,
+                blackstone_blob,
+                commonOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
+        register(
+                context,
+                CALCITE_BLOB_UPPER_KEY,
+                calcite_blob,
+                rareOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                CALCITE_BLOB_LOWER_KEY,
+                calcite_blob,
+                commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
+        register(
+                context,
+                BASALT_BLOB_UPPER_KEY,
+                basalt_blob,
+                rareOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                BASALT_BLOB_LOWER_KEY,
+                basalt_blob,
+                commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
         );
 
     }

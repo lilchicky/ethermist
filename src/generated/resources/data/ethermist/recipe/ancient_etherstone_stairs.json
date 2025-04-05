@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "stairs",
   "key": {
     "#": {
       "item": "ethermist:ancient_etherstone"

@@ -38,6 +38,8 @@
       "ethermist:crumbling_etherstone_blob_placed",
       "ethermist:witchstone_blob_upper_placed",
       "ethermist:witchstone_blob_lower_placed",
+      "ethermist:dawnshale_blob_upper_placed",
+      "ethermist:dawnshale_blob_lower_placed",
       "ethermist:etherstone_ore_coal_upper",
       "ethermist:etherstone_ore_coal_lower",
       "ethermist:etherstone_ore_iron_upper",
@@ -54,7 +56,9 @@
       "ethermist:etherstone_ore_lapis",
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
-      "minecraft:underwater_magma"
+      "minecraft:underwater_magma",
+      "ethermist:crumbling_etherstone_disk_placed",
+      "ethermist:sparkling_sand_disk_placed"
     ],
     [],
     [
