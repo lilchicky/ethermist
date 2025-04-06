@@ -306,12 +306,12 @@
   "item.ethermist.witch_shot": "Witch Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
-  "attribute.ethermist.wand.cooldown": "Second Cooldown",
-  "attribute.ethermist.wand.base_damage": "Bolt Damage",
-  "attribute.ethermist.wand.projectile_speed": "Bolt Speed",
-  "attribute.ethermist.wand.knockback": "Bolt Knockback",
-  "attribute.ethermist.wand.lifespan": "Second Bolt Lifetime",
-  "attribute.ethermist.wand.wand_accuracy": "Accuracy",
+  "attribute.ethermist.wand.cooldown": "%s Second Cooldown",
+  "attribute.ethermist.wand.base_damage": "%s Bolt Damage",
+  "attribute.ethermist.wand.projectile_speed": "x%s Bolt Speed",
+  "attribute.ethermist.wand.knockback": "x%s Bolt Knockback",
+  "attribute.ethermist.wand.lifespan": "%s Second Bolt Lifetime",
+  "attribute.ethermist.wand.wand_accuracy": "%s%% Accuracy",
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
   "item.ethermist.flame_wand.desc": "Ignites targets.",
