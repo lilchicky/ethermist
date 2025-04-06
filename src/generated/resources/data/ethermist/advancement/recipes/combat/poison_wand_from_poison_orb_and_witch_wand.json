@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_poison_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:poison_orb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:poison_wand_from_poison_orb_and_witch_wand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_poison_orb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:poison_wand_from_poison_orb_and_witch_wand"
+    ]
+  }
+}

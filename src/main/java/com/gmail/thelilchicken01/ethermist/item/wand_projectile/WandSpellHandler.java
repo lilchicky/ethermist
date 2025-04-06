@@ -8,13 +8,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -49,6 +47,24 @@ public class WandSpellHandler {
             case LEVITATION -> {
                 if (target instanceof LivingEntity livingTarget) {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
+                }
+            }
+            case WITCH -> {
+                RandomSource random = player.getRandom();
+                switch (random.nextInt(3)) {
+                    case 0 -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40));
+                    case 1 -> player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100));
+                    case 2 -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60));
+                }
+                if (target instanceof LivingEntity livingTarget) {
+                    switch (random.nextInt(3)) {
+                        case 0 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60));
+                        case 1 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 80));
+                        case 2 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
+                    }
+                }
+                if (player.isInWater() && random.nextBoolean()) {
+                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100));
                 }
             }
         }

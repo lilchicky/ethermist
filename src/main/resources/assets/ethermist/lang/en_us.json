@@ -268,6 +268,7 @@
   "item.ethermist.poison_wand": "Poison Wand",
   "item.ethermist.levitation_wand": "Levitation Wand",
   "item.ethermist.wither_wand": "Wither Wand",
+  "item.ethermist.witch_wand": "Witch's Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -281,6 +282,8 @@
   "item.ethermist.levitation_orb.desc": "Filled with the essence of Shulkers.",
   "item.ethermist.wither_orb": "Wither Orb",
   "item.ethermist.wither_orb.desc": "Filled with the hate of the Wither.",
+  "item.ethermist.witch_orb": "Witch's Orb",
+  "item.ethermist.witch_orb.desc": "Filled with the potions of a Witch.",
 
   "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
   "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
@@ -299,6 +302,7 @@
   "item.ethermist.poison_shot": "Poison Shot",
   "item.ethermist.levitation_shot": "Levitation Shot",
   "item.ethermist.wither_shot": "Wither Shot",
+  "item.ethermist.witch_shot": "Witch Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "Second Cooldown",
@@ -309,12 +313,13 @@
   "attribute.ethermist.wand.wand_accuracy": "Accuracy",
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
-  "item.ethermist.flame_wand.desc": "Ignites entities hit.",
-  "item.ethermist.poison_wand.desc": "Poisons entities hit.",
-  "item.ethermist.levitation_wand.desc": "Levitates entities hit.",
-  "item.ethermist.wither_wand.desc": "Withers entities hit.",
+  "item.ethermist.flame_wand.desc": "Ignites targets.",
+  "item.ethermist.poison_wand.desc": "Poisons targets.",
+  "item.ethermist.levitation_wand.desc": "Levitates targets.",
+  "item.ethermist.wither_wand.desc": "Withers targets.",
+  "item.ethermist.witch_wand.desc": "Applies buffs to the caster, and debuffs to the target.",
 
-  "item.ethermist.wand.dyeable": "Can be dyed.",
+  "item.ethermist.wand.dyeable": "Dyeable",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",

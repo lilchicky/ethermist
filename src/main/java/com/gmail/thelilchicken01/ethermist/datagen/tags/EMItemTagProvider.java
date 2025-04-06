@@ -162,13 +162,15 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.POISON_ORB.get())
                 .add(EMItems.LEVITATION_ORB.get())
                 .add(EMItems.WITHER_ORB.get())
-                .add(EMItems.FLAME_ORB.get());
+                .add(EMItems.FLAME_ORB.get())
+                .add(EMItems.WITCH_ORB.get());
 
         addWands(EMItems.DULL_WAND.get());
         addWands(EMItems.FLAME_WAND.get());
         addWands(EMItems.POISON_WAND.get());
         addWands(EMItems.LEVITATION_WAND.get());
         addWands(EMItems.WITHER_WAND.get());
+        addWands(EMItems.WITCH_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

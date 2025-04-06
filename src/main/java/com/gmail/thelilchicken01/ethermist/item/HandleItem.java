@@ -1,8 +1,10 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -42,9 +44,37 @@ public class HandleItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
 
-        lore.add(Component.translatable("item." + Ethermist.MODID + ".wand.dyeable").withColor(0xAAAAAA));
+        // This code is added to make the "Dyeable" text multicolored, without
+        // hardcoding it. That lets it dynamically work with different
+        // language files, no matter the length of the phrase used here.
+
+        int[] colors = {
+                0xFF5555, // red
+                0xFFAA00, // orange
+                0xFFFF55, // yellow
+                0x55FF55, // green
+                0x55FFFF, // cyan
+                0x5555FF, // blue
+                0xAA00FF  // purple
+        };
+
+        MutableComponent dyeableText = Component.empty();
+        String text = I18n.get("item." + Ethermist.MODID + ".wand.dyeable");
+
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            int color = colors[i % colors.length];
+
+            dyeableText.append(Component.literal(String.valueOf(c)).withColor(color));
+        }
+
+        lore.add(dyeableText);
+        if (stack.isEnchanted()) {
+            lore.add(Component.empty());
+        }
 
         super.appendHoverText(stack, context, lore, tooltipFlag);
+
     }
 
 }

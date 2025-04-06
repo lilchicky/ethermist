@@ -653,6 +653,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.WITCH_ORB, 1)
+                .pattern(" b ")
+                .pattern("bab")
+                .pattern(" b ")
+                .define('a', EMTags.Items.ORBS)
+                .define('b', EMBlocks.WITCHSTONE.get())
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE.get()))
+                .save(output);
+
         // Ores
         oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
@@ -792,14 +802,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 EMItems.WAND_HANDLE.get(),
                 EMItems.LEVITATION_WAND.get(),
                 EMItems.WITHER_WAND.get(),
-                EMItems.POISON_WAND.get()
+                EMItems.POISON_WAND.get(),
+                EMItems.WITCH_WAND.get()
         ));
         List<OrbItem> orbs = new ArrayList<>(List.of(
                 EMItems.DULL_ORB.get(),
                 EMItems.FLAME_ORB.get(),
                 EMItems.LEVITATION_ORB.get(),
                 EMItems.WITHER_ORB.get(),
-                EMItems.POISON_ORB.get()
+                EMItems.POISON_ORB.get(),
+                EMItems.WITCH_ORB.get()
         ));
 
         for (Item wand : wands) {

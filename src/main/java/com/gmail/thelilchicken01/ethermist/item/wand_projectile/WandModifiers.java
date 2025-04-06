@@ -5,5 +5,6 @@ public enum WandModifiers {
     FLAME,
     POISON,
     WITHER,
-    LEVITATION;
+    LEVITATION,
+    WITCH;
 }

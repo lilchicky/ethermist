@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-05T15:39:49.6187185	Item Models: ethermist
+// 1.21.1	2025-04-05T18:11:47.9715414	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -77,6 +77,9 @@ c40b8528abbbc77bea37e0a00461bbc1282c1091 assets/ethermist/models/item/wand_handl
 e62e534d148d8170074e824cf54426129f594c0a assets/ethermist/models/item/wand_spell_tome.json
 6b2fd71b3ee32a7cb43b894b308492ef7dfb8b90 assets/ethermist/models/item/witchstone_wall.json
 5c3eac2fd36a05928688ec4c08b9096658aa638b assets/ethermist/models/item/witch_lavender.json
+1578930b47946590b6683ad79ffa9012ceb6795c assets/ethermist/models/item/witch_orb.json
+d255f324c7137d50f8f05c20f8b798676be1751a assets/ethermist/models/item/witch_shot.json
+8899232dc30f87f1d3a4ce7d6e0d1d0a8697a9b6 assets/ethermist/models/item/witch_wand.json
 b35eb069cd8802422e61e47524c486d7ada2b7f1 assets/ethermist/models/item/wither_orb.json
 b1be305c117766b7db918254995226700beaa517 assets/ethermist/models/item/wither_shot.json
 306f7e69648fc0218e1277aaf3501686525c95ea assets/ethermist/models/item/wither_wand.json

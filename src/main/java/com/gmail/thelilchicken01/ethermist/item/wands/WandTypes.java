@@ -112,6 +112,29 @@ public enum WandTypes {
                     Items.COAL
             ),
             SoundEvents.WITHER_SHOOT
+    ),
+
+    WITCH_WAND(
+            1.4,
+            16,
+            3,
+            5,
+            12.0f,
+            0.3f,
+            false,
+            0.25,
+            80,
+            EMItems.WITCH_SHOT.get(),
+            EMDamageTypes.WITCH_MAGIC,
+            new float[]{0.247f, 0.145f, 0.216f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.SUGAR,
+                    Items.GLASS_BOTTLE,
+                    Items.REDSTONE,
+                    Items.GLOWSTONE_DUST
+            ),
+            SoundEvents.WITCH_THROW
     );
 
     private final double durabilityMult;

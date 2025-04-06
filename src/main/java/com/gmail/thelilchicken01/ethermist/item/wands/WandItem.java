@@ -10,9 +10,11 @@ import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHa
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -315,8 +317,32 @@ public class WandItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
 
-        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA)
-                        .append(" ").append(Component.translatable("item." + Ethermist.MODID + ".wand.dyeable").withColor(0xAAAAAA)));
+        // This code is added to make the "Dyeable" text multicolored, without
+        // hardcoding it. That lets it dynamically work with different
+        // language files, no matter the length of the phrase used here.
+
+        int[] colors = {
+                0xFF5555, // red
+                0xFFAA00, // orange
+                0xFFFF55, // yellow
+                0x55FF55, // green
+                0x55FFFF, // cyan
+                0x5555FF, // blue
+                0xAA00FF  // purple
+        };
+
+        MutableComponent dyeableText = Component.empty();
+        String text = I18n.get("item." + Ethermist.MODID + ".wand.dyeable");
+
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            int color = colors[i % colors.length];
+
+            dyeableText.append(Component.literal(String.valueOf(c)).withColor(color));
+        }
+
+        lore.add(dyeableText);
+        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA));
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
         }
@@ -325,6 +351,7 @@ public class WandItem extends Item {
     }
 
     private AtomicBoolean isMeteor(ItemStack stack) {
+
         AtomicBoolean isMeteor = new AtomicBoolean(false);
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
