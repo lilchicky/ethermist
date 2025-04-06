@@ -122,6 +122,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         shotItem(EMItems.LEVITATION_SHOT);
         shotItem(EMItems.WITHER_SHOT);
         shotItem(EMItems.WITCH_SHOT);
+        shotItem(EMItems.HEAVY_SHOT);
 
         basicItem(EMItems.EXCLUSION_TOME.get());
         basicItem(EMItems.WAND_TOME.get());
