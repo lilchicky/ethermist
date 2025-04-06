@@ -106,6 +106,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.LEVITATION_WAND, EMItems.WAND_HANDLE);
         wandItem(EMItems.WITHER_WAND, EMItems.WAND_HANDLE);
         wandItem(EMItems.WITCH_WAND, EMItems.WAND_HANDLE);
+        wandItem(EMItems.HEAVY_WAND, EMItems.WAND_HANDLE);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);

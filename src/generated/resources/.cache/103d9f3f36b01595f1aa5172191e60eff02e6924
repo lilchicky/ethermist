@@ -1,6 +1,7 @@
-// 1.21.1	2025-04-05T18:19:13.181703	Registries
+// 1.21.1	2025-04-05T19:33:18.7224138	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 94952cb115ba2f76efabe058366510af4be8e688 data/ethermist/damage_type/generic_magic_damage.json
+4ed3b883c6a3d489e61ea7f1b0f495a0526829f7 data/ethermist/damage_type/heavy_magic_damage.json
 5c4f127b01617f316621cfa550dad5828722d621 data/ethermist/damage_type/icicle.json
 79da908c5b020ecff4181a6744ac1d6636f53ab7 data/ethermist/damage_type/levitation_magic_damage.json
 d0180d1d5e2b8f32501256b8c0ba397238eaa830 data/ethermist/damage_type/poison_magic_damage.json

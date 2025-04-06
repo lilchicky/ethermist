@@ -269,6 +269,7 @@
   "item.ethermist.levitation_wand": "Levitation Wand",
   "item.ethermist.wither_wand": "Wither Wand",
   "item.ethermist.witch_wand": "Witch's Wand",
+  "item.ethermist.heavy_wand": "Heavy Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -318,6 +319,7 @@
   "item.ethermist.levitation_wand.desc": "Levitates targets.",
   "item.ethermist.wither_wand.desc": "Withers targets.",
   "item.ethermist.witch_wand.desc": "Applies buffs to the caster, and debuffs to the target.",
+  "item.ethermist.heavy_wand.desc": "Wand also functions as a Mace.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 

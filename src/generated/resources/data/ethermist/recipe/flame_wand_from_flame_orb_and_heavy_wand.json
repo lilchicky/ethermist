@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:flame_orb"
+  },
+  "base": {
+    "item": "ethermist:heavy_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:flame_wand"
+  },
+  "template": []
+}

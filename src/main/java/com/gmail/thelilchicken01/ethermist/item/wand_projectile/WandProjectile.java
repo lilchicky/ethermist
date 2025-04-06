@@ -139,6 +139,7 @@ public class WandProjectile extends Fireball {
     public void setDamage(double damage) {
         this.damage = damage;
     }
+
     public void setKnockbackStrength(double knockbackStrength) {
         this.knockbackStrength = knockbackStrength;
     }

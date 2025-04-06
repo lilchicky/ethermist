@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.item;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.MaceWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTypes;
 import net.minecraft.world.item.BookItem;
@@ -21,6 +22,7 @@ public class EMItems {
     public static final DeferredItem<WandShotItem> LEVITATION_SHOT = ITEMS.register("levitation_shot", () -> new WandShotItem(WandModifiers.LEVITATION));
     public static final DeferredItem<WandShotItem> WITHER_SHOT = ITEMS.register("wither_shot", () -> new WandShotItem(WandModifiers.WITHER));
     public static final DeferredItem<WandShotItem> WITCH_SHOT = ITEMS.register("witch_shot", () -> new WandShotItem(WandModifiers.WITCH));
+    public static final DeferredItem<WandShotItem> HEAVY_SHOT = ITEMS.register("heavy_shot", () -> new WandShotItem(WandModifiers.HEAVY));
 
     public static final DeferredItem<WandShotItem> METEOR_SHOT = ITEMS.register("meteor_shot", () -> new WandShotItem());
 
@@ -30,6 +32,7 @@ public class EMItems {
     public static final DeferredItem<WandItem> LEVITATION_WAND = ITEMS.register("levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND));
     public static final DeferredItem<WandItem> WITHER_WAND = ITEMS.register("wither_wand", () -> new WandItem(WandTypes.WITHER_WAND));
     public static final DeferredItem<WandItem> WITCH_WAND = ITEMS.register("witch_wand", () -> new WandItem(WandTypes.WITCH_WAND));
+    public static final DeferredItem<WandItem> HEAVY_WAND = ITEMS.register("heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND));
 
     public static final DeferredItem<BookItem> EXCLUSION_TOME = ITEMS.register("exclusion_spell_tome", TomeItem::new);
     public static final DeferredItem<BookItem> WAND_TOME = ITEMS.register("wand_spell_tome", TomeItem::new);

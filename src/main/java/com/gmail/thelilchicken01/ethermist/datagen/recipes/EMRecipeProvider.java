@@ -5,6 +5,7 @@ import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.OrbItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -803,7 +804,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 EMItems.LEVITATION_WAND.get(),
                 EMItems.WITHER_WAND.get(),
                 EMItems.POISON_WAND.get(),
-                EMItems.WITCH_WAND.get()
+                EMItems.WITCH_WAND.get(),
+                EMItems.HEAVY_WAND.get()
         ));
         List<OrbItem> orbs = new ArrayList<>(List.of(
                 EMItems.DULL_ORB.get(),
@@ -828,6 +830,23 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                             .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
                                     getItemName(result) + "_from_" + getItemName(orb) + "_and_" + getItemName(wand)));
                 }
+            }
+        }
+
+        for (Item wand : wands) {
+            WandItem heavyWand = EMItems.HEAVY_WAND.get();
+            if (heavyWand != wand) {
+                SmithingTransformRecipeBuilder.smithing(
+                                Ingredient.EMPTY,
+                                Ingredient.of(wand),
+                                Ingredient.of(Items.HEAVY_CORE),
+                                RecipeCategory.COMBAT,
+                                heavyWand
+                        ).unlocks("has_" + getItemName(Items.HEAVY_CORE), has(Items.HEAVY_CORE))
+                        .save(output, ResourceLocation.fromNamespaceAndPath(
+                                Ethermist.MODID,
+                                getItemName(heavyWand) + "_from_" + getItemName(wand) + "_and_" + getItemName(Items.HEAVY_CORE)
+                        ));
             }
         }
 

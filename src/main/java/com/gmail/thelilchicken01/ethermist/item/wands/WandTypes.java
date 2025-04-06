@@ -135,6 +135,26 @@ public enum WandTypes {
                     Items.GLOWSTONE_DUST
             ),
             SoundEvents.WITCH_THROW
+    ),
+
+    HEAVY_WAND(
+            3.0,
+            15,
+            1,
+            4,
+            15.0f,
+            0.15f,
+            false,
+            0.55,
+            100,
+            EMItems.HEAVY_SHOT.get(),
+            EMDamageTypes.HEAVY_MAGIC,
+            new float[]{0.5f, 0.5f, 0.5f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.BREEZE_ROD
+            ),
+            SoundEvents.MACE_SMASH_AIR
     );
 
     private final double durabilityMult;

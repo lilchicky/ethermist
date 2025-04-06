@@ -67,7 +67,7 @@ public class WandItem extends Item {
     public WandItem(WandTypes tier) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability((int)(128 * tier.getDurabilityMult())));
+                .durability((int) (128 * tier.getDurabilityMult())));
         this.SHOOT_SOUND = tier.getShootSound();
         this.TIER = tier;
     }
@@ -77,7 +77,7 @@ public class WandItem extends Item {
 
         ItemStack wand = player.getItemInHand(usedHand);
 
-        if(!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get()) {
+        if (!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get()) {
 
             WandProjectileHandler.processShot(level, player, wand, this, null, null);
 
@@ -126,8 +126,7 @@ public class WandItem extends Item {
             float g = (color >> 8 & 255) / 255.0f;
             float b = (color & 255) / 255.0f;
             return new float[]{r, g, b};
-        }
-        else {
+        } else {
             return TIER.getTrailColor();
         }
     }
@@ -161,7 +160,7 @@ public class WandItem extends Item {
                 newDamage.set(AncientPowerEnchant.modifyDamage(enchantLevel, newDamage.get()));
             }
             if (enchantHolder.is(EMEnchantments.ARCANE_VELOCITY.location())) {
-                newPSpeed.set(ArcaneVelocityEnchant.modifyPSpeed(enchantLevel, (float)newPSpeed.get()));
+                newPSpeed.set(ArcaneVelocityEnchant.modifyPSpeed(enchantLevel, (float) newPSpeed.get()));
             }
             if (enchantHolder.is(EMEnchantments.RUNIC_FORCE.location())) {
                 newKnockback.set(RunicForceEnchant.modifyKnockback(enchantLevel, newKnockback.get()));
@@ -224,11 +223,9 @@ public class WandItem extends Item {
         if (isThunderstrike.get()) {
             if (isSprayLocal.get()) {
                 newCD.set(40);
-            }
-            else if (isAugmentFocus.get()) {
+            } else if (isAugmentFocus.get()) {
                 newCD.set(newCD.get() + 40);
-            }
-            else {
+            } else {
                 newCD.set(newCD.get() * 3);
             }
         }
@@ -286,7 +283,7 @@ public class WandItem extends Item {
                 EMAttributes.ACCURACY,
                 new AttributeModifier(
                         ACCURACY_ID,
-                        1 - (newAccuracy.get()/100),
+                        1 - (newAccuracy.get() / 100),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
                 EquipmentSlotGroup.HAND
@@ -309,6 +306,18 @@ public class WandItem extends Item {
                             AttributeModifier.Operation.ADD_VALUE
                     ),
                     EquipmentSlotGroup.HAND
+            );
+        }
+        if (stack.getItem() instanceof MaceWandItem) {
+            builder.add(
+                    Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 5.0, AttributeModifier.Operation.ADD_VALUE),
+                    EquipmentSlotGroup.MAINHAND
+            );
+            builder.add(
+                    Attributes.ATTACK_SPEED,
+                    new AttributeModifier(BASE_ATTACK_SPEED_ID, -3.4F, AttributeModifier.Operation.ADD_VALUE),
+                    EquipmentSlotGroup.MAINHAND
             );
         }
         return builder.build();
@@ -388,8 +397,7 @@ public class WandItem extends Item {
 
                 return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
             }
-        }
-        else if (context.getLevel().getBlockState(context.getClickedPos()).is(Blocks.WATER_CAULDRON)) {
+        } else if (context.getLevel().getBlockState(context.getClickedPos()).is(Blocks.WATER_CAULDRON)) {
             BlockState cauldron = context.getLevel().getBlockState(context.getClickedPos());
             int fillLevel = cauldron.getValue(LayeredCauldronBlock.LEVEL);
             if (fillLevel > 0) {
@@ -400,8 +408,7 @@ public class WandItem extends Item {
                     return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
                 }
             }
-        }
-        else {
+        } else {
             Player player = context.getPlayer();
             Level level = context.getLevel();
 
@@ -410,10 +417,9 @@ public class WandItem extends Item {
             if (!isMeteor(wand).get()) {
                 this.use(level, player, context.getHand());
                 return InteractionResult.sidedSuccess(level.isClientSide());
-            }
-            else {
+            } else {
 
-                if(!player.getCooldowns().isOnCooldown(this)) {
+                if (!player.getCooldowns().isOnCooldown(this)) {
 
                     WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
 
@@ -447,7 +453,7 @@ public class WandItem extends Item {
 
             Level level = player.level();
 
-            if(!player.getCooldowns().isOnCooldown(this)) {
+            if (!player.getCooldowns().isOnCooldown(this)) {
 
                 WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget);
 
@@ -486,4 +492,10 @@ public class WandItem extends Item {
     public boolean isFoil(ItemStack stack) {
         return !EMConfig.hideGlint && super.isFoil(stack);
     }
+
+    @Override
+    public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
+        return !player.isCreative();
+    }
+
 }

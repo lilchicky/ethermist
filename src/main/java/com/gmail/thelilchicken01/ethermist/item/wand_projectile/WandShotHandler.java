@@ -1,5 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -26,7 +28,7 @@ public class WandShotHandler {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
         float yaw = (float) Math.toRadians(player.getYRot());
         float pitch = (float) Math.toRadians(player.getXRot());
@@ -46,7 +48,7 @@ public class WandShotHandler {
                 shot.getZ() + zOffset
         );
 
-        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
@@ -62,9 +64,9 @@ public class WandShotHandler {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         for (int x = 0; x < iterations; x++) {
 
@@ -77,7 +79,7 @@ public class WandShotHandler {
                     player.getYRot() + (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
             splitShot2.shootFromRotation(
                     player,
@@ -85,10 +87,10 @@ public class WandShotHandler {
                     player.getYRot() - (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-            level.addFreshEntity(setShotInfo(splitShot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
-            level.addFreshEntity(setShotInfo(splitShot2, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+            level.addFreshEntity(setShotInfo(player, splitShot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+            level.addFreshEntity(setShotInfo(player, splitShot2, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         }
 
@@ -127,7 +129,7 @@ public class WandShotHandler {
 
             shot.setPos(shot.getX(), player.getEyeHeight() * 0.8 + player.getY(), shot.getZ());
 
-            level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
         }
 
@@ -148,12 +150,12 @@ public class WandShotHandler {
                 targetVector.y + 0.1,
                 targetVector.z,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
         shot.setPos(shot.getX(),
                 shot.getY() + 4.0,
                 shot.getZ());
 
-        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
@@ -172,23 +174,23 @@ public class WandShotHandler {
                 targetVector.y + 0.1,
                 targetVector.z,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(wandItem, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
         shot.setPos(shot.getX(),
                 shot.getY() + 4.0,
                 shot.getZ());
 
-        level.addFreshEntity(setShotInfo(shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
+        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, spellType, spellLevel));
 
     }
 
-    private static WandProjectile setShotInfo(WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
+    private static WandProjectile setShotInfo(Player player, WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
                                     List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
-        shot.setDamage((int)WandUtil.getAttribute(wandItem, WandItem.BASE_WAND_DAMAGE_ID));
+        shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime(lifespan * 20);
         shot.setCanIgnite(wand.getTier().getCanIgnite());
-        shot.setKnockbackStrength(WandUtil.getAttribute(wandItem, WandItem.WAND_KNOCKBACK_ID));
+        shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setSpellType(spellType);

@@ -22,6 +22,7 @@ public class EMDamageTypesProvider {
         context.register(EMDamageTypes.WITHER_MAGIC, new DamageType("wither_magic", 1.0f));
         context.register(EMDamageTypes.LEVITATION_MAGIC, new DamageType("levitation_magic", 1.0f));
         context.register(EMDamageTypes.WITCH_MAGIC, new DamageType("witch_magic", 1.0f));
+        context.register(EMDamageTypes.HEAVY_MAGIC, new DamageType("heavy_magic", 1.0f));
 
         context.register(EMDamageTypes.ICICLE, new DamageType("icicle", 1.0f));
     }

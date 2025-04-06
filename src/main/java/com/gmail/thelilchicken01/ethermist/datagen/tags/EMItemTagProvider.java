@@ -153,6 +153,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .addTag(EMTags.Items.WANDS)
                 .add(EMItems.MAIN_SPELL_TOME.get());
 
+        tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.HEAVY_WAND.get());
+
         /*
         ---------- Wand Stuff ----------
          */
@@ -171,6 +173,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.LEVITATION_WAND.get());
         addWands(EMItems.WITHER_WAND.get());
         addWands(EMItems.WITCH_WAND.get());
+        addWands(EMItems.HEAVY_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

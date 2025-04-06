@@ -349,6 +349,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.FLAME_WAND.get());
                 output.accept(EMItems.WITHER_WAND.get());
                 output.accept(EMItems.LEVITATION_WAND.get());
+                output.accept(EMItems.HEAVY_WAND.get());
 
                 // Misc
                 output.accept(EMItems.WAND_TOME.get());

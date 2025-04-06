@@ -1,10 +1,15 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.LeashFenceKnotEntity;
@@ -82,15 +87,9 @@ public class WandUtil {
         return result.getType() == HitResult.Type.MISS;
     }
 
-    public static double getAttribute(ItemStack wandItem, ResourceLocation attributeID) {
-        List<ItemAttributeModifiers.Entry> modifiers = wandItem.getAttributeModifiers().modifiers();
-
-        for (ItemAttributeModifiers.Entry entries : modifiers) {
-            if (entries.modifier().is(attributeID)) {
-                return entries.modifier().amount();
-            }
-        }
-        return 0;
+    public static double getAttribute(LivingEntity entity, Holder<Attribute> attribute, ResourceLocation attributeID) {
+        AttributeMap attributes = entity.getAttributes();
+        return attributes.getModifierValue(attribute, attributeID);
     }
 
 }

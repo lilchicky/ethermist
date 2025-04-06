@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
@@ -35,8 +36,8 @@ public class WandProjectileHandler {
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
                                    @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
-        int newLifespan = (int)WandUtil.getAttribute(thisWand, WandItem.LIFESPAN_ID);
-        float pSpeed = (float)WandUtil.getAttribute(thisWand, WandItem.PROJECTILE_SPEED_ID);
+        int newLifespan = (int)WandUtil.getAttribute(player, EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID);
+        float pSpeed = (float)WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID);
 
         AtomicBoolean augmentedShot = new AtomicBoolean(false);
         AtomicBoolean isHoming = new AtomicBoolean(false);
@@ -184,8 +185,8 @@ public class WandProjectileHandler {
             if (!level.isClientSide()) {
                 RandomSource random = RandomSource.create();
 
-                double power = WandUtil.getAttribute(thisWand, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
-                double inaccuracy = 1 - WandUtil.getAttribute(thisWand, WandItem.ACCURACY_ID);
+                double power = WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
+                double inaccuracy = 1 - WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID);
 
                 Vec3 launch = player.getViewVector(1.0f);
 
@@ -204,7 +205,7 @@ public class WandProjectileHandler {
             }
         }
 
-        player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(thisWand, WandItem.COOLDOWN_ID) * 20));
+        player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
 
     }
 

@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-05T18:11:47.9715414	Item Models: ethermist
+// 1.21.1	2025-04-05T19:19:23.1034014	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -42,6 +42,7 @@ c5b0e5aeb354e8a57d9892746cdce90d39830713 assets/ethermist/models/item/glimmerbud
 ae95cb8a20413cfa573136215c6ea9c4089f7b28 assets/ethermist/models/item/glimmering_ancient_fence.json
 b85dc4a6627454a73abbd994673011f699725a3f assets/ethermist/models/item/glimmering_ancient_sapling.json
 36fc0040419510e7575ab89937f200509d0a8542 assets/ethermist/models/item/green_amberwood_sapling.json
+7599a3f9a3839f77064de88b9c4d2bbd413c0883 assets/ethermist/models/item/heavy_wand.json
 322e5d702c0b30b5c3faad200844b9f17063a211 assets/ethermist/models/item/levitation_orb.json
 84e72eb7955b24aa3adb64ba3bc3b77282511199 assets/ethermist/models/item/levitation_shot.json
 2fc36003cf8fe582990f894d774d6bcb28e83565 assets/ethermist/models/item/levitation_wand.json
