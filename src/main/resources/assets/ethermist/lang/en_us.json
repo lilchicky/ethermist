@@ -261,6 +261,8 @@
   "block.ethermist.ancient_etherstone_redstone_ore": "Ancient Etherstone Redstone Ore",
   "block.ethermist.ancient_etherstone_lapis_ore": "Ancient Etherstone Lapis Ore",
 
+  "block.ethermist.icicle": "Icicle",
+
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wand_handle": "Wand Handle",
   "item.ethermist.dull_wand": "Dull Wand",
