@@ -310,8 +310,8 @@
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "%s Second Cooldown",
   "attribute.ethermist.wand.base_damage": "%s Bolt Damage",
-  "attribute.ethermist.wand.projectile_speed": "x%s Bolt Speed",
-  "attribute.ethermist.wand.knockback": "x%s Bolt Knockback",
+  "attribute.ethermist.wand.projectile_speed": "%s%% Bolt Speed",
+  "attribute.ethermist.wand.knockback": "%s%% Bolt Knockback",
   "attribute.ethermist.wand.lifespan": "%s Second Bolt Lifetime",
   "attribute.ethermist.wand.wand_accuracy": "%s%% Accuracy",
 

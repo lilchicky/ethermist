@@ -49,9 +49,17 @@ public class AttributeTooltipMixin {
                     || attribute.equals(EMAttributes.PROJECTILE_SPEED)
                     || attribute.equals(EMAttributes.WAND_KNOCKBACK)) {
 
-                double percent = attribute.equals(EMAttributes.ACCURACY) ? modifier.amount() * 100 : modifier.amount();
+                double val = modifier.amount();
 
-                Component formatted = formatTooltip(attribute, modifier, ctx, percent);
+                if (attribute.equals(EMAttributes.ACCURACY)
+                        || attribute.equals(EMAttributes.WAND_KNOCKBACK)
+                        || attribute.equals(EMAttributes.PROJECTILE_SPEED)) {
+
+                    val = modifier.amount() * 100;
+
+                }
+
+                Component formatted = formatTooltip(attribute, modifier, ctx, val);
                 tooltip.accept(formatted);
                 modifiedAttributes.add(attribute);
 
