@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "ethermist:poison_orb_to_jungle_temple",
+    "ethermist:dull_orb_to_simple_dungeon",
+    "ethermist:dull_orb_to_stronghold_corridor",
+    "ethermist:levitation_orb_to_end_city_treasure",
+    "ethermist:dull_orb_to_stronghold_crossing",
+    "ethermist:flame_orb_to_nether_bridge",
+    "ethermist:witch_orb_to_witch",
+    "ethermist:flame_orb_to_bastion_other",
+    "ethermist:witch_orb_to_pillager_outpost",
+    "ethermist:poison_orb_to_mineshaft",
+    "ethermist:poison_orb_to_cave_spider"
+  ],
+  "replace": false
+}
