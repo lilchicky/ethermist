@@ -13,7 +13,7 @@ public class OrbItem extends Item {
     private final Item WAND;
 
     public OrbItem(Item wand) {
-        super(new Item.Properties().stacksTo(1));
+        super(new Item.Properties().stacksTo(16));
         this.WAND = wand;
     }
 
