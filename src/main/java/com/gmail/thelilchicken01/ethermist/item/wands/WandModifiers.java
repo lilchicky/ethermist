@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
+package com.gmail.thelilchicken01.ethermist.item.wands;
 
 public enum WandModifiers {
     GENERIC,

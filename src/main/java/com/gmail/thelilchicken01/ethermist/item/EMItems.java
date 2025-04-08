@@ -1,7 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandModifiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.MaceWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
