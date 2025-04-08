@@ -51,10 +51,10 @@ public class AttributeTooltipMixin {
 
                 double val = modifier.amount();
 
-                if (attribute.equals(EMAttributes.ACCURACY) || attribute.equals(EMAttributes.PROJECTILE_SPEED)) {
+                if (attribute.equals(EMAttributes.ACCURACY)) {
                     val = modifier.amount() * 100;
                 }
-                if (attribute.equals(EMAttributes.WAND_KNOCKBACK)) {
+                if (attribute.equals(EMAttributes.WAND_KNOCKBACK) || attribute.equals(EMAttributes.PROJECTILE_SPEED)) {
                     val = (modifier.amount() + 0.75) * 100;
                 }
 
