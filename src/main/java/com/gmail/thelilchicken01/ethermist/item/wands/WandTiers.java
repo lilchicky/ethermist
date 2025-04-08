@@ -2,11 +2,31 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 
 public enum WandTiers {
 
-    WOOD(1, 1, 0),
-    IRON(2.1, 1, 1),
-    GOLDEN(0.7, 2, 0.5),
-    DIAMOND(3.4, 1.1, 2),
-    NETHERITE(4.4, 1, 3);
+    WOOD(
+            1,
+            1,
+            0
+    ),
+    IRON(
+            2.1,
+            1,
+            1
+    ),
+    GOLDEN(
+            0.4,
+            2,
+            4
+    ),
+    DIAMOND(
+            3.4,
+            1.1,
+            2
+    ),
+    NETHERITE(
+            4.4,
+            1,
+            3
+    );
 
     private final double durabilityMult;
     private final double enchantabilityMult;
