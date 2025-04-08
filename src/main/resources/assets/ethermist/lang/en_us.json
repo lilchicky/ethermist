@@ -272,6 +272,7 @@
   "item.ethermist.wither_wand": "Wither Wand",
   "item.ethermist.witch_wand": "Witch's Wand",
   "item.ethermist.heavy_wand": "Heavy Wand",
+  "item.ethermist.frozen_wand": "Frozen Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -287,6 +288,8 @@
   "item.ethermist.wither_orb.desc": "Filled with the hate of the Wither.",
   "item.ethermist.witch_orb": "Witch's Orb",
   "item.ethermist.witch_orb.desc": "Filled with the potions of a Witch.",
+  "item.ethermist.frozen_orb": "Frozen Orb",
+  "item.ethermist.frozen_orb.desc": "Filled with the winds of the coldest biomes.",
 
   "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
   "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
@@ -306,6 +309,7 @@
   "item.ethermist.levitation_shot": "Levitation Shot",
   "item.ethermist.wither_shot": "Wither Shot",
   "item.ethermist.witch_shot": "Witch Shot",
+  "item.ethermist.frozen_shot": "Frozen Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "%s Second Cooldown",
@@ -322,6 +326,7 @@
   "item.ethermist.wither_wand.desc": "Withers targets.",
   "item.ethermist.witch_wand.desc": "Applies buffs to the caster, and debuffs to the target.",
   "item.ethermist.heavy_wand.desc": "Wand also functions as a Mace.",
+  "item.ethermist.frozen_wand.desc": "Freezes targets.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 

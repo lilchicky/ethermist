@@ -28,6 +28,9 @@ public class EMDamageTypes {
     public static final ResourceKey<DamageType> HEAVY_MAGIC = ResourceKey.create(
             Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "heavy_magic_damage")
     );
+    public static final ResourceKey<DamageType> FROZEN_MAGIC = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_magic_damage")
+    );
 
     public static final ResourceKey<DamageType> ICICLE = ResourceKey.create(
             Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "icicle")

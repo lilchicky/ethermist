@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frozen_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:frozen_orb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:frozen_wand_from_frozen_orb_and_wither_wand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frozen_orb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:frozen_wand_from_frozen_orb_and_wither_wand"
+    ]
+  }
+}

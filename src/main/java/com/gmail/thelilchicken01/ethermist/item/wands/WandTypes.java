@@ -1,15 +1,20 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.function.Supplier;
 
@@ -155,6 +160,27 @@ public enum WandTypes {
                     Items.BREEZE_ROD
             ),
             SoundEvents.MACE_SMASH_AIR
+    ),
+
+    FROZEN_WAND(
+            1.3,
+            15,
+            1,
+            6,
+            9.0f,
+            0.35f,
+            false,
+            0.25,
+            90,
+            EMItems.FROZEN_SHOT.get(),
+            EMDamageTypes.FROZEN_MAGIC,
+            new float[]{0.678f, 0.847f, 0.902f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.ICE,
+                    EMBlocks.ICICLE
+            ),
+            SoundEvents.GLASS_BREAK
     );
 
     private final double durabilityMult;

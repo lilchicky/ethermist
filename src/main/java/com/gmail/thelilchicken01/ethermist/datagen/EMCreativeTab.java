@@ -330,6 +330,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.DULL_ORB.get());
                 output.accept(EMItems.POISON_ORB.get());
                 output.accept(EMItems.WITCH_ORB.get());
+                output.accept(EMItems.FROZEN_ORB.get());
                 output.accept(EMItems.FLAME_ORB.get());
                 output.accept(EMItems.WITHER_ORB.get());
                 output.accept(EMItems.LEVITATION_ORB.get());
@@ -346,6 +347,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.DULL_WAND.get());
                 output.accept(EMItems.POISON_WAND.get());
                 output.accept(EMItems.WITCH_WAND.get());
+                output.accept(EMItems.FROZEN_WAND.get());
                 output.accept(EMItems.FLAME_WAND.get());
                 output.accept(EMItems.WITHER_WAND.get());
                 output.accept(EMItems.LEVITATION_WAND.get());

@@ -67,6 +67,11 @@ public class WandSpellHandler {
                     player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100));
                 }
             }
+            case FROZEN -> {
+                if (target instanceof LivingEntity livingTarget) {
+                    livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + 60);
+                }
+            }
         }
 
     }
