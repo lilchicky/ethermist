@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:levitation_orb"
+  },
+  "base": {
+    "item": "ethermist:glass_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:levitation_wand"
+  },
+  "template": []
+}

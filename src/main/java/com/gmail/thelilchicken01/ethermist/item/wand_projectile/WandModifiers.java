@@ -8,5 +8,6 @@ public enum WandModifiers {
     LEVITATION,
     WITCH,
     HEAVY,
-    FROZEN
+    FROZEN,
+    GLASS
 }

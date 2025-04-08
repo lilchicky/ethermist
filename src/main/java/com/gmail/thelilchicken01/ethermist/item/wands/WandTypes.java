@@ -181,6 +181,26 @@ public enum WandTypes {
                     EMBlocks.ICICLE
             ),
             SoundEvents.GLASS_BREAK
+    ),
+
+    GLASS_WAND(
+            0.03,
+            20,
+            1,
+            16,
+            5.0f,
+            0.05f,
+            false,
+            -0.25,
+            80,
+            EMItems.GLASS_SHOT.get(),
+            EMDamageTypes.GLASS_MAGIC,
+            new float[]{0.482f, 0.682f, 0.718f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD,
+                    Items.GLASS
+            ),
+            SoundEvents.EVOKER_CAST_SPELL
     );
 
     private final double durabilityMult;

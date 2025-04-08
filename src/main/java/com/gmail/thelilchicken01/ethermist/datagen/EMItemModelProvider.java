@@ -108,6 +108,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.WITCH_WAND, EMItems.WAND_HANDLE);
         wandItem(EMItems.HEAVY_WAND, EMItems.WAND_HANDLE);
         wandItem(EMItems.FROZEN_WAND, EMItems.WAND_HANDLE);
+        wandItem(EMItems.GLASS_WAND, EMItems.WAND_HANDLE);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
@@ -116,6 +117,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         orbItem(EMItems.WITHER_ORB);
         orbItem(EMItems.WITCH_ORB);
         orbItem(EMItems.FROZEN_ORB);
+        orbItem(EMItems.GLASS_ORB);
 
         shotItem(EMItems.GENERIC_SHOT);
         shotItem(EMItems.FLAME_SHOT);
@@ -126,6 +128,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         shotItem(EMItems.WITCH_SHOT);
         shotItem(EMItems.HEAVY_SHOT);
         shotItem(EMItems.FROZEN_SHOT);
+        shotItem(EMItems.GLASS_SHOT);
 
         basicItem(EMItems.EXCLUSION_TOME.get());
         basicItem(EMItems.WAND_TOME.get());

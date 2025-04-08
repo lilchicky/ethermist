@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-07T20:24:00.4439026	Item Models: ethermist
+// 1.21.1	2025-04-07T20:56:41.2942965	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -39,6 +39,9 @@ aab21af383366e1d39dadf5bcd59b86f4525235c assets/ethermist/models/item/frostpine_
 c2636d33aa610f21117ac8f0f878e6b786a6d3c7 assets/ethermist/models/item/frozen_shot.json
 53373bca207b5842a90d33d53f094c8549eda5ea assets/ethermist/models/item/frozen_wand.json
 59ef62b0f9a7a904e21fba704a34003e3f1328ee assets/ethermist/models/item/generic_shot.json
+7341e1a5301281cdf8788d6aa9e1d17f231e1074 assets/ethermist/models/item/glass_orb.json
+e99a86f3ba5343e91cd42804301872b295d5f92a assets/ethermist/models/item/glass_shot.json
+e4de2bf134cb8eefbe7ff0a69af5dafa81b32a97 assets/ethermist/models/item/glass_wand.json
 c5b0e5aeb354e8a57d9892746cdce90d39830713 assets/ethermist/models/item/glimmerbud.json
 6322a7235cb7849b15de41493140c20f271dfa4f assets/ethermist/models/item/glimmering_ancient_button.json
 930e66b3e059a2c7528882de0d4b6f1ed451f7ae assets/ethermist/models/item/glimmering_ancient_door.json

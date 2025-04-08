@@ -273,6 +273,7 @@
   "item.ethermist.witch_wand": "Witch's Wand",
   "item.ethermist.heavy_wand": "Heavy Wand",
   "item.ethermist.frozen_wand": "Frozen Wand",
+  "item.ethermist.glass_wand": "Glass Wand",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
@@ -290,6 +291,8 @@
   "item.ethermist.witch_orb.desc": "Filled with the potions of a Witch.",
   "item.ethermist.frozen_orb": "Frozen Orb",
   "item.ethermist.frozen_orb.desc": "Filled with the winds of the coldest biomes.",
+  "item.ethermist.glass_orb": "Glass Orb",
+  "item.ethermist.glass_orb.desc": "Seems delicate...",
 
   "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
   "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
@@ -310,6 +313,7 @@
   "item.ethermist.wither_shot": "Wither Shot",
   "item.ethermist.witch_shot": "Witch Shot",
   "item.ethermist.frozen_shot": "Frozen Shot",
+  "item.ethermist.glass_shot": "Glass Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "%s Second Cooldown",
@@ -327,6 +331,7 @@
   "item.ethermist.witch_wand.desc": "Applies buffs to the caster, and debuffs to the target.",
   "item.ethermist.heavy_wand.desc": "Wand also functions as a Mace.",
   "item.ethermist.frozen_wand.desc": "Freezes targets.",
+  "item.ethermist.glass_wand.desc": "Sharp glass does extra damage, but is quite delicate.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 

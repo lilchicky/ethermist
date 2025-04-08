@@ -654,26 +654,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.WITCH_ORB, 1)
-                .pattern(" b ")
-                .pattern("bab")
-                .pattern(" b ")
-                .define('a', EMTags.Items.ORBS)
-                .define('b', EMBlocks.WITCHSTONE.get())
-                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
-                .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE.get()))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.FROZEN_ORB, 1)
-                .pattern(" b ")
-                .pattern("bab")
-                .pattern(" b ")
-                .define('a', EMTags.Items.ORBS)
-                .define('b', EMBlocks.ICICLE.get())
-                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
-                .unlockedBy("has_icicle", has(EMBlocks.ICICLE.get()))
-                .save(output);
-
         // Ores
         oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
@@ -798,6 +778,38 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('b', EMTags.Items.ORBS)
                 .unlockedBy("has_orb", has(EMTags.Items.ORBS)).save(output);
 
+        // Orbs
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.WITCH_ORB, 1)
+                .pattern(" b ")
+                .pattern("bab")
+                .pattern(" b ")
+                .define('a', EMTags.Items.ORBS)
+                .define('b', EMBlocks.WITCHSTONE.get())
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE.get()))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.FROZEN_ORB, 1)
+                .pattern(" b ")
+                .pattern("bab")
+                .pattern(" b ")
+                .define('a', EMTags.Items.ORBS)
+                .define('b', EMBlocks.ICICLE.get())
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .unlockedBy("has_icicle", has(EMBlocks.ICICLE.get()))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.GLASS_ORB, 1)
+                .pattern(" b ")
+                .pattern("bab")
+                .pattern(" b ")
+                .define('a', EMTags.Items.ORBS)
+                .define('b', Blocks.GLASS)
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .unlockedBy("has_glass", has(Blocks.GLASS))
+                .save(output);
+
         // Wands
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_HANDLE.get(), 1)
                 .pattern(" ba")
@@ -816,7 +828,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 EMItems.POISON_WAND.get(),
                 EMItems.WITCH_WAND.get(),
                 EMItems.HEAVY_WAND.get(),
-                EMItems.FROZEN_WAND.get()
+                EMItems.FROZEN_WAND.get(),
+                EMItems.GLASS_WAND.get()
         ));
         List<OrbItem> orbs = new ArrayList<>(List.of(
                 EMItems.DULL_ORB.get(),
@@ -825,7 +838,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 EMItems.WITHER_ORB.get(),
                 EMItems.POISON_ORB.get(),
                 EMItems.WITCH_ORB.get(),
-                EMItems.FROZEN_ORB.get()
+                EMItems.FROZEN_ORB.get(),
+                EMItems.GLASS_ORB.get()
         ));
 
         for (Item wand : wands) {

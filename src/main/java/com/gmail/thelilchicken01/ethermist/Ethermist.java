@@ -160,7 +160,8 @@ public class Ethermist {
                     EMItems.LEVITATION_WAND.get(),
                     EMItems.WITCH_WAND.get(),
                     EMItems.HEAVY_WAND.get(),
-                    EMItems.FROZEN_WAND.get()
+                    EMItems.FROZEN_WAND.get(),
+                    EMItems.GLASS_WAND.get()
             );
         }
     }
