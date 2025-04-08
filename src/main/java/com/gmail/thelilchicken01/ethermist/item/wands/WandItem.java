@@ -49,12 +49,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
+import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.getBaseWandName;
+
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class WandItem extends Item {
 
     public final SoundEvent SHOOT_SOUND;
-    public final WandTypes TIER;
+    public final WandTypes TYPE;
+    public final WandTiers TIER;
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
@@ -64,11 +67,12 @@ public class WandItem extends Item {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    public WandItem(WandTypes tier) {
+    public WandItem(WandTypes type, WandTiers tier) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability((int) (128 * tier.getDurabilityMult())));
-        this.SHOOT_SOUND = tier.getShootSound();
+                .durability((int) ((128 * type.getDurabilityMult()) * tier.getTierDurabilityMult())));
+        this.SHOOT_SOUND = type.getShootSound();
+        this.TYPE = type;
         this.TIER = tier;
     }
 
@@ -107,16 +111,16 @@ public class WandItem extends Item {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return TIER.getEnchantability();
+        return (int)(TYPE.getEnchantability() * TIER.getTierEnchantabilityMult());
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
-        return stack.isDamaged() && TIER.getRepairItem().get().test(repairItem);
+        return stack.isDamaged() && TYPE.getRepairItem().get().test(repairItem);
     }
 
     public WandTypes getTier() {
-        return TIER;
+        return TYPE;
     }
 
     public float[] getTrailColor(ItemStack stack) {
@@ -127,7 +131,7 @@ public class WandItem extends Item {
             float b = (color & 255) / 255.0f;
             return new float[]{r, g, b};
         } else {
-            return TIER.getTrailColor();
+            return TYPE.getTrailColor();
         }
     }
 
@@ -135,12 +139,12 @@ public class WandItem extends Item {
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
 
         var builder = ItemAttributeModifiers.builder();
-        AtomicInteger newCD = new AtomicInteger(TIER.getCooldown());
-        AtomicDouble newDamage = new AtomicDouble(TIER.getSpellDamage());
-        AtomicDouble newLifespan = new AtomicDouble(TIER.getLifespanSeconds());
-        AtomicDouble newPSpeed = new AtomicDouble(TIER.getProjectileSpeed());
-        AtomicDouble newKnockback = new AtomicDouble(TIER.getKnockback());
-        AtomicDouble newAccuracy = new AtomicDouble(TIER.getInaccuracy());
+        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown());
+        AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + TIER.getBonusWandDamage());
+        AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds());
+        AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed());
+        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback());
+        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy());
         AtomicInteger sprayLevel = new AtomicInteger(0);
         AtomicInteger chaosMagicLevel = new AtomicInteger(0);
         AtomicInteger focusLevel = new AtomicInteger(0);
@@ -351,7 +355,7 @@ public class WandItem extends Item {
         }
 
         lore.add(dyeableText);
-        lore.add(Component.translatable(this.getDescriptionId() + ".desc").withColor(0xAAAAAA));
+        lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
         }

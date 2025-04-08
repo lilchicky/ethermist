@@ -1,6 +1,9 @@
 {
   "values": {
-    "ethermist:wand_handle": {
+    "ethermist:iron_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:wooden_wand_handle": {
       "burn_time": 80
     }
   }

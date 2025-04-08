@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:dull_orb"
+  },
+  "base": {
+    "item": "ethermist:iron_heavy_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:iron_dull_wand"
+  },
+  "template": []
+}

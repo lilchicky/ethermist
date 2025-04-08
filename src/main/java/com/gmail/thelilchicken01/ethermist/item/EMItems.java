@@ -1,11 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandModifiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.MaceWandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTypes;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -28,15 +25,37 @@ public class EMItems {
 
     public static final DeferredItem<WandShotItem> METEOR_SHOT = ITEMS.register("meteor_shot", () -> new WandShotItem());
 
-    public static final DeferredItem<WandItem> DULL_WAND = ITEMS.register("dull_wand", () -> new WandItem(WandTypes.DULL_WAND));
-    public static final DeferredItem<WandItem> FLAME_WAND = ITEMS.register("flame_wand", () -> new WandItem(WandTypes.FLAME_WAND));
-    public static final DeferredItem<WandItem> POISON_WAND = ITEMS.register("poison_wand", () -> new WandItem(WandTypes.POISON_WAND));
-    public static final DeferredItem<WandItem> LEVITATION_WAND = ITEMS.register("levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND));
-    public static final DeferredItem<WandItem> WITHER_WAND = ITEMS.register("wither_wand", () -> new WandItem(WandTypes.WITHER_WAND));
-    public static final DeferredItem<WandItem> WITCH_WAND = ITEMS.register("witch_wand", () -> new WandItem(WandTypes.WITCH_WAND));
-    public static final DeferredItem<WandItem> HEAVY_WAND = ITEMS.register("heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND));
-    public static final DeferredItem<WandItem> FROZEN_WAND = ITEMS.register("frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND));
-    public static final DeferredItem<WandItem> GLASS_WAND = ITEMS.register("glass_wand", () -> new WandItem(WandTypes.GLASS_WAND));
+    /*
+    ---------- Amethyst Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> WOODEN_DULL_WAND = ITEMS.register("wooden_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_FLAME_WAND = ITEMS.register("wooden_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_POISON_WAND = ITEMS.register("wooden_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_LEVITATION_WAND = ITEMS.register("wooden_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_WITHER_WAND = ITEMS.register("wooden_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_WITCH_WAND = ITEMS.register("wooden_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_HEAVY_WAND = ITEMS.register("wooden_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_FROZEN_WAND = ITEMS.register("wooden_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.WOOD));
+    public static final DeferredItem<WandItem> WOODEN_GLASS_WAND = ITEMS.register("wooden_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.WOOD));
+
+    /*
+    ---------- Iron Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> IRON_DULL_WAND = ITEMS.register("iron_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_FLAME_WAND = ITEMS.register("iron_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_POISON_WAND = ITEMS.register("iron_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_LEVITATION_WAND = ITEMS.register("iron_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_WITHER_WAND = ITEMS.register("iron_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_WITCH_WAND = ITEMS.register("iron_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_HEAVY_WAND = ITEMS.register("iron_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_FROZEN_WAND = ITEMS.register("iron_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_GLASS_WAND = ITEMS.register("iron_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.IRON));
+
+    /*
+    ---------- Tomes ----------
+     */
 
     public static final DeferredItem<BookItem> EXCLUSION_TOME = ITEMS.register("exclusion_spell_tome", TomeItem::new);
     public static final DeferredItem<BookItem> WAND_TOME = ITEMS.register("wand_spell_tome", TomeItem::new);
@@ -44,16 +63,17 @@ public class EMItems {
     public static final DeferredItem<BookItem> MAIN_SPELL_TOME = ITEMS.register("main_spell_tome", TomeItem::new);
     public static final DeferredItem<BookItem> BASE_SPELL_TOME = ITEMS.register("base_spell_tome", TomeItem::new);
 
-    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", () -> new OrbItem(DULL_WAND.get()));
-    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", () -> new OrbItem(FLAME_WAND.get()));
-    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", () -> new OrbItem(POISON_WAND.get()));
-    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", () -> new OrbItem(LEVITATION_WAND.get()));
-    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", () -> new OrbItem(WITHER_WAND.get()));
-    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", () -> new OrbItem(WITCH_WAND.get()));
-    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", () -> new OrbItem(FROZEN_WAND.get()));
-    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", () -> new OrbItem(GLASS_WAND.get()));
+    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", () -> new OrbItem(WOODEN_DULL_WAND.get()));
+    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", () -> new OrbItem(WOODEN_FLAME_WAND.get()));
+    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", () -> new OrbItem(WOODEN_POISON_WAND.get()));
+    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", () -> new OrbItem(WOODEN_LEVITATION_WAND.get()));
+    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", () -> new OrbItem(WOODEN_WITHER_WAND.get()));
+    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", () -> new OrbItem(WOODEN_WITCH_WAND.get()));
+    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", () -> new OrbItem(WOODEN_FROZEN_WAND.get()));
+    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", () -> new OrbItem(WOODEN_GLASS_WAND.get()));
 
-    public static final DeferredItem<Item> WAND_HANDLE = ITEMS.register("wand_handle", HandleItem::new);
+    public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", HandleItem::new);
+    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", HandleItem::new);
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);

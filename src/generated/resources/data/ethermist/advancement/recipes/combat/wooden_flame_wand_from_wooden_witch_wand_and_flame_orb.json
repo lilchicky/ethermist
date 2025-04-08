@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_flame_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:flame_orb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:wooden_flame_wand_from_wooden_witch_wand_and_flame_orb"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_flame_orb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:wooden_flame_wand_from_wooden_witch_wand_and_flame_orb"
+    ]
+  }
+}

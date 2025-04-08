@@ -6,7 +6,6 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -136,7 +135,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.BASE_SPELL_TOME.get());
 
         tag(EMTags.Items.DYEABLE_WANDS)
-                .add(EMItems.WAND_HANDLE.get());
+                .add(EMItems.WOODEN_WAND_HANDLE.get())
+                .add(EMItems.IRON_WAND_HANDLE.get());
 
         tag(EMTags.Items.ENCHANTABLE_BASE)
                 .addTag(EMTags.Items.WANDS)
@@ -153,7 +153,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .addTag(EMTags.Items.WANDS)
                 .add(EMItems.MAIN_SPELL_TOME.get());
 
-        tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.HEAVY_WAND.get());
+        tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.WOODEN_HEAVY_WAND.get());
 
         /*
         ---------- Wand Stuff ----------
@@ -169,15 +169,25 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.FROZEN_ORB.get())
                 .add(EMItems.GLASS_ORB.get());
 
-        addWands(EMItems.DULL_WAND.get());
-        addWands(EMItems.FLAME_WAND.get());
-        addWands(EMItems.POISON_WAND.get());
-        addWands(EMItems.LEVITATION_WAND.get());
-        addWands(EMItems.WITHER_WAND.get());
-        addWands(EMItems.WITCH_WAND.get());
-        addWands(EMItems.HEAVY_WAND.get());
-        addWands(EMItems.FROZEN_WAND.get());
-        addWands(EMItems.GLASS_WAND.get());
+        addWands(EMItems.WOODEN_DULL_WAND.get());
+        addWands(EMItems.WOODEN_FLAME_WAND.get());
+        addWands(EMItems.WOODEN_POISON_WAND.get());
+        addWands(EMItems.WOODEN_LEVITATION_WAND.get());
+        addWands(EMItems.WOODEN_WITHER_WAND.get());
+        addWands(EMItems.WOODEN_WITCH_WAND.get());
+        addWands(EMItems.WOODEN_HEAVY_WAND.get());
+        addWands(EMItems.WOODEN_FROZEN_WAND.get());
+        addWands(EMItems.WOODEN_GLASS_WAND.get());
+
+        addWands(EMItems.IRON_DULL_WAND.get());
+        addWands(EMItems.IRON_FLAME_WAND.get());
+        addWands(EMItems.IRON_POISON_WAND.get());
+        addWands(EMItems.IRON_LEVITATION_WAND.get());
+        addWands(EMItems.IRON_WITHER_WAND.get());
+        addWands(EMItems.IRON_WITCH_WAND.get());
+        addWands(EMItems.IRON_HEAVY_WAND.get());
+        addWands(EMItems.IRON_FROZEN_WAND.get());
+        addWands(EMItems.IRON_GLASS_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

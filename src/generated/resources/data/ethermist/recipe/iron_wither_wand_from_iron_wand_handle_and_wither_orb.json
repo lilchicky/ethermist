@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:wither_orb"
+  },
+  "base": {
+    "item": "ethermist:iron_wand_handle"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:iron_wither_wand"
+  },
+  "template": []
+}

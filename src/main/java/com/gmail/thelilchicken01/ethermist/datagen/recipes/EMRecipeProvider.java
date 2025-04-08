@@ -16,10 +16,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class EMRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -60,7 +63,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .define('a', EMBlocks.ETHERSTONE.get())
                 .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
-        
+
         // Ancient Etherstone
         stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE))
                 .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
@@ -90,7 +93,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("aa")
                 .define('a', EMBlocks.ANCIENT_ETHERSTONE.get())
                 .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
-        
+
         // Witchstone
         stairBuilder(EMBlocks.WITCHSTONE_STAIRS.get(), Ingredient.of(EMBlocks.WITCHSTONE))
                 .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE)).save(output);
@@ -150,7 +153,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNSHALE_STAIRS.get(), EMBlocks.POLISHED_DAWNSHALE.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNSHALE_SLAB.get(), EMBlocks.POLISHED_DAWNSHALE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNSHALE_WALL.get(), EMBlocks.POLISHED_DAWNSHALE.get(), 1);
-        
+
         // Cobbled Etherstone
         stairBuilder(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.COBBLED_ETHERSTONE))
                 .unlockedBy("has_cobbled_etherstone", has(EMBlocks.COBBLED_ETHERSTONE)).save(output);
@@ -545,7 +548,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_STAIRS.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
-        
+
         // Cubed Abyssal Mushroom
         stairBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("stairs")
                 .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
@@ -696,7 +699,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
 
-
         oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
         oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
@@ -811,70 +813,102 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output);
 
         // Wands
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_HANDLE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WOODEN_WAND_HANDLE.get(), 1)
                 .pattern(" ba")
-                .pattern("bab")
+                .pattern("bcb")
                 .pattern("ab ")
                 .define('a', Items.AMETHYST_SHARD)
                 .define('b', Items.STICK)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD)).save(output);
+                .define('c', ItemTags.PLANKS)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
-        List<Item> wands = new ArrayList<>(List.of(
-                EMItems.DULL_WAND.get(),
-                EMItems.FLAME_WAND.get(),
-                EMItems.WAND_HANDLE.get(),
-                EMItems.LEVITATION_WAND.get(),
-                EMItems.WITHER_WAND.get(),
-                EMItems.POISON_WAND.get(),
-                EMItems.WITCH_WAND.get(),
-                EMItems.HEAVY_WAND.get(),
-                EMItems.FROZEN_WAND.get(),
-                EMItems.GLASS_WAND.get()
-        ));
-        List<OrbItem> orbs = new ArrayList<>(List.of(
-                EMItems.DULL_ORB.get(),
-                EMItems.FLAME_ORB.get(),
-                EMItems.LEVITATION_ORB.get(),
-                EMItems.WITHER_ORB.get(),
-                EMItems.POISON_ORB.get(),
-                EMItems.WITCH_ORB.get(),
-                EMItems.FROZEN_ORB.get(),
-                EMItems.GLASS_ORB.get()
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.IRON_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON)).save(output);
+
+        Map<String, Map<Item, Item>> tieredWands = new HashMap<>();
+        Map<String, Item> tierHandles = new HashMap<>();
+
+        tierHandles.put("wooden", EMItems.WOODEN_WAND_HANDLE.get());
+        tieredWands.put("wooden", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.WOODEN_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.WOODEN_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.WOODEN_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.WOODEN_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.WOODEN_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.WOODEN_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.WOODEN_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.WOODEN_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get())
         ));
 
-        for (Item wand : wands) {
-            for (OrbItem orb : orbs) {
-                Item result = orb.getWand();
-                if (result != null && result != wand) {
-                    SmithingTransformRecipeBuilder.smithing(
-                            Ingredient.EMPTY,
-                            Ingredient.of(wand),
-                            Ingredient.of(orb),
-                            RecipeCategory.COMBAT,
-                            result
-                    ).unlocks("has_" + getItemName(orb), has(orb))
-                            .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
-                                    getItemName(result) + "_from_" + getItemName(orb) + "_and_" + getItemName(wand)));
+        tierHandles.put("iron", EMItems.IRON_WAND_HANDLE.get());
+        tieredWands.put("iron", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.IRON_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.IRON_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.IRON_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.IRON_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.IRON_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.IRON_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.IRON_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.IRON_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.IRON_HEAVY_WAND.get())
+        ));
+
+        for (String tier : tieredWands.keySet()) {
+            Map<Item, Item> tierMap = tieredWands.get(tier);
+            Item tierHandle = tierHandles.get(tier);
+
+            // Handle and Orb
+            for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
+                Item orb = orbEntry.getKey();
+                Item resultWand = orbEntry.getValue();
+
+                SmithingTransformRecipeBuilder.smithing(
+                                Ingredient.EMPTY,
+                                Ingredient.of(tierHandle),
+                                Ingredient.of(orb),
+                                RecipeCategory.COMBAT,
+                                resultWand
+                        ).unlocks("has_" + getItemName(orb), has(orb))
+                        .save(output, ResourceLocation.fromNamespaceAndPath(
+                                Ethermist.MODID,
+                                getItemName(resultWand) + "_from_" + getItemName(tierHandle) + "_and_" + getItemName(orb)
+                        ));
+            }
+
+            // Wand and Orb
+            for (Map.Entry<Item, Item> wandEntry : tierMap.entrySet()) {
+                Item baseWand = wandEntry.getValue();
+
+                for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
+                    Item orb = orbEntry.getKey();
+                    Item resultWand = orbEntry.getValue();
+
+                    if (baseWand != resultWand) {
+                        SmithingTransformRecipeBuilder.smithing(
+                                        Ingredient.EMPTY,
+                                        Ingredient.of(baseWand),
+                                        Ingredient.of(orb),
+                                        RecipeCategory.COMBAT,
+                                        resultWand
+                                ).unlocks("has_" + getItemName(orb), has(orb))
+                                .save(output, ResourceLocation.fromNamespaceAndPath(
+                                        Ethermist.MODID,
+                                        getItemName(resultWand) + "_from_" + getItemName(baseWand) + "_and_" + getItemName(orb)
+                                ));
+                    }
                 }
             }
         }
 
-        for (Item wand : wands) {
-            WandItem heavyWand = EMItems.HEAVY_WAND.get();
-            if (heavyWand != wand) {
-                SmithingTransformRecipeBuilder.smithing(
-                                Ingredient.EMPTY,
-                                Ingredient.of(wand),
-                                Ingredient.of(Items.HEAVY_CORE),
-                                RecipeCategory.COMBAT,
-                                heavyWand
-                        ).unlocks("has_" + getItemName(Items.HEAVY_CORE), has(Items.HEAVY_CORE))
-                        .save(output, ResourceLocation.fromNamespaceAndPath(
-                                Ethermist.MODID,
-                                getItemName(heavyWand) + "_from_" + getItemName(wand) + "_and_" + getItemName(Items.HEAVY_CORE)
-                        ));
-            }
-        }
 
         SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
@@ -894,7 +928,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
                                                                        List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-        for(ItemLike itemlike : pIngredients) {
+        for (ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, Ethermist.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }

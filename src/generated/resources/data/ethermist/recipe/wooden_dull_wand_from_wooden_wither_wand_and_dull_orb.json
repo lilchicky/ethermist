@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:dull_orb"
+  },
+  "base": {
+    "item": "ethermist:wooden_wither_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:wooden_dull_wand"
+  },
+  "template": []
+}

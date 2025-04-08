@@ -322,7 +322,7 @@ public class EMCreativeTab {
     */
 
     public static final Supplier<CreativeModeTab> EM_ITEM_TAB = CREATIVE_TAB.register("em_item_tab", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(EMItems.DULL_WAND.get()))
+            .icon(() -> new ItemStack(EMItems.WOODEN_DULL_WAND.get()))
             .title(Component.translatable("creativetab.ethermist.em_item_tab"))
             .displayItems((itemDisplayParameters, output) -> {
 
@@ -336,24 +336,31 @@ public class EMCreativeTab {
                 output.accept(EMItems.WITHER_ORB.get());
                 output.accept(EMItems.LEVITATION_ORB.get());
 
-                // Wands
-                output.accept(EMItems.WAND_HANDLE.get());
+                // Wooden Wands
+                output.accept(EMItems.WOODEN_WAND_HANDLE.get());
 
-                //for (int color : Arrays.stream(DyeColor.values()).mapToInt(DyeColor::getTextColor).toArray()) {
-                //    ItemStack coloredHandle = new ItemStack(EMItems.WAND_HANDLE.get());
-                //    coloredHandle.set(DataComponents.DYED_COLOR, new DyedItemColor(color, true));
-                //    output.accept(coloredHandle);
-                //}
+                output.accept(EMItems.WOODEN_DULL_WAND.get());
+                output.accept(EMItems.WOODEN_GLASS_WAND.get());
+                output.accept(EMItems.WOODEN_POISON_WAND.get());
+                output.accept(EMItems.WOODEN_WITCH_WAND.get());
+                output.accept(EMItems.WOODEN_FROZEN_WAND.get());
+                output.accept(EMItems.WOODEN_FLAME_WAND.get());
+                output.accept(EMItems.WOODEN_WITHER_WAND.get());
+                output.accept(EMItems.WOODEN_LEVITATION_WAND.get());
+                output.accept(EMItems.WOODEN_HEAVY_WAND.get());
+                
+                // Iron Wands
+                output.accept(EMItems.IRON_WAND_HANDLE.get());
 
-                output.accept(EMItems.DULL_WAND.get());
-                output.accept(EMItems.GLASS_WAND.get());
-                output.accept(EMItems.POISON_WAND.get());
-                output.accept(EMItems.WITCH_WAND.get());
-                output.accept(EMItems.FROZEN_WAND.get());
-                output.accept(EMItems.FLAME_WAND.get());
-                output.accept(EMItems.WITHER_WAND.get());
-                output.accept(EMItems.LEVITATION_WAND.get());
-                output.accept(EMItems.HEAVY_WAND.get());
+                output.accept(EMItems.IRON_DULL_WAND.get());
+                output.accept(EMItems.IRON_GLASS_WAND.get());
+                output.accept(EMItems.IRON_POISON_WAND.get());
+                output.accept(EMItems.IRON_WITCH_WAND.get());
+                output.accept(EMItems.IRON_FROZEN_WAND.get());
+                output.accept(EMItems.IRON_FLAME_WAND.get());
+                output.accept(EMItems.IRON_WITHER_WAND.get());
+                output.accept(EMItems.IRON_LEVITATION_WAND.get());
+                output.accept(EMItems.IRON_HEAVY_WAND.get());
 
                 // Misc
                 output.accept(EMItems.WAND_TOME.get());

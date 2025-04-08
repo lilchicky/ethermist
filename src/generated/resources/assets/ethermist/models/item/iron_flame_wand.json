@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ethermist:item/wands/handles/iron_wand_handle",
+    "layer1": "ethermist:item/wands/handles/iron_wand_handle_overlay",
+    "layer2": "ethermist:item/wands/flame_wand"
+  }
+}

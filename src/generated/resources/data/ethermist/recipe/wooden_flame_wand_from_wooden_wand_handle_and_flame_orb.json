@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:flame_orb"
+  },
+  "base": {
+    "item": "ethermist:wooden_wand_handle"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:wooden_flame_wand"
+  },
+  "template": []
+}

@@ -152,16 +152,27 @@ public class Ethermist {
                 }
                 return 0xFFFFFFFF;
             },
-                    EMItems.WAND_HANDLE.get(),
-                    EMItems.DULL_WAND.get(),
-                    EMItems.FLAME_WAND.get(),
-                    EMItems.POISON_WAND.get(),
-                    EMItems.WITHER_WAND.get(),
-                    EMItems.LEVITATION_WAND.get(),
-                    EMItems.WITCH_WAND.get(),
-                    EMItems.HEAVY_WAND.get(),
-                    EMItems.FROZEN_WAND.get(),
-                    EMItems.GLASS_WAND.get()
+                    EMItems.WOODEN_WAND_HANDLE.get(),
+                    EMItems.WOODEN_DULL_WAND.get(),
+                    EMItems.WOODEN_FLAME_WAND.get(),
+                    EMItems.WOODEN_POISON_WAND.get(),
+                    EMItems.WOODEN_WITHER_WAND.get(),
+                    EMItems.WOODEN_LEVITATION_WAND.get(),
+                    EMItems.WOODEN_WITCH_WAND.get(),
+                    EMItems.WOODEN_HEAVY_WAND.get(),
+                    EMItems.WOODEN_FROZEN_WAND.get(),
+                    EMItems.WOODEN_GLASS_WAND.get(),
+
+                    EMItems.IRON_WAND_HANDLE.get(),
+                    EMItems.IRON_DULL_WAND.get(),
+                    EMItems.IRON_FLAME_WAND.get(),
+                    EMItems.IRON_POISON_WAND.get(),
+                    EMItems.IRON_WITHER_WAND.get(),
+                    EMItems.IRON_LEVITATION_WAND.get(),
+                    EMItems.IRON_WITCH_WAND.get(),
+                    EMItems.IRON_HEAVY_WAND.get(),
+                    EMItems.IRON_FROZEN_WAND.get(),
+                    EMItems.IRON_GLASS_WAND.get()
             );
         }
     }

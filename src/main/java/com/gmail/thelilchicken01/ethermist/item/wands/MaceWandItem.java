@@ -22,8 +22,8 @@ import java.util.function.Predicate;
 
 public class MaceWandItem extends WandItem {
 
-    public MaceWandItem(WandTypes type) {
-        super(type);
+    public MaceWandItem(WandTypes type, WandTiers tier) {
+        super(type, tier);
     }
 
     @Override

@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
+import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.getBaseWandName;
 
 public class EMItemModelProvider extends ItemModelProvider {
 
@@ -99,16 +100,27 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
         crossItem(EMBlocks.ABYSSAL_MUSHROOM);
 
-        wandHandle(EMItems.WAND_HANDLE);
-        wandItem(EMItems.FLAME_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.DULL_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.POISON_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.LEVITATION_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.WITHER_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.WITCH_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.HEAVY_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.FROZEN_WAND, EMItems.WAND_HANDLE);
-        wandItem(EMItems.GLASS_WAND, EMItems.WAND_HANDLE);
+        wandHandle(EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_FLAME_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_DULL_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_POISON_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_LEVITATION_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_WITHER_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_WITCH_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_HEAVY_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_FROZEN_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_GLASS_WAND, EMItems.WOODEN_WAND_HANDLE);
+
+        wandHandle(EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_FLAME_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_DULL_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_POISON_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_LEVITATION_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_WITHER_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_WITCH_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_HEAVY_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_FROZEN_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_GLASS_WAND, EMItems.IRON_WAND_HANDLE);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
@@ -198,7 +210,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(wand.getId().getPath(), ResourceLocation.parse("item/handheld"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + handle.getId().getPath()))
                 .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + handle.getId().getPath() + "_overlay"))
-                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + wand.getId().getPath()));
+                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + getBaseWandName(wand.getId().getPath())));
     }
 
     public void orbItem(DeferredItem<?> item) {

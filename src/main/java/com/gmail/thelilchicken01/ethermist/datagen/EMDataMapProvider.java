@@ -18,7 +18,8 @@ public class EMDataMapProvider extends DataMapProvider {
     @Override
     protected void gather() {
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
-                .add(EMItems.WAND_HANDLE.getId(), new FurnaceFuel(80), false);
+                .add(EMItems.WOODEN_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.IRON_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
     }
 
 }
