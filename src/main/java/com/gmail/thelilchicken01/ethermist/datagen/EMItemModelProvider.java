@@ -133,6 +133,17 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.DIAMOND_FROZEN_WAND, EMItems.DIAMOND_WAND_HANDLE);
         wandItem(EMItems.DIAMOND_GLASS_WAND, EMItems.DIAMOND_WAND_HANDLE);
 
+        wandHandle(EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_FLAME_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_DULL_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_POISON_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_LEVITATION_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_WITHER_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_WITCH_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_HEAVY_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_FROZEN_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_GLASS_WAND, EMItems.GOLDEN_WAND_HANDLE);
+
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
         orbItem(EMItems.POISON_ORB);

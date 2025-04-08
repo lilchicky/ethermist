@@ -3,6 +3,7 @@
     "ethermist:wooden_wand_handle",
     "ethermist:iron_wand_handle",
     "ethermist:diamond_wand_handle",
+    "ethermist:golden_wand_handle",
     "ethermist:wooden_dull_wand",
     "ethermist:wooden_flame_wand",
     "ethermist:wooden_poison_wand",
@@ -29,6 +30,15 @@
     "ethermist:diamond_witch_wand",
     "ethermist:diamond_heavy_wand",
     "ethermist:diamond_frozen_wand",
-    "ethermist:diamond_glass_wand"
+    "ethermist:diamond_glass_wand",
+    "ethermist:golden_dull_wand",
+    "ethermist:golden_flame_wand",
+    "ethermist:golden_poison_wand",
+    "ethermist:golden_levitation_wand",
+    "ethermist:golden_wither_wand",
+    "ethermist:golden_witch_wand",
+    "ethermist:golden_heavy_wand",
+    "ethermist:golden_frozen_wand",
+    "ethermist:golden_glass_wand"
   ]
 }

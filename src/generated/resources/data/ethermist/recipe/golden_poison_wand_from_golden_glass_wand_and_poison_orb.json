@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:poison_orb"
+  },
+  "base": {
+    "item": "ethermist:golden_glass_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:golden_poison_wand"
+  },
+  "template": []
+}

@@ -70,7 +70,7 @@ public class WandItem extends Item {
     public WandItem(WandTypes type, WandTiers tier) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability((int) ((128 * type.getDurabilityMult()) * tier.getTierDurabilityMult())));
+                .durability(Math.max((int) (128 * type.getDurabilityMult() * tier.getTierDurabilityMult()), 1)));
         this.SHOOT_SOUND = type.getShootSound();
         this.TYPE = type;
         this.TIER = tier;

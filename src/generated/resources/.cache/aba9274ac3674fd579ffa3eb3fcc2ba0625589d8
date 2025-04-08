@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-07T23:20:03.2258451	Item Models: ethermist
+// 1.21.1	2025-04-07T23:44:19.8800423	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -53,6 +53,16 @@ c5b0e5aeb354e8a57d9892746cdce90d39830713 assets/ethermist/models/item/glimmerbud
 930e66b3e059a2c7528882de0d4b6f1ed451f7ae assets/ethermist/models/item/glimmering_ancient_door.json
 ae95cb8a20413cfa573136215c6ea9c4089f7b28 assets/ethermist/models/item/glimmering_ancient_fence.json
 b85dc4a6627454a73abbd994673011f699725a3f assets/ethermist/models/item/glimmering_ancient_sapling.json
+3cc5c86cdd2196fa9f0653a81e4872edfe154734 assets/ethermist/models/item/golden_dull_wand.json
+454055a127bfb505c5a98033efd65e061d81a1fb assets/ethermist/models/item/golden_flame_wand.json
+6da577d77784c2dcc2e049b633f4ef0da0c30b87 assets/ethermist/models/item/golden_frozen_wand.json
+3e28dae5552edf0ff14d05b589156f9c8e66b35e assets/ethermist/models/item/golden_glass_wand.json
+0004de5957a6ba127367407786db90c140afb201 assets/ethermist/models/item/golden_heavy_wand.json
+0281db8c9369fd859e105a3d854f1d3da4f4f414 assets/ethermist/models/item/golden_levitation_wand.json
+6e3a913b0cce50d44234c950982cd83a74bc9fdd assets/ethermist/models/item/golden_poison_wand.json
+39a87e03b6e294b4c66c7468b83694e9e13629c9 assets/ethermist/models/item/golden_wand_handle.json
+777d35ca3031b73202c8214b76f20b6089cfd8ea assets/ethermist/models/item/golden_witch_wand.json
+f1e56bb006236c52bf625a6da88c99b6d29b56d0 assets/ethermist/models/item/golden_wither_wand.json
 36fc0040419510e7575ab89937f200509d0a8542 assets/ethermist/models/item/green_amberwood_sapling.json
 4b267b9b2375295b1ba339dee0b9349e4975d9ec assets/ethermist/models/item/heavy_shot.json
 9cd968f7fa9e9bddd0e35346b521514006f36cb2 assets/ethermist/models/item/iron_dull_wand.json

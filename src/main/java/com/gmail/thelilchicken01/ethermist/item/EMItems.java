@@ -67,9 +67,24 @@ public class EMItems {
     public static final DeferredItem<WandItem> DIAMOND_FROZEN_WAND = ITEMS.register("diamond_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.DIAMOND));
     public static final DeferredItem<WandItem> DIAMOND_GLASS_WAND = ITEMS.register("diamond_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.DIAMOND));
 
+    /*
+    ---------- Golden Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> GOLDEN_DULL_WAND = ITEMS.register("golden_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_FLAME_WAND = ITEMS.register("golden_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_POISON_WAND = ITEMS.register("golden_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_LEVITATION_WAND = ITEMS.register("golden_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_WITHER_WAND = ITEMS.register("golden_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_WITCH_WAND = ITEMS.register("golden_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_HEAVY_WAND = ITEMS.register("golden_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_FROZEN_WAND = ITEMS.register("golden_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.GOLDEN));
+    public static final DeferredItem<WandItem> GOLDEN_GLASS_WAND = ITEMS.register("golden_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.GOLDEN));
+
     public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", HandleItem::new);
     public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", HandleItem::new);
     public static final DeferredItem<Item> DIAMOND_WAND_HANDLE = ITEMS.register("diamond_wand_handle", HandleItem::new);
+    public static final DeferredItem<Item> GOLDEN_WAND_HANDLE = ITEMS.register("golden_wand_handle", HandleItem::new);
 
     /*
     ---------- Tomes ----------

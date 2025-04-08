@@ -183,7 +183,18 @@ public class Ethermist {
                     EMItems.DIAMOND_WITCH_WAND.get(),
                     EMItems.DIAMOND_HEAVY_WAND.get(),
                     EMItems.DIAMOND_FROZEN_WAND.get(),
-                    EMItems.DIAMOND_GLASS_WAND.get()
+                    EMItems.DIAMOND_GLASS_WAND.get(),
+
+                    EMItems.GOLDEN_WAND_HANDLE.get(),
+                    EMItems.GOLDEN_DULL_WAND.get(),
+                    EMItems.GOLDEN_FLAME_WAND.get(),
+                    EMItems.GOLDEN_POISON_WAND.get(),
+                    EMItems.GOLDEN_WITHER_WAND.get(),
+                    EMItems.GOLDEN_LEVITATION_WAND.get(),
+                    EMItems.GOLDEN_WITCH_WAND.get(),
+                    EMItems.GOLDEN_HEAVY_WAND.get(),
+                    EMItems.GOLDEN_FROZEN_WAND.get(),
+                    EMItems.GOLDEN_GLASS_WAND.get()
             );
         }
     }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:levitation_orb"
+  },
+  "base": {
+    "item": "ethermist:golden_wither_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:golden_levitation_wand"
+  },
+  "template": []
+}
