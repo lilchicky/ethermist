@@ -36,7 +36,7 @@ public class WandProjectileHandler {
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
                                    @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
-        int newLifespan = (int)WandUtil.getAttribute(player, EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID);
+        double newLifespan = WandUtil.getAttribute(player, EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID);
         float pSpeed = (float)WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID);
 
         AtomicBoolean augmentedShot = new AtomicBoolean(false);
@@ -108,7 +108,7 @@ public class WandProjectileHandler {
             shotStack = new ItemStack(wand.getTier().getShotItem());
         }
 
-        List<Entity> nearby = WandUtil.getNearbyEntities(level, newLifespan * 10, player);
+        List<Entity> nearby = WandUtil.getNearbyEntities(level, (int)(newLifespan * 10), player);
         List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null, types);
 
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {

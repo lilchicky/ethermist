@@ -18,7 +18,7 @@ public record EnduringMagicEnchant() implements EnchantmentValueEffect {
         return CODEC;
     }
 
-    public static int modifyLifespan(int level, int lifespan) {
+    public static double modifyLifespan(int level, double lifespan) {
         return lifespan + (level);
     }
 }

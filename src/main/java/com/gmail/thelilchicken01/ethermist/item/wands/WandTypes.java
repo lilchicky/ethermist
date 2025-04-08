@@ -186,7 +186,7 @@ public enum WandTypes {
     GLASS_WAND(
             0.03,
             20,
-            1,
+            0.5,
             16,
             5.0f,
             0.05f,
@@ -205,7 +205,7 @@ public enum WandTypes {
 
     private final double durabilityMult;
     private final int enchantability;
-    private final int lifespanSeconds;
+    private final double lifespanSeconds;
     private final int spellDamage;
     private final float inaccuracy;
     private final float projectileSpeed;
@@ -219,7 +219,7 @@ public enum WandTypes {
     private final SoundEvent shootSound;
 
     // Constructor
-    WandTypes(double durabilityMult, int enchantability, int lifespanSeconds, int spellDamage, float inaccuracy, float projectileSpeed, boolean canIgnite,
+    WandTypes(double durabilityMult, int enchantability, double lifespanSeconds, int spellDamage, float inaccuracy, float projectileSpeed, boolean canIgnite,
               double knockback, int cooldownTicks, WandShotItem shotItem, ResourceKey<DamageType> damageType, float[] trailColor, Supplier<Ingredient> repairItem,
               SoundEvent shootSound) {
         this.durabilityMult = durabilityMult;
@@ -246,7 +246,7 @@ public enum WandTypes {
         return enchantability;
     }
 
-    public int getLifespanSeconds() {
+    public double getLifespanSeconds() {
         return lifespanSeconds;
     }
 

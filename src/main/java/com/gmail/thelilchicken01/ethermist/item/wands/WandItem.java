@@ -137,7 +137,7 @@ public class WandItem extends Item {
         var builder = ItemAttributeModifiers.builder();
         AtomicInteger newCD = new AtomicInteger(TIER.getCooldown());
         AtomicDouble newDamage = new AtomicDouble(TIER.getSpellDamage());
-        AtomicInteger newLifespan = new AtomicInteger(TIER.getLifespanSeconds());
+        AtomicDouble newLifespan = new AtomicDouble(TIER.getLifespanSeconds());
         AtomicDouble newPSpeed = new AtomicDouble(TIER.getProjectileSpeed());
         AtomicDouble newKnockback = new AtomicDouble(TIER.getKnockback());
         AtomicDouble newAccuracy = new AtomicDouble(TIER.getInaccuracy());

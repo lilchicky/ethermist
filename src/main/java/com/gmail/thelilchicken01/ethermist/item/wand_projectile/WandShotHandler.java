@@ -16,7 +16,7 @@ import java.util.List;
 
 public class WandShotHandler {
 
-    public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
+    public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
                              boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
@@ -52,7 +52,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootSplit(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
+    public static void shootSplit(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations,
                                    boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
@@ -96,7 +96,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootAOE(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
+    public static void shootAOE(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                                  ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations,
                                  boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
@@ -135,7 +135,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootAtPos(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, int lifespan,
+    public static void shootAtPos(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
                                    List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel, BlockPos pos) {
 
@@ -159,7 +159,7 @@ public class WandShotHandler {
 
     }
 
-    public static void shootAtEntity(Level level, Player player, float pSpeed, int lifespan,
+    public static void shootAtEntity(Level level, Player player, float pSpeed, double lifespan,
                                       ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
                                       List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel, Entity targetLoc) {
 
@@ -184,11 +184,11 @@ public class WandShotHandler {
 
     }
 
-    private static WandProjectile setShotInfo(Player player, WandProjectile shot, WandItem wand, ItemStack wandItem, int lifespan, boolean isHoming,
+    private static WandProjectile setShotInfo(Player player, WandProjectile shot, WandItem wand, ItemStack wandItem, double lifespan, boolean isHoming,
                                     List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
-        shot.setLifetime(lifespan * 20);
+        shot.setLifetime((int)(lifespan * 20));
         shot.setCanIgnite(wand.getTier().getCanIgnite());
         shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
