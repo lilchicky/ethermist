@@ -286,6 +286,17 @@
   "item.ethermist.iron_frozen_wand": "Iron Frozen Wand",
   "item.ethermist.iron_glass_wand": "Iron Glass Wand",
 
+  "item.ethermist.diamond_wand_handle": "Diamond Wand Handle",
+  "item.ethermist.diamond_dull_wand": "Diamond Dull Wand",
+  "item.ethermist.diamond_flame_wand": "Diamond Flame Wand",
+  "item.ethermist.diamond_poison_wand": "Diamond Poison Wand",
+  "item.ethermist.diamond_levitation_wand": "Diamond Levitation Wand",
+  "item.ethermist.diamond_wither_wand": "Diamond Wither Wand",
+  "item.ethermist.diamond_witch_wand": "Diamond Witch's Wand",
+  "item.ethermist.diamond_heavy_wand": "Diamond Heavy Wand",
+  "item.ethermist.diamond_frozen_wand": "Diamond Frozen Wand",
+  "item.ethermist.diamond_glass_wand": "Diamond Glass Wand",
+
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
   "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
   "item.ethermist.dull_orb": "Dull Orb",

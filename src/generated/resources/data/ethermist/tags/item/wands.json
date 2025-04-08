@@ -18,6 +18,15 @@
     "ethermist:iron_witch_wand",
     "ethermist:iron_heavy_wand",
     "ethermist:iron_frozen_wand",
-    "ethermist:iron_glass_wand"
+    "ethermist:iron_glass_wand",
+    "ethermist:diamond_dull_wand",
+    "ethermist:diamond_flame_wand",
+    "ethermist:diamond_poison_wand",
+    "ethermist:diamond_levitation_wand",
+    "ethermist:diamond_wither_wand",
+    "ethermist:diamond_witch_wand",
+    "ethermist:diamond_heavy_wand",
+    "ethermist:diamond_frozen_wand",
+    "ethermist:diamond_glass_wand"
   ]
 }

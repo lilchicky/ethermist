@@ -833,6 +833,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON)).save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.DIAMOND_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.GEMS_DIAMOND)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND)).save(output);
+
         Map<String, Map<Item, Item>> tieredWands = new HashMap<>();
         Map<String, Item> tierHandles = new HashMap<>();
 
@@ -860,6 +870,19 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.IRON_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.IRON_GLASS_WAND.get()),
                 Map.entry(Items.HEAVY_CORE, EMItems.IRON_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("diamond", EMItems.DIAMOND_WAND_HANDLE.get());
+        tieredWands.put("diamond", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.DIAMOND_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.DIAMOND_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.DIAMOND_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.DIAMOND_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.DIAMOND_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.DIAMOND_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.DIAMOND_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.DIAMOND_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.DIAMOND_HEAVY_WAND.get())
         ));
 
         for (String tier : tieredWands.keySet()) {

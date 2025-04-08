@@ -136,7 +136,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(EMTags.Items.DYEABLE_WANDS)
                 .add(EMItems.WOODEN_WAND_HANDLE.get())
-                .add(EMItems.IRON_WAND_HANDLE.get());
+                .add(EMItems.IRON_WAND_HANDLE.get())
+                .add(EMItems.DIAMOND_WAND_HANDLE.get());
 
         tag(EMTags.Items.ENCHANTABLE_BASE)
                 .addTag(EMTags.Items.WANDS)
@@ -188,6 +189,16 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.IRON_HEAVY_WAND.get());
         addWands(EMItems.IRON_FROZEN_WAND.get());
         addWands(EMItems.IRON_GLASS_WAND.get());
+
+        addWands(EMItems.DIAMOND_DULL_WAND.get());
+        addWands(EMItems.DIAMOND_FLAME_WAND.get());
+        addWands(EMItems.DIAMOND_POISON_WAND.get());
+        addWands(EMItems.DIAMOND_LEVITATION_WAND.get());
+        addWands(EMItems.DIAMOND_WITHER_WAND.get());
+        addWands(EMItems.DIAMOND_WITCH_WAND.get());
+        addWands(EMItems.DIAMOND_HEAVY_WAND.get());
+        addWands(EMItems.DIAMOND_FROZEN_WAND.get());
+        addWands(EMItems.DIAMOND_GLASS_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

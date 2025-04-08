@@ -54,6 +54,24 @@ public class EMItems {
     public static final DeferredItem<WandItem> IRON_GLASS_WAND = ITEMS.register("iron_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.IRON));
 
     /*
+    ---------- Diamond Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> DIAMOND_DULL_WAND = ITEMS.register("diamond_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_FLAME_WAND = ITEMS.register("diamond_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_POISON_WAND = ITEMS.register("diamond_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_LEVITATION_WAND = ITEMS.register("diamond_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_WITHER_WAND = ITEMS.register("diamond_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_WITCH_WAND = ITEMS.register("diamond_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_HEAVY_WAND = ITEMS.register("diamond_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_FROZEN_WAND = ITEMS.register("diamond_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.DIAMOND));
+    public static final DeferredItem<WandItem> DIAMOND_GLASS_WAND = ITEMS.register("diamond_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.DIAMOND));
+
+    public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", HandleItem::new);
+    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", HandleItem::new);
+    public static final DeferredItem<Item> DIAMOND_WAND_HANDLE = ITEMS.register("diamond_wand_handle", HandleItem::new);
+
+    /*
     ---------- Tomes ----------
      */
 
@@ -63,17 +81,14 @@ public class EMItems {
     public static final DeferredItem<BookItem> MAIN_SPELL_TOME = ITEMS.register("main_spell_tome", TomeItem::new);
     public static final DeferredItem<BookItem> BASE_SPELL_TOME = ITEMS.register("base_spell_tome", TomeItem::new);
 
-    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", () -> new OrbItem(WOODEN_DULL_WAND.get()));
-    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", () -> new OrbItem(WOODEN_FLAME_WAND.get()));
-    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", () -> new OrbItem(WOODEN_POISON_WAND.get()));
-    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", () -> new OrbItem(WOODEN_LEVITATION_WAND.get()));
-    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", () -> new OrbItem(WOODEN_WITHER_WAND.get()));
-    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", () -> new OrbItem(WOODEN_WITCH_WAND.get()));
-    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", () -> new OrbItem(WOODEN_FROZEN_WAND.get()));
-    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", () -> new OrbItem(WOODEN_GLASS_WAND.get()));
-
-    public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", HandleItem::new);
-    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", HandleItem::new);
+    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", OrbItem::new);
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);

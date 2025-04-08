@@ -10,15 +10,8 @@ import java.util.function.Supplier;
 
 public class OrbItem extends Item {
 
-    private final Item WAND;
-
-    public OrbItem(Item wand) {
+    public OrbItem() {
         super(new Item.Properties().stacksTo(16));
-        this.WAND = wand;
-    }
-
-    public Item getWand() {
-        return WAND;
     }
 
     @Override

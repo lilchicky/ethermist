@@ -362,6 +362,19 @@ public class EMCreativeTab {
                 output.accept(EMItems.IRON_LEVITATION_WAND.get());
                 output.accept(EMItems.IRON_HEAVY_WAND.get());
 
+                // Diamond Wands
+                output.accept(EMItems.DIAMOND_WAND_HANDLE.get());
+
+                output.accept(EMItems.DIAMOND_DULL_WAND.get());
+                output.accept(EMItems.DIAMOND_GLASS_WAND.get());
+                output.accept(EMItems.DIAMOND_POISON_WAND.get());
+                output.accept(EMItems.DIAMOND_WITCH_WAND.get());
+                output.accept(EMItems.DIAMOND_FROZEN_WAND.get());
+                output.accept(EMItems.DIAMOND_FLAME_WAND.get());
+                output.accept(EMItems.DIAMOND_WITHER_WAND.get());
+                output.accept(EMItems.DIAMOND_LEVITATION_WAND.get());
+                output.accept(EMItems.DIAMOND_HEAVY_WAND.get());
+
                 // Misc
                 output.accept(EMItems.WAND_TOME.get());
                 output.accept(EMItems.BASE_SPELL_TOME.get());

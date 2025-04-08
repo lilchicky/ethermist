@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ethermist:witch_orb"
+  },
+  "base": {
+    "item": "ethermist:diamond_frozen_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:diamond_witch_wand"
+  },
+  "template": []
+}

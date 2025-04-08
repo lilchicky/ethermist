@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-07T22:33:50.9534221	Item Models: ethermist
+// 1.21.1	2025-04-07T23:20:03.2258451	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -22,6 +22,16 @@ df499f8997b3786d8ca2553619b7ad20be0e2f21 assets/ethermist/models/item/cobbled_et
 b9794045bbeff5312a501f20cdac40c21043e068 assets/ethermist/models/item/cubed_abyssal_mushroom_fence.json
 bfd60aea02e7335abb1c131a8b48f7b2cc39e9cf assets/ethermist/models/item/dawning_hyacinth.json
 4f2b15bee04e0b21483fa85a2cb99e1d2274a5aa assets/ethermist/models/item/dawnshale_wall.json
+7397ba7bd2a2288818b4ec4722f0d85baf97df3c assets/ethermist/models/item/diamond_dull_wand.json
+b94fe19a03eee114a8251f8548135a488776af6a assets/ethermist/models/item/diamond_flame_wand.json
+5a546963cc2bafa7e9da53c5a19628d76980907a assets/ethermist/models/item/diamond_frozen_wand.json
+3de511704e277f59372cd3c1a75633686184ba91 assets/ethermist/models/item/diamond_glass_wand.json
+2212c89a305b030a8090778f813c547412ff39c9 assets/ethermist/models/item/diamond_heavy_wand.json
+4c5d3e0daf7dcce1b5c765a747a9aa438dff9b56 assets/ethermist/models/item/diamond_levitation_wand.json
+5b05808bb06c3cc92f17169ce5cf1a38780993da assets/ethermist/models/item/diamond_poison_wand.json
+92e287a41aae51a631bdef23582d5a1892d3f52b assets/ethermist/models/item/diamond_wand_handle.json
+a8e25a75559bf740daa8ad7348505332cb7cd7cf assets/ethermist/models/item/diamond_witch_wand.json
+10da7a7535babcfc120770200e0737a799ac9c26 assets/ethermist/models/item/diamond_wither_wand.json
 07bf960be9b7ec8b60a54a1fb3131c4869851f83 assets/ethermist/models/item/dull_orb.json
 ca3bdcebc0cde754eacf79a119f1fb8a392354b7 assets/ethermist/models/item/etherstone_brick_wall.json
 96c65a3fbb10da01cd872c6aef7fcfb2b563d438 assets/ethermist/models/item/etherstone_button.json
