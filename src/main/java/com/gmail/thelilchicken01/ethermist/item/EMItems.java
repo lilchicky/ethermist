@@ -43,15 +43,15 @@ public class EMItems {
     ---------- Iron Wands ----------
      */
 
-    public static final DeferredItem<WandItem> IRON_DULL_WAND = ITEMS.register("iron_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_FLAME_WAND = ITEMS.register("iron_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_POISON_WAND = ITEMS.register("iron_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_LEVITATION_WAND = ITEMS.register("iron_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_WITHER_WAND = ITEMS.register("iron_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_WITCH_WAND = ITEMS.register("iron_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_HEAVY_WAND = ITEMS.register("iron_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_FROZEN_WAND = ITEMS.register("iron_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.IRON));
-    public static final DeferredItem<WandItem> IRON_GLASS_WAND = ITEMS.register("iron_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.IRON));
+    public static final DeferredItem<WandItem> IRON_DULL_WAND = ITEMS.register("iron_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_FLAME_WAND = ITEMS.register("iron_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_POISON_WAND = ITEMS.register("iron_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_LEVITATION_WAND = ITEMS.register("iron_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_WITHER_WAND = ITEMS.register("iron_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_WITCH_WAND = ITEMS.register("iron_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_HEAVY_WAND = ITEMS.register("iron_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_FROZEN_WAND = ITEMS.register("iron_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> IRON_GLASS_WAND = ITEMS.register("iron_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.EMERALD));
 
     /*
     ---------- Diamond Wands ----------
@@ -82,7 +82,7 @@ public class EMItems {
     public static final DeferredItem<WandItem> GOLDEN_GLASS_WAND = ITEMS.register("golden_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.GOLDEN));
 
     public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", () -> new HandleItem(WandTiers.WOODEN));
-    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", () -> new HandleItem(WandTiers.IRON));
+    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", () -> new HandleItem(WandTiers.EMERALD));
     public static final DeferredItem<Item> DIAMOND_WAND_HANDLE = ITEMS.register("diamond_wand_handle", () -> new HandleItem(WandTiers.DIAMOND));
     public static final DeferredItem<Item> GOLDEN_WAND_HANDLE = ITEMS.register("golden_wand_handle", () -> new HandleItem(WandTiers.GOLDEN));
 

@@ -1,11 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -189,13 +187,13 @@ public class WandShotHandler {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime((int)(lifespan * 20));
-        shot.setCanIgnite(wand.getTier().getCanIgnite());
+        shot.setCanIgnite(wand.getType().getCanIgnite());
         shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setSpellType(spellType);
         shot.setSpellLevel(spellLevel);
-        shot.setDamageType(wand.getTier().getDamageType());
+        shot.setDamageType(wand.getType().getDamageType());
         shot.setTrailColor(wand.getTrailColor(wandItem));
 
         return shot;

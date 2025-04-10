@@ -24,7 +24,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
-import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -99,13 +98,13 @@ public class WandProjectileHandler {
 
         if (isMeteor.get()) {
             shotItem = EMItems.METEOR_SHOT.get();
-            shotItem.setModifier(wand.getTier().getShotItem().getModifier());
+            shotItem.setModifier(wand.getType().getShotItem().getModifier());
 
             shotStack = new ItemStack(EMItems.METEOR_SHOT.get());
         }
         else {
-            shotItem = wand.getTier().getShotItem();
-            shotStack = new ItemStack(wand.getTier().getShotItem());
+            shotItem = wand.getType().getShotItem();
+            shotStack = new ItemStack(wand.getType().getShotItem());
         }
 
         List<Entity> nearby = WandUtil.getNearbyEntities(level, (int)(newLifespan * 10), player);

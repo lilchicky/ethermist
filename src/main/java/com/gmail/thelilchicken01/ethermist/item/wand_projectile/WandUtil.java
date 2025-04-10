@@ -108,57 +108,11 @@ public class WandUtil {
         return wandID;
     }
 
-    public static List<Component> addHandleTooltip(WandTiers tier) {
-
-        List<Component> handleLore = new ArrayList<>();
-        boolean isWandChanged = false;
-
-        handleLore.add(Component.translatable("item.ethermist.wand_handle." + tier.getDescription() + ".desc"));
-
-        if (tier.getBonusWandDamage() != 0) {
-            isWandChanged = true;
-            String bonus_damage = tier.getBonusWandDamage() > 0 ? "+" + FORMAT.format(tier.getBonusWandDamage()) : FORMAT.format(tier.getBonusWandDamage());
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_damage")
-                    .append(Component.literal(bonus_damage)).withColor(0xAAAAAA));
-        }
-
-        if (tier.getBonusCooldownTicks() != 0) {
-            isWandChanged = true;
-            String bonus_cooldown = tier.getBonusCooldownTicks() > 0 ?
-                    "+" + FORMAT.format(tier.getBonusCooldownTicks() / 20) : FORMAT.format(tier.getBonusCooldownTicks() / 20);
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_cooldown")
-                    .append(Component.literal(bonus_cooldown))
-                    .append(Component.translatable("generic.ethermist.time.seconds")).withColor(0xAAAAAA));
-        }
-
-        if (tier.getBonusAccuracy() != 0) {
-            isWandChanged = true;
-            String bonus_accuracy = tier.getBonusAccuracy() < 0 ? "+" + FORMAT.format(-tier.getBonusAccuracy()) : FORMAT.format(-tier.getBonusAccuracy());
-            bonus_accuracy += "%";
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_accuracy")
-                    .append(Component.literal(bonus_accuracy)).withColor(0xAAAAAA));
-        }
-
-        if (tier.getTierDurabilityMult() != 1) {
-            isWandChanged = true;
-            String durability_mult = "x" + FORMAT.format(tier.getTierDurabilityMult());
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.durability_mult")
-                    .append(Component.literal(durability_mult)).withColor(0xAAAAAA));
-        }
-
-        if (tier.getTierEnchantabilityMult() != 1) {
-            isWandChanged = true;
-            String enchant_mult = "x" + FORMAT.format(tier.getTierEnchantabilityMult());
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.enchant_mult")
-                    .append(Component.literal(enchant_mult)).withColor(0xAAAAAA));
-        }
-
-        if (!isWandChanged) {
-            handleLore.add(Component.translatable("item.ethermist.wand_handle.no_change"));
-        }
-
-        return handleLore;
-
+    public enum ModifierType {
+        ADDITION,
+        MULT,
+        PERCENT,
+        DEFAULT
     }
 
 }

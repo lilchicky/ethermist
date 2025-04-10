@@ -356,7 +356,7 @@
   "attribute.ethermist.wand.base_damage": "%s Bolt Damage",
   "attribute.ethermist.wand.projectile_speed": "%s%% Bolt Speed",
   "attribute.ethermist.wand.knockback": "%s%% Bolt Knockback",
-  "attribute.ethermist.wand.lifespan": "%s Second Bolt Lifetime",
+  "attribute.ethermist.wand.lifespan": "%s Second Bolt Lifespan",
   "attribute.ethermist.wand.wand_accuracy": "%s%% Accuracy",
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
@@ -371,20 +371,26 @@
 
   "item.ethermist.wand.dyeable": "Dyeable",
 
-  "item.ethermist.wand.hold_shift": "Hold [SHIFT] to view Handle stats.",
-  "item.ethermist.wand_handle.no_change": "Handle does not affect stats.",
+  "item.ethermist.wand_handle.no_change": "No stat changes.",
 
-  "item.ethermist.wand_handle.wooden.desc": "Material: Wooden",
-  "item.ethermist.wand_handle.iron.desc": "Material: Iron",
-  "item.ethermist.wand_handle.golden.desc": "Material: Golden",
-  "item.ethermist.wand_handle.diamond.desc": "Material: Diamond",
-  "item.ethermist.wand_handle.netherite.desc": "Material: Netherite",
+  "item.ethermist.wand_handle.wooden.desc": "Handle Material: Wooden",
+  "item.ethermist.wand_handle.emerald.desc": "Handle Material: Emerald",
+  "item.ethermist.wand_handle.golden.desc": "Handle Material: Golden",
+  "item.ethermist.wand_handle.diamond.desc": "Handle Material: Diamond",
+  "item.ethermist.wand_handle.lapis.desc": "Handle Material: Lapis Lazuli",
+  "item.ethermist.wand_handle.nether_quartz.desc": "Handle Material: Nether Quartz",
+  "item.ethermist.wand_handle.redstone.desc": "Handle Material: Redstone",
+  "item.ethermist.wand_handle.glowstone.desc": "Handle Material: Glowstone",
+  "item.ethermist.wand_handle.prismarine.desc": "Handle Material: Prismarine",
 
   "item.ethermist.wand_handle.bonus_damage": "Damage: ",
   "item.ethermist.wand_handle.bonus_cooldown": "Cooldown: ",
   "item.ethermist.wand_handle.bonus_accuracy": "Accuracy: ",
+  "item.ethermist.wand_handle.bonus_knockback": "Knockback: ",
   "item.ethermist.wand_handle.durability_mult": "Durability: ",
   "item.ethermist.wand_handle.enchant_mult": "Enchantability: ",
+  "item.ethermist.wand_handle.bonus_lifespan": "Bolt Lifespan: ",
+  "item.ethermist.wand_handle.bonus_bolt_speed": "Bolt Speed: ",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",

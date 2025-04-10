@@ -6,12 +6,11 @@ import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
@@ -43,7 +42,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
@@ -56,7 +54,7 @@ import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class WandItem extends Item {
+public class WandItem extends Item implements IDyeableWandItem {
 
     public final SoundEvent SHOOT_SOUND;
     public final WandTypes TYPE;
@@ -73,7 +71,7 @@ public class WandItem extends Item {
     public WandItem(WandTypes type, WandTiers tier) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability(Math.max((int) (128 * type.getDurabilityMult() * tier.getTierDurabilityMult()), 1)));
+                .durability(Math.max((int) (128 * type.getDurabilityMult() * WandTiers.DIAMOND.getModifierFor(tier)), 1)));
         this.SHOOT_SOUND = type.getShootSound();
         this.TYPE = type;
         this.TIER = tier;
@@ -114,7 +112,7 @@ public class WandItem extends Item {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return (int)(TYPE.getEnchantability() * TIER.getTierEnchantabilityMult());
+        return (int)(TYPE.getEnchantability() * WandTiers.LAPIS.getModifierFor(TIER));
     }
 
     @Override
@@ -122,8 +120,12 @@ public class WandItem extends Item {
         return stack.isDamaged() && TYPE.getRepairItem().get().test(repairItem);
     }
 
-    public WandTypes getTier() {
+    public WandTypes getType() {
         return TYPE;
+    }
+
+    public WandTiers getTier() {
+        return TIER;
     }
 
     public float[] getTrailColor(ItemStack stack) {
@@ -142,12 +144,13 @@ public class WandItem extends Item {
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
 
         var builder = ItemAttributeModifiers.builder();
-        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown() + TIER.getBonusCooldownTicks());
-        AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + TIER.getBonusWandDamage());
-        AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds());
-        AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed());
-        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback());
-        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy() + TIER.getBonusAccuracy());
+        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown() + (int)(WandTiers.REDSTONE.getModifierFor(TIER) * 20));
+        AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + WandTiers.GOLDEN.getModifierFor(TIER));
+        AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds() + WandTiers.EMERALD.getModifierFor(TIER));
+        AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed() + WandTiers.GLOWSTONE.getModifierFor(TIER));
+        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback() + WandTiers.NETHER_QUARTZ.getModifierFor(TIER));
+        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy() - WandTiers.PRISMARINE.getModifierFor(TIER));
+
         AtomicInteger sprayLevel = new AtomicInteger(0);
         AtomicInteger chaosMagicLevel = new AtomicInteger(0);
         AtomicInteger focusLevel = new AtomicInteger(0);
@@ -361,12 +364,7 @@ public class WandItem extends Item {
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
         lore.add(Component.literal(" "));
 
-        if (Screen.hasShiftDown()) {
-            lore.addAll(WandUtil.addHandleTooltip(TIER));
-        }
-        else {
-            lore.add(Component.translatable("item.ethermist.wand.hold_shift").withColor(0xDAA520));
-        }
+        lore.addAll(TIER.getModifierString());
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());

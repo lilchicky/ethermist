@@ -101,48 +101,48 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.ABYSSAL_MUSHROOM);
 
         wandHandle(EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_FLAME_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_DULL_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_POISON_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_LEVITATION_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_WITHER_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_WITCH_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_HEAVY_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_FROZEN_WAND, EMItems.WOODEN_WAND_HANDLE);
-        wandItem(EMItems.WOODEN_GLASS_WAND, EMItems.WOODEN_WAND_HANDLE);
+        wandItem(EMItems.WOODEN_FLAME_WAND);
+        wandItem(EMItems.WOODEN_DULL_WAND);
+        wandItem(EMItems.WOODEN_POISON_WAND);
+        wandItem(EMItems.WOODEN_LEVITATION_WAND);
+        wandItem(EMItems.WOODEN_WITHER_WAND);
+        wandItem(EMItems.WOODEN_WITCH_WAND);
+        wandItem(EMItems.WOODEN_HEAVY_WAND);
+        wandItem(EMItems.WOODEN_FROZEN_WAND);
+        wandItem(EMItems.WOODEN_GLASS_WAND);
 
         wandHandle(EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_FLAME_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_DULL_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_POISON_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_LEVITATION_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_WITHER_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_WITCH_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_HEAVY_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_FROZEN_WAND, EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_GLASS_WAND, EMItems.IRON_WAND_HANDLE);
+        wandItem(EMItems.IRON_FLAME_WAND);
+        wandItem(EMItems.IRON_DULL_WAND);
+        wandItem(EMItems.IRON_POISON_WAND);
+        wandItem(EMItems.IRON_LEVITATION_WAND);
+        wandItem(EMItems.IRON_WITHER_WAND);
+        wandItem(EMItems.IRON_WITCH_WAND);
+        wandItem(EMItems.IRON_HEAVY_WAND);
+        wandItem(EMItems.IRON_FROZEN_WAND);
+        wandItem(EMItems.IRON_GLASS_WAND);
 
         wandHandle(EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_FLAME_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_DULL_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_POISON_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_LEVITATION_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_WITHER_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_WITCH_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_HEAVY_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_FROZEN_WAND, EMItems.DIAMOND_WAND_HANDLE);
-        wandItem(EMItems.DIAMOND_GLASS_WAND, EMItems.DIAMOND_WAND_HANDLE);
+        wandItem(EMItems.DIAMOND_FLAME_WAND);
+        wandItem(EMItems.DIAMOND_DULL_WAND);
+        wandItem(EMItems.DIAMOND_POISON_WAND);
+        wandItem(EMItems.DIAMOND_LEVITATION_WAND);
+        wandItem(EMItems.DIAMOND_WITHER_WAND);
+        wandItem(EMItems.DIAMOND_WITCH_WAND);
+        wandItem(EMItems.DIAMOND_HEAVY_WAND);
+        wandItem(EMItems.DIAMOND_FROZEN_WAND);
+        wandItem(EMItems.DIAMOND_GLASS_WAND);
 
         wandHandle(EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_FLAME_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_DULL_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_POISON_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_LEVITATION_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_WITHER_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_WITCH_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_HEAVY_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_FROZEN_WAND, EMItems.GOLDEN_WAND_HANDLE);
-        wandItem(EMItems.GOLDEN_GLASS_WAND, EMItems.GOLDEN_WAND_HANDLE);
+        wandItem(EMItems.GOLDEN_FLAME_WAND);
+        wandItem(EMItems.GOLDEN_DULL_WAND);
+        wandItem(EMItems.GOLDEN_POISON_WAND);
+        wandItem(EMItems.GOLDEN_LEVITATION_WAND);
+        wandItem(EMItems.GOLDEN_WITHER_WAND);
+        wandItem(EMItems.GOLDEN_WITCH_WAND);
+        wandItem(EMItems.GOLDEN_HEAVY_WAND);
+        wandItem(EMItems.GOLDEN_FROZEN_WAND);
+        wandItem(EMItems.GOLDEN_GLASS_WAND);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
@@ -228,11 +228,12 @@ public class EMItemModelProvider extends ItemModelProvider {
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + folder + "/" + block.getId().getPath()));
     }
 
-    public void wandItem(DeferredItem<?> wand, DeferredItem<?> handle) {
+    public void wandItem(DeferredItem<?> wand) {
         this.withExistingParent(wand.getId().getPath(), ResourceLocation.parse("item/handheld"))
-                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + handle.getId().getPath()))
-                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + handle.getId().getPath() + "_overlay"))
-                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + getBaseWandName(wand.getId().getPath())));
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_base"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_tier"))
+                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_gems"))
+                .texture("layer3", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/" + getBaseWandName(wand.getId().getPath())));
     }
 
     public void orbItem(DeferredItem<?> item) {
@@ -250,8 +251,9 @@ public class EMItemModelProvider extends ItemModelProvider {
     public void wandHandle(DeferredItem<?> item) {
         this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld"))
-                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + item.getId().getPath() + "_empty"))
-                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/" + item.getId().getPath() + "_empty_overlay"));
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_empty_base"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_empty_tier"))
+                .texture("layer2", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_empty_gems"));
     }
 
     public void shotItem(DeferredItem<?> item) {

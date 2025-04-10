@@ -22,13 +22,17 @@ import java.util.List;
 
 import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
-public class HandleItem extends Item {
+public class HandleItem extends Item implements IDyeableWandItem {
 
     private final WandTiers TIER;
 
     public HandleItem(WandTiers tier) {
         super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
         this.TIER = tier;
+    }
+
+    public WandTiers getTier() {
+        return TIER;
     }
 
     @Override
@@ -78,7 +82,7 @@ public class HandleItem extends Item {
         lore.add(dyeableText);
         lore.add(Component.literal(" "));
 
-        lore.addAll(WandUtil.addHandleTooltip(TIER));
+        lore.addAll(TIER.getModifierString());
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
