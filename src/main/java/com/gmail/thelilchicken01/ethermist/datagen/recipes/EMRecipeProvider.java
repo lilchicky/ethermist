@@ -899,6 +899,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_prismarine_crystal", has(Tags.Items.GEMS_PRISMARINE)).save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.NETHERITE_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.INGOTS_NETHERITE)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_netherite_ingot", has(Tags.Items.INGOTS_NETHERITE)).save(output);
+
         Map<String, Map<Item, Item>> tieredWands = new HashMap<>();
         Map<String, Item> tierHandles = new HashMap<>();
 
@@ -1017,6 +1027,19 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.PRISMARINE_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.PRISMARINE_GLASS_WAND.get()),
                 Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("netherite", EMItems.NETHERITE_WAND_HANDLE.get());
+        tieredWands.put("netherite", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.NETHERITE_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.NETHERITE_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.NETHERITE_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.NETHERITE_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.NETHERITE_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.NETHERITE_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.NETHERITE_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.NETHERITE_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.NETHERITE_HEAVY_WAND.get())
         ));
 
         for (String tier : tieredWands.keySet()) {

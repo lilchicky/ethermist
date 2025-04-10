@@ -4,7 +4,9 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.MinecraftServer;
@@ -208,7 +210,7 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos) {
+    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos, WandTiers tier) {
 
         if(shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
 
@@ -253,7 +255,7 @@ public class WandProjectileHandler {
 
             // Wand Specific Modifiers
             if(shooter instanceof Player player) {
-                WandSpellHandler.processWandModifiers(shotItem, target, player);
+                WandSpellHandler.processWandModifiers(shotItem, target, player, tier);
                 WandSpellHandler.processSpells(level, player, target, null, shot);
             }
 
@@ -264,14 +266,14 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot) {
+    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot, WandTiers tier) {
 
         if (result.getType() == HitResult.Type.ENTITY) {
             EntityHitResult entityResult = (EntityHitResult) result;
             Entity target = entityResult.getEntity();
             WandShotItem shotItem = (WandShotItem) shot.getItem().getItem();
 
-            processHitEntity(level, shooter, target, shotItem, shot, pos);
+            processHitEntity(level, shooter, target, shotItem, shot, pos, tier);
         }
         else if (result.getType() == HitResult.Type.BLOCK) {
             BlockHitResult blockResult = (BlockHitResult) result;

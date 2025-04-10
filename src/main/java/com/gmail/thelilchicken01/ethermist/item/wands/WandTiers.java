@@ -105,6 +105,14 @@ public enum WandTiers {
             WandUtil.ModifierType.PERCENT,
             false,
             new float[]{0.706f, 0.847f, 0.792f}
+    ),
+    NETHERITE(
+            "netherite",
+            "buff_effect",
+            0,
+            WandUtil.ModifierType.BUFF_EFFECT,
+            false,
+            new float[]{0.32f, 0.32f, 0.32f}
     );
 
     private final String description;
@@ -174,6 +182,9 @@ public enum WandTiers {
 
             case DEFAULT ->
                     handleLore.add(Component.translatable("item.ethermist.wand_handle.no_change").withColor(color));
+
+            case BUFF_EFFECT ->
+                    handleLore.add(Component.translatable("item.ethermist.wand_handle.buff_effect").withColor(color));
         }
 
         return handleLore;

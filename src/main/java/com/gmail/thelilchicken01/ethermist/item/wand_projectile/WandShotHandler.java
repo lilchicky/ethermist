@@ -18,7 +18,7 @@ public class WandShotHandler {
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
                              boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
 
         shot.shootFromRotation(
                 player,
@@ -54,7 +54,7 @@ public class WandShotHandler {
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, int iterations,
                                    boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
 
         shot.shootFromRotation(
                 player,
@@ -68,8 +68,8 @@ public class WandShotHandler {
 
         for (int x = 0; x < iterations; x++) {
 
-            WandProjectile splitShot = shotItem.createProjectile(level, shotStack, player, target);
-            WandProjectile splitShot2 = shotItem.createProjectile(level, shotStack, player, target);
+            WandProjectile splitShot = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
+            WandProjectile splitShot2 = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
 
             splitShot.shootFromRotation(
                     player,
@@ -106,7 +106,7 @@ public class WandShotHandler {
         for (int x = 0; x < iterations * 3; x++) {
 
             if (target != null && !target.isEmpty()) {
-                shot = shotItem.createProjectile(level, shotStack, player, List.of(target.get(index)));
+                shot = shotItem.createProjectile(level, shotStack, player, List.of(target.get(index)), wand.getTier());
                 index++;
 
                 if (index >= target.size()) {
@@ -114,7 +114,7 @@ public class WandShotHandler {
                 }
             }
             else {
-                shot = shotItem.createProjectile(level, shotStack, player, target);
+                shot = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
             }
 
             shot.shootFromRotation(
@@ -137,7 +137,7 @@ public class WandShotHandler {
                                    ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
                                    List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel, BlockPos pos) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wand.getTier());
 
         Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
         Vec3 targetPos = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
@@ -161,7 +161,7 @@ public class WandShotHandler {
                                       ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem, boolean isHoming,
                                       List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel, Entity targetLoc) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(targetLoc));
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(targetLoc), wand.getTier());
 
         Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
         Vec3 targetPos = new Vec3(targetLoc.getX(), targetLoc.getY(), targetLoc.getZ());

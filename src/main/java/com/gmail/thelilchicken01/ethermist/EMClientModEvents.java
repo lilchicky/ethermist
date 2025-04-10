@@ -165,7 +165,18 @@ public class EMClientModEvents {
                 EMItems.PRISMARINE_WITCH_WAND.get(),
                 EMItems.PRISMARINE_HEAVY_WAND.get(),
                 EMItems.PRISMARINE_FROZEN_WAND.get(),
-                EMItems.PRISMARINE_GLASS_WAND.get()
+                EMItems.PRISMARINE_GLASS_WAND.get(),
+
+                EMItems.NETHERITE_WAND_HANDLE.get(),
+                EMItems.NETHERITE_DULL_WAND.get(),
+                EMItems.NETHERITE_FLAME_WAND.get(),
+                EMItems.NETHERITE_POISON_WAND.get(),
+                EMItems.NETHERITE_WITHER_WAND.get(),
+                EMItems.NETHERITE_LEVITATION_WAND.get(),
+                EMItems.NETHERITE_WITCH_WAND.get(),
+                EMItems.NETHERITE_HEAVY_WAND.get(),
+                EMItems.NETHERITE_FROZEN_WAND.get(),
+                EMItems.NETHERITE_GLASS_WAND.get()
         );
     }
 }

@@ -9,6 +9,7 @@
     "ethermist:redstone_wand_handle",
     "ethermist:glowstone_wand_handle",
     "ethermist:prismarine_wand_handle",
+    "ethermist:netherite_wand_handle",
     "ethermist:wooden_dull_wand",
     "ethermist:wooden_flame_wand",
     "ethermist:wooden_poison_wand",
@@ -89,6 +90,15 @@
     "ethermist:prismarine_witch_wand",
     "ethermist:prismarine_heavy_wand",
     "ethermist:prismarine_frozen_wand",
-    "ethermist:prismarine_glass_wand"
+    "ethermist:prismarine_glass_wand",
+    "ethermist:netherite_dull_wand",
+    "ethermist:netherite_flame_wand",
+    "ethermist:netherite_poison_wand",
+    "ethermist:netherite_levitation_wand",
+    "ethermist:netherite_wither_wand",
+    "ethermist:netherite_witch_wand",
+    "ethermist:netherite_heavy_wand",
+    "ethermist:netherite_frozen_wand",
+    "ethermist:netherite_glass_wand"
   ]
 }

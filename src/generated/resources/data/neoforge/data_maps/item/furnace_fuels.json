@@ -15,6 +15,9 @@
     "ethermist:lapis_wand_handle": {
       "burn_time": 80
     },
+    "ethermist:netherite_wand_handle": {
+      "burn_time": 80
+    },
     "ethermist:prismarine_wand_handle": {
       "burn_time": 80
     },

@@ -199,6 +199,17 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.PRISMARINE_FROZEN_WAND);
         wandItem(EMItems.PRISMARINE_GLASS_WAND);
 
+        wandHandle(EMItems.NETHERITE_WAND_HANDLE);
+        wandItem(EMItems.NETHERITE_FLAME_WAND);
+        wandItem(EMItems.NETHERITE_DULL_WAND);
+        wandItem(EMItems.NETHERITE_POISON_WAND);
+        wandItem(EMItems.NETHERITE_LEVITATION_WAND);
+        wandItem(EMItems.NETHERITE_WITHER_WAND);
+        wandItem(EMItems.NETHERITE_WITCH_WAND);
+        wandItem(EMItems.NETHERITE_HEAVY_WAND);
+        wandItem(EMItems.NETHERITE_FROZEN_WAND);
+        wandItem(EMItems.NETHERITE_GLASS_WAND);
+
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
         orbItem(EMItems.POISON_ORB);

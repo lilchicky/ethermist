@@ -112,7 +112,8 @@ public class WandUtil {
         ADDITION,
         MULT,
         PERCENT,
-        DEFAULT
+        DEFAULT,
+        BUFF_EFFECT
     }
 
 }

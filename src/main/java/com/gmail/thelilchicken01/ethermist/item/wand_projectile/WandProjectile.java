@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;
@@ -38,6 +39,7 @@ public class WandProjectile extends Fireball {
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
     protected int spellLevel = 0;
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
+    protected WandTiers tierOfOriginWand;
 
     public static final EntityDataAccessor<Float> TRAIL_COLOR_RED;
     public static final EntityDataAccessor<Float> TRAIL_COLOR_GREEN;
@@ -56,9 +58,10 @@ public class WandProjectile extends Fireball {
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
-    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target) {
+    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target, WandTiers tier) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
+        this.tierOfOriginWand = tier;
         if (shooter instanceof Player player) {
             this.shooter = player;
         }
@@ -94,7 +97,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this);
+        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this, tierOfOriginWand);
     }
 
     // Math courtesy of Guns n Roses
@@ -183,6 +186,10 @@ public class WandProjectile extends Fireball {
         float g = this.entityData.get(TRAIL_COLOR_GREEN);
         float b = this.entityData.get(TRAIL_COLOR_BLUE);
         return new float[]{r, g, b};
+    }
+
+    public WandTiers getTierOfOriginWand() {
+        return tierOfOriginWand;
     }
 
     @Override

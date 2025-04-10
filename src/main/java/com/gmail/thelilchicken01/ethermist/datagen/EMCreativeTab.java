@@ -346,6 +346,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.REDSTONE_WAND_HANDLE.get());
                 output.accept(EMItems.GLOWSTONE_WAND_HANDLE.get());
                 output.accept(EMItems.PRISMARINE_WAND_HANDLE.get());
+                output.accept(EMItems.NETHERITE_WAND_HANDLE.get());
 
                 output.accept(EMItems.WOODEN_DULL_WAND.get());
                 output.accept(EMItems.WOODEN_GLASS_WAND.get());

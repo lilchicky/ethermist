@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -28,48 +29,50 @@ import java.util.Random;
 
 public class WandSpellHandler {
 
-    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player) {
+    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, WandTiers tier) {
+
+        boolean isNetheriteWand = tier == WandTiers.NETHERITE;
 
         switch (shotItem.getModifier()) {
             case FLAME -> {
-                target.setRemainingFireTicks(200);
+                target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
             }
             case POISON -> {
                 if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2));
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 200 : 100, 2));
                 }
             }
             case WITHER -> {
                 if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, isNetheriteWand ? 200 : 100, 1));
                 }
             }
             case LEVITATION -> {
                 if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100));
+                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, isNetheriteWand ? 150 : 100));
                 }
             }
             case WITCH -> {
                 RandomSource random = player.getRandom();
                 switch (random.nextInt(3)) {
-                    case 0 -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40));
-                    case 1 -> player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100));
-                    case 2 -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60));
+                    case 0 -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, isNetheriteWand ? 80 : 40, isNetheriteWand ? 1 : 0));
+                    case 1 -> player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, isNetheriteWand ? 200 : 100));
+                    case 2 -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
                 }
                 if (target instanceof LivingEntity livingTarget) {
                     switch (random.nextInt(3)) {
-                        case 0 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60));
-                        case 1 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 80));
-                        case 2 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
+                        case 0 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
+                        case 1 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, isNetheriteWand ? 160 : 80));
+                        case 2 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 160 : 80));
                     }
                 }
                 if (player.isInWater() && random.nextBoolean()) {
-                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100));
+                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, isNetheriteWand ? 400 : 100));
                 }
             }
             case FROZEN -> {
                 if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + 60);
+                    livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (isNetheriteWand ? 120 : 60));
                 }
             }
         }
@@ -355,7 +358,7 @@ public class WandSpellHandler {
                     closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner(), shot.targetType);
 
                     if (!closeTargets.isEmpty()) {
-                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter);
+                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter, shot.getTierOfOriginWand());
                         drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) level);
                         closeTargets.getLast().hurt(damageSource, (float) shot.damage);
                     }

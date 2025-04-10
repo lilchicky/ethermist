@@ -366,6 +366,17 @@
   "item.ethermist.prismarine_frozen_wand": "Prismarine Frozen Wand",
   "item.ethermist.prismarine_glass_wand": "Prismarine Glass Wand",
 
+  "item.ethermist.netherite_wand_handle": "Netherite Wand Handle",
+  "item.ethermist.netherite_dull_wand": "Netherite Dull Wand",
+  "item.ethermist.netherite_flame_wand": "Netherite Flame Wand",
+  "item.ethermist.netherite_poison_wand": "Netherite Poison Wand",
+  "item.ethermist.netherite_levitation_wand": "Netherite Levitation Wand",
+  "item.ethermist.netherite_wither_wand": "Netherite Wither Wand",
+  "item.ethermist.netherite_witch_wand": "Netherite Witch's Wand",
+  "item.ethermist.netherite_heavy_wand": "Netherite Heavy Wand",
+  "item.ethermist.netherite_frozen_wand": "Netherite Frozen Wand",
+  "item.ethermist.netherite_glass_wand": "Netherite Glass Wand",
+
   "item.ethermist.handle_description.line_1": "Combine with an Orb or another Wand in a",
   "item.ethermist.handle_description.line_2": "Smithing Table to craft a Wand with this Handle.",
 
@@ -431,6 +442,7 @@
   "item.ethermist.wand.dyeable": "Dyeable",
 
   "item.ethermist.wand_handle.no_change": "No stat changes.",
+  "item.ethermist.wand_handle.buff_effect": "Buffs the special effect of Wands.",
 
   "item.ethermist.wand_handle.wooden.desc": "Handle Material: Wooden",
   "item.ethermist.wand_handle.emerald.desc": "Handle Material: Emerald",
@@ -441,6 +453,7 @@
   "item.ethermist.wand_handle.redstone.desc": "Handle Material: Redstone",
   "item.ethermist.wand_handle.glowstone.desc": "Handle Material: Glowstone",
   "item.ethermist.wand_handle.prismarine.desc": "Handle Material: Prismarine",
+  "item.ethermist.wand_handle.netherite.desc": "Handle Material: Netherite",
 
   "item.ethermist.wand_handle.bonus_damage": "Bolt Damage: ",
   "item.ethermist.wand_handle.bonus_cooldown": "Cooldown: ",

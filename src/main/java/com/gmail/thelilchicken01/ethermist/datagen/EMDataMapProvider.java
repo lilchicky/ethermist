@@ -26,7 +26,8 @@ public class EMDataMapProvider extends DataMapProvider {
                 .add(EMItems.QUARTZ_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
                 .add(EMItems.REDSTONE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
                 .add(EMItems.GLOWSTONE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
-                .add(EMItems.PRISMARINE_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
+                .add(EMItems.PRISMARINE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.NETHERITE_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
     }
 
 }

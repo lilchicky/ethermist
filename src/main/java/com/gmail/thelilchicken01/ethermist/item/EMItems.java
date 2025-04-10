@@ -151,6 +151,24 @@ public class EMItems {
     public static final DeferredItem<WandItem> PRISMARINE_FROZEN_WAND = ITEMS.register("prismarine_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.PRISMARINE));
     public static final DeferredItem<WandItem> PRISMARINE_GLASS_WAND = ITEMS.register("prismarine_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.PRISMARINE));
 
+    /*
+    ---------- Netherite Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> NETHERITE_DULL_WAND = ITEMS.register("netherite_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_FLAME_WAND = ITEMS.register("netherite_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_POISON_WAND = ITEMS.register("netherite_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_LEVITATION_WAND = ITEMS.register("netherite_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_WITHER_WAND = ITEMS.register("netherite_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_WITCH_WAND = ITEMS.register("netherite_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_HEAVY_WAND = ITEMS.register("netherite_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_FROZEN_WAND = ITEMS.register("netherite_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.NETHERITE));
+    public static final DeferredItem<WandItem> NETHERITE_GLASS_WAND = ITEMS.register("netherite_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.NETHERITE));
+
+     /*
+    ---------- Handles ----------
+     */
+
     public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", () -> new HandleItem(WandTiers.WOODEN));
     public static final DeferredItem<Item> EMERALD_WAND_HANDLE = ITEMS.register("emerald_wand_handle", () -> new HandleItem(WandTiers.EMERALD));
     public static final DeferredItem<Item> DIAMOND_WAND_HANDLE = ITEMS.register("diamond_wand_handle", () -> new HandleItem(WandTiers.DIAMOND));
@@ -160,6 +178,7 @@ public class EMItems {
     public static final DeferredItem<Item> REDSTONE_WAND_HANDLE = ITEMS.register("redstone_wand_handle", () -> new HandleItem(WandTiers.REDSTONE));
     public static final DeferredItem<Item> GLOWSTONE_WAND_HANDLE = ITEMS.register("glowstone_wand_handle", () -> new HandleItem(WandTiers.GLOWSTONE));
     public static final DeferredItem<Item> PRISMARINE_WAND_HANDLE = ITEMS.register("prismarine_wand_handle", () -> new HandleItem(WandTiers.PRISMARINE));
+    public static final DeferredItem<Item> NETHERITE_WAND_HANDLE = ITEMS.register("netherite_wand_handle", () -> new HandleItem(WandTiers.NETHERITE));
 
     /*
     ---------- Tomes ----------
