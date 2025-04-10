@@ -111,16 +111,16 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.WOODEN_FROZEN_WAND);
         wandItem(EMItems.WOODEN_GLASS_WAND);
 
-        wandHandle(EMItems.IRON_WAND_HANDLE);
-        wandItem(EMItems.IRON_FLAME_WAND);
-        wandItem(EMItems.IRON_DULL_WAND);
-        wandItem(EMItems.IRON_POISON_WAND);
-        wandItem(EMItems.IRON_LEVITATION_WAND);
-        wandItem(EMItems.IRON_WITHER_WAND);
-        wandItem(EMItems.IRON_WITCH_WAND);
-        wandItem(EMItems.IRON_HEAVY_WAND);
-        wandItem(EMItems.IRON_FROZEN_WAND);
-        wandItem(EMItems.IRON_GLASS_WAND);
+        wandHandle(EMItems.EMERALD_WAND_HANDLE);
+        wandItem(EMItems.EMERALD_FLAME_WAND);
+        wandItem(EMItems.EMERALD_DULL_WAND);
+        wandItem(EMItems.EMERALD_POISON_WAND);
+        wandItem(EMItems.EMERALD_LEVITATION_WAND);
+        wandItem(EMItems.EMERALD_WITHER_WAND);
+        wandItem(EMItems.EMERALD_WITCH_WAND);
+        wandItem(EMItems.EMERALD_HEAVY_WAND);
+        wandItem(EMItems.EMERALD_FROZEN_WAND);
+        wandItem(EMItems.EMERALD_GLASS_WAND);
 
         wandHandle(EMItems.DIAMOND_WAND_HANDLE);
         wandItem(EMItems.DIAMOND_FLAME_WAND);
@@ -143,6 +143,61 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.GOLDEN_HEAVY_WAND);
         wandItem(EMItems.GOLDEN_FROZEN_WAND);
         wandItem(EMItems.GOLDEN_GLASS_WAND);
+
+        wandHandle(EMItems.LAPIS_WAND_HANDLE);
+        wandItem(EMItems.LAPIS_FLAME_WAND);
+        wandItem(EMItems.LAPIS_DULL_WAND);
+        wandItem(EMItems.LAPIS_POISON_WAND);
+        wandItem(EMItems.LAPIS_LEVITATION_WAND);
+        wandItem(EMItems.LAPIS_WITHER_WAND);
+        wandItem(EMItems.LAPIS_WITCH_WAND);
+        wandItem(EMItems.LAPIS_HEAVY_WAND);
+        wandItem(EMItems.LAPIS_FROZEN_WAND);
+        wandItem(EMItems.LAPIS_GLASS_WAND);
+
+        wandHandle(EMItems.QUARTZ_WAND_HANDLE);
+        wandItem(EMItems.QUARTZ_FLAME_WAND);
+        wandItem(EMItems.QUARTZ_DULL_WAND);
+        wandItem(EMItems.QUARTZ_POISON_WAND);
+        wandItem(EMItems.QUARTZ_LEVITATION_WAND);
+        wandItem(EMItems.QUARTZ_WITHER_WAND);
+        wandItem(EMItems.QUARTZ_WITCH_WAND);
+        wandItem(EMItems.QUARTZ_HEAVY_WAND);
+        wandItem(EMItems.QUARTZ_FROZEN_WAND);
+        wandItem(EMItems.QUARTZ_GLASS_WAND);
+
+        wandHandle(EMItems.REDSTONE_WAND_HANDLE);
+        wandItem(EMItems.REDSTONE_FLAME_WAND);
+        wandItem(EMItems.REDSTONE_DULL_WAND);
+        wandItem(EMItems.REDSTONE_POISON_WAND);
+        wandItem(EMItems.REDSTONE_LEVITATION_WAND);
+        wandItem(EMItems.REDSTONE_WITHER_WAND);
+        wandItem(EMItems.REDSTONE_WITCH_WAND);
+        wandItem(EMItems.REDSTONE_HEAVY_WAND);
+        wandItem(EMItems.REDSTONE_FROZEN_WAND);
+        wandItem(EMItems.REDSTONE_GLASS_WAND);
+
+        wandHandle(EMItems.GLOWSTONE_WAND_HANDLE);
+        wandItem(EMItems.GLOWSTONE_FLAME_WAND);
+        wandItem(EMItems.GLOWSTONE_DULL_WAND);
+        wandItem(EMItems.GLOWSTONE_POISON_WAND);
+        wandItem(EMItems.GLOWSTONE_LEVITATION_WAND);
+        wandItem(EMItems.GLOWSTONE_WITHER_WAND);
+        wandItem(EMItems.GLOWSTONE_WITCH_WAND);
+        wandItem(EMItems.GLOWSTONE_HEAVY_WAND);
+        wandItem(EMItems.GLOWSTONE_FROZEN_WAND);
+        wandItem(EMItems.GLOWSTONE_GLASS_WAND);
+
+        wandHandle(EMItems.PRISMARINE_WAND_HANDLE);
+        wandItem(EMItems.PRISMARINE_FLAME_WAND);
+        wandItem(EMItems.PRISMARINE_DULL_WAND);
+        wandItem(EMItems.PRISMARINE_POISON_WAND);
+        wandItem(EMItems.PRISMARINE_LEVITATION_WAND);
+        wandItem(EMItems.PRISMARINE_WITHER_WAND);
+        wandItem(EMItems.PRISMARINE_WITCH_WAND);
+        wandItem(EMItems.PRISMARINE_HEAVY_WAND);
+        wandItem(EMItems.PRISMARINE_FROZEN_WAND);
+        wandItem(EMItems.PRISMARINE_GLASS_WAND);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);

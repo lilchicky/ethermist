@@ -338,54 +338,24 @@ public class EMCreativeTab {
 
                 // Wands
                 output.accept(EMItems.WOODEN_WAND_HANDLE.get());
-                output.accept(EMItems.IRON_WAND_HANDLE.get());
+                output.accept(EMItems.EMERALD_WAND_HANDLE.get());
                 output.accept(EMItems.GOLDEN_WAND_HANDLE.get());
                 output.accept(EMItems.DIAMOND_WAND_HANDLE.get());
+                output.accept(EMItems.LAPIS_WAND_HANDLE.get());
+                output.accept(EMItems.QUARTZ_WAND_HANDLE.get());
+                output.accept(EMItems.REDSTONE_WAND_HANDLE.get());
+                output.accept(EMItems.GLOWSTONE_WAND_HANDLE.get());
+                output.accept(EMItems.PRISMARINE_WAND_HANDLE.get());
 
                 output.accept(EMItems.WOODEN_DULL_WAND.get());
-                output.accept(EMItems.IRON_DULL_WAND.get());
-                output.accept(EMItems.GOLDEN_DULL_WAND.get());
-                output.accept(EMItems.DIAMOND_DULL_WAND.get());
-
                 output.accept(EMItems.WOODEN_GLASS_WAND.get());
-                output.accept(EMItems.IRON_GLASS_WAND.get());
-                output.accept(EMItems.GOLDEN_GLASS_WAND.get());
-                output.accept(EMItems.DIAMOND_GLASS_WAND.get());
-
                 output.accept(EMItems.WOODEN_POISON_WAND.get());
-                output.accept(EMItems.IRON_POISON_WAND.get());
-                output.accept(EMItems.GOLDEN_POISON_WAND.get());
-                output.accept(EMItems.DIAMOND_POISON_WAND.get());
-
                 output.accept(EMItems.WOODEN_WITCH_WAND.get());
-                output.accept(EMItems.IRON_WITCH_WAND.get());
-                output.accept(EMItems.GOLDEN_WITCH_WAND.get());
-                output.accept(EMItems.DIAMOND_WITCH_WAND.get());
-
                 output.accept(EMItems.WOODEN_FROZEN_WAND.get());
-                output.accept(EMItems.IRON_FROZEN_WAND.get());
-                output.accept(EMItems.GOLDEN_FROZEN_WAND.get());
-                output.accept(EMItems.DIAMOND_FROZEN_WAND.get());
-
                 output.accept(EMItems.WOODEN_FLAME_WAND.get());
-                output.accept(EMItems.IRON_FLAME_WAND.get());
-                output.accept(EMItems.GOLDEN_FLAME_WAND.get());
-                output.accept(EMItems.DIAMOND_FLAME_WAND.get());
-
                 output.accept(EMItems.WOODEN_WITHER_WAND.get());
-                output.accept(EMItems.IRON_WITHER_WAND.get());
-                output.accept(EMItems.GOLDEN_WITHER_WAND.get());
-                output.accept(EMItems.DIAMOND_WITHER_WAND.get());
-
                 output.accept(EMItems.WOODEN_LEVITATION_WAND.get());
-                output.accept(EMItems.IRON_LEVITATION_WAND.get());
-                output.accept(EMItems.GOLDEN_LEVITATION_WAND.get());
-                output.accept(EMItems.IRON_LEVITATION_WAND.get());
-
                 output.accept(EMItems.WOODEN_HEAVY_WAND.get());
-                output.accept(EMItems.IRON_HEAVY_WAND.get());
-                output.accept(EMItems.GOLDEN_HEAVY_WAND.get());
-                output.accept(EMItems.DIAMOND_HEAVY_WAND.get());
 
                 // Misc
                 output.accept(EMItems.WAND_TOME.get());

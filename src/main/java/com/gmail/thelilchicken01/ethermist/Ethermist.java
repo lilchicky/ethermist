@@ -7,6 +7,8 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
@@ -18,7 +20,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -116,86 +117,4 @@ public class Ethermist {
         SCHEDULER.tick(event.getServer().getTickCount());
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-
-        }
-
-        @SubscribeEvent
-        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-
-            event.registerEntityRenderer(EMEntityTypes.WAND_PROJECTILE.get(), ThrownItemRenderer::new);
-
-        }
-
-        @SubscribeEvent
-        public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
-            event.registerSpriteSet(EMParticleTypes.GLIMMERBUG_AIR.get(), EMSuspendedParticle.GlimmerbugAirProvider::new);
-            event.registerSpriteSet(EMParticleTypes.VOLATILE_ENERGY_TETHER.get(), VolatileEnergyTetherParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.WAND_TRAIL.get(), WandTrailParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.ETHERMIST_PORTAL.get(), EthermistPortalParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.RED_LEAVES.get(), EMLeavesParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.ORANGE_LEAVES.get(), EMLeavesParticle.Provider::new);
-            event.registerSpriteSet(EMParticleTypes.YELLOW_LEAVES.get(), EMLeavesParticle.Provider::new);
-        }
-
-        @SubscribeEvent
-        public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-            event.register((stack, layer) -> {
-                if (layer == 0) {
-                    DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
-                    return color != null ? (0xFF << 24) | color.rgb() : WAND_COLOR;
-                }
-                return 0xFFFFFFFF;
-            },
-                    EMItems.WOODEN_WAND_HANDLE.get(),
-                    EMItems.WOODEN_DULL_WAND.get(),
-                    EMItems.WOODEN_FLAME_WAND.get(),
-                    EMItems.WOODEN_POISON_WAND.get(),
-                    EMItems.WOODEN_WITHER_WAND.get(),
-                    EMItems.WOODEN_LEVITATION_WAND.get(),
-                    EMItems.WOODEN_WITCH_WAND.get(),
-                    EMItems.WOODEN_HEAVY_WAND.get(),
-                    EMItems.WOODEN_FROZEN_WAND.get(),
-                    EMItems.WOODEN_GLASS_WAND.get(),
-
-                    EMItems.IRON_WAND_HANDLE.get(),
-                    EMItems.IRON_DULL_WAND.get(),
-                    EMItems.IRON_FLAME_WAND.get(),
-                    EMItems.IRON_POISON_WAND.get(),
-                    EMItems.IRON_WITHER_WAND.get(),
-                    EMItems.IRON_LEVITATION_WAND.get(),
-                    EMItems.IRON_WITCH_WAND.get(),
-                    EMItems.IRON_HEAVY_WAND.get(),
-                    EMItems.IRON_FROZEN_WAND.get(),
-                    EMItems.IRON_GLASS_WAND.get(),
-
-                    EMItems.DIAMOND_WAND_HANDLE.get(),
-                    EMItems.DIAMOND_DULL_WAND.get(),
-                    EMItems.DIAMOND_FLAME_WAND.get(),
-                    EMItems.DIAMOND_POISON_WAND.get(),
-                    EMItems.DIAMOND_WITHER_WAND.get(),
-                    EMItems.DIAMOND_LEVITATION_WAND.get(),
-                    EMItems.DIAMOND_WITCH_WAND.get(),
-                    EMItems.DIAMOND_HEAVY_WAND.get(),
-                    EMItems.DIAMOND_FROZEN_WAND.get(),
-                    EMItems.DIAMOND_GLASS_WAND.get(),
-
-                    EMItems.GOLDEN_WAND_HANDLE.get(),
-                    EMItems.GOLDEN_DULL_WAND.get(),
-                    EMItems.GOLDEN_FLAME_WAND.get(),
-                    EMItems.GOLDEN_POISON_WAND.get(),
-                    EMItems.GOLDEN_WITHER_WAND.get(),
-                    EMItems.GOLDEN_LEVITATION_WAND.get(),
-                    EMItems.GOLDEN_WITCH_WAND.get(),
-                    EMItems.GOLDEN_HEAVY_WAND.get(),
-                    EMItems.GOLDEN_FROZEN_WAND.get(),
-                    EMItems.GOLDEN_GLASS_WAND.get()
-            );
-        }
-    }
 }

@@ -1,6 +1,5 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
-import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import net.minecraft.network.chat.Component;
 
@@ -28,7 +27,7 @@ public enum WandTiers {
             2,
             WandUtil.ModifierType.ADDITION,
             true,
-            new float[]{0.314f, 0.784f, 0.471f}
+            new float[]{0.086f, 0.839f, 0.380f}
     ),
     /*
     DAMAGE
@@ -39,7 +38,7 @@ public enum WandTiers {
             3,
             WandUtil.ModifierType.ADDITION,
             false,
-            new float[]{0.996f, 0.843f, 0.251f}
+            new float[]{0.992f, 0.961f, 0.373f}
     ),
     /*
     DURABILITY
@@ -50,7 +49,7 @@ public enum WandTiers {
             5,
             WandUtil.ModifierType.MULT,
             false,
-            new float[]{0.529f, 0.847f, 0.984f}
+            new float[]{0.318f, 0.929f, 0.859f}
     ),
     /*
     ENCHANTABILITY
@@ -61,18 +60,18 @@ public enum WandTiers {
             4,
             WandUtil.ModifierType.MULT,
             false,
-            new float[]{0.255f, 0.298f, 0.784f}
+            new float[]{0.196f, 0.357f, 0.741f}
     ),
     /*
     KNOCKBACK
      */
-    NETHER_QUARTZ(
+    QUARTZ(
             "nether_quartz",
             "bonus_knockback",
             0.5,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{0.902f, 0.843f, 0.843f}
+            new float[]{0.847f, 0.847f, 0.847f}
     ),
     /*
     COOLDOWN
@@ -83,7 +82,7 @@ public enum WandTiers {
             -2,
             WandUtil.ModifierType.ADDITION,
             true,
-            new float[]{0.722f, 0.000f, 0.000f}
+            new float[]{0.965f, 0.000f, 0.000f}
     ),
     /*
     BOLT SPEED
@@ -94,7 +93,7 @@ public enum WandTiers {
             0.25,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{0.984f, 0.871f, 0.471f}
+            new float[]{1.000f, 0.737f, 0.369f}
     ),
     /*
     ACCURACY
@@ -102,10 +101,10 @@ public enum WandTiers {
     PRISMARINE(
             "prismarine",
             "bonus_accuracy",
-            0.15,
+            5,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{0.400f, 0.796f, 0.733f}
+            new float[]{0.706f, 0.847f, 0.792f}
     );
 
     private final String description;
@@ -155,10 +154,17 @@ public enum WandTiers {
                             Component.translatable("generic.ethermist.time.seconds")
                             : Component.empty()).withColor(color));
 
-            case PERCENT -> handleLore.add(base.copy().append(
-                    Component.literal(modifier > 0 ? "+" + FORMAT.format(modifier) : FORMAT.format(modifier))
-                            .append(Component.literal("%"))).withColor(color)
-            );
+            case PERCENT -> {
+                if (this == PRISMARINE) {
+                    handleLore.add(base.copy().append(
+                            Component.literal(modifier > 0 ? "+" + FORMAT.format(modifier) : FORMAT.format(modifier))
+                                    .append(Component.literal("%"))).withColor(color));
+                } else {
+                    handleLore.add(base.copy().append(
+                            Component.literal(modifier > 0 ? "+" + FORMAT.format(modifier * 100) : FORMAT.format(modifier * 100))
+                                    .append(Component.literal("%"))).withColor(color));
+                }
+            }
 
             case MULT -> {
                 String valueStr = "x" + FORMAT.format(modifier);
@@ -166,7 +172,8 @@ public enum WandTiers {
                 handleLore.add(base.copy().append(Component.literal(valueStr)).withColor(color));
             }
 
-            case DEFAULT -> handleLore.add(Component.translatable("item.ethermist.wand_handle.no_change").withColor(color));
+            case DEFAULT ->
+                    handleLore.add(Component.translatable("item.ethermist.wand_handle.no_change").withColor(color));
         }
 
         return handleLore;

@@ -80,9 +80,13 @@ public class HandleItem extends Item implements IDyeableWandItem {
         }
 
         lore.add(dyeableText);
-        lore.add(Component.literal(" "));
+        lore.add(Component.empty());
 
         lore.addAll(TIER.getModifierString());
+
+        lore.add(Component.empty());
+        lore.add(Component.translatable("item.ethermist.handle_description.line_1").withColor(0xAAAAAA));
+        lore.add(Component.translatable("item.ethermist.handle_description.line_2").withColor(0xAAAAAA));
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());

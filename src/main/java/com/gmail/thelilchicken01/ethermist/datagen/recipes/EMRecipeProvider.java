@@ -4,8 +4,6 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.OrbItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -19,7 +17,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -814,24 +811,23 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         // Wands
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WOODEN_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
+                .pattern(" bc")
                 .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
+                .pattern("cb ")
                 .define('b', Items.STICK)
                 .define('c', ItemTags.PLANKS)
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.IRON_WAND_HANDLE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EMERALD_WAND_HANDLE.get(), 1)
                 .pattern(" ba")
                 .pattern("bcb")
                 .pattern("ab ")
                 .define('a', Items.AMETHYST_SHARD)
                 .define('b', Items.STICK)
-                .define('c', Tags.Items.INGOTS_IRON)
+                .define('c', Tags.Items.GEMS_EMERALD)
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON)).save(output);
+                .unlockedBy("has_emerald", has(Tags.Items.GEMS_EMERALD)).save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.DIAMOND_WAND_HANDLE.get(), 1)
                 .pattern(" ba")
@@ -853,6 +849,56 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_gold_ingot", has(Tags.Items.INGOTS_GOLD)).save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.LAPIS_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.GEMS_LAPIS)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_lapis_lazuli", has(Tags.Items.GEMS_LAPIS)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.QUARTZ_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.GEMS_QUARTZ)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_nether_quartz", has(Tags.Items.GEMS_QUARTZ)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.REDSTONE_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_redstone", has(Tags.Items.DUSTS_REDSTONE)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.GLOWSTONE_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.DUSTS_GLOWSTONE)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_glowstone_dust", has(Tags.Items.DUSTS_GLOWSTONE)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.PRISMARINE_WAND_HANDLE.get(), 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', Tags.Items.GEMS_PRISMARINE)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_prismarine_crystal", has(Tags.Items.GEMS_PRISMARINE)).save(output);
+
         Map<String, Map<Item, Item>> tieredWands = new HashMap<>();
         Map<String, Item> tierHandles = new HashMap<>();
 
@@ -869,17 +915,17 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("iron", EMItems.IRON_WAND_HANDLE.get());
-        tieredWands.put("iron", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.IRON_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.IRON_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.IRON_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.IRON_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.IRON_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.IRON_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.IRON_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.IRON_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.IRON_HEAVY_WAND.get())
+        tierHandles.put("emerald", EMItems.EMERALD_WAND_HANDLE.get());
+        tieredWands.put("emerald", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.EMERALD_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.EMERALD_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.EMERALD_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.EMERALD_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.EMERALD_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.EMERALD_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.EMERALD_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.EMERALD_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.EMERALD_HEAVY_WAND.get())
         ));
 
         tierHandles.put("diamond", EMItems.DIAMOND_WAND_HANDLE.get());
@@ -906,6 +952,71 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GOLDEN_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.GOLDEN_GLASS_WAND.get()),
                 Map.entry(Items.HEAVY_CORE, EMItems.GOLDEN_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("lapis", EMItems.LAPIS_WAND_HANDLE.get());
+        tieredWands.put("lapis", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.LAPIS_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.LAPIS_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.LAPIS_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.LAPIS_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.LAPIS_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.LAPIS_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.LAPIS_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.LAPIS_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.LAPIS_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("quartz", EMItems.QUARTZ_WAND_HANDLE.get());
+        tieredWands.put("quartz", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.QUARTZ_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.QUARTZ_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.QUARTZ_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.QUARTZ_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.QUARTZ_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.QUARTZ_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.QUARTZ_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.QUARTZ_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.QUARTZ_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("redstone", EMItems.REDSTONE_WAND_HANDLE.get());
+        tieredWands.put("redstone", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.REDSTONE_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.REDSTONE_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.REDSTONE_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.REDSTONE_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.REDSTONE_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.REDSTONE_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.REDSTONE_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.REDSTONE_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.REDSTONE_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("glowstone", EMItems.GLOWSTONE_WAND_HANDLE.get());
+        tieredWands.put("glowstone", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.GLOWSTONE_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.GLOWSTONE_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.GLOWSTONE_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.GLOWSTONE_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.GLOWSTONE_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.GLOWSTONE_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GLOWSTONE_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.GLOWSTONE_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.GLOWSTONE_HEAVY_WAND.get())
+        ));
+
+        tierHandles.put("prismarine", EMItems.PRISMARINE_WAND_HANDLE.get());
+        tieredWands.put("prismarine", Map.ofEntries(
+                Map.entry(EMItems.DULL_ORB.get(), EMItems.PRISMARINE_DULL_WAND.get()),
+                Map.entry(EMItems.FLAME_ORB.get(), EMItems.PRISMARINE_FLAME_WAND.get()),
+                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.PRISMARINE_LEVITATION_WAND.get()),
+                Map.entry(EMItems.WITHER_ORB.get(), EMItems.PRISMARINE_WITHER_WAND.get()),
+                Map.entry(EMItems.POISON_ORB.get(), EMItems.PRISMARINE_POISON_WAND.get()),
+                Map.entry(EMItems.WITCH_ORB.get(), EMItems.PRISMARINE_WITCH_WAND.get()),
+                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.PRISMARINE_FROZEN_WAND.get()),
+                Map.entry(EMItems.GLASS_ORB.get(), EMItems.PRISMARINE_GLASS_WAND.get()),
+                Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get())
         ));
 
         for (String tier : tieredWands.keySet()) {
@@ -950,6 +1061,31 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                                         Ethermist.MODID,
                                         getItemName(resultWand) + "_from_" + getItemName(baseWand) + "_and_" + getItemName(orb)
                                 ));
+                    }
+                }
+            }
+
+            // Wand and Handle
+            for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
+                Item orb = orbEntry.getKey();
+                Item resultWand = orbEntry.getValue();
+
+                for (String otherTier : tieredWands.keySet()) {
+                    if (!otherTier.equals(tier)) {
+                        Item otherWand = tieredWands.get(otherTier).get(orb);
+                        if (otherWand != null) {
+                            SmithingTransformRecipeBuilder.smithing(
+                                            Ingredient.EMPTY,
+                                            Ingredient.of(otherWand),
+                                            Ingredient.of(tierHandle),
+                                            RecipeCategory.COMBAT,
+                                            resultWand
+                                    ).unlocks("has_" + getItemName(tierHandle), has(tierHandle))
+                                    .save(output, ResourceLocation.fromNamespaceAndPath(
+                                            Ethermist.MODID,
+                                            getItemName(resultWand) + "_from_" + getItemName(otherWand) + "_and_" + getItemName(tierHandle)
+                                    ));
+                        }
                     }
                 }
             }

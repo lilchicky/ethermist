@@ -148,7 +148,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + WandTiers.GOLDEN.getModifierFor(TIER));
         AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds() + WandTiers.EMERALD.getModifierFor(TIER));
         AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed() + WandTiers.GLOWSTONE.getModifierFor(TIER));
-        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback() + WandTiers.NETHER_QUARTZ.getModifierFor(TIER));
+        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback() + WandTiers.QUARTZ.getModifierFor(TIER));
         AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy() - WandTiers.PRISMARINE.getModifierFor(TIER));
 
         AtomicInteger sprayLevel = new AtomicInteger(0);
@@ -248,7 +248,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                 EMAttributes.PROJECTILE_SPEED,
                 new AttributeModifier(
                         PROJECTILE_SPEED_ID,
-                        newPSpeed.get(),
+                        Math.max(newPSpeed.get(), 0.1),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
                 EquipmentSlotGroup.HAND
@@ -257,7 +257,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                 EMAttributes.WAND_KNOCKBACK,
                 new AttributeModifier(
                         WAND_KNOCKBACK_ID,
-                        newKnockback.get(),
+                        Math.max(newKnockback.get(), 0),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
                 EquipmentSlotGroup.HAND
@@ -284,7 +284,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                 EMAttributes.LIFESPAN,
                 new AttributeModifier(
                         LIFESPAN_ID,
-                        newLifespan.get(),
+                        Math.max(newLifespan.get(), 0.25),
                         AttributeModifier.Operation.ADD_VALUE
                 ),
                 EquipmentSlotGroup.HAND
@@ -362,7 +362,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
-        lore.add(Component.literal(" "));
+        lore.add(Component.empty());
 
         lore.addAll(TIER.getModifierString());
 

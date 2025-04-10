@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-07T23:44:19.8770402	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-04-09T23:28:18.8162071	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/item/gravels.json
@@ -14,22 +14,22 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/item/ores/lapis.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/item/ores/redstone.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
 2adf034f61497b27d73a49efee35cf2afe3623e4 data/c/tags/item/stones.json
-4f9dd063efef41aef4a8acfe5b4f97b9a9c2b46a data/ethermist/tags/item/dyeable_wands.json
+ffda5979e62fa6a12cfdcb9a1e0c7cf6cf6ccdec data/ethermist/tags/item/dyeable_wands.json
 ce11b1851f749ca1edf8436930585b0266339ac2 data/ethermist/tags/item/enchantable_augments.json
 1dd763b62f8612b127d69e03933da897becedf8f data/ethermist/tags/item/enchantable_base.json
 f620b5417e6639850162450c2b2f5a26dd432fe4 data/ethermist/tags/item/enchantable_exclusions.json
 a84d11c51d435b5d06702eb25760a70c715139c2 data/ethermist/tags/item/enchantable_main_spells.json
-e3913ace0a98d16f302e43f50332a6c2311e4521 data/ethermist/tags/item/magic_enchantable.json
+939428632aa5bd177136ec78d57d0a402f1aadeb data/ethermist/tags/item/magic_enchantable.json
 9e55bbdc9dc83e2df8edee0a7aa8361626dca1f7 data/ethermist/tags/item/orbs.json
 0da64c509af51eca306093d010d9f7fef62e5fc0 data/ethermist/tags/item/tomes.json
-b1e49ec245fc090d8da87f8b2c67d1a8d1fc2128 data/ethermist/tags/item/wands.json
+b74536597cfdd515d186a8c4de0f9a9ea5597898 data/ethermist/tags/item/wands.json
 fa537340c21760db1aef55347fb5283e04b84fc9 data/minecraft/tags/item/buttons.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/coal_ores.json
 43f27771d370843005011355d6e7b530a221d27d data/minecraft/tags/item/copper_ores.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/diamond_ores.json
 0f191fdb646760930a94e0122369095bd7ddca56 data/minecraft/tags/item/doors.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/emerald_ores.json
-39c7993e6a57e91e5c3c20ccf6a8e417d6828272 data/minecraft/tags/item/enchantable/durability.json
+48fe48458401e2074dde4021edced7a0713bff14 data/minecraft/tags/item/enchantable/durability.json
 688c80313d35dc207c7a0d67917c5cb4ed1af41b data/minecraft/tags/item/enchantable/mace.json
 e0614bb7aa0bca3d8d28b262d55e3e58545303a8 data/minecraft/tags/item/fences.json
 a7c1fe1ea64bd3060016782d7ab49b72eda02c10 data/minecraft/tags/item/flowers.json

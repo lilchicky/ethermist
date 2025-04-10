@@ -43,15 +43,15 @@ public class EMItems {
     ---------- Iron Wands ----------
      */
 
-    public static final DeferredItem<WandItem> IRON_DULL_WAND = ITEMS.register("iron_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_FLAME_WAND = ITEMS.register("iron_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_POISON_WAND = ITEMS.register("iron_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_LEVITATION_WAND = ITEMS.register("iron_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_WITHER_WAND = ITEMS.register("iron_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_WITCH_WAND = ITEMS.register("iron_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_HEAVY_WAND = ITEMS.register("iron_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_FROZEN_WAND = ITEMS.register("iron_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.EMERALD));
-    public static final DeferredItem<WandItem> IRON_GLASS_WAND = ITEMS.register("iron_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_DULL_WAND = ITEMS.register("emerald_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_FLAME_WAND = ITEMS.register("emerald_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_POISON_WAND = ITEMS.register("emerald_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_LEVITATION_WAND = ITEMS.register("emerald_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_WITHER_WAND = ITEMS.register("emerald_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_WITCH_WAND = ITEMS.register("emerald_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_HEAVY_WAND = ITEMS.register("emerald_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_FROZEN_WAND = ITEMS.register("emerald_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.EMERALD));
+    public static final DeferredItem<WandItem> EMERALD_GLASS_WAND = ITEMS.register("emerald_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.EMERALD));
 
     /*
     ---------- Diamond Wands ----------
@@ -81,10 +81,85 @@ public class EMItems {
     public static final DeferredItem<WandItem> GOLDEN_FROZEN_WAND = ITEMS.register("golden_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.GOLDEN));
     public static final DeferredItem<WandItem> GOLDEN_GLASS_WAND = ITEMS.register("golden_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.GOLDEN));
 
+    /*
+    ---------- Lapis Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> LAPIS_DULL_WAND = ITEMS.register("lapis_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_FLAME_WAND = ITEMS.register("lapis_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_POISON_WAND = ITEMS.register("lapis_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_LEVITATION_WAND = ITEMS.register("lapis_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_WITHER_WAND = ITEMS.register("lapis_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_WITCH_WAND = ITEMS.register("lapis_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_HEAVY_WAND = ITEMS.register("lapis_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_FROZEN_WAND = ITEMS.register("lapis_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.LAPIS));
+    public static final DeferredItem<WandItem> LAPIS_GLASS_WAND = ITEMS.register("lapis_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.LAPIS));
+
+    /*
+    ---------- Nether Quartz Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> QUARTZ_DULL_WAND = ITEMS.register("quartz_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_FLAME_WAND = ITEMS.register("quartz_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_POISON_WAND = ITEMS.register("quartz_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_LEVITATION_WAND = ITEMS.register("quartz_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_WITHER_WAND = ITEMS.register("quartz_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_WITCH_WAND = ITEMS.register("quartz_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_HEAVY_WAND = ITEMS.register("quartz_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_FROZEN_WAND = ITEMS.register("quartz_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.QUARTZ));
+    public static final DeferredItem<WandItem> QUARTZ_GLASS_WAND = ITEMS.register("quartz_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.QUARTZ));
+
+    /*
+    ---------- Redstone Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> REDSTONE_DULL_WAND = ITEMS.register("redstone_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_FLAME_WAND = ITEMS.register("redstone_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_POISON_WAND = ITEMS.register("redstone_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_LEVITATION_WAND = ITEMS.register("redstone_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_WITHER_WAND = ITEMS.register("redstone_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_WITCH_WAND = ITEMS.register("redstone_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_HEAVY_WAND = ITEMS.register("redstone_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_FROZEN_WAND = ITEMS.register("redstone_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.REDSTONE));
+    public static final DeferredItem<WandItem> REDSTONE_GLASS_WAND = ITEMS.register("redstone_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.REDSTONE));
+
+    /*
+    ---------- Glowstone Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> GLOWSTONE_DULL_WAND = ITEMS.register("glowstone_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_FLAME_WAND = ITEMS.register("glowstone_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_POISON_WAND = ITEMS.register("glowstone_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_LEVITATION_WAND = ITEMS.register("glowstone_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_WITHER_WAND = ITEMS.register("glowstone_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_WITCH_WAND = ITEMS.register("glowstone_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_HEAVY_WAND = ITEMS.register("glowstone_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_FROZEN_WAND = ITEMS.register("glowstone_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.GLOWSTONE));
+    public static final DeferredItem<WandItem> GLOWSTONE_GLASS_WAND = ITEMS.register("glowstone_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.GLOWSTONE));
+
+    /*
+    ---------- Prismarine Wands ----------
+     */
+
+    public static final DeferredItem<WandItem> PRISMARINE_DULL_WAND = ITEMS.register("prismarine_dull_wand", () -> new WandItem(WandTypes.DULL_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_FLAME_WAND = ITEMS.register("prismarine_flame_wand", () -> new WandItem(WandTypes.FLAME_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_POISON_WAND = ITEMS.register("prismarine_poison_wand", () -> new WandItem(WandTypes.POISON_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_LEVITATION_WAND = ITEMS.register("prismarine_levitation_wand", () -> new WandItem(WandTypes.LEVITATION_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_WITHER_WAND = ITEMS.register("prismarine_wither_wand", () -> new WandItem(WandTypes.WITHER_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_WITCH_WAND = ITEMS.register("prismarine_witch_wand", () -> new WandItem(WandTypes.WITCH_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_HEAVY_WAND = ITEMS.register("prismarine_heavy_wand", () -> new MaceWandItem(WandTypes.HEAVY_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_FROZEN_WAND = ITEMS.register("prismarine_frozen_wand", () -> new WandItem(WandTypes.FROZEN_WAND, WandTiers.PRISMARINE));
+    public static final DeferredItem<WandItem> PRISMARINE_GLASS_WAND = ITEMS.register("prismarine_glass_wand", () -> new WandItem(WandTypes.GLASS_WAND, WandTiers.PRISMARINE));
+
     public static final DeferredItem<Item> WOODEN_WAND_HANDLE = ITEMS.register("wooden_wand_handle", () -> new HandleItem(WandTiers.WOODEN));
-    public static final DeferredItem<Item> IRON_WAND_HANDLE = ITEMS.register("iron_wand_handle", () -> new HandleItem(WandTiers.EMERALD));
+    public static final DeferredItem<Item> EMERALD_WAND_HANDLE = ITEMS.register("emerald_wand_handle", () -> new HandleItem(WandTiers.EMERALD));
     public static final DeferredItem<Item> DIAMOND_WAND_HANDLE = ITEMS.register("diamond_wand_handle", () -> new HandleItem(WandTiers.DIAMOND));
     public static final DeferredItem<Item> GOLDEN_WAND_HANDLE = ITEMS.register("golden_wand_handle", () -> new HandleItem(WandTiers.GOLDEN));
+    public static final DeferredItem<Item> LAPIS_WAND_HANDLE = ITEMS.register("lapis_wand_handle", () -> new HandleItem(WandTiers.LAPIS));
+    public static final DeferredItem<Item> QUARTZ_WAND_HANDLE = ITEMS.register("quartz_wand_handle", () -> new HandleItem(WandTiers.QUARTZ));
+    public static final DeferredItem<Item> REDSTONE_WAND_HANDLE = ITEMS.register("redstone_wand_handle", () -> new HandleItem(WandTiers.REDSTONE));
+    public static final DeferredItem<Item> GLOWSTONE_WAND_HANDLE = ITEMS.register("glowstone_wand_handle", () -> new HandleItem(WandTiers.GLOWSTONE));
+    public static final DeferredItem<Item> PRISMARINE_WAND_HANDLE = ITEMS.register("prismarine_wand_handle", () -> new HandleItem(WandTiers.PRISMARINE));
 
     /*
     ---------- Tomes ----------

@@ -19,7 +19,14 @@ public class EMDataMapProvider extends DataMapProvider {
     protected void gather() {
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
                 .add(EMItems.WOODEN_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
-                .add(EMItems.IRON_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
+                .add(EMItems.EMERALD_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.GOLDEN_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.DIAMOND_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.LAPIS_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.QUARTZ_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.REDSTONE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.GLOWSTONE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
+                .add(EMItems.PRISMARINE_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
     }
 
 }

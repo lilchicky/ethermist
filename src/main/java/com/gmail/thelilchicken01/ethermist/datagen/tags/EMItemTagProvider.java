@@ -136,9 +136,14 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(EMTags.Items.DYEABLE_WANDS)
                 .add(EMItems.WOODEN_WAND_HANDLE.get())
-                .add(EMItems.IRON_WAND_HANDLE.get())
+                .add(EMItems.EMERALD_WAND_HANDLE.get())
                 .add(EMItems.DIAMOND_WAND_HANDLE.get())
-                .add(EMItems.GOLDEN_WAND_HANDLE.get());
+                .add(EMItems.GOLDEN_WAND_HANDLE.get())
+                .add(EMItems.LAPIS_WAND_HANDLE.get())
+                .add(EMItems.QUARTZ_WAND_HANDLE.get())
+                .add(EMItems.REDSTONE_WAND_HANDLE.get())
+                .add(EMItems.GLOWSTONE_WAND_HANDLE.get())
+                .add(EMItems.PRISMARINE_WAND_HANDLE.get());
 
         tag(EMTags.Items.ENCHANTABLE_BASE)
                 .addTag(EMTags.Items.WANDS)
@@ -181,15 +186,15 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.WOODEN_FROZEN_WAND.get());
         addWands(EMItems.WOODEN_GLASS_WAND.get());
 
-        addWands(EMItems.IRON_DULL_WAND.get());
-        addWands(EMItems.IRON_FLAME_WAND.get());
-        addWands(EMItems.IRON_POISON_WAND.get());
-        addWands(EMItems.IRON_LEVITATION_WAND.get());
-        addWands(EMItems.IRON_WITHER_WAND.get());
-        addWands(EMItems.IRON_WITCH_WAND.get());
-        addWands(EMItems.IRON_HEAVY_WAND.get());
-        addWands(EMItems.IRON_FROZEN_WAND.get());
-        addWands(EMItems.IRON_GLASS_WAND.get());
+        addWands(EMItems.EMERALD_DULL_WAND.get());
+        addWands(EMItems.EMERALD_FLAME_WAND.get());
+        addWands(EMItems.EMERALD_POISON_WAND.get());
+        addWands(EMItems.EMERALD_LEVITATION_WAND.get());
+        addWands(EMItems.EMERALD_WITHER_WAND.get());
+        addWands(EMItems.EMERALD_WITCH_WAND.get());
+        addWands(EMItems.EMERALD_HEAVY_WAND.get());
+        addWands(EMItems.EMERALD_FROZEN_WAND.get());
+        addWands(EMItems.EMERALD_GLASS_WAND.get());
 
         addWands(EMItems.DIAMOND_DULL_WAND.get());
         addWands(EMItems.DIAMOND_FLAME_WAND.get());
@@ -210,6 +215,56 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.GOLDEN_HEAVY_WAND.get());
         addWands(EMItems.GOLDEN_FROZEN_WAND.get());
         addWands(EMItems.GOLDEN_GLASS_WAND.get());
+
+        addWands(EMItems.LAPIS_DULL_WAND.get());
+        addWands(EMItems.LAPIS_FLAME_WAND.get());
+        addWands(EMItems.LAPIS_POISON_WAND.get());
+        addWands(EMItems.LAPIS_LEVITATION_WAND.get());
+        addWands(EMItems.LAPIS_WITHER_WAND.get());
+        addWands(EMItems.LAPIS_WITCH_WAND.get());
+        addWands(EMItems.LAPIS_HEAVY_WAND.get());
+        addWands(EMItems.LAPIS_FROZEN_WAND.get());
+        addWands(EMItems.LAPIS_GLASS_WAND.get());
+
+        addWands(EMItems.QUARTZ_DULL_WAND.get());
+        addWands(EMItems.QUARTZ_FLAME_WAND.get());
+        addWands(EMItems.QUARTZ_POISON_WAND.get());
+        addWands(EMItems.QUARTZ_LEVITATION_WAND.get());
+        addWands(EMItems.QUARTZ_WITHER_WAND.get());
+        addWands(EMItems.QUARTZ_WITCH_WAND.get());
+        addWands(EMItems.QUARTZ_HEAVY_WAND.get());
+        addWands(EMItems.QUARTZ_FROZEN_WAND.get());
+        addWands(EMItems.QUARTZ_GLASS_WAND.get());
+
+        addWands(EMItems.REDSTONE_DULL_WAND.get());
+        addWands(EMItems.REDSTONE_FLAME_WAND.get());
+        addWands(EMItems.REDSTONE_POISON_WAND.get());
+        addWands(EMItems.REDSTONE_LEVITATION_WAND.get());
+        addWands(EMItems.REDSTONE_WITHER_WAND.get());
+        addWands(EMItems.REDSTONE_WITCH_WAND.get());
+        addWands(EMItems.REDSTONE_HEAVY_WAND.get());
+        addWands(EMItems.REDSTONE_FROZEN_WAND.get());
+        addWands(EMItems.REDSTONE_GLASS_WAND.get());
+
+        addWands(EMItems.GLOWSTONE_DULL_WAND.get());
+        addWands(EMItems.GLOWSTONE_FLAME_WAND.get());
+        addWands(EMItems.GLOWSTONE_POISON_WAND.get());
+        addWands(EMItems.GLOWSTONE_LEVITATION_WAND.get());
+        addWands(EMItems.GLOWSTONE_WITHER_WAND.get());
+        addWands(EMItems.GLOWSTONE_WITCH_WAND.get());
+        addWands(EMItems.GLOWSTONE_HEAVY_WAND.get());
+        addWands(EMItems.GLOWSTONE_FROZEN_WAND.get());
+        addWands(EMItems.GLOWSTONE_GLASS_WAND.get());
+
+        addWands(EMItems.PRISMARINE_DULL_WAND.get());
+        addWands(EMItems.PRISMARINE_FLAME_WAND.get());
+        addWands(EMItems.PRISMARINE_POISON_WAND.get());
+        addWands(EMItems.PRISMARINE_LEVITATION_WAND.get());
+        addWands(EMItems.PRISMARINE_WITHER_WAND.get());
+        addWands(EMItems.PRISMARINE_WITCH_WAND.get());
+        addWands(EMItems.PRISMARINE_HEAVY_WAND.get());
+        addWands(EMItems.PRISMARINE_FROZEN_WAND.get());
+        addWands(EMItems.PRISMARINE_GLASS_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

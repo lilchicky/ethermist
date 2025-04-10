@@ -1,6 +1,27 @@
 {
   "values": {
-    "ethermist:iron_wand_handle": {
+    "ethermist:diamond_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:emerald_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:glowstone_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:golden_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:lapis_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:prismarine_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:quartz_wand_handle": {
+      "burn_time": 80
+    },
+    "ethermist:redstone_wand_handle": {
       "burn_time": 80
     },
     "ethermist:wooden_wand_handle": {
