@@ -7,9 +7,11 @@ import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
@@ -41,6 +43,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
@@ -139,12 +142,12 @@ public class WandItem extends Item {
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
 
         var builder = ItemAttributeModifiers.builder();
-        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown());
+        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown() + TIER.getBonusCooldownTicks());
         AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + TIER.getBonusWandDamage());
         AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds());
         AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed());
         AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback());
-        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy());
+        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy() + TIER.getBonusAccuracy());
         AtomicInteger sprayLevel = new AtomicInteger(0);
         AtomicInteger chaosMagicLevel = new AtomicInteger(0);
         AtomicInteger focusLevel = new AtomicInteger(0);
@@ -260,7 +263,7 @@ public class WandItem extends Item {
                 EMAttributes.COOLDOWN,
                 new AttributeModifier(
                         COOLDOWN_ID,
-                        newCD.get() / 20.0,
+                        Math.max(newCD.get(), 5) / 20.0,
                         AttributeModifier.Operation.ADD_VALUE
                 ),
                 EquipmentSlotGroup.HAND
@@ -269,7 +272,7 @@ public class WandItem extends Item {
                 EMAttributes.WAND_DAMAGE,
                 new AttributeModifier(
                         BASE_WAND_DAMAGE_ID,
-                        newDamage.get(),
+                        Math.max(newDamage.get(), 0.5),
                         AttributeModifier.Operation.ADD_VALUE
                 ),
                 EquipmentSlotGroup.HAND
@@ -287,7 +290,7 @@ public class WandItem extends Item {
                 EMAttributes.ACCURACY,
                 new AttributeModifier(
                         ACCURACY_ID,
-                        1 - (newAccuracy.get() / 100),
+                        1 - (Math.max(newAccuracy.get(), 0) / 100),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
                 EquipmentSlotGroup.HAND
@@ -356,6 +359,15 @@ public class WandItem extends Item {
 
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
+        lore.add(Component.literal(" "));
+
+        if (Screen.hasShiftDown()) {
+            lore.addAll(WandUtil.addHandleTooltip(TIER));
+        }
+        else {
+            lore.add(Component.translatable("item.ethermist.wand.hold_shift").withColor(0xDAA520));
+        }
+
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
         }

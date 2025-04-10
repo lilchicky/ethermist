@@ -263,6 +263,9 @@
 
   "block.ethermist.icicle": "Icicle",
 
+  "_comment": "--------------- GENERIC ---------------",
+  "generic.ethermist.time.seconds": " Seconds",
+
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wooden_wand_handle": "Wooden Wand Handle",
   "item.ethermist.wooden_dull_wand": "Wooden Dull Wand",
@@ -367,6 +370,21 @@
   "item.ethermist.glass_wand.desc": "Sharp glass does extra damage, but is quite delicate.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
+
+  "item.ethermist.wand.hold_shift": "Hold [SHIFT] to view Handle stats.",
+  "item.ethermist.wand_handle.no_change": "Handle does not affect stats.",
+
+  "item.ethermist.wand_handle.wooden.desc": "Material: Wooden",
+  "item.ethermist.wand_handle.iron.desc": "Material: Iron",
+  "item.ethermist.wand_handle.golden.desc": "Material: Golden",
+  "item.ethermist.wand_handle.diamond.desc": "Material: Diamond",
+  "item.ethermist.wand_handle.netherite.desc": "Material: Netherite",
+
+  "item.ethermist.wand_handle.bonus_damage": "Damage: ",
+  "item.ethermist.wand_handle.bonus_cooldown": "Cooldown: ",
+  "item.ethermist.wand_handle.bonus_accuracy": "Accuracy: ",
+  "item.ethermist.wand_handle.durability_mult": "Durability: ",
+  "item.ethermist.wand_handle.enchant_mult": "Enchantability: ",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",

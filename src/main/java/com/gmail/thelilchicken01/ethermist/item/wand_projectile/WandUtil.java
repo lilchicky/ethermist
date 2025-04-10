@@ -1,6 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
@@ -10,6 +13,7 @@ import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.LeashFenceKnotEntity;
@@ -24,11 +28,15 @@ import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.neoforged.neoforge.common.util.AttributeTooltipContext;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 public class WandUtil {
 
@@ -98,6 +106,59 @@ public class WandUtil {
             return wandID.substring(index + 1);
         }
         return wandID;
+    }
+
+    public static List<Component> addHandleTooltip(WandTiers tier) {
+
+        List<Component> handleLore = new ArrayList<>();
+        boolean isWandChanged = false;
+
+        handleLore.add(Component.translatable("item.ethermist.wand_handle." + tier.getDescription() + ".desc"));
+
+        if (tier.getBonusWandDamage() != 0) {
+            isWandChanged = true;
+            String bonus_damage = tier.getBonusWandDamage() > 0 ? "+" + FORMAT.format(tier.getBonusWandDamage()) : FORMAT.format(tier.getBonusWandDamage());
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_damage")
+                    .append(Component.literal(bonus_damage)).withColor(0xAAAAAA));
+        }
+
+        if (tier.getBonusCooldownTicks() != 0) {
+            isWandChanged = true;
+            String bonus_cooldown = tier.getBonusCooldownTicks() > 0 ?
+                    "+" + FORMAT.format(tier.getBonusCooldownTicks() / 20) : FORMAT.format(tier.getBonusCooldownTicks() / 20);
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_cooldown")
+                    .append(Component.literal(bonus_cooldown))
+                    .append(Component.translatable("generic.ethermist.time.seconds")).withColor(0xAAAAAA));
+        }
+
+        if (tier.getBonusAccuracy() != 0) {
+            isWandChanged = true;
+            String bonus_accuracy = tier.getBonusAccuracy() < 0 ? "+" + FORMAT.format(-tier.getBonusAccuracy()) : FORMAT.format(-tier.getBonusAccuracy());
+            bonus_accuracy += "%";
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.bonus_accuracy")
+                    .append(Component.literal(bonus_accuracy)).withColor(0xAAAAAA));
+        }
+
+        if (tier.getTierDurabilityMult() != 1) {
+            isWandChanged = true;
+            String durability_mult = "x" + FORMAT.format(tier.getTierDurabilityMult());
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.durability_mult")
+                    .append(Component.literal(durability_mult)).withColor(0xAAAAAA));
+        }
+
+        if (tier.getTierEnchantabilityMult() != 1) {
+            isWandChanged = true;
+            String enchant_mult = "x" + FORMAT.format(tier.getTierEnchantabilityMult());
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.enchant_mult")
+                    .append(Component.literal(enchant_mult)).withColor(0xAAAAAA));
+        }
+
+        if (!isWandChanged) {
+            handleLore.add(Component.translatable("item.ethermist.wand_handle.no_change"));
+        }
+
+        return handleLore;
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -18,10 +20,15 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
+import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
+
 public class HandleItem extends Item {
 
-    public HandleItem() {
+    private final WandTiers TIER;
+
+    public HandleItem(WandTiers tier) {
         super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
+        this.TIER = tier;
     }
 
     @Override
@@ -69,6 +76,10 @@ public class HandleItem extends Item {
         }
 
         lore.add(dyeableText);
+        lore.add(Component.literal(" "));
+
+        lore.addAll(WandUtil.addHandleTooltip(TIER));
+
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
         }
