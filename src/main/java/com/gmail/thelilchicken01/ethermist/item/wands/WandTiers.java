@@ -106,6 +106,9 @@ public enum WandTiers {
             false,
             new float[]{0.706f, 0.847f, 0.792f}
     ),
+    /*
+    BUFF SPELLS
+     */
     NETHERITE(
             "netherite",
             "buff_effect",

@@ -1,6 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.item.foods.ShroomCluster;
+import com.gmail.thelilchicken01.ethermist.item.foods.ToastedShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import net.minecraft.world.item.BookItem;
@@ -190,6 +192,10 @@ public class EMItems {
     public static final DeferredItem<BookItem> MAIN_SPELL_TOME = ITEMS.register("main_spell_tome", TomeItem::new);
     public static final DeferredItem<BookItem> BASE_SPELL_TOME = ITEMS.register("base_spell_tome", TomeItem::new);
 
+    /*
+    ---------- Orbs ----------
+     */
+
     public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", OrbItem::new);
     public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", OrbItem::new);
     public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", OrbItem::new);
@@ -198,6 +204,13 @@ public class EMItems {
     public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", OrbItem::new);
     public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", OrbItem::new);
     public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", OrbItem::new);
+
+    /*
+    ---------- Foods ----------
+     */
+
+    public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", ShroomCluster::new);
+    public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", ToastedShroomCluster::new);
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);
