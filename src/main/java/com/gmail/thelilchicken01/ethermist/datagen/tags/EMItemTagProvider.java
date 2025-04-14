@@ -109,11 +109,6 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.CINDERBLOOM.get().asItem())
                 .add(EMBlocks.NIGHTBELL.get().asItem());
 
-        tag(Tags.Items.MUSHROOMS)
-                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().asItem())
-                .add(EMBlocks.ABYSSAL_MUSHROOM.get().asItem())
-                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
-
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())
                 .add(EMItems.AUGMENT_TOME.get())
@@ -162,6 +157,23 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.MAIN_SPELL_TOME.get());
 
         tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.WOODEN_HEAVY_WAND.get());
+
+        /*
+        ---------- Foods ----------
+         */
+
+        tag(Tags.Items.MUSHROOMS)
+                .add(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get().asItem())
+                .add(EMBlocks.ABYSSAL_MUSHROOM.get().asItem())
+                .add(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
+
+        tag(Tags.Items.FOODS)
+                .add(EMItems.SHROOM_CLUSTER.get())
+                .add(EMItems.TOASTED_SHROOM_CLUSTER.get());
+
+        tag(Tags.Items.FOODS_VEGETABLE)
+                .add(EMItems.SHROOM_CLUSTER.get())
+                .add(EMItems.TOASTED_SHROOM_CLUSTER.get());
 
         /*
         ---------- Wand Stuff ----------

@@ -3,10 +3,15 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -236,6 +241,15 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMItems.MAIN_SPELL_TOME.get());
         basicItem(EMItems.BASE_SPELL_TOME.get());
 
+        basicItemFolder(EMItems.SHROOM_CLUSTER.get(), "food");
+        basicItemFolder(EMItems.TOASTED_SHROOM_CLUSTER.get(), "food");
+
+    }
+
+    public void basicItemFolder(Item item, String folder) {
+        ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(item);
+        this.withExistingParent(itemId.getPath(), "item/generated")
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(itemId.getNamespace(), "item/" + folder + "/" + itemId.getPath()));
     }
 
     // By Kaupenjoe

@@ -840,6 +840,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.SMALL_ABYSSAL_MUSHROOM.get())
                 .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM)).save(output);
 
+        oreSmelting(output, List.of(EMItems.SHROOM_CLUSTER.get()),
+                RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 200, "shroom_cluster");
+        oreSmoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
+                RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
+
     }
 
     protected static Map<String, Map<Item, Item>> registerWands() {
@@ -1056,6 +1061,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                                       float pExperience, int pCookingTime, String pGroup) {
         oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
+
+    protected static void oreSmoking(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                     float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(recipeOutput, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, pIngredients, pCategory, pResult,
+                pExperience, pCookingTime, pGroup, "_from_smoking");
     }
 
     protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,

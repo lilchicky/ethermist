@@ -358,12 +358,16 @@ public class EMCreativeTab {
                 output.accept(EMItems.WOODEN_LEVITATION_WAND.get());
                 output.accept(EMItems.WOODEN_HEAVY_WAND.get());
 
-                // Misc
+                // Tomes
                 output.accept(EMItems.WAND_TOME.get());
                 output.accept(EMItems.BASE_SPELL_TOME.get());
                 output.accept(EMItems.AUGMENT_TOME.get());
                 output.accept(EMItems.MAIN_SPELL_TOME.get());
                 output.accept(EMItems.EXCLUSION_TOME.get());
+
+                // Foods
+                output.accept(EMItems.SHROOM_CLUSTER.get());
+                output.accept(EMItems.TOASTED_SHROOM_CLUSTER.get());
 
             }).build());
 
