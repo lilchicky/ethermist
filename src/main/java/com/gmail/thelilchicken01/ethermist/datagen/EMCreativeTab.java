@@ -369,6 +369,9 @@ public class EMCreativeTab {
                 output.accept(EMItems.SHROOM_CLUSTER.get());
                 output.accept(EMItems.TOASTED_SHROOM_CLUSTER.get());
 
+                // Spawn Eggs
+                output.accept(EMItems.GLOOMIE_SPAWN_EGG.get());
+
             }).build());
 
     public static void register (IEventBus bus) {

@@ -1,10 +1,12 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.neoforged.api.distmarker.Dist;
@@ -20,6 +22,8 @@ public class EMClientModEvents {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
+
+        EntityRenderers.register(EMEntityTypes.GLOOMIE.get(), GloomieRenderer::new);
 
     }
 

@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-13T18:39:44.0118422	Item Models: ethermist
+// 1.21.1	2025-04-13T22:29:20.2649711	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -63,6 +63,7 @@ c5b0e5aeb354e8a57d9892746cdce90d39830713 assets/ethermist/models/item/glimmerbud
 930e66b3e059a2c7528882de0d4b6f1ed451f7ae assets/ethermist/models/item/glimmering_ancient_door.json
 ae95cb8a20413cfa573136215c6ea9c4089f7b28 assets/ethermist/models/item/glimmering_ancient_fence.json
 b85dc4a6627454a73abbd994673011f699725a3f assets/ethermist/models/item/glimmering_ancient_sapling.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/ethermist/models/item/gloomie_spawn_egg.json
 96793fc66b496ec1cee95f4d7f504a5bfc3d06e2 assets/ethermist/models/item/glowstone_dull_wand.json
 f520b8f49ec57652fb24480a5f570b76d913f1b8 assets/ethermist/models/item/glowstone_flame_wand.json
 6f9307a6a27ba3cbe6a3410e49d279b9046b24e5 assets/ethermist/models/item/glowstone_frozen_wand.json

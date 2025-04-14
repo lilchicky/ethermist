@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.foods.ShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.foods.ToastedShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
@@ -8,6 +9,7 @@ import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -211,6 +213,13 @@ public class EMItems {
 
     public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", ShroomCluster::new);
     public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", ToastedShroomCluster::new);
+
+    /*
+    ---------- Spawn Eggs ----------
+     */
+
+    public static final DeferredItem<Item> GLOOMIE_SPAWN_EGG = ITEMS.register("gloomie_spawn_egg",
+            () -> new DeferredSpawnEggItem(EMEntityTypes.GLOOMIE, 0x211b52, 0x804617, new Item.Properties()));
 
     public static void register (IEventBus bus) {
         ITEMS.register(bus);

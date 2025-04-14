@@ -244,6 +244,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItemFolder(EMItems.SHROOM_CLUSTER.get(), "food");
         basicItemFolder(EMItems.TOASTED_SHROOM_CLUSTER.get(), "food");
 
+        withExistingParent(EMItems.GLOOMIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
     }
 
     public void basicItemFolder(Item item, String folder) {
