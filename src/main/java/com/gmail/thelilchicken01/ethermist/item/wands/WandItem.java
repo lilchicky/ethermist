@@ -24,6 +24,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -82,7 +83,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         ItemStack wand = player.getItemInHand(usedHand);
 
-        if (!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get()) {
+        if (!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get() && usedHand == InteractionHand.MAIN_HAND) {
 
             WandProjectileHandler.processShot(level, player, wand, this, null, null);
 
@@ -251,7 +252,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         Math.max(newPSpeed.get(), 0.1),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         builder.add(
                 EMAttributes.WAND_KNOCKBACK,
@@ -260,7 +261,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         Math.max(newKnockback.get(), 0),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         builder.add(
                 EMAttributes.COOLDOWN,
@@ -269,7 +270,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         Math.max(newCD.get(), 5) / 20.0,
                         AttributeModifier.Operation.ADD_VALUE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         builder.add(
                 EMAttributes.WAND_DAMAGE,
@@ -278,7 +279,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         Math.max(newDamage.get(), 0.5),
                         AttributeModifier.Operation.ADD_VALUE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         builder.add(
                 EMAttributes.LIFESPAN,
@@ -287,7 +288,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         Math.max(newLifespan.get(), 0.25),
                         AttributeModifier.Operation.ADD_VALUE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         builder.add(
                 EMAttributes.ACCURACY,
@@ -296,7 +297,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         1 - (Math.max(newAccuracy.get(), 0) / 100),
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ),
-                EquipmentSlotGroup.HAND
+                EquipmentSlotGroup.MAINHAND
         );
         if (isMeteorLocal.get()) {
             builder.add(
@@ -306,7 +307,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                             16,
                             AttributeModifier.Operation.ADD_VALUE
                     ),
-                    EquipmentSlotGroup.HAND
+                    EquipmentSlotGroup.MAINHAND
             );
             builder.add(
                     Attributes.ENTITY_INTERACTION_RANGE,
@@ -315,7 +316,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                             16,
                             AttributeModifier.Operation.ADD_VALUE
                     ),
-                    EquipmentSlotGroup.HAND
+                    EquipmentSlotGroup.MAINHAND
             );
         }
         if (stack.getItem() instanceof MaceWandItem) {
@@ -430,10 +431,9 @@ public class WandItem extends Item implements IDyeableWandItem {
 
             if (!isMeteor(wand).get()) {
                 this.use(level, player, context.getHand());
-                return InteractionResult.sidedSuccess(level.isClientSide());
             } else {
 
-                if (!player.getCooldowns().isOnCooldown(this)) {
+                if (!player.getCooldowns().isOnCooldown(this) && context.getHand() == InteractionHand.MAIN_HAND) {
 
                     WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
 
@@ -452,8 +452,8 @@ public class WandItem extends Item implements IDyeableWandItem {
 
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide());
             }
+            return InteractionResult.sidedSuccess(level.isClientSide());
         }
         return InteractionResult.FAIL;
     }
