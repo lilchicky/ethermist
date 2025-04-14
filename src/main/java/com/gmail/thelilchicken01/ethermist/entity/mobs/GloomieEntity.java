@@ -257,7 +257,7 @@ public class GloomieEntity extends Animal implements IShearable {
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        this.setSheared(tag.getBoolean("Sheared"));
+        this.entityData.set(SHEARED, tag.getBoolean("Sheared"));
         this.regrowTimer = tag.getInt("RegrowTimer");
         this.regrowThreshold = tag.getInt("RegrowThreshold");
     }
