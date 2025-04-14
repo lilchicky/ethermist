@@ -506,7 +506,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_SLAB.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get(), EMBlocks.SPARKLING_SANDSTONE_BRICKS.get(), 1);
 
-        // Timeworn Sand
+        /*
+        ---------- Timeworn Sand ----------
+         */
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE.get())
                 .pattern("aa")
                 .pattern("aa")
@@ -547,7 +549,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_SLAB.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.TIMEWORN_SANDSTONE_WALL.get(), EMBlocks.TIMEWORN_SANDSTONE.get(), 1);
 
-        // Cubed Abyssal Mushroom
+        /*
+        ---------- Cubed Abyssal Mushroom ----------
+         */
         stairBuilder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), Ingredient.of(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).group("stairs")
                 .unlockedBy("has_cubed_abyssal_mushroom", has(EMBlocks.CUBED_ABYSSAL_MUSHROOM)).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), EMBlocks.CUBED_ABYSSAL_MUSHROOM.get());
@@ -581,7 +585,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_large_abyssal_mushroom_gills", has(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SMALL_ABYSSAL_MUSHROOM.getId().getPath() + "_gills"));
 
-        // Flowers to Dyes
+        /*
+        ---------- Flowers to Dyes ----------
+         */
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.YELLOW_DYE, 1)
                 .requires(EMBlocks.GLIMMERBUD.get())
                 .unlockedBy("has_glimmerbud", has(EMBlocks.GLIMMERBUD))
@@ -617,7 +623,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SMALL_ABYSSAL_MUSHROOM.getId().getPath() + "_blue_dye"));
 
-        // Misc Recipes
+        /*
+        ---------- Misc Recipes ----------
+         */
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
                 .pattern("aa")
                 .pattern("aa")
@@ -655,7 +663,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
-        // Ores
+        /*
+        ---------- Ores ----------
+         */
         oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
         oreBlasting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
@@ -737,15 +747,18 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
-        // Tomes
+        /*
+        ---------- Tomes ----------
+         */
         addTomeRecipe(EMItems.EXCLUSION_TOME.get(), Items.SPYGLASS, output);
         addTomeRecipe(EMItems.AUGMENT_TOME.get(), Items.REDSTONE, output);
         addTomeRecipe(EMItems.MAIN_SPELL_TOME.get(), Items.DIAMOND, output);
         addTomeRecipe(EMItems.BASE_SPELL_TOME.get(), Items.AMETHYST_SHARD, output);
         addTomeRecipe(EMItems.WAND_TOME.get(), EMTags.Items.ORBS, output);
 
-        // Orbs
-
+        /*
+        ---------- Orbs ----------
+         */
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.WITCH_ORB, 1)
                 .pattern(" b ")
                 .pattern("bab")
@@ -801,7 +814,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Wands ----------
          */
-
         Map<String, Item> tieredHandles = new HashMap<>();
 
         tieredHandles.put("wooden", EMItems.WOODEN_WAND_HANDLE.get());
@@ -822,8 +834,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Foods ----------
          */
-
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.SHROOM_CLUSTER.get(), 1)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.SMALL_ABYSSAL_MUSHROOM.get())
+                .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM)).save(output);
 
     }
 
