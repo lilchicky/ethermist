@@ -514,6 +514,45 @@
   "enchantment.ethermist.augment_focus": "Augment: Focus",
   "enchantment.ethermist.augment_focus.desc": "Wand has a longer cooldown, perfect accuracy, higher damage, and faster projectile velocity.",
 
+  "_comment": "--------------- DEATH MESSAGES ---------------",
+  "death.attack.icicle": "%1$s was impaled by an icicle",
+
+  "death.attack.generic_magic": "%1$s was killed by magic",
+  "death.attack.generic_magic.player": "%1$s was killed by %2$s's magic",
+  "death.attack.generic_magic.item": "%1$s was killed by %2$s's magic using %3$s",
+
+  "death.attack.flame_magic": "%1$s was scorched by burning magic",
+  "death.attack.flame_magic.player": "%1$s was burned by %2$s's magic",
+  "death.attack.flame_magic.item": "%1$s was burned by %2$s's magic using %3$s",
+
+  "death.attack.poison_magic": "%1$s was poisoned by magic",
+  "death.attack.poison_magic.player": "%1$s was poisoned by %2$s's magic",
+  "death.attack.poison_magic.item": "%1$s was poisoned by %2$s's magic using %3$s",
+
+  "death.attack.wither_magic": "%1$s was withered away by magic",
+  "death.attack.wither_magic.player": "%1$s was withered away by %2$s's magic",
+  "death.attack.wither_magic.item": "%1$s was withered away by %2$s's magic using %3$s",
+
+  "death.attack.levitation_magic": "%1$s was pulled apart by magic",
+  "death.attack.levitation_magic.player": "%1$s was pulled apart by %2$s's magic",
+  "death.attack.levitation_magic.item": "%1$s was pulled apart by %2$s's magic using %3$s",
+
+  "death.attack.witch_magic": "%1$s was enchanted by witch magic",
+  "death.attack.witch_magic.player": "%1$s was enchanted by %2$s's witch magic",
+  "death.attack.witch_magic.item": "%1$s was enchanted by %2$s's witch magic using %3$s",
+
+  "death.attack.heavy_magic": "%1$s was smashed by magic",
+  "death.attack.heavy_magic.player": "%1$s was smashed by %2$s's magic",
+  "death.attack.heavy_magic.item": "%1$s was smashed by %2$s's magic using %3$s",
+
+  "death.attack.frozen_magic": "%1$s was shattered by magic",
+  "death.attack.frozen_magic.player": "%1$s was shattered by %2$s's magic",
+  "death.attack.frozen_magic.item": "%1$s was shattered by %2$s's magic using %3$s",
+
+  "death.attack.glass_magic": "%1$s was cut into a million pieces by magic",
+  "death.attack.glass_magic.player": "%1$s was cut into a million pieces by %2$s's magic",
+  "death.attack.glass_magic.item": "%1$s was cut into a million pieces by %2$s's magic using %3$s",
+
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items"
 
