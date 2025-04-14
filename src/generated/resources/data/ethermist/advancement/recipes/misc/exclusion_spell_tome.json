@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_spyglass": {
+    "has_item.minecraft.spyglass": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_spyglass"
+      "has_item.minecraft.spyglass"
     ]
   ],
   "rewards": {

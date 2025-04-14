@@ -9,6 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -737,45 +738,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
         // Tomes
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EXCLUSION_TOME.get(), 8)
-                .pattern("aaa")
-                .pattern("aba")
-                .pattern("aaa")
-                .define('a', Items.BOOK)
-                .define('b', Items.SPYGLASS)
-                .unlockedBy("has_spyglass", has(Items.SPYGLASS)).save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.AUGMENT_TOME.get(), 8)
-                .pattern("aaa")
-                .pattern("aba")
-                .pattern("aaa")
-                .define('a', Items.BOOK)
-                .define('b', Items.REDSTONE)
-                .unlockedBy("has_redstone", has(Items.REDSTONE)).save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.MAIN_SPELL_TOME.get(), 8)
-                .pattern("aaa")
-                .pattern("aba")
-                .pattern("aaa")
-                .define('a', Items.BOOK)
-                .define('b', Items.DIAMOND)
-                .unlockedBy("has_diamond", has(Items.DIAMOND)).save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.BASE_SPELL_TOME.get(), 8)
-                .pattern("aaa")
-                .pattern("aba")
-                .pattern("aaa")
-                .define('a', Items.BOOK)
-                .define('b', Items.AMETHYST_SHARD)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD)).save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WAND_TOME.get(), 8)
-                .pattern("aaa")
-                .pattern("aba")
-                .pattern("aaa")
-                .define('a', Items.BOOK)
-                .define('b', EMTags.Items.ORBS)
-                .unlockedBy("has_orb", has(EMTags.Items.ORBS)).save(output);
+        addTomeRecipe(EMItems.EXCLUSION_TOME.get(), Items.SPYGLASS, output);
+        addTomeRecipe(EMItems.AUGMENT_TOME.get(), Items.REDSTONE, output);
+        addTomeRecipe(EMItems.MAIN_SPELL_TOME.get(), Items.DIAMOND, output);
+        addTomeRecipe(EMItems.BASE_SPELL_TOME.get(), Items.AMETHYST_SHARD, output);
+        addTomeRecipe(EMItems.WAND_TOME.get(), EMTags.Items.ORBS, output);
 
         // Orbs
 
@@ -809,7 +776,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_glass", has(Blocks.GLASS))
                 .save(output);
 
-        // Wands
+        /*
+        ---------- Wand Handles ----------
+         */
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.WOODEN_WAND_HANDLE.get(), 1)
                 .pattern(" bc")
                 .pattern("bcb")
@@ -819,101 +788,50 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.EMERALD_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.GEMS_EMERALD)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_emerald", has(Tags.Items.GEMS_EMERALD)).save(output);
+        addHandleRecipe(EMItems.EMERALD_WAND_HANDLE.get(), Tags.Items.GEMS_EMERALD, output);
+        addHandleRecipe(EMItems.DIAMOND_WAND_HANDLE.get(), Tags.Items.GEMS_DIAMOND, output);
+        addHandleRecipe(EMItems.GOLDEN_WAND_HANDLE.get(), Tags.Items.INGOTS_GOLD, output);
+        addHandleRecipe(EMItems.LAPIS_WAND_HANDLE.get(), Tags.Items.GEMS_LAPIS, output);
+        addHandleRecipe(EMItems.QUARTZ_WAND_HANDLE.get(), Tags.Items.GEMS_QUARTZ, output);
+        addHandleRecipe(EMItems.REDSTONE_WAND_HANDLE.get(), Tags.Items.DUSTS_REDSTONE, output);
+        addHandleRecipe(EMItems.GLOWSTONE_WAND_HANDLE.get(), Tags.Items.DUSTS_GLOWSTONE, output);
+        addHandleRecipe(EMItems.PRISMARINE_WAND_HANDLE.get(), Tags.Items.GEMS_PRISMARINE, output);
+        addHandleRecipe(EMItems.NETHERITE_WAND_HANDLE.get(), Tags.Items.INGOTS_NETHERITE, output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.DIAMOND_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.GEMS_DIAMOND)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND)).save(output);
+        /*
+        ---------- Wands ----------
+         */
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.GOLDEN_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.INGOTS_GOLD)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_gold_ingot", has(Tags.Items.INGOTS_GOLD)).save(output);
+        Map<String, Item> tieredHandles = new HashMap<>();
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.LAPIS_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.GEMS_LAPIS)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_lapis_lazuli", has(Tags.Items.GEMS_LAPIS)).save(output);
+        tieredHandles.put("wooden", EMItems.WOODEN_WAND_HANDLE.get());
+        tieredHandles.put("emerald", EMItems.EMERALD_WAND_HANDLE.get());
+        tieredHandles.put("diamond", EMItems.DIAMOND_WAND_HANDLE.get());
+        tieredHandles.put("golden", EMItems.GOLDEN_WAND_HANDLE.get());
+        tieredHandles.put("lapis", EMItems.LAPIS_WAND_HANDLE.get());
+        tieredHandles.put("quartz", EMItems.QUARTZ_WAND_HANDLE.get());
+        tieredHandles.put("redstone", EMItems.REDSTONE_WAND_HANDLE.get());
+        tieredHandles.put("glowstone", EMItems.GLOWSTONE_WAND_HANDLE.get());
+        tieredHandles.put("prismarine", EMItems.PRISMARINE_WAND_HANDLE.get());
+        tieredHandles.put("netherite", EMItems.NETHERITE_WAND_HANDLE.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.QUARTZ_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.GEMS_QUARTZ)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_nether_quartz", has(Tags.Items.GEMS_QUARTZ)).save(output);
+        generateWandRecipes(registerWands(), tieredHandles, output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.REDSTONE_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.DUSTS_REDSTONE)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_redstone", has(Tags.Items.DUSTS_REDSTONE)).save(output);
+        SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.GLOWSTONE_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.DUSTS_GLOWSTONE)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_glowstone_dust", has(Tags.Items.DUSTS_GLOWSTONE)).save(output);
+        /*
+        ---------- Foods ----------
+         */
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.PRISMARINE_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.GEMS_PRISMARINE)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_prismarine_crystal", has(Tags.Items.GEMS_PRISMARINE)).save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.NETHERITE_WAND_HANDLE.get(), 1)
-                .pattern(" ba")
-                .pattern("bcb")
-                .pattern("ab ")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', Items.STICK)
-                .define('c', Tags.Items.INGOTS_NETHERITE)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_netherite_ingot", has(Tags.Items.INGOTS_NETHERITE)).save(output);
 
-        Map<String, Map<Item, Item>> tieredWands = new HashMap<>();
-        Map<String, Item> tierHandles = new HashMap<>();
+    }
 
-        tierHandles.put("wooden", EMItems.WOODEN_WAND_HANDLE.get());
-        tieredWands.put("wooden", Map.ofEntries(
+    protected static Map<String, Map<Item, Item>> registerWands() {
+
+        Map<String, Map<Item, Item>> wands = new HashMap<>();
+
+        wands.put("wooden", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.WOODEN_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.WOODEN_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.WOODEN_LEVITATION_WAND.get()),
@@ -925,8 +843,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("emerald", EMItems.EMERALD_WAND_HANDLE.get());
-        tieredWands.put("emerald", Map.ofEntries(
+        wands.put("emerald", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.EMERALD_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.EMERALD_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.EMERALD_LEVITATION_WAND.get()),
@@ -938,8 +855,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.EMERALD_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("diamond", EMItems.DIAMOND_WAND_HANDLE.get());
-        tieredWands.put("diamond", Map.ofEntries(
+        wands.put("diamond", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.DIAMOND_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.DIAMOND_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.DIAMOND_LEVITATION_WAND.get()),
@@ -951,8 +867,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.DIAMOND_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("golden", EMItems.GOLDEN_WAND_HANDLE.get());
-        tieredWands.put("golden", Map.ofEntries(
+        wands.put("golden", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.GOLDEN_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.GOLDEN_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.GOLDEN_LEVITATION_WAND.get()),
@@ -964,8 +879,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.GOLDEN_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("lapis", EMItems.LAPIS_WAND_HANDLE.get());
-        tieredWands.put("lapis", Map.ofEntries(
+        wands.put("lapis", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.LAPIS_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.LAPIS_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.LAPIS_LEVITATION_WAND.get()),
@@ -977,8 +891,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.LAPIS_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("quartz", EMItems.QUARTZ_WAND_HANDLE.get());
-        tieredWands.put("quartz", Map.ofEntries(
+        wands.put("quartz", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.QUARTZ_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.QUARTZ_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.QUARTZ_LEVITATION_WAND.get()),
@@ -990,8 +903,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.QUARTZ_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("redstone", EMItems.REDSTONE_WAND_HANDLE.get());
-        tieredWands.put("redstone", Map.ofEntries(
+        wands.put("redstone", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.REDSTONE_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.REDSTONE_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.REDSTONE_LEVITATION_WAND.get()),
@@ -1003,8 +915,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.REDSTONE_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("glowstone", EMItems.GLOWSTONE_WAND_HANDLE.get());
-        tieredWands.put("glowstone", Map.ofEntries(
+        wands.put("glowstone", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.GLOWSTONE_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.GLOWSTONE_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.GLOWSTONE_LEVITATION_WAND.get()),
@@ -1016,8 +927,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.GLOWSTONE_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("prismarine", EMItems.PRISMARINE_WAND_HANDLE.get());
-        tieredWands.put("prismarine", Map.ofEntries(
+        wands.put("prismarine", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.PRISMARINE_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.PRISMARINE_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.PRISMARINE_LEVITATION_WAND.get()),
@@ -1029,8 +939,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get())
         ));
 
-        tierHandles.put("netherite", EMItems.NETHERITE_WAND_HANDLE.get());
-        tieredWands.put("netherite", Map.ofEntries(
+        wands.put("netherite", Map.ofEntries(
                 Map.entry(EMItems.DULL_ORB.get(), EMItems.NETHERITE_DULL_WAND.get()),
                 Map.entry(EMItems.FLAME_ORB.get(), EMItems.NETHERITE_FLAME_WAND.get()),
                 Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.NETHERITE_LEVITATION_WAND.get()),
@@ -1042,9 +951,15 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(Items.HEAVY_CORE, EMItems.NETHERITE_HEAVY_WAND.get())
         ));
 
+        return wands;
+
+    }
+
+    protected static void generateWandRecipes(Map<String, Map<Item, Item>> tieredWands, Map<String, Item> tieredHandles, RecipeOutput output) {
+
         for (String tier : tieredWands.keySet()) {
             Map<Item, Item> tierMap = tieredWands.get(tier);
-            Item tierHandle = tierHandles.get(tier);
+            Item tierHandle = tieredHandles.get(tier);
 
             // Handle and Orb
             for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
@@ -1114,9 +1029,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
             }
         }
 
-
-        SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
-
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
@@ -1143,6 +1055,38 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(Ingredient.of(material), category, result, resultCount).unlockedBy(getHasName(material), has(material));
         String id = getConversionRecipeName(result, material);
         builder.save(recipeOutput, Ethermist.MODID + ":" + id + "_stonecutting");
+    }
+
+    protected static void addTomeRecipe(Item tome, Item material, RecipeOutput output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, tome, 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', material)
+                .unlockedBy("has_" + material.getDescriptionId(), has(material)).save(output);
+    }
+
+    protected static void addTomeRecipe(Item tome, TagKey<Item> tag, RecipeOutput output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, tome, 8)
+                .pattern("aaa")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.BOOK)
+                .define('b', tag)
+                .unlockedBy("has_" + tag.location().getPath(), has(tag)).save(output);
+    }
+
+    protected static void addHandleRecipe(Item handle, TagKey<Item> gem, RecipeOutput output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, handle, 1)
+                .pattern(" ba")
+                .pattern("bcb")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', Items.STICK)
+                .define('c', gem)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_" + gem.location().getPath(), has(gem)).save(output);
     }
 
 }

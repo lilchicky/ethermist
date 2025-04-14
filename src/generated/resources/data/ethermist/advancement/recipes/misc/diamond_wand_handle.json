@@ -11,7 +11,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_diamond": {
+    "has_gems/diamond": {
       "conditions": {
         "items": [
           {
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_amethyst_shard",
-      "has_diamond"
+      "has_gems/diamond"
     ]
   ],
   "rewards": {
