@@ -18,11 +18,11 @@ public class GloomieModel<T extends GloomieEntity> extends HierarchicalModel<T> 
             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "gloomie"), "main");
 
     private final ModelPart wholeguy;
-    private final ModelPart mushytop;
+    private final ModelPart mushrooms;
 
     public GloomieModel(ModelPart root) {
         this.wholeguy = root.getChild("wholeguy");
-        this.mushytop = this.wholeguy.getChild("bodymass").getChild("mushytop");
+        this.mushrooms = this.wholeguy.getChild("bodymass").getChild("mushytop").getChild("mushrooms");
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -35,6 +35,13 @@ public class GloomieModel<T extends GloomieEntity> extends HierarchicalModel<T> 
 
         PartDefinition mushytop = bodymass.addOrReplaceChild("mushytop", CubeListBuilder.create().texOffs(0, 14).addBox(-4.0F, -4.1667F, -4.0F, 8.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 0).addBox(-5.0F, -2.1667F, -5.0F, 10.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.8333F, 0.0F));
+
+        PartDefinition mushrooms = mushytop.addOrReplaceChild("mushrooms", CubeListBuilder.create().texOffs(34, 14).addBox(1.0F, -2.0F, -2.5F, 3.0F, 2.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(24, 25).addBox(-1.5F, -3.0F, -2.0F, 0.0F, 3.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -4.0F, 0.0F));
+
+        PartDefinition cube_r1 = mushrooms.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(24, 22).addBox(-0.5F, -3.0F, -2.0F, 0.0F, 3.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 1.0F, 0.0F, -1.5708F, 0.0F));
+
+        PartDefinition cube_r2 = mushrooms.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(34, 16).addBox(-2.0F, -2.0F, -0.5F, 3.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, 0.0F, -3.0F, 0.0F, 1.5708F, 0.0F));
 
         PartDefinition body = bodymass.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 24).addBox(-3.0F, 0.0F, -3.0F, 6.0F, 3.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -56,7 +63,7 @@ public class GloomieModel<T extends GloomieEntity> extends HierarchicalModel<T> 
         this.animate(entity.hideState, GloomieAnimations.GLOOMIE_HIDE, ageInTicks, 1f);
         this.animate(entity.swimState, GloomieAnimations.GLOOMIE_SWIM, ageInTicks, 1f);
 
-        this.mushytop.visible = !entity.isSheared();
+        this.mushrooms.visible = !entity.isSheared();
 
     }
 
