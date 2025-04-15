@@ -8,12 +8,14 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -29,6 +31,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -128,6 +131,31 @@ public class GloomieEntity extends Animal implements IShearable {
     @Override
     public boolean isPushedByFluid(FluidType type) {
         return false;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState blockIn) {
+        this.playSound(SoundEvents.FISH_SWIM, 0.07f, 0.5f);
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.TROPICAL_FISH_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.DOLPHIN_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.DOLPHIN_DEATH;
+    }
+
+    @Override
+    protected float getSoundVolume() {
+        return 1.0f;
     }
 
     @Override

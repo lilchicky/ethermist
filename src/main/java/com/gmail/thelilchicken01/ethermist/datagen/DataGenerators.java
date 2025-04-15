@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMBlockTagProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEnchantTagProvider;

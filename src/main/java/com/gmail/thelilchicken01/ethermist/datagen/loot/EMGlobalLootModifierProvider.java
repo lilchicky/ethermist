@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.loot;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.HolderLookup;
