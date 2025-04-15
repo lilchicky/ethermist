@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.datagen;
+package com.gmail.thelilchicken01.ethermist.datagen.loot;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.advancements.critereon.BlockPredicate;
@@ -34,7 +34,7 @@ import java.util.Set;
 
 public class EMBlockLootProvider extends BlockLootSubProvider {
 
-    protected EMBlockLootProvider(HolderLookup.Provider registries) {
+    public EMBlockLootProvider(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 

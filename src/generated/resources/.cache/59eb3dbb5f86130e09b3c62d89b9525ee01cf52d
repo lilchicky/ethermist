@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-05T15:39:49.6277264	Loot Tables
+// 1.21.1	2025-04-14T20:39:29.9752467	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -218,3 +218,4 @@ e2822fddd2b7483dc0334a5751b694a956987bd3 data/ethermist/loot_table/blocks/witchs
 e5041630a2a3aa9c8ad4615a269b1fd581431d27 data/ethermist/loot_table/blocks/witch_lavender_flower_pot.json
 483457e7dd59d6d7251e0576c9bc1a5b63a6cbc3 data/ethermist/loot_table/blocks/yellow_amberwood_leaves.json
 5e6e71d3ec2771f13df500e4a3fc3643b8805dbd data/ethermist/loot_table/blocks/yellow_amberwood_sapling.json
+3e136b9764dd1a4e396f813d29239a7857791917 data/ethermist/loot_table/entities/gloomie.json

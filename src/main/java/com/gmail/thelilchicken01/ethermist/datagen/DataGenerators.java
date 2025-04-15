@@ -1,6 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMBlockTagProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEnchantTagProvider;
@@ -47,8 +49,12 @@ public class DataGenerators {
         BlockTagsProvider blockTagsProvider = new EMBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
 
         gen.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK)),
-                lookupProvider));
+                List.of(
+                        new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK),
+                        new LootTableProvider.SubProviderEntry(EMEntityLootProvider::new, LootContextParamSets.ENTITY)
+                ),
+                lookupProvider)
+        );
 
         gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
 
