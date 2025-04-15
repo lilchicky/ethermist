@@ -5,11 +5,17 @@ import com.gmail.thelilchicken01.ethermist.entity.client.model.GloomieModel;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.SpawnPlacementType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 @EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class EMModEvents {
@@ -32,6 +38,11 @@ public class EMModEvents {
         event.add(EntityType.PLAYER, EMAttributes.PROJECTILE_SPEED);
         event.add(EntityType.PLAYER, EMAttributes.LIFESPAN);
         event.add(EntityType.PLAYER, EMAttributes.ACCURACY);
+    }
+
+    @SubscribeEvent
+    public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
+
     }
 
 }

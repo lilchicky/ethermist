@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -29,7 +31,13 @@ public class SmallAbyssalMushroom extends FlowerBlock implements SimpleWaterlogg
     public static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 8, 11);
 
     public SmallAbyssalMushroom() {
-        super(MobEffects.BLINDNESS, 15, Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).mapColor(MapColor.COLOR_BLUE).offsetType(OffsetType.XZ).sound(SoundType.MUD));
+        super(MobEffects.BLINDNESS, 15, BlockBehaviour.Properties.of()
+                .mapColor(MapColor.COLOR_BLUE)
+                .noCollission()
+                .randomTicks()
+                .instabreak()
+                .sound(SoundType.MUD)
+                .pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
     }
 
