@@ -118,7 +118,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
-        return stack.isDamaged() && TYPE.getRepairItem().get().test(repairItem);
+        return stack.isDamaged() && (TYPE.getRepairItem().get().test(repairItem) || TIER.getRepairItem().get().test(repairItem));
     }
 
     public WandTypes getType() {

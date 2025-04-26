@@ -2,9 +2,14 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
@@ -16,7 +21,10 @@ public enum WandTiers {
             0,
             WandUtil.ModifierType.DEFAULT,
             false,
-            new float[]{1.0f, 1.0f, 1.0f}
+            new float[]{1.0f, 1.0f, 1.0f},
+            () -> Ingredient.of(
+                    ItemTags.PLANKS
+            )
     ),
     /*
     LIFESPAN
@@ -27,7 +35,10 @@ public enum WandTiers {
             2,
             WandUtil.ModifierType.ADDITION,
             true,
-            new float[]{0.086f, 0.839f, 0.380f}
+            new float[]{0.086f, 0.839f, 0.380f},
+            () -> Ingredient.of(
+                    Tags.Items.GEMS_EMERALD
+            )
     ),
     /*
     DAMAGE
@@ -38,7 +49,10 @@ public enum WandTiers {
             3,
             WandUtil.ModifierType.ADDITION,
             false,
-            new float[]{0.992f, 0.961f, 0.373f}
+            new float[]{0.992f, 0.961f, 0.373f},
+            () -> Ingredient.of(
+                    Tags.Items.INGOTS_GOLD
+            )
     ),
     /*
     DURABILITY
@@ -49,7 +63,10 @@ public enum WandTiers {
             5,
             WandUtil.ModifierType.MULT,
             false,
-            new float[]{0.318f, 0.929f, 0.859f}
+            new float[]{0.318f, 0.929f, 0.859f},
+            () -> Ingredient.of(
+                    Tags.Items.GEMS_DIAMOND
+            )
     ),
     /*
     ENCHANTABILITY
@@ -60,7 +77,10 @@ public enum WandTiers {
             4,
             WandUtil.ModifierType.MULT,
             false,
-            new float[]{0.196f, 0.357f, 0.741f}
+            new float[]{0.196f, 0.357f, 0.741f},
+            () -> Ingredient.of(
+                    Tags.Items.GEMS_LAPIS
+            )
     ),
     /*
     KNOCKBACK
@@ -71,7 +91,10 @@ public enum WandTiers {
             0.5,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{0.847f, 0.847f, 0.847f}
+            new float[]{0.847f, 0.847f, 0.847f},
+            () -> Ingredient.of(
+                    Tags.Items.GEMS_QUARTZ
+            )
     ),
     /*
     COOLDOWN
@@ -82,7 +105,10 @@ public enum WandTiers {
             -2,
             WandUtil.ModifierType.ADDITION,
             true,
-            new float[]{0.965f, 0.000f, 0.000f}
+            new float[]{0.965f, 0.000f, 0.000f},
+            () -> Ingredient.of(
+                    Tags.Items.DUSTS_REDSTONE
+            )
     ),
     /*
     BOLT SPEED
@@ -93,7 +119,10 @@ public enum WandTiers {
             0.25,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{1.000f, 0.737f, 0.369f}
+            new float[]{1.000f, 0.737f, 0.369f},
+            () -> Ingredient.of(
+                    Tags.Items.DUSTS_GLOWSTONE
+            )
     ),
     /*
     ACCURACY
@@ -104,7 +133,10 @@ public enum WandTiers {
             5,
             WandUtil.ModifierType.PERCENT,
             false,
-            new float[]{0.706f, 0.847f, 0.792f}
+            new float[]{0.706f, 0.847f, 0.792f},
+            () -> Ingredient.of(
+                    Tags.Items.GEMS_PRISMARINE
+            )
     ),
     /*
     BUFF SPELLS
@@ -115,7 +147,10 @@ public enum WandTiers {
             0,
             WandUtil.ModifierType.BUFF_EFFECT,
             false,
-            new float[]{0.32f, 0.32f, 0.32f}
+            new float[]{0.32f, 0.32f, 0.32f},
+            () -> Ingredient.of(
+                    Tags.Items.INGOTS_NETHERITE
+            )
     );
 
     private final String description;
@@ -124,9 +159,11 @@ public enum WandTiers {
     private final WandUtil.ModifierType modifierType;
     private final boolean isSeconds;
     private final float[] handleColor;
+    private final Supplier<Ingredient> repairItem;
 
 
-    WandTiers(String description, String modifiedName, double modifier, WandUtil.ModifierType modifierType, boolean isSeconds, float[] handleColor) {
+    WandTiers(String description, String modifiedName, double modifier,
+              WandUtil.ModifierType modifierType, boolean isSeconds, float[] handleColor, Supplier<Ingredient> repairItem) {
 
         this.description = description;
         this.modifiedName = modifiedName;
@@ -134,6 +171,7 @@ public enum WandTiers {
         this.modifierType = modifierType;
         this.isSeconds = isSeconds;
         this.handleColor = handleColor;
+        this.repairItem = repairItem;
 
     }
 
@@ -143,6 +181,10 @@ public enum WandTiers {
 
     public float[] getHandleColor() {
         return handleColor;
+    }
+
+    public Supplier<Ingredient> getRepairItem() {
+        return repairItem;
     }
 
     public double getModifierFor(WandTiers targetTier) {
