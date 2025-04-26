@@ -146,6 +146,16 @@ public class GlimmerbugEntity extends TamableAnimal {
     }
 
     @Override
+    public boolean shouldDropExperience() {
+        return !isSummoned() && !hasLifespan();
+    }
+
+    @Override
+    protected boolean shouldDropLoot() {
+        return !isSummoned() && !hasLifespan();
+    }
+
+    @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
         return null;
     }
