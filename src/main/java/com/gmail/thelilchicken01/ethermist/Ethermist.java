@@ -2,43 +2,34 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeSerializer;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMWandMappings;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantmentEffects;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMFoliagePlacerType;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeDecorators;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTrunkPlacerType;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -81,6 +72,7 @@ public class Ethermist {
         EMFeatures.register(bus);
 
         EMRecipeSerializer.register(bus);
+        LOGGER.info("Registered {} wand types", EMWandMappings.registerMappings());
 
         EMBlocks.register(bus);
         EMItems.register(bus);

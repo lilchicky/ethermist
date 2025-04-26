@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class EMRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
@@ -814,20 +815,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Wands ----------
          */
-        Map<String, Item> tieredHandles = new HashMap<>();
 
-        tieredHandles.put("wooden", EMItems.WOODEN_WAND_HANDLE.get());
-        tieredHandles.put("emerald", EMItems.EMERALD_WAND_HANDLE.get());
-        tieredHandles.put("diamond", EMItems.DIAMOND_WAND_HANDLE.get());
-        tieredHandles.put("golden", EMItems.GOLDEN_WAND_HANDLE.get());
-        tieredHandles.put("lapis", EMItems.LAPIS_WAND_HANDLE.get());
-        tieredHandles.put("quartz", EMItems.QUARTZ_WAND_HANDLE.get());
-        tieredHandles.put("redstone", EMItems.REDSTONE_WAND_HANDLE.get());
-        tieredHandles.put("glowstone", EMItems.GLOWSTONE_WAND_HANDLE.get());
-        tieredHandles.put("prismarine", EMItems.PRISMARINE_WAND_HANDLE.get());
-        tieredHandles.put("netherite", EMItems.NETHERITE_WAND_HANDLE.get());
-
-        generateWandRecipes(registerWands(), tieredHandles, output);
+        generateWandRecipes(output);
 
         SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
@@ -847,218 +836,82 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     }
 
-    protected static Map<String, Map<Item, Item>> registerWands() {
+    protected static void generateWandRecipes(RecipeOutput output) {
+        for (Map.Entry<Supplier<? extends Item>, Map<String, EMWandMappings.WandMapping>> orbEntry : EMWandMappings.WAND_MAPS.entrySet()) {
+            Supplier<? extends Item> orbSupplier = orbEntry.getKey();
+            Item orbItem = orbSupplier.get();
+            Map<String, EMWandMappings.WandMapping> tierMap = orbEntry.getValue();
 
-        Map<String, Map<Item, Item>> wands = new HashMap<>();
+            for (Map.Entry<String, EMWandMappings.WandMapping> tierEntry : tierMap.entrySet()) {
+                String tier = tierEntry.getKey();
+                EMWandMappings.WandMapping mapping = tierEntry.getValue();
+                Item handleItem = mapping.handle().get();
+                Item wandItem = mapping.wand().get();
 
-        wands.put("wooden", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.WOODEN_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.WOODEN_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.WOODEN_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.WOODEN_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.WOODEN_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.WOODEN_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.WOODEN_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.WOODEN_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.WOODEN_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("emerald", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.EMERALD_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.EMERALD_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.EMERALD_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.EMERALD_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.EMERALD_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.EMERALD_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.EMERALD_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.EMERALD_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.EMERALD_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.EMERALD_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("diamond", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.DIAMOND_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.DIAMOND_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.DIAMOND_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.DIAMOND_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.DIAMOND_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.DIAMOND_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.DIAMOND_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.DIAMOND_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.DIAMOND_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.DIAMOND_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("golden", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.GOLDEN_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.GOLDEN_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.GOLDEN_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.GOLDEN_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.GOLDEN_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.GOLDEN_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GOLDEN_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.GOLDEN_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.GOLDEN_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.GOLDEN_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("lapis", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.LAPIS_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.LAPIS_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.LAPIS_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.LAPIS_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.LAPIS_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.LAPIS_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.LAPIS_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.LAPIS_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.LAPIS_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.LAPIS_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("quartz", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.QUARTZ_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.QUARTZ_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.QUARTZ_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.QUARTZ_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.QUARTZ_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.QUARTZ_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.QUARTZ_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.QUARTZ_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.QUARTZ_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.QUARTZ_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("redstone", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.REDSTONE_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.REDSTONE_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.REDSTONE_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.REDSTONE_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.REDSTONE_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.REDSTONE_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.REDSTONE_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.REDSTONE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.REDSTONE_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.REDSTONE_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("glowstone", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.GLOWSTONE_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.GLOWSTONE_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.GLOWSTONE_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.GLOWSTONE_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.GLOWSTONE_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.GLOWSTONE_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GLOWSTONE_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.GLOWSTONE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.GLOWSTONE_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.GLOWSTONE_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("prismarine", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.PRISMARINE_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.PRISMARINE_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.PRISMARINE_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.PRISMARINE_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.PRISMARINE_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.PRISMARINE_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.PRISMARINE_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.PRISMARINE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.PRISMARINE_GLIMMERBUG_WAND.get())
-        ));
-
-        wands.put("netherite", Map.ofEntries(
-                Map.entry(EMItems.DULL_ORB.get(), EMItems.NETHERITE_DULL_WAND.get()),
-                Map.entry(EMItems.FLAME_ORB.get(), EMItems.NETHERITE_FLAME_WAND.get()),
-                Map.entry(EMItems.LEVITATION_ORB.get(), EMItems.NETHERITE_LEVITATION_WAND.get()),
-                Map.entry(EMItems.WITHER_ORB.get(), EMItems.NETHERITE_WITHER_WAND.get()),
-                Map.entry(EMItems.POISON_ORB.get(), EMItems.NETHERITE_POISON_WAND.get()),
-                Map.entry(EMItems.WITCH_ORB.get(), EMItems.NETHERITE_WITCH_WAND.get()),
-                Map.entry(EMItems.FROZEN_ORB.get(), EMItems.NETHERITE_FROZEN_WAND.get()),
-                Map.entry(EMItems.GLASS_ORB.get(), EMItems.NETHERITE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.NETHERITE_HEAVY_WAND.get()),
-                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.NETHERITE_GLIMMERBUG_WAND.get())
-        ));
-
-        return wands;
-
-    }
-
-    protected static void generateWandRecipes(Map<String, Map<Item, Item>> tieredWands, Map<String, Item> tieredHandles, RecipeOutput output) {
-
-        for (String tier : tieredWands.keySet()) {
-            Map<Item, Item> tierMap = tieredWands.get(tier);
-            Item tierHandle = tieredHandles.get(tier);
-
-            // Handle and Orb
-            for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
-                Item orb = orbEntry.getKey();
-                Item resultWand = orbEntry.getValue();
-
+                // Handle and Orb
                 SmithingTransformRecipeBuilder.smithing(
                                 Ingredient.EMPTY,
-                                Ingredient.of(tierHandle),
-                                Ingredient.of(orb),
+                                Ingredient.of(handleItem),
+                                Ingredient.of(orbItem),
                                 RecipeCategory.COMBAT,
-                                resultWand
-                        ).unlocks("has_" + getItemName(orb), has(orb))
+                                wandItem
+                        )
+                        .unlocks("has_" + getItemName(orbItem), has(orbItem))
                         .save(output, ResourceLocation.fromNamespaceAndPath(
                                 Ethermist.MODID,
-                                getItemName(resultWand) + "_from_" + getItemName(tierHandle) + "_and_" + getItemName(orb)
+                                getItemName(wandItem) + "_from_" + getItemName(handleItem) + "_and_" + getItemName(orbItem)
                         ));
-            }
 
-            // Wand and Orb
-            for (Map.Entry<Item, Item> wandEntry : tierMap.entrySet()) {
-                Item baseWand = wandEntry.getValue();
+                // Wand and Orb
+                for (Map.Entry<Supplier<? extends Item>, Map<String, EMWandMappings.WandMapping>> otherOrbEntry : EMWandMappings.WAND_MAPS.entrySet()) {
+                    Supplier<? extends Item> otherOrbSupplier = otherOrbEntry.getKey();
+                    Item otherOrbItem = otherOrbSupplier.get();
+                    if (otherOrbItem == orbItem) continue;
 
-                for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
-                    Item orb = orbEntry.getKey();
-                    Item resultWand = orbEntry.getValue();
+                    EMWandMappings.WandMapping otherMapping = otherOrbEntry.getValue().get(tier);
+                    if (otherMapping != null) {
+                        Item otherWandItem = otherMapping.wand().get();
 
-                    if (baseWand != resultWand) {
                         SmithingTransformRecipeBuilder.smithing(
                                         Ingredient.EMPTY,
-                                        Ingredient.of(baseWand),
-                                        Ingredient.of(orb),
+                                        Ingredient.of(wandItem),
+                                        Ingredient.of(otherOrbItem),
                                         RecipeCategory.COMBAT,
-                                        resultWand
-                                ).unlocks("has_" + getItemName(orb), has(orb))
+                                        otherWandItem
+                                )
+                                .unlocks("has_" + getItemName(otherOrbItem), has(otherOrbItem))
                                 .save(output, ResourceLocation.fromNamespaceAndPath(
                                         Ethermist.MODID,
-                                        getItemName(resultWand) + "_from_" + getItemName(baseWand) + "_and_" + getItemName(orb)
+                                        getItemName(otherWandItem) + "_from_" + getItemName(wandItem) + "_and_" + getItemName(otherOrbItem)
                                 ));
                     }
                 }
-            }
 
-            // Wand and Handle
-            for (Map.Entry<Item, Item> orbEntry : tierMap.entrySet()) {
-                Item orb = orbEntry.getKey();
-                Item resultWand = orbEntry.getValue();
-
-                for (String otherTier : tieredWands.keySet()) {
+                // Wand and Handle
+                for (String otherTier : tierMap.keySet()) {
                     if (!otherTier.equals(tier)) {
-                        Item otherWand = tieredWands.get(otherTier).get(orb);
-                        if (otherWand != null) {
+                        EMWandMappings.WandMapping otherTierMapping = orbEntry.getValue().get(otherTier);
+                        if (otherTierMapping != null) {
+                            Item upgradedHandleItem = otherTierMapping.handle().get();
+                            Item upgradedWandItem = otherTierMapping.wand().get();
+
                             SmithingTransformRecipeBuilder.smithing(
                                             Ingredient.EMPTY,
-                                            Ingredient.of(otherWand),
-                                            Ingredient.of(tierHandle),
+                                            Ingredient.of(wandItem),
+                                            Ingredient.of(upgradedHandleItem),
                                             RecipeCategory.COMBAT,
-                                            resultWand
-                                    ).unlocks("has_" + getItemName(tierHandle), has(tierHandle))
+                                            upgradedWandItem
+                                    )
+                                    .unlocks("has_" + getItemName(upgradedHandleItem), has(upgradedHandleItem))
                                     .save(output, ResourceLocation.fromNamespaceAndPath(
                                             Ethermist.MODID,
-                                            getItemName(resultWand) + "_from_" + getItemName(otherWand) + "_and_" + getItemName(tierHandle)
+                                            getItemName(upgradedWandItem) + "_from_" + getItemName(wandItem) + "_and_" + getItemName(upgradedHandleItem)
                                     ));
                         }
                     }
                 }
             }
         }
-
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
