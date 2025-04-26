@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.entity;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugQueenEntity;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectile;
@@ -36,6 +37,12 @@ public class EMEntityTypes {
                     () -> EntityType.Builder.of(GlimmerbugQueenEntity::new, MobCategory.CREATURE)
                             .sized(1.15f, 0.45f)
                             .build(Ethermist.MODID + ":glimmerbug_queen"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<GlimmerbugEntity>> GLIMMERBUG =
+            EM_ENTITY_TYPES.register("glimmerbug",
+                    () -> EntityType.Builder.of(GlimmerbugEntity::new, MobCategory.CREATURE)
+                            .sized(0.72f, 0.45f)
+                            .build(Ethermist.MODID + ":glimmerbug"));
 
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);

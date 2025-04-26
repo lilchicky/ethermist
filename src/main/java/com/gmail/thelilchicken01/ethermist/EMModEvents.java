@@ -1,8 +1,10 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.entity.client.model.GlimmerbugModel;
 import com.gmail.thelilchicken01.ethermist.entity.client.model.GlimmerbugQueenModel;
 import com.gmail.thelilchicken01.ethermist.entity.client.model.GloomieModel;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugQueenEntity;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
@@ -26,12 +28,14 @@ public class EMModEvents {
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(GloomieModel.LAYER_LOCATION, GloomieModel::createBodyLayer);
         event.registerLayerDefinition(GlimmerbugQueenModel.LAYER_LOCATION, GlimmerbugQueenModel::createBodyLayer);
+        event.registerLayerDefinition(GlimmerbugModel.LAYER_LOCATION, GlimmerbugModel::createBodyLayer);
     }
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(EMEntityTypes.GLOOMIE.get(), GloomieEntity.createAttributes().build());
         event.put(EMEntityTypes.GLIMMERBUG_QUEEN.get(), GlimmerbugQueenEntity.createAttributes().build());
+        event.put(EMEntityTypes.GLIMMERBUG.get(), GlimmerbugEntity.createAttributes().build());
     }
 
     @SubscribeEvent

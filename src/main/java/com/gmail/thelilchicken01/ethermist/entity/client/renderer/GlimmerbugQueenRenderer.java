@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 public class GlimmerbugQueenRenderer extends MobRenderer<GlimmerbugQueenEntity, GlimmerbugQueenModel<GlimmerbugQueenEntity>> {
 
     public GlimmerbugQueenRenderer(EntityRendererProvider.Context context) {
-        super(context, new GlimmerbugQueenModel<>(context.bakeLayer(GlimmerbugQueenModel.LAYER_LOCATION)), 0.25f);
+        super(context, new GlimmerbugQueenModel<>(context.bakeLayer(GlimmerbugQueenModel.LAYER_LOCATION)), 0.35f);
     }
 
     @Override

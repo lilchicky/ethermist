@@ -471,6 +471,7 @@
   "_comment": "--------------- SPAWN EGGS ---------------",
   "item.ethermist.gloomie_spawn_egg": "Gloomie Spawn Egg",
   "item.ethermist.glimmerbug_queen_spawn_egg": "Glimmerbug Queen Spawn Egg",
+  "item.ethermist.glimmerbug_spawn_egg": "Glimmerbug Spawn Egg",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -523,6 +524,7 @@
 
   "entity.ethermist.gloomie": "Gloomie",
   "entity.ethermist.glimmerbug_queen": "Glimmerbug Queen",
+  "entity.ethermist.glimmerbug": "Glimmerbug",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",
   "death.attack.icicle": "%1$s was impaled by an icicle",

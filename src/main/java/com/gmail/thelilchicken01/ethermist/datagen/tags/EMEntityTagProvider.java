@@ -31,7 +31,8 @@ public class EMEntityTagProvider extends EntityTypeTagsProvider {
                 .add(EMEntityTypes.GLIMMERBUG_QUEEN.get());
 
         tag(EntityTypeTags.ARTHROPOD)
-                .add(EMEntityTypes.GLIMMERBUG_QUEEN.get());
+                .add(EMEntityTypes.GLIMMERBUG_QUEEN.get())
+                .add(EMEntityTypes.GLIMMERBUG.get());
 
         tag(EntityTypeTags.AQUATIC)
                 .add(EMEntityTypes.GLOOMIE.get());

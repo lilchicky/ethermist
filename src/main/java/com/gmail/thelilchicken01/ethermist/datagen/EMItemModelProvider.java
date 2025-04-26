@@ -246,6 +246,7 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         withExistingParent(EMItems.GLOOMIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(EMItems.GLIMMERBUG_QUEEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(EMItems.GLIMMERBUG_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 

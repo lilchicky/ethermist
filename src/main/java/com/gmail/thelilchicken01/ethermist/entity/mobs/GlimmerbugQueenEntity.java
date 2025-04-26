@@ -17,10 +17,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -33,6 +30,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -67,7 +65,7 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 
-        this.targetSelector.addGoal(0, new HurtByTargetGoal(this).setAlertOthers(GlimmerbugQueenEntity.class)); // SET TO GLIMMERBUGS
+        this.targetSelector.addGoal(0, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
 
     }
@@ -93,9 +91,22 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
 
                 spawnCooldown++;
 
-                if (spawnCooldown > 20 && getTarget() instanceof Player) {
+                if (spawnCooldown > 40 && getTarget() instanceof Player) {
 
-                    // IMPLEMENT SPAWN CODE
+                    GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), level());
+
+                    bug.setPos(getX(), getY(), getZ());
+                    bug.setTarget(getTarget());
+                    bug.setHasLifespan(true);
+
+                    bug.finalizeSpawn(
+                            (ServerLevelAccessor) level(),
+                            level().getCurrentDifficultyAt(blockPosition()),
+                            MobSpawnType.MOB_SUMMONED,
+                            null
+                    );
+
+                    level().addFreshEntity(bug);
 
                     spawnCooldown = 0;
 
@@ -138,13 +149,6 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
         if (this.level().isClientSide()) {
             this.setupAnimationStates();
         }
-    }
-
-    @Override
-    public void baseTick() {
-        super.baseTick();
-
-        this.setAirSupply(300);
     }
 
     @Override
