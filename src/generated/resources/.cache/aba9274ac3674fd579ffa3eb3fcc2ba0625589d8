@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-26T12:27:46.3143465	Item Models: ethermist
+// 1.21.1	2025-04-26T16:42:36.3451611	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -108,7 +108,6 @@ a88b9e79059ed6ebd84bf1ef2571e0dfa5f49895 assets/ethermist/models/item/lapis_with
 322e5d702c0b30b5c3faad200844b9f17063a211 assets/ethermist/models/item/levitation_orb.json
 84e72eb7955b24aa3adb64ba3bc3b77282511199 assets/ethermist/models/item/levitation_shot.json
 11d8ec9fd9ba6945ec083c6545b438369cfbc607 assets/ethermist/models/item/main_spell_tome.json
-0e94f9bbe6406fc0cdc7ac0382b379bac2ac21cd assets/ethermist/models/item/meteor_shot.json
 88ba33111bcba50ae6039f99594fae1a11047454 assets/ethermist/models/item/mossy_cobbled_etherstone_wall.json
 96793fc66b496ec1cee95f4d7f504a5bfc3d06e2 assets/ethermist/models/item/netherite_dull_wand.json
 f520b8f49ec57652fb24480a5f570b76d913f1b8 assets/ethermist/models/item/netherite_flame_wand.json

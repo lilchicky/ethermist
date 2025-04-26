@@ -5,22 +5,17 @@ import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.function.Supplier;
 
-public enum WandTypes {
+public enum WandTypes implements IWandType {
 
-    DULL_WAND(
+    DULL(
             1.0,
             7,
             1,
@@ -39,7 +34,7 @@ public enum WandTypes {
             SoundEvents.EVOKER_CAST_SPELL
     ),
 
-    FLAME_WAND(
+    FLAME(
             1.9,
             10,
             1,
@@ -59,7 +54,7 @@ public enum WandTypes {
             SoundEvents.BLAZE_SHOOT
     ),
 
-    POISON_WAND(
+    POISON(
             1.7,
             11,
             2,
@@ -79,7 +74,7 @@ public enum WandTypes {
             SoundEvents.SPIDER_HURT
     ),
 
-    LEVITATION_WAND(
+    LEVITATION(
             4.2,
             25,
             3,
@@ -99,7 +94,7 @@ public enum WandTypes {
             SoundEvents.SHULKER_SHOOT
     ),
 
-    WITHER_WAND(
+    WITHER(
             2.7,
             20,
             1,
@@ -119,7 +114,7 @@ public enum WandTypes {
             SoundEvents.WITHER_SHOOT
     ),
 
-    WITCH_WAND(
+    WITCH(
             1.4,
             16,
             3,
@@ -142,7 +137,7 @@ public enum WandTypes {
             SoundEvents.WITCH_THROW
     ),
 
-    HEAVY_WAND(
+    HEAVY(
             3.0,
             15,
             1,
@@ -162,7 +157,7 @@ public enum WandTypes {
             SoundEvents.MACE_SMASH_AIR
     ),
 
-    FROZEN_WAND(
+    FROZEN(
             1.3,
             15,
             1,
@@ -183,7 +178,7 @@ public enum WandTypes {
             SoundEvents.GLASS_BREAK
     ),
 
-    GLASS_WAND(
+    GLASS(
             0.03,
             20,
             0.5,
@@ -203,7 +198,7 @@ public enum WandTypes {
             SoundEvents.EVOKER_CAST_SPELL
     ),
 
-    GLIMMERBUG_WAND(
+    GLIMMERBUG(
             8.4,
             15,
             1.5,
@@ -257,58 +252,72 @@ public enum WandTypes {
         this.shootSound = shootSound;
     }
 
+    @Override
     public double getDurabilityMult() {
         return durabilityMult;
     }
 
+    @Override
     public int getEnchantability() {
         return enchantability;
     }
 
+    @Override
     public double getLifespanSeconds() {
         return lifespanSeconds;
     }
 
+    @Override
     public int getSpellDamage() {
         return spellDamage;
     }
 
+    @Override
     public float getInaccuracy() {
         return inaccuracy;
     }
 
+    @Override
     public float getProjectileSpeed() {
         return projectileSpeed;
     }
 
+    @Override
     public boolean getCanIgnite() {
         return canIgnite;
     }
 
+    @Override
     public double getKnockback() {
         return knockback;
     }
 
+    @Override
     public int getCooldown() {
         return cooldownTicks;
     }
 
+    @Override
     public WandShotItem getShotItem() {
         return shotItem;
     }
 
+    @Override
     public ResourceKey<DamageType> getDamageType() {
         return damageType;
     }
 
+    @Override
     public float[] getTrailColor() {
         return trailColor;
     }
 
+    @Override
     public Supplier<Ingredient> getRepairItem() {
         return repairItem;
     }
 
+    @Override
     public SoundEvent getShootSound() {
         return shootSound;
     }

@@ -8,7 +8,6 @@ import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -25,7 +24,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -53,15 +51,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.getBaseWandName;
-import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class WandItem extends Item implements IDyeableWandItem {
 
-    public final SoundEvent SHOOT_SOUND;
-    public final WandTypes TYPE;
-    public final WandTiers TIER;
+    private final SoundEvent SHOOT_SOUND;
+    private final WandTypes TYPE;
+    private final WandTiers TIER;
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
@@ -129,6 +126,10 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     public WandTiers getTier() {
         return TIER;
+    }
+
+    public SoundEvent getShootSound() {
+        return SHOOT_SOUND;
     }
 
     public float[] getTrailColor(ItemStack stack) {
@@ -366,7 +367,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
 
-        if (TYPE == WandTypes.GLIMMERBUG_WAND) {
+        if (TYPE == WandTypes.GLIMMERBUG) {
             lore.add(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA));
         }
 

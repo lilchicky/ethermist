@@ -8,6 +8,7 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.wand_type_effects.EMWandTypeEffects;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
@@ -72,7 +73,6 @@ public class Ethermist {
         EMFeatures.register(bus);
 
         EMRecipeSerializer.register(bus);
-        LOGGER.info("Registered {} wand types", EMWandMappings.registerMappings());
 
         EMBlocks.register(bus);
         EMItems.register(bus);
@@ -89,6 +89,9 @@ public class Ethermist {
     private void commonSetup(final FMLCommonSetupEvent event) {
 
         event.enqueueWork(() -> {
+            EMWandTypeEffects.registerTypeEffects();
+            LOGGER.info("Registered {} wand types", EMWandMappings.registerMappings());
+
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.GLIMMERBUD.getId(), EMBlocks.GLIMMERBUD_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.NIGHTBELL.getId(), EMBlocks.NIGHTBELL_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.WITCH_LAVENDER.getId(), EMBlocks.WITCH_LAVENDER_FLOWER_POT);

@@ -249,7 +249,6 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         shotItem(EMItems.GENERIC_SHOT);
         shotItem(EMItems.FLAME_SHOT);
-        shotItem(EMItems.METEOR_SHOT);
         shotItem(EMItems.POISON_SHOT);
         shotItem(EMItems.LEVITATION_SHOT);
         shotItem(EMItems.WITHER_SHOT);

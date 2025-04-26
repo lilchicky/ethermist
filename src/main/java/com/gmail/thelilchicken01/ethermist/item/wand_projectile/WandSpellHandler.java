@@ -3,8 +3,11 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.wand_type_effects.EMWandTypeEffects;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.wand_type_effects.IWandTypeEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandTypes;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -36,80 +39,10 @@ public class WandSpellHandler {
 
     public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, ItemStack wand) {
 
-        WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-        boolean isNetheriteWand = tier == WandTiers.NETHERITE;
-
-        switch (shotItem.getModifier()) {
-            case FLAME -> target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
-            case POISON -> {
-                if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 200 : 100, 2));
-                }
-            }
-            case WITHER -> {
-                if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, isNetheriteWand ? 200 : 100, 1));
-                }
-            }
-            case LEVITATION -> {
-                if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, isNetheriteWand ? 150 : 100));
-                }
-            }
-            case WITCH -> {
-                RandomSource random = player.getRandom();
-                switch (random.nextInt(3)) {
-                    case 0 -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, isNetheriteWand ? 80 : 40, isNetheriteWand ? 1 : 0));
-                    case 1 -> player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, isNetheriteWand ? 200 : 100));
-                    case 2 -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
-                }
-                if (target instanceof LivingEntity livingTarget) {
-                    switch (random.nextInt(3)) {
-                        case 0 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
-                        case 1 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, isNetheriteWand ? 160 : 80));
-                        case 2 -> livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 160 : 80));
-                    }
-                }
-                if (player.isInWater() && random.nextBoolean()) {
-                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, isNetheriteWand ? 400 : 100));
-                }
-            }
-            case FROZEN -> {
-                if (target instanceof LivingEntity livingTarget) {
-                    livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (isNetheriteWand ? 120 : 60));
-                }
-            }
-            case GLIMMERBUG -> {
-                if (!player.level().isClientSide()) {
-                    GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
-
-                    bug.setPos(player.getX(), player.getY(), player.getZ());
-                    bug.setHasLifespan(true);
-                    bug.setSummoned(true);
-                    bug.setOwnerUUID(player.getUUID());
-                    bug.tame(player);
-                    bug.setLifespanSeconds(
-                            Math.max(
-                                    WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 4,
-                                    3
-                            )
-                    );
-
-                    if (isNetheriteWand) {
-                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, (int)(bug.getLifespanSeconds() * 20)));
-                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,(int)(bug.getLifespanSeconds() * 20)));
-                        bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION,(int)(bug.getLifespanSeconds() * 20)));
-                    }
-
-                    bug.finalizeSpawn(
-                            (ServerLevelAccessor) player.level(),
-                            player.level().getCurrentDifficultyAt(player.blockPosition()),
-                            MobSpawnType.MOB_SUMMONED,
-                            null
-                    );
-
-                    player.level().addFreshEntity(bug);
-                }
+        if (wand.getItem() instanceof WandItem wandItem) {
+            IWandTypeEffect effect = EMWandTypeEffects.getTypeEffect(wandItem.getType());
+            if (effect != null) {
+                effect.apply(shotItem, target, player, wand);
             }
         }
 

@@ -43,7 +43,6 @@ public class WandProjectileHandler {
 
         AtomicBoolean augmentedShot = new AtomicBoolean(false);
         AtomicBoolean isHoming = new AtomicBoolean(false);
-        AtomicBoolean isMeteor = new AtomicBoolean(false);
         AtomicBoolean isRush = new AtomicBoolean(false);
         AtomicBoolean isFocus = new AtomicBoolean(false);
         List<SpellModifiers.TargetType> types = new ArrayList<>();
@@ -62,9 +61,6 @@ public class WandProjectileHandler {
             }
             if (enchantHolder.is(EMEnchantments.EXCLUDE_PLAYERS.location())) {
                 types.add(SpellModifiers.TargetType.PLAYERS);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
-                isMeteor.set(true);
             }
             if (enchantHolder.is(EMEnchantments.FIREBALL.location())) {
                 spellType.set(SpellModifiers.SpellType.FIREBALL);
@@ -99,16 +95,8 @@ public class WandProjectileHandler {
         WandShotItem shotItem;
         ItemStack shotStack;
 
-        if (isMeteor.get()) {
-            shotItem = EMItems.METEOR_SHOT.get();
-            shotItem.setModifier(wand.getType().getShotItem().getModifier());
-
-            shotStack = new ItemStack(EMItems.METEOR_SHOT.get());
-        }
-        else {
-            shotItem = wand.getType().getShotItem();
-            shotStack = new ItemStack(wand.getType().getShotItem());
-        }
+        shotItem = wand.getType().getShotItem();
+        shotStack = new ItemStack(wand.getType().getShotItem());
 
         List<Entity> nearby = WandUtil.getNearbyEntities(level, (int)(newLifespan * 10), player);
         List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null, types);
@@ -158,7 +146,7 @@ public class WandProjectileHandler {
                                             player.getX(),
                                             player.getY(),
                                             player.getZ(),
-                                            wand.SHOOT_SOUND,
+                                            wand.getShootSound(),
                                             SoundSource.PLAYERS,
                                             0.5f,
                                             level.getRandom().nextFloat() * 0.4f + 0.8f);
