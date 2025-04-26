@@ -175,6 +175,11 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
     }
 
     @Override
+    protected int getBaseExperienceReward() {
+        return 400;
+    }
+
+    @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.GRASS_STEP, 0.1f, 1.0f);
     }
