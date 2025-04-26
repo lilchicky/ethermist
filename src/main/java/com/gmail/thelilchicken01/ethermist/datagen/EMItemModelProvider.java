@@ -245,6 +245,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItemFolder(EMItems.TOASTED_SHROOM_CLUSTER.get(), "food");
 
         withExistingParent(EMItems.GLOOMIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(EMItems.GLIMMERBUG_QUEEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 

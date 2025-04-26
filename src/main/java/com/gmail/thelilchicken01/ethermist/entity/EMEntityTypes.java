@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.entity;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugQueenEntity;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectile;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -29,6 +30,12 @@ public class EMEntityTypes {
                     () -> EntityType.Builder.of(GloomieEntity::new, MobCategory.CREATURE)
                             .sized(0.7f, 0.7f)
                             .build(Ethermist.MODID + ":gloomie"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<GlimmerbugQueenEntity>> GLIMMERBUG_QUEEN =
+            EM_ENTITY_TYPES.register("glimmerbug_queen",
+                    () -> EntityType.Builder.of(GlimmerbugQueenEntity::new, MobCategory.CREATURE)
+                            .sized(1.15f, 0.45f)
+                            .build(Ethermist.MODID + ":glimmerbug_queen"));
 
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);

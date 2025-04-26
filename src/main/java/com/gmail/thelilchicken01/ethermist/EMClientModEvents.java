@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugQueenRenderer;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
@@ -23,14 +24,14 @@ public class EMClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
 
-        EntityRenderers.register(EMEntityTypes.GLOOMIE.get(), GloomieRenderer::new);
-
     }
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 
         event.registerEntityRenderer(EMEntityTypes.WAND_PROJECTILE.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.GLOOMIE.get(), GloomieRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.GLIMMERBUG_QUEEN.get(), GlimmerbugQueenRenderer::new);
 
     }
 

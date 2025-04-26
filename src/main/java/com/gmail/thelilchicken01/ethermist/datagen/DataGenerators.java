@@ -7,6 +7,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProv
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMBlockTagProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEnchantTagProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEntityTagProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMItemTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -66,6 +67,7 @@ public class DataGenerators {
         gen.addProvider(event.includeServer(), blockTagsProvider);
         gen.addProvider(event.includeServer(), new EMItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookupProvider, existingFileHelper));
+        gen.addProvider(event.includeServer(), new EMEntityTagProvider(packOutput, lookupProvider, existingFileHelper));
 
         gen.addProvider(event.includeClient(), new EMBlockstateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeClient(), new EMItemModelProvider(packOutput, existingFileHelper));

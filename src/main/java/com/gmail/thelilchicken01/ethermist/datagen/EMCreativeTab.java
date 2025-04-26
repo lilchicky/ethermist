@@ -371,6 +371,7 @@ public class EMCreativeTab {
 
                 // Spawn Eggs
                 output.accept(EMItems.GLOOMIE_SPAWN_EGG.get());
+                output.accept(EMItems.GLIMMERBUG_QUEEN_SPAWN_EGG.get());
 
             }).build());
 
