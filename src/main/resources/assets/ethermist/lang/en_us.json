@@ -452,12 +452,14 @@
   "item.ethermist.heavy_wand.desc": "Wand also functions as a Mace.",
   "item.ethermist.frozen_wand.desc": "Freezes targets.",
   "item.ethermist.glass_wand.desc": "Sharp glass does extra damage, but is quite delicate.",
-  "item.ethermist.glimmerbug_wand.desc": "Summons a Glimmerbug to fight for you upon hitting a target.",
+  "item.ethermist.glimmerbug_wand.desc": "Hitting a target summons a Glimmerbug to fight for you.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 
   "item.ethermist.wand_handle.no_change": "No stat changes.",
   "item.ethermist.wand_handle.buff_effect": "Buffs the special effect of Wands.",
+
+  "item.ethermist.glimmerbug_wand.bug_lifespan.desc": "Bug lifespan scales with wand cooldown.",
 
   "item.ethermist.wand_handle.wooden.desc": "Handle Material: Wooden",
   "item.ethermist.wand_handle.emerald.desc": "Handle Material: Emerald",

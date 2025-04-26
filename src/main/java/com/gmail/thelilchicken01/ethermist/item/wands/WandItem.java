@@ -8,6 +8,7 @@ import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandProjectileHandler;
+import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -52,6 +53,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.getBaseWandName;
+import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -363,6 +365,11 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
+
+        if (TYPE == WandTypes.GLIMMERBUG_WAND) {
+            lore.add(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA));
+        }
+
         lore.add(Component.empty());
 
         lore.addAll(TIER.getModifierString());

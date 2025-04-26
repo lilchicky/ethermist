@@ -37,8 +37,8 @@ public class GlimmerbugEntity extends TamableAnimal {
     private static final EntityDataAccessor<Boolean> HAS_LIFESPAN = SynchedEntityData.defineId(GlimmerbugEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Optional<UUID>> OWNER_UUID = SynchedEntityData.defineId(GlimmerbugEntity.class, EntityDataSerializers.OPTIONAL_UUID);
 
-    private int lifespanSeconds = 20;
-    private int remainingLife = (20 * lifespanSeconds);
+    private double lifespanSeconds = 20;
+    private int remainingLife = 400;
 
     public GlimmerbugEntity(EntityType<? extends TamableAnimal> entityType, Level level) {
         super(entityType, level);
@@ -107,7 +107,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         return this.entityData.get(HAS_LIFESPAN);
     }
 
-    public int getLifespanSeconds() {
+    public double getLifespanSeconds() {
         return lifespanSeconds;
     }
 
@@ -117,6 +117,10 @@ public class GlimmerbugEntity extends TamableAnimal {
 
     public void setHasLifespan(boolean hasLifespan) {
         this.entityData.set(HAS_LIFESPAN, hasLifespan);
+    }
+
+    public void setLifespanSeconds(double lifespanSeconds) {
+        this.lifespanSeconds = lifespanSeconds;
     }
 
     @Override
@@ -172,9 +176,13 @@ public class GlimmerbugEntity extends TamableAnimal {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+
+        remainingLife = (int)(20 * lifespanSeconds);
+
         if (isSummoned()) {
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(6D);
             this.getAttribute(Attributes.ARMOR).setBaseValue(4D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.35D);
 
             this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.005, false));
             this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F));
@@ -208,6 +216,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         tag.putBoolean("Summoned", this.isSummoned());
         tag.putBoolean("HasLifespan", this.hasLifespan());
         tag.putInt("RemainingLifeTicks", remainingLife);
+        tag.putDouble("LifespanSeconds", lifespanSeconds);
     }
 
     @Override
@@ -216,6 +225,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         this.entityData.set(SUMMONED, tag.getBoolean("Summoned"));
         this.entityData.set(HAS_LIFESPAN, tag.getBoolean("HasLifespan"));
         remainingLife = tag.getInt("RemainingLifeTicks");
+        lifespanSeconds = tag.getDouble("LifespanSeconds");
     }
 
 }

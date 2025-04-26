@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;

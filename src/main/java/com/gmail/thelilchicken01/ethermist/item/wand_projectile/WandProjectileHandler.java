@@ -210,7 +210,7 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos, WandTiers tier) {
+    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos, ItemStack originWandStack) {
 
         if(shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
 
@@ -255,7 +255,7 @@ public class WandProjectileHandler {
 
             // Wand Specific Modifiers
             if(shooter instanceof Player player) {
-                WandSpellHandler.processWandModifiers(shotItem, target, player, tier);
+                WandSpellHandler.processWandModifiers(shotItem, target, player, originWandStack);
                 WandSpellHandler.processSpells(level, player, target, null, shot);
             }
 
@@ -266,14 +266,14 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot, WandTiers tier) {
+    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot, ItemStack originWandStack) {
 
         if (result.getType() == HitResult.Type.ENTITY) {
             EntityHitResult entityResult = (EntityHitResult) result;
             Entity target = entityResult.getEntity();
             WandShotItem shotItem = (WandShotItem) shot.getItem().getItem();
 
-            processHitEntity(level, shooter, target, shotItem, shot, pos, tier);
+            processHitEntity(level, shooter, target, shotItem, shot, pos, originWandStack);
         }
         else if (result.getType() == HitResult.Type.BLOCK) {
             BlockHitResult blockResult = (BlockHitResult) result;

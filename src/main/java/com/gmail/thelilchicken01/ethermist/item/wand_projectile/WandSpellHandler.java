@@ -2,6 +2,8 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
+import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
@@ -32,14 +34,13 @@ import java.util.Random;
 
 public class WandSpellHandler {
 
-    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, WandTiers tier) {
+    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, ItemStack wand) {
 
+        WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
         boolean isNetheriteWand = tier == WandTiers.NETHERITE;
 
         switch (shotItem.getModifier()) {
-            case FLAME -> {
-                target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
-            }
+            case FLAME -> target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
             case POISON -> {
                 if (target instanceof LivingEntity livingTarget) {
                     livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 200 : 100, 2));
@@ -87,11 +88,17 @@ public class WandSpellHandler {
                     bug.setSummoned(true);
                     bug.setOwnerUUID(player.getUUID());
                     bug.tame(player);
+                    bug.setLifespanSeconds(
+                            Math.max(
+                                    WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 4,
+                                    3
+                            )
+                    );
 
                     if (isNetheriteWand) {
-                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, bug.getLifespanSeconds() * 20));
-                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,bug.getLifespanSeconds() * 20));
-                        bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION,bug.getLifespanSeconds() * 20));
+                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, (int)(bug.getLifespanSeconds() * 20)));
+                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,(int)(bug.getLifespanSeconds() * 20)));
+                        bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION,(int)(bug.getLifespanSeconds() * 20)));
                     }
 
                     bug.finalizeSpawn(
@@ -387,7 +394,7 @@ public class WandSpellHandler {
                     closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner(), shot.targetType);
 
                     if (!closeTargets.isEmpty()) {
-                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter, shot.getTierOfOriginWand());
+                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter, shot.getOriginWandStack());
                         drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) level);
                         closeTargets.getLast().hurt(damageSource, (float) shot.damage);
                     }

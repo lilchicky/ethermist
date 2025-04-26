@@ -18,6 +18,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Fireball;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -39,7 +40,7 @@ public class WandProjectile extends Fireball {
     protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
     protected int spellLevel = 0;
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
-    protected WandTiers tierOfOriginWand;
+    protected ItemStack originWandStack;
 
     public static final EntityDataAccessor<Float> TRAIL_COLOR_RED;
     public static final EntityDataAccessor<Float> TRAIL_COLOR_GREEN;
@@ -58,10 +59,10 @@ public class WandProjectile extends Fireball {
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
-    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target, WandTiers tier) {
+    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target, ItemStack originWandStack) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
-        this.tierOfOriginWand = tier;
+        this.originWandStack = originWandStack;
         if (shooter instanceof Player player) {
             this.shooter = player;
         }
@@ -97,7 +98,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this, tierOfOriginWand);
+        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this, originWandStack);
     }
 
     // Math courtesy of Guns n Roses
@@ -188,8 +189,8 @@ public class WandProjectile extends Fireball {
         return new float[]{r, g, b};
     }
 
-    public WandTiers getTierOfOriginWand() {
-        return tierOfOriginWand;
+    public ItemStack getOriginWandStack() {
+        return originWandStack;
     }
 
     @Override
