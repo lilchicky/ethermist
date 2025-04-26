@@ -1,9 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.IWandTiers;
 
 public interface IDyeableWandItem {
 
-    WandTiers getTier();
+    IWandTiers getTier();
 
 }

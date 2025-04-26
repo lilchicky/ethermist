@@ -8,21 +8,34 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public interface IWandType {
+public interface IWandTypes {
 
     double getDurabilityMult();
+
     int getEnchantability();
+
     double getLifespanSeconds();
+
     int getSpellDamage();
+
     float getInaccuracy();
+
     float getProjectileSpeed();
+
     boolean getCanIgnite();
+
     double getKnockback();
+
     int getCooldown();
+
     WandShotItem getShotItem();
+
     ResourceKey<DamageType> getDamageType();
+
     float[] getTrailColor();
+
     Supplier<Ingredient> getRepairItem();
+
     SoundEvent getShootSound();
 
 }

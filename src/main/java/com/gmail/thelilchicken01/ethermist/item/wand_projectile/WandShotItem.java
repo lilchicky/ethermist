@@ -1,7 +1,5 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandModifiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;

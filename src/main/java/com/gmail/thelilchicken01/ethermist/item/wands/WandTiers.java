@@ -3,7 +3,6 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 
@@ -13,7 +12,7 @@ import java.util.function.Supplier;
 
 import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
-public enum WandTiers {
+public enum WandTiers implements IWandTiers {
 
     WOODEN(
             "wooden",
@@ -163,7 +162,7 @@ public enum WandTiers {
 
 
     WandTiers(String description, String modifiedName, double modifier,
-              WandUtil.ModifierType modifierType, boolean isSeconds, float[] handleColor, Supplier<Ingredient> repairItem) {
+               WandUtil.ModifierType modifierType, boolean isSeconds, float[] handleColor, Supplier<Ingredient> repairItem) {
 
         this.description = description;
         this.modifiedName = modifiedName;
@@ -175,23 +174,28 @@ public enum WandTiers {
 
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public float[] getHandleColor() {
         return handleColor;
     }
 
+    @Override
     public Supplier<Ingredient> getRepairItem() {
         return repairItem;
     }
 
-    public double getModifierFor(WandTiers targetTier) {
+    @Override
+    public double getModifierFor(IWandTiers targetTier) {
         int unmodified = this.modifierType == WandUtil.ModifierType.MULT ? 1 : 0;
         return this == targetTier ? this.modifier : unmodified;
     }
 
+    @Override
     public List<Component> getModifierString() {
 
         int color = 0xAAAAAA;

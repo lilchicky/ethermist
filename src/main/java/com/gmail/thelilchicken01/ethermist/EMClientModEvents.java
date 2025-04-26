@@ -4,12 +4,11 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugQueenRenderer;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugRenderer;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.IWandTiers;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.neoforged.api.distmarker.Dist;
@@ -62,7 +61,7 @@ public class EMClientModEvents {
                     }
                     else if (layer == 1) {
 
-                        WandTiers handleTier = ((IDyeableWandItem)stack.getItem()).getTier();
+                        IWandTiers handleTier = ((IDyeableWandItem)stack.getItem()).getTier();
 
                         float[] rgb = handleTier.getHandleColor();
 

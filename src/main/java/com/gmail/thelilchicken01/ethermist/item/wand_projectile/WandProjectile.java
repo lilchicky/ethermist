@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;

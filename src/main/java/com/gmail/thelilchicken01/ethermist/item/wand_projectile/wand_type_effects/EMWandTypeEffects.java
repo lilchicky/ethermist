@@ -3,12 +3,8 @@ package com.gmail.thelilchicken01.ethermist.item.wand_projectile.wand_type_effec
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.IWandType;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTypes;
+import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -21,29 +17,29 @@ import java.util.Map;
 
 public class EMWandTypeEffects {
 
-    private static final Map<IWandType, IWandTypeEffect> TYPE_EFFECTS = new HashMap<>();
+    private static final Map<IWandTypes, IWandTypeEffect> TYPE_EFFECTS = new HashMap<>();
 
-    public static void addTypeEffect(IWandType type, IWandTypeEffect effect) {
+    public static void addTypeEffect(IWandTypes type, IWandTypeEffect effect) {
         if (TYPE_EFFECTS.containsKey(type)) {
             throw new IllegalStateException("Duplicate registration for wand type: " + type);
         }
         TYPE_EFFECTS.put(type, effect);
     }
 
-    public static IWandTypeEffect getTypeEffect(IWandType type) {
+    public static IWandTypeEffect getTypeEffect(IWandTypes type) {
         return TYPE_EFFECTS.get(type);
     }
 
     public static void registerTypeEffects() {
 
         addTypeEffect(WandTypes.FLAME, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
         });
 
         addTypeEffect(WandTypes.POISON, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             if (target instanceof LivingEntity livingTarget) {
                 livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 200 : 100, 2));
@@ -51,7 +47,7 @@ public class EMWandTypeEffects {
         });
 
         addTypeEffect(WandTypes.WITHER, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             if (target instanceof LivingEntity livingTarget) {
                 livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, isNetheriteWand ? 200 : 100, 1));
@@ -59,7 +55,7 @@ public class EMWandTypeEffects {
         });
 
         addTypeEffect(WandTypes.LEVITATION, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             if (target instanceof LivingEntity livingTarget) {
                 livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, isNetheriteWand ? 150 : 100));
@@ -67,7 +63,7 @@ public class EMWandTypeEffects {
         });
 
         addTypeEffect(WandTypes.WITCH, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             RandomSource random = player.getRandom();
 
@@ -97,7 +93,7 @@ public class EMWandTypeEffects {
         });
 
         addTypeEffect(WandTypes.FROZEN, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
             if (target instanceof LivingEntity livingTarget) {
                 livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (isNetheriteWand ? 120 : 60));
@@ -105,7 +101,7 @@ public class EMWandTypeEffects {
         });
 
         addTypeEffect(WandTypes.GLIMMERBUG, (shotItem, target, player, wand) -> {
-            WandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
             boolean isNetheriteWand = tier == WandTiers.NETHERITE;
 
             if (!player.level().isClientSide()) {

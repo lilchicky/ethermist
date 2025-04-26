@@ -57,8 +57,8 @@ import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.
 public class WandItem extends Item implements IDyeableWandItem {
 
     private final SoundEvent SHOOT_SOUND;
-    private final WandTypes TYPE;
-    private final WandTiers TIER;
+    private final IWandTypes TYPE;
+    private final IWandTiers TIER;
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
@@ -68,7 +68,7 @@ public class WandItem extends Item implements IDyeableWandItem {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    public WandItem(WandTypes type, WandTiers tier) {
+    public WandItem(IWandTypes type, IWandTiers tier) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
                 .durability(Math.max((int) (128 * type.getDurabilityMult() * WandTiers.DIAMOND.getModifierFor(tier)), 1)));
@@ -120,11 +120,11 @@ public class WandItem extends Item implements IDyeableWandItem {
         return stack.isDamaged() && (TYPE.getRepairItem().get().test(repairItem) || TIER.getRepairItem().get().test(repairItem));
     }
 
-    public WandTypes getType() {
+    public IWandTypes getType() {
         return TYPE;
     }
 
-    public WandTiers getTier() {
+    public IWandTiers getTier() {
         return TIER;
     }
 

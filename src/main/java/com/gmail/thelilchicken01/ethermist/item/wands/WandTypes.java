@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum WandTypes implements IWandType {
+public enum WandTypes implements IWandTypes {
 
     DULL(
             1.0,
@@ -234,8 +234,8 @@ public enum WandTypes implements IWandType {
 
     // Constructor
     WandTypes(double durabilityMult, int enchantability, double lifespanSeconds, int spellDamage, float inaccuracy, float projectileSpeed, boolean canIgnite,
-              double knockback, int cooldownTicks, WandShotItem shotItem, ResourceKey<DamageType> damageType, float[] trailColor, Supplier<Ingredient> repairItem,
-              SoundEvent shootSound) {
+               double knockback, int cooldownTicks, WandShotItem shotItem, ResourceKey<DamageType> damageType, float[] trailColor, Supplier<Ingredient> repairItem,
+               SoundEvent shootSound) {
         this.durabilityMult = durabilityMult;
         this.enchantability = enchantability;
         this.lifespanSeconds = lifespanSeconds;

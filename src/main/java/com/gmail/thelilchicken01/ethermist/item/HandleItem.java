@@ -1,14 +1,12 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.IWandTiers;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -20,18 +18,16 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
-
 public class HandleItem extends Item implements IDyeableWandItem {
 
-    private final WandTiers TIER;
+    private final IWandTiers TIER;
 
-    public HandleItem(WandTiers tier) {
+    public HandleItem(IWandTiers tier) {
         super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
         this.TIER = tier;
     }
 
-    public WandTiers getTier() {
+    public IWandTiers getTier() {
         return TIER;
     }
 
