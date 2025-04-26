@@ -147,7 +147,7 @@ public class GlimmerbugEntity extends TamableAnimal {
 
     @Override
     public boolean shouldDropExperience() {
-        return !isSummoned() && !hasLifespan();
+        return !isSummoned();
     }
 
     @Override
