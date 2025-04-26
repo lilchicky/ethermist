@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -235,6 +236,7 @@ public class WandProjectileHandler {
                 }
                 if (!canBeHurt) break;
             }
+            canBeHurt = (!(target instanceof TamableAnimal tamed) || !tamed.isTame()) && canBeHurt;
 
             damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
 
@@ -246,7 +248,7 @@ public class WandProjectileHandler {
         if(damaged) {
 
             // Knockback Math
-            if (shot.knockbackStrength != 0) {
+            if (shot.knockbackStrength != 0 && target.isPushable()) {
                 Vec3 vec = shot.getDeltaMovement().multiply(1, 0, 1).normalize().scale(shot.knockbackStrength);
                 if (vec.lengthSqr() > 0) {
                     target.push(vec.x, 0.1, vec.z);

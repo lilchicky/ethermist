@@ -182,7 +182,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         if (isSummoned()) {
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(6D);
             this.getAttribute(Attributes.ARMOR).setBaseValue(4D);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.35D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.4D);
 
             this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.005, false));
             this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F));
