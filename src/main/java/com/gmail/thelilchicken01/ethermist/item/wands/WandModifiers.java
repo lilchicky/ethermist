@@ -9,5 +9,6 @@ public enum WandModifiers {
     WITCH,
     HEAVY,
     FROZEN,
-    GLASS
+    GLASS,
+    GLIMMERBUG
 }

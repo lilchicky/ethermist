@@ -1,5 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
@@ -19,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -73,6 +76,32 @@ public class WandSpellHandler {
             case FROZEN -> {
                 if (target instanceof LivingEntity livingTarget) {
                     livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (isNetheriteWand ? 120 : 60));
+                }
+            }
+            case GLIMMERBUG -> {
+                if (!player.level().isClientSide()) {
+                    GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
+
+                    bug.setPos(player.getX(), player.getY(), player.getZ());
+                    bug.setHasLifespan(true);
+                    bug.setSummoned(true);
+                    bug.setOwnerUUID(player.getUUID());
+                    bug.tame(player);
+
+                    if (isNetheriteWand) {
+                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, bug.getLifespanSeconds() * 20));
+                        bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,bug.getLifespanSeconds() * 20));
+                        bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION,bug.getLifespanSeconds() * 20));
+                    }
+
+                    bug.finalizeSpawn(
+                            (ServerLevelAccessor) player.level(),
+                            player.level().getCurrentDifficultyAt(player.blockPosition()),
+                            MobSpawnType.MOB_SUMMONED,
+                            null
+                    );
+
+                    player.level().addFreshEntity(bug);
                 }
             }
         }

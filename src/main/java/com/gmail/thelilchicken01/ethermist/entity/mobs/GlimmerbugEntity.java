@@ -107,6 +107,10 @@ public class GlimmerbugEntity extends TamableAnimal {
         return this.entityData.get(HAS_LIFESPAN);
     }
 
+    public int getLifespanSeconds() {
+        return lifespanSeconds;
+    }
+
     public void setSummoned(boolean newSummoned) {
         this.entityData.set(SUMMONED, newSummoned);
     }
