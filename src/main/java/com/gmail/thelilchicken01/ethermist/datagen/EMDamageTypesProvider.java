@@ -25,6 +25,7 @@ public class EMDamageTypesProvider {
         context.register(EMDamageTypes.HEAVY_MAGIC, new DamageType("heavy_magic", 1.0f));
         context.register(EMDamageTypes.FROZEN_MAGIC, new DamageType("frozen_magic", 1.0f));
         context.register(EMDamageTypes.GLASS_MAGIC, new DamageType("glass_magic", 1.0f));
+        context.register(EMDamageTypes.GLIMMERBUG_MAGIC, new DamageType("glimmerbug_magic", 1.0f));
 
         context.register(EMDamageTypes.ICICLE, new DamageType("icicle", 1.0f));
     }

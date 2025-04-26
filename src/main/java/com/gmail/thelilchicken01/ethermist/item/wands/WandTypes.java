@@ -201,6 +201,25 @@ public enum WandTypes {
                     Items.GLASS
             ),
             SoundEvents.EVOKER_CAST_SPELL
+    ),
+
+    GLIMMERBUG_WAND(
+            8.4,
+            15,
+            1.5,
+            6,
+            12.0f,
+            0.1f,
+            false,
+            0.25,
+            100,
+            EMItems.GLIMMERBUG_SHOT.get(),
+            EMDamageTypes.GLIMMERBUG_MAGIC,
+            new float[]{0.784f, 0.353f, 0.196f},
+            () -> Ingredient.of(
+                    Items.AMETHYST_SHARD
+            ),
+            SoundEvents.TURTLE_EGG_BREAK
     );
 
     private final double durabilityMult;

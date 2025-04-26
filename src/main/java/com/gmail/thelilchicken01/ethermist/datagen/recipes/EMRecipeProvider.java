@@ -860,7 +860,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.WOODEN_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.WOODEN_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.WOODEN_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.WOODEN_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.WOODEN_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("emerald", Map.ofEntries(
@@ -872,7 +873,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.EMERALD_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.EMERALD_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.EMERALD_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.EMERALD_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.EMERALD_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.EMERALD_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("diamond", Map.ofEntries(
@@ -884,7 +886,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.DIAMOND_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.DIAMOND_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.DIAMOND_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.DIAMOND_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.DIAMOND_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.DIAMOND_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("golden", Map.ofEntries(
@@ -896,7 +899,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.GOLDEN_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GOLDEN_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.GOLDEN_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.GOLDEN_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.GOLDEN_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.GOLDEN_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("lapis", Map.ofEntries(
@@ -908,7 +912,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.LAPIS_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.LAPIS_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.LAPIS_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.LAPIS_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.LAPIS_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.LAPIS_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("quartz", Map.ofEntries(
@@ -920,7 +925,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.QUARTZ_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.QUARTZ_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.QUARTZ_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.QUARTZ_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.QUARTZ_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.QUARTZ_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("redstone", Map.ofEntries(
@@ -932,7 +938,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.REDSTONE_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.REDSTONE_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.REDSTONE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.REDSTONE_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.REDSTONE_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.REDSTONE_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("glowstone", Map.ofEntries(
@@ -944,7 +951,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.GLOWSTONE_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.GLOWSTONE_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.GLOWSTONE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.GLOWSTONE_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.GLOWSTONE_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.GLOWSTONE_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("prismarine", Map.ofEntries(
@@ -956,7 +964,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.PRISMARINE_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.PRISMARINE_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.PRISMARINE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.PRISMARINE_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.PRISMARINE_GLIMMERBUG_WAND.get())
         ));
 
         wands.put("netherite", Map.ofEntries(
@@ -968,7 +977,8 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 Map.entry(EMItems.WITCH_ORB.get(), EMItems.NETHERITE_WITCH_WAND.get()),
                 Map.entry(EMItems.FROZEN_ORB.get(), EMItems.NETHERITE_FROZEN_WAND.get()),
                 Map.entry(EMItems.GLASS_ORB.get(), EMItems.NETHERITE_GLASS_WAND.get()),
-                Map.entry(Items.HEAVY_CORE, EMItems.NETHERITE_HEAVY_WAND.get())
+                Map.entry(Items.HEAVY_CORE, EMItems.NETHERITE_HEAVY_WAND.get()),
+                Map.entry(EMItems.GLIMMERBUG_ORB.get(), EMItems.NETHERITE_GLIMMERBUG_WAND.get())
         ));
 
         return wands;
