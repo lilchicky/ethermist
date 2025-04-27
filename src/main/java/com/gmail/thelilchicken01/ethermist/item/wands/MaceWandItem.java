@@ -1,5 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;

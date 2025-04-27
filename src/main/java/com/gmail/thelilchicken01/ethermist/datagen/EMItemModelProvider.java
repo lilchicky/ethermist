@@ -4,20 +4,17 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
-import static com.gmail.thelilchicken01.ethermist.item.wand_projectile.WandUtil.getBaseWandName;
+import static com.gmail.thelilchicken01.ethermist.item.wands.WandUtil.getBaseWandName;
 
 public class EMItemModelProvider extends ItemModelProvider {
 

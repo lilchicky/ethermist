@@ -1,7 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wands.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;

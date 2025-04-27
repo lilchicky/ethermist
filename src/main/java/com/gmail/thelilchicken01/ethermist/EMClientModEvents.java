@@ -6,8 +6,8 @@ import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugRend
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;

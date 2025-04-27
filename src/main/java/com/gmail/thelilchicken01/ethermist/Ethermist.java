@@ -3,12 +3,11 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeSerializer;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMWandMappings;
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantmentEffects;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.wand_projectile.wand_type_effects.EMWandTypeEffects;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
@@ -79,7 +78,6 @@ public class Ethermist {
 
         EMEntityTypes.register(bus);
 
-        EMEnchantmentEffects.register(bus);
         EMAttributes.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
