@@ -7,7 +7,7 @@ import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRendere
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.EMWandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;
@@ -71,7 +71,7 @@ public class EMClientModEvents {
 
                         int rgbPacked = (0xFF << 24) | ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | (b & 0xFF);
 
-                        return handleTier == WandTiers.WOODEN ? (0xFF << 24) | woodenColor : rgbPacked;
+                        return handleTier == EMWandTiers.WOODEN ? (0xFF << 24) | woodenColor : rgbPacked;
                     }
                     return 0xFFFFFFFF;
                 },

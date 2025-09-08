@@ -5,15 +5,14 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.WandTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
-import com.google.common.util.concurrent.AtomicDouble;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
@@ -45,6 +44,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -62,7 +62,9 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     private final SoundEvent SHOOT_SOUND;
     private final IWandTypes TYPE;
-    private final IWandTiers TIER;
+    private final DeferredHolder<WandTier, WandTier> TIER;
+    private final double ENCHANT_MULT;
+
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
     public static final ResourceLocation PROJECTILE_SPEED_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "projectile_speed");
@@ -72,13 +74,14 @@ public class WandItem extends Item implements IDyeableWandItem {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    public WandItem(IWandTypes type, IWandTiers tier) {
+    public WandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durabilityMult, double enchantMult) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability(Math.max((int) (128 * type.getDurabilityMult() * WandTiers.DIAMOND.getModifierFor(tier)), 1)));
+                .durability(Math.max((int) (128 * type.getDurabilityMult() * durabilityMult), 1)));
         this.SHOOT_SOUND = type.getShootSound();
         this.TYPE = type;
         this.TIER = tier;
+        this.ENCHANT_MULT = enchantMult;
     }
 
     @Override
@@ -116,12 +119,12 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return (int)(TYPE.getEnchantability() * WandTiers.LAPIS.getModifierFor(TIER));
+        return (int)(TYPE.getEnchantability() * ENCHANT_MULT);
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
-        return stack.isDamaged() && (TYPE.getRepairItem().get().test(repairItem) || TIER.getRepairItem().get().test(repairItem));
+        return stack.isDamaged() && (TYPE.getRepairItem().get().test(repairItem) || TIER.get().getRepairItem().get().test(repairItem));
     }
 
     public IWandTypes getType() {
@@ -129,7 +132,7 @@ public class WandItem extends Item implements IDyeableWandItem {
     }
 
     public IWandTiers getTier() {
-        return TIER;
+        return TIER.get();
     }
 
     public SoundEvent getShootSound() {
@@ -150,18 +153,24 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
+        // 1) Seed from TYPE
+        WandAttributeState currentAttributeState = new WandAttributeState().seed(
+                TYPE.getCooldown(),          // ticks
+                TYPE.getSpellDamage(),       // flat
+                TYPE.getLifespanSeconds(),   // seconds
+                TYPE.getProjectileSpeed(),   // mult
+                TYPE.getKnockback(),         // mult
+                TYPE.getInaccuracy()         // %-points (0 = 100% accurate)
+        );
 
-        var builder = ItemAttributeModifiers.builder();
-        AtomicInteger newCD = new AtomicInteger(TYPE.getCooldown() + (int)(WandTiers.REDSTONE.getModifierFor(TIER) * 20));
-        AtomicDouble newDamage = new AtomicDouble(TYPE.getSpellDamage() + WandTiers.GOLDEN.getModifierFor(TIER));
-        AtomicDouble newLifespan = new AtomicDouble(TYPE.getLifespanSeconds() + WandTiers.EMERALD.getModifierFor(TIER));
-        AtomicDouble newPSpeed = new AtomicDouble(TYPE.getProjectileSpeed() + WandTiers.GLOWSTONE.getModifierFor(TIER));
-        AtomicDouble newKnockback = new AtomicDouble(TYPE.getKnockback() + WandTiers.QUARTZ.getModifierFor(TIER));
-        AtomicDouble newAccuracy = new AtomicDouble(TYPE.getInaccuracy() - WandTiers.PRISMARINE.getModifierFor(TIER));
+        // 2) Apply the handle/tier (registry-driven)
+        // If TIER is fixed per-item class, this is fine. If it can vary per-stack, resolve from NBT/registry here instead.
+        TIER.get().apply(currentAttributeState);
 
-        AtomicInteger sprayLevel = new AtomicInteger(0);
-        AtomicInteger chaosMagicLevel = new AtomicInteger(0);
-        AtomicInteger focusLevel = new AtomicInteger(0);
+        // 3) Enchantments/flags
+        AtomicInteger sprayLevel = new AtomicInteger();
+        AtomicInteger chaosMagicLevel = new AtomicInteger();
+        AtomicInteger focusLevel = new AtomicInteger();
 
         AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
         AtomicBoolean isSprayLocal = new AtomicBoolean(false);
@@ -172,22 +181,22 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
             if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
-                newCD.set(QuickCastEnchant.modifyCooldown(enchantLevel, newCD.get()));
+                currentAttributeState.cooldownTicks = QuickCastEnchant.modifyCooldown(enchantLevel, currentAttributeState.cooldownTicks);
             }
             if (enchantHolder.is(EMEnchantments.ANCIENT_POWER.location())) {
-                newDamage.set(AncientPowerEnchant.modifyDamage(enchantLevel, newDamage.get()));
+                currentAttributeState.damage = AncientPowerEnchant.modifyDamage(enchantLevel, currentAttributeState.damage);
             }
             if (enchantHolder.is(EMEnchantments.ARCANE_VELOCITY.location())) {
-                newPSpeed.set(ArcaneVelocityEnchant.modifyPSpeed(enchantLevel, (float) newPSpeed.get()));
+                currentAttributeState.projectileSpeedMult = ArcaneVelocityEnchant.modifyPSpeed(enchantLevel, (float) currentAttributeState.projectileSpeedMult);
             }
             if (enchantHolder.is(EMEnchantments.RUNIC_FORCE.location())) {
-                newKnockback.set(RunicForceEnchant.modifyKnockback(enchantLevel, newKnockback.get()));
+                currentAttributeState.knockbackMult = RunicForceEnchant.modifyKnockback(enchantLevel, currentAttributeState.knockbackMult);
             }
             if (enchantHolder.is(EMEnchantments.ENDURING_MAGIC.location())) {
-                newLifespan.set(EnduringMagicEnchant.modifyLifespan(enchantLevel, newLifespan.get()));
+                currentAttributeState.lifespanSeconds = EnduringMagicEnchant.modifyLifespan(enchantLevel, currentAttributeState.lifespanSeconds);
             }
             if (enchantHolder.is(EMEnchantments.STABLE_ORB.location())) {
-                newAccuracy.set(StableOrbEnchant.modifyAccuracy(enchantLevel, newAccuracy.get()));
+                currentAttributeState.inaccuracyPercent = StableOrbEnchant.modifyAccuracy(enchantLevel, currentAttributeState.inaccuracyPercent);
             }
             if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
                 sprayLevel.set(enchantLevel);
@@ -212,120 +221,61 @@ public class WandItem extends Item implements IDyeableWandItem {
             }
         });
 
-        // Augment Modifiers
+        // 4) Augment modifiers (ported 1:1)
         if (isMeteorLocal.get()) {
-            newDamage.set(newDamage.get() * 3);
-            newLifespan.set(newLifespan.get() * 2);
-            newAccuracy.set(newAccuracy.get() * 0.1);
+            currentAttributeState.damage *= 3.0;
+            currentAttributeState.lifespanSeconds *= 2.0;
+            currentAttributeState.inaccuracyPercent *= 0.1; // 90% more accurate
         }
         if (isSprayLocal.get()) {
-            newDamage.set(newDamage.get() / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(newDamage.get()))));
-            newLifespan.set((int) (newLifespan.get() * 0.1));
-            if (newLifespan.get() == 0) {
-                newLifespan.set(1);
-            }
-            newPSpeed.set(newPSpeed.get() * 0.5);
-            newCD.set(5);
+            currentAttributeState.damage = currentAttributeState.damage / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(currentAttributeState.damage)));
+            currentAttributeState.lifespanSeconds = Math.max(1.0, currentAttributeState.lifespanSeconds * 0.1);
+            currentAttributeState.projectileSpeedMult *= 0.5;
+            currentAttributeState.cooldownTicks = 5;
         }
         if (isAugmentFocus.get()) {
-            newDamage.set(newDamage.get() * (focusLevel.get() * 1.5));
-            newPSpeed.set(newPSpeed.get() * 4.5);
-            newAccuracy.set(0.0);
-            newCD.set(newCD.get() * 4);
+            currentAttributeState.damage *= (focusLevel.get() * 1.5);
+            currentAttributeState.projectileSpeedMult *= 4.5;
+            currentAttributeState.inaccuracyPercent = 0.0;
+            currentAttributeState.cooldownTicks *= 4;
         }
 
-        // Spell Modifiers
+        // 5) Spell modifiers (ported 1:1)
         if (isChaosMagic.get()) {
-            newDamage.set(newDamage.get() * chaosMagicLevel.get());
+            currentAttributeState.damage *= chaosMagicLevel.get();
         }
         if (isThunderstrike.get()) {
             if (isSprayLocal.get()) {
-                newCD.set(40);
+                currentAttributeState.cooldownTicks = 40;
             } else if (isAugmentFocus.get()) {
-                newCD.set(newCD.get() + 40);
+                currentAttributeState.cooldownTicks += 40;
             } else {
-                newCD.set(newCD.get() * 3);
+                currentAttributeState.cooldownTicks *= 3;
             }
         }
         if (isVolatileEnergy.get()) {
-            newDamage.set(newDamage.get() * 0.5);
+            currentAttributeState.damage *= 0.5;
         }
 
-        // Set Attributes
-        builder.add(
-                EMAttributes.PROJECTILE_SPEED,
-                new AttributeModifier(
-                        PROJECTILE_SPEED_ID,
-                        Math.max(newPSpeed.get(), 0.1),
-                        AttributeModifier.Operation.ADD_MULTIPLIED_BASE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                EMAttributes.WAND_KNOCKBACK,
-                new AttributeModifier(
-                        WAND_KNOCKBACK_ID,
-                        Math.max(newKnockback.get(), 0),
-                        AttributeModifier.Operation.ADD_MULTIPLIED_BASE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                EMAttributes.COOLDOWN,
-                new AttributeModifier(
-                        COOLDOWN_ID,
-                        Math.max(newCD.get(), 5) / 20.0,
-                        AttributeModifier.Operation.ADD_VALUE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                EMAttributes.WAND_DAMAGE,
-                new AttributeModifier(
-                        BASE_WAND_DAMAGE_ID,
-                        Math.max(newDamage.get(), 0.5),
-                        AttributeModifier.Operation.ADD_VALUE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                EMAttributes.LIFESPAN,
-                new AttributeModifier(
-                        LIFESPAN_ID,
-                        Math.max(newLifespan.get(), 0.25),
-                        AttributeModifier.Operation.ADD_VALUE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                EMAttributes.ACCURACY,
-                new AttributeModifier(
-                        ACCURACY_ID,
-                        1 - (Math.max(newAccuracy.get(), 0) / 100),
-                        AttributeModifier.Operation.ADD_MULTIPLIED_BASE
-                ),
-                EquipmentSlotGroup.MAINHAND
-        );
+        // 6) Clamp & emit
+        currentAttributeState.clamp();
+
+        var builder = ItemAttributeModifiers.builder();
+        currentAttributeState.addToBuilder(builder, EquipmentSlotGroup.MAINHAND); // uses your WandItem UUIDs/EMAttributes
+
         if (isMeteorLocal.get()) {
             builder.add(
                     Attributes.BLOCK_INTERACTION_RANGE,
-                    new AttributeModifier(
-                            BLOCK_INTERACTION_RANGE_ID,
-                            16,
-                            AttributeModifier.Operation.ADD_VALUE
-                    ),
+                    new AttributeModifier(BLOCK_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
                     EquipmentSlotGroup.MAINHAND
             );
             builder.add(
                     Attributes.ENTITY_INTERACTION_RANGE,
-                    new AttributeModifier(
-                            ENTITY_INTERACTION_RANGE_ID,
-                            16,
-                            AttributeModifier.Operation.ADD_VALUE
-                    ),
+                    new AttributeModifier(ENTITY_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
                     EquipmentSlotGroup.MAINHAND
             );
         }
+
         if (stack.getItem() instanceof MaceWandItem) {
             builder.add(
                     Attributes.ATTACK_DAMAGE,
@@ -338,8 +288,10 @@ public class WandItem extends Item implements IDyeableWandItem {
                     EquipmentSlotGroup.MAINHAND
             );
         }
+
         return builder.build();
     }
+
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lore, TooltipFlag tooltipFlag) {
@@ -377,7 +329,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         lore.add(Component.empty());
 
-        lore.addAll(TIER.getModifierString());
+        lore.addAll(TIER.get().getModifierString());
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());

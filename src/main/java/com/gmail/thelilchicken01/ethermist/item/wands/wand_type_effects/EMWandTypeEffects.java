@@ -6,7 +6,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.EMWandTiers;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -35,76 +35,69 @@ public class EMWandTypeEffects {
     public static void registerTypeEffects() {
 
         addTypeEffect(WandTypes.FLAME, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
-            target.setRemainingFireTicks(isNetheriteWand ? 400 : 200);
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+            target.setRemainingFireTicks(tier.doesBuffSpell() ? 400 : 200);
         });
 
         addTypeEffect(WandTypes.POISON, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 200 : 100, 2));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, tier.doesBuffSpell() ? 200 : 100, 2));
             }
         });
 
         addTypeEffect(WandTypes.WITHER, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, isNetheriteWand ? 200 : 100, 1));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, tier.doesBuffSpell() ? 200 : 100, 1));
             }
         });
 
         addTypeEffect(WandTypes.LEVITATION, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, isNetheriteWand ? 150 : 100));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, tier.doesBuffSpell() ? 150 : 100));
             }
         });
 
         addTypeEffect(WandTypes.WITCH, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
             RandomSource random = player.getRandom();
 
             switch (random.nextInt(3)) {
                 case 0 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, isNetheriteWand ? 80 : 40, isNetheriteWand ? 1 : 0));
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, tier.doesBuffSpell() ? 80 : 40, tier.doesBuffSpell() ? 1 : 0));
                 case 1 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, isNetheriteWand ? 200 : 100));
+                        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, tier.doesBuffSpell() ? 200 : 100));
                 case 2 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, tier.doesBuffSpell() ? 120 : 60, tier.doesBuffSpell() ? 1 : 0));
             }
 
             if (target instanceof LivingEntity livingTarget) {
                 switch (random.nextInt(3)) {
                     case 0 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, isNetheriteWand ? 120 : 60, isNetheriteWand ? 1 : 0));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, tier.doesBuffSpell() ? 120 : 60, tier.doesBuffSpell() ? 1 : 0));
                     case 1 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, isNetheriteWand ? 160 : 80));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, tier.doesBuffSpell() ? 160 : 80));
                     case 2 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, isNetheriteWand ? 160 : 80));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, tier.doesBuffSpell() ? 160 : 80));
                 }
             }
 
             if (player.isInWater() && random.nextBoolean()) {
-                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, isNetheriteWand ? 400 : 100));
+                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, tier.doesBuffSpell() ? 400 : 100));
             }
         });
 
         addTypeEffect(WandTypes.FROZEN, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (isNetheriteWand ? 120 : 60));
+                livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (tier.doesBuffSpell() ? 120 : 60));
             }
         });
 
         addTypeEffect(WandTypes.GLIMMERBUG, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : WandTiers.WOODEN;
-            boolean isNetheriteWand = tier == WandTiers.NETHERITE;
+            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
 
             if (!player.level().isClientSide()) {
                 GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
@@ -121,7 +114,7 @@ public class EMWandTypeEffects {
                         )
                 );
 
-                if (isNetheriteWand) {
+                if (tier.doesBuffSpell()) {
                     bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, (int) (bug.getLifespanSeconds() * 20)));
                     bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, (int) (bug.getLifespanSeconds() * 20)));
                     bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION, (int) (bug.getLifespanSeconds() * 20)));

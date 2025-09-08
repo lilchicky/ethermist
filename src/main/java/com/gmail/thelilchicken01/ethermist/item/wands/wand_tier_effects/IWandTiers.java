@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.List;
@@ -8,15 +9,15 @@ import net.minecraft.network.chat.Component;
 
 public interface IWandTiers {
 
+    ResourceLocation id();
+
     String getDescription();
-
     float[] getHandleColor();
-
     Supplier<Ingredient> getRepairItem();
-
-    double getModifierFor(IWandTiers targetTier);
-
     List<Component> getModifierString();
+    boolean doesBuffSpell();
+
+    void apply(WandAttributeState state);
 
 }
 

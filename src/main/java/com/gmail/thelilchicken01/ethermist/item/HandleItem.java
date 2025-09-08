@@ -1,7 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -15,20 +17,21 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 
 public class HandleItem extends Item implements IDyeableWandItem {
 
-    private final IWandTiers TIER;
+    private final DeferredHolder<WandTier, WandTier> TIER;
 
-    public HandleItem(IWandTiers tier) {
+    public HandleItem(DeferredHolder<WandTier, WandTier> tier) {
         super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
         this.TIER = tier;
     }
 
     public IWandTiers getTier() {
-        return TIER;
+        return TIER.get();
     }
 
     @Override
@@ -78,7 +81,7 @@ public class HandleItem extends Item implements IDyeableWandItem {
         lore.add(dyeableText);
         lore.add(Component.empty());
 
-        lore.addAll(TIER.getModifierString());
+        lore.addAll(TIER.get().getModifierString());
 
         lore.add(Component.empty());
         lore.add(Component.translatable("item.ethermist.handle_description.line_1").withColor(0xAAAAAA));

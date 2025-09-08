@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
@@ -17,13 +18,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.function.Predicate;
 
 public class MaceWandItem extends WandItem {
 
-    public MaceWandItem(IWandTypes type, IWandTiers tier) {
-        super(type, tier);
+    public MaceWandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durMult, double enchantMult) {
+        super(type, tier, durMult, enchantMult);
     }
 
     @Override

@@ -21,6 +21,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.registries.NewRegistryEvent;
+import net.neoforged.neoforge.registries.RegistryBuilder;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -60,6 +62,10 @@ public class Ethermist {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        // Register Custom Registries
+        bus.addListener(this::newRegistry);
+        EMRegistries.WAND_TIERS.register(bus);
+
         // Register custom content
         EMCreativeTab.register(bus);
 
@@ -96,6 +102,12 @@ public class Ethermist {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.DAWNING_HYACINTH.getId(), EMBlocks.DAWNING_HYACINTH_FLOWER_POT);
         });
 
+    }
+
+    private void newRegistry(final NewRegistryEvent event) {
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_TIER_REGISTRY_KEY)
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "wooden")));
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
