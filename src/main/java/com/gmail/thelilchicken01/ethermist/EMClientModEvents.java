@@ -52,27 +52,39 @@ public class EMClientModEvents {
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register((stack, layer) -> {
 
-                    int woodenColor = stack.get(DataComponents.DYED_COLOR) != null ?
-                            (0xFF << 24) | stack.get(DataComponents.DYED_COLOR).rgb()
-                            : Ethermist.WAND_COLOR;
+                    int baseColor = 0xFF000000 | (
+                            stack.get(DataComponents.DYED_COLOR) != null
+                                    ? (stack.get(DataComponents.DYED_COLOR).rgb() & 0xFFFFFF)
+                                    : (Ethermist.WAND_COLOR & 0xFFFFFF)
+                    );
 
                     if (layer == 0) {
-                        return woodenColor;
+
+                        return baseColor;
+
+                    } else if (layer == 1) {
+
+                        IWandTiers tier = (stack.getItem() instanceof IDyeableWandItem dyeable)
+                                ? dyeable.getTier()
+                                : null;
+
+                        if (tier != null) {
+                            boolean isWooden = tier.id().equals(EMWandTiers.WOODEN.getId());
+
+                            if (isWooden) {
+                                return baseColor;
+                            }
+
+                            float[] rgb = tier.getHandleColor();
+                            int r = (int) (Math.max(0f, Math.min(1f, rgb[0])) * 255f);
+                            int g = (int) (Math.max(0f, Math.min(1f, rgb[1])) * 255f);
+                            int b = (int) (Math.max(0f, Math.min(1f, rgb[2])) * 255f);
+                            return 0xFF000000 | (r << 16) | (g << 8) | b;
+                        }
+
+                        return baseColor;
                     }
-                    else if (layer == 1) {
 
-                        IWandTiers handleTier = ((IDyeableWandItem)stack.getItem()).getTier();
-
-                        float[] rgb = handleTier.getHandleColor();
-
-                        int r = (int)(rgb[0] * 255.0f);
-                        int g = (int)(rgb[1] * 255.0f);
-                        int b = (int)(rgb[2] * 255.0f);
-
-                        int rgbPacked = (0xFF << 24) | ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | (b & 0xFF);
-
-                        return handleTier == EMWandTiers.WOODEN ? (0xFF << 24) | woodenColor : rgbPacked;
-                    }
                     return 0xFFFFFFFF;
                 },
                 

@@ -17,7 +17,8 @@ public class WandAttributeState {
     public double knockbackMult;
     public double inaccuracyPercent;
 
-    public WandAttributeState() {}
+    public WandAttributeState() {
+    }
 
     public WandAttributeState seed(
             int baseCooldownTicks,

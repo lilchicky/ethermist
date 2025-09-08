@@ -64,11 +64,10 @@ public class WandDyeRecipe extends CustomRecipe {
                     itemstack = itemstack1.copy();
                 } else {
                     Item var8 = itemstack1.getItem();
-                    if (!(var8 instanceof DyeItem)) {
+                    if (!(var8 instanceof DyeItem dyeitem)) {
                         return ItemStack.EMPTY;
                     }
 
-                    DyeItem dyeitem = (DyeItem)var8;
                     list.add(dyeitem);
                 }
             }
