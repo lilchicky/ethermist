@@ -12,29 +12,16 @@ import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMA
 
 public final class WandTier implements IWandTiers {
 
-    public enum StatKey {COOLDOWN_TICKS, DAMAGE, LIFESPAN_SECONDS, PROJECTILE_SPEED_MUL, KNOCKBACK_MUL, INACCURACY_PCT}
-
+    public enum WandAttributeKey {COOLDOWN_TICKS, DAMAGE, LIFESPAN_SECONDS, PROJECTILE_SPEED_MULT, KNOCKBACK_MULT, INACCURACY_PERCENT}
     public enum EffectType {ADDITION, MULT, PERCENT}
 
-    public record Effect(StatKey key, EffectType type, double value, boolean seconds) {
-        public void apply(WandAttributeState s) {
-            double v = (key == StatKey.COOLDOWN_TICKS && seconds) ? value * 20.0 : value;
-            switch (type) {
-                case ADDITION -> s.add(map(key), v);
-                case MULT -> s.mult(map(key), v);
-                case PERCENT -> s.percent(map(key), value);
+    public record Effect(WandAttributeKey key, EffectType type, double value, boolean seconds) {
+        public void apply(WandAttributeState state) {
+            double v = value;
+            if (seconds && key == WandAttributeKey.COOLDOWN_TICKS && type != EffectType.PERCENT) {
+                v = value * 20.0;
             }
-        }
-
-        private static WandAttributeState.Key map(StatKey k) {
-            return switch (k) {
-                case COOLDOWN_TICKS -> WandAttributeState.Key.COOLDOWN_TICKS;
-                case DAMAGE -> WandAttributeState.Key.DAMAGE;
-                case LIFESPAN_SECONDS -> WandAttributeState.Key.LIFESPAN_SECONDS;
-                case PROJECTILE_SPEED_MUL -> WandAttributeState.Key.PROJECTILE_SPEED_MULT;
-                case KNOCKBACK_MUL -> WandAttributeState.Key.KNOCKBACK_MULT;
-                case INACCURACY_PCT -> WandAttributeState.Key.INACCURACY_PERCENT;
-            };
+            state.apply(key, type, v);
         }
     }
 

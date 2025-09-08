@@ -153,18 +153,18 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
-        // 1) Seed from TYPE
+
+        // 1) Seed default stats from wand type (determined by orb)
         WandAttributeState currentAttributeState = new WandAttributeState().seed(
-                TYPE.getCooldown(),          // ticks
-                TYPE.getSpellDamage(),       // flat
-                TYPE.getLifespanSeconds(),   // seconds
-                TYPE.getProjectileSpeed(),   // mult
-                TYPE.getKnockback(),         // mult
-                TYPE.getInaccuracy()         // %-points (0 = 100% accurate)
+                TYPE.getCooldown(),
+                TYPE.getSpellDamage(),
+                TYPE.getLifespanSeconds(),
+                TYPE.getProjectileSpeed(),
+                TYPE.getKnockback(),
+                TYPE.getInaccuracy()
         );
 
-        // 2) Apply the handle/tier (registry-driven)
-        // If TIER is fixed per-item class, this is fine. If it can vary per-stack, resolve from NBT/registry here instead.
+        // Apply tier values to default values
         TIER.get().apply(currentAttributeState);
 
         // 3) Enchantments/flags
@@ -261,7 +261,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         currentAttributeState.clamp();
 
         var builder = ItemAttributeModifiers.builder();
-        currentAttributeState.addToBuilder(builder, EquipmentSlotGroup.MAINHAND); // uses your WandItem UUIDs/EMAttributes
+        currentAttributeState.addToBuilder(builder, EquipmentSlotGroup.MAINHAND);
 
         if (isMeteorLocal.get()) {
             builder.add(

@@ -2,11 +2,10 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-
-import java.util.UUID;
 
 public class WandAttributeState {
 
@@ -37,39 +36,55 @@ public class WandAttributeState {
         return this;
     }
 
-    public enum Key {
-        COOLDOWN_TICKS, DAMAGE, LIFESPAN_SECONDS, PROJECTILE_SPEED_MULT, KNOCKBACK_MULT, INACCURACY_PERCENT
-    }
-
-    public void add(Key key, double value) {
+    public void apply(WandTier.WandAttributeKey key, WandTier.EffectType type, double value) {
         switch (key) {
-            case COOLDOWN_TICKS -> cooldownTicks += (int) Math.round(value);
-            case DAMAGE -> damage += value;
-            case LIFESPAN_SECONDS -> lifespanSeconds += value;
-            case INACCURACY_PERCENT -> inaccuracyPercent += value;
-            default -> throw new IllegalArgumentException("add() cannot be used for " + key);
-        }
-    }
+            case COOLDOWN_TICKS -> {
+                switch (type) {
+                    case ADDITION -> cooldownTicks += (int)Math.round(value);
+                    case MULT     -> cooldownTicks  = (int)Math.round(cooldownTicks * value);
+                    case PERCENT  -> cooldownTicks  = (int)Math.round(cooldownTicks * (1.0 + value));
+                }
+            }
 
-    public void mult(Key key, double value) {
-        switch (key) {
-            case PROJECTILE_SPEED_MULT -> projectileSpeedMult *= value;
-            case KNOCKBACK_MULT -> knockbackMult *= value;
-            case LIFESPAN_SECONDS -> lifespanSeconds *= value;
-            case DAMAGE -> damage *= value;
-            case COOLDOWN_TICKS -> cooldownTicks = (int) Math.round(cooldownTicks * value);
-            case INACCURACY_PERCENT -> inaccuracyPercent *= value;
-            default -> throw new IllegalArgumentException("mult() cannot be used for " + key);
-        }
-    }
+            case DAMAGE -> {
+                switch (type) {
+                    case ADDITION -> damage += value;
+                    case MULT     -> damage *= value;
+                    case PERCENT  -> damage *= (1.0 + value);
+                }
+            }
 
-    public void percent(Key key, double value) {
-        switch (key) {
-            case PROJECTILE_SPEED_MULT -> projectileSpeedMult *= (1.0 + value);
-            case KNOCKBACK_MULT -> knockbackMult *= (1.0 + value);
-            case DAMAGE -> damage *= (1.0 + value);
-            case INACCURACY_PERCENT -> inaccuracyPercent -= value;
-            default -> throw new IllegalArgumentException("percent() cannot be used for " + key);
+            case LIFESPAN_SECONDS -> {
+                switch (type) {
+                    case ADDITION -> lifespanSeconds += value;
+                    case MULT     -> lifespanSeconds *= value;
+                    case PERCENT  -> lifespanSeconds *= (1.0 + value);
+                }
+            }
+
+            case PROJECTILE_SPEED_MULT -> {
+                switch (type) {
+                    case ADDITION -> projectileSpeedMult += value;
+                    case MULT     -> projectileSpeedMult *= value;
+                    case PERCENT  -> projectileSpeedMult *= (1.0 + value);
+                }
+            }
+
+            case KNOCKBACK_MULT -> {
+                switch (type) {
+                    case ADDITION -> knockbackMult += value;
+                    case MULT     -> knockbackMult *= value;
+                    case PERCENT  -> knockbackMult *= (1.0 + value);
+                }
+            }
+
+            case INACCURACY_PERCENT -> {
+                switch (type) {
+                    case ADDITION -> inaccuracyPercent -= value;
+                    case MULT     -> inaccuracyPercent *= value;
+                    case PERCENT  -> inaccuracyPercent *= (1.0 + value);
+                }
+            }
         }
     }
 
@@ -80,12 +95,11 @@ public class WandAttributeState {
         if (projectileSpeedMult < 0.1) projectileSpeedMult = 0.1; // min speed
         if (knockbackMult < 0.0) knockbackMult = 0.0; // knockback cannot be under none
         if (inaccuracyPercent < 0.0) inaccuracyPercent = 0.0; // inaccuracy cannot be over 100%
+        if (inaccuracyPercent > 100.0) inaccuracyPercent = 100.0; // inaccuracy cannot be under 0%
     }
 
-    public void addToBuilder(
-            ItemAttributeModifiers.Builder builder,
-            EquipmentSlotGroup slot
-    ) {
+    public void addToBuilder(ItemAttributeModifiers.Builder builder, EquipmentSlotGroup slot) {
+
         builder.add(
                 EMAttributes.PROJECTILE_SPEED,
                 new AttributeModifier(WandItem.PROJECTILE_SPEED_ID, projectileSpeedMult, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
@@ -116,10 +130,10 @@ public class WandAttributeState {
                 slot
         );
 
-        double accuracyMultiplier = 1.0 - (Math.max(inaccuracyPercent, 0.0) / 100.0);
+        double accuracy = 1.0 - (inaccuracyPercent / 100);
         builder.add(
                 EMAttributes.ACCURACY,
-                new AttributeModifier(WandItem.ACCURACY_ID, accuracyMultiplier, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeModifier(WandItem.ACCURACY_ID, accuracy, AttributeModifier.Operation.ADD_VALUE),
                 slot
         );
     }

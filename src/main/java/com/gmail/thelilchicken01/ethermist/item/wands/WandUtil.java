@@ -98,12 +98,4 @@ public class WandUtil {
         return wandID;
     }
 
-    public enum ModifierType {
-        ADDITION,
-        MULT,
-        PERCENT,
-        DEFAULT,
-        BUFF_EFFECT
-    }
-
 }
