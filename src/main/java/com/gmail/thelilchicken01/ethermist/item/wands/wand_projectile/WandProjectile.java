@@ -27,8 +27,8 @@ import java.util.List;
 
 public class WandProjectile extends Fireball {
 
-    protected double damage = 2;
-    protected double lifetime = 120;
+    protected int damage = 2;
+    protected int lifetime = 120;
     protected double knockbackStrength = 1;
     protected ParticleOptions trail = null;
     protected boolean canIgnite = false;
@@ -113,8 +113,8 @@ public class WandProjectile extends Fireball {
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("tsf", ticksSinceFired);
-        compound.putDouble("damage", damage);
-        compound.putDouble("lifetime", lifetime);
+        compound.putInt("damage", damage);
+        compound.putInt("lifetime", lifetime);
         compound.putBoolean("ignites", canIgnite);
         if (knockbackStrength != 0) compound.putDouble("knockback", knockbackStrength);
     }
@@ -123,8 +123,8 @@ public class WandProjectile extends Fireball {
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         ticksSinceFired = compound.getInt("tsf");
-        damage = compound.getDouble("damage");
-        lifetime = compound.getDouble("lifetime");
+        damage = compound.getInt("damage");
+        lifetime = compound.getInt("lifetime");
         canIgnite = compound.getBoolean("ignites");
         knockbackStrength = compound.getDouble("knockback");
     }
@@ -133,34 +133,29 @@ public class WandProjectile extends Fireball {
     public boolean isOnFire() {
         return canIgnite;
     }
+    public void setCanIgnite(boolean canIgnite) { this.canIgnite = canIgnite; }
 
     @Override
     protected @Nullable ParticleOptions getTrailParticle() {
         return trail;
     }
 
-    public void setDamage(double damage) {
-        this.damage = damage;
-    }
+    public void setDamage(int damage) { this.damage = damage; }
+    public int getDamage() { return damage; }
+
+    public void setLifetime(int lifetime) { this.lifetime = lifetime; }
+    public int getLifetime() { return lifetime; }
+
+    public void setHoming(boolean homing) { this.isHoming = homing; }
+
+    public void setTargetType(List<SpellModifiers.TargetType> targetType) { this.targetType = targetType; }
+    public List<SpellModifiers.TargetType> getTargetType() { return this.targetType; }
+
+    public void setDamageType(ResourceKey<DamageType> damageType) { this.damageType = damageType; }
+    public ResourceKey<DamageType> getDamageType() { return this.damageType; }
 
     public void setKnockbackStrength(double knockbackStrength) {
         this.knockbackStrength = knockbackStrength;
-    }
-
-    public void setLifetime(int lifetime) {
-        this.lifetime = lifetime;
-    }
-
-    public void setCanIgnite(boolean canIgnite) {
-        this.canIgnite = canIgnite;
-    }
-
-    public void setHoming(boolean isHoming) {
-        this.isHoming = isHoming;
-    }
-
-    public void setTargetType(List<SpellModifiers.TargetType> targetType) {
-        this.targetType = targetType;
     }
 
     public void setSpellType(SpellModifiers.SpellType spellType) {
@@ -171,9 +166,7 @@ public class WandProjectile extends Fireball {
         this.spellLevel = spellLevel;
     }
 
-    public void setDamageType(ResourceKey<DamageType> damageType) {
-        this.damageType = damageType;
-    }
+    public Player getShooter() { return shooter; }
 
     public void setTrailColor(float[] trailColor) {
         this.entityData.set(TRAIL_COLOR_RED, trailColor[0]);

@@ -336,7 +336,7 @@ public class WandSpellHandler {
     ---------- Helper Methods ----------
      */
 
-    private static void drawLine(Vec3 start, Vec3 end, ServerLevel level) {
+    public static void drawLine(Vec3 start, Vec3 end, ServerLevel level) {
         int num = 24;
         Vec3 step = end.subtract(start).scale(1.0 / num);
         for (int x = 0; x <= num; x++) {
