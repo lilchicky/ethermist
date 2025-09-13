@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "stone",
+  "ingredient": {
+    "item": "ethermist:cobbled_etherstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:etherstone"
+  }
+}

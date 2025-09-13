@@ -4,6 +4,11 @@
     "color": "#6B2EC7",
     "translate": "enchantment.ethermist.thunderstrike"
   },
+  "effects": {
+    "ethermist:wand_spell_effect": {
+      "type": "ethermist:thunderstrike"
+    }
+  },
   "exclusive_set": "#ethermist:main_damage_spells",
   "max_cost": {
     "base": 21,

@@ -3,12 +3,10 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 import com.gmail.thelilchicken01.ethermist.EMConfig;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
-import com.gmail.thelilchicken01.ethermist.enchantment.custom_enchants.*;
+import com.gmail.thelilchicken01.ethermist.enchantment.*;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.WandTypes;
@@ -154,7 +152,9 @@ public class WandItem extends Item implements IDyeableWandItem {
     @Override
     public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
 
-        // 1) Seed default stats from wand type (determined by orb)
+        var builder = ItemAttributeModifiers.builder();
+
+        // Get base attributes based on wand type (orb)
         WandAttributeState currentAttributeState = new WandAttributeState().seed(
                 TYPE.getCooldown(),
                 TYPE.getSpellDamage(),
@@ -164,130 +164,57 @@ public class WandItem extends Item implements IDyeableWandItem {
                 TYPE.getInaccuracy()
         );
 
-        // Apply tier values to default values
+        // Apply tier (handle) modifiers to default attributes
         TIER.get().apply(currentAttributeState);
 
-        // 3) Enchantments/flags
-        AtomicInteger sprayLevel = new AtomicInteger();
-        AtomicInteger chaosMagicLevel = new AtomicInteger();
-        AtomicInteger focusLevel = new AtomicInteger();
+        // Order here is implemented base -> augment -> spell, for priority of hard attribute
+        // adjustments (such as Focus Augment overriding default accuracy enchantments).
+        // This prevents something like damage being set to 1 for balance, then at a later point
+        // being changed by a base enchantment to increase damage.
 
-        AtomicBoolean isMeteorLocal = new AtomicBoolean(false);
-        AtomicBoolean isSprayLocal = new AtomicBoolean(false);
-        AtomicBoolean isChaosMagic = new AtomicBoolean(false);
-        AtomicBoolean isThunderstrike = new AtomicBoolean(false);
-        AtomicBoolean isVolatileEnergy = new AtomicBoolean(false);
-        AtomicBoolean isAugmentFocus = new AtomicBoolean(false);
+        // Apply base enchantment modifiers (damage, etc.)
+        EnchantmentHelper.runIterationOnItem(stack, (enchant, level) -> {
 
-        EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
-            if (enchantHolder.is(EMEnchantments.QUICK_CAST.location())) {
-                currentAttributeState.cooldownTicks = QuickCastEnchant.modifyCooldown(enchantLevel, currentAttributeState.cooldownTicks);
+            IWandBaseEffect base = enchant.value().effects().get(EMEnchantComponents.WAND_BASE_EFFECT.get());
+
+            if (base != null) {
+                base.attributeChanges(currentAttributeState, level);
+                base.addSpecialAttributes(builder);
             }
-            if (enchantHolder.is(EMEnchantments.ANCIENT_POWER.location())) {
-                currentAttributeState.damage = AncientPowerEnchant.modifyDamage(enchantLevel, currentAttributeState.damage);
-            }
-            if (enchantHolder.is(EMEnchantments.ARCANE_VELOCITY.location())) {
-                currentAttributeState.projectileSpeedMult = ArcaneVelocityEnchant.modifyPSpeed(enchantLevel, (float) currentAttributeState.projectileSpeedMult);
-            }
-            if (enchantHolder.is(EMEnchantments.RUNIC_FORCE.location())) {
-                currentAttributeState.knockbackMult = RunicForceEnchant.modifyKnockback(enchantLevel, currentAttributeState.knockbackMult);
-            }
-            if (enchantHolder.is(EMEnchantments.ENDURING_MAGIC.location())) {
-                currentAttributeState.lifespanSeconds = EnduringMagicEnchant.modifyLifespan(enchantLevel, currentAttributeState.lifespanSeconds);
-            }
-            if (enchantHolder.is(EMEnchantments.STABLE_ORB.location())) {
-                currentAttributeState.inaccuracyPercent = StableOrbEnchant.modifyAccuracy(enchantLevel, currentAttributeState.inaccuracyPercent);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
-                sprayLevel.set(enchantLevel);
-                isSprayLocal.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
-                isMeteorLocal.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.CHAOS_MAGIC.location())) {
-                isChaosMagic.set(true);
-                chaosMagicLevel.set(enchantLevel);
-            }
-            if (enchantHolder.is(EMEnchantments.THUNDERSTRIKE.location())) {
-                isThunderstrike.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.VOLATILE_ENERGY.location())) {
-                isVolatileEnergy.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.AUGMENT_FOCUS.location())) {
-                isAugmentFocus.set(true);
-                focusLevel.set(enchantLevel);
-            }
+
         });
 
-        // 4) Augment modifiers (ported 1:1)
-        if (isMeteorLocal.get()) {
-            currentAttributeState.damage *= 3.0;
-            currentAttributeState.lifespanSeconds *= 2.0;
-            currentAttributeState.inaccuracyPercent *= 0.1; // 90% more accurate
-        }
-        if (isSprayLocal.get()) {
-            currentAttributeState.damage = currentAttributeState.damage / (1 + (0.81 * (1 / (1.0 + sprayLevel.get())) * Math.sqrt(currentAttributeState.damage)));
-            currentAttributeState.lifespanSeconds = Math.max(1.0, currentAttributeState.lifespanSeconds * 0.1);
-            currentAttributeState.projectileSpeedMult *= 0.5;
-            currentAttributeState.cooldownTicks = 5;
-        }
-        if (isAugmentFocus.get()) {
-            currentAttributeState.damage *= (focusLevel.get() * 1.5);
-            currentAttributeState.projectileSpeedMult *= 4.5;
-            currentAttributeState.inaccuracyPercent = 0.0;
-            currentAttributeState.cooldownTicks *= 4;
-        }
+        // Augment modifiers
+        EnchantmentHelper.runIterationOnItem(stack, (enchant, level) -> {
 
-        // 5) Spell modifiers (ported 1:1)
-        if (isChaosMagic.get()) {
-            currentAttributeState.damage *= chaosMagicLevel.get();
-        }
-        if (isThunderstrike.get()) {
-            if (isSprayLocal.get()) {
-                currentAttributeState.cooldownTicks = 40;
-            } else if (isAugmentFocus.get()) {
-                currentAttributeState.cooldownTicks += 40;
-            } else {
-                currentAttributeState.cooldownTicks *= 3;
+            IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
+
+            if (augment != null) {
+                augment.attributeChanges(currentAttributeState, level);
+                augment.addSpecialAttributes(builder);
             }
-        }
-        if (isVolatileEnergy.get()) {
-            currentAttributeState.damage *= 0.5;
-        }
 
-        // 6) Clamp & emit
+        });
+
+        // Spell modifiers
+        EnchantmentHelper.runIterationOnItem(stack, (enchant, level) -> {
+
+            IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
+
+            if (spell != null) {
+                spell.attributeChanges(currentAttributeState, level);
+                spell.addSpecialAttributes(builder);
+            }
+
+        });
+
+        // Clamp final attribute values.
+        // This is to prevent numbers that screw up projectile math, like having 0 damage projectiles or
+        // negative lifespans.
         currentAttributeState.clamp();
 
-        var builder = ItemAttributeModifiers.builder();
+        // Add the final attribute state to this itemstack
         currentAttributeState.addToBuilder(builder, EquipmentSlotGroup.MAINHAND);
-
-        if (isMeteorLocal.get()) {
-            builder.add(
-                    Attributes.BLOCK_INTERACTION_RANGE,
-                    new AttributeModifier(BLOCK_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
-                    EquipmentSlotGroup.MAINHAND
-            );
-            builder.add(
-                    Attributes.ENTITY_INTERACTION_RANGE,
-                    new AttributeModifier(ENTITY_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
-                    EquipmentSlotGroup.MAINHAND
-            );
-        }
-
-        if (stack.getItem() instanceof MaceWandItem) {
-            builder.add(
-                    Attributes.ATTACK_DAMAGE,
-                    new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 5.0, AttributeModifier.Operation.ADD_VALUE),
-                    EquipmentSlotGroup.MAINHAND
-            );
-            builder.add(
-                    Attributes.ATTACK_SPEED,
-                    new AttributeModifier(BASE_ATTACK_SPEED_ID, -3.4F, AttributeModifier.Operation.ADD_VALUE),
-                    EquipmentSlotGroup.MAINHAND
-            );
-        }
 
         return builder.build();
     }

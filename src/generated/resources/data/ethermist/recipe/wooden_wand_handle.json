@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:stick"
+    },
+    "c": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    " bc",
+    "bcb",
+    "cb "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:wooden_wand_handle"
+  }
+}

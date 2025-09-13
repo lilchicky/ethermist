@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ethermist:item/food/toasted_shroom_cluster"
+  }
+}

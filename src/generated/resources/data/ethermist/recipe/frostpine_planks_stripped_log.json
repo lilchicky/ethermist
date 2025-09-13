@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "ethermist:stripped_frostpine_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ethermist:frostpine_planks"
+  }
+}

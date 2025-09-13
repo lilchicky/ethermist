@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.core.BlockPos;

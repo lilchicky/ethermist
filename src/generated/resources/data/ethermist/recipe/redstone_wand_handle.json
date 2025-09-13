@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "b": {
+      "item": "minecraft:stick"
+    },
+    "c": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " ba",
+    "bcb",
+    "ab "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:redstone_wand_handle"
+  }
+}

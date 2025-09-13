@@ -2,7 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
@@ -23,7 +23,7 @@ public class EMWandTypeEffects {
 
     public static void addTypeEffect(IWandTypes type, IWandTypeEffect effect) {
         if (TYPE_EFFECTS.containsKey(type)) {
-            throw new IllegalStateException("Duplicate registration for wand type: " + type);
+            throw new IllegalStateException("Duplicate registration for wand operation: " + type);
         }
         TYPE_EFFECTS.put(type, effect);
     }

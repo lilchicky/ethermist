@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
 
 import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -37,7 +38,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "emerald"),
                             "emerald", "bonus_lifespan",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.LIFESPAN_SECONDS, WandTier.EffectType.ADDITION, 2.0, true)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.LIFESPAN_SECONDS, WandAttributeState.Operation.ADDITION, 2.0, true)),
                             new float[]{0.086f, 0.839f, 0.380f},
                             () -> Ingredient.of(Tags.Items.GEMS_EMERALD),
                             true,
@@ -52,7 +53,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "golden"),
                             "golden", "bonus_damage",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.DAMAGE, WandTier.EffectType.ADDITION, 3.0, false)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.DAMAGE, WandAttributeState.Operation.ADDITION, 3.0, false)),
                             new float[]{0.992f, 0.961f, 0.373f},
                             () -> Ingredient.of(Tags.Items.INGOTS_GOLD),
                             false,
@@ -97,7 +98,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "nether_quartz"),
                             "nether_quartz", "bonus_knockback",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.KNOCKBACK_MULT, WandTier.EffectType.ADDITION, 0.5, false)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.KNOCKBACK_MULT, WandAttributeState.Operation.ADDITION, 0.5, false)),
                             new float[]{0.847f, 0.847f, 0.847f},
                             () -> Ingredient.of(Tags.Items.GEMS_QUARTZ),
                             false,
@@ -112,7 +113,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "redstone"),
                             "redstone", "bonus_cooldown",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.COOLDOWN_TICKS, WandTier.EffectType.ADDITION, -2.0, true)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.COOLDOWN_TICKS, WandAttributeState.Operation.ADDITION, -2.0, true)),
                             new float[]{0.965f, 0f, 0f},
                             () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE),
                             true,
@@ -127,7 +128,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glowstone"),
                             "glowstone", "bonus_bolt_speed",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.PROJECTILE_SPEED_MULT, WandTier.EffectType.ADDITION, 0.25, false)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.PROJECTILE_SPEED_MULT, WandAttributeState.Operation.ADDITION, 0.25, false)),
                             new float[]{1f, 0.737f, 0.369f},
                             () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE),
                             false,
@@ -142,7 +143,7 @@ public final class EMWandTiers {
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "prismarine"),
                             "prismarine", "bonus_accuracy",
-                            List.of(new WandTier.Effect(WandTier.WandAttributeKey.INACCURACY_PERCENT, WandTier.EffectType.ADDITION, 5.0, false)),
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.INACCURACY_PERCENT, WandAttributeState.Operation.ADDITION, 5.0, false)),
                             new float[]{0.706f, 0.847f, 0.792f},
                             () -> Ingredient.of(Tags.Items.GEMS_PRISMARINE),
                             false,
@@ -166,6 +167,4 @@ public final class EMWandTiers {
                     )
             );
 
-    private EMWandTiers() {
-    }
 }

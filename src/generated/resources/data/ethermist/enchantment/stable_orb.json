@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.ethermist.stable_orb"
   },
+  "effects": {
+    "ethermist:wand_base_effect": {
+      "type": "ethermist:stable_orb"
+    }
+  },
   "max_cost": {
     "base": 55,
     "per_level_above_first": 8

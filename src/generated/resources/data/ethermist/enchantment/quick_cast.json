@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.ethermist.quick_cast"
   },
+  "effects": {
+    "ethermist:wand_base_effect": {
+      "type": "ethermist:quick_cast"
+    }
+  },
   "max_cost": {
     "base": 55,
     "per_level_above_first": 8

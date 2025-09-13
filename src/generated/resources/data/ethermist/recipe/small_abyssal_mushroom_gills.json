@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ethermist:large_abyssal_mushroom_gills"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "ethermist:small_abyssal_mushroom"
+  }
+}

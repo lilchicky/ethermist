@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "ethermist:slimy_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ethermist:slimy_planks"
+  }
+}

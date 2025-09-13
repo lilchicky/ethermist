@@ -3,9 +3,12 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeSerializer;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMWandMappings;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
+import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandAugments;
+import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandBaseEnchants;
+import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandSpells;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
 import com.gmail.thelilchicken01.ethermist.particle.*;
@@ -65,26 +68,36 @@ public class Ethermist {
         // Register Custom Registries
         bus.addListener(this::newRegistry);
         EMRegistries.WAND_TIERS.register(bus);
+        EMRegistries.WAND_BASE_EFFECT.register(bus);
+        EMRegistries.WAND_AUGMENT_EFFECT.register(bus);
+        EMRegistries.WAND_SPELL_EFFECT.register(bus);
 
         // Register custom content
         EMCreativeTab.register(bus);
+        EMBlocks.register(bus);
+        EMItems.register(bus);
+        LOGGER.info("Successfully registered Ethermist items");
 
         EMParticleTypes.register(bus);
+        LOGGER.info("Successfully registered Ethermist particles");
 
         EMTrunkPlacerType.register(bus);
         EMFoliagePlacerType.register(bus);
         EMPOIs.register(bus);
         EMTreeDecorators.register(bus);
         EMFeatures.register(bus);
+        LOGGER.info("Successfully registered Ethermist world generation features");
 
         EMRecipeSerializer.register(bus);
-
-        EMBlocks.register(bus);
-        EMItems.register(bus);
 
         EMEntityTypes.register(bus);
 
         EMAttributes.register(bus);
+
+        EMEnchantComponents.register(bus);
+        EMWandBaseEnchants.register(bus);
+        EMWandAugments.register(bus);
+        EMWandSpells.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, EMConfig.SPEC);
@@ -105,9 +118,20 @@ public class Ethermist {
     }
 
     private void newRegistry(final NewRegistryEvent event) {
+
         event.create(new RegistryBuilder<>(EMRegistries.WAND_TIER_REGISTRY_KEY)
                 .sync(true)
                 .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "wooden")));
+
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_BASE_EFFECT_REGISTRY_KEY)
+                .sync(true));
+
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_AUGMENT_EFFECT_REGISTRY_KEY)
+                .sync(true));
+
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_SPELL_EFFECT_REGISTRY_KEY)
+                .sync(true));
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

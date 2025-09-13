@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 

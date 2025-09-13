@@ -11,14 +11,17 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Predicate;
 
@@ -160,4 +163,28 @@ public class MaceWandItem extends WandItem {
         return entity.fallDistance > 1.5F && !entity.isFallFlying();
     }
 
+    @Override
+    public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
+
+        ItemAttributeModifiers baseWand = super.getDefaultAttributeModifiers(stack);
+        ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
+
+        for (var attribute : baseWand.modifiers()) {
+            builder.add(attribute.attribute(), attribute.modifier(), attribute.slot());
+        }
+
+        builder.add(
+                Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 5.0, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND
+        );
+        builder.add(
+                Attributes.ATTACK_SPEED,
+                new AttributeModifier(BASE_ATTACK_SPEED_ID, -3.4F, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND
+        );
+
+        return builder.build();
+
+    }
 }

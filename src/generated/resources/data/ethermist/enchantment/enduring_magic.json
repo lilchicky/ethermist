@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.ethermist.enduring_magic"
   },
+  "effects": {
+    "ethermist:wand_base_effect": {
+      "type": "ethermist:enduring_magic"
+    }
+  },
   "max_cost": {
     "base": 55,
     "per_level_above_first": 8

@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.mixin;
 
-import com.gmail.thelilchicken01.ethermist.item.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;

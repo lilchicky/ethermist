@@ -2,6 +2,13 @@ package com.gmail.thelilchicken01.ethermist.enchantment;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
+import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentFocusEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentMeteorEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentSprayEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ChaosMagicEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ThunderstrikeEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.VolatileEnergyEnchant;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -59,6 +66,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new QuickCastEnchant()
+                )
         );
 
         register(context, ENDURING_MAGIC, Enchantment.enchantment(Enchantment.definition(
@@ -71,6 +82,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new EnduringMagicEnchant()
+                )
         );
 
         register(context, ARCANE_VELOCITY, Enchantment.enchantment(Enchantment.definition(
@@ -83,6 +98,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new ArcaneVelocityEnchant()
+                )
         );
 
         register(context, ANCIENT_POWER, Enchantment.enchantment(Enchantment.definition(
@@ -95,6 +114,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new AncientPowerEnchant()
+                )
         );
 
         register(context, RUNIC_FORCE, Enchantment.enchantment(Enchantment.definition(
@@ -107,6 +130,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new RunicForceEnchant()
+                )
         );
 
         register(context, STABLE_ORB, Enchantment.enchantment(Enchantment.definition(
@@ -119,6 +146,10 @@ public class EMEnchantments {
                         2,
                         EquipmentSlotGroup.HAND))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_BASE_EFFECT.get(),
+                        new StableOrbEnchant()
+                )
         );
 
         /*
@@ -175,6 +206,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentSprayEnchant()
+                )
         );
 
         register(context, AUGMENT_METEOR, Enchantment.enchantment(Enchantment.definition(
@@ -188,6 +223,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentMeteorEnchant()
+                )
         );
 
         register(context, AUGMENT_ABUNDANCE, Enchantment.enchantment(Enchantment.definition(
@@ -214,6 +253,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentFocusEnchant()
+                )
         );
 
         /*
@@ -287,6 +330,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new ChaosMagicEnchant()
+                )
         );
 
         register(context, THUNDERSTRIKE, Enchantment.enchantment(Enchantment.definition(
@@ -300,6 +347,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new ThunderstrikeEnchant()
+                )
         );
 
         register(context, KINETIC_RUSH, Enchantment.enchantment(Enchantment.definition(
@@ -326,6 +377,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new VolatileEnergyEnchant()
+                )
         );
 
         register(context, SEISMIC_SURGE, Enchantment.enchantment(Enchantment.definition(

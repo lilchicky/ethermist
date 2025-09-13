@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shroom_cluster": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:shroom_cluster"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:toasted_shroom_cluster_from_smelting_shroom_cluster"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shroom_cluster"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:toasted_shroom_cluster_from_smelting_shroom_cluster"
+    ]
+  }
+}

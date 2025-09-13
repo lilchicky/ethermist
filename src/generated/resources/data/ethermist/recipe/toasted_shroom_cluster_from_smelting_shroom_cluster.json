@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "shroom_cluster",
+  "ingredient": {
+    "item": "ethermist:shroom_cluster"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:toasted_shroom_cluster"
+  }
+}

@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.ethermist.ancient_power"
   },
+  "effects": {
+    "ethermist:wand_base_effect": {
+      "type": "ethermist:ancient_power"
+    }
+  },
   "max_cost": {
     "base": 55,
     "per_level_above_first": 8

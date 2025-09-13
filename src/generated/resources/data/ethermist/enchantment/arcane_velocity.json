@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.ethermist.arcane_velocity"
   },
+  "effects": {
+    "ethermist:wand_base_effect": {
+      "type": "ethermist:arcane_velocity"
+    }
+  },
   "max_cost": {
     "base": 55,
     "per_level_above_first": 8

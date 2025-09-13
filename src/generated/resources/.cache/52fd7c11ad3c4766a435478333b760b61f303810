@@ -1,0 +1,5 @@
+// 1.21.1	2025-04-26T00:41:18.9331004	Tags for minecraft:entity_type mod id ethermist
+d235d5bb79b4a1d9bcc0d40b43bd4b7bb342ed1e data/c/tags/entity_type/bosses.json
+72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/aquatic.json
+36bed97f1c3d3b5e1d867543da2d915bc1646169 data/minecraft/tags/entity_type/arthropod.json
+72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/can_breathe_under_water.json
