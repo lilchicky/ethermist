@@ -31,7 +31,7 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
         state.damage *= ((level + 1) * 0.5) + 1;
         state.projectileSpeedMult *= 4.5;
         state.inaccuracyPercent = 0.0;
-        state.cooldownTicks = Math.max(state.cooldownTicks * 4, 100);
+        state.cooldownTicks = Math.max(state.cooldownTicks * 4, 160);
 
     }
 
