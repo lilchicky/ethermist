@@ -69,12 +69,12 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
 
         level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
-        for (int x = 0; x < spellLevel; x++) {
+        for (int x = 1; x < spellLevel; x++) {
 
-            WandProjectile splitShot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
-            WandProjectile splitShot2 = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+            WandProjectile leftShot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+            WandProjectile rightShot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
 
-            splitShot.shootFromRotation(
+            leftShot.shootFromRotation(
                     player,
                     player.getXRot(),
                     player.getYRot() + (10 * x),
@@ -82,7 +82,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-            splitShot2.shootFromRotation(
+            rightShot.shootFromRotation(
                     player,
                     player.getXRot(),
                     player.getYRot() - (10 * x),
@@ -90,8 +90,8 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-            level.addFreshEntity(setShotInfo(player, splitShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
-            level.addFreshEntity(setShotInfo(player, splitShot2, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(player, leftShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(player, rightShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 
