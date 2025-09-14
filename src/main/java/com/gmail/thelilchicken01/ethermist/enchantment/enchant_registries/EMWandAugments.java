@@ -3,9 +3,7 @@ package com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries;
 import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentFocusEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentMeteorEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentSprayEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.*;
 import com.mojang.serialization.MapCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,6 +23,15 @@ public class EMWandAugments {
 
     public static final DeferredHolder<MapCodec<? extends IWandAugmentEffect>, MapCodec<? extends IWandAugmentEffect>> AUGMENT_METEOR =
             EM_WAND_AUGMENTS.register("augment_meteor", () -> AugmentMeteorEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandAugmentEffect>, MapCodec<? extends IWandAugmentEffect>> AUGMENT_SPLIT =
+            EM_WAND_AUGMENTS.register("augment_split", () -> AugmentSplitEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandAugmentEffect>, MapCodec<? extends IWandAugmentEffect>> AUGMENT_HOMING =
+            EM_WAND_AUGMENTS.register("augment_homing", () -> AugmentHomingEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandAugmentEffect>, MapCodec<? extends IWandAugmentEffect>> AUGMENT_AOE =
+            EM_WAND_AUGMENTS.register("augment_aoe", () -> AugmentAOEEnchant.CODEC);
 
     // ----------
     public static void register(IEventBus bus) {

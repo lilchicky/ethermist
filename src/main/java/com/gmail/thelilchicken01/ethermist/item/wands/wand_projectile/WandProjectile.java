@@ -6,10 +6,12 @@ import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
@@ -23,9 +25,14 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WandProjectile extends Fireball {
+
+    // Used to save spells from enchantments to the projectile
+    public record SpellEntry(ResourceLocation enchantId, int level) {}
+    private List<SpellEntry> spellEntries = List.of();
 
     protected int damage = 2;
     protected int lifetime = 120;
@@ -36,10 +43,7 @@ public class WandProjectile extends Fireball {
     protected List<? extends Entity> target;
     protected Player shooter = null;
     protected List<SpellModifiers.TargetType> targetType = List.of(SpellModifiers.TargetType.ALL);
-    protected SpellModifiers.SpellType spellType = SpellModifiers.SpellType.GENERIC;
-    protected int spellLevel = 0;
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
-    protected ItemStack originWandStack;
 
     public static final EntityDataAccessor<Float> TRAIL_COLOR_RED;
     public static final EntityDataAccessor<Float> TRAIL_COLOR_GREEN;
@@ -58,10 +62,9 @@ public class WandProjectile extends Fireball {
         setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
     }
 
-    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target, ItemStack originWandStack) {
+    public WandProjectile(Level level, LivingEntity shooter, List<? extends Entity> target) {
         this(level, shooter, 0, 0, 0);
         this.target = target;
-        this.originWandStack = originWandStack;
         if (shooter instanceof Player player) {
             this.shooter = player;
         }
@@ -97,7 +100,7 @@ public class WandProjectile extends Fireball {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this, originWandStack);
+        WandProjectileHandler.processHit(level(), getOwner(), result.getLocation(), result, this);
     }
 
     // Math courtesy of Guns n Roses
@@ -111,23 +114,59 @@ public class WandProjectile extends Fireball {
 
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
+
         super.addAdditionalSaveData(compound);
-        compound.putInt("tsf", ticksSinceFired);
+        compound.putInt("ticks_since_fired", ticksSinceFired);
         compound.putInt("damage", damage);
         compound.putInt("lifetime", lifetime);
-        compound.putBoolean("ignites", canIgnite);
+        compound.putBoolean("can_ignite", canIgnite);
         if (knockbackStrength != 0) compound.putDouble("knockback", knockbackStrength);
+
+        ListTag spells = new ListTag();
+        for (SpellEntry entry : spellEntries) {
+            CompoundTag tag = new CompoundTag();
+            tag.putString("enchant", entry.enchantId().toString());
+            tag.putInt("level", entry.level());
+            spells.add(tag);
+        }
+
+        compound.put("spell_entries", spells);
+
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag compound) {
+
         super.readAdditionalSaveData(compound);
-        ticksSinceFired = compound.getInt("tsf");
+        ticksSinceFired = compound.getInt("ticks_since_fired");
         damage = compound.getInt("damage");
         lifetime = compound.getInt("lifetime");
-        canIgnite = compound.getBoolean("ignites");
+        canIgnite = compound.getBoolean("can_ignite");
         knockbackStrength = compound.getDouble("knockback");
+
+        if (compound.contains("spell_entries", ListTag.TAG_LIST)) {
+            ListTag nbtSpells = compound.getList("spell_entries", ListTag.TAG_COMPOUND);
+            List<SpellEntry> temp = new ArrayList<>();
+            for (int x = 0; x < nbtSpells.size(); x++) {
+                CompoundTag tag = nbtSpells.getCompound(x);
+                temp.add(new SpellEntry(ResourceLocation.parse(tag.getString("enchant")), tag.getInt("level")));
+            }
+            this.spellEntries = List.copyOf(temp);
+        }
+        else {
+            this.spellEntries = List.of();
+        }
+
     }
+
+    public void setSpellEntries(List<SpellEntry> entries) { this.spellEntries = List.copyOf(entries); }
+    public List<SpellEntry> getSpellEntries() { return this.spellEntries; }
+
+    public boolean hasSpell(ResourceLocation enchantId) {
+        for (SpellEntry e : spellEntries) if (e.enchantId().equals(enchantId)) return true;
+        return false;
+    }
+
 
     @Override
     public boolean isOnFire() {
@@ -158,14 +197,6 @@ public class WandProjectile extends Fireball {
         this.knockbackStrength = knockbackStrength;
     }
 
-    public void setSpellType(SpellModifiers.SpellType spellType) {
-        this.spellType = spellType;
-    }
-
-    public void setSpellLevel(int spellLevel) {
-        this.spellLevel = spellLevel;
-    }
-
     public Player getShooter() { return shooter; }
 
     public void setTrailColor(float[] trailColor) {
@@ -179,10 +210,6 @@ public class WandProjectile extends Fireball {
         float g = this.entityData.get(TRAIL_COLOR_GREEN);
         float b = this.entityData.get(TRAIL_COLOR_BLUE);
         return new float[]{r, g, b};
-    }
-
-    public ItemStack getOriginWandStack() {
-        return originWandStack;
     }
 
     @Override

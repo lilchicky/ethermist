@@ -1,8 +1,11 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
+import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.core.BlockPos;
@@ -33,24 +36,41 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class WandProjectileHandler {
 
+    private static List<WandProjectile.SpellEntry> saveSpellEntries(ItemStack wand) {
+
+        List<WandProjectile.SpellEntry> saved = new ArrayList<>();
+        EnchantmentHelper.runIterationOnItem(wand, (enchant, level) -> {
+            var spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
+            if (spell != null) {
+                enchant.unwrapKey().ifPresent(key ->
+                        saved.add(new WandProjectile.SpellEntry(key.location(), level))
+                );
+            }
+        });
+
+        return List.copyOf(saved);
+
+    }
+
     public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
                                    @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
+        // Get lifespan and projectile speed from wand
         double newLifespan = WandUtil.getAttribute(player, EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID);
-        float pSpeed = (float)WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID);
+        float pSpeed = (float) WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID);
 
-        AtomicBoolean augmentedShot = new AtomicBoolean(false);
+        // Projectile flags
         AtomicBoolean isHoming = new AtomicBoolean(false);
-        AtomicBoolean isRush = new AtomicBoolean(false);
-        AtomicBoolean isFocus = new AtomicBoolean(false);
-        List<SpellModifiers.TargetType> types = new ArrayList<>();
-        AtomicReference<SpellModifiers.SpellType> spellType = new AtomicReference<>(SpellModifiers.SpellType.GENERIC);
-        AtomicInteger spellLevel = new AtomicInteger(0);
+        AtomicBoolean makesProjectile = new AtomicBoolean(true);
+        AtomicBoolean hasSpecialShoot = new AtomicBoolean(false);
 
+        // Wand shot item and shot item stack
+        WandShotItem shotItem = wand.getType().getShotItem();
+        ItemStack shotStack = new ItemStack(wand.getType().getShotItem());
+
+        // Handle wand target filtering
+        List<SpellModifiers.TargetType> types = new ArrayList<>();
         EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
-            if (enchantHolder.is(EMEnchantments.AUGMENT_HOMING.location())) {
-                isHoming.set(true);
-            }
             if (enchantHolder.is(EMEnchantments.EXCLUDE_MONSTERS.location())) {
                 types.add(SpellModifiers.TargetType.MONSTERS);
             }
@@ -60,146 +80,92 @@ public class WandProjectileHandler {
             if (enchantHolder.is(EMEnchantments.EXCLUDE_PLAYERS.location())) {
                 types.add(SpellModifiers.TargetType.PLAYERS);
             }
-            if (enchantHolder.is(EMEnchantments.FIREBALL.location())) {
-                spellType.set(SpellModifiers.SpellType.FIREBALL);
-                spellLevel.set(enchantLevel);
-            }
-            if (enchantHolder.is(EMEnchantments.CHAOS_MAGIC.location())) {
-                spellType.set(SpellModifiers.SpellType.CHAOS_MAGIC);
-                spellLevel.set(enchantLevel);
-            }
-            if (enchantHolder.is(EMEnchantments.THUNDERSTRIKE.location())) {
-                spellType.set(SpellModifiers.SpellType.THUNDERSTRIKE);
-                spellLevel.set(enchantLevel);
-            }
-            if (enchantHolder.is(EMEnchantments.KINETIC_RUSH.location())) {
-                isRush.set(true);
-                augmentedShot.set(true);
-            }
-            if (enchantHolder.is(EMEnchantments.VOLATILE_ENERGY.location())) {
-                spellType.set(SpellModifiers.SpellType.VOLATILE_ENERGY);
-                spellLevel.set(enchantLevel);
-            }
-            if (enchantHolder.is(EMEnchantments.SEISMIC_SURGE.location())) {
-                spellType.set(SpellModifiers.SpellType.SEISMIC_SURGE);
-                spellLevel.set(enchantLevel);
-            }
         });
 
         if (types.isEmpty()) {
             types.add(SpellModifiers.TargetType.ALL);
         }
 
-        WandShotItem shotItem;
-        ItemStack shotStack;
-
-        shotItem = wand.getType().getShotItem();
-        shotStack = new ItemStack(wand.getType().getShotItem());
-
-        List<Entity> nearby = WandUtil.getNearbyEntities(level, (int)(newLifespan * 10), player);
+        // Find all nearby entities based on wand filters
+        List<Entity> nearby = WandUtil.getNearbyEntities(level, (int) (newLifespan * 10), player);
         List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null, types);
 
-        EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
-            if (!isRush.get()) {
-                if (enchantHolder.is(EMEnchantments.AUGMENT_SPLIT.location())) {
-                    if (!target.isEmpty()) {
-                        WandShotHandler.shootSplit(level, player, List.of(target.getLast()), pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
-                    } else {
-                        WandShotHandler.shootSplit(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
-                    }
-                    augmentedShot.set(true);
+        // Special wand flags. Currently implemented for if wand is homing, and if it should create a projectile
+        // or not (like Kinetic Rush)
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
+            IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
+            IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
+            if (augment != null) {
+                if (augment.doesProjectileHome()) {
+                    isHoming.set(true);
                 }
-                if (enchantHolder.is(EMEnchantments.AUGMENT_AOE.location())) {
-                    WandShotHandler.shootAOE(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                            enchantLevel, isHoming.get(), types, spellType.get(), spellLevel.get());
-                    augmentedShot.set(true);
-                }
-                if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
-                    if (pos != null) {
-                        WandShotHandler.shootAtPos(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                isHoming.get(), types, spellType.get(), spellLevel.get(), pos);
-                    } else if (clickedEntity != null) {
-                        WandShotHandler.shootAtEntity(level, player, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                isHoming.get(), types, spellType.get(), spellLevel.get(), clickedEntity);
-                    }
-                    augmentedShot.set(true);
-                }
-                if (enchantHolder.is(EMEnchantments.AUGMENT_SPRAY.location())) {
-                    if (!level.isClientSide()) {
-
-                        MinecraftServer server = level.getServer();
-
-                        if (!(server == null)) {
-
-                            for (int x = 0; x < enchantLevel + 2; x++) {
-
-                                int scheduleShot = server.getTickCount() + (x * 2);
-
-                                Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
-                                    WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand,
-                                            isHoming.get(), types, spellType.get(), spellLevel.get());
-                                    level.playSound(null,
-                                            player.getX(),
-                                            player.getY(),
-                                            player.getZ(),
-                                            wand.getShootSound(),
-                                            SoundSource.PLAYERS,
-                                            0.5f,
-                                            level.getRandom().nextFloat() * 0.4f + 0.8f);
-                                });
-                            }
-                        }
-                    }
-                    augmentedShot.set(true);
-                }
-                if (enchantHolder.is(EMEnchantments.AUGMENT_FOCUS.location())) {
-                    isFocus.set(true);
+            }
+            if (spell != null) {
+                if (!spell.doesCreateProjectile()) {
+                    makesProjectile.set(false);
                 }
             }
         });
 
-        if (!augmentedShot.get()) {
-            WandShotHandler.shoot(level, player, target, pSpeed, newLifespan, shotStack, wand, shotItem, thisWand, isHoming.get(), types, spellType.get(), spellLevel.get());
-        }
-        if (isFocus.get() && !isRush.get()) {
-            if (!level.isClientSide()) {
-                player.setDeltaMovement(player.getDeltaMovement().add(player.getLookAngle().scale(-0.3f)));
-                player.hurtMarked = true;
+        // Attempt to run special shoot code from an augment. Only first special shot is ever used,
+        // if somehow a wand has multiple augments that change shooting.
+        // Also note the flag in augment.shoot() can be used to run special code on shoot, but still shoot the
+        // default projectile, like in the Focus augment.
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
+            IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
+            if (augment != null) {
+                if (!hasSpecialShoot.get() && augment.shoot(
+                        level,
+                        player,
+                        target,
+                        pSpeed,
+                        newLifespan,
+                        shotStack,
+                        wand,
+                        shotItem,
+                        thisWand,
+                        isHoming.get(),
+                        types,
+                        pos,
+                        clickedEntity,
+                        enchantLevel)) {
+                    hasSpecialShoot.set(true);
+                }
             }
+        });
+
+        // If there was no special shot fired, and the wand should create a projectile, then run a default shoot method.
+        if (!hasSpecialShoot.get() && makesProjectile.get()) {
+            WandShotHandler.shoot(
+                    level,
+                    player,
+                    target,
+                    pSpeed,
+                    newLifespan,
+                    shotStack,
+                    wand, shotItem,
+                    thisWand,
+                    isHoming.get(),
+                    types
+            );
         }
-        if (isRush.get()) {
-            if (!level.isClientSide()) {
-                RandomSource random = RandomSource.create();
 
-                double power = WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
-                double inaccuracy = 1 - WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID);
-
-                Vec3 launch = player.getViewVector(1.0f);
-
-                double xOff = (random.nextDouble() * 2 - 1) * inaccuracy;
-                double yOff = (random.nextDouble() * 2 - 1) * inaccuracy;
-                double zOff = (random.nextDouble() * 2 - 1) * inaccuracy;
-
-                Vec3 offsetLaunch = new Vec3(
-                        launch.x + xOff,
-                        launch.y + yOff,
-                        launch.z + zOff
-                ).normalize().scale(power);
-
-                player.setDeltaMovement(offsetLaunch);
-                player.hurtMarked = true;
+        // Run any special spell effects on shoot (right click), like Kinetic Rush
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
+            IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
+            if (spell != null) {
+                spell.onShoot(level, player);
             }
-        }
+        });
 
+        // Add cooldown to wand
         player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
 
     }
 
     public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos, ItemStack originWandStack) {
 
-        if(shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
+        if (shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
 
         int lastHurtResistant = target.invulnerableTime;
         target.invulnerableTime = 0;
@@ -226,12 +192,11 @@ public class WandProjectileHandler {
 
             damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
 
-        }
-        else {
+        } else {
             damaged = false;
         }
 
-        if(damaged) {
+        if (damaged) {
 
             // Knockback Math
             if (shot.knockbackStrength != 0 && target.isPushable()) {
@@ -242,13 +207,12 @@ public class WandProjectileHandler {
             }
 
             // Wand Specific Modifiers
-            if(shooter instanceof Player player) {
+            if (shooter instanceof Player player) {
                 WandSpellHandler.processWandModifiers(shotItem, target, player, originWandStack);
                 WandSpellHandler.processSpells(level, player, target, null, shot);
             }
 
-        }
-        else {
+        } else {
             target.invulnerableTime = lastHurtResistant;
         }
 
@@ -262,8 +226,7 @@ public class WandProjectileHandler {
             WandShotItem shotItem = (WandShotItem) shot.getItem().getItem();
 
             processHitEntity(level, shooter, target, shotItem, shot, pos, originWandStack);
-        }
-        else if (result.getType() == HitResult.Type.BLOCK) {
+        } else if (result.getType() == HitResult.Type.BLOCK) {
             BlockHitResult blockResult = (BlockHitResult) result;
             BlockPos hitPos = blockResult.getBlockPos();
             WandSpellHandler.processSpells(level, shooter, null, hitPos, shot);

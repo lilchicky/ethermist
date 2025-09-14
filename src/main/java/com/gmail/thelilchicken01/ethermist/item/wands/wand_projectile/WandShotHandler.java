@@ -17,7 +17,7 @@ public class WandShotHandler {
 
     public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
-                             boolean isHoming, List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
+                             boolean isHoming, List<SpellModifiers.TargetType> targetType) {
 
         WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
 
@@ -183,8 +183,9 @@ public class WandShotHandler {
 
     }
 
-    private static WandProjectile setShotInfo(Player player, WandProjectile shot, WandItem wand, ItemStack wandItem, double lifespan, boolean isHoming,
-                                    List<SpellModifiers.TargetType> targetType, SpellModifiers.SpellType spellType, int spellLevel) {
+    // Public helper method to bulk apply relevant details to spawned wand projectiles
+    public static WandProjectile setShotInfo(Player player, WandProjectile shot, WandItem wand, ItemStack wandItem, double lifespan, boolean isHoming,
+                                    List<SpellModifiers.TargetType> targetType) {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime((int)(lifespan * 20));
@@ -192,8 +193,6 @@ public class WandShotHandler {
         shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
-        shot.setSpellType(spellType);
-        shot.setSpellLevel(spellLevel);
         shot.setDamageType(wand.getType().getDamageType());
         shot.setTrailColor(wand.getTrailColor(wandItem));
 

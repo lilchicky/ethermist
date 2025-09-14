@@ -124,13 +124,16 @@ public class Ethermist {
                 .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "wooden")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_BASE_EFFECT_REGISTRY_KEY)
-                .sync(true));
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_AUGMENT_EFFECT_REGISTRY_KEY)
-                .sync(true));
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_SPELL_EFFECT_REGISTRY_KEY)
-                .sync(true));
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
 
     }
 

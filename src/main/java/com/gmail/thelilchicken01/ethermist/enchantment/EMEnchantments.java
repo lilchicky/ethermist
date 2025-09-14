@@ -2,11 +2,10 @@ package com.gmail.thelilchicken01.ethermist.enchantment;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentFocusEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentMeteorEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.AugmentSprayEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ChaosMagicEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.KineticRushEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ThunderstrikeEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.VolatileEnergyEnchant;
 import net.minecraft.core.HolderSet;
@@ -167,6 +166,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentSplitEnchant()
+                )
         );
 
         register(context, AUGMENT_HOMING, Enchantment.enchantment(Enchantment.definition(
@@ -180,6 +183,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentHomingEnchant()
+                )
         );
 
         register(context, AUGMENT_AOE, Enchantment.enchantment(Enchantment.definition(
@@ -193,6 +200,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(augmentColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.AUGMENT_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_AUGMENT_EFFECT.get(),
+                        new AugmentAOEEnchant()
+                )
         );
 
         register(context, AUGMENT_SPRAY, Enchantment.enchantment(Enchantment.definition(
@@ -260,7 +271,7 @@ public class EMEnchantments {
         );
 
         /*
-        ---------- Focus Enchants ----------
+        ---------- Target Enchants ----------
          */
 
         register(context, EXCLUDE_MONSTERS, Enchantment.enchantment(Enchantment.definition(
@@ -303,7 +314,7 @@ public class EMEnchantments {
         );
 
         /*
-        ---------- Focus Enchants ----------
+        ---------- Spell Enchants ----------
          */
 
         register(context, FIREBALL, Enchantment.enchantment(Enchantment.definition(
@@ -364,6 +375,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new KineticRushEnchant()
+                )
         );
 
         register(context, VOLATILE_ENERGY, Enchantment.enchantment(Enchantment.definition(

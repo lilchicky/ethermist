@@ -1,5 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
+import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypeEffect;
@@ -20,6 +22,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -300,35 +303,15 @@ public class WandSpellHandler {
 
     public static void processSpellTick(WandProjectile shot, int tick, List<? extends Entity> target) {
 
-        Level level = shot.level();
+        EnchantmentHelper.runIterationOnItem(shot.originWandStack, (enchant, level) -> {
 
-        switch (shot.spellType) {
+            IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
 
-            case VOLATILE_ENERGY -> {
-
-                if (tick % 2 == 0 && shot.shooter != null) {
-
-                    DamageSource damageSource = new DamageSource(
-                            level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(shot.damageType),
-                            shot,
-                            shot.shooter,
-                            null
-                    );
-
-                    int range = (shot.spellLevel + 1) * 2;
-                    List<Entity> closeTargets = WandUtil.getNearbyEntities(level, range, shot);
-
-                    closeTargets = WandUtil.filterNearbyEntities(level, closeTargets, shot, shot.getOwner(), shot.targetType);
-
-                    if (!closeTargets.isEmpty()) {
-                        processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.shooter, shot.getOriginWandStack());
-                        drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) level);
-                        closeTargets.getLast().hurt(damageSource, (float) shot.damage);
-                    }
-                }
+            if (spell != null) {
+                spell.onTick(shot, tick, target, level);
             }
 
-        }
+        });
 
     }
 

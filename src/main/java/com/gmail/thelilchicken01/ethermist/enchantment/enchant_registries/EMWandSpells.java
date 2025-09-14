@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ChaosMagicEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.KineticRushEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ThunderstrikeEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.VolatileEnergyEnchant;
 import com.mojang.serialization.MapCodec;
@@ -25,6 +26,9 @@ public class EMWandSpells {
 
     public static final DeferredHolder<MapCodec<? extends IWandSpellEffect>, MapCodec<? extends IWandSpellEffect>> THUNDERSTRIKE =
             EM_WAND_SPELLS.register("thunderstrike", () -> ThunderstrikeEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandSpellEffect>, MapCodec<? extends IWandSpellEffect>> KINETIC_RUSH =
+            EM_WAND_SPELLS.register("kinetic_rush", () -> KineticRushEnchant.CODEC);
 
     // ----------
     public static void register(IEventBus bus) {
