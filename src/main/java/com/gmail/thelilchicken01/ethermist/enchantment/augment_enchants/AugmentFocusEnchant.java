@@ -28,7 +28,7 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
     @Override
     public void attributeChanges(WandAttributeState state, int level) {
 
-        state.damage *= (level * 1.5);
+        state.damage *= (level * 0.5);
         state.projectileSpeedMult *= 4.5;
         state.inaccuracyPercent = 0.0;
         state.cooldownTicks = Math.max(state.cooldownTicks * 4, 100);
