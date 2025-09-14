@@ -5,6 +5,7 @@ import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import com.mojang.serialization.MapCodec;
@@ -58,6 +59,7 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
             List<SpellModifiers.TargetType> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
+            List<WandProjectile.SpellEntry> savedSpells,
             int spellLevel) {
 
         if (!level.isClientSide()) {
@@ -72,7 +74,7 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
                     Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
                         WandShotHandler.shoot(level, player, target, pSpeed, lifespan, shotStack, wand, shotItem, wandItem,
-                                isHoming, targetType);
+                                isHoming, targetType, savedSpells);
                         level.playSound(null,
                                 player.getX(),
                                 player.getY(),

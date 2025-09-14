@@ -44,6 +44,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
             List<SpellModifiers.TargetType> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
+            List<WandProjectile.SpellEntry> savedSpells,
             int spellLevel) {
 
         float wedges = (360.0f / (spellLevel * 3));
@@ -75,7 +76,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
 
             shot.setPos(shot.getX(), player.getEyeHeight() * 0.8 + player.getY(), shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType));
+            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 

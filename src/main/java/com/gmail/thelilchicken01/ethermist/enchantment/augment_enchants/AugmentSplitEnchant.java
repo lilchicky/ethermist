@@ -48,6 +48,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             List<SpellModifiers.TargetType> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
+            List<WandProjectile.SpellEntry> savedSpells,
             int spellLevel) {
 
         // This is added for the homing enchantment, so all bullets home in on the closest mob
@@ -66,7 +67,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                 pSpeed,
                 (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType));
+        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         for (int x = 0; x < spellLevel; x++) {
 
@@ -89,8 +90,8 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
 
-            level.addFreshEntity(setShotInfo(player, splitShot, wand, wandItem, lifespan, isHoming, targetType));
-            level.addFreshEntity(setShotInfo(player, splitShot2, wand, wandItem, lifespan, isHoming, targetType));
+            level.addFreshEntity(setShotInfo(player, splitShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(player, splitShot2, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 

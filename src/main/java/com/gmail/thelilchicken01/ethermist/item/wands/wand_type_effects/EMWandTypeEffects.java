@@ -34,70 +34,63 @@ public class EMWandTypeEffects {
 
     public static void registerTypeEffects() {
 
-        addTypeEffect(WandTypes.FLAME, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
-            target.setRemainingFireTicks(tier.doesBuffSpell() ? 400 : 200);
+        addTypeEffect(WandTypes.FLAME, (shotItem, target, player, shot) -> {
+            target.setRemainingFireTicks(shot.getOriginWandTier().doesBuffSpell() ? 400 : 200);
         });
 
-        addTypeEffect(WandTypes.POISON, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.POISON, (shotItem, target, player, shot) -> {
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, tier.doesBuffSpell() ? 200 : 100, 2));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100, 2));
             }
         });
 
-        addTypeEffect(WandTypes.WITHER, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.WITHER, (shotItem, target, player, shot) -> {
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, tier.doesBuffSpell() ? 200 : 100, 1));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100, 1));
             }
         });
 
-        addTypeEffect(WandTypes.LEVITATION, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.LEVITATION, (shotItem, target, player, shot) -> {
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, tier.doesBuffSpell() ? 150 : 100));
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, shot.getOriginWandTier().doesBuffSpell() ? 150 : 100));
             }
         });
 
-        addTypeEffect(WandTypes.WITCH, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.WITCH, (shotItem, target, player, shot) -> {
             RandomSource random = player.getRandom();
 
             switch (random.nextInt(3)) {
                 case 0 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, tier.doesBuffSpell() ? 80 : 40, tier.doesBuffSpell() ? 1 : 0));
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, shot.getOriginWandTier().doesBuffSpell() ? 80 : 40, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                 case 1 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, tier.doesBuffSpell() ? 200 : 100));
+                        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100));
                 case 2 ->
-                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, tier.doesBuffSpell() ? 120 : 60, tier.doesBuffSpell() ? 1 : 0));
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
             }
 
             if (target instanceof LivingEntity livingTarget) {
                 switch (random.nextInt(3)) {
                     case 0 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, tier.doesBuffSpell() ? 120 : 60, tier.doesBuffSpell() ? 1 : 0));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                     case 1 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, tier.doesBuffSpell() ? 160 : 80));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
                     case 2 ->
-                            livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, tier.doesBuffSpell() ? 160 : 80));
+                            livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
                 }
             }
 
             if (player.isInWater() && random.nextBoolean()) {
-                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, tier.doesBuffSpell() ? 400 : 100));
+                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, shot.getOriginWandTier().doesBuffSpell() ? 400 : 100));
             }
         });
 
-        addTypeEffect(WandTypes.FROZEN, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.FROZEN, (shotItem, target, player, shot) -> {
             if (target instanceof LivingEntity livingTarget) {
-                livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (tier.doesBuffSpell() ? 120 : 60));
+                livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (shot.getOriginWandTier().doesBuffSpell() ? 120 : 60));
             }
         });
 
-        addTypeEffect(WandTypes.GLIMMERBUG, (shotItem, target, player, wand) -> {
-            IWandTiers tier = wand.getItem() instanceof WandItem wandItem ? wandItem.getTier() : EMWandTiers.WOODEN.get();
+        addTypeEffect(WandTypes.GLIMMERBUG, (shotItem, target, player, shot) -> {
 
             if (!player.level().isClientSide()) {
                 GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
@@ -114,7 +107,7 @@ public class EMWandTypeEffects {
                         )
                 );
 
-                if (tier.doesBuffSpell()) {
+                if (shot.getOriginWandTier().doesBuffSpell()) {
                     bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, (int) (bug.getLifespanSeconds() * 20)));
                     bug.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, (int) (bug.getLifespanSeconds() * 20)));
                     bug.addEffect(new MobEffectInstance(MobEffects.REGENERATION, (int) (bug.getLifespanSeconds() * 20)));

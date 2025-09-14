@@ -16,7 +16,7 @@ public class WandShotItem extends Item {
 
     public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends Entity> target, ItemStack wand) {
 
-        WandProjectile shot = new WandProjectile(level, shooter, target, wand);
+        WandProjectile shot = new WandProjectile(level, shooter, target);
 
         shot.setItem(item);
         return shot;

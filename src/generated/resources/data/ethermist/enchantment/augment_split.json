@@ -4,6 +4,11 @@
     "color": "#55A4FF",
     "translate": "enchantment.ethermist.augment_split"
   },
+  "effects": {
+    "ethermist:wand_augment_effect": {
+      "type": "ethermist:augment_split"
+    }
+  },
   "exclusive_set": "#ethermist:augment_spells",
   "max_cost": {
     "base": 21,

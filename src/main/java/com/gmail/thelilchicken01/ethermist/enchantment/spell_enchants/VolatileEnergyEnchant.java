@@ -50,7 +50,7 @@ public class VolatileEnergyEnchant implements IWandSpellEffect {
             closeTargets = WandUtil.filterNearbyEntities(shot.level(), closeTargets, shot, shot.getOwner(), shot.getTargetType());
 
             if (!closeTargets.isEmpty()) {
-                processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.getShooter(), shot.getOriginWandStack());
+                processWandModifiers((WandShotItem) shot.getItem().getItem(), closeTargets.getLast(), shot.getShooter(), shot);
                 drawLine(shot.position(), closeTargets.getLast().position(), (ServerLevel) shot.level());
                 closeTargets.getLast().hurt(damageSource, (float) shot.getDamage());
             }

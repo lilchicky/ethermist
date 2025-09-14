@@ -4,10 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ChaosMagicEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.KineticRushEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ThunderstrikeEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.VolatileEnergyEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.*;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -328,6 +325,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new FireballEnchant()
+                )
         );
 
         register(context, CHAOS_MAGIC, Enchantment.enchantment(Enchantment.definition(
@@ -409,6 +410,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(mainSpellColor))
                 .exclusiveWith(enchants.getOrThrow(EMTags.Enchantments.MAIN_DAMAGE_SPELLS))
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_SPELL_EFFECT.get(),
+                        new SeismicSurgeEnchant()
+                )
         );
 
     }

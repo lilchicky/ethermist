@@ -129,7 +129,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         return TYPE;
     }
 
-    public IWandTiers getTier() {
+    public WandTier getTier() {
         return TIER.get();
     }
 

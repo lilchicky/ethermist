@@ -21,6 +21,11 @@ public class KineticRushEnchant implements IWandSpellEffect {
     }
 
     @Override
+    public boolean doesCreateProjectile() {
+        return false;
+    }
+
+    @Override
     public void onShoot(Level level, Player player) {
 
         if (!level.isClientSide()) {

@@ -4,7 +4,10 @@ import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -48,6 +51,7 @@ public interface IWandAugmentEffect {
             List<SpellModifiers.TargetType> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
+            List<WandProjectile.SpellEntry> savedSpells,
             int spellLevel) {
         return false;
     }

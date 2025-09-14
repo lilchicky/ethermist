@@ -2,6 +2,9 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;
@@ -44,6 +47,8 @@ public class WandProjectile extends Fireball {
     protected Player shooter = null;
     protected List<SpellModifiers.TargetType> targetType = List.of(SpellModifiers.TargetType.ALL);
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
+    protected WandTier originWandTier = null;
+    protected IWandTypes originWandType = null;
 
     public static final EntityDataAccessor<Float> TRAIL_COLOR_RED;
     public static final EntityDataAccessor<Float> TRAIL_COLOR_GREEN;
@@ -197,7 +202,14 @@ public class WandProjectile extends Fireball {
         this.knockbackStrength = knockbackStrength;
     }
 
+    public void setShooter(Player shooter) { this.shooter = shooter; }
     public Player getShooter() { return shooter; }
+
+    public void setOriginWandTier(WandTier tier) { this.originWandTier = tier; }
+    public WandTier getOriginWandTier() { return originWandTier; }
+
+    public void setOriginWandType(IWandTypes type) { this.originWandType = type; }
+    public IWandTypes getOriginWandType() { return originWandType; }
 
     public void setTrailColor(float[] trailColor) {
         this.entityData.set(TRAIL_COLOR_RED, trailColor[0]);

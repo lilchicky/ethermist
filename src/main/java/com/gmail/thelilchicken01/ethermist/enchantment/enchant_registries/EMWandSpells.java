@@ -3,10 +3,7 @@ package com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries;
 import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ChaosMagicEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.KineticRushEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.ThunderstrikeEnchant;
-import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.VolatileEnergyEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.*;
 import com.mojang.serialization.MapCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -29,6 +26,12 @@ public class EMWandSpells {
 
     public static final DeferredHolder<MapCodec<? extends IWandSpellEffect>, MapCodec<? extends IWandSpellEffect>> KINETIC_RUSH =
             EM_WAND_SPELLS.register("kinetic_rush", () -> KineticRushEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandSpellEffect>, MapCodec<? extends IWandSpellEffect>> FIREBALL =
+            EM_WAND_SPELLS.register("fireball", () -> FireballEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandSpellEffect>, MapCodec<? extends IWandSpellEffect>> SEISMIC_SURGE =
+            EM_WAND_SPELLS.register("seismic_surge", () -> SeismicSurgeEnchant.CODEC);
 
     // ----------
     public static void register(IEventBus bus) {

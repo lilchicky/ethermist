@@ -77,6 +77,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
             List<SpellModifiers.TargetType> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
+            List<WandProjectile.SpellEntry> savedSpells,
             int spellLevel) {
 
         if (pos != null) {
@@ -97,7 +98,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     shot.getY() + 4.0,
                     shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType));
+            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
         else if (clickedEntity != null) {
@@ -119,7 +120,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     shot.getY() + 4.0,
                     shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType));
+            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 

@@ -36,6 +36,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class WandProjectileHandler {
 
+    // This "saves" the ID of every "spell" enchantment on the wand. This allows saving the spells to
+    // the shot, without having to iterate over the itemstack every time I want to check spells
+    // (especially useful for performance on tick related spells).
     private static List<WandProjectile.SpellEntry> saveSpellEntries(ItemStack wand) {
 
         List<WandProjectile.SpellEntry> saved = new ArrayList<>();
@@ -128,6 +131,7 @@ public class WandProjectileHandler {
                         types,
                         pos,
                         clickedEntity,
+                        saveSpellEntries(thisWand),
                         enchantLevel)) {
                     hasSpecialShoot.set(true);
                 }
@@ -146,7 +150,8 @@ public class WandProjectileHandler {
                     wand, shotItem,
                     thisWand,
                     isHoming.get(),
-                    types
+                    types,
+                    saveSpellEntries(thisWand)
             );
         }
 
@@ -163,7 +168,7 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos, ItemStack originWandStack) {
+    public static void processHitEntity(Level level, Entity shooter, Entity target, WandShotItem shotItem, WandProjectile shot, Vec3 hitPos) {
 
         if (shot.isOnFire() || shot.canIgnite) target.setRemainingFireTicks(100);
 
@@ -208,7 +213,7 @@ public class WandProjectileHandler {
 
             // Wand Specific Modifiers
             if (shooter instanceof Player player) {
-                WandSpellHandler.processWandModifiers(shotItem, target, player, originWandStack);
+                WandSpellHandler.processWandModifiers(shotItem, target, player, shot);
                 WandSpellHandler.processSpells(level, player, target, null, shot);
             }
 
@@ -218,21 +223,24 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot, ItemStack originWandStack) {
+    public static void processHit(Level level, Entity shooter, Vec3 pos, HitResult result, WandProjectile shot) {
 
         if (result.getType() == HitResult.Type.ENTITY) {
             EntityHitResult entityResult = (EntityHitResult) result;
             Entity target = entityResult.getEntity();
             WandShotItem shotItem = (WandShotItem) shot.getItem().getItem();
 
-            processHitEntity(level, shooter, target, shotItem, shot, pos, originWandStack);
+            processHitEntity(level, shooter, target, shotItem, shot, pos);
         } else if (result.getType() == HitResult.Type.BLOCK) {
             BlockHitResult blockResult = (BlockHitResult) result;
             BlockPos hitPos = blockResult.getBlockPos();
             WandSpellHandler.processSpells(level, shooter, null, hitPos, shot);
         }
 
-        if (!shot.spellType.equals(SpellModifiers.SpellType.SEISMIC_SURGE)) {
+        /*
+                        UPDATE THIS TO NOT BE HARDCODED!!
+         */
+        if (!shot.hasSpell(EMEnchantments.SEISMIC_SURGE.location())) {
             if (!level.isClientSide() && (!shot.noPhysics || result.getType() != HitResult.Type.BLOCK)) {
                 shot.remove(Entity.RemovalReason.KILLED);
             }
@@ -244,7 +252,7 @@ public class WandProjectileHandler {
                                    List<? extends Entity> target) {
 
         if (!shot.level().isClientSide() && (ticksSinceFired > shot.lifetime ||
-                (shot.getDeltaMovement().lengthSqr() < threshold && shot.spellType != SpellModifiers.SpellType.VOLATILE_ENERGY))) {
+                (shot.getDeltaMovement().lengthSqr() < threshold))) {
             shot.remove(Entity.RemovalReason.KILLED);
         }
 
