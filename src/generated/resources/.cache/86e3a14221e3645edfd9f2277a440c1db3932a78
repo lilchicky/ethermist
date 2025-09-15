@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-05T15:39:49.6197196	Block States: ethermist
+// 1.21.1	2025-09-14T23:48:42.4036702	Block States: ethermist
 3ae376842b28c82134fe853e9acb41689b1fdeba assets/ethermist/blockstates/abyssal_mushroom.json
 0b5457259efae8f3d737d37059a36391387a8d95 assets/ethermist/blockstates/amberwood_button.json
 8c4637c409249471fd1365f09122b757705a6ca8 assets/ethermist/blockstates/amberwood_door.json
@@ -200,6 +200,7 @@ ee8561d958be937123443f67b8cc1c6bbc3c646c assets/ethermist/blockstates/suspicious
 00810c46a4a9b1f0fbecd01ba7263c9a8b33b4dc assets/ethermist/blockstates/timeworn_sandstone_slab.json
 8c29fb19f41fc38ec459204c8f3d6de15cbdc093 assets/ethermist/blockstates/timeworn_sandstone_stairs.json
 93919ff757a8dbd0b02e54829235b2362c8f0fe5 assets/ethermist/blockstates/timeworn_sandstone_wall.json
+6a407e34c6ff1b1f9a9b57572923fbead93e5823 assets/ethermist/blockstates/wandforging_table.json
 edaadfdad07d024c6d8a1de10ed007bc13f80758 assets/ethermist/blockstates/witchstone.json
 dd0cb6cf9097113144130093da67eb6d024a8dec assets/ethermist/blockstates/witchstone_slab.json
 74582fe62c4cf72290b75a9b6a3587916da9baab assets/ethermist/blockstates/witchstone_stairs.json
@@ -646,6 +647,7 @@ cdeb55e756b68f99edde049d0651bcac846d0361 assets/ethermist/models/block/timeworn_
 e7a1ae495a47b7fa76c1600a93c58dee47a80c5d assets/ethermist/models/block/timeworn_sandstone_wall_post.json
 6a5a78cebcf78020880270833488aea7d7f2aeff assets/ethermist/models/block/timeworn_sandstone_wall_side.json
 3887acf0fc722aa7af758ffab8b6c958b74f3a11 assets/ethermist/models/block/timeworn_sandstone_wall_side_tall.json
+6708420361e0f87046a65c33e68cdaa339da6eac assets/ethermist/models/block/wandforging_table.json
 d08fec08de5674e5a3fbbab74e08ac7476f4ab18 assets/ethermist/models/block/witchstone.json
 6130a79b70b64c2e48ae51b2455c1f29577e2cb3 assets/ethermist/models/block/witchstone_slab.json
 f6b63513cfa0b85a00e99815dee87ec74ea7d0af assets/ethermist/models/block/witchstone_slab_top.json
@@ -805,6 +807,7 @@ c564ad1d410d653a55f733af93fc85b60f062a3a assets/ethermist/models/item/stripped_s
 0a923a0860b0603570cb0989d4bcb95fd62c6e2d assets/ethermist/models/item/suspicious_glimmering_ancient_wood.json
 d6df7e7caebf2b1aaadc7c5f590934cdf4b29de7 assets/ethermist/models/item/timeworn_sandstone_slab.json
 030a3ccac9fdbb54e3442ce4a52991b462677b7f assets/ethermist/models/item/timeworn_sandstone_stairs.json
+a6f601818ab8c6b17231d5e1110981512dae5a4c assets/ethermist/models/item/wandforging_table.json
 f7ac7e3ba1840e77f39cf77a7379acb932bec920 assets/ethermist/models/item/witchstone.json
 103ce1cec74223b55aab0e379be92acb56725721 assets/ethermist/models/item/witchstone_slab.json
 4faa208040872aae8ea60e2049a7a3f8d406c76b assets/ethermist/models/item/witchstone_stairs.json

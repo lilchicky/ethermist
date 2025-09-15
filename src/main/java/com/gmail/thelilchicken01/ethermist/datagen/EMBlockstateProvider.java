@@ -436,6 +436,16 @@ public class EMBlockstateProvider extends BlockStateProvider {
         simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE, "ores");
         simpleBlock(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE, "ores");
 
+        // Wandforging Table
+        getVariantBuilder(EMBlocks.WANDFORGING_TABLE.get()).forAllStates((state -> ConfiguredModel.builder()
+                .modelFile(models().cubeBottomTop("wandforging_table",
+                        modLoc("block/wandforging_table_side"),
+                        modLoc("block/wandforging_table_bottom"),
+                        modLoc("block/wandforging_table_top")
+                )).build()));
+
+        blockItem(EMBlocks.WANDFORGING_TABLE, null);
+
     }
 
     private void simpleBlock(DeferredBlock<?> block, @Nullable String folder) {

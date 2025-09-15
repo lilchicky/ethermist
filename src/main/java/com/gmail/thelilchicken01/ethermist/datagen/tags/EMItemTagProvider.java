@@ -158,6 +158,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.WOODEN_HEAVY_WAND.get());
 
+        tag(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES).add(EMBlocks.WANDFORGING_TABLE.get().asItem());
+
         /*
         ---------- Foods ----------
          */

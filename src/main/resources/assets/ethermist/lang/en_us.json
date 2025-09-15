@@ -262,6 +262,8 @@
   "block.ethermist.ancient_etherstone_lapis_ore": "Ancient Etherstone Lapis Ore",
 
   "block.ethermist.icicle": "Icicle",
+  "block.ethermist.wandforging_table": "Wandforging Table",
+  "block.ethermist.wandforging_table.menu": "Wandforging Table",
 
   "_comment": "--------------- GENERIC ---------------",
   "generic.ethermist.time.seconds": " Seconds",

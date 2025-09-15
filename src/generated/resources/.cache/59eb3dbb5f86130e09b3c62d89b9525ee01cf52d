@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-14T20:39:29.9752467	Loot Tables
+// 1.21.1	2025-09-14T23:48:42.4116779	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -210,6 +210,7 @@ f2b45e069a6c00ab3e322e0358c0c376793ed555 data/ethermist/loot_table/blocks/timewo
 4e47bc120782642be89fe29102c45414fc2e2777 data/ethermist/loot_table/blocks/timeworn_sandstone_slab.json
 ee0c01378ed7a245c6ec3b25bd4b546bc29542c8 data/ethermist/loot_table/blocks/timeworn_sandstone_stairs.json
 8afc1ea0606ae91a5b52a8b3fb097f3cf328929e data/ethermist/loot_table/blocks/timeworn_sandstone_wall.json
+32ee9cfd93ffd8d80879d458d493e3c25272bed8 data/ethermist/loot_table/blocks/wandforging_table.json
 a49d8f676ab005661fa31370a11dfeead7560535 data/ethermist/loot_table/blocks/witchstone.json
 e2822fddd2b7483dc0334a5751b694a956987bd3 data/ethermist/loot_table/blocks/witchstone_slab.json
 5c3fe13a629bb8b1a476f42d2c1fb540086b3613 data/ethermist/loot_table/blocks/witchstone_stairs.json

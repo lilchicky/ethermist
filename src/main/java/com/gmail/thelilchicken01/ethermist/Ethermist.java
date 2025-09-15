@@ -12,6 +12,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
 import com.gmail.thelilchicken01.ethermist.particle.*;
+import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMFoliagePlacerType;
@@ -76,6 +77,7 @@ public class Ethermist {
         EMCreativeTab.register(bus);
         EMBlocks.register(bus);
         EMItems.register(bus);
+        EMMenuTypes.register(bus);
         LOGGER.info("Successfully registered Ethermist items");
 
         EMParticleTypes.register(bus);

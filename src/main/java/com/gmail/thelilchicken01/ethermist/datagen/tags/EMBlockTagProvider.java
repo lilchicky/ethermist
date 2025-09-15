@@ -139,7 +139,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get())
-                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get());
+                .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get())
+
+                .add(EMBlocks.WANDFORGING_TABLE.get());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
@@ -310,6 +312,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
+
+        tag(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
+                .add(EMBlocks.WANDFORGING_TABLE.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), false);

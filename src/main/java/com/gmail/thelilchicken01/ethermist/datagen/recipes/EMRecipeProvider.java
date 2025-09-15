@@ -813,6 +813,18 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         addHandleRecipe(EMItems.NETHERITE_WAND_HANDLE.get(), Tags.Items.INGOTS_NETHERITE, output);
 
         /*
+        ---------- Misc ----------
+         */
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.WANDFORGING_TABLE, 1)
+                .pattern("aa")
+                .pattern("bb")
+                .pattern("bb")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', ItemTags.PLANKS)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
+
+        /*
         ---------- Wands ----------
          */
 

@@ -9,6 +9,8 @@ import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.EMWandTiers;
 import com.gmail.thelilchicken01.ethermist.particle.*;
+import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
+import com.gmail.thelilchicken01.ethermist.screen.WandforgingTableScreen;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.neoforged.api.distmarker.Dist;
@@ -17,6 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 @EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -222,4 +225,10 @@ public class EMClientModEvents {
 
         );
     }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(EMMenuTypes.WANDFORGING_TABLE_MENU.get(), WandforgingTableScreen::new);
+    }
+
 }

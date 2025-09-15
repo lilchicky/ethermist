@@ -429,6 +429,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
         // Misc
         dropSelf(EMBlocks.ICICLE.get());
+        dropSelf(EMBlocks.WANDFORGING_TABLE.get());
 
     }
 

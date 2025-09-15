@@ -319,7 +319,7 @@ public class EMBlocks {
 
     // Misc
     public static final DeferredBlock<Block> ICICLE = registerBlock("icicle", Icicle::new);
-
+    public static final DeferredBlock<Block> WANDFORGING_TABLE = registerBlock("wandforging_table", () -> new WandforgingTable(BlockBehaviour.Properties.of()));
 
     // Unobtainable
     public static final DeferredBlock<Block> ETHERMIST_PORTAL = registerBlock("ethermist_portal_block", EMPortalBlock::new);

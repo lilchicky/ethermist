@@ -309,6 +309,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.TALL_ABYSSAL_MUSHROOM);
 
                 // Misc
+                output.accept(EMBlocks.WANDFORGING_TABLE);
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
                 output.accept(EMBlocks.ETHERMIST_PORTAL);
 
