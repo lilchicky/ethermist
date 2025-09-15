@@ -263,7 +263,6 @@
 
   "block.ethermist.icicle": "Icicle",
   "block.ethermist.wandforging_table": "Wandforging Table",
-  "block.ethermist.wandforging_table.menu": "Wandforging Table",
 
   "_comment": "--------------- GENERIC ---------------",
   "generic.ethermist.time.seconds": " Seconds",
@@ -587,7 +586,10 @@
   "death.attack.glimmerbug_magic.player": "%1$s was swarmed by %2$s's Glimmerbug magic",
   "death.attack.glimmerbug_magic.item": "%1$s was swarmed by %2$s's Glimmerbug magic using %3$s",
 
+  "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
-  "creativetab.ethermist.em_item_tab": "Ethermist Items"
-
+  "creativetab.ethermist.em_item_tab": "Ethermist Items",
+  "block.ethermist.wandforging_table.error": "Invalid Recipe!",
+  "block.ethermist.wandforging_table.tooltip": "Insert Wand, Orb, or Handle",
+  "block.ethermist.wandforging_table.menu": "Wandforging Table"
 }

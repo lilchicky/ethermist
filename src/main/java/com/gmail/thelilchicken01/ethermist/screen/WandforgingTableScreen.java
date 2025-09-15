@@ -6,18 +6,12 @@ import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +25,8 @@ public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableM
     private static final ResourceLocation EMPTY_SLOT_WAND = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/empty_slot_wand");
     private static final List<ResourceLocation> EMPTY_SLOT_ITEMS = List.of(EMPTY_SLOT_ORB, EMPTY_SLOT_HANDLE, EMPTY_SLOT_WAND);
 
-    private static final Component MISSING_TEMPLATE_TOOLTIP = Component.translatable("container.upgrade.missing_template_tooltip");
-    private static final Component ERROR_TOOLTIP = Component.translatable("container.upgrade.error_tooltip");
+    private static final Component HELPER_TOOLTIP = Component.translatable("block.ethermist.wandforging_table.tooltip");
+    private static final Component ERROR_TOOLTIP = Component.translatable("block.ethermist.wandforging_table.error");
 
     private static final int TITLE_LABEL_X = 44;
     private static final int TITLE_LABEL_Y = 15;
@@ -40,7 +34,7 @@ public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableM
     private static final int ERROR_ICON_HEIGHT = 21;
     private static final int ERROR_ICON_X = 65;
     private static final int ERROR_ICON_Y = 46;
-    private static final int TOOLTIP_WIDTH = 115;
+    private static final int TOOLTIP_WIDTH = 215;
     private final CyclingSlotBackground input_1 = new CyclingSlotBackground(0);
     private final CyclingSlotBackground input_2 = new CyclingSlotBackground(1);
 
@@ -81,33 +75,26 @@ public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableM
     @Override
     protected void renderErrorIcon(GuiGraphics guiGraphics, int x, int y) {
         if (this.hasRecipeError()) {
-            guiGraphics.blitSprite(ERROR_SPRITE, x + 65, y + 46, 28, 21);
+            guiGraphics.blitSprite(ERROR_SPRITE, x + ERROR_ICON_X, y + ERROR_ICON_Y, ERROR_ICON_WIDTH, ERROR_ICON_HEIGHT);
         }
     }
 
     private void renderOnboardingTooltips(GuiGraphics guiGraphics, int mouseX, int mouseY) {
         Optional<Component> optional = Optional.empty();
-        if (this.hasRecipeError() && this.isHovering(65, 46, 28, 21, (double)mouseX, (double)mouseY)) {
+        if (this.hasRecipeError() && this.isHovering(ERROR_ICON_X, ERROR_ICON_Y, ERROR_ICON_WIDTH, ERROR_ICON_HEIGHT, (double)mouseX, (double)mouseY)) {
             optional = Optional.of(ERROR_TOOLTIP);
         }
 
         if (this.hoveredSlot != null) {
-            ItemStack itemstack = this.menu.getSlot(0).getItem();
-            ItemStack itemstack1 = this.hoveredSlot.getItem();
-            if (itemstack.isEmpty()) {
-                if (this.hoveredSlot.index == 0) {
-                    optional = Optional.of(MISSING_TEMPLATE_TOOLTIP);
-                }
-            } else if (itemstack.getItem() instanceof SmithingTemplateItem smithingtemplateitem && itemstack1.isEmpty()) {
-                if (this.hoveredSlot.index == 1) {
-                    optional = Optional.of(smithingtemplateitem.getBaseSlotDescription());
-                } else if (this.hoveredSlot.index == 2) {
-                    optional = Optional.of(smithingtemplateitem.getAdditionSlotDescription());
+            ItemStack hoveredSlot = this.hoveredSlot.getItem();
+            if (hoveredSlot.isEmpty()) {
+                if (this.hoveredSlot.index <= 1) {
+                    optional = Optional.of(HELPER_TOOLTIP);
                 }
             }
         }
 
-        optional.ifPresent(p_280863_ -> guiGraphics.renderTooltip(this.font, this.font.split(p_280863_, 115), mouseX, mouseY));
+        optional.ifPresent(component -> guiGraphics.renderTooltip(this.font, this.font.split(component, TOOLTIP_WIDTH), mouseX, mouseY));
     }
 
     private boolean hasRecipeError() {
