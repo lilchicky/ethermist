@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
 
+import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -15,34 +16,43 @@ public final class WandTier implements IWandTiers {
 
     private final ResourceLocation id;
     private final String descriptionKey;
-    private final String modifiedNameKey;
     private final List<WandAttributeState.AttributeModifierHolder> attributeModifiers;
     private final float[] handleColor;
     private final Supplier<Ingredient> repairItem;
-    private final boolean showSecondsSuffixInTooltip;
-    private final TooltipStyle tooltipStyle;
+    private final boolean doesModify;
     private final boolean doesBuffSpell;
-
-    public enum TooltipStyle {DEFAULT, ADDITION, PERCENT, MULT, BUFF_EFFECT}
+    private final double durabilityMult;
+    private final double enchantMult;
 
     public WandTier(ResourceLocation id,
                     String descriptionKey,
-                    String modifiedNameKey,
                     List<WandAttributeState.AttributeModifierHolder> effects,
                     float[] handleColor,
                     Supplier<Ingredient> repairItem,
-                    boolean showSecondsSuffixInTooltip,
-                    TooltipStyle tooltipStyle,
+                    boolean doesModify,
                     boolean doesBuffSpell) {
+        this(id, descriptionKey, effects, handleColor, repairItem, doesModify, doesBuffSpell,
+                1.0, 1.0);
+    }
+
+    public WandTier(ResourceLocation id,
+                    String descriptionKey,
+                    List<WandAttributeState.AttributeModifierHolder> effects,
+                    float[] handleColor,
+                    Supplier<Ingredient> repairItem,
+                    boolean doesModify,
+                    boolean doesBuffSpell,
+                    double durabilityMult,
+                    double enchantabilityMult) {
         this.id = id;
         this.descriptionKey = descriptionKey;
-        this.modifiedNameKey = modifiedNameKey;
         this.attributeModifiers = effects;
         this.handleColor = handleColor.clone();
         this.repairItem = repairItem;
-        this.showSecondsSuffixInTooltip = showSecondsSuffixInTooltip;
-        this.tooltipStyle = tooltipStyle;
+        this.doesModify = doesModify;
         this.doesBuffSpell = doesBuffSpell;
+        this.durabilityMult = durabilityMult;
+        this.enchantMult = enchantabilityMult;
     }
 
     @Override
@@ -77,36 +87,70 @@ public final class WandTier implements IWandTiers {
 
     @Override
     public List<Component> getModifierString() {
-
-        int color = 0xAAAAAA;
+        final int color = 0xAAAAAA;
         List<Component> lines = new ArrayList<>();
+
         lines.add(Component.translatable("item.ethermist.wand_handle." + descriptionKey + ".desc").withColor(color));
 
-        Component base = Component.translatable("item.ethermist.wand_handle." + modifiedNameKey);
+        if (doesModify) {
+            if (!attributeModifiers.isEmpty()) {
+                for (var mod : attributeModifiers) {
 
-        switch (tooltipStyle) {
-            case ADDITION -> {
-                double modifier = attributeModifiers.isEmpty() ? 0 : attributeModifiers.getFirst().value();
-                var line = base.copy().append(Component.literal(modifier > 0 ? "+" + FORMAT.format(modifier) : FORMAT.format(modifier)));
-                if (showSecondsSuffixInTooltip) line.append(Component.translatable("generic.ethermist.time.seconds"));
-                lines.add(line.withColor(color));
+                    double shownValue = mod.value();
+
+                    Component line = Component.empty();
+                    Component base = Component.translatable("item.ethermist.wand_handle." + mod.tooltipId());
+
+                    switch (mod.tooltipStyle()) {
+                        case ADDITION -> {
+                            String sign = shownValue > 0 ? "+" : "";
+                            line = base.copy()
+                                    .append(Component.literal(sign + FORMAT.format(shownValue)))
+                                    .append(mod.seconds() ? Component.translatable("generic.ethermist.time.seconds") : Component.empty())
+                                    .withColor(color);
+                        }
+                        case PERCENT -> {
+                            boolean isAccuracy = mod.attribute().equals(WandAttributeState.WandAttribute.INACCURACY_PERCENT);
+                            double pct = isAccuracy ? shownValue : (shownValue * 100.0);
+                            String sign = pct > 0 ? "+" : "";
+                            line = base.copy()
+                                    .append(Component.literal(sign + FORMAT.format(pct)))
+                                    .append(Component.literal("%"))
+                                    .withColor(color);
+                        }
+                        case MULT -> {
+                            line = base.copy()
+                                    .append(Component.literal("x" + FORMAT.format(shownValue)))
+                                    .withColor(color);
+                        }
+                    }
+
+                    lines.add(line);
+
+                }
             }
-            case PERCENT -> {
-                double v = attributeModifiers.isEmpty() ? 0 : attributeModifiers.getFirst().value();
-                double shown = (modifiedNameKey.equals("bonus_accuracy")) ? v : v * 100.0;
-                lines.add(base.copy()
-                        .append(Component.literal((shown > 0 ? "+" : "") + FORMAT.format(shown)))
-                        .append(Component.literal("%"))
-                        .withColor(color));
+            if (durabilityMult != 1.0) {
+                lines.add(
+                        Component.translatable("item.ethermist.wand_handle.durability_mult")
+                                .append(Component.literal("x" + FORMAT.format(durabilityMult)))
+                                .withColor(color)
+                );
             }
-            case MULT -> {
-                double v = attributeModifiers.isEmpty() ? 1 : attributeModifiers.getFirst().value();
-                lines.add(base.copy().append(Component.literal("x" + FORMAT.format(v))).withColor(color));
+            if (enchantMult != 1.0) {
+                lines.add(
+                        Component.translatable("item.ethermist.wand_handle.enchantability")
+                                .append(Component.literal("x" + FORMAT.format(enchantMult)))
+                                .withColor(color)
+                );
             }
-            case DEFAULT -> lines.add(Component.translatable("item.ethermist.wand_handle.no_change").withColor(color));
-            case BUFF_EFFECT ->
-                    lines.add(Component.translatable("item.ethermist.wand_handle.buff_effect").withColor(color));
+            if (doesBuffSpell) {
+                lines.add(Component.translatable("item.ethermist.wand_handle.buff_effect").withColor(color));
+            }
+        } else {
+            lines.add(Component.translatable("item.ethermist.wand_handle.no_change").withColor(color));
         }
+
         return lines;
     }
+
 }

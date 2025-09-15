@@ -17,17 +17,24 @@ public final class EMWandTiers {
     public static final double DIAMOND_DURABILITY_MULT = 5.0;
     public static final double LAPIS_ENCHANTABILITY_MULT = 2.5;
 
+    // Some default attribute mod holder tooltip IDs
+    public static final String PROJECTILE_SPEED_TOOLTIP_ID = "bonus_projectile_speed";
+    public static final String DAMAGE_TOOLTIP_ID = "bonus_damage";
+    public static final String COOLDOWN_TOOLTIP_ID = "bonus_cooldown";
+    public static final String LIFESPAN_TOOLTIP_ID = "bonus_lifespan";
+    public static final String KNOCKBACK_TOOLTIP_ID = "bonus_knockback";
+    public static final String ACCURACY_TOOLTIP_ID = "bonus_accuracy";
+
     // WOODEN (default)
     public static final DeferredHolder<WandTier, WandTier> WOODEN =
             EMRegistries.WAND_TIERS.register("wooden", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wooden"),
-                            "wooden", "no_change",
+                            "wooden",
                             List.of(),
                             new float[]{1f, 1f, 1f},
                             () -> Ingredient.of(ItemTags.PLANKS),
                             false,
-                            WandTier.TooltipStyle.DEFAULT,
                             false
                     )
             );
@@ -37,12 +44,11 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("emerald", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "emerald"),
-                            "emerald", "bonus_lifespan",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.LIFESPAN_SECONDS, WandAttributeState.Operation.ADDITION, 2.0, true)),
+                            "emerald",
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.LIFESPAN_SECONDS, WandAttributeState.AttributeOperation.ADDITION, 2.0, true, LIFESPAN_TOOLTIP_ID, WandAttributeState.TooltipStyle.ADDITION)),
                             new float[]{0.086f, 0.839f, 0.380f},
                             () -> Ingredient.of(Tags.Items.GEMS_EMERALD),
                             true,
-                            WandTier.TooltipStyle.ADDITION,
                             false
                     )
             );
@@ -52,12 +58,11 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("golden", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "golden"),
-                            "golden", "bonus_damage",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.DAMAGE, WandAttributeState.Operation.ADDITION, 3.0, false)),
+                            "golden",
+                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.DAMAGE, WandAttributeState.AttributeOperation.ADDITION, 3.0, false, DAMAGE_TOOLTIP_ID, WandAttributeState.TooltipStyle.ADDITION)),
                             new float[]{0.992f, 0.961f, 0.373f},
                             () -> Ingredient.of(Tags.Items.INGOTS_GOLD),
-                            false,
-                            WandTier.TooltipStyle.ADDITION,
+                            true,
                             false
                     )
             );
@@ -67,13 +72,14 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("diamond", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "diamond"),
-                            "diamond", "durability_mult",
+                            "diamond",
                             List.of(),
                             new float[]{0.318f, 0.929f, 0.859f},
                             () -> Ingredient.of(Tags.Items.GEMS_DIAMOND),
+                            true,
                             false,
-                            WandTier.TooltipStyle.MULT,
-                            false
+                            DIAMOND_DURABILITY_MULT,
+                            1.0
                     )
             );
 
@@ -82,13 +88,14 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("lapis", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "lapis"),
-                            "lapis", "enchant_mult",
+                            "lapis",
                             List.of(),
                             new float[]{0.196f, 0.357f, 0.741f},
                             () -> Ingredient.of(Tags.Items.GEMS_LAPIS),
+                            true,
                             false,
-                            WandTier.TooltipStyle.MULT,
-                            false
+                            1.0,
+                            LAPIS_ENCHANTABILITY_MULT
                     )
             );
 
@@ -97,12 +104,18 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("nether_quartz", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "nether_quartz"),
-                            "nether_quartz", "bonus_knockback",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.KNOCKBACK_MULT, WandAttributeState.Operation.ADDITION, 0.5, false)),
+                            "nether_quartz",
+                            List.of(new WandAttributeState.AttributeModifierHolder(
+                                    WandAttributeState.WandAttribute.KNOCKBACK_MULT,
+                                    WandAttributeState.AttributeOperation.ADDITION,
+                                    0.5,
+                                    false,
+                                    KNOCKBACK_TOOLTIP_ID,
+                                    WandAttributeState.TooltipStyle.PERCENT)
+                            ),
                             new float[]{0.847f, 0.847f, 0.847f},
                             () -> Ingredient.of(Tags.Items.GEMS_QUARTZ),
-                            false,
-                            WandTier.TooltipStyle.PERCENT,
+                            true,
                             false
                     )
             );
@@ -112,12 +125,18 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("redstone", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "redstone"),
-                            "redstone", "bonus_cooldown",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.COOLDOWN_TICKS, WandAttributeState.Operation.ADDITION, -2.0, true)),
+                            "redstone",
+                            List.of(new WandAttributeState.AttributeModifierHolder(
+                                    WandAttributeState.WandAttribute.COOLDOWN_TICKS,
+                                    WandAttributeState.AttributeOperation.ADDITION,
+                                    -2.0,
+                                    true,
+                                    COOLDOWN_TOOLTIP_ID,
+                                    WandAttributeState.TooltipStyle.ADDITION)
+                            ),
                             new float[]{0.965f, 0f, 0f},
                             () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE),
                             true,
-                            WandTier.TooltipStyle.ADDITION,
                             false
                     )
             );
@@ -127,27 +146,39 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("glowstone", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glowstone"),
-                            "glowstone", "bonus_bolt_speed",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.PROJECTILE_SPEED_MULT, WandAttributeState.Operation.ADDITION, 0.25, false)),
+                            "glowstone",
+                            List.of(new WandAttributeState.AttributeModifierHolder(
+                                    WandAttributeState.WandAttribute.PROJECTILE_SPEED_MULT,
+                                    WandAttributeState.AttributeOperation.ADDITION,
+                                    0.25,
+                                    false,
+                                    PROJECTILE_SPEED_TOOLTIP_ID,
+                                    WandAttributeState.TooltipStyle.PERCENT)
+                            ),
                             new float[]{1f, 0.737f, 0.369f},
                             () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE),
-                            false,
-                            WandTier.TooltipStyle.PERCENT,
+                            true,
                             false
                     )
             );
 
-    // PRISMARINE: +5% accuracy
+    // PRISMARINE: +10% accuracy
     public static final DeferredHolder<WandTier, WandTier> PRISMARINE =
             EMRegistries.WAND_TIERS.register("prismarine", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "prismarine"),
-                            "prismarine", "bonus_accuracy",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.INACCURACY_PERCENT, WandAttributeState.Operation.ADDITION, 5.0, false)),
+                            "prismarine",
+                            List.of(new WandAttributeState.AttributeModifierHolder(
+                                    WandAttributeState.WandAttribute.INACCURACY_PERCENT,
+                                    WandAttributeState.AttributeOperation.ADDITION,
+                                    10.0,
+                                    false,
+                                    ACCURACY_TOOLTIP_ID,
+                                    WandAttributeState.TooltipStyle.PERCENT)
+                            ),
                             new float[]{0.706f, 0.847f, 0.792f},
                             () -> Ingredient.of(Tags.Items.GEMS_PRISMARINE),
-                            false,
-                            WandTier.TooltipStyle.PERCENT,
+                            true,
                             false
                     )
             );
@@ -157,12 +188,11 @@ public final class EMWandTiers {
             EMRegistries.WAND_TIERS.register("netherite", () ->
                     new WandTier(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "netherite"),
-                            "netherite", "buff_effect",
+                            "netherite",
                             List.of(),
                             new float[]{0.32f, 0.32f, 0.32f},
                             () -> Ingredient.of(Tags.Items.INGOTS_NETHERITE),
-                            false,
-                            WandTier.TooltipStyle.BUFF_EFFECT,
+                            true,
                             true
                     )
             );

@@ -72,6 +72,10 @@ public class WandItem extends Item implements IDyeableWandItem {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
+    public WandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier) {
+        this(type, tier, 1.0, 1.0);
+    }
+
     public WandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durabilityMult, double enchantMult) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))

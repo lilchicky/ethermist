@@ -476,9 +476,9 @@
   "item.ethermist.wand_handle.bonus_accuracy": "Accuracy: ",
   "item.ethermist.wand_handle.bonus_knockback": "Bolt Knockback: ",
   "item.ethermist.wand_handle.durability_mult": "Durability: ",
-  "item.ethermist.wand_handle.enchant_mult": "Enchantability: ",
+  "item.ethermist.wand_handle.enchantability": "Enchantability: ",
   "item.ethermist.wand_handle.bonus_lifespan": "Bolt Lifespan: ",
-  "item.ethermist.wand_handle.bonus_bolt_speed": "Bolt Speed: ",
+  "item.ethermist.wand_handle.bonus_projectile_speed": "Bolt Speed: ",
 
   "_comment": "--------------- FOODS ---------------",
   "item.ethermist.shroom_cluster": "Shroom Cluster",

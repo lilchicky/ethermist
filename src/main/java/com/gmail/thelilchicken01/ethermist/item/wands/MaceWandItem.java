@@ -27,6 +27,10 @@ import java.util.function.Predicate;
 
 public class MaceWandItem extends WandItem {
 
+    public MaceWandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier) {
+        super(type, tier, 1.0, 1.0);
+    }
+
     public MaceWandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durMult, double enchantMult) {
         super(type, tier, durMult, enchantMult);
     }
