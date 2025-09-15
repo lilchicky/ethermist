@@ -14,19 +14,17 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.item.crafting.SmithingRecipeInput;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class WandforgingTableMenu extends ItemCombinerMenu {
-    public static final int TEMPLATE_SLOT = 0;
-    public static final int BASE_SLOT = 1;
-    public static final int ADDITIONAL_SLOT = 2;
-    public static final int RESULT_SLOT = 3;
-    public static final int TEMPLATE_SLOT_X_PLACEMENT = 8;
-    public static final int BASE_SLOT_X_PLACEMENT = 26;
-    public static final int ADDITIONAL_SLOT_X_PLACEMENT = 44;
-    private static final int RESULT_SLOT_X_PLACEMENT = 98;
-    public static final int SLOT_Y_PLACEMENT = 48;
+    public static final int INPUT_SLOT_1 = 0;
+    public static final int INPUT_SLOT_2 = 1;
+    public static final int OUTPUT_SLOT = 2;
+    public static final int INPUT_1_X = 44;
+    public static final int INPUT_2_X = 116;
+    private static final int OUTPUT_X = 80;
+    public static final int INPUT_SLOT_Y = 37;
+    public static final int OUTPUT_SLOT_Y = 53;
     private final Level level;
     @Nullable
     private RecipeHolder<SmithingRecipe> selectedRecipe;
@@ -45,10 +43,9 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     @Override
     protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
         return ItemCombinerMenuSlotDefinition.create()
-                .withSlot(0, 8, 48, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isTemplateIngredient(stack)))
-                .withSlot(1, 26, 48, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isBaseIngredient(stack)))
-                .withSlot(2, 44, 48, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isAdditionIngredient(stack)))
-                .withResultSlot(3, 98, 48)
+                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isTemplateIngredient(stack)))
+                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isBaseIngredient(stack)))
+                .withResultSlot(OUTPUT_SLOT, OUTPUT_X, OUTPUT_SLOT_Y)
                 .build();
     }
 
@@ -66,18 +63,17 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     protected void onTake(Player player, ItemStack stack) {
         stack.onCraftedBy(player.level(), player, stack.getCount());
         this.resultSlots.awardUsedRecipes(player, this.getRelevantItems());
-        this.shrinkStackInSlot(0);
-        this.shrinkStackInSlot(1);
-        this.shrinkStackInSlot(2);
+        this.shrinkStackInSlot(INPUT_SLOT_1);
+        this.shrinkStackInSlot(INPUT_SLOT_2);
         this.access.execute((level, pos) -> level.levelEvent(1044, pos, 0));
     }
 
     private List<ItemStack> getRelevantItems() {
-        return List.of(this.inputSlots.getItem(0), this.inputSlots.getItem(1), this.inputSlots.getItem(2));
+        return List.of(this.inputSlots.getItem(INPUT_SLOT_1), this.inputSlots.getItem(INPUT_SLOT_2));
     }
 
     private SmithingRecipeInput createRecipeInput() {
-        return new SmithingRecipeInput(this.inputSlots.getItem(0), this.inputSlots.getItem(1), this.inputSlots.getItem(2));
+        return new SmithingRecipeInput(this.inputSlots.getItem(INPUT_SLOT_1), this.inputSlots.getItem(INPUT_SLOT_2), this.inputSlots.getItem(2));
     }
 
     private void shrinkStackInSlot(int index) {

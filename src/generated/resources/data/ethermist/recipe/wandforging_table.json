@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "b": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "aa",
+    "bb",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:wandforging_table"
+  }
+}

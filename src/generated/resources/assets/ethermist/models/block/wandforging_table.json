@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "ethermist:block/wandforging_table_bottom",
+    "side": "ethermist:block/wandforging_table_side",
+    "top": "ethermist:block/wandforging_table_top"
+  }
+}

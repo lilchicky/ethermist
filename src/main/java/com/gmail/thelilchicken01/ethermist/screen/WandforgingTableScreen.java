@@ -3,14 +3,12 @@ package com.gmail.thelilchicken01.ethermist.screen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
@@ -25,18 +23,17 @@ import java.util.Optional;
 
 @OnlyIn(Dist.CLIENT)
 public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableMenu> {
+
     private static final ResourceLocation ERROR_SPRITE = ResourceLocation.withDefaultNamespace("container/smithing/error");
-    private static final ResourceLocation EMPTY_SLOT_SMITHING_TEMPLATE_ARMOR_TRIM = ResourceLocation.withDefaultNamespace(
-            "item/empty_slot_smithing_template_armor_trim"
-    );
-    private static final ResourceLocation EMPTY_SLOT_SMITHING_TEMPLATE_NETHERITE_UPGRADE = ResourceLocation.withDefaultNamespace(
-            "item/empty_slot_smithing_template_netherite_upgrade"
-    );
+
+    private static final ResourceLocation EMPTY_SLOT_ORB = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/empty_slot_orb");
+    private static final ResourceLocation EMPTY_SLOT_HANDLE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/empty_slot_handle");
+    private static final ResourceLocation EMPTY_SLOT_WAND = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/empty_slot_wand");
+    private static final List<ResourceLocation> EMPTY_SLOT_ITEMS = List.of(EMPTY_SLOT_ORB, EMPTY_SLOT_HANDLE, EMPTY_SLOT_WAND);
+
     private static final Component MISSING_TEMPLATE_TOOLTIP = Component.translatable("container.upgrade.missing_template_tooltip");
     private static final Component ERROR_TOOLTIP = Component.translatable("container.upgrade.error_tooltip");
-    private static final List<ResourceLocation> EMPTY_SLOT_SMITHING_TEMPLATES = List.of(
-            EMPTY_SLOT_SMITHING_TEMPLATE_ARMOR_TRIM, EMPTY_SLOT_SMITHING_TEMPLATE_NETHERITE_UPGRADE
-    );
+
     private static final int TITLE_LABEL_X = 44;
     private static final int TITLE_LABEL_Y = 15;
     private static final int ERROR_ICON_WIDTH = 28;
@@ -44,51 +41,20 @@ public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableM
     private static final int ERROR_ICON_X = 65;
     private static final int ERROR_ICON_Y = 46;
     private static final int TOOLTIP_WIDTH = 115;
-    private static final int ARMOR_STAND_Y_ROT = 210;
-    private static final int ARMOR_STAND_X_ROT = 25;
-    private static final Vector3f ARMOR_STAND_TRANSLATION = new Vector3f();
-    private static final Quaternionf ARMOR_STAND_ANGLE = new Quaternionf().rotationXYZ(0.43633232F, 0.0F, (float) Math.PI);
-    private static final int ARMOR_STAND_SCALE = 25;
-    private static final int ARMOR_STAND_OFFSET_Y = 75;
-    private static final int ARMOR_STAND_OFFSET_X = 141;
-    private final CyclingSlotBackground templateIcon = new CyclingSlotBackground(0);
-    private final CyclingSlotBackground baseIcon = new CyclingSlotBackground(1);
-    private final CyclingSlotBackground additionalIcon = new CyclingSlotBackground(2);
-    @Nullable
-    private ArmorStand armorStandPreview;
+    private final CyclingSlotBackground input_1 = new CyclingSlotBackground(0);
+    private final CyclingSlotBackground input_2 = new CyclingSlotBackground(1);
 
     public WandforgingTableScreen(WandforgingTableMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "textures/gui/container/wandforging_table.png"));
-        this.titleLabelX = 44;
-        this.titleLabelY = 15;
-    }
-
-    @Override
-    protected void subInit() {
-        this.armorStandPreview = new ArmorStand(this.minecraft.level, 0.0, 0.0, 0.0);
-        this.armorStandPreview.setNoBasePlate(true);
-        this.armorStandPreview.setShowArms(true);
-        this.armorStandPreview.yBodyRot = 210.0F;
-        this.armorStandPreview.setXRot(25.0F);
-        this.armorStandPreview.yHeadRot = this.armorStandPreview.getYRot();
-        this.armorStandPreview.yHeadRotO = this.armorStandPreview.getYRot();
-        this.updateArmorStandPreview(this.menu.getSlot(3).getItem());
+        this.titleLabelX = TITLE_LABEL_X;
+        this.titleLabelY = TITLE_LABEL_Y;
     }
 
     @Override
     public void containerTick() {
         super.containerTick();
-        Optional<SmithingTemplateItem> optional = this.getTemplateItem();
-        this.templateIcon.tick(EMPTY_SLOT_SMITHING_TEMPLATES);
-        this.baseIcon.tick(optional.map(SmithingTemplateItem::getBaseSlotEmptyIcons).orElse(List.of()));
-        this.additionalIcon.tick(optional.map(SmithingTemplateItem::getAdditionalSlotEmptyIcons).orElse(List.of()));
-    }
-
-    private Optional<SmithingTemplateItem> getTemplateItem() {
-        ItemStack itemstack = this.menu.getSlot(0).getItem();
-        return !itemstack.isEmpty() && itemstack.getItem() instanceof SmithingTemplateItem smithingtemplateitem
-                ? Optional.of(smithingtemplateitem)
-                : Optional.empty();
+        this.input_1.tick(EMPTY_SLOT_ITEMS);
+        this.input_2.tick(EMPTY_SLOT_ITEMS);
     }
 
     /**
@@ -108,39 +74,8 @@ public class WandforgingTableScreen extends ItemCombinerScreen<WandforgingTableM
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         super.renderBg(guiGraphics, partialTick, mouseX, mouseY);
-        this.templateIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
-        this.baseIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
-        this.additionalIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
-        InventoryScreen.renderEntityInInventory(
-                guiGraphics, (float)(this.leftPos + 141), (float)(this.topPos + 75), 25.0F, ARMOR_STAND_TRANSLATION, ARMOR_STAND_ANGLE, null, this.armorStandPreview
-        );
-    }
-
-    /**
-     * Sends the contents of an inventory slot to the client-side Container. This doesn't have to match the actual contents of that slot.
-     */
-    @Override
-    public void slotChanged(AbstractContainerMenu containerToSend, int slotInd, ItemStack stack) {
-        if (slotInd == 3) {
-            this.updateArmorStandPreview(stack);
-        }
-    }
-
-    private void updateArmorStandPreview(ItemStack stack) {
-        if (this.armorStandPreview != null) {
-            for (EquipmentSlot equipmentslot : EquipmentSlot.values()) {
-                this.armorStandPreview.setItemSlot(equipmentslot, ItemStack.EMPTY);
-            }
-
-            if (!stack.isEmpty()) {
-                ItemStack itemstack = stack.copy();
-                if (stack.getItem() instanceof ArmorItem armoritem) {
-                    this.armorStandPreview.setItemSlot(armoritem.getEquipmentSlot(), itemstack);
-                } else {
-                    this.armorStandPreview.setItemSlot(EquipmentSlot.OFFHAND, itemstack);
-                }
-            }
-        }
+        this.input_1.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.input_2.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
     }
 
     @Override
