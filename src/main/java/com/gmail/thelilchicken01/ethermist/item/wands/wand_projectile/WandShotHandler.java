@@ -3,14 +3,10 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -65,14 +61,14 @@ public class WandShotHandler {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
         shot.setLifetime((int)(lifespan * 20));
-        shot.setCanIgnite(wand.getType().getCanIgnite());
+        shot.setCanIgnite(wand.getOrb().getCanIgnite());
         shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
-        shot.setDamageType(wand.getType().getDamageType());
+        shot.setDamageType(wand.getOrb().getDamageType());
         shot.setTrailColor(wand.getTrailColor(wandItem));
-        shot.setOriginWandTier(wand.getTier());
-        shot.setOriginWandType(wand.getType());
+        shot.setOriginWandTier(wand.getHandle());
+        shot.setOriginWandType(wand.getOrb());
         shot.setSpellEntries(savedSpells);
 
         return shot;

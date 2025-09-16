@@ -1,6 +1,5 @@
-package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
+package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
-import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +11,7 @@ import java.util.function.Supplier;
 
 import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
-public final class WandTier implements IWandTiers {
+public final class WandHandle implements IWandHandle {
 
     private final ResourceLocation id;
     private final String descriptionKey;
@@ -24,26 +23,26 @@ public final class WandTier implements IWandTiers {
     private final double durabilityMult;
     private final double enchantMult;
 
-    public WandTier(ResourceLocation id,
-                    String descriptionKey,
-                    List<WandAttributeState.AttributeModifierHolder> effects,
-                    float[] handleColor,
-                    Supplier<Ingredient> repairItem,
-                    boolean doesModify,
-                    boolean doesBuffSpell) {
+    public WandHandle(ResourceLocation id,
+                      String descriptionKey,
+                      List<WandAttributeState.AttributeModifierHolder> effects,
+                      float[] handleColor,
+                      Supplier<Ingredient> repairItem,
+                      boolean doesModify,
+                      boolean doesBuffSpell) {
         this(id, descriptionKey, effects, handleColor, repairItem, doesModify, doesBuffSpell,
                 1.0, 1.0);
     }
 
-    public WandTier(ResourceLocation id,
-                    String descriptionKey,
-                    List<WandAttributeState.AttributeModifierHolder> effects,
-                    float[] handleColor,
-                    Supplier<Ingredient> repairItem,
-                    boolean doesModify,
-                    boolean doesBuffSpell,
-                    double durabilityMult,
-                    double enchantabilityMult) {
+    public WandHandle(ResourceLocation id,
+                      String descriptionKey,
+                      List<WandAttributeState.AttributeModifierHolder> effects,
+                      float[] handleColor,
+                      Supplier<Ingredient> repairItem,
+                      boolean doesModify,
+                      boolean doesBuffSpell,
+                      double durabilityMult,
+                      double enchantabilityMult) {
         this.id = id;
         this.descriptionKey = descriptionKey;
         this.attributeModifiers = effects;
@@ -74,6 +73,12 @@ public final class WandTier implements IWandTiers {
     public Supplier<Ingredient> getRepairItem() {
         return repairItem;
     }
+
+    @Override
+    public double getDurabilityMult() {return durabilityMult;}
+
+    @Override
+    public double getEnchantabilityMult() {return enchantMult;}
 
     @Override
     public boolean doesBuffSpell() {

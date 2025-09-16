@@ -1,4 +1,4 @@
-package com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects;
+package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.resources.ResourceLocation;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.Supplier;
 import net.minecraft.network.chat.Component;
 
-public interface IWandTiers {
+public interface IWandHandle {
 
     ResourceLocation id();
 
@@ -16,6 +16,8 @@ public interface IWandTiers {
     float[] getHandleColor();
     Supplier<Ingredient> getRepairItem();
     List<Component> getModifierString();
+    double getDurabilityMult();
+    double getEnchantabilityMult();
     boolean doesBuffSpell();
 
     void apply(WandAttributeState state);

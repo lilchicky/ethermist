@@ -1,9 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
 
 public interface IDyeableWandItem {
 
-    IWandTiers getTier();
+    IWandHandle getHandle();
 
 }

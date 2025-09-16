@@ -10,7 +10,8 @@ import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWand
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
@@ -68,12 +69,15 @@ public class Ethermist {
 
         // Register Custom Registries
         bus.addListener(this::newRegistry);
-        EMRegistries.WAND_TIERS.register(bus);
+        EMRegistries.WAND_HANDLES.register(bus);
+        EMRegistries.WAND_ORBS.register(bus);
         EMRegistries.WAND_BASE_EFFECT.register(bus);
         EMRegistries.WAND_AUGMENT_EFFECT.register(bus);
         EMRegistries.WAND_SPELL_EFFECT.register(bus);
 
         // Register custom content
+        EMWandOrbs.register(bus);
+        EMWandHandles.register(bus);
         EMCreativeTab.register(bus);
         EMBlocks.register(bus);
         EMItems.register(bus);
@@ -108,9 +112,6 @@ public class Ethermist {
     private void commonSetup(final FMLCommonSetupEvent event) {
 
         event.enqueueWork(() -> {
-            EMWandTypeEffects.registerTypeEffects();
-            LOGGER.info("Registered {} wand types", EMWandMappings.registerMappings());
-
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.GLIMMERBUD.getId(), EMBlocks.GLIMMERBUD_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.NIGHTBELL.getId(), EMBlocks.NIGHTBELL_FLOWER_POT);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(EMBlocks.WITCH_LAVENDER.getId(), EMBlocks.WITCH_LAVENDER_FLOWER_POT);
@@ -121,9 +122,13 @@ public class Ethermist {
 
     private void newRegistry(final NewRegistryEvent event) {
 
-        event.create(new RegistryBuilder<>(EMRegistries.WAND_TIER_REGISTRY_KEY)
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_HANDLES_REGISTRY_KEY)
                 .sync(true)
-                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "wooden")));
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "empty")));
+
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_ORBS_REGISTRY_KEY)
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "empty")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_BASE_EFFECT_REGISTRY_KEY)
                 .sync(true)

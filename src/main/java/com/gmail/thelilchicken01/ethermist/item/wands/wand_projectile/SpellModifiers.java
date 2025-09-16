@@ -24,13 +24,4 @@ public class SpellModifiers {
         }
     }
 
-    public enum SpellType {
-        GENERIC,
-        FIREBALL,
-        CHAOS_MAGIC,
-        THUNDERSTRIKE,
-        VOLATILE_ENERGY,
-        SEISMIC_SURGE
-    }
-
 }

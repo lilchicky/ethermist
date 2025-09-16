@@ -1,9 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -23,14 +22,14 @@ import java.util.List;
 
 public class HandleItem extends Item implements IDyeableWandItem {
 
-    private final DeferredHolder<WandTier, WandTier> TIER;
+    private final DeferredHolder<WandHandle, WandHandle> TIER;
 
-    public HandleItem(DeferredHolder<WandTier, WandTier> tier) {
+    public HandleItem(DeferredHolder<WandHandle, WandHandle> handle) {
         super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
-        this.TIER = tier;
+        this.TIER = handle;
     }
 
-    public IWandTiers getTier() {
+    public IWandHandle getHandle() {
         return TIER.get();
     }
 

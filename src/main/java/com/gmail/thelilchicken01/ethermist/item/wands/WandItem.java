@@ -5,11 +5,10 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.*;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.WandTypes;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.WandOrb;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.resources.language.I18n;
@@ -27,8 +26,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -49,7 +46,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 import static com.gmail.thelilchicken01.ethermist.item.wands.WandUtil.getBaseWandName;
@@ -58,10 +54,8 @@ import static com.gmail.thelilchicken01.ethermist.item.wands.WandUtil.getBaseWan
 @MethodsReturnNonnullByDefault
 public class WandItem extends Item implements IDyeableWandItem {
 
-    private final SoundEvent SHOOT_SOUND;
-    private final IWandTypes TYPE;
-    private final DeferredHolder<WandTier, WandTier> TIER;
-    private final double ENCHANT_MULT;
+    private final DeferredHolder<WandOrb, WandOrb> WAND_ORB;
+    private final DeferredHolder<WandHandle, WandHandle> WAND_HANDLE;
 
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
@@ -72,18 +66,17 @@ public class WandItem extends Item implements IDyeableWandItem {
     public static final ResourceLocation BLOCK_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block_interaction_range");
     public static final ResourceLocation ENTITY_INTERACTION_RANGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "entity_interaction_range");
 
-    public WandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier) {
-        this(type, tier, 1.0, 1.0);
-    }
-
-    public WandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durabilityMult, double enchantMult) {
+    public WandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
-                .durability(Math.max((int) (128 * type.getDurabilityMult() * durabilityMult), 1)));
-        this.SHOOT_SOUND = type.getShootSound();
-        this.TYPE = type;
-        this.TIER = tier;
-        this.ENCHANT_MULT = enchantMult;
+                .durability(1));
+        this.WAND_ORB = orb;
+        this.WAND_HANDLE = handle;
+    }
+
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        return Math.max((int) (128 * WAND_ORB.get().getDurabilityMult() * WAND_HANDLE.get().getDurabilityMult()), 1);
     }
 
     @Override
@@ -99,7 +92,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                     player.getX(),
                     player.getY(),
                     player.getZ(),
-                    SHOOT_SOUND,
+                    WAND_ORB.get().getShootSound(),
                     SoundSource.PLAYERS,
                     1.0f,
                     level.getRandom().nextFloat() * 0.4f + 0.8f);
@@ -121,24 +114,24 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return (int)(TYPE.getEnchantability() * ENCHANT_MULT);
+        return (int)(WAND_ORB.get().getEnchantability() * WAND_HANDLE.get().getEnchantabilityMult());
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
-        return stack.isDamaged() && (TYPE.getRepairItem().get().test(repairItem) || TIER.get().getRepairItem().get().test(repairItem));
+        return stack.isDamaged() && (WAND_ORB.get().getRepairItem().get().test(repairItem) || WAND_HANDLE.get().getRepairItem().get().test(repairItem));
     }
 
-    public IWandTypes getType() {
-        return TYPE;
+    public WandOrb getOrb() {
+        return WAND_ORB.get();
     }
 
-    public WandTier getTier() {
-        return TIER.get();
+    public WandHandle getHandle() {
+        return WAND_HANDLE.get();
     }
 
     public SoundEvent getShootSound() {
-        return SHOOT_SOUND;
+        return WAND_ORB.get().getShootSound();
     }
 
     public float[] getTrailColor(ItemStack stack) {
@@ -149,7 +142,7 @@ public class WandItem extends Item implements IDyeableWandItem {
             float b = (color & 255) / 255.0f;
             return new float[]{r, g, b};
         } else {
-            return TYPE.getTrailColor();
+            return WAND_ORB.get().getTrailColor();
         }
     }
 
@@ -160,16 +153,16 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         // Get base attributes based on wand type (orb)
         WandAttributeState currentAttributeState = new WandAttributeState().seed(
-                TYPE.getCooldown(),
-                TYPE.getSpellDamage(),
-                TYPE.getLifespanSeconds(),
-                TYPE.getProjectileSpeed(),
-                TYPE.getKnockback(),
-                TYPE.getInaccuracy()
+                WAND_ORB.get().getCooldown(),
+                WAND_ORB.get().getSpellDamage(),
+                WAND_ORB.get().getLifespanSeconds(),
+                WAND_ORB.get().getProjectileSpeed(),
+                WAND_ORB.get().getKnockback(),
+                WAND_ORB.get().getInaccuracy()
         );
 
         // Apply tier (handle) modifiers to default attributes
-        TIER.get().apply(currentAttributeState);
+        WAND_HANDLE.get().apply(currentAttributeState);
 
         // Order here is implemented base -> augment -> spell, for priority of hard attribute
         // adjustments (such as Focus Augment overriding default accuracy enchantments).
@@ -254,13 +247,13 @@ public class WandItem extends Item implements IDyeableWandItem {
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
 
-        if (TYPE == WandTypes.GLIMMERBUG) {
+        if (WAND_ORB.get() == EMWandOrbs.GLIMMERBUG.get()) {
             lore.add(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA));
         }
 
         lore.add(Component.empty());
 
-        lore.addAll(TIER.get().getModifierString());
+        lore.addAll(WAND_HANDLE.get().getModifierString());
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
@@ -336,7 +329,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                             player.getX(),
                             player.getY(),
                             player.getZ(),
-                            SHOOT_SOUND,
+                            WAND_ORB.get().getShootSound(),
                             SoundSource.PLAYERS,
                             1.0f,
                             level.getRandom().nextFloat() * 0.4f + 0.8f);
@@ -370,7 +363,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                         player.getX(),
                         player.getY(),
                         player.getZ(),
-                        SHOOT_SOUND,
+                        WAND_ORB.get().getShootSound(),
                         SoundSource.PLAYERS,
                         1.0f,
                         level.getRandom().nextFloat() * 0.4f + 0.8f);

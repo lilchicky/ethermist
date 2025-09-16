@@ -2,49 +2,29 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.EMWandTypeEffects;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypeEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.CommonHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 public class WandSpellHandler {
 
     public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, WandProjectile shot) {
 
         if (shot.originWandType != null) {
-            IWandTypeEffect effect = EMWandTypeEffects.getTypeEffect(shot.originWandType);
-            if (effect != null) {
-                effect.apply(shotItem, target, player, shot);
-            }
+            shot.originWandType.apply(shotItem, target, player, shot);
         }
 
     }

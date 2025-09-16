@@ -6,8 +6,8 @@ import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugRend
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.EMWandTiers;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
 import com.gmail.thelilchicken01.ethermist.screen.WandforgingTableScreen;
@@ -67,12 +67,12 @@ public class EMClientModEvents {
 
                     } else if (layer == 1) {
 
-                        IWandTiers tier = (stack.getItem() instanceof IDyeableWandItem dyeable)
-                                ? dyeable.getTier()
+                        IWandHandle tier = (stack.getItem() instanceof IDyeableWandItem dyeable)
+                                ? dyeable.getHandle()
                                 : null;
 
                         if (tier != null) {
-                            boolean isWooden = tier.id().equals(EMWandTiers.WOODEN.getId());
+                            boolean isWooden = tier.id().equals(EMWandHandles.WOODEN.getId());
 
                             if (isWooden) {
                                 return baseColor;

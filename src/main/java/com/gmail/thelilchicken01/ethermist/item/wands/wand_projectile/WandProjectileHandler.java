@@ -1,6 +1,5 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
@@ -10,9 +9,6 @@ import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.TamableAnimal;
@@ -31,8 +27,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class WandProjectileHandler {
 
@@ -68,8 +62,8 @@ public class WandProjectileHandler {
         AtomicBoolean hasSpecialShoot = new AtomicBoolean(false);
 
         // Wand shot item and shot item stack
-        WandShotItem shotItem = wand.getType().getShotItem();
-        ItemStack shotStack = new ItemStack(wand.getType().getShotItem());
+        WandShotItem shotItem = wand.getOrb().getShotItem();
+        ItemStack shotStack = new ItemStack(wand.getOrb().getShotItem());
 
         // Handle wand target filtering
         List<SpellModifiers.TargetType> types = new ArrayList<>();

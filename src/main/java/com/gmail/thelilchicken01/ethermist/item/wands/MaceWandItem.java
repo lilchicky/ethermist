@@ -1,8 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.IWandTiers;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_tier_effects.WandTier;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_type_effects.IWandTypes;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.WandOrb;
 import net.minecraft.core.Direction;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
@@ -27,12 +26,12 @@ import java.util.function.Predicate;
 
 public class MaceWandItem extends WandItem {
 
-    public MaceWandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier) {
-        super(type, tier, 1.0, 1.0);
+    public MaceWandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle) {
+        super(orb, handle, 1.0, 1.0);
     }
 
-    public MaceWandItem(IWandTypes type, DeferredHolder<WandTier, WandTier> tier, double durMult, double enchantMult) {
-        super(type, tier, durMult, enchantMult);
+    public MaceWandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle, double durMult, double enchantMult) {
+        super(orb, handle, durMult, enchantMult);
     }
 
     @Override
