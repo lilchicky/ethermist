@@ -76,7 +76,14 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return Math.max((int) (128 * WAND_ORB.get().getDurabilityMult() * WAND_HANDLE.get().getDurabilityMult()), 1);
+        // cast as int twice to the math makes sense. I.E. Glass Wand has, by default,
+        // 3 durability, but its technically 3.84 durability, so the diamond handle makes it
+        // have 19 instead of the expected 15 (3.84x5 vs 3x5). Implemented mostly so durability
+        // is a bit more intuitive.
+        return Math.max(
+                (int) ((int)(128 * WAND_ORB.get().getDurabilityMult()) * WAND_HANDLE.get().getDurabilityMult()),
+                1
+        );
     }
 
     @Override
