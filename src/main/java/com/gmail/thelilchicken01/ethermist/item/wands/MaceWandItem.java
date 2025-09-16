@@ -27,11 +27,7 @@ import java.util.function.Predicate;
 public class MaceWandItem extends WandItem {
 
     public MaceWandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle) {
-        super(orb, handle, 1.0, 1.0);
-    }
-
-    public MaceWandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle, double durMult, double enchantMult) {
-        super(orb, handle, durMult, enchantMult);
+        super(orb, handle);
     }
 
     @Override

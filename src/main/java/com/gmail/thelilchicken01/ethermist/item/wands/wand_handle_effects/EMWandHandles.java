@@ -18,6 +18,10 @@ public final class EMWandHandles {
     public static final DeferredRegister<WandHandle> EM_WAND_HANDLES =
             DeferredRegister.create(EMRegistries.WAND_HANDLES.getRegistryName(), Ethermist.MODID);
 
+    // Default Wand Values
+    public static final double DIAMOND_DURABILITY_MULT = 5.0;
+    public static final double LAPIS_ENCHANTABILITY_MULT = 2.5;
+
     // Some default attribute mod holder tooltip IDs
     public static final String PROJECTILE_SPEED_TOOLTIP_ID = "bonus_projectile_speed";
     public static final String DAMAGE_TOOLTIP_ID = "bonus_damage";
