@@ -7,9 +7,6 @@ import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipe;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipeInput;
-import com.gmail.thelilchicken01.ethermist.item.HandleItem;
-import com.gmail.thelilchicken01.ethermist.item.OrbItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,8 +14,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -28,9 +23,9 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     public static final int OUTPUT_SLOT = 2;
     public static final int INPUT_1_X = 44;
     public static final int INPUT_2_X = 116;
-    private static final int OUTPUT_X = 80;
-    public static final int INPUT_SLOT_Y = 37;
-    public static final int OUTPUT_SLOT_Y = 53;
+    public static final int OUTPUT_X = 80;
+    public static final int INPUT_Y = 37;
+    public static final int OUTPUT_Y = 53;
     private final Level level;
     @Nullable
     private RecipeHolder<WandRecipe> selectedRecipe;
@@ -49,11 +44,11 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     @Override
     protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
         return ItemCombinerMenuSlotDefinition.create()
-                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, stack ->
+                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_Y, stack ->
                         this.recipes.stream().anyMatch(recipe -> recipe.value().isWandIngredient(stack)))
-                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, stack ->
+                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_Y, stack ->
                         this.recipes.stream().anyMatch(recipe -> recipe.value().isWandIngredient(stack)))
-                .withResultSlot(OUTPUT_SLOT, OUTPUT_X, OUTPUT_SLOT_Y)
+                .withResultSlot(OUTPUT_SLOT, OUTPUT_X, OUTPUT_Y)
                 .build();
     }
 

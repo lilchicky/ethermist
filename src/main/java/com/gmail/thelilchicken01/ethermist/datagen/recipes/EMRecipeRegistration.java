@@ -11,6 +11,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class EMRecipeRegistration {
 
+    public static final String WAND_RECIPE_LOCATION = "wand_recipe";
+
     public static final DeferredRegister<RecipeSerializer<?>> EM_RECIPE_SERIALIZERS = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, Ethermist.MODID);
     public static final DeferredRegister<RecipeType<?>> EM_RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, Ethermist.MODID);
 
@@ -18,16 +20,16 @@ public class EMRecipeRegistration {
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<WandDyeRecipe>> WAND_DYE_RECIPE = EM_RECIPE_SERIALIZERS.register("wand_dye_recipe",
             () -> new SimpleCraftingRecipeSerializer<>(WandDyeRecipe::new)
     );
-    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<WandRecipe>> WAND_RECIPE_SERIALIZER = EM_RECIPE_SERIALIZERS.register("wand_recipe",
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<WandRecipe>> WAND_RECIPE_SERIALIZER = EM_RECIPE_SERIALIZERS.register(WAND_RECIPE_LOCATION,
             WandRecipe.Serializer::new
     );
 
     // Types
-    public static final DeferredHolder<RecipeType<?>, RecipeType<WandRecipe>> WAND_RECIPE_TYPE = EM_RECIPE_TYPES.register("wand_recipe",
+    public static final DeferredHolder<RecipeType<?>, RecipeType<WandRecipe>> WAND_RECIPE_TYPE = EM_RECIPE_TYPES.register(WAND_RECIPE_LOCATION,
             () -> new RecipeType<WandRecipe>() {
                 @Override
                 public String toString() {
-                    return "wand_recipe";
+                    return WAND_RECIPE_LOCATION;
                 }
             }
     );

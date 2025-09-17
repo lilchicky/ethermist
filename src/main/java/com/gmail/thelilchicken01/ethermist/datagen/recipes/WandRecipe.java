@@ -7,6 +7,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
@@ -25,6 +26,14 @@ public class WandRecipe implements Recipe<WandRecipeInput> {
         this.base = left;
         this.addition = right;
         this.result = result;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> list = NonNullList.create();
+        list.add(base);
+        list.add(addition);
+        return list;
     }
 
     public boolean isWandIngredient(ItemStack stack) {
