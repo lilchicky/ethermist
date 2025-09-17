@@ -32,7 +32,7 @@ public class KineticRushEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public void onShoot(Level level, Player player) {
+    public boolean onShoot(Level level, Player player) {
 
         if (!level.isClientSide()) {
             RandomSource random = RandomSource.create();
@@ -55,6 +55,8 @@ public class KineticRushEnchant implements IWandSpellEffect {
             player.setDeltaMovement(offsetLaunch);
             player.hurtMarked = true;
         }
+
+        return true;
 
     }
 }

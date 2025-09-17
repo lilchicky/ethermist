@@ -59,6 +59,9 @@ public class WandProjectileHandler {
         // Projectile flags
         AtomicBoolean isHoming = new AtomicBoolean(false);
         AtomicBoolean makesProjectile = new AtomicBoolean(true);
+
+        // Used to pass on if a projectile (or effect, like Kinetic Rush) was successfully
+        // finished/created, to trigger cooldown and shoot sound effects
         AtomicBoolean hasShot = new AtomicBoolean(false);
 
         // Wand shot item and shot item stack
@@ -169,7 +172,9 @@ public class WandProjectileHandler {
         EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
             IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
             if (spell != null) {
-                spell.onShoot(level, player);
+                if (spell.onShoot(level, player)) {
+                    hasShot.set(true);
+                }
             }
         });
 
