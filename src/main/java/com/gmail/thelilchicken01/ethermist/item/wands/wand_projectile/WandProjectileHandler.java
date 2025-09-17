@@ -174,7 +174,9 @@ public class WandProjectileHandler {
         });
 
         // Add cooldown to wand
-        player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
+        if (hasShot.get()) {
+            player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
+        }
 
         return hasShot.get();
 
