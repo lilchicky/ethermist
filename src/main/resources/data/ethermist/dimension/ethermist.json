@@ -50196,66 +50196,6 @@
               1
             ]
           }
-        },
-        {
-          "biome": "minecraft:dripstone_caves",
-          "parameters": {
-            "depth": [
-              0.2,
-              0.9
-            ],
-            "erosion": [
-              -1,
-              1
-            ],
-            "humidity": [
-              -1,
-              1
-            ],
-            "offset": 0,
-            "temperature": [
-              -1,
-              1
-            ],
-            "weirdness": [
-              -1,
-              1
-            ],
-            "continentalness": [
-              0.8,
-              1
-            ]
-          }
-        },
-        {
-          "biome": "minecraft:lush_caves",
-          "parameters": {
-            "depth": [
-              0.2,
-              0.9
-            ],
-            "erosion": [
-              -1,
-              1
-            ],
-            "humidity": [
-              0.7,
-              1
-            ],
-            "offset": 0,
-            "temperature": [
-              -1,
-              1
-            ],
-            "weirdness": [
-              -1,
-              1
-            ],
-            "continentalness": [
-              -1,
-              1
-            ]
-          }
         }
       ],
       "type": "minecraft:multi_noise"
