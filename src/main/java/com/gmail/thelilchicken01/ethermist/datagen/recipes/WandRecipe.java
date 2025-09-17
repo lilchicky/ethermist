@@ -28,7 +28,7 @@ public class WandRecipe implements Recipe<WandRecipeInput> {
     }
 
     public boolean isWandIngredient(ItemStack stack) {
-        return (stack.getItem() instanceof WandItem || stack.getItem() instanceof OrbItem || stack.getItem() instanceof HandleItem);
+        return this.base.test(stack) || this.addition.test(stack);
     }
 
     @Override
@@ -111,12 +111,12 @@ public class WandRecipe implements Recipe<WandRecipeInput> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return EMCustomRecipes.WAND_RECIPE_SERIALIZER.get();
+        return EMRecipeRegistration.WAND_RECIPE_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return EMCustomRecipes.WAND_RECIPE_TYPE.get();
+        return EMRecipeRegistration.WAND_RECIPE_TYPE.get();
     }
 
     public static class Serializer implements RecipeSerializer<WandRecipe> {

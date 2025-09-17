@@ -135,7 +135,7 @@ public class WandDyeRecipe extends CustomRecipe {
     }
 
     public RecipeSerializer<?> getSerializer() {
-        return EMCustomRecipes.WAND_DYE_RECIPE.get();
+        return EMRecipeRegistration.WAND_DYE_RECIPE.get();
     }
 }
 

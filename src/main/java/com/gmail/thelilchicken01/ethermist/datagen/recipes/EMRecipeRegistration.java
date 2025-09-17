@@ -9,7 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class EMCustomRecipes {
+public class EMRecipeRegistration {
 
     public static final DeferredRegister<RecipeSerializer<?>> EM_RECIPE_SERIALIZERS = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, Ethermist.MODID);
     public static final DeferredRegister<RecipeType<?>> EM_RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, Ethermist.MODID);

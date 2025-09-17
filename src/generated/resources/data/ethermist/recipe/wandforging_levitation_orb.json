@@ -1,13 +1,13 @@
 {
   "type": "ethermist:wand_recipe",
-  "base": {
+  "left": {
     "tag": "ethermist:wand_base"
-  },
-  "addition": {
-    "item": "ethermist:dull_orb"
   },
   "result": {
     "count": 1,
-    "id": "ethermist:dull_wand"
+    "id": "ethermist:levitation_wand"
+  },
+  "right": {
+    "item": "ethermist:levitation_orb"
   }
 }

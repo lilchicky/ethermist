@@ -4,13 +4,16 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -830,6 +833,17 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
+        wandRecipe(output, EMItems.DULL_WAND.get(), EMItems.DULL_ORB.get());
+        wandRecipe(output, EMItems.FLAME_WAND.get(), EMItems.FLAME_ORB.get());
+        wandRecipe(output, EMItems.POISON_WAND.get(), EMItems.POISON_ORB.get());
+        wandRecipe(output, EMItems.LEVITATION_WAND.get(), EMItems.LEVITATION_ORB.get());
+        wandRecipe(output, EMItems.WITHER_WAND.get(), EMItems.WITHER_ORB.get());
+        wandRecipe(output, EMItems.WITCH_WAND.get(), EMItems.WITCH_ORB.get());
+        wandRecipe(output, EMItems.HEAVY_WAND.get(), Items.HEAVY_CORE);
+        wandRecipe(output, EMItems.FROZEN_WAND.get(), EMItems.FROZEN_ORB.get());
+        wandRecipe(output, EMItems.GLASS_WAND.get(), EMItems.GLASS_ORB.get());
+        wandRecipe(output, EMItems.GLIMMERBUG_WAND.get(), EMItems.GLIMMERBUG_ORB.get());
+
         /*
         ---------- Foods ----------
          */
@@ -844,6 +858,12 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         oreSmoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
                 RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
 
+    }
+
+    protected static void wandRecipe(RecipeOutput output, WandItem result, Item orb) {
+        new WandRecipeBuilder(result, Ingredient.of(orb))
+                .unlockedBy("has_" + BuiltInRegistries.ITEM.getKey(orb).getPath(), has(orb)).group("wands")
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wandforging_" + BuiltInRegistries.ITEM.getKey(orb).getPath()));
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

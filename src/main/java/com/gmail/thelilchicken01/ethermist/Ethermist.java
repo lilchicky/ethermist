@@ -2,7 +2,7 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
-import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMCustomRecipes;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandAugments;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandBaseEnchants;
@@ -95,7 +95,7 @@ public class Ethermist {
         EMFeatures.register(bus);
         LOGGER.info("Successfully registered Ethermist world generation features");
 
-        EMCustomRecipes.register(bus);
+        EMRecipeRegistration.register(bus);
 
         EMEntityTypes.register(bus);
 

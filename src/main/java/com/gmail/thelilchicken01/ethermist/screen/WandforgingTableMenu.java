@@ -1,22 +1,24 @@
 package com.gmail.thelilchicken01.ethermist.screen;
 
 import java.util.List;
-import java.util.OptionalInt;
 import javax.annotation.Nullable;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMCustomRecipes;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipe;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipeInput;
 import com.gmail.thelilchicken01.ethermist.item.HandleItem;
 import com.gmail.thelilchicken01.ethermist.item.OrbItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -32,6 +34,7 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     private final Level level;
     @Nullable
     private RecipeHolder<WandRecipe> selectedRecipe;
+    private final List<RecipeHolder<WandRecipe>> recipes;
 
     public WandforgingTableMenu(int containerId, Inventory playerInventory) {
         this(containerId, playerInventory, ContainerLevelAccess.NULL);
@@ -40,19 +43,18 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     public WandforgingTableMenu(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
         super(EMMenuTypes.WANDFORGING_TABLE_MENU.get(), containerId, playerInventory, access);
         this.level = playerInventory.player.level();
+        this.recipes = this.level.getRecipeManager().getAllRecipesFor(EMRecipeRegistration.WAND_RECIPE_TYPE.get());
     }
 
     @Override
     protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
         return ItemCombinerMenuSlotDefinition.create()
-                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, this::isWandIngredient)
-                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, this::isWandIngredient)
+                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, stack ->
+                        this.recipes.stream().anyMatch(recipe -> recipe.value().isWandIngredient(stack)))
+                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, stack ->
+                        this.recipes.stream().anyMatch(recipe -> recipe.value().isWandIngredient(stack)))
                 .withResultSlot(OUTPUT_SLOT, OUTPUT_X, OUTPUT_SLOT_Y)
                 .build();
-    }
-
-    private boolean isWandIngredient(ItemStack stack) {
-        return (stack.getItem() instanceof WandItem || stack.getItem() instanceof OrbItem || stack.getItem() instanceof HandleItem);
     }
 
     @Override
@@ -71,7 +73,15 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
         this.resultSlots.awardUsedRecipes(player, this.getRelevantItems());
         this.shrinkStackInSlot(INPUT_SLOT_1);
         this.shrinkStackInSlot(INPUT_SLOT_2);
-        this.access.execute((level, pos) -> level.levelEvent(1044, pos, 0));
+        this.access.execute((level, pos) -> {
+            level.playSound(
+                    null,
+                    pos,
+                    SoundEvents.ENCHANTMENT_TABLE_USE,
+                    SoundSource.BLOCKS,
+                    1.0F, 1.0F
+            );
+        });
     }
 
     private List<ItemStack> getRelevantItems() {
@@ -93,11 +103,11 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     @Override
     public void createResult() {
         WandRecipeInput wandrecipeinput = this.createRecipeInput();
-        List<RecipeHolder<WandRecipe>> list = this.level.getRecipeManager().getRecipesFor(EMCustomRecipes.WAND_RECIPE_TYPE.get(), wandrecipeinput, this.level);
+        List<RecipeHolder<WandRecipe>> list = this.level.getRecipeManager().getRecipesFor(EMRecipeRegistration.WAND_RECIPE_TYPE.get(), wandrecipeinput, this.level);
         if (list.isEmpty()) {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {
-            RecipeHolder<WandRecipe> recipeholder = list.get(0);
+            RecipeHolder<WandRecipe> recipeholder = list.getFirst();
             ItemStack itemstack = recipeholder.value().assemble(wandrecipeinput, this.level.registryAccess());
             if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
                 this.selectedRecipe = recipeholder;
