@@ -95,20 +95,22 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         if (!player.getCooldowns().isOnCooldown(this) && usedHand == InteractionHand.MAIN_HAND) {
 
-            WandProjectileHandler.processShot(level, player, wand, this, null, null);
+            if (WandProjectileHandler.processShot(level, player, wand, this, null, null)) {
 
-            level.playSound(player,
-                    player.getX(),
-                    player.getY(),
-                    player.getZ(),
-                    WAND_ORB.get().getShootSound(),
-                    SoundSource.PLAYERS,
-                    1.0f,
-                    level.getRandom().nextFloat() * 0.4f + 0.8f);
+                level.playSound(player,
+                        player.getX(),
+                        player.getY(),
+                        player.getZ(),
+                        WAND_ORB.get().getShootSound(),
+                        SoundSource.PLAYERS,
+                        1.0f,
+                        level.getRandom().nextFloat() * 0.4f + 0.8f);
 
-            player.awardStat(Stats.ITEM_USED.get(this));
+                player.awardStat(Stats.ITEM_USED.get(this));
 
-            wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+                wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+            }
 
         }
 
@@ -313,20 +315,22 @@ public class WandItem extends Item implements IDyeableWandItem {
 
             if (!player.getCooldowns().isOnCooldown(this) && context.getHand() == InteractionHand.MAIN_HAND) {
 
-                WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
+                if (WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null)) {
 
-                level.playSound(player,
-                        player.getX(),
-                        player.getY(),
-                        player.getZ(),
-                        WAND_ORB.get().getShootSound(),
-                        SoundSource.PLAYERS,
-                        1.0f,
-                        level.getRandom().nextFloat() * 0.4f + 0.8f);
+                    level.playSound(player,
+                            player.getX(),
+                            player.getY(),
+                            player.getZ(),
+                            WAND_ORB.get().getShootSound(),
+                            SoundSource.PLAYERS,
+                            1.0f,
+                            level.getRandom().nextFloat() * 0.4f + 0.8f);
 
-                player.awardStat(Stats.ITEM_USED.get(this));
+                    player.awardStat(Stats.ITEM_USED.get(this));
 
-                wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+                    wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+                }
 
             }
 
@@ -344,20 +348,22 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         if (!player.getCooldowns().isOnCooldown(this)) {
 
-            WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget);
+            if (WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget)) {
 
-            level.playSound(player,
-                    player.getX(),
-                    player.getY(),
-                    player.getZ(),
-                    WAND_ORB.get().getShootSound(),
-                    SoundSource.PLAYERS,
-                    1.0f,
-                    level.getRandom().nextFloat() * 0.4f + 0.8f);
+                level.playSound(player,
+                        player.getX(),
+                        player.getY(),
+                        player.getZ(),
+                        WAND_ORB.get().getShootSound(),
+                        SoundSource.PLAYERS,
+                        1.0f,
+                        level.getRandom().nextFloat() * 0.4f + 0.8f);
 
-            player.awardStat(Stats.ITEM_USED.get(this));
+                player.awardStat(Stats.ITEM_USED.get(this));
 
-            wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+                wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+            }
 
         }
 

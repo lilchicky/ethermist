@@ -63,6 +63,11 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
     }
 
     @Override
+    public boolean doesCreateProjectile(Entity shooter, @Nullable List<Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) {
+        return pos != null || clickedEntity != null;
+    }
+
+    @Override
     public boolean shoot(
             Level level,
             Player player,
@@ -100,6 +105,8 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
 
             level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
+            return true;
+
         }
         else if (clickedEntity != null) {
 
@@ -122,9 +129,11 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
 
             level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
+            return true;
+
         }
 
-        return true;
+        return false;
 
     }
 }

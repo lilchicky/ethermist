@@ -49,7 +49,7 @@ public class WandProjectileHandler {
 
     }
 
-    public static void processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
+    public static boolean processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
                                    @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
         // Get lifespan and projectile speed from wand
@@ -59,7 +59,7 @@ public class WandProjectileHandler {
         // Projectile flags
         AtomicBoolean isHoming = new AtomicBoolean(false);
         AtomicBoolean makesProjectile = new AtomicBoolean(true);
-        AtomicBoolean hasSpecialShoot = new AtomicBoolean(false);
+        AtomicBoolean hasShot = new AtomicBoolean(false);
 
         // Wand shot item and shot item stack
         WandShotItem shotItem = wand.getOrb().getShotItem();
@@ -96,9 +96,24 @@ public class WandProjectileHandler {
                 if (augment.doesProjectileHome()) {
                     isHoming.set(true);
                 }
+                if (!augment.doesCreateProjectile(
+                        player,
+                        target,
+                        pos,
+                        clickedEntity,
+                        enchantLevel
+                )) {
+                    makesProjectile.set(false);
+                }
             }
             if (spell != null) {
-                if (!spell.doesCreateProjectile()) {
+                if (!spell.doesCreateProjectile(
+                        player,
+                        target,
+                        pos,
+                        clickedEntity,
+                        enchantLevel
+                )) {
                     makesProjectile.set(false);
                 }
             }
@@ -111,7 +126,7 @@ public class WandProjectileHandler {
         EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
             IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
             if (augment != null) {
-                if (!hasSpecialShoot.get() && augment.shoot(
+                if (!hasShot.get() && augment.shoot(
                         level,
                         player,
                         target,
@@ -127,13 +142,13 @@ public class WandProjectileHandler {
                         clickedEntity,
                         saveSpellEntries(thisWand),
                         enchantLevel)) {
-                    hasSpecialShoot.set(true);
+                    hasShot.set(true);
                 }
             }
         });
 
         // If there was no special shot fired, and the wand should create a projectile, then run a default shoot method.
-        if (!hasSpecialShoot.get() && makesProjectile.get()) {
+        if (!hasShot.get() && makesProjectile.get()) {
             WandShotHandler.shoot(
                     level,
                     player,
@@ -147,6 +162,7 @@ public class WandProjectileHandler {
                     types,
                     saveSpellEntries(thisWand)
             );
+            hasShot.set(true);
         }
 
         // Run any special spell effects on shoot (right click), like Kinetic Rush
@@ -159,6 +175,8 @@ public class WandProjectileHandler {
 
         // Add cooldown to wand
         player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
+
+        return hasShot.get();
 
     }
 
