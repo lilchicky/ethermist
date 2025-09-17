@@ -144,7 +144,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .addTag(EMTags.Items.WANDS)
                 .add(EMItems.MAIN_SPELL_TOME.get());
 
-        tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.WOODEN_HEAVY_WAND.get());
+        tag(ItemTags.MACE_ENCHANTABLE).add(EMItems.HEAVY_WAND.get());
 
         tag(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES).add(EMBlocks.WANDFORGING_TABLE.get().asItem());
 
@@ -204,125 +204,17 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.PRISMARINE_WAND_HANDLE.get())
                 .add(EMItems.NETHERITE_WAND_HANDLE.get());
 
-        // ---------- Dull Wands ----------
-        addWands(EMItems.WOODEN_DULL_WAND.get());
-        addWands(EMItems.EMERALD_DULL_WAND.get());
-        addWands(EMItems.DIAMOND_DULL_WAND.get());
-        addWands(EMItems.GOLDEN_DULL_WAND.get());
-        addWands(EMItems.LAPIS_DULL_WAND.get());
-        addWands(EMItems.QUARTZ_DULL_WAND.get());
-        addWands(EMItems.REDSTONE_DULL_WAND.get());
-        addWands(EMItems.GLOWSTONE_DULL_WAND.get());
-        addWands(EMItems.PRISMARINE_DULL_WAND.get());
-        addWands(EMItems.NETHERITE_DULL_WAND.get());
-
-        // ---------- Flame Wands ----------
-        addWands(EMItems.WOODEN_FLAME_WAND.get());
-        addWands(EMItems.EMERALD_FLAME_WAND.get());
-        addWands(EMItems.DIAMOND_FLAME_WAND.get());
-        addWands(EMItems.GOLDEN_FLAME_WAND.get());
-        addWands(EMItems.LAPIS_FLAME_WAND.get());
-        addWands(EMItems.QUARTZ_FLAME_WAND.get());
-        addWands(EMItems.REDSTONE_FLAME_WAND.get());
-        addWands(EMItems.GLOWSTONE_FLAME_WAND.get());
-        addWands(EMItems.PRISMARINE_FLAME_WAND.get());
-        addWands(EMItems.NETHERITE_FLAME_WAND.get());
-
-        // ---------- Poison Wands ----------
-        addWands(EMItems.WOODEN_POISON_WAND.get());
-        addWands(EMItems.EMERALD_POISON_WAND.get());
-        addWands(EMItems.DIAMOND_POISON_WAND.get());
-        addWands(EMItems.GOLDEN_POISON_WAND.get());
-        addWands(EMItems.LAPIS_POISON_WAND.get());
-        addWands(EMItems.QUARTZ_POISON_WAND.get());
-        addWands(EMItems.REDSTONE_POISON_WAND.get());
-        addWands(EMItems.GLOWSTONE_POISON_WAND.get());
-        addWands(EMItems.PRISMARINE_POISON_WAND.get());
-        addWands(EMItems.NETHERITE_POISON_WAND.get());
-
-        // ---------- Levitation Wands ----------
-        addWands(EMItems.WOODEN_LEVITATION_WAND.get());
-        addWands(EMItems.EMERALD_LEVITATION_WAND.get());
-        addWands(EMItems.DIAMOND_LEVITATION_WAND.get());
-        addWands(EMItems.GOLDEN_LEVITATION_WAND.get());
-        addWands(EMItems.LAPIS_LEVITATION_WAND.get());
-        addWands(EMItems.QUARTZ_LEVITATION_WAND.get());
-        addWands(EMItems.REDSTONE_LEVITATION_WAND.get());
-        addWands(EMItems.GLOWSTONE_LEVITATION_WAND.get());
-        addWands(EMItems.PRISMARINE_LEVITATION_WAND.get());
-        addWands(EMItems.NETHERITE_LEVITATION_WAND.get());
-
-        // ---------- Wither Wands ----------
-        addWands(EMItems.WOODEN_WITHER_WAND.get());
-        addWands(EMItems.EMERALD_WITHER_WAND.get());
-        addWands(EMItems.DIAMOND_WITHER_WAND.get());
-        addWands(EMItems.GOLDEN_WITHER_WAND.get());
-        addWands(EMItems.LAPIS_WITHER_WAND.get());
-        addWands(EMItems.QUARTZ_WITHER_WAND.get());
-        addWands(EMItems.REDSTONE_WITHER_WAND.get());
-        addWands(EMItems.GLOWSTONE_WITHER_WAND.get());
-        addWands(EMItems.PRISMARINE_WITHER_WAND.get());
-        addWands(EMItems.NETHERITE_WITHER_WAND.get());
-
-        // ---------- Witch Wands ----------
-        addWands(EMItems.WOODEN_WITCH_WAND.get());
-        addWands(EMItems.EMERALD_WITCH_WAND.get());
-        addWands(EMItems.DIAMOND_WITCH_WAND.get());
-        addWands(EMItems.GOLDEN_WITCH_WAND.get());
-        addWands(EMItems.LAPIS_WITCH_WAND.get());
-        addWands(EMItems.QUARTZ_WITCH_WAND.get());
-        addWands(EMItems.REDSTONE_WITCH_WAND.get());
-        addWands(EMItems.GLOWSTONE_WITCH_WAND.get());
-        addWands(EMItems.PRISMARINE_WITCH_WAND.get());
-        addWands(EMItems.NETHERITE_WITCH_WAND.get());
-
-        // ---------- Heavy Wands ----------
-        addWands(EMItems.WOODEN_HEAVY_WAND.get());
-        addWands(EMItems.EMERALD_HEAVY_WAND.get());
-        addWands(EMItems.DIAMOND_HEAVY_WAND.get());
-        addWands(EMItems.GOLDEN_HEAVY_WAND.get());
-        addWands(EMItems.LAPIS_HEAVY_WAND.get());
-        addWands(EMItems.QUARTZ_HEAVY_WAND.get());
-        addWands(EMItems.REDSTONE_HEAVY_WAND.get());
-        addWands(EMItems.GLOWSTONE_HEAVY_WAND.get());
-        addWands(EMItems.PRISMARINE_HEAVY_WAND.get());
-        addWands(EMItems.NETHERITE_HEAVY_WAND.get());
-
-        // ---------- Frozen Wands ----------
-        addWands(EMItems.WOODEN_FROZEN_WAND.get());
-        addWands(EMItems.EMERALD_FROZEN_WAND.get());
-        addWands(EMItems.DIAMOND_FROZEN_WAND.get());
-        addWands(EMItems.GOLDEN_FROZEN_WAND.get());
-        addWands(EMItems.LAPIS_FROZEN_WAND.get());
-        addWands(EMItems.QUARTZ_FROZEN_WAND.get());
-        addWands(EMItems.REDSTONE_FROZEN_WAND.get());
-        addWands(EMItems.GLOWSTONE_FROZEN_WAND.get());
-        addWands(EMItems.PRISMARINE_FROZEN_WAND.get());
-        addWands(EMItems.NETHERITE_FROZEN_WAND.get());
-
-        // ---------- Glass Wands ----------
-        addWands(EMItems.WOODEN_GLASS_WAND.get());
-        addWands(EMItems.EMERALD_GLASS_WAND.get());
-        addWands(EMItems.DIAMOND_GLASS_WAND.get());
-        addWands(EMItems.GOLDEN_GLASS_WAND.get());
-        addWands(EMItems.LAPIS_GLASS_WAND.get());
-        addWands(EMItems.QUARTZ_GLASS_WAND.get());
-        addWands(EMItems.REDSTONE_GLASS_WAND.get());
-        addWands(EMItems.GLOWSTONE_GLASS_WAND.get());
-        addWands(EMItems.PRISMARINE_GLASS_WAND.get());
-        addWands(EMItems.NETHERITE_GLASS_WAND.get());
-
-        // ---------- Glimmerbug Wand ----------
-        addWands(EMItems.WOODEN_GLIMMERBUG_WAND.get());
-        addWands(EMItems.EMERALD_GLIMMERBUG_WAND.get());
-        addWands(EMItems.DIAMOND_GLIMMERBUG_WAND.get());
-        addWands(EMItems.GOLDEN_GLIMMERBUG_WAND.get());
-        addWands(EMItems.LAPIS_GLIMMERBUG_WAND.get());
-        addWands(EMItems.QUARTZ_GLIMMERBUG_WAND.get());
-        addWands(EMItems.REDSTONE_GLIMMERBUG_WAND.get());
-        addWands(EMItems.GLOWSTONE_GLIMMERBUG_WAND.get());
-        addWands(EMItems.PRISMARINE_GLIMMERBUG_WAND.get());
-        addWands(EMItems.NETHERITE_GLIMMERBUG_WAND.get());
+        // ---------- Wands ----------
+        addWands(EMItems.DULL_WAND.get());
+        addWands(EMItems.FLAME_WAND.get());
+        addWands(EMItems.POISON_WAND.get());
+        addWands(EMItems.LEVITATION_WAND.get());
+        addWands(EMItems.WITHER_WAND.get());
+        addWands(EMItems.WITCH_WAND.get());
+        addWands(EMItems.HEAVY_WAND.get());
+        addWands(EMItems.FROZEN_WAND.get());
+        addWands(EMItems.GLASS_WAND.get());
+        addWands(EMItems.GLIMMERBUG_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

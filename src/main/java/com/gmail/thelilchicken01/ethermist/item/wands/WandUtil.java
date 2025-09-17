@@ -90,12 +90,4 @@ public class WandUtil {
         return attributes.getModifierValue(attribute, attributeID);
     }
 
-    public static String getBaseWandName(String wandID) {
-        int index = wandID.indexOf('_');
-        if (index != -1 && index < wandID.length() - 1) {
-            return wandID.substring(index + 1);
-        }
-        return wandID;
-    }
-
 }

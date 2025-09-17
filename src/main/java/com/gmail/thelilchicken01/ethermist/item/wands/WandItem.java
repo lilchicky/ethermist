@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.EMConfig;
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
 import com.gmail.thelilchicken01.ethermist.component.WandHandleEntry;
@@ -9,7 +8,6 @@ import com.gmail.thelilchicken01.ethermist.component.WandOrbEntry;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.*;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
@@ -18,8 +16,8 @@ import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -48,14 +46,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
-
-import static com.gmail.thelilchicken01.ethermist.item.wands.WandUtil.getBaseWandName;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -255,7 +250,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         }
 
         lore.add(dyeableText);
-        lore.add(Component.translatable("item.ethermist." + getBaseWandName(this.getDescriptionId()) + ".desc").withColor(0xAAAAAA));
+        lore.add(Component.translatable("item.ethermist." + BuiltInRegistries.ITEM.getKey(this).getPath() + ".desc").withColor(0xAAAAAA));
 
         if (WAND_ORB.get() == EMWandOrbs.GLIMMERBUG.get()) {
             lore.add(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA));

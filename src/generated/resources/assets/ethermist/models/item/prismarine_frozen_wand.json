@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "ethermist:item/wands/handles/wand_handle_base",
-    "layer1": "ethermist:item/wands/handles/wand_handle_tier",
-    "layer2": "ethermist:item/wands/handles/wand_handle_gems",
-    "layer3": "ethermist:item/wands/frozen_wand"
-  }
-}
