@@ -47,7 +47,7 @@ public class WandRecipeCategory implements IRecipeCategory<WandRecipe> {
 
     @Override
     public Component getTitle() {
-        return Component.translatable("block.ethermist.wandforging_table.menu");
+        return Component.translatable("block.ethermist.wandforging_table.jei");
     }
 
     @Override

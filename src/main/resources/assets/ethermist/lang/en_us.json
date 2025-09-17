@@ -503,5 +503,6 @@
   "creativetab.ethermist.em_item_tab": "Ethermist Items",
   "block.ethermist.wandforging_table.error": "Invalid Recipe!",
   "block.ethermist.wandforging_table.tooltip": "Insert Wand, Orb, or Handle",
-  "block.ethermist.wandforging_table.menu": "Wandforging Table"
+  "block.ethermist.wandforging_table.menu": "Wandforging Table",
+  "block.ethermist.wandforging_table.jei": "Wandforging"
 }
