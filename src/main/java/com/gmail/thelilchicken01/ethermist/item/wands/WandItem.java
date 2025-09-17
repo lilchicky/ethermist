@@ -1,10 +1,15 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
 import com.gmail.thelilchicken01.ethermist.EMConfig;
+import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
+import com.gmail.thelilchicken01.ethermist.component.WandHandleEntry;
+import com.gmail.thelilchicken01.ethermist.component.WandOrbEntry;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.*;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
@@ -13,6 +18,7 @@ import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPortalShape;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.*;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -42,6 +48,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +62,6 @@ import static com.gmail.thelilchicken01.ethermist.item.wands.WandUtil.getBaseWan
 public class WandItem extends Item implements IDyeableWandItem {
 
     private final DeferredHolder<WandOrb, WandOrb> WAND_ORB;
-    private final DeferredHolder<WandHandle, WandHandle> WAND_HANDLE;
 
     public static final ResourceLocation COOLDOWN_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "cooldown");
     public static final ResourceLocation BASE_WAND_DAMAGE_ID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_damage");
@@ -69,19 +75,20 @@ public class WandItem extends Item implements IDyeableWandItem {
     public WandItem(DeferredHolder<WandOrb, WandOrb> orb, DeferredHolder<WandHandle, WandHandle> handle) {
         super(new Item.Properties().stacksTo(1)
                 .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
+                .component(EMDataComponents.WAND_HANDLE, new WandHandleEntry(handle.getId().toString()))
+                .component(EMDataComponents.WAND_ORB, new WandOrbEntry(orb.getId().toString()))
                 .durability(1));
         this.WAND_ORB = orb;
-        this.WAND_HANDLE = handle;
     }
 
     @Override
     public int getMaxDamage(ItemStack stack) {
         // cast as int twice to the math makes sense. I.E. Glass Wand has, by default,
-        // 3 durability, but its technically 3.84 durability, so the diamond handle makes it
+        // 3 durability, but its technically 3.84 durability, so the diamond orb makes it
         // have 19 instead of the expected 15 (3.84x5 vs 3x5). Implemented mostly so durability
         // is a bit more intuitive.
         return Math.max(
-                (int) ((int)(128 * WAND_ORB.get().getDurabilityMult()) * WAND_HANDLE.get().getDurabilityMult()),
+                (int) ((int)(128 * WAND_ORB.get().getDurabilityMult()) * getHandle(stack).getDurabilityMult()),
                 1
         );
     }
@@ -121,20 +128,16 @@ public class WandItem extends Item implements IDyeableWandItem {
 
     @Override
     public int getEnchantmentValue(ItemStack stack) {
-        return (int)(WAND_ORB.get().getEnchantability() * WAND_HANDLE.get().getEnchantabilityMult());
+        return (int)(WAND_ORB.get().getEnchantability() * getHandle(stack).getEnchantabilityMult());
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairItem) {
-        return stack.isDamaged() && (WAND_ORB.get().getRepairItem().get().test(repairItem) || WAND_HANDLE.get().getRepairItem().get().test(repairItem));
+        return stack.isDamaged() && (WAND_ORB.get().getRepairItem().get().test(repairItem) || getHandle(stack).getRepairItem().get().test(repairItem));
     }
 
     public WandOrb getOrb() {
         return WAND_ORB.get();
-    }
-
-    public WandHandle getHandle() {
-        return WAND_HANDLE.get();
     }
 
     public SoundEvent getShootSound() {
@@ -168,8 +171,8 @@ public class WandItem extends Item implements IDyeableWandItem {
                 WAND_ORB.get().getInaccuracy()
         );
 
-        // Apply tier (handle) modifiers to default attributes
-        WAND_HANDLE.get().apply(currentAttributeState);
+        // Apply tier (orb) modifiers to default attributes
+        getHandle(stack).apply(currentAttributeState);
 
         // Order here is implemented base -> augment -> spell, for priority of hard attribute
         // adjustments (such as Focus Augment overriding default accuracy enchantments).
@@ -260,7 +263,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         lore.add(Component.empty());
 
-        lore.addAll(WAND_HANDLE.get().getModifierString());
+        lore.addAll(getHandle(stack).getModifierString());
 
         if (stack.isEnchanted()) {
             lore.add(Component.empty());
@@ -400,6 +403,13 @@ public class WandItem extends Item implements IDyeableWandItem {
     @Override
     public boolean isFoil(ItemStack stack) {
         return !EMConfig.hideGlint && super.isFoil(stack);
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        return Component.translatable("item.ethermist.wand_handle." + getHandle(stack).getDescription())
+                .append(Component.literal(" "))
+                .append(Component.translatable(this.getDescriptionId(stack)));
     }
 
     @Override

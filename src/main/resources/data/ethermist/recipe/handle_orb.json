@@ -1,0 +1,13 @@
+{
+  "type": "ethermist:wand_recipe",
+  "left": {
+    "tag": "ethermist:wand_base"
+  },
+  "right": {
+    "item": "ethermist:dull_orb"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:wooden_dull_wand"
+  }
+}

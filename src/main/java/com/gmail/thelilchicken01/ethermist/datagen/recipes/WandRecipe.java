@@ -63,8 +63,8 @@ public class WandRecipe implements Recipe<WandRecipeInput> {
             var additionHandleComp = handle.get(HANDLE_COMP);
             if (additionHandleComp == null) return ItemStack.EMPTY;
 
-            out = wand.transmuteCopy(this.result.getItem());
-            out.applyComponents(this.result.getComponentsPatch());
+            out = wand.copy();
+            out.applyComponents(handle.getComponentsPatch());
             out.set(HANDLE_COMP, additionHandleComp);
 
             return out;

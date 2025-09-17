@@ -129,18 +129,6 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.WAND_TOME.get())
                 .add(EMItems.BASE_SPELL_TOME.get());
 
-        tag(EMTags.Items.DYEABLE_WANDS)
-                .add(EMItems.WOODEN_WAND_HANDLE.get())
-                .add(EMItems.EMERALD_WAND_HANDLE.get())
-                .add(EMItems.DIAMOND_WAND_HANDLE.get())
-                .add(EMItems.GOLDEN_WAND_HANDLE.get())
-                .add(EMItems.LAPIS_WAND_HANDLE.get())
-                .add(EMItems.QUARTZ_WAND_HANDLE.get())
-                .add(EMItems.REDSTONE_WAND_HANDLE.get())
-                .add(EMItems.GLOWSTONE_WAND_HANDLE.get())
-                .add(EMItems.PRISMARINE_WAND_HANDLE.get())
-                .add(EMItems.NETHERITE_WAND_HANDLE.get());
-
         tag(EMTags.Items.ENCHANTABLE_BASE)
                 .addTag(EMTags.Items.WANDS)
                 .add(EMItems.BASE_SPELL_TOME.get());
@@ -191,6 +179,30 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.FROZEN_ORB.get())
                 .add(EMItems.GLASS_ORB.get())
                 .add(EMItems.GLIMMERBUG_ORB.get());
+
+        tag(EMTags.Items.DYEABLE_WANDS)
+                .add(EMItems.WOODEN_WAND_HANDLE.get())
+                .add(EMItems.EMERALD_WAND_HANDLE.get())
+                .add(EMItems.DIAMOND_WAND_HANDLE.get())
+                .add(EMItems.GOLDEN_WAND_HANDLE.get())
+                .add(EMItems.LAPIS_WAND_HANDLE.get())
+                .add(EMItems.QUARTZ_WAND_HANDLE.get())
+                .add(EMItems.REDSTONE_WAND_HANDLE.get())
+                .add(EMItems.GLOWSTONE_WAND_HANDLE.get())
+                .add(EMItems.PRISMARINE_WAND_HANDLE.get())
+                .add(EMItems.NETHERITE_WAND_HANDLE.get());
+
+        tag(EMTags.Items.WAND_BASE)
+                .add(EMItems.WOODEN_WAND_HANDLE.get())
+                .add(EMItems.EMERALD_WAND_HANDLE.get())
+                .add(EMItems.DIAMOND_WAND_HANDLE.get())
+                .add(EMItems.GOLDEN_WAND_HANDLE.get())
+                .add(EMItems.LAPIS_WAND_HANDLE.get())
+                .add(EMItems.QUARTZ_WAND_HANDLE.get())
+                .add(EMItems.REDSTONE_WAND_HANDLE.get())
+                .add(EMItems.GLOWSTONE_WAND_HANDLE.get())
+                .add(EMItems.PRISMARINE_WAND_HANDLE.get())
+                .add(EMItems.NETHERITE_WAND_HANDLE.get());
 
         // ---------- Dull Wands ----------
         addWands(EMItems.WOODEN_DULL_WAND.get());
@@ -439,6 +451,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(EMTags.Items.MAGIC_ENCHANTABLE).add(wand);
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(wand);
         tag(EMTags.Items.DYEABLE_WANDS).add(wand);
+        tag(EMTags.Items.WAND_BASE).add(wand);
     }
 
     private void addRedstone(Item button, Item plate, Boolean wooden) {

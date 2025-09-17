@@ -1,17 +1,26 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
+import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
+import com.gmail.thelilchicken01.ethermist.component.WandOrbEntry;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.WandOrb;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class OrbItem extends Item {
 
-    public OrbItem() {
-        super(new Item.Properties().stacksTo(16));
+    private final DeferredHolder<WandOrb, WandOrb> WAND_ORB;
+
+    public OrbItem(DeferredHolder<WandOrb, WandOrb> orb) {
+        super(new Item.Properties().stacksTo(16)
+                .component(EMDataComponents.WAND_ORB.get(), new WandOrbEntry(orb.getId().getPath()))
+        );
+        this.WAND_ORB = orb;
     }
 
     @Override

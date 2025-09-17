@@ -68,7 +68,7 @@ public class EMClientModEvents {
                     } else if (layer == 1) {
 
                         IWandHandle tier = (stack.getItem() instanceof IDyeableWandItem dyeable)
-                                ? dyeable.getHandle()
+                                ? dyeable.getHandle(stack)
                                 : null;
 
                         if (tier != null) {

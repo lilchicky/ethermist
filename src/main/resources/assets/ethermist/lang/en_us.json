@@ -268,6 +268,17 @@
   "generic.ethermist.time.seconds": " Seconds",
 
   "_comment": "--------------- ITEMS ---------------",
+  "item.ethermist.wand_handle.wooden": "Wooden",
+  "item.ethermist.wand_handle.emerald": "Emerald",
+  "item.ethermist.wand_handle.diamond": "Diamond",
+  "item.ethermist.wand_handle.golden": "Golden",
+  "item.ethermist.wand_handle.lapis": "Lapis",
+  "item.ethermist.wand_handle.quartz": "Quartz",
+  "item.ethermist.wand_handle.redstone": "Redstone",
+  "item.ethermist.wand_handle.glowstone": "Glowstone",
+  "item.ethermist.wand_handle.prismarine": "Prismarine",
+  "item.ethermist.wand_handle.netherite": "Netherite",
+
   "item.ethermist.wooden_wand_handle": "Wooden Wand Handle",
   "item.ethermist.emerald_wand_handle": "Emerald Wand Handle",
   "item.ethermist.diamond_wand_handle": "Diamond Wand Handle",

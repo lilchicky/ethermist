@@ -1,8 +1,8 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeSerializer;
-import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMWandMappings;
+import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMCustomRecipes;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandAugments;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandBaseEnchants;
@@ -82,6 +82,7 @@ public class Ethermist {
         EMBlocks.register(bus);
         EMItems.register(bus);
         EMMenuTypes.register(bus);
+        EMDataComponents.register(bus);
         LOGGER.info("Successfully registered Ethermist items");
 
         EMParticleTypes.register(bus);
@@ -94,7 +95,7 @@ public class Ethermist {
         EMFeatures.register(bus);
         LOGGER.info("Successfully registered Ethermist world generation features");
 
-        EMRecipeSerializer.register(bus);
+        EMCustomRecipes.register(bus);
 
         EMEntityTypes.register(bus);
 
@@ -124,7 +125,7 @@ public class Ethermist {
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_HANDLES_REGISTRY_KEY)
                 .sync(true)
-                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "empty")));
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(MODID, "wooden")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_ORBS_REGISTRY_KEY)
                 .sync(true)

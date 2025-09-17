@@ -34,15 +34,15 @@ public class EMItems {
     ---------- Orbs ----------
      */
 
-    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", OrbItem::new);
-    public static final DeferredItem<OrbItem> GLIMMERBUG_ORB = ITEMS.register("glimmerbug_orb", OrbItem::new);
+    public static final DeferredItem<OrbItem> DULL_ORB = ITEMS.register("dull_orb", () -> new OrbItem(EMWandOrbs.DULL));
+    public static final DeferredItem<OrbItem> FLAME_ORB = ITEMS.register("flame_orb", () -> new OrbItem(EMWandOrbs.FLAME));
+    public static final DeferredItem<OrbItem> POISON_ORB = ITEMS.register("poison_orb", () -> new OrbItem(EMWandOrbs.POISON));
+    public static final DeferredItem<OrbItem> LEVITATION_ORB = ITEMS.register("levitation_orb", () -> new OrbItem(EMWandOrbs.LEVITATION));
+    public static final DeferredItem<OrbItem> WITHER_ORB = ITEMS.register("wither_orb", () -> new OrbItem(EMWandOrbs.WITHER));
+    public static final DeferredItem<OrbItem> WITCH_ORB = ITEMS.register("witch_orb", () -> new OrbItem(EMWandOrbs.WITCH));
+    public static final DeferredItem<OrbItem> FROZEN_ORB = ITEMS.register("frozen_orb", () -> new OrbItem(EMWandOrbs.FROZEN));
+    public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", () -> new OrbItem(EMWandOrbs.GLASS));
+    public static final DeferredItem<OrbItem> GLIMMERBUG_ORB = ITEMS.register("glimmerbug_orb", () -> new OrbItem(EMWandOrbs.GLIMMERBUG));
 
     /*
     ---------- Dull Wands ----------

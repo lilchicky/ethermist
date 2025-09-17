@@ -38,6 +38,7 @@ public class EMTags {
         public static final TagKey<Item> MAGIC_ENCHANTABLE = mod("magic_enchantable");
         public static final TagKey<Item> TOMES = mod("tomes");
         public static final TagKey<Item> ORBS = mod("orbs");
+        public static final TagKey<Item> WAND_BASE = mod("wand_base");
 
         private static TagKey<Item> mod(String path) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-14T23:48:42.3996673	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-09-16T19:51:29.1735252	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods.json
@@ -26,6 +26,7 @@ a84d11c51d435b5d06702eb25760a70c715139c2 data/ethermist/tags/item/enchantable_ma
 0c2b31f53893dcd092038b2d6833bf56d56302d2 data/ethermist/tags/item/orbs.json
 0da64c509af51eca306093d010d9f7fef62e5fc0 data/ethermist/tags/item/tomes.json
 08b584bf93dc6aa352c2691c725dada641eee5d1 data/ethermist/tags/item/wands.json
+49744f1ca9d79294122153558ff10bab9ac41c49 data/ethermist/tags/item/wand_base.json
 fa537340c21760db1aef55347fb5283e04b84fc9 data/minecraft/tags/item/buttons.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/coal_ores.json
 43f27771d370843005011355d6e7b530a221d27d data/minecraft/tags/item/copper_ores.json

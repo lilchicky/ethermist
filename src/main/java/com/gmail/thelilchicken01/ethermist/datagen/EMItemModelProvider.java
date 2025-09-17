@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -332,7 +333,7 @@ public class EMItemModelProvider extends ItemModelProvider {
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "block/" + folder + "/" + block.getId().getPath()));
     }
 
-    public void wandItem(DeferredItem<?> wand) {
+    public void wandItem(DeferredItem<WandItem> wand) {
         this.withExistingParent(wand.getId().getPath(), ResourceLocation.parse("item/handheld"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_base"))
                 .texture("layer1", ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/wands/handles/wand_handle_tier"))

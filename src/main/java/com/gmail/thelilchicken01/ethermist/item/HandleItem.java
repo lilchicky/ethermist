@@ -1,12 +1,19 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
+import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
+import com.gmail.thelilchicken01.ethermist.component.WandHandleEntry;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -22,15 +29,10 @@ import java.util.List;
 
 public class HandleItem extends Item implements IDyeableWandItem {
 
-    private final DeferredHolder<WandHandle, WandHandle> TIER;
-
     public HandleItem(DeferredHolder<WandHandle, WandHandle> handle) {
-        super(new Properties().stacksTo(1).component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false)));
-        this.TIER = handle;
-    }
-
-    public IWandHandle getHandle() {
-        return TIER.get();
+        super(new Properties().stacksTo(1)
+                .component(DataComponents.DYED_COLOR, new DyedItemColor(Ethermist.WAND_COLOR, false))
+                .component(EMDataComponents.WAND_HANDLE, new WandHandleEntry(handle.getId().toString())));
     }
 
     @Override
@@ -80,7 +82,7 @@ public class HandleItem extends Item implements IDyeableWandItem {
         lore.add(dyeableText);
         lore.add(Component.empty());
 
-        lore.addAll(TIER.get().getModifierString());
+        lore.addAll(getHandle(stack).getModifierString());
 
         lore.add(Component.empty());
         lore.add(Component.translatable("item.ethermist.handle_description.line_1").withColor(0xAAAAAA));

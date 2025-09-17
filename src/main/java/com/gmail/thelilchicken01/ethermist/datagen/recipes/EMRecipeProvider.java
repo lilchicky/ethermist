@@ -828,8 +828,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         ---------- Wands ----------
          */
 
-        generateWandRecipes(output);
-
         SpecialRecipeBuilder.special(WandDyeRecipe::new).save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_dye"));
 
         /*

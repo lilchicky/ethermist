@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
@@ -136,7 +135,7 @@ public class WandDyeRecipe extends CustomRecipe {
     }
 
     public RecipeSerializer<?> getSerializer() {
-        return EMRecipeSerializer.WAND_DYE_RECIPE.get();
+        return EMCustomRecipes.WAND_DYE_RECIPE.get();
     }
 }
 
