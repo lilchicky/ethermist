@@ -32,6 +32,6 @@ public interface IWandSpellEffect {
 
     default void onHit(Level level, Entity shooter, @Nullable Entity target, @Nullable BlockPos hitPos, WandProjectile shot, int spellLevel) {}
     default void onTick(WandProjectile shot, int tick, List<? extends Entity> target, int spellLevel) {}
-    default boolean onShoot(Level level, Player player) {}
+    default boolean onShoot(Level level, Player player) { return false; }
 
 }
