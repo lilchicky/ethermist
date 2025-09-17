@@ -267,17 +267,6 @@ public class WandItem extends Item implements IDyeableWandItem {
         super.appendHoverText(stack, context, lore, tooltipFlag);
     }
 
-    private AtomicBoolean isMeteor(ItemStack stack) {
-
-        AtomicBoolean isMeteor = new AtomicBoolean(false);
-        EnchantmentHelper.runIterationOnItem(stack, (enchantHolder, enchantLevel) -> {
-            if (enchantHolder.is(EMEnchantments.AUGMENT_METEOR.location())) {
-                isMeteor.set(true);
-            }
-        });
-        return isMeteor;
-    }
-
     /*
     UseOn code courtesy of Undergarden :)
      */
@@ -322,47 +311,9 @@ public class WandItem extends Item implements IDyeableWandItem {
 
             ItemStack wand = player.getItemInHand(context.getHand());
 
-            if (!isMeteor(wand).get()) {
-                this.use(level, player, context.getHand());
-            } else {
+            if (!player.getCooldowns().isOnCooldown(this) && context.getHand() == InteractionHand.MAIN_HAND) {
 
-                if (!player.getCooldowns().isOnCooldown(this) && context.getHand() == InteractionHand.MAIN_HAND) {
-
-                    WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
-
-                    level.playSound(player,
-                            player.getX(),
-                            player.getY(),
-                            player.getZ(),
-                            WAND_ORB.get().getShootSound(),
-                            SoundSource.PLAYERS,
-                            1.0f,
-                            level.getRandom().nextFloat() * 0.4f + 0.8f);
-
-                    player.awardStat(Stats.ITEM_USED.get(this));
-
-                    wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
-
-                }
-
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide());
-        }
-        return InteractionResult.FAIL;
-    }
-
-    @Override
-    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity interactionTarget, InteractionHand usedHand) {
-
-        ItemStack wand = player.getItemInHand(usedHand);
-
-        if (isMeteor(wand).get()) {
-
-            Level level = player.level();
-
-            if (!player.getCooldowns().isOnCooldown(this)) {
-
-                WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget);
+                WandProjectileHandler.processShot(level, player, wand, this, context.getClickedPos(), null);
 
                 level.playSound(player,
                         player.getX(),
@@ -381,8 +332,37 @@ public class WandItem extends Item implements IDyeableWandItem {
 
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
+        return InteractionResult.FAIL;
+    }
 
-        return super.interactLivingEntity(stack, player, interactionTarget, usedHand);
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity interactionTarget, InteractionHand usedHand) {
+
+        ItemStack wand = player.getItemInHand(usedHand);
+
+        Level level = player.level();
+
+        if (!player.getCooldowns().isOnCooldown(this)) {
+
+            WandProjectileHandler.processShot(level, player, wand, this, null, interactionTarget);
+
+            level.playSound(player,
+                    player.getX(),
+                    player.getY(),
+                    player.getZ(),
+                    WAND_ORB.get().getShootSound(),
+                    SoundSource.PLAYERS,
+                    1.0f,
+                    level.getRandom().nextFloat() * 0.4f + 0.8f);
+
+            player.awardStat(Stats.ITEM_USED.get(this));
+
+            wand.hurtAndBreak(1, player, wand.getEquipmentSlot());
+
+        }
+
+        return InteractionResult.sidedSuccess(level.isClientSide());
+
     }
 
     public static Optional<EMPortalShape> findPortalShape(LevelAccessor accessor, BlockPos pos, Predicate<EMPortalShape> shape, Direction.Axis axis) {
