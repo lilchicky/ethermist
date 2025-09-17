@@ -93,7 +93,7 @@ public class WandItem extends Item implements IDyeableWandItem {
 
         ItemStack wand = player.getItemInHand(usedHand);
 
-        if (!player.getCooldowns().isOnCooldown(this) && !isMeteor(wand).get() && usedHand == InteractionHand.MAIN_HAND) {
+        if (!player.getCooldowns().isOnCooldown(this) && usedHand == InteractionHand.MAIN_HAND) {
 
             WandProjectileHandler.processShot(level, player, wand, this, null, null);
 
