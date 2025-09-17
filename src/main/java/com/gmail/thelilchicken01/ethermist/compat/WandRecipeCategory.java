@@ -3,7 +3,6 @@ package com.gmail.thelilchicken01.ethermist.compat;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipe;
-import com.gmail.thelilchicken01.ethermist.screen.WandforgingTableMenu;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -23,8 +22,8 @@ import static com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegist
 
 public class WandRecipeCategory implements IRecipeCategory<WandRecipe> {
 
-    private final int GUI_WIDTH = 162;
-    private final int GUI_HEIGHT = 66;
+    private final int GUI_WIDTH = 98;
+    private final int GUI_HEIGHT = 42;
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, WAND_RECIPE_LOCATION);
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
@@ -57,10 +56,10 @@ public class WandRecipeCategory implements IRecipeCategory<WandRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, WandRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, WandforgingTableMenu.INPUT_1_X, WandforgingTableMenu.INPUT_Y).addIngredients(recipe.getIngredients().getFirst());
-        builder.addSlot(RecipeIngredientRole.INPUT, WandforgingTableMenu.INPUT_2_X, WandforgingTableMenu.INPUT_Y).addIngredients(recipe.getIngredients().getLast());
+        builder.addSlot(RecipeIngredientRole.INPUT, 6, 6).addIngredients(recipe.getIngredients().getFirst());
+        builder.addSlot(RecipeIngredientRole.INPUT, 78, 6).addIngredients(recipe.getIngredients().getLast());
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, WandforgingTableMenu.OUTPUT_X, WandforgingTableMenu.OUTPUT_Y).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 42, 22).addItemStack(recipe.getResultItem(null));
     }
 
     @Override
