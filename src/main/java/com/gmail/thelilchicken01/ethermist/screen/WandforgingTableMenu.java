@@ -5,14 +5,18 @@ import java.util.OptionalInt;
 import javax.annotation.Nullable;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMCustomRecipes;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipe;
+import com.gmail.thelilchicken01.ethermist.datagen.recipes.WandRecipeInput;
+import com.gmail.thelilchicken01.ethermist.item.HandleItem;
+import com.gmail.thelilchicken01.ethermist.item.OrbItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SmithingRecipe;
-import net.minecraft.world.item.crafting.SmithingRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -27,8 +31,7 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     public static final int OUTPUT_SLOT_Y = 53;
     private final Level level;
     @Nullable
-    private RecipeHolder<SmithingRecipe> selectedRecipe;
-    private final List<RecipeHolder<SmithingRecipe>> recipes;
+    private RecipeHolder<WandRecipe> selectedRecipe;
 
     public WandforgingTableMenu(int containerId, Inventory playerInventory) {
         this(containerId, playerInventory, ContainerLevelAccess.NULL);
@@ -37,16 +40,19 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
     public WandforgingTableMenu(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
         super(EMMenuTypes.WANDFORGING_TABLE_MENU.get(), containerId, playerInventory, access);
         this.level = playerInventory.player.level();
-        this.recipes = this.level.getRecipeManager().getAllRecipesFor(RecipeType.SMITHING);
     }
 
     @Override
     protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
         return ItemCombinerMenuSlotDefinition.create()
-                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isTemplateIngredient(stack)))
-                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, stack -> this.recipes.stream().anyMatch(recipe -> recipe.value().isBaseIngredient(stack)))
+                .withSlot(INPUT_SLOT_1, INPUT_1_X, INPUT_SLOT_Y, this::isWandIngredient)
+                .withSlot(INPUT_SLOT_2, INPUT_2_X, INPUT_SLOT_Y, this::isWandIngredient)
                 .withResultSlot(OUTPUT_SLOT, OUTPUT_X, OUTPUT_SLOT_Y)
                 .build();
+    }
+
+    private boolean isWandIngredient(ItemStack stack) {
+        return (stack.getItem() instanceof WandItem || stack.getItem() instanceof OrbItem || stack.getItem() instanceof HandleItem);
     }
 
     @Override
@@ -72,8 +78,8 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
         return List.of(this.inputSlots.getItem(INPUT_SLOT_1), this.inputSlots.getItem(INPUT_SLOT_2));
     }
 
-    private SmithingRecipeInput createRecipeInput() {
-        return new SmithingRecipeInput(this.inputSlots.getItem(INPUT_SLOT_1), this.inputSlots.getItem(INPUT_SLOT_2), this.inputSlots.getItem(2));
+    private WandRecipeInput createRecipeInput() {
+        return new WandRecipeInput(this.inputSlots.getItem(INPUT_SLOT_1), this.inputSlots.getItem(INPUT_SLOT_2));
     }
 
     private void shrinkStackInSlot(int index) {
@@ -86,13 +92,13 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
 
     @Override
     public void createResult() {
-        SmithingRecipeInput smithingrecipeinput = this.createRecipeInput();
-        List<RecipeHolder<SmithingRecipe>> list = this.level.getRecipeManager().getRecipesFor(RecipeType.SMITHING, smithingrecipeinput, this.level);
+        WandRecipeInput wandrecipeinput = this.createRecipeInput();
+        List<RecipeHolder<WandRecipe>> list = this.level.getRecipeManager().getRecipesFor(EMCustomRecipes.WAND_RECIPE_TYPE.get(), wandrecipeinput, this.level);
         if (list.isEmpty()) {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {
-            RecipeHolder<SmithingRecipe> recipeholder = list.get(0);
-            ItemStack itemstack = recipeholder.value().assemble(smithingrecipeinput, this.level.registryAccess());
+            RecipeHolder<WandRecipe> recipeholder = list.get(0);
+            ItemStack itemstack = recipeholder.value().assemble(wandrecipeinput, this.level.registryAccess());
             if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
                 this.selectedRecipe = recipeholder;
                 this.resultSlots.setRecipeUsed(recipeholder);
@@ -103,17 +109,7 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
 
     @Override
     public int getSlotToQuickMoveTo(ItemStack stack) {
-        return this.findSlotToQuickMoveTo(stack).orElse(0);
-    }
-
-    private static OptionalInt findSlotMatchingIngredient(SmithingRecipe recipe, ItemStack stack) {
-        if (recipe.isTemplateIngredient(stack)) {
-            return OptionalInt.of(0);
-        } else if (recipe.isBaseIngredient(stack)) {
-            return OptionalInt.of(1);
-        } else {
-            return recipe.isAdditionIngredient(stack) ? OptionalInt.of(2) : OptionalInt.empty();
-        }
+        return this.inputSlots.canPlaceItem(0, stack) ? 0 : 1;
     }
 
     /**
@@ -124,16 +120,4 @@ public class WandforgingTableMenu extends ItemCombinerMenu {
         return slot.container != this.resultSlots && super.canTakeItemForPickAll(stack, slot);
     }
 
-    @Override
-    public boolean canMoveIntoInputSlots(ItemStack stack) {
-        return this.findSlotToQuickMoveTo(stack).isPresent();
-    }
-
-    private OptionalInt findSlotToQuickMoveTo(ItemStack stack) {
-        return this.recipes
-                .stream()
-                .flatMapToInt(p_300800_ -> findSlotMatchingIngredient(p_300800_.value(), stack).stream())
-                .filter(p_294045_ -> !this.getSlot(p_294045_).hasItem())
-                .findFirst();
-    }
 }
