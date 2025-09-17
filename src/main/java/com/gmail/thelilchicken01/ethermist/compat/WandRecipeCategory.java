@@ -23,12 +23,12 @@ import static com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegist
 
 public class WandRecipeCategory implements IRecipeCategory<WandRecipe> {
 
-    private final int GUI_WIDTH = 174;
-    private final int GUI_HEIGHT = 81;
+    private final int GUI_WIDTH = 162;
+    private final int GUI_HEIGHT = 66;
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, WAND_RECIPE_LOCATION);
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID,
-            "textures/gui/container/wandforging_table.png");
+            "textures/gui/container/wandforging_table_jei.png");
 
     public static final RecipeType<WandRecipe> WAND_RECIPE_RECIPE_TYPE = new RecipeType<>(UID, WandRecipe.class);
 
