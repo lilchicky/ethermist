@@ -1,0 +1,133 @@
+{
+  "name": "ethermist:glimmerbug_cave/room_pool",
+  "fallback": "ethermist:glimmerbug_cave/fallback_pool",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_four_down",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_four_flat",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_left",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_right",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_up",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_wiggle",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/hallway_up_big",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/small_room_1",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/small_room_2",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/small_room_3",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/small_room_4",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/small_room_5",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/main_room",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:glimmerbug_cave/treasure_room",
+        "processors": "ethermist:glimmerbug_cave",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
