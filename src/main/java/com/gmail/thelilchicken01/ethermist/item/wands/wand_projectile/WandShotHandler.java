@@ -67,8 +67,8 @@ public class WandShotHandler {
         shot.setTargetType(targetType);
         shot.setDamageType(wand.getOrb().getDamageType());
         shot.setTrailColor(wand.getTrailColor(wandItem));
-        shot.setOriginWandTier(wand.getHandle(wandItem));
-        shot.setOriginWandType(wand.getOrb());
+        shot.setOriginWandHandle(wand.getHandle(wandItem));
+        shot.setOriginWandOrb(wand.getOrb());
         shot.setSpellEntries(savedSpells);
 
         return shot;

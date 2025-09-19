@@ -28,6 +28,6 @@ public interface IWandOrb {
     Supplier<Ingredient> getRepairItem();
     SoundEvent getShootSound();
 
-    void apply(WandShotItem shotItem, Entity target, Player player, WandProjectile shot);
+    void apply(WandShotItem shotItem, Entity target, Entity shooter, WandProjectile shot);
 
 }

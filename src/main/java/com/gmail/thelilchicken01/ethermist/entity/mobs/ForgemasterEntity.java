@@ -5,6 +5,8 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
@@ -12,9 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerBossEvent;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -33,12 +33,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -52,7 +49,7 @@ public class ForgemasterEntity extends Monster {
     private final ServerBossEvent bossEvent = (ServerBossEvent) (new ServerBossEvent(
             this.getDisplayName(),
             BossEvent.BossBarColor.PURPLE,
-            BossEvent.BossBarOverlay.NOTCHED_12
+            BossEvent.BossBarOverlay.NOTCHED_20
     ).setDarkenScreen(true));
 
     private final double SHOOT_COOLDOWN = 1;
@@ -113,7 +110,7 @@ public class ForgemasterEntity extends Monster {
                 .add(Attributes.ARMOR, 10)
                 .add(Attributes.ATTACK_DAMAGE, 30)
                 .add(Attributes.ATTACK_SPEED, 0.5)
-                .add(Attributes.MOVEMENT_SPEED, 0.01)
+                .add(Attributes.MOVEMENT_SPEED, 0.1)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 10)
                 .add(Attributes.FOLLOW_RANGE, 24);
     }
@@ -170,6 +167,9 @@ public class ForgemasterEntity extends Monster {
                 shot.setCanIgnite(false);
                 shot.setKnockbackStrength(0.5);
                 shot.setHoming(false);
+                shot.setOwner(this);
+                shot.setOriginWandOrb(EMWandOrbs.FORGEMASTER.get());
+                shot.setOriginWandHandle(EMWandHandles.WOODEN.get());
                 shot.setTargetType(List.of(SpellModifiers.TargetType.ALL));
                 shot.setDamageType(EMDamageTypes.FORGEMASTER_SHOT);
                 shot.setTrailColor(new float[]{1.0f, 0.1f, 0.1f});

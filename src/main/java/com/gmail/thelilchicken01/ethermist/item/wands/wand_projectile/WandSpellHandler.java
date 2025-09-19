@@ -21,10 +21,10 @@ import java.util.List;
 
 public class WandSpellHandler {
 
-    public static void processWandModifiers(WandShotItem shotItem, Entity target, Player player, WandProjectile shot) {
+    public static void processWandModifiers(WandShotItem shotItem, Entity target, Entity shooter, WandProjectile shot) {
 
         if (shot.originWandType != null) {
-            shot.originWandType.apply(shotItem, target, player, shot);
+            shot.originWandType.apply(shotItem, target, shooter, shot);
         }
 
     }

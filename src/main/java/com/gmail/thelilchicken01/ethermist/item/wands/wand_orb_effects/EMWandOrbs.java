@@ -16,6 +16,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -194,31 +195,33 @@ public class EMWandOrbs {
                                     )
                             )
                             .sound(SoundEvents.WITCH_THROW)
-                            .effect((shotItem, target, player, shot) -> {
-                                RandomSource random = player.getRandom();
+                            .effect((shotItem, target, shooter, shot) -> {
+                                if (shooter instanceof Player player) {
+                                    RandomSource random = player.getRandom();
 
-                                switch (random.nextInt(3)) {
-                                    case 0 ->
-                                            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, shot.getOriginWandTier().doesBuffSpell() ? 80 : 40, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
-                                    case 1 ->
-                                            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100));
-                                    case 2 ->
-                                            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
-                                }
-
-                                if (target instanceof LivingEntity livingTarget) {
                                     switch (random.nextInt(3)) {
                                         case 0 ->
-                                                livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
+                                                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, shot.getOriginWandTier().doesBuffSpell() ? 80 : 40, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                                         case 1 ->
-                                                livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
+                                                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100));
                                         case 2 ->
-                                                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
+                                                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                                     }
-                                }
 
-                                if (player.isInWater() && random.nextBoolean()) {
-                                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, shot.getOriginWandTier().doesBuffSpell() ? 400 : 100));
+                                    if (target instanceof LivingEntity livingTarget) {
+                                        switch (random.nextInt(3)) {
+                                            case 0 ->
+                                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
+                                            case 1 ->
+                                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
+                                            case 2 ->
+                                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, shot.getOriginWandTier().doesBuffSpell() ? 160 : 80));
+                                        }
+                                    }
+
+                                    if (player.isInWater() && random.nextBoolean()) {
+                                        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, shot.getOriginWandTier().doesBuffSpell() ? 400 : 100));
+                                    }
                                 }
                             })
                             .build()
@@ -328,8 +331,8 @@ public class EMWandOrbs {
                                     )
                             )
                             .sound(SoundEvents.TURTLE_EGG_BREAK)
-                            .effect((shotItem, target, player, shot) -> {
-                                if (!player.level().isClientSide()) {
+                            .effect((shotItem, target, shooter, shot) -> {
+                                if (!shooter.level().isClientSide() && shooter instanceof Player player) {
                                     GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
 
                                     bug.setPos(player.getX(), player.getY(), player.getZ());
@@ -358,6 +361,40 @@ public class EMWandOrbs {
                                     );
 
                                     player.level().addFreshEntity(bug);
+                                }
+                            })
+                            .build()
+            );
+
+    /*
+                    Mob Shot Effects
+     */
+
+    public static final DeferredHolder<WandOrb, WandOrb> FORGEMASTER =
+            EM_WAND_ORBS.register("forgemaster", () ->
+                    new WandOrb.Builder()
+                            .durabilityMult(1)
+                            .enchantability(1)
+                            .lifespanSeconds(1)
+                            .damage(1)
+                            .inaccuracy(1)
+                            .projectileSpeed(1)
+                            .canIgnite(false)
+                            .knockback(1)
+                            .cooldown(1)
+                            .shot(EMItems.FORGEMASTER_SHOT.get())
+                            .damageType(EMDamageTypes.FORGEMASTER_SHOT)
+                            .color(1f, 1f, 1f)
+                            .repair(() ->
+                                    Ingredient.of(
+                                            Items.AMETHYST_SHARD
+                                    )
+                            )
+                            .sound(SoundEvents.BLAZE_SHOOT)
+                            .effect((shotItem, target, player, shot) -> {
+                                if (target instanceof LivingEntity livingTarget) {
+                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
+                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0));
                                 }
                             })
                             .build()

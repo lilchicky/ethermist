@@ -234,6 +234,8 @@ public class WandProjectileHandler {
             if (shooter instanceof Player player) {
                 WandSpellHandler.processWandModifiers(shotItem, target, player, shot);
                 WandSpellHandler.processSpells(level, player, target, null, shot);
+            } else {
+                WandSpellHandler.processWandModifiers(shotItem, target, shooter, shot);
             }
 
         } else {

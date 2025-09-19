@@ -83,8 +83,8 @@ public class WandOrb implements IWandOrb {
     @Override public SoundEvent getShootSound() { return shootSound; }
 
     @Override
-    public void apply(WandShotItem shotItem, Entity target, Player player, WandProjectile shot) {
-        effect.apply(shotItem, target, player, shot);
+    public void apply(WandShotItem shotItem, Entity target, Entity shooter, WandProjectile shot) {
+        effect.apply(shotItem, target, shooter, shot);
     }
 
     public static final class Builder {

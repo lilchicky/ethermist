@@ -203,10 +203,10 @@ public class WandProjectile extends Fireball {
     public void setShooter(Player shooter) { this.shooter = shooter; }
     public Player getShooter() { return shooter; }
 
-    public void setOriginWandTier(WandHandle tier) { this.originWandTier = tier; }
+    public void setOriginWandHandle(WandHandle tier) { this.originWandTier = tier; }
     public WandHandle getOriginWandTier() { return originWandTier; }
 
-    public void setOriginWandType(WandOrb type) { this.originWandType = type; }
+    public void setOriginWandOrb(WandOrb type) { this.originWandType = type; }
     public WandOrb getOriginWandType() { return originWandType; }
 
     public void setTrailColor(float[] trailColor) {
