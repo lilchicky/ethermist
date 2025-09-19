@@ -101,32 +101,26 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.TIMEWORN_SAND.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(EMBlocks.GLIMMERING_ANCIENT_PLANKS.get())
                 .add(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get())
                 .add(EMBlocks.GLIMMERING_ANCIENT_SLAB.get())
                 .add(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get())
 
-                .add(EMBlocks.ANCIENT_PLANKS.get())
                 .add(EMBlocks.ANCIENT_STAIRS.get())
                 .add(EMBlocks.ANCIENT_SLAB.get())
                 .add(EMBlocks.ANCIENT_FENCE_GATE.get())
-                
-                .add(EMBlocks.SLIMY_PLANKS.get())
+
                 .add(EMBlocks.SLIMY_STAIRS.get())
                 .add(EMBlocks.SLIMY_SLAB.get())
                 .add(EMBlocks.SLIMY_FENCE_GATE.get())
 
-                .add(EMBlocks.FROSTPINE_PLANKS.get())
                 .add(EMBlocks.FROSTPINE_STAIRS.get())
                 .add(EMBlocks.FROSTPINE_SLAB.get())
                 .add(EMBlocks.FROSTPINE_FENCE_GATE.get())
 
-                .add(EMBlocks.AMBERWOOD_PLANKS.get())
                 .add(EMBlocks.AMBERWOOD_STAIRS.get())
                 .add(EMBlocks.AMBERWOOD_SLAB.get())
                 .add(EMBlocks.AMBERWOOD_FENCE_GATE.get())
 
-                .add(EMBlocks.CHARRED_PLANKS.get())
                 .add(EMBlocks.CHARRED_STAIRS.get())
                 .add(EMBlocks.CHARRED_SLAB.get())
                 .add(EMBlocks.CHARRED_FENCE_GATE.get())
@@ -320,6 +314,12 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.PLANKS)
                 .addTag(BlockTags.LOGS)
                 .addTag(BlockTags.STONE_BRICKS);
+
+        addPlanks(EMBlocks.ANCIENT_PLANKS.get());
+        addPlanks(EMBlocks.SLIMY_PLANKS.get());
+        addPlanks(EMBlocks.FROSTPINE_PLANKS.get());
+        addPlanks(EMBlocks.AMBERWOOD_PLANKS.get());
+        addPlanks(EMBlocks.CHARRED_PLANKS.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), false);
@@ -539,6 +539,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
             tag(BlockTags.LOGS_THAT_BURN).add(log).add(stripped_log).add(wood).add(stripped_wood);
         }
 
+    }
+
+    private void addPlanks(Block plank) {
+        tag(BlockTags.PLANKS).add(plank);
+        tag(BlockTags.MINEABLE_WITH_AXE).add(plank);
     }
 
 }

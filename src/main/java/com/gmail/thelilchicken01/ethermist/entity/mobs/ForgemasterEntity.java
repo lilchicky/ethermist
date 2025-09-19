@@ -189,7 +189,7 @@ public class ForgemasterEntity extends Monster {
                         Phase 2 (Knockup)
              */
 
-            if (knockupCounter < KNOCKUP_COOLDOWN * 20 && this.getTarget() != null && isPhase2) {
+            if (knockupCounter > KNOCKUP_COOLDOWN * 20 && this.getTarget() != null && isPhase2) {
 
                 List<LivingEntity> nearbyEntities = this.level().getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT, this, new AABB(
                         this.getX() - KNOCKUP_RANGE,
@@ -268,6 +268,9 @@ public class ForgemasterEntity extends Monster {
 
                     BlockState blockIn = this.level().getBlockState(blockInPos);
                     BlockState blockOn = this.level().getBlockState(blockOnPos);
+
+                    System.out.println("Block Inside: " + blockIn);
+                    System.out.println("Block On: " + blockOn);
 
                     if (blockIn.isAir() && blockOn.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
 

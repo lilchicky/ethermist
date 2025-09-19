@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-18T22:35:33.9243261	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-09-19T00:03:38.6015776	Tags for minecraft:block mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/block/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/block/cobblestones/normal.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/block/gravels.json
@@ -40,13 +40,14 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/block/lapis_ores.js
 5d0769f29f57a5faebf99eee6a030d33fcb8fd83 data/minecraft/tags/block/leaves.json
 2b66e7c7a413ceab0da989393090372994c61844 data/minecraft/tags/block/logs.json
 5b1465c972a724f5c59ed5e575c30bd0e3edc433 data/minecraft/tags/block/logs_that_burn.json
-ff1051dfc230d00ea0b36db84839d53632707a0f data/minecraft/tags/block/mineable/axe.json
+26ce4ed3c4bcf0f7844b5f9480024e86a1fe13a2 data/minecraft/tags/block/mineable/axe.json
 58fdbf4d97d6684302c613138030bf878cfa9b4d data/minecraft/tags/block/mineable/hoe.json
 9edc6c8fe7ff3241f6df479594f9ac886f813bd4 data/minecraft/tags/block/mineable/pickaxe.json
 aba6385c1b1114b6597ac88677dadcbc668ded9b data/minecraft/tags/block/mineable/shovel.json
 2adf034f61497b27d73a49efee35cf2afe3623e4 data/minecraft/tags/block/moss_replaceable.json
 3a9b338956629b6ab76a20f99f20d7610719b219 data/minecraft/tags/block/needs_iron_tool.json
 0721d39054db4bde412720916b5513137daaa8c1 data/minecraft/tags/block/needs_stone_tool.json
+688fccd42663924fb56de07f35cddd8c2d5e4e1b data/minecraft/tags/block/planks.json
 64695b388466359f5d1b54f263f78c352098add1 data/minecraft/tags/block/pressure_plates.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/block/redstone_ores.json
 67e4d24456037f5846d334aa8632c899f3aec8e8 data/minecraft/tags/block/replaceable_by_trees.json
