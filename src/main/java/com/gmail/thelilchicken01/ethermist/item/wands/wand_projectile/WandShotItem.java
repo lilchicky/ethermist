@@ -14,7 +14,7 @@ public class WandShotItem extends Item {
         super(new Item.Properties().stacksTo(1));
     }
 
-    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends Entity> target, ItemStack wand) {
+    public WandProjectile createProjectile(Level level, ItemStack item, LivingEntity shooter, List<? extends Entity> target) {
 
         WandProjectile shot = new WandProjectile(level, shooter, target);
 

@@ -17,7 +17,7 @@ public class WandShotHandler {
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
                              boolean isHoming, List<SpellModifiers.TargetType> targetType, List<WandProjectile.SpellEntry> savedSpells) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
         shot.shootFromRotation(
                 player,

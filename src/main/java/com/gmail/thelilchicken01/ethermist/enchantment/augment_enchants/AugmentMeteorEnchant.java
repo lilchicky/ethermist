@@ -87,7 +87,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
 
         if (pos != null) {
 
-            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
             Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
             Vec3 targetPos = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
@@ -110,7 +110,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
         }
         else if (clickedEntity != null) {
 
-            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(clickedEntity), wandItem);
+            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(clickedEntity));
 
             Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
             Vec3 targetPos = new Vec3(clickedEntity.getX(), clickedEntity.getY(), clickedEntity.getZ());

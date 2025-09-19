@@ -1,9 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.entity;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugQueenEntity;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
@@ -42,6 +40,20 @@ public class EMEntityTypes {
                     () -> EntityType.Builder.of(GlimmerbugEntity::new, MobCategory.CREATURE)
                             .sized(0.72f, 0.45f)
                             .build(Ethermist.MODID + ":glimmerbug"));
+
+    // Forgemaster
+    public static final DeferredHolder<EntityType<?>, EntityType<ForgemasterEntity>> FORGEMASTER =
+            EM_ENTITY_TYPES.register("forgemaster",
+                    () -> EntityType.Builder.of(ForgemasterEntity::new, MobCategory.MONSTER)
+                            .sized(1.75f, 4.2f)
+                            .build(Ethermist.MODID + ":forgemaster"));
+
+    // Pylon
+    public static final DeferredHolder<EntityType<?>, EntityType<PylonEntity>> PYLON =
+            EM_ENTITY_TYPES.register("pylon",
+                    () -> EntityType.Builder.of(PylonEntity::new, MobCategory.MONSTER)
+                            .sized(0.72f, 1.7f)
+                            .build(Ethermist.MODID + ":pylon"));
 
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);

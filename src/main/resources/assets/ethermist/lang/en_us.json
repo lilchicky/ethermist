@@ -347,6 +347,8 @@
   "item.ethermist.glass_shot": "Glass Shot",
   "item.ethermist.glimmerbug_shot": "Glimmerbug Shot",
 
+  "item.ethermist.forgemaster_shot": "Forgemaster Shot",
+
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
   "attribute.ethermist.wand.cooldown": "%s Second Cooldown",
   "attribute.ethermist.wand.base_damage": "%s Bolt Damage",
@@ -401,6 +403,8 @@
   "item.ethermist.gloomie_spawn_egg": "Gloomie Spawn Egg",
   "item.ethermist.glimmerbug_queen_spawn_egg": "Glimmerbug Queen Spawn Egg",
   "item.ethermist.glimmerbug_spawn_egg": "Glimmerbug Spawn Egg",
+  "item.ethermist.forgemaster_spawn_egg": "Forgemaster Spawn Egg",
+  "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -454,6 +458,8 @@
   "entity.ethermist.gloomie": "Gloomie",
   "entity.ethermist.glimmerbug_queen": "Glimmerbug Queen",
   "entity.ethermist.glimmerbug": "Glimmerbug",
+  "entity.ethermist.forgemaster": "The Forgemaster",
+  "entity.ethermist.pylon": "Forgemaster's Pylon",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",
   "death.attack.icicle": "%1$s was impaled by an icicle",
@@ -497,6 +503,10 @@
   "death.attack.glimmerbug_magic": "%1$s was swarmed by Glimmerbugs",
   "death.attack.glimmerbug_magic.player": "%1$s was swarmed by %2$s's Glimmerbug magic",
   "death.attack.glimmerbug_magic.item": "%1$s was swarmed by %2$s's Glimmerbug magic using %3$s",
+
+  "death.attack.forgemaster_shot": "%1$s was crushed by the Forgemaster's meteors",
+
+  "death.attack.forgemaster_knockup": "%1$s smashed by the Forgemaster",
 
   "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",

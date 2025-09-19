@@ -1,5 +1,7 @@
-// 1.21.1	2025-09-14T01:01:15.3907627	Registries
+// 1.21.1	2025-09-18T22:35:33.9197842	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
+f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
+16c6fbc78c1c15778828767a5b55b5a2dadef23e data/ethermist/damage_type/forgemaster_shot.json
 06bf70f5fb189130c730d3f726632a93fb727266 data/ethermist/damage_type/frozen_magic_damage.json
 94952cb115ba2f76efabe058366510af4be8e688 data/ethermist/damage_type/generic_magic_damage.json
 0eabf4d3d646d19fce34a8c5bcfd39e208bbd38f data/ethermist/damage_type/glass_magic_damage.json

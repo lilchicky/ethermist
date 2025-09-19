@@ -376,6 +376,8 @@ public class EMCreativeTab {
                 output.accept(EMItems.GLOOMIE_SPAWN_EGG.get());
                 output.accept(EMItems.GLIMMERBUG_SPAWN_EGG.get());
                 output.accept(EMItems.GLIMMERBUG_QUEEN_SPAWN_EGG.get());
+                output.accept(EMItems.FORGEMASTER_SPAWN_EGG.get());
+                output.accept(EMItems.PYLON_SPAWN_EGG.get());
 
             }).build());
 

@@ -207,6 +207,10 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
     private void setupAnimationStates() {
 
         if (this.swinging) {
+            this.idleStateBase.stop();
+            this.idleStateWiggle.stop();
+            this.idleStateMandibles.stop();
+
             this.attackState.stop();
             this.attackState.start(this.tickCount);
             this.swinging = false;

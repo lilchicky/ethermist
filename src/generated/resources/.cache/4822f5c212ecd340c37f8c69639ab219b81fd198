@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-14T23:48:42.4186833	Tags for minecraft:block mod id ethermist
+// 1.21.1	2025-09-18T22:35:33.9243261	Tags for minecraft:block mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/block/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/block/cobblestones/normal.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/block/gravels.json
@@ -17,6 +17,7 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/block/ores/redstone.json
 bc9880498ac62b482bfd6daffe39d8ff82d1f1ad data/ethermist/tags/block/ancient_etherstone_ore_replaceables.json
 d754445ab24881a3bce66500543b94b19c84fe86 data/ethermist/tags/block/can_grow_icicle.json
 88c60ca7e844ac6ee792d4b9aefeed49755ef8c9 data/ethermist/tags/block/can_support_charred_tree.json
+1ba7a03b9a2f1bccd87bc1b48265d16697d64974 data/ethermist/tags/block/can_support_forgemaster_pylon.json
 2adf034f61497b27d73a49efee35cf2afe3623e4 data/ethermist/tags/block/ethermist_stones.json
 6a636d549fad0270217d0c44e9e125535086d846 data/ethermist/tags/block/etherstone_ore_replaceables.json
 6bec879ba8644ed966a1d6ba7d1c9aae46850339 data/ethermist/tags/block/portal_frame_blocks.json

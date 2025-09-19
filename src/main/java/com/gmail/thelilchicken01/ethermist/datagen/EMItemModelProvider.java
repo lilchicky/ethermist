@@ -147,6 +147,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         shotItem(EMItems.GLASS_SHOT);
         shotItem(EMItems.GLIMMERBUG_SHOT);
 
+        shotItem(EMItems.FORGEMASTER_SHOT);
+
         basicItem(EMItems.EXCLUSION_TOME.get());
         basicItem(EMItems.WAND_TOME.get());
         basicItem(EMItems.AUGMENT_TOME.get());
@@ -159,6 +161,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         withExistingParent(EMItems.GLOOMIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(EMItems.GLIMMERBUG_QUEEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(EMItems.GLIMMERBUG_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(EMItems.FORGEMASTER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(EMItems.PYLON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 

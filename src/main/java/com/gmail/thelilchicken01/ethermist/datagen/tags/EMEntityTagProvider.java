@@ -25,9 +25,12 @@ public class EMEntityTagProvider extends EntityTypeTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER)
-                .add(EMEntityTypes.GLOOMIE.get());
+                .add(EMEntityTypes.GLOOMIE.get())
+                .add(EMEntityTypes.FORGEMASTER.get())
+                .add(EMEntityTypes.PYLON.get());
 
         tag(Tags.EntityTypes.BOSSES)
+                .add(EMEntityTypes.FORGEMASTER.get())
                 .add(EMEntityTypes.GLIMMERBUG_QUEEN.get());
 
         tag(EntityTypeTags.ARTHROPOD)
@@ -36,6 +39,12 @@ public class EMEntityTagProvider extends EntityTypeTagsProvider {
 
         tag(EntityTypeTags.AQUATIC)
                 .add(EMEntityTypes.GLOOMIE.get());
+
+        tag(EntityTypeTags.UNDEAD)
+                .add(EMEntityTypes.FORGEMASTER.get());
+
+        tag(EntityTypeTags.FALL_DAMAGE_IMMUNE)
+                .add(EMEntityTypes.PYLON.get());
 
     }
 

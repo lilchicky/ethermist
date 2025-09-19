@@ -1,9 +1,7 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugQueenRenderer;
-import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GlimmerbugRenderer;
-import com.gmail.thelilchicken01.ethermist.entity.client.renderer.GloomieRenderer;
+import com.gmail.thelilchicken01.ethermist.entity.client.renderer.*;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
@@ -37,6 +35,8 @@ public class EMClientModEvents {
         event.registerEntityRenderer(EMEntityTypes.GLOOMIE.get(), GloomieRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.GLIMMERBUG_QUEEN.get(), GlimmerbugQueenRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.GLIMMERBUG.get(), GlimmerbugRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.FORGEMASTER.get(), ForgemasterRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.PYLON.get(), PylonRenderer::new);
 
     }
 

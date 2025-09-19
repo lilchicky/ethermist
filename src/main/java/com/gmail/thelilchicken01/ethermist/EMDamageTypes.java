@@ -38,6 +38,14 @@ public class EMDamageTypes {
             Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmerbug_magic_damage")
     );
 
+    // Entity Damage Types
+    public static final ResourceKey<DamageType> FORGEMASTER_SHOT = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "forgemaster_shot")
+    );
+    public static final ResourceKey<DamageType> FORGEMASTER_KNOCKUP = ResourceKey.create(
+            Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "forgemaster_knockup")
+    );
+
     public static final ResourceKey<DamageType> ICICLE = ResourceKey.create(
             Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "icicle")
     );

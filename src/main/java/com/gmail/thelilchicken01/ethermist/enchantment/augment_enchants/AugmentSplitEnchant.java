@@ -57,7 +57,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             targetHolder = List.of(target.getLast());
         }
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, targetHolder, wandItem);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, targetHolder);
 
         shot.shootFromRotation(
                 player,
@@ -71,8 +71,8 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
 
         for (int x = 1; x < spellLevel; x++) {
 
-            WandProjectile leftShot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
-            WandProjectile rightShot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+            WandProjectile leftShot = shotItem.createProjectile(level, shotStack, player, target);
+            WandProjectile rightShot = shotItem.createProjectile(level, shotStack, player, target);
 
             leftShot.shootFromRotation(
                     player,

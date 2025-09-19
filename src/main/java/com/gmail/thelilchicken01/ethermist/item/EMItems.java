@@ -30,6 +30,8 @@ public class EMItems {
     public static final DeferredItem<WandShotItem> GLASS_SHOT = ITEMS.register("glass_shot", WandShotItem::new);
     public static final DeferredItem<WandShotItem> GLIMMERBUG_SHOT = ITEMS.register("glimmerbug_shot", WandShotItem::new);
 
+    public static final DeferredItem<WandShotItem> FORGEMASTER_SHOT = ITEMS.register("forgemaster_shot", WandShotItem::new);
+
     /*
     ---------- Orbs ----------
      */
@@ -99,6 +101,10 @@ public class EMItems {
             () -> new DeferredSpawnEggItem(EMEntityTypes.GLIMMERBUG_QUEEN, 0xd47958, 0xc85a32, new Item.Properties()));
     public static final DeferredItem<Item> GLIMMERBUG_SPAWN_EGG = ITEMS.register("glimmerbug_spawn_egg",
             () -> new DeferredSpawnEggItem(EMEntityTypes.GLIMMERBUG, 0xc85a32, 0x276c22, new Item.Properties()));
+    public static final DeferredItem<Item> FORGEMASTER_SPAWN_EGG = ITEMS.register("forgemaster_spawn_egg",
+            () -> new DeferredSpawnEggItem(EMEntityTypes.FORGEMASTER, 0x7F7F7F, 0xA64DFF, new Item.Properties()));
+    public static final DeferredItem<Item> PYLON_SPAWN_EGG = ITEMS.register("pylon_spawn_egg",
+            () -> new DeferredSpawnEggItem(EMEntityTypes.PYLON, 0xFF3B3B, 0x7F7F7F, new Item.Properties()));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

@@ -1,12 +1,8 @@
 package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.entity.client.model.GlimmerbugModel;
-import com.gmail.thelilchicken01.ethermist.entity.client.model.GlimmerbugQueenModel;
-import com.gmail.thelilchicken01.ethermist.entity.client.model.GloomieModel;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugQueenEntity;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.GloomieEntity;
+import com.gmail.thelilchicken01.ethermist.entity.client.model.*;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.*;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -23,6 +19,8 @@ public class EMModEvents {
         event.registerLayerDefinition(GloomieModel.LAYER_LOCATION, GloomieModel::createBodyLayer);
         event.registerLayerDefinition(GlimmerbugQueenModel.LAYER_LOCATION, GlimmerbugQueenModel::createBodyLayer);
         event.registerLayerDefinition(GlimmerbugModel.LAYER_LOCATION, GlimmerbugModel::createBodyLayer);
+        event.registerLayerDefinition(ForgemasterModel.LAYER_LOCATION, ForgemasterModel::createBodyLayer);
+        event.registerLayerDefinition(PylonModel.LAYER_LOCATION, PylonModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -30,6 +28,8 @@ public class EMModEvents {
         event.put(EMEntityTypes.GLOOMIE.get(), GloomieEntity.createAttributes().build());
         event.put(EMEntityTypes.GLIMMERBUG_QUEEN.get(), GlimmerbugQueenEntity.createAttributes().build());
         event.put(EMEntityTypes.GLIMMERBUG.get(), GlimmerbugEntity.createAttributes().build());
+        event.put(EMEntityTypes.FORGEMASTER.get(), ForgemasterEntity.createAttributes().build());
+        event.put(EMEntityTypes.PYLON.get(), PylonEntity.createAttributes().build());
     }
 
     @SubscribeEvent

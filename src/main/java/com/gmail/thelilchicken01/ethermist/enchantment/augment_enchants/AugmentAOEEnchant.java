@@ -55,7 +55,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
         for (int x = 0; x < spellLevel * 3; x++) {
 
             if (target != null && !target.isEmpty()) {
-                shot = shotItem.createProjectile(level, shotStack, player, List.of(target.get(index)), wandItem);
+                shot = shotItem.createProjectile(level, shotStack, player, List.of(target.get(index)));
                 index++;
 
                 if (index >= target.size()) {
@@ -63,7 +63,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
                 }
             }
             else {
-                shot = shotItem.createProjectile(level, shotStack, player, target, wandItem);
+                shot = shotItem.createProjectile(level, shotStack, player, target);
             }
 
             shot.shootFromRotation(

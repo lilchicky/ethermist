@@ -1,5 +1,7 @@
-// 1.21.1	2025-04-26T00:41:18.9331004	Tags for minecraft:entity_type mod id ethermist
-d235d5bb79b4a1d9bcc0d40b43bd4b7bb342ed1e data/c/tags/entity_type/bosses.json
+// 1.21.1	2025-09-18T22:35:33.9253408	Tags for minecraft:entity_type mod id ethermist
+feec86b0b963ac1c053cd0f97504ef381f5c43c9 data/c/tags/entity_type/bosses.json
 72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/aquatic.json
 36bed97f1c3d3b5e1d867543da2d915bc1646169 data/minecraft/tags/entity_type/arthropod.json
-72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/can_breathe_under_water.json
+228f269e32be9e3436b0be107afe0f764a9d2ca6 data/minecraft/tags/entity_type/can_breathe_under_water.json
+c6a0e24f77cf36b851f824a4851347aa3092c818 data/minecraft/tags/entity_type/fall_damage_immune.json
+aa8ab057da361b8da69f5ab9164336cd820f3098 data/minecraft/tags/entity_type/undead.json

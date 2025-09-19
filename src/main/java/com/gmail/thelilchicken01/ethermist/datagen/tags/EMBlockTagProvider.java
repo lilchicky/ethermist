@@ -316,6 +316,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
                 .add(EMBlocks.WANDFORGING_TABLE.get());
 
+        tag(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)
+                .addTag(BlockTags.PLANKS)
+                .addTag(BlockTags.LOGS)
+                .addTag(BlockTags.STONE_BRICKS);
+
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get(), EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get(), false);
