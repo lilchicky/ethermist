@@ -64,13 +64,17 @@ public class PylonEntity extends Monster {
                 .add(Attributes.FOLLOW_RANGE, 0);
     }
 
+    public void setLifespanSeconds(int seconds) {
+        this.lifespanSeconds = seconds;
+    }
+
     @Override
     public void tick() {
         super.tick();
 
         lifespanCounter++;
 
-        if (!this.level().isClientSide() && lifespanCounter > lifespanSeconds * 20) {
+        if (!this.level().isClientSide() && lifespanCounter > (lifespanSeconds + 1) * 20) {
             this.remove(RemovalReason.KILLED);
         }
 
@@ -87,7 +91,14 @@ public class PylonEntity extends Monster {
 
     @Override
     public int getTeamColor() {
-        return 0xFF0000;
+        int total = Math.max(1, this.lifespanSeconds * 20);
+        float t = Mth.clamp((float) this.lifespanCounter / (float) total, 0.0F, 1.0F);
+
+        int r = (int)(255 * t);
+        int g = (int)(255 * (1.0F - t));
+        int b = 0;
+
+        return (r << 16) | (g << 8) | b;
     }
 
     @Override

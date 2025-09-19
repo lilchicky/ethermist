@@ -277,6 +277,7 @@ public class ForgemasterEntity extends Monster {
                         PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), this.level());
 
                         pylon.setPos(randomX, randomY, randomZ);
+                        pylon.setLifespanSeconds(PYLON_CONSUME_COOLDOWN);
 
                         this.level().addFreshEntity(pylon);
 
