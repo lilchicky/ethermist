@@ -1,41 +1,26 @@
 package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
-import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.pathfinder.PathType;
-import net.neoforged.neoforge.common.IShearable;
 import net.neoforged.neoforge.fluids.FluidType;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -43,12 +28,12 @@ public class PylonEntity extends Monster {
 
     public final AnimationState idleState = new AnimationState();
 
-    private int lifespanSeconds = 60;
+    private static final EntityDataAccessor<Integer> LIFESPAN_SECONDS =
+            SynchedEntityData.defineId(PylonEntity.class, EntityDataSerializers.INT);
     private int lifespanCounter = 0;
 
     public PylonEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, (lifespanSeconds + 1) * 20, 0, false, false));
     }
 
     @Override
@@ -65,7 +50,17 @@ public class PylonEntity extends Monster {
     }
 
     public void setLifespanSeconds(int seconds) {
-        this.lifespanSeconds = seconds;
+        this.entityData.set(LIFESPAN_SECONDS, Math.max(1, seconds));
+    }
+
+    public int getLifespanSeconds() {
+        return this.entityData.get(LIFESPAN_SECONDS);
+    }
+
+    @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, (getLifespanSeconds() + 1) * 20, 0, false, false));
     }
 
     @Override
@@ -74,7 +69,7 @@ public class PylonEntity extends Monster {
 
         lifespanCounter++;
 
-        if (!this.level().isClientSide() && lifespanCounter > (lifespanSeconds + 1) * 20) {
+        if (!this.level().isClientSide() && lifespanCounter > (getLifespanSeconds() + 1) * 20) {
             this.remove(RemovalReason.KILLED);
         }
 
@@ -91,7 +86,7 @@ public class PylonEntity extends Monster {
 
     @Override
     public int getTeamColor() {
-        int total = Math.max(1, this.lifespanSeconds * 20);
+        int total = Math.max(1, getLifespanSeconds() * 20);
         float t = Mth.clamp((float) this.lifespanCounter / (float) total, 0.0F, 1.0F);
 
         int r = (int)(255 * t);
@@ -147,15 +142,21 @@ public class PylonEntity extends Monster {
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putInt("lifespan", this.lifespanSeconds);
+        tag.putInt("lifespan", getLifespanSeconds());
         tag.putInt("lifespan_remaining", this.lifespanCounter);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        this.lifespanSeconds = tag.getInt("lifespan");
+        setLifespanSeconds(tag.getInt("lifespan"));
         this.lifespanCounter = tag.getInt("lifespan_remaining");
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(LIFESPAN_SECONDS, 60);
     }
 
 }

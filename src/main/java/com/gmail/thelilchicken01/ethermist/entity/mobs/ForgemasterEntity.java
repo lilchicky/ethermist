@@ -15,6 +15,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -61,7 +62,7 @@ public class ForgemasterEntity extends Monster {
     private final int KNOCKUP_DAMAGE = 10;
 
     private final int PYLON_COOLDOWN = 8;
-    private final int PYLON_CONSUME_COOLDOWN = 12;
+    public final int PYLON_CONSUME_COOLDOWN = 16;
     private final int PYLON_BASE_COUNT = 6;
     private final int PYLON_PER_ADDITIONAL_PLAYER = 2;
     private final int PYLON_SPAWN_RADIUS = 12;
@@ -205,6 +206,15 @@ public class ForgemasterEntity extends Monster {
                         this.level().getRandom().nextFloat() * 0.4f + 0.8f
                 );
 
+                if (this.level() instanceof ServerLevel server) {
+                    server.sendParticles(ParticleTypes.EXPLOSION,
+                            this.getX(), this.getY(), this.getZ(),
+                            10,
+                            3.0, 0.0, 3.0,
+                            0.0
+                    );
+                }
+
                 for (LivingEntity entity : nearbyEntities) {
 
                     if (!(entity instanceof PylonEntity)) {
@@ -216,7 +226,7 @@ public class ForgemasterEntity extends Monster {
                                 null
                         );
 
-                        entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0));
+                        entity.push(0.0, 1.2, 0.0);
                         entity.hurt(damageSource, KNOCKUP_DAMAGE);
 
                     }
@@ -268,9 +278,6 @@ public class ForgemasterEntity extends Monster {
 
                     BlockState blockIn = this.level().getBlockState(blockInPos);
                     BlockState blockOn = this.level().getBlockState(blockOnPos);
-
-                    System.out.println("Block Inside: " + blockIn);
-                    System.out.println("Block On: " + blockOn);
 
                     if (blockIn.isAir() && blockOn.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
 
@@ -331,21 +338,6 @@ public class ForgemasterEntity extends Monster {
         }
 
         if (this.level().isClientSide()) {
-
-            if (knockupCounter < KNOCKUP_COOLDOWN * 20 && this.getTarget() != null && isPhase2) {
-                for (int x = 0; x < 10; x++) {
-
-                    this.level().addParticle(ParticleTypes.EXPLOSION,
-                            this.getX() + ((Math.random() - 0.5) * 6),
-                            this.getY(),
-                            this.getZ() + ((Math.random() - 0.5) * 6),
-                            0.0f,
-                            0.0f,
-                            0.0f);
-
-                }
-            }
-
             this.setupAnimationStates();
         }
     }
