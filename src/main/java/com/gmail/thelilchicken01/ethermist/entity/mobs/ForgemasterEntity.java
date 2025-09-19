@@ -58,7 +58,7 @@ public class ForgemasterEntity extends Monster {
     private final int SHOOT_LIFESPAN = 5 * 20;
 
     private final int KNOCKUP_COOLDOWN = 5;
-    private final int KNOCKUP_RANGE = 5;
+    private final int KNOCKUP_RANGE = 6;
     private final int KNOCKUP_DAMAGE = 10;
 
     private final int PYLON_COOLDOWN = 8;
@@ -279,7 +279,7 @@ public class ForgemasterEntity extends Monster {
                     BlockState blockIn = this.level().getBlockState(blockInPos);
                     BlockState blockOn = this.level().getBlockState(blockOnPos);
 
-                    if (blockIn.isAir() && blockOn.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
+                    if (blockIn.isAir() && (blockOn.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON) || blockOn.isAir())) {
 
                         PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), this.level());
 
