@@ -1,0 +1,154 @@
+{
+  "name": "ethermist:forgemaster_castle/room_pool",
+  "fallback": "ethermist:forgemaster_castle/fallback_pool",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_basic",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_door",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_left",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_long",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_old",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_quadruple",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_quadruple_tower",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_right",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:forgemaster_castle/hallway_triple",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+
+
+
+
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:forgemaster_castle/bedroom",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:forgemaster_castle/forge",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:forgemaster_castle/jail",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:forgemaster_castle/kitchen",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "ethermist:forgemaster_castle/library",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ethermist:forgemaster_castle/tower",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:forgemaster_castle/treasure_room",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
