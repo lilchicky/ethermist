@@ -30,7 +30,8 @@ public class PylonEntity extends Monster {
 
     private static final EntityDataAccessor<Integer> LIFESPAN_SECONDS =
             SynchedEntityData.defineId(PylonEntity.class, EntityDataSerializers.INT);
-    private int lifespanCounter = 0;
+    private static final EntityDataAccessor<Integer> LIFESPAN_COUNTER =
+            SynchedEntityData.defineId(PylonEntity.class, EntityDataSerializers.INT);
 
     public PylonEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -46,34 +47,41 @@ public class PylonEntity extends Monster {
                 .add(Attributes.MAX_HEALTH, 1)
                 .add(Attributes.MOVEMENT_SPEED, 0.01)
                 .add(Attributes.ATTACK_DAMAGE, 1)
-                .add(Attributes.FOLLOW_RANGE, 0);
+                .add(Attributes.FOLLOW_RANGE, 24);
     }
 
     public void setLifespanSeconds(int seconds) {
         this.entityData.set(LIFESPAN_SECONDS, Math.max(1, seconds));
     }
-
     public int getLifespanSeconds() {
         return this.entityData.get(LIFESPAN_SECONDS);
     }
 
+    public int getLifespanCounter() { return this.entityData.get(LIFESPAN_COUNTER); }
+    public void setLifespanCounter(int seconds) { this.entityData.set(LIFESPAN_COUNTER, seconds); }
+    public void addLifespanCounter(int additional) { this.entityData.set(LIFESPAN_COUNTER, getLifespanCounter() + additional); }
+
     @Override
     public void onAddedToLevel() {
         super.onAddedToLevel();
-        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, (getLifespanSeconds() + 1) * 20, 0, false, false));
+
+        int dur = Math.max(1, ((getLifespanSeconds() + 1) * 20) - getLifespanCounter());
+
+        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, dur, 0, false, false));
     }
 
     @Override
     public void tick() {
         super.tick();
 
-        lifespanCounter++;
+        if (!this.level().isClientSide()) {
+            addLifespanCounter(1);
 
-        if (!this.level().isClientSide() && lifespanCounter > (getLifespanSeconds() + 1) * 20) {
-            this.remove(RemovalReason.KILLED);
+            if (getLifespanCounter() > (getLifespanSeconds() + 1) * 20) {
+                this.remove(RemovalReason.KILLED);
+            }
         }
-
-        if (this.level().isClientSide()) {
+        else {
             this.setupAnimationStates();
         }
 
@@ -87,20 +95,12 @@ public class PylonEntity extends Monster {
     @Override
     public int getTeamColor() {
         int total = Math.max(1, getLifespanSeconds() * 20);
-        float t = Mth.clamp((float) this.lifespanCounter / (float) total, 0.0F, 1.0F);
+        int elapsed = Mth.clamp(getLifespanCounter(), 0, total);
+        float t = (float) elapsed / (float) total;
 
         int r = (int)(255 * t);
         int g = (int)(255 * (1.0F - t));
-        int b = 0;
-
-        return (r << 16) | (g << 8) | b;
-    }
-
-    @Override
-    public void baseTick() {
-        super.baseTick();
-
-        this.setAirSupply(300);
+        return (r << 16) | (g << 8);
     }
 
     @Override
@@ -134,29 +134,28 @@ public class PylonEntity extends Monster {
     }
 
     private void setupAnimationStates() {
-        if (!this.idleState.isStarted()) {
-            this.idleState.start(this.tickCount);
-        }
+        this.idleState.startIfStopped(this.tickCount);
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("lifespan", getLifespanSeconds());
-        tag.putInt("lifespan_remaining", this.lifespanCounter);
+        tag.putInt("lifespan_remaining", getLifespanCounter());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         setLifespanSeconds(tag.getInt("lifespan"));
-        this.lifespanCounter = tag.getInt("lifespan_remaining");
+        this.setLifespanCounter(tag.getInt("lifespan_remaining"));
     }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(LIFESPAN_SECONDS, 60);
+        builder.define(LIFESPAN_SECONDS, 30);
+        builder.define(LIFESPAN_COUNTER, 0);
     }
 
 }
