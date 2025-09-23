@@ -11,6 +11,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModif
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -270,20 +271,22 @@ public class ForgemasterEntity extends Monster {
                     spawnTries++;
 
                     double randomX = getX() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
-                    double randomY = getY();
                     double randomZ = getZ() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
 
-                    BlockPos blockInPos = new BlockPos((int) randomX, (int) randomY, (int) randomZ);
-                    BlockPos blockOnPos = new BlockPos((int) randomX, (int) randomY - 1, (int) randomZ);
+                    BlockPos.MutableBlockPos spawnPos = new BlockPos.MutableBlockPos(randomX, this.getY(), randomZ);
 
-                    BlockState blockIn = this.level().getBlockState(blockInPos);
-                    BlockState blockOn = this.level().getBlockState(blockOnPos);
+                    while (spawnPos.getY() > this.level().getMinBuildHeight() && this.level().getBlockState(spawnPos).isAir()) {
+                        spawnPos.move(Direction.DOWN);
+                    }
 
-                    if (blockIn.isAir() && (blockOn.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON) || blockOn.isAir())) {
+                    BlockState spawnState = this.level().getBlockState(spawnPos);
 
+                    if (spawnState.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
+
+                        BlockPos pylonPos = spawnPos.above();
                         PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), this.level());
 
-                        pylon.setPos(randomX, randomY, randomZ);
+                        pylon.setPos(pylonPos.getX() + 0.5, pylonPos.getY(), pylonPos.getZ() + 0.5);
                         pylon.setLifespanSeconds(PYLON_CONSUME_COOLDOWN);
 
                         this.level().addFreshEntity(pylon);
@@ -292,7 +295,7 @@ public class ForgemasterEntity extends Monster {
 
                     }
 
-                    if (spawnTries > 128) {
+                    if (spawnTries > 1024) {
                         Ethermist.LOGGER.info("Failed to find enough valid Pylon spawn locations!");
                         break;
                     }
