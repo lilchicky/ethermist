@@ -77,6 +77,7 @@ public class ForgemasterEntity extends Monster {
 
     private boolean isPhase2 = false;
     private boolean isPhase3 = false;
+    private double cooldownMod = 1;
 
     private final WandShotItem SHOT_ITEM = EMItems.FORGEMASTER_SHOT.get();
     private final ItemStack SHOT_ITEM_STACK = new ItemStack(SHOT_ITEM);
@@ -109,7 +110,7 @@ public class ForgemasterEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, TOTAL_HEALTH)
-                .add(Attributes.ARMOR, 20)
+                .add(Attributes.ARMOR, 15)
                 .add(Attributes.ATTACK_DAMAGE, 30)
                 .add(Attributes.ATTACK_SPEED, 0.5)
                 .add(Attributes.MOVEMENT_SPEED, 0.1)
@@ -134,18 +135,14 @@ public class ForgemasterEntity extends Monster {
                     Cast faster per phase
          */
 
-        double cooldownMod;
-
-        if (getHealth() < (getMaxHealth() * PHASE_2_HEALTH_PERCENT) && !isPhase2) {
-            isPhase2 = true;
-            cooldownMod = 0.6;
-            addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0));
-        } else if (getHealth() < (getMaxHealth() * PHASE_3_HEALTH_PERCENT) && !isPhase3) {
+        if (getHealth() < (getMaxHealth() * PHASE_3_HEALTH_PERCENT)) {
             isPhase3 = true;
             cooldownMod = 0.3;
             addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 1));
-        } else {
-            cooldownMod = 1;
+        } else if (getHealth() < (getMaxHealth() * PHASE_2_HEALTH_PERCENT)) {
+            isPhase2 = true;
+            cooldownMod = 0.6;
+            addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0));
         }
 
         /*
