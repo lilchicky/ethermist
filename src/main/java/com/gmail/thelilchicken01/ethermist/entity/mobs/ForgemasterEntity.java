@@ -64,8 +64,8 @@ public class ForgemasterEntity extends Monster {
 
     private final int PYLON_COOLDOWN = 8;
     public final int PYLON_CONSUME_COOLDOWN = 16;
-    private final int PYLON_BASE_COUNT = 6;
-    private final int PYLON_PER_ADDITIONAL_PLAYER = 2;
+    private final int PYLON_BASE_COUNT = 8;
+    private final int PYLON_PER_ADDITIONAL_PLAYER = 4;
     private final int PYLON_SPAWN_RADIUS = 12;
 
     private static final float TOTAL_HEALTH = 900.0f;
@@ -109,7 +109,7 @@ public class ForgemasterEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, TOTAL_HEALTH)
-                .add(Attributes.ARMOR, 10)
+                .add(Attributes.ARMOR, 20)
                 .add(Attributes.ATTACK_DAMAGE, 30)
                 .add(Attributes.ATTACK_SPEED, 0.5)
                 .add(Attributes.MOVEMENT_SPEED, 0.1)
