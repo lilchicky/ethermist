@@ -312,12 +312,12 @@ public class ForgemasterEntity extends Monster {
                 if (pylonConsumeCounter > 0) {
 
                     List<PylonEntity> nearbyPylons = this.level().getNearbyEntities(PylonEntity.class, TargetingConditions.DEFAULT, this,
-                            new AABB(this.getX() - (PYLON_SPAWN_RADIUS * 2),
-                                    this.getY() - PYLON_SPAWN_RADIUS,
-                                    this.getZ() - (PYLON_SPAWN_RADIUS * 2),
-                                    this.getX() + (PYLON_SPAWN_RADIUS * 2),
-                                    this.getY() + PYLON_SPAWN_RADIUS,
-                                    this.getZ() + (PYLON_SPAWN_RADIUS * 2)));
+                            new AABB(this.getX() - (PYLON_SPAWN_RADIUS * 3),
+                                    this.getY() - (PYLON_SPAWN_RADIUS * 3),
+                                    this.getZ() - (PYLON_SPAWN_RADIUS * 3),
+                                    this.getX() + (PYLON_SPAWN_RADIUS * 3),
+                                    this.getY() + (PYLON_SPAWN_RADIUS * 3),
+                                    this.getZ() + (PYLON_SPAWN_RADIUS * 3)));
 
                     // End phase early if all pylons are killed
                     if (nearbyPylons.isEmpty()) {
