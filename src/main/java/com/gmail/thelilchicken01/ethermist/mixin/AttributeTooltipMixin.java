@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.mixin;
 
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
@@ -31,37 +32,41 @@ public class AttributeTooltipMixin {
             CallbackInfo ci
     ) {
 
-        var modifiedAttributes = new java.util.HashSet<Holder<Attribute>>();
+        if (stack.getItem() instanceof WandItem) {
 
-        for (var entry : modifierMap.entries()) {
-            Holder<Attribute> attribute = entry.getKey();
-            AttributeModifier modifier = entry.getValue();
+            var modifiedAttributes = new java.util.HashSet<Holder<Attribute>>();
 
-            if (attribute.equals(EMAttributes.WAND_DAMAGE)
-                    || attribute.equals(EMAttributes.COOLDOWN)
-                    || attribute.equals(EMAttributes.ACCURACY)
-                    || attribute.equals(EMAttributes.LIFESPAN)
-                    || attribute.equals(EMAttributes.PROJECTILE_SPEED)
-                    || attribute.equals(EMAttributes.WAND_KNOCKBACK)) {
+            for (var entry : modifierMap.entries()) {
+                Holder<Attribute> attribute = entry.getKey();
+                AttributeModifier modifier = entry.getValue();
 
-                double val = modifier.amount();
+                if (attribute.equals(EMAttributes.WAND_DAMAGE)
+                        || attribute.equals(EMAttributes.COOLDOWN)
+                        || attribute.equals(EMAttributes.ACCURACY)
+                        || attribute.equals(EMAttributes.LIFESPAN)
+                        || attribute.equals(EMAttributes.PROJECTILE_SPEED)
+                        || attribute.equals(EMAttributes.WAND_KNOCKBACK)) {
 
-                if (attribute.equals(EMAttributes.ACCURACY)) {
-                    val = modifier.amount() * 100;
+                    double val = modifier.amount();
+
+                    if (attribute.equals(EMAttributes.ACCURACY)) {
+                        val = modifier.amount() * 100;
+                    }
+                    if (attribute.equals(EMAttributes.WAND_KNOCKBACK) || attribute.equals(EMAttributes.PROJECTILE_SPEED)) {
+                        val = (modifier.amount() + 0.75) * 100;
+                    }
+
+                    Component formatted = formatTooltip(attribute, modifier, ctx, val);
+                    tooltip.accept(formatted);
+                    modifiedAttributes.add(attribute);
+
                 }
-                if (attribute.equals(EMAttributes.WAND_KNOCKBACK) || attribute.equals(EMAttributes.PROJECTILE_SPEED)) {
-                    val = (modifier.amount() + 0.75) * 100;
-                }
-
-                Component formatted = formatTooltip(attribute, modifier, ctx, val);
-                tooltip.accept(formatted);
-                modifiedAttributes.add(attribute);
 
             }
 
-        }
+            modifiedAttributes.forEach(modifierMap::removeAll);
 
-        modifiedAttributes.forEach(modifierMap::removeAll);
+        }
 
     }
 
