@@ -16,7 +16,7 @@ public class AncientPowerEnchant implements IWandBaseEffect {
     @Override
     public void attributeChanges(WandAttributeState state, int level) {
 
-        state.damage = state.damage + (level * 0.5);
+        state.damage += (level > 0 ? 0.5 * level + 0.5 : 0);
 
     }
 

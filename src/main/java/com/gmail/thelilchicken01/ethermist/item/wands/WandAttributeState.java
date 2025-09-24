@@ -109,7 +109,7 @@ public class WandAttributeState {
 
     public void clamp() {
         if (cooldownTicks < 5) cooldownTicks = 5; // cooldown cannot be faster than a quarter second
-        if (damage < 0.5) damage = 0.5; // damage cannot be under 1 heart
+        if (damage < 1.0) damage = 1.0; // damage cannot be under 1 heart
         if (lifespanSeconds < 0.25) lifespanSeconds = 0.25; // min lifespan
         if (projectileSpeedMult < 0.1) projectileSpeedMult = 0.1; // min speed
         if (knockbackMult < 0.0) knockbackMult = 0.0; // knockback cannot be under none
