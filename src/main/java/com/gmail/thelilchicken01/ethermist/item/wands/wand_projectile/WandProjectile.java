@@ -44,7 +44,7 @@ public class WandProjectile extends Fireball {
     protected boolean isHoming = false;
     protected List<? extends Entity> target;
     protected Player shooter = null;
-    protected List<TagKey<EntityType<?>>> targetType = List.of();
+    protected List<TagKey<EntityType<?>>> targetType = new ArrayList<>();
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
     protected WandHandle originWandTier = null;
     protected WandOrb originWandType = null;
