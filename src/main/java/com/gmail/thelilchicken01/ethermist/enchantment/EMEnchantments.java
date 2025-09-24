@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
+import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeMonstersEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.*;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -282,6 +283,10 @@ public class EMEnchantments {
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(excludeColor))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_EXCLUDE_EFFECT.get(),
+                        new ExcludeMonstersEnchant()
+                )
         );
 
         register(context, EXCLUDE_ANIMALS, Enchantment.enchantment(Enchantment.definition(

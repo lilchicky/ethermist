@@ -1,16 +1,15 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
-import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.enchantment.*;
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
-import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
@@ -69,22 +68,13 @@ public class WandProjectileHandler {
         ItemStack shotStack = new ItemStack(wand.getOrb().getShotItem());
 
         // Handle wand target filtering
-        List<SpellModifiers.TargetType> types = new ArrayList<>();
-        EnchantmentHelper.runIterationOnItem(thisWand, (enchantHolder, enchantLevel) -> {
-            if (enchantHolder.is(EMEnchantments.EXCLUDE_MONSTERS.location())) {
-                types.add(SpellModifiers.TargetType.MONSTERS);
-            }
-            if (enchantHolder.is(EMEnchantments.EXCLUDE_ANIMALS.location())) {
-                types.add(SpellModifiers.TargetType.ANIMALS);
-            }
-            if (enchantHolder.is(EMEnchantments.EXCLUDE_PLAYERS.location())) {
-                types.add(SpellModifiers.TargetType.PLAYERS);
+        List<TagKey<EntityType<?>>> types = new ArrayList<>();
+        EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
+            IWandExclusionEffect exclude = enchant.value().effects().get(EMEnchantComponents.WAND_EXCLUDE_EFFECT.get());
+            if (exclude != null) {
+                types.addAll(exclude.getExclusive());
             }
         });
-
-        if (types.isEmpty()) {
-            types.add(SpellModifiers.TargetType.ALL);
-        }
 
         // Find all nearby entities based on wand filters
         List<Entity> nearby = WandUtil.getNearbyEntities(level, (int) (newLifespan * 10), player);
@@ -202,17 +192,9 @@ public class WandProjectileHandler {
         );
 
         boolean damaged;
-        boolean canBeHurt = true;
         if (!(target == shooter)) {
-            for (SpellModifiers.TargetType type : shot.targetType) {
-                switch (type) {
-                    case MONSTERS -> canBeHurt = !(target instanceof Monster);
-                    case ANIMALS -> canBeHurt = !(target instanceof Animal);
-                    case PLAYERS -> canBeHurt = !(target instanceof Player);
-                }
-                if (!canBeHurt) break;
-            }
-            canBeHurt = (!(target instanceof TamableAnimal tamed) || !tamed.isTame()) && canBeHurt;
+            boolean inExcludedTag = shot.targetType.stream().anyMatch(tag -> target.getType().is(tag));
+            boolean canBeHurt = !inExcludedTag && (!(target instanceof TamableAnimal tamed) || !tamed.isTame());
 
             damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
 

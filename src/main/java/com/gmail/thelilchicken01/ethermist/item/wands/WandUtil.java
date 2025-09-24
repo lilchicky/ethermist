@@ -1,13 +1,10 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.decoration.ArmorStand;
@@ -42,14 +39,14 @@ public class WandUtil {
         );
     }
 
-    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<SpellModifiers.TargetType> types) {
-        List<Entity> filteredEntities = entities;
-        for (SpellModifiers.TargetType type : types) {
-            if (type.getTargetClass() != null) {
-                filteredEntities = filteredEntities.stream().filter(iterate -> !type.getTargetClass().isInstance(iterate)).toList();
-            }
-        }
-        return filteredEntities.stream().filter(iterate ->
+    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<TagKey<EntityType<?>>> types) {
+
+        List<Entity> filteredEntities = entities.stream()
+                .filter(entity -> types == null || types.isEmpty() || types.stream().noneMatch(tag -> entity.getType().is(tag)))
+                .toList();
+
+        return filteredEntities.stream()
+                .filter(iterate ->
                         !iterate.isInvulnerable() &&
                                 iterate.distanceTo(self) < 24 &&
                                 iterate.isAlive() &&
@@ -66,7 +63,7 @@ public class WandUtil {
                                 !(iterate instanceof TamableAnimal tamed && tamed.isTame()) &&
                                 !(iterate instanceof Projectile) &&
                                 !(iterate instanceof ArmorStand) &&
-                                !(iterate.getTags().contains(EntityTypeTags.DEFLECTS_PROJECTILES.location().getPath()))
+                                !iterate.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES)
                 )
                 .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceTo(self)))
                 .collect(Collectors.toList());

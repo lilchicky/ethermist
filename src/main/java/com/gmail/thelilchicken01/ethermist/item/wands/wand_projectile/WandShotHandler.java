@@ -3,7 +3,9 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -15,7 +17,7 @@ public class WandShotHandler {
 
     public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
-                             boolean isHoming, List<SpellModifiers.TargetType> targetType, List<WandProjectile.SpellEntry> savedSpells) {
+                             boolean isHoming, List<TagKey<EntityType<?>>> targetType, List<WandProjectile.SpellEntry> savedSpells) {
 
         WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
@@ -56,7 +58,7 @@ public class WandShotHandler {
                                              ItemStack wandItem,
                                              double lifespan,
                                              boolean isHoming,
-                                             List<SpellModifiers.TargetType> targetType,
+                                             List<TagKey<EntityType<?>>> targetType,
                                              List<WandProjectile.SpellEntry> savedSpells) {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));

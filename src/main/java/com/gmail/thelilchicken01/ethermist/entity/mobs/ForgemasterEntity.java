@@ -7,7 +7,6 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import net.minecraft.core.BlockPos;
@@ -171,7 +170,7 @@ public class ForgemasterEntity extends Monster {
                     shot.setOwner(this);
                     shot.setOriginWandOrb(EMWandOrbs.FORGEMASTER.get());
                     shot.setOriginWandHandle(EMWandHandles.WOODEN.get());
-                    shot.setTargetType(List.of(SpellModifiers.TargetType.ALL));
+                    shot.setTargetType(List.of());
                     shot.setDamageType(EMDamageTypes.FORGEMASTER_SHOT);
                     shot.setTrailColor(new float[]{1.0f, 0.1f, 0.1f});
 

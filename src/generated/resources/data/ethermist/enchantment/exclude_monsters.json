@@ -4,6 +4,11 @@
     "color": "#5555FF",
     "translate": "enchantment.ethermist.exclude_monsters"
   },
+  "effects": {
+    "ethermist:wand_exclude_effect": {
+      "type": "ethermist:exclude_monsters"
+    }
+  },
   "max_cost": {
     "base": 21,
     "per_level_above_first": 11

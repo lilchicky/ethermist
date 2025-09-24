@@ -6,9 +6,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 
 public class EMTags {
 
@@ -57,6 +59,19 @@ public class EMTags {
 
         private static TagKey<Enchantment> mod(String path) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+        }
+
+    }
+
+    public static final class Entities {
+
+        public static final TagKey<EntityType<?>> EXCLUDE_MONSTERS = mod("exclude_monsters_will_not_target");
+        public static final TagKey<EntityType<?>> EXCLUDE_PLAYERS = mod("exclude_players_will_not_target");
+        public static final TagKey<EntityType<?>> EXCLUDE_ANIMALS = mod("exclude_animals_will_not_target");
+        public static final TagKey<EntityType<?>> EXCLUDE_VILLAGERS = mod("exclude_villagers_will_not_target");
+
+        private static TagKey<EntityType<?>> mod(String path) {
+            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
         }
 
     }

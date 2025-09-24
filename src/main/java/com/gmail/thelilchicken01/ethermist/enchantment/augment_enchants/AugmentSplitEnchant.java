@@ -1,20 +1,17 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
 import com.gmail.thelilchicken01.ethermist.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.SpellModifiers;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -50,7 +47,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             WandShotItem shotItem,
             ItemStack wandItem,
             boolean isHoming,
-            List<SpellModifiers.TargetType> targetType,
+            List<TagKey<EntityType<?>>> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
             List<WandProjectile.SpellEntry> savedSpells,

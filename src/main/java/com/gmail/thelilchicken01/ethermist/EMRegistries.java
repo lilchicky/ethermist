@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
+import com.gmail.thelilchicken01.ethermist.enchantment.IWandExclusionEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.WandOrb;
@@ -25,6 +26,9 @@ public class EMRegistries {
     public static final ResourceKey<Registry<MapCodec<? extends IWandAugmentEffect>>> WAND_AUGMENT_EFFECT_REGISTRY_KEY =
             ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_augment_effect_key"));
 
+    public static final ResourceKey<Registry<MapCodec<? extends IWandExclusionEffect>>> WAND_EXCLUSION_EFFECT_REGISTRY_KEY =
+            ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_exclusion_effect_key"));
+
     public static final ResourceKey<Registry<MapCodec<? extends IWandSpellEffect>>> WAND_SPELL_EFFECT_REGISTRY_KEY =
             ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wand_spell_effect_key"));
 
@@ -41,6 +45,9 @@ public class EMRegistries {
 
     public static final DeferredRegister<MapCodec<? extends IWandAugmentEffect>> WAND_AUGMENT_EFFECT =
             DeferredRegister.create(WAND_AUGMENT_EFFECT_REGISTRY_KEY, Ethermist.MODID);
+
+    public static final DeferredRegister<MapCodec<? extends IWandExclusionEffect>> WAND_EXCLUSION_EFFECT =
+            DeferredRegister.create(WAND_EXCLUSION_EFFECT_REGISTRY_KEY, Ethermist.MODID);
 
     public static final DeferredRegister<MapCodec<? extends IWandSpellEffect>> WAND_SPELL_EFFECT =
             DeferredRegister.create(WAND_SPELL_EFFECT_REGISTRY_KEY, Ethermist.MODID);

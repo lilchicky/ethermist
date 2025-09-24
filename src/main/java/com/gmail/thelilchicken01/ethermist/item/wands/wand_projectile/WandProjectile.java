@@ -14,6 +14,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
@@ -43,7 +44,7 @@ public class WandProjectile extends Fireball {
     protected boolean isHoming = false;
     protected List<? extends Entity> target;
     protected Player shooter = null;
-    protected List<SpellModifiers.TargetType> targetType = List.of(SpellModifiers.TargetType.ALL);
+    protected List<TagKey<EntityType<?>>> targetType = List.of();
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
     protected WandHandle originWandTier = null;
     protected WandOrb originWandType = null;
@@ -190,8 +191,10 @@ public class WandProjectile extends Fireball {
 
     public void setHoming(boolean homing) { this.isHoming = homing; }
 
-    public void setTargetType(List<SpellModifiers.TargetType> targetType) { this.targetType = targetType; }
-    public List<SpellModifiers.TargetType> getTargetType() { return this.targetType; }
+    public void setTargetType(List<TagKey<EntityType<?>>> targetType) {
+        this.targetType.addAll(targetType);
+    }
+    public List<TagKey<EntityType<?>>> getTargetType() { return this.targetType; }
 
     public void setDamageType(ResourceKey<DamageType> damageType) { this.damageType = damageType; }
     public ResourceKey<DamageType> getDamageType() { return this.damageType; }

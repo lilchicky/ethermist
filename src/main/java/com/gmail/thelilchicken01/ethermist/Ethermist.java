@@ -6,6 +6,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandAugments;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandBaseEnchants;
+import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandExclusionEnchants;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandSpells;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.EMCreativeTab;
@@ -74,6 +75,7 @@ public class Ethermist {
         EMRegistries.WAND_BASE_EFFECT.register(bus);
         EMRegistries.WAND_AUGMENT_EFFECT.register(bus);
         EMRegistries.WAND_SPELL_EFFECT.register(bus);
+        EMRegistries.WAND_EXCLUSION_EFFECT.register(bus);
 
         // Register custom content
         EMWandOrbs.register(bus);
@@ -105,6 +107,7 @@ public class Ethermist {
         EMWandBaseEnchants.register(bus);
         EMWandAugments.register(bus);
         EMWandSpells.register(bus);
+        EMWandExclusionEnchants.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, EMConfig.SPEC);
@@ -136,6 +139,10 @@ public class Ethermist {
                 .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
 
         event.create(new RegistryBuilder<>(EMRegistries.WAND_AUGMENT_EFFECT_REGISTRY_KEY)
+                .sync(true)
+                .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
+
+        event.create(new RegistryBuilder<>(EMRegistries.WAND_EXCLUSION_EFFECT_REGISTRY_KEY)
                 .sync(true)
                 .defaultKey(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "empty")));
 

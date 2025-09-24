@@ -30,6 +30,12 @@ public class EMEnchantComponents {
                     .build()
             );
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<IWandExclusionEffect>> WAND_EXCLUDE_EFFECT =
+            EM_ENCHANT_COMPONENT_TYPES.register("wand_exclude_effect", () -> DataComponentType.<IWandExclusionEffect>builder()
+                    .persistent(IWandExclusionEffect.CODEC)
+                    .build()
+            );
+
     public static void register(IEventBus bus) {
         EM_ENCHANT_COMPONENT_TYPES.register(bus);
     }
