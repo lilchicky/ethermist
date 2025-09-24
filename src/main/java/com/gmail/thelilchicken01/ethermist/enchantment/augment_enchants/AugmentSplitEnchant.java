@@ -35,7 +35,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
 
     @Override
     public void attributeChanges(WandAttributeState state, int level) {
-        state.damage = (state.damage / level);
+        state.damage *= 0.5 + 0.3 * Math.exp(-0.5 * (level - 1));
     }
 
     @Override

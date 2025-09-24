@@ -32,8 +32,7 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
     @Override
     public void attributeChanges(WandAttributeState state, int level) {
 
-        double damage = Math.max(0.0, state.damage);
-        double damageMod = 1.0 / (1.0 + 0.81 * (1.0 / (1.0 + level)) * Math.sqrt(damage));
+        double damageMod = 1.0 / (1.0 + 0.81 * (1.0 / (1.0 + level)) * Math.sqrt(state.damage));
         state.damage *= damageMod;
 
         state.lifespanSeconds = Math.max(1.0, state.lifespanSeconds * 0.1);
