@@ -178,7 +178,7 @@ public class ForgemasterEntity extends Monster {
                     this.level().addFreshEntity(shot);
                     this.playSound(
                             SoundEvents.BLAZE_SHOOT,
-                            0.2f,
+                            1.0f,
                             this.level().getRandom().nextFloat() * 0.4f + 0.8f
                     );
 
