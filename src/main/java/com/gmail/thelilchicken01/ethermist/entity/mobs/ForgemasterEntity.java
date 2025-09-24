@@ -135,217 +135,221 @@ public class ForgemasterEntity extends Monster {
                     Cast faster per phase
          */
 
-        if (getHealth() < (getMaxHealth() * PHASE_3_HEALTH_PERCENT)) {
-            isPhase3 = true;
-            cooldownMod = 0.3;
-            addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 1));
-        } else if (getHealth() < (getMaxHealth() * PHASE_2_HEALTH_PERCENT)) {
-            isPhase2 = true;
-            cooldownMod = 0.6;
-            addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0));
-        }
+        if (this.tickCount % 5 == 0) {
+
+            if (getHealth() < (getMaxHealth() * PHASE_3_HEALTH_PERCENT)) {
+                isPhase3 = true;
+                cooldownMod = 0.3;
+                addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 1));
+            } else if (getHealth() < (getMaxHealth() * PHASE_2_HEALTH_PERCENT)) {
+                isPhase2 = true;
+                cooldownMod = 0.6;
+                addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0));
+            }
 
         /*
                     All Phases (Meteor Shot)
          */
 
-        if (!level().isClientSide()) {
+            if (!level().isClientSide()) {
 
-            if (shootCounter > (SHOOT_COOLDOWN * cooldownMod) * 20 && this.getTarget() != null) {
+                if (shootCounter > (SHOOT_COOLDOWN * cooldownMod) * 20 && this.getTarget() != null) {
 
-                WandProjectile shot = SHOT_ITEM.createProjectile(this.level(), SHOT_ITEM_STACK, this, List.of(this.getTarget()));
+                    WandProjectile shot = SHOT_ITEM.createProjectile(this.level(), SHOT_ITEM_STACK, this, List.of(this.getTarget()));
 
-                Vec3 currentPos = getEyePosition();
-                Vec3 targetPos = getTarget().getPosition(1.0f);
-                Vec3 targetVector = targetPos.subtract(currentPos).normalize();
+                    Vec3 currentPos = getEyePosition();
+                    Vec3 targetPos = getTarget().getPosition(1.0f);
+                    Vec3 targetVector = targetPos.subtract(currentPos).normalize();
 
-                shot.shoot(targetVector.x, targetVector.y + 0.1, targetVector.z, 0.4f, 0.0f);
+                    shot.shoot(targetVector.x, targetVector.y + 0.1, targetVector.z, 0.4f, 0.0f);
 
-                shot.setDamage(SHOOT_DAMAGE);
-                shot.setLifetime(SHOOT_LIFESPAN);
-                shot.setCanIgnite(false);
-                shot.setKnockbackStrength(0.5);
-                shot.setHoming(false);
-                shot.setOwner(this);
-                shot.setOriginWandOrb(EMWandOrbs.FORGEMASTER.get());
-                shot.setOriginWandHandle(EMWandHandles.WOODEN.get());
-                shot.setTargetType(List.of(SpellModifiers.TargetType.ALL));
-                shot.setDamageType(EMDamageTypes.FORGEMASTER_SHOT);
-                shot.setTrailColor(new float[]{1.0f, 0.1f, 0.1f});
+                    shot.setDamage(SHOOT_DAMAGE);
+                    shot.setLifetime(SHOOT_LIFESPAN);
+                    shot.setCanIgnite(false);
+                    shot.setKnockbackStrength(0.5);
+                    shot.setHoming(false);
+                    shot.setOwner(this);
+                    shot.setOriginWandOrb(EMWandOrbs.FORGEMASTER.get());
+                    shot.setOriginWandHandle(EMWandHandles.WOODEN.get());
+                    shot.setTargetType(List.of(SpellModifiers.TargetType.ALL));
+                    shot.setDamageType(EMDamageTypes.FORGEMASTER_SHOT);
+                    shot.setTrailColor(new float[]{1.0f, 0.1f, 0.1f});
 
-                this.level().addFreshEntity(shot);
-                this.playSound(
-                        SoundEvents.BLAZE_SHOOT,
-                        0.2f,
-                        this.level().getRandom().nextFloat() * 0.4f + 0.8f
-                );
+                    this.level().addFreshEntity(shot);
+                    this.playSound(
+                            SoundEvents.BLAZE_SHOOT,
+                            0.2f,
+                            this.level().getRandom().nextFloat() * 0.4f + 0.8f
+                    );
 
-                shootCounter = 0;
+                    shootCounter = 0;
 
-            }
+                }
 
             /*
                         Phase 2 (Knockup)
              */
 
-            if (knockupCounter > KNOCKUP_COOLDOWN * 20 && this.getTarget() != null && isPhase2) {
+                if (knockupCounter > KNOCKUP_COOLDOWN * 20 && this.getTarget() != null && isPhase2) {
 
-                List<LivingEntity> nearbyEntities = this.level().getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT, this, new AABB(
-                        this.getX() - KNOCKUP_RANGE,
-                        this.getY() - KNOCKUP_RANGE,
-                        this.getZ() - KNOCKUP_RANGE,
-                        this.getX() + KNOCKUP_RANGE,
-                        this.getY() + KNOCKUP_RANGE,
-                        this.getZ() + KNOCKUP_RANGE));
+                    List<LivingEntity> nearbyEntities = this.level().getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT, this, new AABB(
+                            this.getX() - KNOCKUP_RANGE,
+                            this.getY() - KNOCKUP_RANGE,
+                            this.getZ() - KNOCKUP_RANGE,
+                            this.getX() + KNOCKUP_RANGE,
+                            this.getY() + KNOCKUP_RANGE,
+                            this.getZ() + KNOCKUP_RANGE));
 
-                this.playSound(
-                        SoundEvents.GENERIC_EXPLODE.value(),
-                        1.0f,
-                        this.level().getRandom().nextFloat() * 0.4f + 0.8f
-                );
-
-                if (this.level() instanceof ServerLevel server) {
-                    server.sendParticles(ParticleTypes.EXPLOSION,
-                            this.getX(), this.getY(), this.getZ(),
-                            10,
-                            3.0, 0.0, 3.0,
-                            0.0
+                    this.playSound(
+                            SoundEvents.GENERIC_EXPLODE.value(),
+                            1.0f,
+                            this.level().getRandom().nextFloat() * 0.4f + 0.8f
                     );
-                }
 
-                for (LivingEntity entity : nearbyEntities) {
-
-                    if (!(entity instanceof PylonEntity)) {
-
-                        DamageSource damageSource = new DamageSource(
-                                this.level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.FORGEMASTER_KNOCKUP),
-                                this,
-                                this,
-                                null
+                    if (this.level() instanceof ServerLevel server) {
+                        server.sendParticles(ParticleTypes.EXPLOSION,
+                                this.getX(), this.getY(), this.getZ(),
+                                10,
+                                3.0, 0.0, 3.0,
+                                0.0
                         );
+                    }
 
-                        entity.hurtMarked = true;
-                        entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0).normalize());
-                        entity.hurt(damageSource, KNOCKUP_DAMAGE);
+                    for (LivingEntity entity : nearbyEntities) {
+
+                        if (!(entity instanceof PylonEntity)) {
+
+                            DamageSource damageSource = new DamageSource(
+                                    this.level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(EMDamageTypes.FORGEMASTER_KNOCKUP),
+                                    this,
+                                    this,
+                                    null
+                            );
+
+                            entity.hurtMarked = true;
+                            entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0).normalize());
+                            entity.hurt(damageSource, KNOCKUP_DAMAGE);
+
+                        }
 
                     }
 
+                    knockupCounter = 0;
+
                 }
-
-                knockupCounter = 0;
-
-            }
 
             /*
                         Phase 3 (Pylons)
              */
 
-            // Spawn the pylons, then set hasPylons to true
-            if (pylonCounter > PYLON_COOLDOWN * 20 && isPhase3) {
+                // Spawn the pylons, then set hasPylons to true
+                if (pylonCounter > PYLON_COOLDOWN * 20 && isPhase3) {
 
-                this.playSound(
-                        SoundEvents.ANVIL_USE,
-                        1.0f,
-                        this.level().getRandom().nextFloat() * 0.01f + 0.1f
-                );
+                    this.playSound(
+                            SoundEvents.ANVIL_USE,
+                            1.0f,
+                            this.level().getRandom().nextFloat() * 0.01f + 0.1f
+                    );
 
-                setInvulnerable(true);
-                bossEvent.setColor(BossEvent.BossBarColor.WHITE);
+                    setInvulnerable(true);
+                    bossEvent.setColor(BossEvent.BossBarColor.WHITE);
 
-                int spawnedPylons = 0;
-                int spawnTries = 0;
+                    int spawnedPylons = 0;
+                    int spawnTries = 0;
 
-                List<Player> nearbyPlayers = this.level().getNearbyEntities(Player.class, TargetingConditions.DEFAULT, this, new AABB(
-                        this.getX() - 24,
-                        this.getY() - 24,
-                        this.getZ() - 24,
-                        this.getX() + 24,
-                        this.getY() + 24,
-                        this.getZ() + 24));
+                    List<Player> nearbyPlayers = this.level().getNearbyEntities(Player.class, TargetingConditions.DEFAULT, this, new AABB(
+                            this.getX() - 24,
+                            this.getY() - 24,
+                            this.getZ() - 24,
+                            this.getX() + 24,
+                            this.getY() + 24,
+                            this.getZ() + 24));
 
-                while (spawnedPylons < (PYLON_BASE_COUNT + (PYLON_PER_ADDITIONAL_PLAYER * nearbyPlayers.size()))) {
+                    while (spawnedPylons < (PYLON_BASE_COUNT + (PYLON_PER_ADDITIONAL_PLAYER * nearbyPlayers.size()))) {
 
-                    // IMPORTANT TO BREAK OUT OF WHILE LOOP IF TOO MANY ATTEMPTS!!
-                    spawnTries++;
+                        // IMPORTANT TO BREAK OUT OF WHILE LOOP IF TOO MANY ATTEMPTS!!
+                        spawnTries++;
 
-                    double randomX = getX() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
-                    double randomZ = getZ() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
+                        double randomX = getX() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
+                        double randomZ = getZ() + ((Math.random() - 0.5) * (PYLON_SPAWN_RADIUS * 2));
 
-                    BlockPos.MutableBlockPos spawnPos = new BlockPos.MutableBlockPos(randomX, this.getY(), randomZ);
+                        BlockPos.MutableBlockPos spawnPos = new BlockPos.MutableBlockPos(randomX, this.getY(), randomZ);
 
-                    while (spawnPos.getY() > this.level().getMinBuildHeight() && this.level().getBlockState(spawnPos).isAir()) {
-                        spawnPos.move(Direction.DOWN);
+                        while (spawnPos.getY() > this.level().getMinBuildHeight() && this.level().getBlockState(spawnPos).isAir()) {
+                            spawnPos.move(Direction.DOWN);
+                        }
+
+                        BlockState spawnState = this.level().getBlockState(spawnPos);
+
+                        if (spawnState.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
+
+                            BlockPos pylonPos = spawnPos.above();
+                            PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), this.level());
+
+                            pylon.setPos(pylonPos.getX() + 0.5, pylonPos.getY(), pylonPos.getZ() + 0.5);
+                            pylon.setLifespanSeconds(PYLON_CONSUME_COOLDOWN);
+
+                            this.level().addFreshEntity(pylon);
+
+                            spawnedPylons++;
+
+                        }
+
+                        if (spawnTries > 1024) {
+                            Ethermist.LOGGER.info("Failed to find enough valid Pylon spawn locations!");
+                            break;
+                        }
+
                     }
 
-                    BlockState spawnState = this.level().getBlockState(spawnPos);
-
-                    if (spawnState.is(EMTags.Blocks.CAN_SUPPORT_FORGEMASTER_PYLON)) {
-
-                        BlockPos pylonPos = spawnPos.above();
-                        PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), this.level());
-
-                        pylon.setPos(pylonPos.getX() + 0.5, pylonPos.getY(), pylonPos.getZ() + 0.5);
-                        pylon.setLifespanSeconds(PYLON_CONSUME_COOLDOWN);
-
-                        this.level().addFreshEntity(pylon);
-
-                        spawnedPylons++;
-
-                    }
-
-                    if (spawnTries > 1024) {
-                        Ethermist.LOGGER.info("Failed to find enough valid Pylon spawn locations!");
-                        break;
-                    }
+                    hasPylons = true;
+                    pylonCounter = 0;
 
                 }
 
-                hasPylons = true;
-                pylonCounter = 0;
+                // Consume spawned pylons, then set has pylons back to false
 
-            }
+                if (pylonConsumeCounter > 0) {
 
-            // Consume spawned pylons, then set has pylons back to false
+                    List<PylonEntity> nearbyPylons = this.level().getNearbyEntities(PylonEntity.class, TargetingConditions.DEFAULT, this,
+                            new AABB(this.getX() - (PYLON_SPAWN_RADIUS * 2),
+                                    this.getY() - PYLON_SPAWN_RADIUS,
+                                    this.getZ() - (PYLON_SPAWN_RADIUS * 2),
+                                    this.getX() + (PYLON_SPAWN_RADIUS * 2),
+                                    this.getY() + PYLON_SPAWN_RADIUS,
+                                    this.getZ() + (PYLON_SPAWN_RADIUS * 2)));
 
-            if (pylonConsumeCounter > 0) {
+                    // End phase early if all pylons are killed
+                    if (nearbyPylons.isEmpty()) {
+                        playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
 
-                List<PylonEntity> nearbyPylons = this.level().getNearbyEntities(PylonEntity.class, TargetingConditions.DEFAULT, this,
-                        new AABB(this.getX() - (PYLON_SPAWN_RADIUS * 2),
-                                this.getY() - PYLON_SPAWN_RADIUS,
-                                this.getZ() - (PYLON_SPAWN_RADIUS * 2),
-                                this.getX() + (PYLON_SPAWN_RADIUS * 2),
-                                this.getY() + PYLON_SPAWN_RADIUS,
-                                this.getZ() + (PYLON_SPAWN_RADIUS * 2)));
+                        setInvulnerable(false);
+                        bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
 
-                // End phase early if all pylons are killed
-                if (nearbyPylons.isEmpty()) {
-                    playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
-
-                    setInvulnerable(false);
-                    bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
-
-                    hasPylons = false;
-                    pylonConsumeCounter = 0;
-                }
-
-                if (pylonConsumeCounter > PYLON_CONSUME_COOLDOWN * 20 && isPhase3) {
-
-                    int pylonsConsumed = 0;
-
-                    playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
-
-                    setInvulnerable(false);
-                    bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
-
-                    for (PylonEntity pylon : nearbyPylons) {
-                        pylon.remove(RemovalReason.KILLED);
-                        pylonsConsumed++;
+                        hasPylons = false;
+                        pylonConsumeCounter = 0;
                     }
 
-                    heal((float) (pylonsConsumed * (getMaxHealth() * HEALTH_PERCENT_HEALED_PER_PYLON)));
+                    if (pylonConsumeCounter > PYLON_CONSUME_COOLDOWN * 20 && isPhase3) {
 
-                    hasPylons = false;
-                    pylonConsumeCounter = 0;
+                        int pylonsConsumed = 0;
+
+                        playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
+
+                        setInvulnerable(false);
+                        bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
+
+                        for (PylonEntity pylon : nearbyPylons) {
+                            pylon.remove(RemovalReason.KILLED);
+                            pylonsConsumed++;
+                        }
+
+                        heal((float) (pylonsConsumed * (getMaxHealth() * HEALTH_PERCENT_HEALED_PER_PYLON)));
+
+                        hasPylons = false;
+                        pylonConsumeCounter = 0;
+
+                    }
 
                 }
 
