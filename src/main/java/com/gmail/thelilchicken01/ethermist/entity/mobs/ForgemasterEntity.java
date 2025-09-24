@@ -227,7 +227,8 @@ public class ForgemasterEntity extends Monster {
                                 null
                         );
 
-                        entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0));
+                        entity.hurtMarked = true;
+                        entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0).normalize());
                         entity.hurt(damageSource, KNOCKUP_DAMAGE);
 
                     }
@@ -309,14 +310,7 @@ public class ForgemasterEntity extends Monster {
 
             // Consume spawned pylons, then set has pylons back to false
 
-            if (pylonConsumeCounter > PYLON_CONSUME_COOLDOWN * 20 && isPhase3) {
-
-                int pylonsConsumed = 0;
-
-                playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
-
-                setInvulnerable(false);
-                bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
+            if (pylonConsumeCounter > 0) {
 
                 List<PylonEntity> nearbyPylons = this.level().getNearbyEntities(PylonEntity.class, TargetingConditions.DEFAULT, this,
                         new AABB(this.getX() - (PYLON_SPAWN_RADIUS * 2),
@@ -326,15 +320,37 @@ public class ForgemasterEntity extends Monster {
                                 this.getY() + PYLON_SPAWN_RADIUS,
                                 this.getZ() + (PYLON_SPAWN_RADIUS * 2)));
 
-                for (PylonEntity pylon : nearbyPylons) {
-                    pylon.remove(RemovalReason.KILLED);
-                    pylonsConsumed++;
+                // End phase early if all pylons are killed
+                if (nearbyPylons.isEmpty()) {
+                    playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
+
+                    setInvulnerable(false);
+                    bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
+
+                    hasPylons = false;
+                    pylonConsumeCounter = 0;
                 }
 
-                heal((float) (pylonsConsumed * (getMaxHealth() * HEALTH_PERCENT_HEALED_PER_PYLON)));
+                if (pylonConsumeCounter > PYLON_CONSUME_COOLDOWN * 20 && isPhase3) {
 
-                hasPylons = false;
-                pylonConsumeCounter = 0;
+                    int pylonsConsumed = 0;
+
+                    playSound(SoundEvents.ANVIL_DESTROY, 1.0f, 0.1f);
+
+                    setInvulnerable(false);
+                    bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
+
+                    for (PylonEntity pylon : nearbyPylons) {
+                        pylon.remove(RemovalReason.KILLED);
+                        pylonsConsumed++;
+                    }
+
+                    heal((float) (pylonsConsumed * (getMaxHealth() * HEALTH_PERCENT_HEALED_PER_PYLON)));
+
+                    hasPylons = false;
+                    pylonConsumeCounter = 0;
+
+                }
 
             }
 
