@@ -227,7 +227,7 @@ public class ForgemasterEntity extends Monster {
                                 null
                         );
 
-                        entity.push(0.0, 1.2, 0.0);
+                        entity.setDeltaMovement(entity.getDeltaMovement().add(0.0, 1.0, 0.0).multiply(0.0, 2.0, 0.0));
                         entity.hurt(damageSource, KNOCKUP_DAMAGE);
 
                     }
