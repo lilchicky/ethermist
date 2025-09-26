@@ -112,7 +112,7 @@ public class ForgemasterEntity extends Monster {
                 .add(Attributes.ARMOR, 15)
                 .add(Attributes.ATTACK_DAMAGE, 30)
                 .add(Attributes.ATTACK_SPEED, 0.5)
-                .add(Attributes.MOVEMENT_SPEED, 0.1)
+                .add(Attributes.MOVEMENT_SPEED, 0.2)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 10)
                 .add(Attributes.FOLLOW_RANGE, 24);
     }
