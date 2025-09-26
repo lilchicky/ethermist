@@ -108,8 +108,8 @@ public class EMGeneralFeatures {
                                 .build()
                 ),
                 new AncientTrunkPlacer(
-                        11,
-                        3,
+                        12,
+                        8,
                         1
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
@@ -159,8 +159,8 @@ public class EMGeneralFeatures {
         register(context, MEGA_ANCIENT_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LOG.get()),
                 new AncientTrunkPlacer(
-                        11,
-                        3,
+                        12,
+                        8,
                         1
                 ),
                 BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
