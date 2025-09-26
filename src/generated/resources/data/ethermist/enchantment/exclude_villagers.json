@@ -2,11 +2,11 @@
   "anvil_cost": 0,
   "description": {
     "color": "#5555FF",
-    "translate": "enchantment.ethermist.exclude_animals"
+    "translate": "enchantment.ethermist.exclude_villagers"
   },
   "effects": {
     "ethermist:wand_exclude_effect": {
-      "type": "ethermist:exclude_animals"
+      "type": "ethermist:exclude_villagers"
     }
   },
   "max_cost": {

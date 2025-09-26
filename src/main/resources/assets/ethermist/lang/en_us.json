@@ -429,6 +429,8 @@
   "enchantment.ethermist.exclude_animals.desc": "Wand projectiles will not hit animals.",
   "enchantment.ethermist.exclude_players": "Exclude: Players",
   "enchantment.ethermist.exclude_players.desc": "Wand projectiles will not hit players.",
+  "enchantment.ethermist.exclude_villagers": "Exclude: Villagers",
+  "enchantment.ethermist.exclude_villagers.desc": "Wand projectiles will not hit villagers or iron golems.",
   "enchantment.ethermist.augment_aoe": "Augment: AoE",
   "enchantment.ethermist.augment_aoe.desc": "Wand shoots projectiles in a circle around you.",
   "enchantment.ethermist.augment_spray": "Augment: Spray",

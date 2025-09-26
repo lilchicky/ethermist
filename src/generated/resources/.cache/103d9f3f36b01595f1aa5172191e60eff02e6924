@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-25T21:42:21.2938099	Registries
+// 1.21.1	2025-09-25T22:04:17.8822174	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
 16c6fbc78c1c15778828767a5b55b5a2dadef23e data/ethermist/damage_type/forgemaster_shot.json
@@ -23,9 +23,10 @@ eb9bc980e4083ab09c25e377968902d698a07ad1 data/ethermist/enchantment/augment_homi
 3602ae0b87ddab360fddfae3a389accc6899c066 data/ethermist/enchantment/augment_spray.json
 ed00ab62a38d86100d0752108b4763aaae27cedf data/ethermist/enchantment/chaos_magic.json
 3868d9406c86b56f5f8dbb50e181cb213cd664c5 data/ethermist/enchantment/enduring_magic.json
-6aefad886f63deb148296d7c265e6447d0a0c04a data/ethermist/enchantment/exclude_animals.json
-0dd1c362c1a1df83808452223b3c00e46cd53309 data/ethermist/enchantment/exclude_monsters.json
-241bfd3626f98a88ca8bd7fb1d13eab6ebce5f3a data/ethermist/enchantment/exclude_players.json
+41e532d17a9ba1e54177070fdb1f4eeb21e02201 data/ethermist/enchantment/exclude_animals.json
+263f1d1b72c944c97682ab44e76c07d815c75eb3 data/ethermist/enchantment/exclude_monsters.json
+f4ffb0d2bf52df1050766ff9e68f34ff056f0913 data/ethermist/enchantment/exclude_players.json
+741aafbf392d7539ccbe66cda79d222caebe703f data/ethermist/enchantment/exclude_villagers.json
 967d9232f3946ec37b02bbf3d662c03251f4b341 data/ethermist/enchantment/fireball.json
 128f4b6ded2c5d84afc3b8cd093a58a7302b5b38 data/ethermist/enchantment/kinetic_rush.json
 bb9efa953f080cff1199e71cfe337352cd5962bc data/ethermist/enchantment/quick_cast.json

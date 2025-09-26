@@ -4,8 +4,10 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
+import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeAnimalsEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeMonstersEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludePlayersEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeVillagersEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants.*;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -32,6 +34,7 @@ public class EMEnchantments {
     public static final ResourceKey<Enchantment> EXCLUDE_MONSTERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_monsters"));
     public static final ResourceKey<Enchantment> EXCLUDE_ANIMALS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_animals"));
     public static final ResourceKey<Enchantment> EXCLUDE_PLAYERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_players"));
+    public static final ResourceKey<Enchantment> EXCLUDE_VILLAGERS = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "exclude_villagers"));
     public static final ResourceKey<Enchantment> AUGMENT_AOE = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_aoe"));
     public static final ResourceKey<Enchantment> AUGMENT_SPRAY = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_spray"));
     public static final ResourceKey<Enchantment> AUGMENT_METEOR = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_meteor"));
@@ -280,7 +283,7 @@ public class EMEnchantments {
                         1,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
-                        2,
+                        0,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(excludeColor))
                 .exclusiveWith(HolderSet.empty())
@@ -297,10 +300,14 @@ public class EMEnchantments {
                         1,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
-                        2,
+                        0,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(excludeColor))
                 .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_EXCLUDE_EFFECT.get(),
+                        new ExcludeAnimalsEnchant()
+                )
         );
 
         register(context, EXCLUDE_PLAYERS, Enchantment.enchantment(Enchantment.definition(
@@ -310,13 +317,30 @@ public class EMEnchantments {
                         1,
                         Enchantment.dynamicCost(1, 11),
                         Enchantment.dynamicCost(21, 11),
-                        2,
+                        0,
                         EquipmentSlotGroup.HAND))
                 .withCustomName(c -> c.withColor(excludeColor))
                 .exclusiveWith(HolderSet.empty())
                 .withSpecialEffect(
                         EMEnchantComponents.WAND_EXCLUDE_EFFECT.get(),
                         new ExcludePlayersEnchant()
+                )
+        );
+
+        register(context, EXCLUDE_VILLAGERS, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(EMTags.Items.MAGIC_ENCHANTABLE),
+                        items.getOrThrow(EMTags.Items.ENCHANTABLE_EXCLUSIONS),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(21, 11),
+                        0,
+                        EquipmentSlotGroup.HAND))
+                .withCustomName(c -> c.withColor(excludeColor))
+                .exclusiveWith(HolderSet.empty())
+                .withSpecialEffect(
+                        EMEnchantComponents.WAND_EXCLUDE_EFFECT.get(),
+                        new ExcludeVillagersEnchant()
                 )
         );
 
