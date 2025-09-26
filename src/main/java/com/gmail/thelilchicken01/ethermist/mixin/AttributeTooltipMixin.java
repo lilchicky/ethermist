@@ -57,7 +57,7 @@ public class AttributeTooltipMixin {
                     }
 
                     Component formatted = formatTooltip(attribute, modifier, ctx, val);
-                    tooltip.accept(formatted);
+                    tooltip.accept(Component.literal(" ").append(formatted));
                     modifiedAttributes.add(attribute);
 
                 }
