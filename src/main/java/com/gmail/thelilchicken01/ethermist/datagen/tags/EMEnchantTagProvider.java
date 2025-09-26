@@ -39,6 +39,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         addExcludeEnchantment("exclude_monsters");
         addExcludeEnchantment("exclude_animals");
         addExcludeEnchantment("exclude_players");
+        addExcludeEnchantment("exclude_villagers");
 
         addMainEnchantment("fireball");
         addMainEnchantment("thunderstrike");

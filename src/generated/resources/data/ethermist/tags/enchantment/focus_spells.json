@@ -11,6 +11,10 @@
     {
       "id": "ethermist:exclude_players",
       "required": false
+    },
+    {
+      "id": "ethermist:exclude_villagers",
+      "required": false
     }
   ]
 }

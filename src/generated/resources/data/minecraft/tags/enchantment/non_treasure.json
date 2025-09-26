@@ -61,6 +61,10 @@
       "required": false
     },
     {
+      "id": "ethermist:exclude_villagers",
+      "required": false
+    },
+    {
       "id": "ethermist:fireball",
       "required": false
     },
