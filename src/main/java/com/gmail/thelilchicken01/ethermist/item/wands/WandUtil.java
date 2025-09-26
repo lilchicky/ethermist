@@ -39,10 +39,11 @@ public class WandUtil {
         );
     }
 
-    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<TagKey<EntityType<?>>> types) {
+    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<Class<? extends Entity>> types) {
 
         List<Entity> filteredEntities = entities.stream()
-                .filter(entity -> types == null || types.isEmpty() || types.stream().noneMatch(tag -> entity.getType().is(tag)))
+                .filter(entity -> types == null || types.isEmpty()
+                        || types.stream().noneMatch(cls -> cls.isInstance(entity)))
                 .toList();
 
         return filteredEntities.stream()

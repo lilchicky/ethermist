@@ -68,7 +68,7 @@ public class WandProjectileHandler {
         ItemStack shotStack = new ItemStack(wand.getOrb().getShotItem());
 
         // Handle wand target filtering
-        List<TagKey<EntityType<?>>> types = new ArrayList<>();
+        List<Class<? extends Entity>> types = new ArrayList<>();
         EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
             IWandExclusionEffect exclude = enchant.value().effects().get(EMEnchantComponents.WAND_EXCLUDE_EFFECT.get());
             if (exclude != null) {
@@ -192,12 +192,13 @@ public class WandProjectileHandler {
         );
 
         boolean damaged;
-        if (!(target == shooter)) {
-            boolean inExcludedTag = shot.targetType.stream().anyMatch(tag -> target.getType().is(tag));
-            boolean canBeHurt = !inExcludedTag && (!(target instanceof TamableAnimal tamed) || !tamed.isTame());
+        if (target != shooter) {
+            boolean inExcludedClass = shot.targetType != null && !shot.targetType.isEmpty()
+                    && shot.targetType.stream().anyMatch(cls -> cls.isInstance(target));
+
+            boolean canBeHurt = !inExcludedClass && !(target instanceof TamableAnimal tamed && tamed.isTame());
 
             damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
-
         } else {
             damaged = false;
         }

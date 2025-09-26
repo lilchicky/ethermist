@@ -47,7 +47,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             WandShotItem shotItem,
             ItemStack wandItem,
             boolean isHoming,
-            List<TagKey<EntityType<?>>> targetType,
+            List<Class<? extends Entity>> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
             List<WandProjectile.SpellEntry> savedSpells,

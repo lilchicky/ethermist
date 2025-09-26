@@ -5,6 +5,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 
@@ -21,6 +22,6 @@ public interface IWandExclusionEffect {
 
     MapCodec<? extends IWandExclusionEffect> codec();
 
-    List<TagKey<EntityType<?>>> getExclusive();
+    List<Class<? extends Entity>> getExclusive();
 
 }
