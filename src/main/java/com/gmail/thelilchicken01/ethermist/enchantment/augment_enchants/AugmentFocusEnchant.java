@@ -48,7 +48,7 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
             WandShotItem shotItem,
             ItemStack wandItem,
             boolean isHoming,
-            List<Class<? extends Entity>> targetType,
+            List<Class<?>> targetType,
             @Nullable BlockPos pos,
             @Nullable Entity clickedEntity,
             List<WandProjectile.SpellEntry> savedSpells,

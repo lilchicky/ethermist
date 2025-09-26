@@ -17,7 +17,7 @@ public class WandShotHandler {
 
     public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
-                             boolean isHoming, List<Class<? extends Entity>> targetType, List<WandProjectile.SpellEntry> savedSpells) {
+                             boolean isHoming, List<Class<?>> targetType, List<WandProjectile.SpellEntry> savedSpells) {
 
         WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
 
@@ -58,7 +58,7 @@ public class WandShotHandler {
                                              ItemStack wandItem,
                                              double lifespan,
                                              boolean isHoming,
-                                             List<Class<? extends Entity>> targetType,
+                                             List<Class<?>> targetType,
                                              List<WandProjectile.SpellEntry> savedSpells) {
 
         shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));

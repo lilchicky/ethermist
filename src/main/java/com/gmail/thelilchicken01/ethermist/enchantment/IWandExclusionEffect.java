@@ -22,6 +22,6 @@ public interface IWandExclusionEffect {
 
     MapCodec<? extends IWandExclusionEffect> codec();
 
-    List<Class<? extends Entity>> getExclusive();
+    List<Class<?>> getExclusive();
 
 }

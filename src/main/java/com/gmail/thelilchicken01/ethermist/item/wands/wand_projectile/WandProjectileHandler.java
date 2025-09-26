@@ -68,7 +68,7 @@ public class WandProjectileHandler {
         ItemStack shotStack = new ItemStack(wand.getOrb().getShotItem());
 
         // Handle wand target filtering
-        List<Class<? extends Entity>> types = new ArrayList<>();
+        List<Class<?>> types = new ArrayList<>();
         EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
             IWandExclusionEffect exclude = enchant.value().effects().get(EMEnchantComponents.WAND_EXCLUDE_EFFECT.get());
             if (exclude != null) {

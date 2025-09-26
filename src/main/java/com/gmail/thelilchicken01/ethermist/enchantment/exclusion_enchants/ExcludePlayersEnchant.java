@@ -17,7 +17,7 @@ public class ExcludePlayersEnchant implements IWandExclusionEffect {
     }
 
     @Override
-    public List<Class<? extends Entity>> getExclusive() {
+    public List<Class<?>> getExclusive() {
         return List.of(Player.class);
     }
 }

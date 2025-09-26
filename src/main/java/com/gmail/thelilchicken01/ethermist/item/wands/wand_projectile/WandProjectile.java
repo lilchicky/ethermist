@@ -44,7 +44,7 @@ public class WandProjectile extends Fireball {
     protected boolean isHoming = false;
     protected List<? extends Entity> target;
     protected Player shooter = null;
-    protected List<Class<? extends Entity>> targetType = new ArrayList<>();
+    protected List<Class<?>> targetType = new ArrayList<>();
     protected ResourceKey<DamageType> damageType = EMDamageTypes.GENERIC_MAGIC;
     protected WandHandle originWandTier = null;
     protected WandOrb originWandType = null;
@@ -191,10 +191,10 @@ public class WandProjectile extends Fireball {
 
     public void setHoming(boolean homing) { this.isHoming = homing; }
 
-    public void setTargetType(List<Class<? extends Entity>> targetType) {
+    public void setTargetType(List<Class<?>> targetType) {
         this.targetType.addAll(targetType);
     }
-    public List<Class<? extends Entity>> getTargetType() { return this.targetType; }
+    public List<Class<?>> getTargetType() { return this.targetType; }
 
     public void setDamageType(ResourceKey<DamageType> damageType) { this.damageType = damageType; }
     public ResourceKey<DamageType> getDamageType() { return this.damageType; }

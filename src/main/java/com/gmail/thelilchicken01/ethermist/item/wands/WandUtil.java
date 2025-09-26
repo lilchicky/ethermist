@@ -39,7 +39,7 @@ public class WandUtil {
         );
     }
 
-    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<Class<? extends Entity>> types) {
+    public static List<Entity> filterNearbyEntities(Level level, List<Entity> entities, Entity self, @Nullable Entity owner, List<Class<?>> types) {
 
         List<Entity> filteredEntities = entities.stream()
                 .filter(entity -> types == null || types.isEmpty()
