@@ -1,9 +1,5 @@
-// 1.21.1	2025-09-23T21:06:26.4336115	Tags for minecraft:entity_type mod id ethermist
+// 1.21.1	2025-09-25T21:38:05.0461854	Tags for minecraft:entity_type mod id ethermist
 feec86b0b963ac1c053cd0f97504ef381f5c43c9 data/c/tags/entity_type/bosses.json
-72ee5f55be4a5eed3c0864daddfe57aed2af76c0 data/ethermist/tags/entity_type/exclude_animals_will_not_target.json
-612562b59687fcae781f937a91cca5d6ed156c61 data/ethermist/tags/entity_type/exclude_monsters_will_not_target.json
-6ded3ea2e35a47445f95b3e2a263d918575d48cf data/ethermist/tags/entity_type/exclude_players_will_not_target.json
-c3de96368b57f4fceecba20f58c9d07e07000b72 data/ethermist/tags/entity_type/exclude_villagers_will_not_target.json
 72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/aquatic.json
 36bed97f1c3d3b5e1d867543da2d915bc1646169 data/minecraft/tags/entity_type/arthropod.json
 228f269e32be9e3436b0be107afe0f764a9d2ca6 data/minecraft/tags/entity_type/can_breathe_under_water.json

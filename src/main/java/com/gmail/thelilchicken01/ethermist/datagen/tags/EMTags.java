@@ -63,17 +63,4 @@ public class EMTags {
 
     }
 
-    public static final class Entities {
-
-        public static final TagKey<EntityType<?>> EXCLUDE_MONSTERS = mod("exclude_monsters_will_not_target");
-        public static final TagKey<EntityType<?>> EXCLUDE_PLAYERS = mod("exclude_players_will_not_target");
-        public static final TagKey<EntityType<?>> EXCLUDE_ANIMALS = mod("exclude_animals_will_not_target");
-        public static final TagKey<EntityType<?>> EXCLUDE_VILLAGERS = mod("exclude_villagers_will_not_target");
-
-        private static TagKey<EntityType<?>> mod(String path) {
-            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
-        }
-
-    }
-
 }
