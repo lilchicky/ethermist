@@ -6,6 +6,7 @@ import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandExclusionEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeMonstersEnchant;
+import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludePlayersEnchant;
 import com.mojang.serialization.MapCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -18,6 +19,9 @@ public class EMWandExclusionEnchants {
 
     public static final DeferredHolder<MapCodec<? extends IWandExclusionEffect>, MapCodec<? extends IWandExclusionEffect>> EXCLUDE_MONSTERS =
             EM_EXCLUSION_WAND_ENCHANTS.register("exclude_monsters", () -> ExcludeMonstersEnchant.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IWandExclusionEffect>, MapCodec<? extends IWandExclusionEffect>> EXCLUDE_PLAYERS =
+            EM_EXCLUSION_WAND_ENCHANTS.register("exclude_players", () -> ExcludePlayersEnchant.CODEC);
 
     public static void register(IEventBus bus) {
         EM_EXCLUSION_WAND_ENCHANTS.register(bus);
