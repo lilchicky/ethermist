@@ -160,6 +160,12 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ETHERSTONE_BRICK_SLAB);
                 output.accept(EMBlocks.ETHERSTONE_BRICK_WALL);
 
+                output.accept(EMBlocks.CRACKED_ETHERSTONE_BRICKS);
+                output.accept(EMBlocks.MOSSY_ETHERSTONE_BRICKS);
+                output.accept(EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS);
+                output.accept(EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB);
+                output.accept(EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL);
+
                 // Witchstone
                 output.accept(EMBlocks.WITCHSTONE);
                 output.accept(EMBlocks.WITCHSTONE_STAIRS);

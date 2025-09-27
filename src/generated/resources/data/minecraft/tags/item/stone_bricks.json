@@ -1,6 +1,8 @@
 {
   "values": [
     "ethermist:etherstone_bricks",
+    "ethermist:cracked_etherstone_bricks",
+    "ethermist:mossy_etherstone_bricks",
     "ethermist:ancient_etherstone_bricks",
     "ethermist:sparkling_sandstone_bricks"
   ]

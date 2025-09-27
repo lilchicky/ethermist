@@ -39,6 +39,12 @@ public class EMBlocks {
     public static final DeferredBlock<SlabBlock> ETHERSTONE_BRICK_SLAB = registerBlock("etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
     public static final DeferredBlock<WallBlock> ETHERSTONE_BRICK_WALL = registerBlock("etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
 
+    public static final DeferredBlock<Block> CRACKED_ETHERSTONE_BRICKS = registerBlock("cracked_etherstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<Block> MOSSY_ETHERSTONE_BRICKS = registerBlock("mossy_etherstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<StairBlock> MOSSY_ETHERSTONE_BRICK_STAIRS = registerBlock("mossy_etherstone_brick_stairs", () -> new StairBlock(EMBlocks.ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE_BRICKS.get())));
+    public static final DeferredBlock<SlabBlock> MOSSY_ETHERSTONE_BRICK_SLAB = registerBlock("mossy_etherstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE_BRICKS.get())));
+    public static final DeferredBlock<WallBlock> MOSSY_ETHERSTONE_BRICK_WALL = registerBlock("mossy_etherstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE_BRICKS.get())));
+
     // Ancient Etherstone
     public static final DeferredBlock<Block> ANCIENT_ETHERSTONE = registerBlock("ancient_etherstone", AncientEtherstone::new);
     public static final DeferredBlock<StairBlock> ANCIENT_ETHERSTONE_STAIRS = registerBlock("ancient_etherstone_stairs", () -> new StairBlock(EMBlocks.ANCIENT_ETHERSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.ANCIENT_ETHERSTONE.get())));

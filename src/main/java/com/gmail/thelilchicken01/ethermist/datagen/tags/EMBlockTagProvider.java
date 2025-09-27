@@ -70,6 +70,12 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_BRICK_SLAB.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
 
+                .add(EMBlocks.CRACKED_ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL.get())
+
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_STAIRS.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get())
@@ -264,10 +270,13 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.SPARKLING_SANDSTONE_WALL.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICK_WALL.get())
                 .add(EMBlocks.TIMEWORN_SANDSTONE_WALL.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE_WALL.get());
 
         tag(EMTags.Blocks.PORTAL_FRAME_BLOCKS)
                 .add(EMBlocks.ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.CRACKED_ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.POLISHED_WITCHSTONE.get())
                 .add(EMBlocks.POLISHED_DAWNSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())
@@ -294,6 +303,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
 
         tag(Tags.Blocks.COBBLESTONES_MOSSY)
                 .add(EMBlocks.MOSSY_COBBLED_ETHERSTONE.get());
+
+        tag(BlockTags.STONE_BRICKS)
+                .add(EMBlocks.ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get())
+                .add(EMBlocks.CRACKED_ETHERSTONE_BRICKS.get());
 
         tag(Tags.Blocks.STONES)
                 .add(EMBlocks.ETHERSTONE.get())

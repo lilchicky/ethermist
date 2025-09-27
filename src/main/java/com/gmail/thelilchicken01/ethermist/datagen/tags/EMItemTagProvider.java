@@ -51,6 +51,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.STONE_BRICKS)
                 .add(EMBlocks.ETHERSTONE_BRICKS.get().asItem())
+                .add(EMBlocks.CRACKED_ETHERSTONE_BRICKS.get().asItem())
+                .add(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get().asItem())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get().asItem())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get().asItem());
 

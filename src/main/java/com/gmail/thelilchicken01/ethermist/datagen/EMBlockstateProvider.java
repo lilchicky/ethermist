@@ -54,6 +54,14 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.ETHERSTONE_BRICK_STAIRS, null);
         blockItem(EMBlocks.ETHERSTONE_BRICK_SLAB, null);
 
+        simpleBlock(EMBlocks.CRACKED_ETHERSTONE_BRICKS, null);
+        simpleBlock(EMBlocks.MOSSY_ETHERSTONE_BRICKS, null);
+        stairsBlock(EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS.get(), blockTexture(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get()));
+        slabBlock(EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB.get(), blockTexture(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get()), blockTexture(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get()));
+        wallBlock(EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL.get(), blockTexture(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get()));
+        blockItem(EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS, null);
+        blockItem(EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB, null);
+
         // Witchstone
         simpleBlock(EMBlocks.WITCHSTONE, null);
         stairsBlock(EMBlocks.WITCHSTONE_STAIRS.get(), blockTexture(EMBlocks.WITCHSTONE.get()));

@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-16T22:37:15.1231109	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-09-27T14:11:04.3591294	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods.json
@@ -49,7 +49,7 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/redstone_ores.
 3cf9b64fb3ce23424db7226247b146f02587739e data/minecraft/tags/item/sand.json
 fd590af8b35a26c82ec29d1cb7e57aa0eb753479 data/minecraft/tags/item/saplings.json
 a7c1fe1ea64bd3060016782d7ab49b72eda02c10 data/minecraft/tags/item/small_flowers.json
-238a58b2842a97c5d5a336e4c46c26591de62863 data/minecraft/tags/item/stone_bricks.json
+89967a9b5bb8c6ac9619491b08e7fdeae28b1462 data/minecraft/tags/item/stone_bricks.json
 f38df150213a5148113fff297273eec5390c1a03 data/minecraft/tags/item/stone_crafting_materials.json
 f38df150213a5148113fff297273eec5390c1a03 data/minecraft/tags/item/stone_tool_materials.json
 21af757b97dd4730811705d541eb0c907cfc56cb data/minecraft/tags/item/wooden_buttons.json

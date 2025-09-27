@@ -66,6 +66,29 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.ETHERSTONE.get())
                 .unlockedBy("has_etherstone", has(EMBlocks.ETHERSTONE)).save(output);
 
+        // Mossy/Cracked Etherstone Bricks
+        smeltingResultFromBase(output, EMBlocks.CRACKED_ETHERSTONE_BRICKS, EMBlocks.ETHERSTONE_BRICKS);
+
+        stairBuilder(EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS.get(), Ingredient.of(EMBlocks.MOSSY_ETHERSTONE_BRICKS))
+                .unlockedBy("has_mossy_etherstone_bricks", has(EMBlocks.MOSSY_ETHERSTONE_BRICKS)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICK_STAIRS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICK_SLAB.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICK_WALL.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 1);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 1)
+                .requires(EMBlocks.ETHERSTONE_BRICKS.get())
+                .requires(Blocks.VINE)
+                .unlockedBy("has_etherstone_bricks", has(EMBlocks.ETHERSTONE_BRICKS))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.MOSSY_ETHERSTONE_BRICKS.getId().getPath() + "_vine"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 1)
+                .requires(EMBlocks.ETHERSTONE_BRICKS.get())
+                .requires(Blocks.MOSS_BLOCK)
+                .unlockedBy("has_etherstone_bricks", has(EMBlocks.ETHERSTONE_BRICKS))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.MOSSY_ETHERSTONE_BRICKS.getId().getPath() + "_moss"));
+
         // Ancient Etherstone
         stairBuilder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.ANCIENT_ETHERSTONE))
                 .unlockedBy("has_ancient_etherstone", has(EMBlocks.ANCIENT_ETHERSTONE)).save(output);
