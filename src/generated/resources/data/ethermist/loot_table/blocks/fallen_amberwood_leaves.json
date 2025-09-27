@@ -1,0 +1,120 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": "minecraft:shears"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "predicates": {
+                  "minecraft:enchantments": [
+                    {
+                      "enchantments": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ethermist:fallen_amberwood_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "flower_amount": "1"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ethermist:fallen_amberwood_leaves"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ethermist:fallen_amberwood_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "flower_amount": "2"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ethermist:fallen_amberwood_leaves"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ethermist:fallen_amberwood_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "flower_amount": "3"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ethermist:fallen_amberwood_leaves"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ethermist:fallen_amberwood_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "flower_amount": "4"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ethermist:fallen_amberwood_leaves"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ethermist:blocks/fallen_amberwood_leaves"
+}

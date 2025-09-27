@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fallen_amberwood_leaves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:fallen_amberwood_leaves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:fallen_amberwood_leaves_brown_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fallen_amberwood_leaves"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:fallen_amberwood_leaves_brown_dye"
+    ]
+  }
+}
