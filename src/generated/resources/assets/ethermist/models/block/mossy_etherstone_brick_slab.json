@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "ethermist:block/mossy_etherstone_bricks",
+    "side": "ethermist:block/mossy_etherstone_bricks",
+    "top": "ethermist:block/mossy_etherstone_bricks"
+  }
+}

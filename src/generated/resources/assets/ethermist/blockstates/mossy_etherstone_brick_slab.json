@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/mossy_etherstone_brick_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/mossy_etherstone_bricks"
+    },
+    "type=top": {
+      "model": "ethermist:block/mossy_etherstone_brick_slab_top"
+    }
+  }
+}

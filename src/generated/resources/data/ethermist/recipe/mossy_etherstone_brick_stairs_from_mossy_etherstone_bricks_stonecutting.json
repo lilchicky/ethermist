@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ethermist:mossy_etherstone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:mossy_etherstone_brick_stairs"
+  }
+}
