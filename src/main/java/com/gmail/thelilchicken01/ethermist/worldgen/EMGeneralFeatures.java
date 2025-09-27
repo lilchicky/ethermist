@@ -88,6 +88,7 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AMBERWOOD_LEAVES_PATCH = registerKey("fallen_amberwood_leaves_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ABYSSAL_MUSHROOM_PATCH = registerKey("large_abyssal_mushroom_patch");
 
@@ -536,24 +537,27 @@ public class EMGeneralFeatures {
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
         register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.SLIMY_ALLIUM.get(), 512, 16, 1, 8));
 
-        SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
-
-        for (int i = 1; i <= 4; i++) {
-            for (Direction direction : Direction.Plane.HORIZONTAL) {
-                builder.add(
-                        EMBlocks.CINDERBLOOM.get().defaultBlockState()
-                                .setValue(PinkPetalsBlock.AMOUNT, i).setValue(PinkPetalsBlock.FACING, direction), 1
-                );
-            }
-        }
-
         register(
                 context,
                 CINDERBLOOM_PATCH,
                 Feature.FLOWER,
                 new RandomPatchConfiguration(
                         96, 6, 6,
-                        PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))
+                        PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                                new WeightedStateProvider(multiFlowerPatch(EMBlocks.CINDERBLOOM.get()))
+                        ))
+                )
+        );
+
+        register(
+                context,
+                FALLEN_AMBERWOOD_LEAVES_PATCH,
+                Feature.FLOWER,
+                new RandomPatchConfiguration(
+                        512, 8, 8,
+                        PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                                new WeightedStateProvider(multiFlowerPatch(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get()))
+                        ))
                 )
         );
 
@@ -683,6 +687,19 @@ public class EMGeneralFeatures {
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context,
                                                                                           ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+
+    private static SimpleWeightedRandomList.Builder<BlockState> multiFlowerPatch(Block block) {
+        SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+        for (int i = 1; i <= 4; i++) {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                builder.add(
+                        block.defaultBlockState()
+                                .setValue(PinkPetalsBlock.AMOUNT, i).setValue(PinkPetalsBlock.FACING, direction), 1
+                );
+            }
+        }
+        return builder;
     }
 
 }

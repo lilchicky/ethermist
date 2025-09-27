@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-14T23:48:42.4116779	Loot Tables
+// 1.21.1	2025-09-27T12:54:39.1663373	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -94,6 +94,7 @@ e8debc9325cc3609075970bb205812fd7c325ea5 data/ethermist/loot_table/blocks/ethers
 a5a9fe2eac177396ef8b820161bdfbd73541c65c data/ethermist/loot_table/blocks/etherstone_slab.json
 30b9ff8a09f44b1d7f6957330780bf084628604a data/ethermist/loot_table/blocks/etherstone_stairs.json
 c040115c2ee5b31782b37fef3adb6806c1a864d2 data/ethermist/loot_table/blocks/etherstone_wall.json
+806bc24a1ec28878856ba12ecc919e4c843cde2a data/ethermist/loot_table/blocks/fallen_amberwood_leaves.json
 ec789462aeb858727bb6fd55ee582e14e47b01cb data/ethermist/loot_table/blocks/frostpine_button.json
 e13e42ffeb3a5c3ba39ec0d06b5215d3def7561d data/ethermist/loot_table/blocks/frostpine_door.json
 78af34bd31085db700b7b0cca2bde5d148ab880a data/ethermist/loot_table/blocks/frostpine_fence.json

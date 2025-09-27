@@ -68,6 +68,7 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
     public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
 
+    public static final ResourceKey<PlacedFeature> FALLEN_AMBERWOOD_LEAVES_KEY = registerKey("fallen_amberwood_leaves_placed");
     public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
     public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
 
@@ -240,6 +241,7 @@ public class EMGeneralPlacedFeatures {
         ---------- Misc Plants ----------
          */
 
+        register(context, FALLEN_AMBERWOOD_LEAVES_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.FALLEN_AMBERWOOD_LEAVES_PATCH), simpleSpawn(1));
         register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_GRASS_PATCH), simpleSpawn(1));
         register(context, RICH_TALL_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_TALL_GRASS_PATCH), simpleSpawn(2));
         register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());

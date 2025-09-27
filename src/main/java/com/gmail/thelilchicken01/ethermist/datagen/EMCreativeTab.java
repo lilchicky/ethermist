@@ -304,6 +304,8 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.DAWNING_HYACINTH);
                 output.accept(EMBlocks.CINDERBLOOM);
                 output.accept(EMBlocks.SLIMY_ALLIUM);
+
+                output.accept(EMBlocks.FALLEN_AMBERWOOD_LEAVES);
                 output.accept(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
                 output.accept(EMBlocks.ABYSSAL_MUSHROOM);
                 output.accept(EMBlocks.TALL_ABYSSAL_MUSHROOM);

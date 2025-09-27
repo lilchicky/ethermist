@@ -61,14 +61,14 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.ETHERSTONE_BRICK_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.ETHERSTONE_BRICK_SLAB.get()));
         dropSelf(EMBlocks.ETHERSTONE_BRICK_WALL.get());
-        
+
         // Witchstone
         dropSelf(EMBlocks.WITCHSTONE.get());
         dropSelf(EMBlocks.WITCHSTONE_STAIRS.get());
         add(EMBlocks.WITCHSTONE_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.WITCHSTONE_SLAB.get()));
         dropSelf(EMBlocks.WITCHSTONE_WALL.get());
-        
+
         // Polished Witchstone
         dropSelf(EMBlocks.POLISHED_WITCHSTONE.get());
         dropSelf(EMBlocks.POLISHED_WITCHSTONE_STAIRS.get());
@@ -93,7 +93,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get());
         dropSelf(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get());
         dropSelf(EMBlocks.POLISHED_DAWNSHALE_WALL.get());
-        
+
         // Ancient Etherstone
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE.get());
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get());
@@ -108,7 +108,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get(),
                 block -> createSlabItemTable(EMBlocks.ANCIENT_ETHERSTONE_BRICK_SLAB.get()));
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get());
-        
+
         // Cobbled Etherstone
         dropSelf(EMBlocks.COBBLED_ETHERSTONE.get());
         dropSelf(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get());
@@ -329,7 +329,8 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.DAWNING_HYACINTH.get().asItem()));
 
-        add(EMBlocks.CINDERBLOOM.get(), generateMultiblockDrops(EMBlocks.CINDERBLOOM.get()));
+        add(EMBlocks.CINDERBLOOM.get(), generateMultiblockDrops(EMBlocks.CINDERBLOOM.get(), false));
+        add(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get(), generateMultiblockDrops(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get(), true));
 
         dropSelf(EMBlocks.SLIMY_ALLIUM.get());
         dropSelf(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get());
@@ -466,12 +467,20 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
     }
 
-    private LootTable.Builder generateMultiblockDrops(Block block) {
+    private LootTable.Builder generateMultiblockDrops(Block block, boolean requiresSilkOrShears) {
 
         IntegerProperty flower_amount = IntegerProperty.create("flower_amount", 1, 4);
 
         LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1.0F));
+
+        if (requiresSilkOrShears) {
+            poolBuilder.when(AnyOfCondition.anyOf(
+                            HAS_SHEARS,
+                            hasSilkTouch()
+                    )
+            );
+        }
 
         for (int flowerCount : flower_amount.getPossibleValues()) {
             poolBuilder.add(LootItem.lootTableItem(block)

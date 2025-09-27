@@ -627,6 +627,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.SMALL_ABYSSAL_MUSHROOM.getId().getPath() + "_blue_dye"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.BROWN_DYE, 1)
+                .requires(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get())
+                .unlockedBy("has_fallen_amberwood_leaves", has(EMBlocks.FALLEN_AMBERWOOD_LEAVES))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.FALLEN_AMBERWOOD_LEAVES.getId().getPath() + "_brown_dye"));
+
         /*
         ---------- Misc Recipes ----------
          */
