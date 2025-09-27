@@ -14,7 +14,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "ethermist:cobbled_etherstone"
+            "Name": "ethermist:cracked_etherstone_bricks"
           }
         },
 
@@ -28,7 +28,21 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "ethermist:mossy_cobbled_etherstone"
+            "Name": "ethermist:mossy_etherstone_bricks"
+          }
+        },
+
+        {
+          "input_predicate": {
+            "block": "ethermist:etherstone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:cobbled_etherstone"
           }
         },
 
