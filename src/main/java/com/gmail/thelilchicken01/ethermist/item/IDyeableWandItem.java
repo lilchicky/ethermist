@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
 import com.gmail.thelilchicken01.ethermist.component.WandHandleEntry;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;

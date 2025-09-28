@@ -1,5 +1,6 @@
-package com.gmail.thelilchicken01.ethermist;
+package com.gmail.thelilchicken01.ethermist.util;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;

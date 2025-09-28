@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.resources.ResourceLocation;

@@ -1,10 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries;
 
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandExclusionEffect;
-import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeAnimalsEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludeMonstersEnchant;
 import com.gmail.thelilchicken01.ethermist.enchantment.exclusion_enchants.ExcludePlayersEnchant;

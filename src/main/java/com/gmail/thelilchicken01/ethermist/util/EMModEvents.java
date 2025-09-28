@@ -1,5 +1,6 @@
-package com.gmail.thelilchicken01.ethermist;
+package com.gmail.thelilchicken01.ethermist.util;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.client.model.*;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.*;

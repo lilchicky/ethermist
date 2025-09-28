@@ -1,5 +1,6 @@
-package com.gmail.thelilchicken01.ethermist;
+package com.gmail.thelilchicken01.ethermist.util;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandExclusionEffect;

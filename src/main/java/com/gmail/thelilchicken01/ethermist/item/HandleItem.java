@@ -1,19 +1,13 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
 import com.gmail.thelilchicken01.ethermist.component.WandHandleEntry;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

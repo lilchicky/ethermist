@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile;
 
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.util.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.WandHandle;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.WandOrb;
@@ -14,7 +14,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;

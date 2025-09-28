@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
-import com.gmail.thelilchicken01.ethermist.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;

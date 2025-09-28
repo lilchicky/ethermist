@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
-import com.gmail.thelilchicken01.ethermist.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.entity.EquipmentSlotGroup;

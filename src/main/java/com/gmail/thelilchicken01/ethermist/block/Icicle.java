@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.util.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

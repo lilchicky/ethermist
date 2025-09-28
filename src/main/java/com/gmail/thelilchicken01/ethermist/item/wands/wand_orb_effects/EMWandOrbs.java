@@ -1,14 +1,13 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects;
 
-import com.gmail.thelilchicken01.ethermist.EMAttributes;
-import com.gmail.thelilchicken01.ethermist.EMDamageTypes;
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.util.EMDamageTypes;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;

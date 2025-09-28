@@ -1,9 +1,7 @@
-package com.gmail.thelilchicken01.ethermist;
+package com.gmail.thelilchicken01.ethermist.util;
 
-import net.minecraft.world.ticks.ScheduledTick;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class EMCustomTasks {

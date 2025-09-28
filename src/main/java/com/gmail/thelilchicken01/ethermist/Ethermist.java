@@ -15,6 +15,9 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWand
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.util.EMCustomTasks;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.EMFeatures;
 import com.gmail.thelilchicken01.ethermist.worldgen.portal.EMPOIs;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMFoliagePlacerType;

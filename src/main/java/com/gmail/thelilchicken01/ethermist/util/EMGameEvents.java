@@ -1,5 +1,6 @@
-package com.gmail.thelilchicken01.ethermist;
+package com.gmail.thelilchicken01.ethermist.util;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.item.TomeItem;

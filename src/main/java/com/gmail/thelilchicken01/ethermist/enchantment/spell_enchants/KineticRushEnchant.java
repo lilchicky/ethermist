@@ -1,11 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants;
 
-import com.gmail.thelilchicken01.ethermist.EMAttributes;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
-import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;

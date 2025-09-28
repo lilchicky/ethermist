@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries;
 
-import com.gmail.thelilchicken01.ethermist.EMRegistries;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.base_enchants.*;
