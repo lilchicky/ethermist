@@ -121,7 +121,7 @@ public class WandAttributeState {
 
         builder.add(
                 EMAttributes.PROJECTILE_SPEED,
-                new AttributeModifier(WandItem.PROJECTILE_SPEED_ID, projectileSpeedMult, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeModifier(WandItem.PROJECTILE_SPEED_ID, projectileSpeedMult, AttributeModifier.Operation.ADD_VALUE),
                 slot
         );
 
