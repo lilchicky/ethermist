@@ -21,7 +21,7 @@ public class PylonRenderer extends MobRenderer<PylonEntity, PylonModel<PylonEnti
     public void render(PylonEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
 
         if (entity.isBaby()) {
-            poseStack.scale(0.35f, 0.35f, 0.35f);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
         }
 
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);

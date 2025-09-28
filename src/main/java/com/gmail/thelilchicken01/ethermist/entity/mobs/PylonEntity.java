@@ -252,4 +252,8 @@ public class PylonEntity extends Monster implements OwnableEntity {
         return this.entityData.get(OWNER_UUID).orElse(null);
     }
 
+    @Override
+    public boolean isBaby() {
+        return isFriendly();
+    }
 }
