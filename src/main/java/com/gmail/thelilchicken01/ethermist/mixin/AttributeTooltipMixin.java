@@ -56,7 +56,7 @@ public class AttributeTooltipMixin {
                         val = (modifier.amount() + 0.75) * 100;
                     }
 
-                    Component formatted = formatTooltip(attribute, modifier, ctx, val);
+                    Component formatted = formatTooltip(attribute, val);
                     tooltip.accept(Component.literal(" ").append(formatted));
                     modifiedAttributes.add(attribute);
 
@@ -70,30 +70,9 @@ public class AttributeTooltipMixin {
 
     }
 
-    private static Component formatTooltip(Holder<Attribute> attribute, AttributeModifier modifier, AttributeTooltipContext ctx, double val) {
+    private static Component formatTooltip(Holder<Attribute> attribute, double val) {
         return Component.translatable(attribute.value().getDescriptionId(), FORMAT.format(val))
-                .withStyle(ChatFormatting.BLUE)
-                .append(addModdedSuffix(attribute, modifier, ctx));
-    }
-
-    // Modified version of the NeoForge debug tooltip, since I am overwriting tooltip display for my tooltips
-    private static Component addModdedSuffix(Holder<Attribute> attribute, AttributeModifier modifier, AttributeTooltipContext ctx) {
-        if (ctx.flag().isAdvanced()) {
-            double entityTotal = 0.0;
-            if (ctx.player() != null) {
-                var inst = ctx.player().getAttribute(attribute);
-                entityTotal = inst != null ? inst.getValue() : 0.0;
-            }
-
-            String entityStr = FORMAT.format(entityTotal);
-            String itemStr   = FORMAT.format(modifier.amount());
-
-            return Component.literal(" ")
-                    .append(Component.translatable("neoforge.attribute.debug.base", entityStr, itemStr)
-                            .withStyle(ChatFormatting.GRAY));
-        } else {
-            return Component.empty();
-        }
+                .withStyle(ChatFormatting.DARK_GREEN);
     }
 
 }
