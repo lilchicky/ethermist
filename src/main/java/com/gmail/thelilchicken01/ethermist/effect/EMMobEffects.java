@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class EMEffects {
+public class EMMobEffects {
 
     public static final DeferredRegister<MobEffect> EM_MOB_EFFECTS =
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, Ethermist.MODID);

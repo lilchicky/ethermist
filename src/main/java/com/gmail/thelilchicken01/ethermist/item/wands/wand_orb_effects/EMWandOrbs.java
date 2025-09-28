@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects;
 
-import com.gmail.thelilchicken01.ethermist.effect.EMEffects;
+import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.util.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
@@ -395,7 +395,7 @@ public class EMWandOrbs {
                                 if (target instanceof LivingEntity livingTarget) {
                                     livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
                                     livingTarget.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0));
-                                    livingTarget.addEffect(new MobEffectInstance(EMEffects.SLOWER_CASTING, 40, 1));
+                                    livingTarget.addEffect(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 40, 1));
                                 }
                             })
                             .build()

@@ -1,8 +1,11 @@
 package com.gmail.thelilchicken01.ethermist.util;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
+import com.gmail.thelilchicken01.ethermist.effect.potion.EMPotions;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.TomeItem;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -11,6 +14,8 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.block.Block;
@@ -18,6 +23,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.AnvilUpdateEvent;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 
@@ -27,6 +33,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class EMGameEvents {
+
+    @SubscribeEvent
+    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
+        PotionBrewing.Builder builder = event.getBuilder();
+
+        builder.addMix(Potions.AWKWARD, EMBlocks.GLIMMERBUD.asItem(), EMPotions.FASTER_CASTING_POTION);
+        builder.addMix(EMPotions.FASTER_CASTING_POTION, Items.FERMENTED_SPIDER_EYE, EMPotions.SLOWER_CASTING_POTION);
+    }
 
     @SubscribeEvent
     public static void wandLooting(LivingDropsEvent event) {

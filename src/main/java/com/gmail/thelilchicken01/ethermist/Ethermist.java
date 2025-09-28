@@ -3,7 +3,8 @@ package com.gmail.thelilchicken01.ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
-import com.gmail.thelilchicken01.ethermist.effect.EMEffects;
+import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
+import com.gmail.thelilchicken01.ethermist.effect.potion.EMPotions;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandAugments;
 import com.gmail.thelilchicken01.ethermist.enchantment.enchant_registries.EMWandBaseEnchants;
@@ -113,7 +114,8 @@ public class Ethermist {
         EMWandSpells.register(bus);
         EMWandExclusionEnchants.register(bus);
 
-        EMEffects.register(bus);
+        EMMobEffects.register(bus);
+        EMPotions.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, EMConfig.SPEC);

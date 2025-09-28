@@ -517,11 +517,20 @@
 
   "death.attack.forgemaster_knockup": "%1$s smashed by the Forgemaster",
 
-  "_comment": "--------------- GUI ---------------",
+  "_comment": "--------------- Effects ---------------",
   "effect.ethermist.slower_casting": "Slower Casting",
   "effect.ethermist.slower_casting.desc": "Increases wand cooldown.",
   "effect.ethermist.faster_casting": "Faster Casting",
   "effect.ethermist.faster_casting.desc": "Decreases wand cooldown.",
+
+  "_comment": "--------------- Potions ---------------",
+  "item.minecraft.potion.effect.em_faster_casting_potion": "Potion of Faster Casting",
+  "item.minecraft.splash_potion.effect.em_faster_casting_potion": "Potion of Faster Casting",
+  "item.minecraft.lingering_potion.effect.em_faster_casting_potion": "Potion of Faster Casting",
+
+  "item.minecraft.potion.effect.em_slower_casting_potion": "Potion of Slower Casting",
+  "item.minecraft.splash_potion.effect.em_slower_casting_potion": "Potion of Slower Casting",
+  "item.minecraft.lingering_potion.effect.em_slower_casting_potion": "Potion of Slower Casting",
 
   "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
