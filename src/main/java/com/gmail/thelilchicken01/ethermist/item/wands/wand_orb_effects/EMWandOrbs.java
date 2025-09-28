@@ -391,7 +391,7 @@ public class EMWandOrbs {
                                             Items.IRON_INGOT
                                     )
                             )
-                            .sound(SoundEvents.ANVIL_LAND)
+                            .sound(SoundEvents.ANVIL_PLACE)
                             .effect((shotItem, target, shooter, shot) -> {
                                 if (!shooter.level().isClientSide() && shooter instanceof Player player) {
                                     PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), player.level());
