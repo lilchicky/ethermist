@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageType;
@@ -27,6 +28,7 @@ public interface IWandOrb {
     float[] getTrailColor();
     Supplier<Ingredient> getRepairItem();
     SoundEvent getShootSound();
+    Component getTooltip();
 
     void apply(WandShotItem shotItem, Entity target, Entity shooter, WandProjectile shot);
 

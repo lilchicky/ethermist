@@ -28,8 +28,10 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -48,6 +50,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -253,8 +256,11 @@ public class WandItem extends Item implements IDyeableWandItem {
         lore.add(dyeableText);
         lore.add(Component.translatable("item.ethermist." + BuiltInRegistries.ITEM.getKey(this).getPath() + ".desc").withColor(0xAAAAAA));
 
-        if (WAND_ORB.get() == EMWandOrbs.GLIMMERBUG.get()) {
-            lore.add(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA));
+        // For extra lines determined by equipped orb
+        if (stack.getItem() instanceof WandItem wand) {
+            if (!(wand.getOrb().getTooltip() == null)) {
+                lore.add(wand.getOrb().getTooltip());
+            }
         }
 
         lore.add(Component.empty());

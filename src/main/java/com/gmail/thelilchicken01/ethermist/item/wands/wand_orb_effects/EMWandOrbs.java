@@ -10,6 +10,7 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -331,6 +332,7 @@ public class EMWandOrbs {
                                     )
                             )
                             .sound(SoundEvents.TURTLE_EGG_BREAK)
+                            .tooltip(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA))
                             .effect((shotItem, target, shooter, shot) -> {
                                 if (!shooter.level().isClientSide() && shooter instanceof Player player) {
                                     GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
