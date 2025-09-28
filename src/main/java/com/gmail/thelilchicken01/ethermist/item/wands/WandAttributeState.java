@@ -127,7 +127,7 @@ public class WandAttributeState {
 
         builder.add(
                 EMAttributes.WAND_KNOCKBACK,
-                new AttributeModifier(WandItem.WAND_KNOCKBACK_ID, knockbackMult, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeModifier(WandItem.WAND_KNOCKBACK_ID, knockbackMult, AttributeModifier.Operation.ADD_VALUE),
                 slot
         );
 

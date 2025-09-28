@@ -518,6 +518,10 @@
   "death.attack.forgemaster_knockup": "%1$s smashed by the Forgemaster",
 
   "_comment": "--------------- GUI ---------------",
+  "effect.ethermist.heavy_wand": "Heavy Wand",
+  "effect.ethermist.heavy_wand.desc": "Reduces wand cooldown.",
+
+  "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
   "creativetab.ethermist.em_item_tab": "Ethermist Items",
   "block.ethermist.wandforging_table.error": "Invalid Recipe!",

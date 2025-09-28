@@ -78,20 +78,20 @@ public class AttributeTooltipMixin {
 
     // Modified version of the NeoForge debug tooltip, since I am overwriting tooltip display for my tooltips
     private static Component addModdedSuffix(Holder<Attribute> attribute, AttributeModifier modifier, AttributeTooltipContext ctx) {
-
         if (ctx.flag().isAdvanced()) {
-            double entityBase = ctx.player() != null ? ctx.player().getAttributeBaseValue(attribute) : 0.0;
+            double entityTotal = 0.0;
+            if (ctx.player() != null) {
+                var inst = ctx.player().getAttribute(attribute);
+                entityTotal = inst != null ? inst.getValue() : 0.0;
+            }
 
-            String baseStr = FORMAT.format(entityBase);
-            String itemStr = FORMAT.format(modifier.amount());
+            String entityStr = FORMAT.format(entityTotal);
+            String itemStr   = FORMAT.format(modifier.amount());
 
             return Component.literal(" ")
-                    .append(
-                            Component.translatable("neoforge.attribute.debug.base", baseStr, itemStr)
-                                    .withStyle(ChatFormatting.GRAY)
-                    );
-        }
-        else {
+                    .append(Component.translatable("neoforge.attribute.debug.base", entityStr, itemStr)
+                            .withStyle(ChatFormatting.GRAY));
+        } else {
             return Component.empty();
         }
     }
