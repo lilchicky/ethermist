@@ -170,7 +170,7 @@ public class ForgemasterEntity extends Monster {
                     shot.setOwner(this);
                     shot.setOriginWandOrb(EMWandOrbs.FORGEMASTER.get());
                     shot.setOriginWandHandle(EMWandHandles.WOODEN.get());
-                    shot.setTargetType(List.of());
+                    shot.setTargetType(List.of(PylonEntity.class));
                     shot.setDamageType(EMDamageTypes.FORGEMASTER_SHOT);
                     shot.setTrailColor(new float[]{1.0f, 0.1f, 0.1f});
 
