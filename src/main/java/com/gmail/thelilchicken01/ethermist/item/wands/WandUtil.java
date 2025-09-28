@@ -6,6 +6,7 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
@@ -83,9 +84,9 @@ public class WandUtil {
         return result.getType() == HitResult.Type.MISS;
     }
 
-    public static double getAttribute(LivingEntity entity, Holder<Attribute> attribute, ResourceLocation attributeID) {
+    public static double getAttribute(LivingEntity entity, Holder<Attribute> attribute) {
         AttributeMap attributes = entity.getAttributes();
-        return attributes.getModifierValue(attribute, attributeID);
+        return attributes.hasAttribute(attribute) ? attributes.getValue(attribute) : 0.0D;
     }
 
 }

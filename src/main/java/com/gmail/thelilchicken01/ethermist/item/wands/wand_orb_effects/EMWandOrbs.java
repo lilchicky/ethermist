@@ -342,7 +342,7 @@ public class EMWandOrbs {
                                     bug.tame(player);
                                     bug.setLifespanSeconds(
                                             Math.max(
-                                                    WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 4,
+                                                    WandUtil.getAttribute(player, EMAttributes.COOLDOWN) * 4,
                                                     3
                                             )
                                     );

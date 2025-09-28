@@ -52,8 +52,8 @@ public class WandProjectileHandler {
                                    @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
         // Get lifespan and projectile speed from wand
-        double newLifespan = WandUtil.getAttribute(player, EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID);
-        float pSpeed = (float) WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID);
+        double newLifespan = WandUtil.getAttribute(player, EMAttributes.LIFESPAN);
+        float pSpeed = (float) WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED);
 
         // Projectile flags
         AtomicBoolean isHoming = new AtomicBoolean(false);
@@ -170,7 +170,7 @@ public class WandProjectileHandler {
 
         // Add cooldown to wand
         if (hasShot.get()) {
-            player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID) * 20));
+            player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN) * 20));
         }
 
         return hasShot.get();

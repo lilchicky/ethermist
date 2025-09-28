@@ -98,7 +98,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     targetVector.y + 0.1,
                     targetVector.z,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
             shot.setPos(shot.getX(),
                     shot.getY() + 4.0,
                     shot.getZ());
@@ -121,7 +121,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     targetVector.y + 0.1,
                     targetVector.z,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
 
             shot.setPos(shot.getX(),
                     shot.getY() + 4.0,

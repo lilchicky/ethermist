@@ -37,8 +37,8 @@ public class KineticRushEnchant implements IWandSpellEffect {
         if (!level.isClientSide()) {
             RandomSource random = RandomSource.create();
 
-            double power = WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID) / 2.0;
-            double inaccuracy = 1 - WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID);
+            double power = WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE) / 2.0;
+            double inaccuracy = 1 - WandUtil.getAttribute(player, EMAttributes.ACCURACY);
 
             Vec3 launch = player.getViewVector(1.0f);
 

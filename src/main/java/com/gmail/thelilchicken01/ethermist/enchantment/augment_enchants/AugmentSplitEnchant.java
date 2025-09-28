@@ -67,7 +67,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
 
         level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
@@ -82,7 +82,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                     player.getYRot() + (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
 
             rightShot.shootFromRotation(
                     player,
@@ -90,7 +90,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
                     player.getYRot() - (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
 
             level.addFreshEntity(setShotInfo(player, leftShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
             level.addFreshEntity(setShotInfo(player, rightShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));

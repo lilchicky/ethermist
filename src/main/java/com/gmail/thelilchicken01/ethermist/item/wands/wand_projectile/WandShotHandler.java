@@ -27,7 +27,7 @@ public class WandShotHandler {
                 player.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY, WandItem.ACCURACY_ID)*100)));
+                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
 
         float yaw = (float) Math.toRadians(player.getYRot());
         float pitch = (float) Math.toRadians(player.getXRot());
@@ -61,10 +61,10 @@ public class WandShotHandler {
                                              List<Class<?>> targetType,
                                              List<WandProjectile.SpellEntry> savedSpells) {
 
-        shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID));
+        shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE));
         shot.setLifetime((int)(lifespan * 20));
         shot.setCanIgnite(wand.getOrb().getCanIgnite());
-        shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID));
+        shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setDamageType(wand.getOrb().getDamageType());
