@@ -37,10 +37,10 @@ public class EMModEvents {
     public static void onAddEntityAttributes(EntityAttributeModificationEvent event) {
         event.add(EntityType.PLAYER, EMAttributes.COOLDOWN);
         event.add(EntityType.PLAYER, EMAttributes.WAND_DAMAGE);
-        event.add(EntityType.PLAYER, EMAttributes.WAND_KNOCKBACK);
-        event.add(EntityType.PLAYER, EMAttributes.PROJECTILE_SPEED);
+        event.add(EntityType.PLAYER, EMAttributes.WAND_KNOCKBACK, 1.0);
+        event.add(EntityType.PLAYER, EMAttributes.PROJECTILE_SPEED, 1.0);
         event.add(EntityType.PLAYER, EMAttributes.LIFESPAN);
-        event.add(EntityType.PLAYER, EMAttributes.ACCURACY);
+        event.add(EntityType.PLAYER, EMAttributes.ACCURACY, 0.0);
     }
 
     @SubscribeEvent

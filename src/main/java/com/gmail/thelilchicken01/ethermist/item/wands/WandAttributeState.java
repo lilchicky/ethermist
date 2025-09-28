@@ -132,18 +132,6 @@ public class WandAttributeState {
         );
 
         builder.add(
-                EMAttributes.COOLDOWN,
-                new AttributeModifier(WandItem.COOLDOWN_ID, cooldownTicks / 20.0, AttributeModifier.Operation.ADD_VALUE),
-                slot
-        );
-
-        builder.add(
-                EMAttributes.WAND_DAMAGE,
-                new AttributeModifier(WandItem.BASE_WAND_DAMAGE_ID, damage, AttributeModifier.Operation.ADD_VALUE),
-                slot
-        );
-
-        builder.add(
                 EMAttributes.LIFESPAN,
                 new AttributeModifier(WandItem.LIFESPAN_ID, lifespanSeconds, AttributeModifier.Operation.ADD_VALUE),
                 slot
@@ -153,6 +141,18 @@ public class WandAttributeState {
         builder.add(
                 EMAttributes.ACCURACY,
                 new AttributeModifier(WandItem.ACCURACY_ID, accuracy, AttributeModifier.Operation.ADD_VALUE),
+                slot
+        );
+
+        builder.add(
+                EMAttributes.COOLDOWN,
+                new AttributeModifier(WandItem.COOLDOWN_ID, cooldownTicks / 20.0, AttributeModifier.Operation.ADD_VALUE),
+                slot
+        );
+
+        builder.add(
+                EMAttributes.WAND_DAMAGE,
+                new AttributeModifier(WandItem.BASE_WAND_DAMAGE_ID, damage, AttributeModifier.Operation.ADD_VALUE),
                 slot
         );
     }

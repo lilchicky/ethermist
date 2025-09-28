@@ -357,12 +357,19 @@
   "item.ethermist.forgemaster_shot": "Forgemaster Shot",
 
   "_comment": "--------------- WAND DESCRIPTIONS ---------------",
-  "attribute.ethermist.wand.cooldown": "Cast Speed",
+  "attribute.ethermist.wand.cooldown": "Second Wand Cooldown",
   "attribute.ethermist.wand.base_damage": "Wand Damage",
   "attribute.ethermist.wand.projectile_speed": "Cast Velocity",
   "attribute.ethermist.wand.knockback": "Wand Knockback",
-  "attribute.ethermist.wand.lifespan": "Cast Lifespan",
+  "attribute.ethermist.wand.lifespan": "Second Cast Lifespan",
   "attribute.ethermist.wand.wand_accuracy": "Wand Accuracy",
+
+  "attribute.ethermist.wand.cooldown.tooltip": "Second Wand Cooldown",
+  "attribute.ethermist.wand.base_damage.tooltip": "Wand Damage",
+  "attribute.ethermist.wand.projectile_speed.tooltip": "Cast Velocity",
+  "attribute.ethermist.wand.knockback.tooltip": "Wand Knockback",
+  "attribute.ethermist.wand.lifespan.tooltip": "Second Cast Lifespan",
+  "attribute.ethermist.wand.wand_accuracy.tooltip": "Wand Accuracy",
 
   "item.ethermist.dull_wand.desc": "No wand effects.",
   "item.ethermist.flame_wand.desc": "Ignites targets.",

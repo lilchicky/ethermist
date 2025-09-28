@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageType;
@@ -23,6 +24,7 @@ public class WandOrb implements IWandOrb {
     private final int enchantability;
     private final double lifespanSeconds;
     private final int damage;
+    private final Component tooltip;
 
     private final WandShotItem shotItem;
     private final ResourceKey<DamageType> damageType;
@@ -47,7 +49,8 @@ public class WandOrb implements IWandOrb {
             float[] trailColor,
             Supplier<Ingredient> repairItem,
             SoundEvent shootSound,
-            IWandOrbEffect effect
+            IWandOrbEffect effect,
+            Component tooltip
     ) {
         this.durabilityMult = durabilityMult;
         this.cooldown = cooldown;
@@ -64,6 +67,7 @@ public class WandOrb implements IWandOrb {
         this.repairItem = Objects.requireNonNull(repairItem);
         this.shootSound = Objects.requireNonNull(shootSound);
         this.effect = Objects.requireNonNull(effect);
+        this.tooltip = tooltip;
     }
 
     @Override public double getDurabilityMult() { return durabilityMult; }
@@ -81,6 +85,7 @@ public class WandOrb implements IWandOrb {
     @Override public float[] getTrailColor() { return trailColor; }
     @Override public Supplier<Ingredient> getRepairItem() { return repairItem; }
     @Override public SoundEvent getShootSound() { return shootSound; }
+    @Override public Component getTooltip() { return tooltip; }
 
     @Override
     public void apply(WandShotItem shotItem, Entity target, Entity shooter, WandProjectile shot) {
@@ -102,6 +107,7 @@ public class WandOrb implements IWandOrb {
         private float[] trailColor = new float[]{1,1,1};
         private Supplier<Ingredient> repairItem = () -> Ingredient.EMPTY;
         private SoundEvent shootSound;
+        private Component tooltip;
         private IWandOrbEffect effect = (a, b, c, d) -> {};
 
         public Builder durabilityMult(double value){ this.durabilityMult = value; return this; }
@@ -119,10 +125,11 @@ public class WandOrb implements IWandOrb {
         public Builder repair(Supplier<Ingredient> value){ this.repairItem = value; return this; }
         public Builder sound(SoundEvent value){ this.shootSound = value; return this; }
         public Builder effect(IWandOrbEffect value){ this.effect = value; return this; }
+        public Builder tooltip(Component value){ this.tooltip = value; return this; }
 
         public WandOrb build() {
             return new WandOrb(durabilityMult, cooldown, knockback, inaccuracy, projectileSpeed, canIgnite, enchantability,
-                    lifespanSeconds, damage, shotItem, damageType, trailColor, repairItem, shootSound, effect);
+                    lifespanSeconds, damage, shotItem, damageType, trailColor, repairItem, shootSound, effect, tooltip);
         }
     }
     

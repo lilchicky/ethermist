@@ -18,9 +18,6 @@ public class WandAttributes extends RangedAttribute implements IAttributeExtensi
         if (this == EMAttributes.COOLDOWN.value()) return WandItem.COOLDOWN_ID;
         else if (this == EMAttributes.WAND_DAMAGE.value()) return WandItem.BASE_WAND_DAMAGE_ID;
         else if (this == EMAttributes.LIFESPAN.value()) return WandItem.LIFESPAN_ID;
-        else if (this == EMAttributes.ACCURACY.value()) return WandItem.ACCURACY_ID;
-        else if (this == EMAttributes.WAND_KNOCKBACK.value()) return WandItem.WAND_KNOCKBACK_ID;
-        else if (this == EMAttributes.PROJECTILE_SPEED.value()) return WandItem.PROJECTILE_SPEED_ID;
         return null;
     }
 }
