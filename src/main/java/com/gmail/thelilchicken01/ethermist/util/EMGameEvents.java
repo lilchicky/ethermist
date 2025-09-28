@@ -39,7 +39,12 @@ public class EMGameEvents {
         PotionBrewing.Builder builder = event.getBuilder();
 
         builder.addMix(Potions.AWKWARD, EMBlocks.GLIMMERBUD.asItem(), EMPotions.FASTER_CASTING_POTION);
+        builder.addMix(EMPotions.FASTER_CASTING_POTION, Items.REDSTONE, EMPotions.LONG_FASTER_CASTING_POTION);
+        builder.addMix(EMPotions.FASTER_CASTING_POTION, Items.GLOWSTONE_DUST, EMPotions.STRONG_FASTER_CASTING_POTION);
+
         builder.addMix(EMPotions.FASTER_CASTING_POTION, Items.FERMENTED_SPIDER_EYE, EMPotions.SLOWER_CASTING_POTION);
+        builder.addMix(EMPotions.SLOWER_CASTING_POTION, Items.REDSTONE, EMPotions.LONG_SLOWER_CASTING_POTION);
+        builder.addMix(EMPotions.SLOWER_CASTING_POTION, Items.GLOWSTONE_DUST, EMPotions.STRONG_SLOWER_CASTING_POTION);
     }
 
     @SubscribeEvent

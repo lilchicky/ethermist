@@ -16,9 +16,17 @@ public class EMPotions {
 
     public static final Holder<Potion> FASTER_CASTING_POTION = EM_POTIONS.register("em_faster_casting_potion",
             () -> new Potion(new MobEffectInstance(EMMobEffects.FASTER_CASTING, 3600, 0)));
+    public static final Holder<Potion> LONG_FASTER_CASTING_POTION = EM_POTIONS.register("em_long_faster_casting_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.FASTER_CASTING, 9600, 0)));
+    public static final Holder<Potion> STRONG_FASTER_CASTING_POTION = EM_POTIONS.register("em_strong_faster_casting_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.FASTER_CASTING, 1800, 1)));
 
     public static final Holder<Potion> SLOWER_CASTING_POTION = EM_POTIONS.register("em_slower_casting_potion",
             () -> new Potion(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 3600, 0)));
+    public static final Holder<Potion> LONG_SLOWER_CASTING_POTION = EM_POTIONS.register("em_long_slower_casting_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 9600, 0)));
+    public static final Holder<Potion> STRONG_SLOWER_CASTING_POTION = EM_POTIONS.register("em_strong_slower_casting_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 1800, 1)));
 
     public static void register(IEventBus bus) {
         EM_POTIONS.register(bus);
