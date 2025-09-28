@@ -38,7 +38,7 @@ public class EMMobEffects {
 
     // Arcane Amplification
     public static final Holder<MobEffect> ARCANE_AMPLIFICATION = EM_MOB_EFFECTS.register("arcane_amplification",
-            () -> new EMAttributeEffect(MobEffectCategory.BENEFICIAL, 3822548).addAttributeModifier(
+            () -> new EMAttributeEffect(MobEffectCategory.BENEFICIAL, 1973368).addAttributeModifier(
                     EMAttributes.WAND_DAMAGE,
                     ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.arcane_amplification"),
                     3,
@@ -48,7 +48,7 @@ public class EMMobEffects {
 
     // Arcane Dampening
     public static final Holder<MobEffect> ARCANE_DAMPENING = EM_MOB_EFFECTS.register("arcane_dampening",
-            () -> new EMAttributeEffect(MobEffectCategory.HARMFUL, 6983058).addAttributeModifier(
+            () -> new EMAttributeEffect(MobEffectCategory.HARMFUL, 4870502).addAttributeModifier(
                     EMAttributes.WAND_DAMAGE,
                     ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.arcane_dampening"),
                     -3,

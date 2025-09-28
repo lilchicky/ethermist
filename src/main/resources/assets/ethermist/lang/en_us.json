@@ -530,6 +530,11 @@
   "effect.ethermist.faster_casting": "Faster Casting",
   "effect.ethermist.faster_casting.desc": "Decreases wand cooldown.",
 
+  "effect.ethermist.arcane_amplification": "Arcane Amplification",
+  "effect.ethermist.arcane_amplification.desc": "Increases wand damage.",
+  "effect.ethermist.arcane_dampening": "Arcane Dampening",
+  "effect.ethermist.arcane_dampening.desc": "Decreases wand damage.",
+
   "_comment": "--------------- Potions ---------------",
   "item.minecraft.potion.effect.em_faster_casting_potion": "Potion of Faster Casting",
   "item.minecraft.splash_potion.effect.em_faster_casting_potion": "Splash Potion of Faster Casting",
