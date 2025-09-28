@@ -28,6 +28,20 @@ public class EMPotions {
     public static final Holder<Potion> STRONG_SLOWER_CASTING_POTION = EM_POTIONS.register("em_strong_slower_casting_potion",
             () -> new Potion(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 1800, 1)));
 
+    public static final Holder<Potion> ARCANE_AMPLIFICATION_POTION = EM_POTIONS.register("em_arcane_amplification_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_AMPLIFICATION, 3600, 0)));
+    public static final Holder<Potion> LONG_ARCANE_AMPLIFICATION_POTION = EM_POTIONS.register("em_long_arcane_amplification_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_AMPLIFICATION, 9600, 0)));
+    public static final Holder<Potion> STRONG_ARCANE_AMPLIFICATION_POTION = EM_POTIONS.register("em_strong_arcane_amplification_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_AMPLIFICATION, 1800, 1)));
+
+    public static final Holder<Potion> ARCANE_DAMPENING_POTION = EM_POTIONS.register("em_arcane_dampening_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_DAMPENING, 3600, 0)));
+    public static final Holder<Potion> LONG_ARCANE_DAMPENING_POTION = EM_POTIONS.register("em_long_arcane_dampening_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_DAMPENING, 9600, 0)));
+    public static final Holder<Potion> STRONG_ARCANE_DAMPENING_POTION = EM_POTIONS.register("em_strong_arcane_dampening_potion",
+            () -> new Potion(new MobEffectInstance(EMMobEffects.ARCANE_DAMPENING, 1800, 1)));
+
     public static void register(IEventBus bus) {
         EM_POTIONS.register(bus);
     }

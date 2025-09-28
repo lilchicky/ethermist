@@ -36,6 +36,26 @@ public class EMMobEffects {
             )
     );
 
+    // Arcane Amplification
+    public static final Holder<MobEffect> ARCANE_AMPLIFICATION = EM_MOB_EFFECTS.register("arcane_amplification",
+            () -> new EMAttributeEffect(MobEffectCategory.BENEFICIAL, 3822548).addAttributeModifier(
+                    EMAttributes.WAND_DAMAGE,
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.arcane_amplification"),
+                    3,
+                    AttributeModifier.Operation.ADD_VALUE
+            )
+    );
+
+    // Arcane Dampening
+    public static final Holder<MobEffect> ARCANE_DAMPENING = EM_MOB_EFFECTS.register("arcane_dampening",
+            () -> new EMAttributeEffect(MobEffectCategory.HARMFUL, 6983058).addAttributeModifier(
+                    EMAttributes.WAND_DAMAGE,
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.arcane_dampening"),
+                    -3,
+                    AttributeModifier.Operation.ADD_VALUE
+            )
+    );
+
     public static void register(IEventBus bus) {
         EM_MOB_EFFECTS.register(bus);
     }
