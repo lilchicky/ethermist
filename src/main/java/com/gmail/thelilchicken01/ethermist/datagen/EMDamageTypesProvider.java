@@ -17,6 +17,7 @@ public class EMDamageTypesProvider {
         context.register(EMDamageTypes.FROZEN_MAGIC, new DamageType("frozen_magic", 1.0f));
         context.register(EMDamageTypes.GLASS_MAGIC, new DamageType("glass_magic", 1.0f));
         context.register(EMDamageTypes.GLIMMERBUG_MAGIC, new DamageType("glimmerbug_magic", 1.0f));
+        context.register(EMDamageTypes.FORGEMASTER_MAGIC, new DamageType("forgemaster_magic", 1.0f));
 
         context.register(EMDamageTypes.FORGEMASTER_SHOT, new DamageType("forgemaster_shot", 1.0f));
         context.register(EMDamageTypes.FORGEMASTER_KNOCKUP, new DamageType("forgemaster_knockup", 1.0f));

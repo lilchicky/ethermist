@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects;
 
 import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.PylonEntity;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.util.EMDamageTypes;
 import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
@@ -363,6 +364,45 @@ public class EMWandOrbs {
                                     );
 
                                     player.level().addFreshEntity(bug);
+                                }
+                            })
+                            .build()
+            );
+
+    public static final DeferredHolder<WandOrb, WandOrb> FORGEMASTER_HEART =
+            EM_WAND_ORBS.register("forgemaster_heart", () ->
+                    new WandOrb.Builder()
+                            .durabilityMult(26)
+                            .enchantability(25)
+                            .lifespanSeconds(1)
+                            .damage(12)
+                            .inaccuracy(15.0f)
+                            .projectileSpeed(0.1f)
+                            .canIgnite(false)
+                            .knockback(0.35)
+                            .cooldown(320)
+                            .shot(EMItems.FORGEMASTER_HEART_SHOT.get())
+                            .tooltip(Component.translatable("item.ethermist.forged_heart_wand.pylon_lifespan.desc").withColor(0xAAAAAA))
+                            .damageType(EMDamageTypes.FORGEMASTER_MAGIC)
+                            .color(0.518f, 0.047f, 0.675f)
+                            .repair(() ->
+                                    Ingredient.of(
+                                            Items.AMETHYST_SHARD,
+                                            Items.IRON_INGOT
+                                    )
+                            )
+                            .sound(SoundEvents.ANVIL_LAND)
+                            .effect((shotItem, target, shooter, shot) -> {
+                                if (!shooter.level().isClientSide() && shooter instanceof Player player) {
+                                    PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), player.level());
+
+                                    pylon.setPos(player.getX(), player.getY(), player.getZ());
+                                    pylon.setLifespanSeconds(16f);
+                                    pylon.setOwnerUuid(player.getUUID());
+                                    pylon.setIsBuffed(shot.getOriginWandTier().doesBuffSpell());
+                                    pylon.setIsFriendly(true);
+
+                                    player.level().addFreshEntity(pylon);
                                 }
                             })
                             .build()

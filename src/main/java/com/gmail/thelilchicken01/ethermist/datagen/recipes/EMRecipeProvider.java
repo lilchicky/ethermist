@@ -871,6 +871,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         wandRecipe(output, EMItems.FROZEN_WAND.get(), EMItems.FROZEN_ORB.get());
         wandRecipe(output, EMItems.GLASS_WAND.get(), EMItems.GLASS_ORB.get());
         wandRecipe(output, EMItems.GLIMMERBUG_WAND.get(), EMItems.GLIMMERBUG_ORB.get());
+        wandRecipe(output, EMItems.FORGED_HEART_WAND.get(), EMItems.FORGEMASTER_HEART_ORB.get());
 
         /*
         ---------- Foods ----------

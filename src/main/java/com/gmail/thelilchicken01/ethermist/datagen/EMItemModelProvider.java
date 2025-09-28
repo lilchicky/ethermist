@@ -126,6 +126,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandItem(EMItems.FROZEN_WAND);
         wandItem(EMItems.GLASS_WAND);
         wandItem(EMItems.GLIMMERBUG_WAND);
+        wandItem(EMItems.FORGED_HEART_WAND);
 
         orbItem(EMItems.DULL_ORB);
         orbItem(EMItems.FLAME_ORB);
@@ -136,6 +137,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         orbItem(EMItems.FROZEN_ORB);
         orbItem(EMItems.GLASS_ORB);
         orbItem(EMItems.GLIMMERBUG_ORB);
+        orbItem(EMItems.FORGEMASTER_HEART_ORB);
 
         shotItem(EMItems.GENERIC_SHOT);
         shotItem(EMItems.FLAME_SHOT);
@@ -147,6 +149,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         shotItem(EMItems.FROZEN_SHOT);
         shotItem(EMItems.GLASS_SHOT);
         shotItem(EMItems.GLIMMERBUG_SHOT);
+        shotItem(EMItems.FORGEMASTER_HEART_SHOT);
 
         shotItem(EMItems.FORGEMASTER_SHOT);
 

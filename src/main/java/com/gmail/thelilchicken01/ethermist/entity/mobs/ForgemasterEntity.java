@@ -339,8 +339,10 @@ public class ForgemasterEntity extends Monster {
                         bossEvent.setColor(BossEvent.BossBarColor.PURPLE);
 
                         for (PylonEntity pylon : nearbyPylons) {
-                            pylon.remove(RemovalReason.KILLED);
-                            pylonsConsumed++;
+                            if (!pylon.isFriendly()) {
+                                pylon.remove(RemovalReason.KILLED);
+                                pylonsConsumed++;
+                            }
                         }
 
                         heal((float) (pylonsConsumed * (getMaxHealth() * HEALTH_PERCENT_HEALED_PER_PYLON)));

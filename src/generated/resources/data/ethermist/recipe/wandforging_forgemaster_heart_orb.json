@@ -1,0 +1,13 @@
+{
+  "type": "ethermist:wand_recipe",
+  "left": {
+    "tag": "ethermist:wand_base"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:forged_heart_wand"
+  },
+  "right": {
+    "item": "ethermist:forgemaster_heart_orb"
+  }
+}

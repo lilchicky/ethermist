@@ -307,12 +307,13 @@
   "item.ethermist.frozen_wand": "Frozen Wand",
   "item.ethermist.glass_wand": "Glass Wand",
   "item.ethermist.glimmerbug_wand": "Glimmerbug Wand",
+  "item.ethermist.forged_heart_wand": "Forged Heart Wand",
 
   "item.ethermist.handle_description.line_1": "Combine with an Orb or another Wand in a",
-  "item.ethermist.handle_description.line_2": "Smithing Table to craft a Wand with this Handle.",
+  "item.ethermist.handle_description.line_2": "Wandforging Table to craft a Wand with this Handle.",
 
   "item.ethermist.orb_description.line_1": "Combine with a Wand Handle or another Wand",
-  "item.ethermist.orb_description.line_2": "in a Smithing Table to craft a Wand of this type.",
+  "item.ethermist.orb_description.line_2": "in a Wandforging Table to craft a Wand of this type.",
 
   "item.ethermist.dull_orb": "Dull Orb",
   "item.ethermist.dull_orb.desc": "Doesn't seem to do much.",
@@ -331,7 +332,9 @@
   "item.ethermist.glass_orb": "Glass Orb",
   "item.ethermist.glass_orb.desc": "Seems delicate...",
   "item.ethermist.glimmerbug_orb": "Glimmerbug Orb",
-  "item.ethermist.glimmerbug_orb.desc": "Filled with the skittering sounds of Glimmerbugs",
+  "item.ethermist.glimmerbug_orb.desc": "Filled with the skittering sounds of Glimmerbugs.",
+  "item.ethermist.forgemaster_heart_orb": "Forgemaster's Heart",
+  "item.ethermist.forgemaster_heart_orb.desc": "The heavy, pulsing core of the Forgemaster.",
 
   "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
   "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
@@ -353,6 +356,7 @@
   "item.ethermist.frozen_shot": "Frozen Shot",
   "item.ethermist.glass_shot": "Glass Shot",
   "item.ethermist.glimmerbug_shot": "Glimmerbug Shot",
+  "item.ethermist.forgemaster_heart_shot": "Forgemaster Heart Shot",
 
   "item.ethermist.forgemaster_shot": "Forgemaster Shot",
 
@@ -381,6 +385,7 @@
   "item.ethermist.frozen_wand.desc": "Freezes targets.",
   "item.ethermist.glass_wand.desc": "Sharp glass does extra damage, but is quite delicate.",
   "item.ethermist.glimmerbug_wand.desc": "Hitting a target summons a Glimmerbug to fight for you.",
+  "item.ethermist.forged_heart_wand.desc": "Hitting a target summons a pylon that buffs nearby allies.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 
@@ -388,6 +393,7 @@
   "item.ethermist.wand_handle.buff_effect": "Buffs the special effect of Wands.",
 
   "item.ethermist.glimmerbug_wand.bug_lifespan.desc": "Bug lifespan scales with wand cooldown.",
+  "item.ethermist.forged_heart_wand.pylon_lifespan.desc": "Pylon lasts for 16 seconds.",
 
   "item.ethermist.wand_handle.wooden.desc": "Handle Material: Wooden",
   "item.ethermist.wand_handle.emerald.desc": "Handle Material: Emerald",
@@ -519,6 +525,10 @@
   "death.attack.glimmerbug_magic": "%1$s was swarmed by Glimmerbugs",
   "death.attack.glimmerbug_magic.player": "%1$s was swarmed by %2$s's Glimmerbug magic",
   "death.attack.glimmerbug_magic.item": "%1$s was swarmed by %2$s's Glimmerbug magic using %3$s",
+
+  "death.attack.forgemaster_magic": "%1$s was obliterated by the energy of the Forgemaster's Heart",
+  "death.attack.forgemaster_magic.player": "%1$s was obliterated by the energy of %2$s's Forgemaster's Heart",
+  "death.attack.forgemaster_magic.item": "%1$s was obliterated by the energy of %2$s's Forgemaster's Heart using %3$s",
 
   "death.attack.forgemaster_shot": "%1$s was crushed by the Forgemaster's meteors",
 

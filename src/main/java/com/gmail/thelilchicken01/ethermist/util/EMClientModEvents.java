@@ -114,7 +114,8 @@ public class EMClientModEvents {
                 EMItems.HEAVY_WAND.get(),
                 EMItems.FROZEN_WAND.get(),
                 EMItems.GLASS_WAND.get(),
-                EMItems.GLIMMERBUG_WAND.get()
+                EMItems.GLIMMERBUG_WAND.get(),
+                EMItems.FORGED_HEART_WAND.get()
 
         );
     }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_forgemaster_heart_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:forgemaster_heart_orb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_recipe": {
+      "conditions": {
+        "recipe": "ethermist:wandforging_forgemaster_heart_orb"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_recipe",
+      "has_forgemaster_heart_orb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:wandforging_forgemaster_heart_orb"
+    ]
+  }
+}

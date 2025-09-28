@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -192,7 +193,7 @@ public class WandProjectileHandler {
             boolean inExcludedClass = shot.targetType != null && !shot.targetType.isEmpty()
                     && shot.targetType.stream().anyMatch(cls -> cls.isInstance(target));
 
-            boolean canBeHurt = !inExcludedClass && !(target instanceof TamableAnimal tamed && tamed.isTame());
+            boolean canBeHurt = !inExcludedClass && !(target instanceof OwnableEntity tamed && tamed.getOwnerUUID() != null);
 
             damaged = canBeHurt && target.hurt(damageSource, (float) shot.damage);
         } else {

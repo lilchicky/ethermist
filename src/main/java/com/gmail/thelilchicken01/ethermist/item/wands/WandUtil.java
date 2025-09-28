@@ -62,7 +62,7 @@ public class WandUtil {
                                 !(iterate instanceof HangingEntity) &&
                                 !(iterate instanceof LeashFenceKnotEntity) &&
                                 !(iterate.isInvisible()) &&
-                                !(iterate instanceof TamableAnimal tamed && tamed.isTame()) &&
+                                !(iterate instanceof OwnableEntity tamed && tamed.getOwnerUUID() != null) &&
                                 !(iterate instanceof Projectile) &&
                                 !(iterate instanceof ArmorStand) &&
                                 !iterate.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES)

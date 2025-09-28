@@ -14,13 +14,10 @@ import java.util.function.Supplier;
 
 public class OrbItem extends Item {
 
-    private final DeferredHolder<WandOrb, WandOrb> WAND_ORB;
-
     public OrbItem(DeferredHolder<WandOrb, WandOrb> orb) {
         super(new Item.Properties().stacksTo(16)
                 .component(EMDataComponents.WAND_ORB.get(), new WandOrbEntry(orb.getId().getPath()))
         );
-        this.WAND_ORB = orb;
     }
 
     @Override

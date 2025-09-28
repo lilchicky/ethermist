@@ -207,7 +207,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         super.defineSynchedData(builder);
         builder.define(SUMMONED, false);
         builder.define(HAS_LIFESPAN, false);
-        builder.define(OWNER_UUID, Optional.of(Util.NIL_UUID));
+        builder.define(OWNER_UUID, Optional.empty());
     }
 
     @Override

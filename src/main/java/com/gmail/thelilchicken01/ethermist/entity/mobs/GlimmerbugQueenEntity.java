@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -20,6 +21,8 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -29,8 +32,9 @@ import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.UUID;
 
-public class GlimmerbugQueenEntity extends TamableAnimal {
+public class GlimmerbugQueenEntity extends Monster implements OwnableEntity {
 
     public final AnimationState idleStateBase = new AnimationState();
     public final AnimationState idleStateWiggle = new AnimationState();
@@ -43,7 +47,7 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
 
     private static final EntityDataAccessor<Boolean> PACIFIED = SynchedEntityData.defineId(GlimmerbugQueenEntity.class, EntityDataSerializers.BOOLEAN);
 
-    public GlimmerbugQueenEntity(EntityType<? extends TamableAnimal> entityType, Level level) {
+    public GlimmerbugQueenEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -108,21 +112,6 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
                     String easterEggTranslated = Component.translatable("entity.ethermist.glimmerbug_queen.easter_egg").getString();
 
                     if (name != null && name.getString().equals(easterEggTranslated)) {
-
-                        List<Player> nearbyPlayers = this.level().getEntitiesOfClass(Player.class, new AABB(
-                                this.getX() - 8, this.getY() - 8, this.getZ() - 8,
-                                this.getX() + 8, this.getY() + 8, this.getZ() + 8
-                        ));
-
-                        for (Player player : nearbyPlayers) {
-
-                            if (player instanceof ServerPlayer serverPlayer) {
-
-                                CriteriaTriggers.TAME_ANIMAL.trigger(serverPlayer, this);
-
-                            }
-
-                        }
 
                         this.targetSelector.getAvailableGoals().clear();
                         this.setTarget(null);
@@ -194,16 +183,6 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
         return 1.2f;
     }
 
-    @Override
-    public boolean isFood(ItemStack stack) {
-        return false;
-    }
-
-    @Override
-    public @Nullable AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
-        return null;
-    }
-
     private void setupAnimationStates() {
 
         if (this.swinging) {
@@ -262,6 +241,11 @@ public class GlimmerbugQueenEntity extends TamableAnimal {
         this.entityData.set(PACIFIED, tag.getBoolean("Pacified"));
         this.spawnCooldown = tag.getInt("SpawnCooldown");
         this.idleAnimCooldown = tag.getInt("IdleAnimCooldown");
+    }
+
+    @Override
+    public @Nullable UUID getOwnerUUID() {
+        return null;
     }
 
 }
