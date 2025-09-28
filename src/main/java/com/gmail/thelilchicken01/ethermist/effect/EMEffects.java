@@ -16,7 +16,7 @@ public class EMEffects {
     public static final DeferredRegister<MobEffect> EM_MOB_EFFECTS =
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, Ethermist.MODID);
 
-    // Slow Wand
+    // Slower Casting
     public static final Holder<MobEffect> SLOWER_CASTING = EM_MOB_EFFECTS.register("slower_casting",
             () -> new EMAttributeEffect(MobEffectCategory.HARMFUL, 9109504).addAttributeModifier(
                     EMAttributes.COOLDOWN,
@@ -26,7 +26,7 @@ public class EMEffects {
             )
     );
 
-    // Fast Wand
+    // Faster Casting
     public static final Holder<MobEffect> FASTER_CASTING = EM_MOB_EFFECTS.register("faster_casting",
             () -> new EMAttributeEffect(MobEffectCategory.BENEFICIAL, 25600).addAttributeModifier(
                     EMAttributes.COOLDOWN,
