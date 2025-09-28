@@ -16,11 +16,22 @@ public class EMEffects {
     public static final DeferredRegister<MobEffect> EM_MOB_EFFECTS =
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, Ethermist.MODID);
 
-    public static final Holder<MobEffect> SLOW_WAND = EM_MOB_EFFECTS.register("slow_wand",
+    // Slow Wand
+    public static final Holder<MobEffect> SLOWER_CASTING = EM_MOB_EFFECTS.register("slower_casting",
             () -> new EMAttributeEffect(MobEffectCategory.HARMFUL, 9109504).addAttributeModifier(
                     EMAttributes.COOLDOWN,
-                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.slow_wand"),
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.slower_casting"),
                     0.5,
+                    AttributeModifier.Operation.ADD_VALUE
+            )
+    );
+
+    // Fast Wand
+    public static final Holder<MobEffect> FASTER_CASTING = EM_MOB_EFFECTS.register("faster_casting",
+            () -> new EMAttributeEffect(MobEffectCategory.BENEFICIAL, 25600).addAttributeModifier(
+                    EMAttributes.COOLDOWN,
+                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "effect.faster_casting"),
+                    -0.5,
                     AttributeModifier.Operation.ADD_VALUE
             )
     );

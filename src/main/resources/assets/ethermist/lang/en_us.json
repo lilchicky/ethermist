@@ -518,8 +518,10 @@
   "death.attack.forgemaster_knockup": "%1$s smashed by the Forgemaster",
 
   "_comment": "--------------- GUI ---------------",
-  "effect.ethermist.slow_wand": "Slow Wand",
-  "effect.ethermist.slow_wand.desc": "Increases wand cooldown.",
+  "effect.ethermist.slower_casting": "Slower Casting",
+  "effect.ethermist.slower_casting.desc": "Increases wand cooldown.",
+  "effect.ethermist.faster_casting": "Faster Casting",
+  "effect.ethermist.faster_casting.desc": "Decreases wand cooldown.",
 
   "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
