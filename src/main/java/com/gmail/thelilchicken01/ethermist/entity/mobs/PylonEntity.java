@@ -126,7 +126,7 @@ public class PylonEntity extends Monster implements OwnableEntity {
                     var particle = net.minecraft.core.particles.ParticleTypes.ENCHANT;
 
                     for (int i = 0; i < 64; i++) {
-                        double angle = (Math.PI * 2.0 * i) / 36;
+                        double angle = (Math.PI * 2.0 * i) / 64;
                         double px = cx + BUFF_RADIUS * Math.cos(angle);
                         double pz = cz + BUFF_RADIUS * Math.sin(angle);
 
