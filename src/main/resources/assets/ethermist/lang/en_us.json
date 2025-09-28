@@ -518,8 +518,8 @@
   "death.attack.forgemaster_knockup": "%1$s smashed by the Forgemaster",
 
   "_comment": "--------------- GUI ---------------",
-  "effect.ethermist.heavy_wand": "Heavy Wand",
-  "effect.ethermist.heavy_wand.desc": "Reduces wand cooldown.",
+  "effect.ethermist.slow_wand": "Slow Wand",
+  "effect.ethermist.slow_wand.desc": "Increases wand cooldown.",
 
   "_comment": "--------------- GUI ---------------",
   "creativetab.ethermist.em_block_tab": "Ethermist Blocks",
