@@ -140,7 +140,6 @@ public class PylonEntity extends Monster implements OwnableEntity {
                             server.sendParticles(particle, px, y, pz, 1, 0.0, 0.01, 0.0, 0.0);
                         }
 
-
                         if (this.getOwner() != null) {
                             List<LivingEntity> nearby = server.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(BUFF_RADIUS));
 
@@ -302,5 +301,10 @@ public class PylonEntity extends Monster implements OwnableEntity {
     @Override
     public boolean isBaby() {
         return isFriendly();
+    }
+
+    @Override
+    protected int getBaseExperienceReward() {
+        return isFriendly() ? 0 : 10;
     }
 }
