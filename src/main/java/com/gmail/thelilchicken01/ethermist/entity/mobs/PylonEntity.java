@@ -111,8 +111,8 @@ public class PylonEntity extends Monster implements OwnableEntity {
 
         this.setTimerName();
 
-        int dur = Math.max(1, (int) ((getLifespanSeconds() + 1) * 20) - getLifespanCounter());
-        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, dur, 0, false, false));
+        int duration = Math.max(1, (int) ((getLifespanSeconds() + 1) * 20) - getLifespanCounter());
+        this.addEffect(new MobEffectInstance(MobEffects.GLOWING, duration, 0, false, false));
     }
 
     @Override
