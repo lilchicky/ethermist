@@ -4,10 +4,13 @@ import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.players.OldUsersConverter;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -25,6 +28,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.event.level.NoteBlockEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import org.jetbrains.annotations.Nullable;
 
@@ -81,7 +85,7 @@ public class PylonEntity extends Monster implements OwnableEntity {
         this.entityData.set(LIFESPAN_COUNTER, getLifespanCounter() + additional);
     }
 
-    public void setOwnerUuid(UUID uuid) {
+    public void setOwnerUUID(UUID uuid) {
         this.entityData.set(OWNER_UUID, Optional.ofNullable(uuid));
     }
 
@@ -105,8 +109,9 @@ public class PylonEntity extends Monster implements OwnableEntity {
     public void onAddedToLevel() {
         super.onAddedToLevel();
 
-        int dur = Math.max(1, (int) ((getLifespanSeconds() + 1) * 20) - getLifespanCounter());
+        this.setTimerName();
 
+        int dur = Math.max(1, (int) ((getLifespanSeconds() + 1) * 20) - getLifespanCounter());
         this.addEffect(new MobEffectInstance(MobEffects.GLOWING, dur, 0, false, false));
     }
 
@@ -117,43 +122,51 @@ public class PylonEntity extends Monster implements OwnableEntity {
         if (!this.level().isClientSide()) {
             addLifespanCounter(1);
 
-            if (this.entityData.get(IS_FRIENDLY) && this.level() instanceof ServerLevel server) {
-                if (this.tickCount % 10 == 0) {
-                    double y = this.getY() + 0.3;
-                    double cx = this.getX();
-                    double cz = this.getZ();
+            if (this.level() instanceof ServerLevel server) {
 
-                    var particle = net.minecraft.core.particles.ParticleTypes.ENCHANT;
+                if (this.entityData.get(IS_FRIENDLY)) {
+                    if (this.tickCount % 10 == 0) {
+                        double y = this.getY() + 0.3;
+                        double cx = this.getX();
+                        double cz = this.getZ();
 
-                    for (int i = 0; i < 64; i++) {
-                        double angle = (Math.PI * 2.0 * i) / 64;
-                        double px = cx + BUFF_RADIUS * Math.cos(angle);
-                        double pz = cz + BUFF_RADIUS * Math.sin(angle);
+                        var particle = net.minecraft.core.particles.ParticleTypes.ENCHANT;
 
-                        server.sendParticles(particle, px, y, pz, 1, 0.0, 0.01, 0.0, 0.0);
-                    }
+                        for (int i = 0; i < 64; i++) {
+                            double angle = (Math.PI * 2.0 * i) / 64;
+                            double px = cx + BUFF_RADIUS * Math.cos(angle);
+                            double pz = cz + BUFF_RADIUS * Math.sin(angle);
+
+                            server.sendParticles(particle, px, y, pz, 1, 0.0, 0.01, 0.0, 0.0);
+                        }
 
 
-                    if (this.getOwner() != null) {
-                        List<LivingEntity> nearby = server.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(BUFF_RADIUS));
+                        if (this.getOwner() != null) {
+                            List<LivingEntity> nearby = server.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(BUFF_RADIUS));
 
-                        for (LivingEntity entity : nearby) {
-                            if (
-                                    entity.distanceToSqr(this) <= (BUFF_RADIUS * BUFF_RADIUS) &&
-                                            (entity instanceof Player ||
-                                                    (entity instanceof OwnableEntity tamable &&
-                                                            this.getOwnerUUID() != null &&
-                                                            this.getOwnerUUID().equals(tamable.getOwnerUUID())
-                                                    )
-                                            )
-                            ) {
-                                entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, this.isBuffed() ? 1 : 0));
-                                entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, this.isBuffed() ? 1 : 0));
-                                entity.addEffect(new MobEffectInstance(EMMobEffects.ARCANE_AMPLIFICATION, 40, this.isBuffed() ? 1 : 0));
+                            for (LivingEntity entity : nearby) {
+                                if (
+                                        entity.distanceToSqr(this) <= (BUFF_RADIUS * BUFF_RADIUS) &&
+                                                (entity instanceof Player ||
+                                                        (entity instanceof OwnableEntity tamable &&
+                                                                this.getOwnerUUID() != null &&
+                                                                this.getOwnerUUID().equals(tamable.getOwnerUUID())
+                                                        )
+                                                )
+                                ) {
+                                    entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, this.isBuffed() ? 1 : 0));
+                                    entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, this.isBuffed() ? 1 : 0));
+                                    entity.addEffect(new MobEffectInstance(EMMobEffects.ARCANE_AMPLIFICATION, 40, this.isBuffed() ? 1 : 0));
+                                }
                             }
                         }
                     }
                 }
+
+                if (getLifespanCounter() % 20 == 0) {
+                    this.setTimerName();
+                }
+
             }
 
             if (getLifespanCounter() > (getLifespanSeconds() + 1) * 20) {
@@ -163,6 +176,21 @@ public class PylonEntity extends Monster implements OwnableEntity {
             this.setupAnimationStates();
         }
 
+    }
+
+    private void setTimerName() {
+        double currentHealth = getLifespanSeconds() - ((double) getLifespanCounter() / 20);
+
+        MutableComponent name = Component.literal(String.valueOf((int)currentHealth));
+
+        if (this.getOwner() != null && this.getOwner() instanceof Player player) {
+            name.append(Component.literal(" - ")
+                    .append(player.getDisplayName())
+                    .append(Component.translatable("generic.ethermist.pylon.name_suffix")));
+        }
+
+        this.setCustomName(name.withColor(this.getTeamColor()));
+        this.setCustomNameVisible(true);
     }
 
     @Override
@@ -180,8 +208,9 @@ public class PylonEntity extends Monster implements OwnableEntity {
             int r = (int) (255 * t);
             int g = (int) (255 * (1.0F - t));
             return (r << 16) | (g << 8);
-        } else {
-            return 3821269;
+        }
+        else {
+            return 3381759;
         }
     }
 
@@ -224,8 +253,10 @@ public class PylonEntity extends Monster implements OwnableEntity {
         super.addAdditionalSaveData(tag);
         tag.putDouble("lifespan", getLifespanSeconds());
         tag.putInt("lifespan_remaining", getLifespanCounter());
-        tag.putBoolean("is_friendly", isFriendly());
         tag.putBoolean("is_buffed", isBuffed());
+        if (this.getOwnerUUID() != null) {
+            tag.putUUID("owner", this.getOwnerUUID());
+        }
     }
 
     @Override
@@ -233,8 +264,24 @@ public class PylonEntity extends Monster implements OwnableEntity {
         super.readAdditionalSaveData(tag);
         setLifespanSeconds(tag.getInt("lifespan"));
         this.setLifespanCounter(tag.getInt("lifespan_remaining"));
-        this.setIsFriendly(tag.getBoolean("is_friendly"));
         this.setIsBuffed(tag.getBoolean("is_buffed"));
+
+        UUID uuid;
+        if (tag.hasUUID("owner")) {
+            uuid = tag.getUUID("owner");
+        } else {
+            String s = tag.getString("owner");
+            uuid = OldUsersConverter.convertMobOwnerIfNecessary(this.getServer(), s);
+        }
+
+        if (uuid != null) {
+            try {
+                this.setOwnerUUID(uuid);
+                this.setIsFriendly(true);
+            } catch (Throwable throwable) {
+                this.setIsFriendly(false);
+            }
+        }
     }
 
     @Override

@@ -398,7 +398,7 @@ public class EMWandOrbs {
 
                                     pylon.setPos(player.getX(), player.getY(), player.getZ());
                                     pylon.setLifespanSeconds(16f);
-                                    pylon.setOwnerUuid(player.getUUID());
+                                    pylon.setOwnerUUID(player.getUUID());
                                     pylon.setIsBuffed(shot.getOriginWandTier().doesBuffSpell());
                                     pylon.setIsFriendly(true);
 

@@ -273,6 +273,7 @@
 
   "_comment": "--------------- GENERIC ---------------",
   "generic.ethermist.time.seconds": " Seconds",
+  "generic.ethermist.pylon.name_suffix": "'s Pylon",
 
   "_comment": "--------------- ITEMS ---------------",
   "item.ethermist.wooden_wand_handle": "Wooden Wand Handle",
