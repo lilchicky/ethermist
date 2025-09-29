@@ -86,6 +86,7 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHRONOTHORN_PATCH = registerKey("chronothorn_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AMBERWOOD_LEAVES_PATCH = registerKey("fallen_amberwood_leaves_patch");
@@ -512,9 +513,7 @@ public class EMGeneralFeatures {
                                 new SimpleBlockConfiguration(
                                         BlockStateProvider.simple(EMBlocks.RICH_GRASS.get())
                                 ),
-                                BlockPredicate.allOf(
-                                        BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))
-                                )
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE
                         )
                 )
         );
@@ -535,6 +534,20 @@ public class EMGeneralFeatures {
         register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 128, 8, 1, 1));
         register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 128, 8, 1, 1));
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
+        register(context, CHRONOTHORN_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        128,
+                        4,
+                        4,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(EMBlocks.CHRONOTHORN.get())
+                                ),
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE
+                        )
+                )
+        );
         register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.SLIMY_ALLIUM.get(), 512, 16, 1, 8));
 
         register(

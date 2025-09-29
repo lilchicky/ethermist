@@ -49,8 +49,8 @@ public class Chronothorn extends FlowerBlock {
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (!level.isClientSide && entity instanceof LivingEntity entityLiving) {
-            for (int i = 0; i < 16; i++) {
-                double d0 = entityLiving.getX() + (entityLiving.getRandom().nextDouble() - 0.5) * 16.0;
+            for (int i = 0; i < 32; i++) {
+                double d0 = entityLiving.getX() + (entityLiving.getRandom().nextDouble() - 0.5) * 8.0;
                 double d1 = Mth.clamp(
                         entityLiving.getY() + (double)(entityLiving.getRandom().nextInt(16) - 8),
                         level.getMinBuildHeight(),

@@ -65,6 +65,7 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH_KEY = registerKey("witch_lavender_patch_placed");
     public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
+    public static final ResourceKey<PlacedFeature> CHRONOTHORN_PATCH_KEY = registerKey("chronothorn_patch_placed");
     public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
     public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
 
@@ -233,6 +234,7 @@ public class EMGeneralPlacedFeatures {
         register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
         register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
+        register(context, CHRONOTHORN_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHRONOTHORN_PATCH), simpleSpawn(3));
         register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CINDERBLOOM_PATCH), simpleSpawn(2));
         register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
         register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
