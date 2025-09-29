@@ -12,6 +12,7 @@ import com.gmail.thelilchicken01.ethermist.entity.mobs.GlimmerbugEntity;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -394,15 +395,26 @@ public class EMWandOrbs {
                             .sound(SoundEvents.ANVIL_PLACE)
                             .effect((shotItem, target, shooter, shot) -> {
                                 if (!shooter.level().isClientSide() && shooter instanceof Player player) {
-                                    PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), player.level());
 
-                                    pylon.setPos(player.getX(), player.getY(), player.getZ());
-                                    pylon.setLifespanSeconds(16f);
-                                    pylon.setOwnerUUID(player.getUUID());
-                                    pylon.setIsBuffed(shot.getOriginWandTier().doesBuffSpell());
-                                    pylon.setIsFriendly(true);
+                                    ServerLevel server = (ServerLevel) player.level();
 
-                                    player.level().addFreshEntity(pylon);
+                                    boolean hasPylon = !server.getEntitiesOfClass(PylonEntity.class, player.getBoundingBox().inflate(32))
+                                            .stream()
+                                            .filter(pylon -> player.getUUID().equals(pylon.getOwnerUUID()))
+                                            .toList()
+                                            .isEmpty();
+
+                                    if (!hasPylon) {
+                                        PylonEntity pylon = new PylonEntity(EMEntityTypes.PYLON.get(), server);
+
+                                        pylon.setPos(player.getX(), player.getY(), player.getZ());
+                                        pylon.setLifespanSeconds(16f);
+                                        pylon.setOwnerUUID(player.getUUID());
+                                        pylon.setIsBuffed(shot.getOriginWandTier().doesBuffSpell());
+                                        pylon.setIsFriendly(true);
+
+                                        server.addFreshEntity(pylon);
+                                    }
                                 }
                             })
                             .build()
