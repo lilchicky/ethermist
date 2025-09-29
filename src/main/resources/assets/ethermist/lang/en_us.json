@@ -608,5 +608,8 @@
   "block.ethermist.wandforging_table.error": "Invalid Recipe!",
   "block.ethermist.wandforging_table.tooltip": "Insert Wand, Orb, or Handle",
   "block.ethermist.wandforging_table.menu": "Wandforging Table",
-  "block.ethermist.wandforging_table.jei": "Wandforging"
+  "block.ethermist.wandforging_table.jei": "Wandforging",
+
+  "_comment": "--------------- Sounds ---------------",
+  "sounds.ethermist.chronothorn_rewind": "Chronothorn Rewind"
 }

@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
 import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
+import com.gmail.thelilchicken01.ethermist.sound.EMSoundEvents;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -66,7 +67,7 @@ public class Chronothorn extends FlowerBlock {
                 if (!event.isCanceled() && entityLiving.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true)) {
                     level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(entityLiving));
 
-                    level.playSound(null, entityLiving.getX(), entityLiving.getY(), entityLiving.getZ(), SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS);
+                    level.playSound(null, entityLiving.getX(), entityLiving.getY(), entityLiving.getZ(), EMSoundEvents.CHRONOTHORN_REWIND.get(), SoundSource.PLAYERS);
                     entityLiving.resetFallDistance();
                     break;
                 }

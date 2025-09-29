@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.block;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
+import com.gmail.thelilchicken01.ethermist.sound.EMSoundEvents;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -201,12 +202,12 @@ public class EMBlocks {
     public static final DeferredBlock<TrapDoorBlock> AMBERWOOD_TRAPDOOR = registerBlock("amberwood_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(EMBlocks.AMBERWOOD_PLANKS.get()).noOcclusion()));
 
     // Charred Wood
-    public static final DeferredBlock<Block> CHARRED_LOG = registerBlock("charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> CHARRED_WOOD = registerBlock("charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> STRIPPED_CHARRED_LOG = registerBlock("stripped_charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
-    public static final DeferredBlock<Block> STRIPPED_CHARRED_WOOD = registerBlock("stripped_charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> CHARRED_LOG = registerBlock("charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(EMSoundEvents.CHARRED_WOOD_SOUND_TYPE).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> CHARRED_WOOD = registerBlock("charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(EMSoundEvents.CHARRED_WOOD_SOUND_TYPE).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> STRIPPED_CHARRED_LOG = registerBlock("stripped_charred_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(EMSoundEvents.CHARRED_WOOD_SOUND_TYPE).strength(1.5F, 2.0F), false));
+    public static final DeferredBlock<Block> STRIPPED_CHARRED_WOOD = registerBlock("stripped_charred_wood", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(EMSoundEvents.CHARRED_WOOD_SOUND_TYPE).strength(1.5F, 2.0F), false));
 
-    public static final DeferredBlock<Block> CHARRED_PLANKS = registerBlock("charred_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(1.5F, 2.0F)));
+    public static final DeferredBlock<Block> CHARRED_PLANKS = registerBlock("charred_planks", () -> new EMFlammableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(EMSoundEvents.CHARRED_WOOD_SOUND_TYPE).strength(1.5F, 2.0F)));
 
     public static final DeferredBlock<Block> CHARRED_SAPLING = registerBlock("charred_sapling", () -> new EMStoneSapling(EMTreeGrowers.CHARRED_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
