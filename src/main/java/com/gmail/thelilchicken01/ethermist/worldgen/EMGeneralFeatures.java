@@ -536,7 +536,7 @@ public class EMGeneralFeatures {
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
         register(context, CHRONOTHORN_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(
-                        128,
+                        32,
                         4,
                         4,
                         PlacementUtils.filtered(

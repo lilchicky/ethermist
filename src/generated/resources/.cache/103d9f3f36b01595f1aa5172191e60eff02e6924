@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-28T21:21:14.8456992	Registries
+// 1.21.1	2025-09-28T21:25:52.257594	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -46,7 +46,7 @@ e9cd65b2b55839e0ab1e33e90802081d1fb38f72 data/ethermist/worldgen/configured_feat
 102149c3681df05e5363d54fd6fef0ac32505ff1 data/ethermist/worldgen/configured_feature/charred_dead_log.json
 1c888bd6ae6e5971f1142a1439a5e5b839bc2ec7 data/ethermist/worldgen/configured_feature/charred_tree.json
 93969571c10bcd5d9e2dd1f235ec8f97861bcf64 data/ethermist/worldgen/configured_feature/charred_tree_stump.json
-eda59011fa4af1f5d764d2403d224931da0935ce data/ethermist/worldgen/configured_feature/chronothorn_patch.json
+9c55f04963078a6aaa113c6e700c03dc9072bde1 data/ethermist/worldgen/configured_feature/chronothorn_patch.json
 73aaa56628ff78e4adeebed631c31544e0467acf data/ethermist/worldgen/configured_feature/cinderbloom_patch.json
 fef81a1a1ea5c3dd4d841c542c8e7ac61414c39b data/ethermist/worldgen/configured_feature/crag_spike.json
 33e261b4a11c94ca96655130d1d5ace1a248994e data/ethermist/worldgen/configured_feature/crumbling_etherstone_blob.json
