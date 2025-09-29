@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-27T14:11:04.3811496	Loot Tables
+// 1.21.1	2025-09-28T20:26:07.5155525	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -55,6 +55,8 @@ c496a8195be1cc5cf25737e9d448f4ae9d49f35c data/ethermist/loot_table/blocks/charre
 f4cbbe6c41c3eda46fc7dcf6d263ce1b71961c00 data/ethermist/loot_table/blocks/charred_trapdoor.json
 a2e97f9475638a469a3fbb66589580c3940fdf2a data/ethermist/loot_table/blocks/charred_wood.json
 90e781c328a2c8c266204d1000471d1d1443f13d data/ethermist/loot_table/blocks/chiseled_timeworn_sandstone.json
+3d0bfab7752df770c8d8cf1b193cd0ae0728a882 data/ethermist/loot_table/blocks/chronothorn.json
+9751127816330a8691c3ebbcd62d16ff8df8c0b3 data/ethermist/loot_table/blocks/chronothorn_flower_pot.json
 36ccbe70888d45609d3783648a50a9e494b30978 data/ethermist/loot_table/blocks/cinderbloom.json
 0fa137f7368c0ed9ec21549e28cc329bf51a4452 data/ethermist/loot_table/blocks/cobbled_etherstone.json
 95bbf5cc528503ca90ed9a6edebcab583408f54d data/ethermist/loot_table/blocks/cobbled_etherstone_slab.json

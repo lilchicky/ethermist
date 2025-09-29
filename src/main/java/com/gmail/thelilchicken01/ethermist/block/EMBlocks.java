@@ -277,6 +277,9 @@ public class EMBlocks {
     public static final DeferredBlock<FlowerBlock> DAWNING_HYACINTH = registerBlock("dawning_hyacinth", DawningHyacinth::new);
     public static final DeferredBlock<FlowerPotBlock> DAWNING_HYACINTH_FLOWER_POT = BLOCKS.register("dawning_hyacinth_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.DAWNING_HYACINTH, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
+    public static final DeferredBlock<FlowerBlock> CHRONOTHORN = registerBlock("chronothorn", Chronothorn::new);
+    public static final DeferredBlock<FlowerPotBlock> CHRONOTHORN_FLOWER_POT = BLOCKS.register("chronothorn_flower_pot", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EMBlocks.CHRONOTHORN, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
     public static final DeferredBlock<Block> CINDERBLOOM = registerBlock("cinderbloom", Cinderbloom::new);
     public static final DeferredBlock<Block> FALLEN_AMBERWOOD_LEAVES = registerBlock("fallen_amberwood_leaves", FallenAmberwoodLeaves::new);
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);

@@ -97,6 +97,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.SLIMY_ALLIUM);
         crossItem(EMBlocks.WITCH_LAVENDER);
         crossItem(EMBlocks.DAWNING_HYACINTH);
+        crossItem(EMBlocks.CHRONOTHORN);
         crossItem(EMBlocks.RICH_GRASS);
         crossItemCustomTexture(EMBlocks.RICH_TALL_GRASS, "rich_tall_grass_upper");
         crossItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM);

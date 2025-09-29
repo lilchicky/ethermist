@@ -388,6 +388,9 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.WITCH_LAVENDER);
         flowerPotBlock(EMBlocks.WITCH_LAVENDER_FLOWER_POT, EMBlocks.WITCH_LAVENDER);
 
+        plantBlock(EMBlocks.CHRONOTHORN);
+        flowerPotBlock(EMBlocks.CHRONOTHORN_FLOWER_POT, EMBlocks.CHRONOTHORN);
+
         plantBlock(EMBlocks.DAWNING_HYACINTH);
         flowerPotBlock(EMBlocks.DAWNING_HYACINTH_FLOWER_POT, EMBlocks.DAWNING_HYACINTH);
 
@@ -517,7 +520,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         return models.toArray(new ConfiguredModel[0]);
     }
 
-    private void flowerPotBlock(DeferredBlock<FlowerPotBlock> block, DeferredBlock<FlowerBlock> flower) {
+    private void flowerPotBlock(DeferredBlock<FlowerPotBlock> block, DeferredBlock<? extends Block> flower) {
         simpleBlock(block.get(), models().withExistingParent(BuiltInRegistries.BLOCK.getKey(block.get()).getPath(), "minecraft:block/flower_pot_cross")
                 .texture("plant", blockTexture(flower.get())).renderType("cutout"));
     }

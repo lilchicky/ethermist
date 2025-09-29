@@ -336,6 +336,10 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get(),
                 block -> createPotFlowerItemTable(EMBlocks.DAWNING_HYACINTH.get().asItem()));
 
+        dropSelf(EMBlocks.CHRONOTHORN.get());
+        add(EMBlocks.CHRONOTHORN_FLOWER_POT.get(),
+                block -> createPotFlowerItemTable(EMBlocks.CHRONOTHORN.get().asItem()));
+
         add(EMBlocks.CINDERBLOOM.get(), generateMultiblockDrops(EMBlocks.CINDERBLOOM.get(), false));
         add(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get(), generateMultiblockDrops(EMBlocks.FALLEN_AMBERWOOD_LEAVES.get(), true));
 

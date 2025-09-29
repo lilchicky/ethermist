@@ -101,7 +101,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.DAWNING_HYACINTH.get().asItem())
                 .add(EMBlocks.CINDERBLOOM.get().asItem())
-                .add(EMBlocks.NIGHTBELL.get().asItem());
+                .add(EMBlocks.NIGHTBELL.get().asItem())
+                .add(EMBlocks.CHRONOTHORN.get().asItem());
 
         tag(ItemTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMERBUD.get().asItem())
@@ -109,7 +110,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.WITCH_LAVENDER.get().asItem())
                 .add(EMBlocks.DAWNING_HYACINTH.get().asItem())
                 .add(EMBlocks.CINDERBLOOM.get().asItem())
-                .add(EMBlocks.NIGHTBELL.get().asItem());
+                .add(EMBlocks.NIGHTBELL.get().asItem())
+                .add(EMBlocks.CHRONOTHORN.get().asItem());
 
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())

@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-28T16:13:22.2960315	Item Models: ethermist
+// 1.21.1	2025-09-28T20:26:07.4955144	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -16,6 +16,7 @@ cb58c5f744d1e2c4c0b6bb8d92e31660cce32f7c assets/ethermist/models/item/augment_sp
 1e0b49e4160d2150097e778ce6b2aa15eed01d04 assets/ethermist/models/item/charred_door.json
 7afa3180d693595b06b708096f597b59fbb2b88a assets/ethermist/models/item/charred_fence.json
 be2b80cc74f1972193bee2da12634793df4db6ea assets/ethermist/models/item/charred_sapling.json
+9da593593780e3f869d170a4488a6481d9d7ab7d assets/ethermist/models/item/chronothorn.json
 df499f8997b3786d8ca2553619b7ad20be0e2f21 assets/ethermist/models/item/cobbled_etherstone_wall.json
 64ed1c1a5417a517e3879abd9cdcc536a918c081 assets/ethermist/models/item/cubed_abyssal_mushroom_button.json
 0525bc9890b5a0453e1588f6f9fb109e13d015c0 assets/ethermist/models/item/cubed_abyssal_mushroom_door.json

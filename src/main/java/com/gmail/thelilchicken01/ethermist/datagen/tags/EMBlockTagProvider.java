@@ -231,7 +231,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
                 .add(EMBlocks.CINDERBLOOM.get())
-                .add(EMBlocks.NIGHTBELL.get());
+                .add(EMBlocks.NIGHTBELL.get())
+                .add(EMBlocks.CHRONOTHORN.get());
 
         tag(BlockTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMERBUD.get())
@@ -239,13 +240,15 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.WITCH_LAVENDER.get())
                 .add(EMBlocks.DAWNING_HYACINTH.get())
                 .add(EMBlocks.CINDERBLOOM.get())
-                .add(EMBlocks.NIGHTBELL.get());
+                .add(EMBlocks.NIGHTBELL.get())
+                .add(EMBlocks.CHRONOTHORN.get());
 
         tag(BlockTags.FLOWER_POTS)
                 .add(EMBlocks.GLIMMERBUD_FLOWER_POT.get())
                 .add(EMBlocks.WITCH_LAVENDER_FLOWER_POT.get())
                 .add(EMBlocks.DAWNING_HYACINTH_FLOWER_POT.get())
-                .add(EMBlocks.NIGHTBELL_FLOWER_POT.get());
+                .add(EMBlocks.NIGHTBELL_FLOWER_POT.get())
+                .add(EMBlocks.CHRONOTHORN_FLOWER_POT.get());
 
         tag(BlockTags.FENCE_GATES)
                 .add(EMBlocks.GLIMMERING_ANCIENT_FENCE_GATE.get())
