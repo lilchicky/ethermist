@@ -2,7 +2,50 @@
   "chronothorn_rewind": {
     "subtitle": "sounds.ethermist.chronothorn_rewind",
     "sounds": [
-      "ethermist:chronothorn_rewind"
+      "ethermist:block/plants/chronothorn_rewind"
+    ]
+  },
+
+  "charred_wood_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "ethermist:block/charred_wood/step1",
+      "ethermist:block/charred_wood/step2",
+      "ethermist:block/charred_wood/step3"
+    ]
+  },
+  "charred_wood_fall": {
+    "subtitle": "subtitles.block.generic.fall",
+    "sounds": [
+      "ethermist:block/charred_wood/step1",
+      "ethermist:block/charred_wood/step2",
+      "ethermist:block/charred_wood/step3"
+    ]
+  },
+  "charred_wood_hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "ethermist:block/charred_wood/hit1",
+      "ethermist:block/charred_wood/hit2",
+      "ethermist:block/charred_wood/hit3"
+    ]
+  },
+  "charred_wood_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "ethermist:block/charred_wood/place1",
+      "ethermist:block/charred_wood/place2",
+      "ethermist:block/charred_wood/place3",
+      "ethermist:block/charred_wood/place4"
+    ]
+  },
+  "charred_wood_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "ethermist:block/charred_wood/place1",
+      "ethermist:block/charred_wood/place2",
+      "ethermist:block/charred_wood/place3",
+      "ethermist:block/charred_wood/place4"
     ]
   }
 }
