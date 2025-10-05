@@ -19,19 +19,12 @@ public class EMCustomTasks {
         }
     }
 
-    private static class ScheduledTask implements Comparable<ScheduledTask> {
-        final int tick;
-        final Runnable task;
-
-        ScheduledTask(int tick, Runnable task) {
-            this.tick = tick;
-            this.task = task;
-        }
+    private record ScheduledTask(int tick, Runnable task) implements Comparable<ScheduledTask> {
 
         @Override
-        public int compareTo(@NotNull EMCustomTasks.ScheduledTask o) {
-            return Integer.compare(this.tick, o.tick);
+            public int compareTo(@NotNull EMCustomTasks.ScheduledTask o) {
+                return Integer.compare(this.tick, o.tick);
+            }
         }
-    }
 
 }

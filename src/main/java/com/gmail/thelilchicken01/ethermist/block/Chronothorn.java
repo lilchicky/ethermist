@@ -1,25 +1,22 @@
 package com.gmail.thelilchicken01.ethermist.block;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
 import com.gmail.thelilchicken01.ethermist.sound.EMSoundEvents;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -32,6 +29,7 @@ public class Chronothorn extends FlowerBlock {
 
     public static final MapCodec<Chronothorn> CODEC = MapCodec.unit(Chronothorn::new);
     protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0);
+    private static final String COOLDOWN_TAG = "ethermist:chronothorn_cooldown";
 
     protected Chronothorn() {
         super(EMMobEffects.SLOWER_CASTING, 15, Properties.ofFullCopy(Blocks.POPPY).mapColor(MapColor.COLOR_GREEN));
@@ -49,30 +47,56 @@ public class Chronothorn extends FlowerBlock {
 
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (!level.isClientSide && entity instanceof LivingEntity entityLiving) {
-            for (int i = 0; i < 32; i++) {
-                double d0 = entityLiving.getX() + (entityLiving.getRandom().nextDouble() - 0.5) * 8.0;
-                double d1 = Mth.clamp(
-                        entityLiving.getY() + (double)(entityLiving.getRandom().nextInt(16) - 8),
-                        level.getMinBuildHeight(),
-                        level.getMinBuildHeight() + ((ServerLevel)level).getLogicalHeight() - 1
-                );
-                double d2 = entityLiving.getZ() + (entityLiving.getRandom().nextDouble() - 0.5) * 16.0;
-                if (entityLiving.isPassenger()) {
-                    entityLiving.stopRiding();
-                }
+        if (!level.isClientSide() && entity instanceof LivingEntity livingEntity) {
+            ServerLevel serverLevel = (ServerLevel) level;
 
-                Vec3 vec3 = entityLiving.position();
-                net.neoforged.neoforge.event.entity.EntityTeleportEvent.ChorusFruit event = net.neoforged.neoforge.event.EventHooks.onChorusFruitTeleport(entityLiving, d0, d1, d2);
-                if (!event.isCanceled() && entityLiving.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true)) {
-                    level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(entityLiving));
+            int cooldown = livingEntity.getPersistentData().getInt(COOLDOWN_TAG);
+            if (cooldown > 0) {
+                livingEntity.getPersistentData().putInt(COOLDOWN_TAG, cooldown - 1);
+                return;
+            }
 
-                    level.playSound(null, entityLiving.getX(), entityLiving.getY(), entityLiving.getZ(), EMSoundEvents.CHRONOTHORN_REWIND.get(), SoundSource.PLAYERS);
-                    entityLiving.resetFallDistance();
-                    break;
-                }
+            if (livingEntity instanceof ServerPlayer player) {
+                Ethermist.SCHEDULER.schedule(serverLevel.getServer().getTickCount(), () -> {
+                    if (player.isRemoved() || player.level() != serverLevel) return;
+
+                    if (attemptRewind(livingEntity, serverLevel)) {
+                        player.resetCurrentImpulseContext();
+                    }
+                });
+                livingEntity.getPersistentData().putInt(COOLDOWN_TAG, 5);
+                return;
+            }
+
+            if (attemptRewind(livingEntity, serverLevel)) {
+                livingEntity.getPersistentData().putInt(COOLDOWN_TAG, 5);
             }
         }
+    }
+
+    private boolean attemptRewind(LivingEntity livingEntity, ServerLevel level) {
+        for (int i = 0; i < 32; i++) {
+            double d0 = livingEntity.getX() + (livingEntity.getRandom().nextDouble() - 0.5) * 8.0;
+            double d1 = Mth.clamp(
+                    livingEntity.getY() + (double) (livingEntity.getRandom().nextInt(16) - 8),
+                    level.getMinBuildHeight(),
+                    level.getMinBuildHeight() + level.getLogicalHeight() - 1
+            );
+            double d2 = livingEntity.getZ() + (livingEntity.getRandom().nextDouble() - 0.5) * 16.0;
+            if (livingEntity.isPassenger()) {
+                livingEntity.stopRiding();
+            }
+
+            Vec3 vec3 = livingEntity.position();
+            if (livingEntity.randomTeleport(d0, d1, d2, true)) {
+                level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(livingEntity));
+
+                level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), EMSoundEvents.CHRONOTHORN_REWIND.get(), SoundSource.PLAYERS);
+                livingEntity.resetFallDistance();
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
