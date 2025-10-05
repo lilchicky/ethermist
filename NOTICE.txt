@@ -1,0 +1,6 @@
+Ethermist Mod
+
+Sound Credits:
+----------------
+alarm_clock_ticking_01.wav by joedeshon -- https://freesound.org/s/78563/ -- License: Attribution 4.0 -- trimmed, volume increased
+Charcoal Foley.wav by UlyssesAtSea -- https://freesound.org/s/648136/ -- License: Creative Commons 0 -- trimmed, pitch modified
