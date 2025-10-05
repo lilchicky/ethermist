@@ -1,6 +1,6 @@
 {
   "chronothorn_rewind": {
-    "subtitle": "sounds.ethermist.chronothorn_rewind",
+    "subtitle": "subtitles.block.chronothorn.rewind",
     "sounds": [
       "ethermist:block/plants/chronothorn_rewind"
     ]

@@ -611,5 +611,5 @@
   "block.ethermist.wandforging_table.jei": "Wandforging",
 
   "_comment": "--------------- Sounds ---------------",
-  "sounds.ethermist.chronothorn_rewind": "Chronothorn Rewind"
+  "subtitles.block.chronothorn.rewind": "Chronothorn Rewind"
 }
