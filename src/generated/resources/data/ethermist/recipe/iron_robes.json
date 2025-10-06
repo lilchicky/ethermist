@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "b b",
+    "aba",
+    "aaa"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:iron_robes"
+  }
+}
