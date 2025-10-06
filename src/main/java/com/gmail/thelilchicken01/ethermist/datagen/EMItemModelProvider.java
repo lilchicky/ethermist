@@ -196,6 +196,11 @@ public class EMItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(EMItems.LEATHER_LEGGUARDS);
         trimmedArmorItem(EMItems.LEATHER_FOOTWRAPS);
 
+        trimmedArmorItem(EMItems.IRON_HOOD);
+        trimmedArmorItem(EMItems.IRON_ROBES);
+        trimmedArmorItem(EMItems.IRON_LEGGUARDS);
+        trimmedArmorItem(EMItems.IRON_FOOTWRAPS);
+
     }
 
     public void basicItemFolder(Item item, String folder) {

@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-05T20:00:46.5965229	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-10-06T00:37:26.9133942	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods.json
@@ -28,27 +28,27 @@ f09fe0d5296515592e253540051fd7599b43cc2b data/ethermist/tags/item/orbs.json
 feae00d16e8814cdaf2ddbd3ee8562b24f80449a data/ethermist/tags/item/wands.json
 ca78911200b5c7a4e6afc7a16f1f3e25c4cb0fcc data/ethermist/tags/item/wand_base.json
 fa537340c21760db1aef55347fb5283e04b84fc9 data/minecraft/tags/item/buttons.json
-544ed653ab29762ba891653cde3ea5d70c0639de data/minecraft/tags/item/chest_armor.json
+75c1015f3bfbd69a2ba4782c25ea4499deb94b3f data/minecraft/tags/item/chest_armor.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/coal_ores.json
 43f27771d370843005011355d6e7b530a221d27d data/minecraft/tags/item/copper_ores.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/diamond_ores.json
 0f191fdb646760930a94e0122369095bd7ddca56 data/minecraft/tags/item/doors.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/emerald_ores.json
-544ed653ab29762ba891653cde3ea5d70c0639de data/minecraft/tags/item/enchantable/chest_armor.json
+75c1015f3bfbd69a2ba4782c25ea4499deb94b3f data/minecraft/tags/item/enchantable/chest_armor.json
 21c26bc9ad93b0cc8b96d193b752c12dd7286664 data/minecraft/tags/item/enchantable/durability.json
-2f961246fa6f8faae1683ea5d000d62532debf3b data/minecraft/tags/item/enchantable/foot_armor.json
-db580a8001f8d97be664a3935de350f2e7137622 data/minecraft/tags/item/enchantable/head_armor.json
-866f0225979272defe05badff24b4843f54ca926 data/minecraft/tags/item/enchantable/leg_armor.json
+1360aab45eea7772bd77c7c6dfe0736484bf51b3 data/minecraft/tags/item/enchantable/foot_armor.json
+59a0347a423e598d3602cba1d0cbe8f1f55a4401 data/minecraft/tags/item/enchantable/head_armor.json
+8a098721a30e1be3953db66bb079ad2bd8760779 data/minecraft/tags/item/enchantable/leg_armor.json
 75231e7469b731033a4d079380522295537b28b5 data/minecraft/tags/item/enchantable/mace.json
 e0614bb7aa0bca3d8d28b262d55e3e58545303a8 data/minecraft/tags/item/fences.json
 0da0c66edd4c569dfa409f51ec81bc04f98e797d data/minecraft/tags/item/flowers.json
-2f961246fa6f8faae1683ea5d000d62532debf3b data/minecraft/tags/item/foot_armor.json
+1360aab45eea7772bd77c7c6dfe0736484bf51b3 data/minecraft/tags/item/foot_armor.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/gold_ores.json
-db580a8001f8d97be664a3935de350f2e7137622 data/minecraft/tags/item/head_armor.json
+59a0347a423e598d3602cba1d0cbe8f1f55a4401 data/minecraft/tags/item/head_armor.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/iron_ores.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/lapis_ores.json
 5d0769f29f57a5faebf99eee6a030d33fcb8fd83 data/minecraft/tags/item/leaves.json
-866f0225979272defe05badff24b4843f54ca926 data/minecraft/tags/item/leg_armor.json
+8a098721a30e1be3953db66bb079ad2bd8760779 data/minecraft/tags/item/leg_armor.json
 ab8304b809cf97b713a28238ff800fdcf04c8f88 data/minecraft/tags/item/logs.json
 71b7dcce8f3f8e55992700b206db2a6eee4737b5 data/minecraft/tags/item/logs_that_burn.json
 f55f4b99d26086023d79ecbd0688102af969e172 data/minecraft/tags/item/non_flammable_wood.json
@@ -60,7 +60,7 @@ fd590af8b35a26c82ec29d1cb7e57aa0eb753479 data/minecraft/tags/item/saplings.json
 89967a9b5bb8c6ac9619491b08e7fdeae28b1462 data/minecraft/tags/item/stone_bricks.json
 f38df150213a5148113fff297273eec5390c1a03 data/minecraft/tags/item/stone_crafting_materials.json
 f38df150213a5148113fff297273eec5390c1a03 data/minecraft/tags/item/stone_tool_materials.json
-d66197d1e0b05e5a8f8de76d0667c4edd5af97d8 data/minecraft/tags/item/trimmable_armor.json
+1520b5e23161e3c6ee37095d33d1bb98d67823b3 data/minecraft/tags/item/trimmable_armor.json
 21af757b97dd4730811705d541eb0c907cfc56cb data/minecraft/tags/item/wooden_buttons.json
 0f191fdb646760930a94e0122369095bd7ddca56 data/minecraft/tags/item/wooden_doors.json
 e0614bb7aa0bca3d8d28b262d55e3e58545303a8 data/minecraft/tags/item/wooden_fences.json
