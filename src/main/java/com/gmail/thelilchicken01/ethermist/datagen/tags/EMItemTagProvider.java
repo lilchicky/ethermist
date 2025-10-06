@@ -222,6 +222,17 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.GLIMMERBUG_WAND.get());
         addWands(EMItems.FORGED_HEART_WAND.get());
 
+        /*
+        ---------- Armors ----------
+         */
+        addHelmet(EMItems.LEATHER_HOOD.get());
+
+        addChestplate(EMItems.LEATHER_ROBES.get());
+
+        addLeggings(EMItems.LEATHER_LEGGUARDS.get());
+
+        addBoots(EMItems.LEATHER_FOOTWRAPS.get());
+
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get().asItem(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get().asItem(), false);
@@ -392,6 +403,30 @@ public class EMItemTagProvider extends ItemTagsProvider {
             tag(ItemTags.NON_FLAMMABLE_WOOD).add(log).add(stripped_log).add(wood).add(stripped_wood);
         }
 
+    }
+
+    private void addHelmet(Item helmet) {
+        tag(ItemTags.HEAD_ARMOR).add(helmet);
+        tag(ItemTags.HEAD_ARMOR_ENCHANTABLE).add(helmet);
+        tag(ItemTags.TRIMMABLE_ARMOR).add(helmet);
+    }
+
+    private void addChestplate(Item chestplate) {
+        tag(ItemTags.CHEST_ARMOR).add(chestplate);
+        tag(ItemTags.CHEST_ARMOR_ENCHANTABLE).add(chestplate);
+        tag(ItemTags.TRIMMABLE_ARMOR).add(chestplate);
+    }
+
+    private void addLeggings(Item leggings) {
+        tag(ItemTags.LEG_ARMOR).add(leggings);
+        tag(ItemTags.LEG_ARMOR_ENCHANTABLE).add(leggings);
+        tag(ItemTags.TRIMMABLE_ARMOR).add(leggings);
+    }
+
+    private void addBoots(Item boots) {
+        tag(ItemTags.FOOT_ARMOR).add(boots);
+        tag(ItemTags.FOOT_ARMOR_ENCHANTABLE).add(boots);
+        tag(ItemTags.TRIMMABLE_ARMOR).add(boots);
     }
 
 }

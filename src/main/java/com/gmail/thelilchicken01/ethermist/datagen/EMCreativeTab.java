@@ -336,6 +336,12 @@ public class EMCreativeTab {
             .title(Component.translatable("creativetab.ethermist.em_item_tab"))
             .displayItems((itemDisplayParameters, output) -> {
 
+                // Armors
+                output.accept(EMItems.LEATHER_HOOD.get());
+                output.accept(EMItems.LEATHER_ROBES.get());
+                output.accept(EMItems.LEATHER_LEGGUARDS.get());
+                output.accept(EMItems.LEATHER_FOOTWRAPS.get());
+
                 // Orbs
                 output.accept(EMItems.DULL_ORB.get());
                 output.accept(EMItems.GLASS_ORB.get());

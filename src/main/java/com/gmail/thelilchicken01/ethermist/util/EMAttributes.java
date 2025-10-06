@@ -14,22 +14,22 @@ public class EMAttributes {
             DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, Ethermist.MODID);
 
     public static final DeferredHolder<Attribute, Attribute> WAND_DAMAGE = EM_ATTRIBUTES.register("wand.base_damage", () ->
-            new WandAttributes("attribute.ethermist.wand.base_damage", 1.0F, 1.0F, 1024.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.base_damage", 1.0F, 1.0F, 1024.0F).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     public static final DeferredHolder<Attribute, Attribute> COOLDOWN = EM_ATTRIBUTES.register("wand.cooldown", () ->
-            new WandAttributes("attribute.ethermist.wand.cooldown", 0.25F, 0.25F, 1024.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.cooldown", 0.25F, 0.25F, 1024.0F).setSyncable(true).setSentiment(Attribute.Sentiment.NEGATIVE));
 
     public static final DeferredHolder<Attribute, Attribute> PROJECTILE_SPEED = EM_ATTRIBUTES.register("wand.projectile_speed", () ->
-            new WandAttributes("attribute.ethermist.wand.projectile_speed", 0.1F, 0.1F, 1024.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.projectile_speed", 0.1F, 0.1F, 1024.0F).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     public static final DeferredHolder<Attribute, Attribute> WAND_KNOCKBACK = EM_ATTRIBUTES.register("wand.knockback", () ->
-            new WandAttributes("attribute.ethermist.wand.knockback", 0.0F, 0.0F, 1024.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.knockback", 0.0F, 0.0F, 1024.0F).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     public static final DeferredHolder<Attribute, Attribute> LIFESPAN = EM_ATTRIBUTES.register("wand.lifespan", () ->
-            new WandAttributes("attribute.ethermist.wand.lifespan", 0.25F, 0.25F, 1024.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.lifespan", 0.25F, 0.25F, 1024.0F).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     public static final DeferredHolder<Attribute, Attribute> ACCURACY = EM_ATTRIBUTES.register("wand.wand_accuracy", () ->
-            new WandAttributes("attribute.ethermist.wand.wand_accuracy", 0.0F, 0.0F, 100.0F).setSyncable(true));
+            new WandAttributes("attribute.ethermist.wand.wand_accuracy", 0.0F, 0.0F, 1.0F).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     public static void register(IEventBus bus) {
         EM_ATTRIBUTES.register(bus);

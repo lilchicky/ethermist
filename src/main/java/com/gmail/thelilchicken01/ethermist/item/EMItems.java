@@ -2,14 +2,23 @@ package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.item.armor.EMArmorMaterials;
+import com.gmail.thelilchicken01.ethermist.item.armor.MageArmorItem;
 import com.gmail.thelilchicken01.ethermist.item.foods.ShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.foods.ToastedShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -94,6 +103,80 @@ public class EMItems {
 
     public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", ShroomCluster::new);
     public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", ToastedShroomCluster::new);
+
+    /*
+    ---------- Armor ----------
+     */
+
+    // Leather
+    public static final DeferredItem<ArmorItem> LEATHER_HOOD = ITEMS.register("leather_hood", () -> new MageArmorItem(
+            EMArmorMaterials.LEATHER_ROBES,
+            ArmorItem.Type.HELMET,
+            new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(5)),
+            ItemAttributeModifiers.builder()
+                    .add(
+                            EMAttributes.COOLDOWN,
+                            new AttributeModifier(
+                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.cooldown"),
+                                    -0.25,
+                                    AttributeModifier.Operation.ADD_VALUE
+                            ),
+                            EquipmentSlotGroup.bySlot(ArmorItem.Type.HELMET.getSlot())
+                    )
+                    .build()
+            )
+    );
+    public static final DeferredItem<ArmorItem> LEATHER_ROBES = ITEMS.register("leather_robes", () -> new MageArmorItem(
+            EMArmorMaterials.LEATHER_ROBES,
+            ArmorItem.Type.CHESTPLATE,
+            new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(5)),
+            ItemAttributeModifiers.builder()
+                    .add(
+                            EMAttributes.WAND_DAMAGE,
+                            new AttributeModifier(
+                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "robes.damage"),
+                                    0.5,
+                                    AttributeModifier.Operation.ADD_VALUE
+                            ),
+                            EquipmentSlotGroup.bySlot(ArmorItem.Type.CHESTPLATE.getSlot())
+                    )
+                    .build()
+            )
+    );
+    public static final DeferredItem<ArmorItem> LEATHER_LEGGUARDS = ITEMS.register("leather_legguards", () -> new MageArmorItem(
+            EMArmorMaterials.LEATHER_ROBES,
+            ArmorItem.Type.LEGGINGS,
+            new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(5)),
+            ItemAttributeModifiers.builder()
+                    .add(
+                            EMAttributes.LIFESPAN,
+                            new AttributeModifier(
+                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "legguards.lifespan"),
+                                    0.5,
+                                    AttributeModifier.Operation.ADD_VALUE
+                            ),
+                            EquipmentSlotGroup.bySlot(ArmorItem.Type.LEGGINGS.getSlot())
+                    )
+                    .build()
+            )
+    );
+    public static final DeferredItem<ArmorItem> LEATHER_FOOTWRAPS = ITEMS.register("leather_footwraps", () -> new MageArmorItem(
+            EMArmorMaterials.LEATHER_ROBES,
+            ArmorItem.Type.BOOTS,
+            new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(5)),
+            ItemAttributeModifiers.builder()
+                    .add(
+                            EMAttributes.PROJECTILE_SPEED,
+                            new AttributeModifier(
+                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "footwraps.projectile_speed"),
+                                    0.1,
+                                    AttributeModifier.Operation.ADD_VALUE
+                            ),
+                            EquipmentSlotGroup.bySlot(ArmorItem.Type.BOOTS.getSlot())
+                    )
+                    .build()
+            )
+    );
 
     /*
     ---------- Spawn Eggs ----------

@@ -667,6 +667,36 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHRONOTHORN.getId().getPath() + "_magenta_dye"));
 
         /*
+        ---------- Armor Recipes ----------
+         */
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.LEATHER_HOOD, 1)
+                .pattern("aaa")
+                .pattern("b b")
+                .define('a', Items.LEATHER)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_leather", has(Items.LEATHER)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.LEATHER_ROBES, 1)
+                .pattern("b b")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.LEATHER)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_leather", has(Items.LEATHER)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.LEATHER_LEGGUARDS, 1)
+                .pattern("aba")
+                .pattern("a a")
+                .pattern("a a")
+                .define('a', Items.LEATHER)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_leather", has(Items.LEATHER)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.LEATHER_FOOTWRAPS, 1)
+                .pattern("b b")
+                .pattern("a a")
+                .define('a', Items.LEATHER)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_leather", has(Items.LEATHER)).save(output);
+
+        /*
         ---------- Misc Recipes ----------
          */
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
