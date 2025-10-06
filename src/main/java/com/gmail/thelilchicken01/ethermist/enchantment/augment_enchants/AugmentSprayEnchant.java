@@ -1,7 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
+import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
@@ -16,10 +18,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
@@ -66,7 +70,23 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
             MinecraftServer server = level.getServer();
 
-            if (!(server == null)) {
+            AtomicBoolean makesProjectile = new AtomicBoolean(false);
+            EnchantmentHelper.runIterationOnItem(wandItem, (enchant, enchantLevel) -> {
+                IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
+                IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
+                if (augment != null) {
+                    if (!augment.doesCreateProjectile(player, target, pos, clickedEntity, enchantLevel)) {
+                        makesProjectile.set(false);
+                    }
+                }
+                if (spell != null) {
+                    if (!spell.doesCreateProjectile(player, target, pos, clickedEntity, enchantLevel)) {
+                        makesProjectile.set(false);
+                    }
+                }
+            });
+
+            if (!(server == null) && makesProjectile.get()) {
 
                 for (int x = 0; x < spellLevel + 2; x++) {
 

@@ -24,7 +24,7 @@ public class KineticRushEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public boolean doesCreateProjectile(Entity shooter, @Nullable List<Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) {
+    public boolean doesCreateProjectile(Entity shooter, @Nullable List<? extends Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) {
         return false;
     }
 

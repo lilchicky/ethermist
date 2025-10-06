@@ -30,7 +30,7 @@ public interface IWandAugmentEffect {
 
     default void attributeChanges(WandAttributeState state, int level) {}
     default void addSpecialAttributes(ItemAttributeModifiers.Builder builder) {}
-    default boolean doesCreateProjectile(Entity shooter, @Nullable List<Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) { return true; }
+    default boolean doesCreateProjectile(Entity shooter, @Nullable List<? extends Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) { return true; }
 
     default boolean doesProjectileHome() { return false; }
 

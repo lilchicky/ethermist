@@ -182,7 +182,7 @@ public class EMItems {
     public static final DeferredItem<ArmorItem> IRON_HOOD = ITEMS.register("iron_hood", () -> new MageArmorItem(
                     EMArmorMaterials.IRON_ROBES,
                     ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(5)),
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(15)),
                     ItemAttributeModifiers.builder()
                             .add(
                                     EMAttributes.COOLDOWN,
@@ -199,7 +199,7 @@ public class EMItems {
     public static final DeferredItem<ArmorItem> IRON_ROBES = ITEMS.register("iron_robes", () -> new MageArmorItem(
                     EMArmorMaterials.IRON_ROBES,
                     ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(5)),
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(15)),
                     ItemAttributeModifiers.builder()
                             .add(
                                     EMAttributes.WAND_DAMAGE,
@@ -216,7 +216,7 @@ public class EMItems {
     public static final DeferredItem<ArmorItem> IRON_LEGGUARDS = ITEMS.register("iron_legguards", () -> new MageArmorItem(
                     EMArmorMaterials.IRON_ROBES,
                     ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(5)),
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(15)),
                     ItemAttributeModifiers.builder()
                             .add(
                                     EMAttributes.LIFESPAN,
@@ -233,7 +233,7 @@ public class EMItems {
     public static final DeferredItem<ArmorItem> IRON_FOOTWRAPS = ITEMS.register("iron_footwraps", () -> new MageArmorItem(
                     EMArmorMaterials.IRON_ROBES,
                     ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(5)),
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(15)),
                     ItemAttributeModifiers.builder()
                             .add(
                                     EMAttributes.PROJECTILE_SPEED,
