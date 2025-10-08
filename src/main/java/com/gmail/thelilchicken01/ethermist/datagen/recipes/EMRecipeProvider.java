@@ -723,6 +723,33 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('b', Items.AMETHYST_SHARD)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GOLDEN_HOOD, 1)
+                .pattern("aaa")
+                .pattern("b b")
+                .define('a', Items.GOLD_INGOT)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GOLDEN_ROBES, 1)
+                .pattern("b b")
+                .pattern("aba")
+                .pattern("aaa")
+                .define('a', Items.GOLD_INGOT)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GOLDEN_LEGGUARDS, 1)
+                .pattern("aba")
+                .pattern("a a")
+                .pattern("a a")
+                .define('a', Items.GOLD_INGOT)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GOLDEN_FOOTWRAPS, 1)
+                .pattern("b b")
+                .pattern("a a")
+                .define('a', Items.GOLD_INGOT)
+                .define('b', Items.AMETHYST_SHARD)
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(output);
+
         /*
         ---------- Misc Recipes ----------
          */

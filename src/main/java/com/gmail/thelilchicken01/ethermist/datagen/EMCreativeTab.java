@@ -347,6 +347,11 @@ public class EMCreativeTab {
                 output.accept(EMItems.IRON_LEGGUARDS.get());
                 output.accept(EMItems.IRON_FOOTWRAPS.get());
 
+                output.accept(EMItems.GOLDEN_HOOD.get());
+                output.accept(EMItems.GOLDEN_ROBES.get());
+                output.accept(EMItems.GOLDEN_LEGGUARDS.get());
+                output.accept(EMItems.GOLDEN_FOOTWRAPS.get());
+
                 // Orbs
                 output.accept(EMItems.DULL_ORB.get());
                 output.accept(EMItems.GLASS_ORB.get());

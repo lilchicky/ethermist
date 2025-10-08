@@ -13,7 +13,6 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.function.Supplier;
 
 public class EMArmorMaterials {
 
-    public static final Holder<ArmorMaterial> LEATHER_ROBES = register("leather_mage",
+    public static final Holder<ArmorMaterial> LEATHER_MAGE = register("leather_mage",
             Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 1);
                 attribute.put(ArmorItem.Type.LEGGINGS, 2);
@@ -29,7 +28,7 @@ public class EMArmorMaterials {
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 3);
             }), 15, 0f, 0f, () -> Items.LEATHER, SoundEvents.ARMOR_EQUIP_LEATHER);
-    public static final Holder<ArmorMaterial> IRON_ROBES = register("iron_mage",
+    public static final Holder<ArmorMaterial> IRON_MAGE = register("iron_mage",
             Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 1);
                 attribute.put(ArmorItem.Type.LEGGINGS, 2);
@@ -37,6 +36,14 @@ public class EMArmorMaterials {
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 3);
             }), 9, 0f, 0f, () -> Items.IRON_INGOT, SoundEvents.ARMOR_EQUIP_IRON);
+    public static final Holder<ArmorMaterial> GOLDEN_MAGE = register("golden_mage",
+            Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 3);
+            }), 25, 0f, 0f, () -> Items.GOLD_INGOT, SoundEvents.ARMOR_EQUIP_GOLD);
 
     private static Holder<ArmorMaterial> register(
             String name,

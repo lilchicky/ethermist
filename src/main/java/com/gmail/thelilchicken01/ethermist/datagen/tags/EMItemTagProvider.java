@@ -227,15 +227,19 @@ public class EMItemTagProvider extends ItemTagsProvider {
          */
         addHelmet(EMItems.LEATHER_HOOD.get());
         addHelmet(EMItems.IRON_HOOD.get());
+        addHelmet(EMItems.GOLDEN_HOOD.get());
 
         addChestplate(EMItems.LEATHER_ROBES.get());
         addChestplate(EMItems.IRON_ROBES.get());
+        addChestplate(EMItems.GOLDEN_ROBES.get());
 
         addLeggings(EMItems.LEATHER_LEGGUARDS.get());
         addLeggings(EMItems.IRON_LEGGUARDS.get());
+        addLeggings(EMItems.GOLDEN_LEGGUARDS.get());
 
         addBoots(EMItems.LEATHER_FOOTWRAPS.get());
         addBoots(EMItems.IRON_FOOTWRAPS.get());
+        addBoots(EMItems.GOLDEN_FOOTWRAPS.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
