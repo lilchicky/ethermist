@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "ethermist:item/iron_footwraps",
-    "layer1": "minecraft:trims/items/boots_trim_copper"
-  }
-}
