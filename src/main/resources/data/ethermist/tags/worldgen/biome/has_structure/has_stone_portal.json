@@ -1,0 +1,11 @@
+{
+  "replace": false,
+
+  "values": [
+    "#c:is_jungle",
+    "#c:is_forest",
+    "#c:is_mountain",
+    "#c:is_plains",
+    "#c:is_swamp"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:portals/medium_sparkling_frame",
+        "processors": "ethermist:portal",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

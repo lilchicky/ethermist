@@ -1,0 +1,9 @@
+{
+  "replace": false,
+
+  "values": [
+    "#c:is_cold",
+    "#c:is_snowy",
+    "#c:is_icy"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "ethermist:ancient_stone_portal",
+      "weight": 1
+    },
+    {
+      "structure": "ethermist:stone_portal",
+      "weight": 1
+    },
+    {
+      "structure": "ethermist:sparkling_portal",
+      "weight": 1
+    },
+    {
+      "structure": "ethermist:timeworn_portal",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 9086026,
+    "spacing": 40,
+    "separation": 20
+  }
+}
