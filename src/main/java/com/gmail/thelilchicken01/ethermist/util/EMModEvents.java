@@ -62,7 +62,7 @@ public class EMModEvents {
 
         event.register(
                 EMEntityTypes.GLOOMIE.get(),
-                SpawnPlacementTypes.IN_WATER,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 GloomieEntity::checkSpawn,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE

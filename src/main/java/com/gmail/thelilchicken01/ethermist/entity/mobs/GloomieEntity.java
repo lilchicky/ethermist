@@ -295,14 +295,8 @@ public class GloomieEntity extends Animal implements IShearable {
         this.regrowThreshold = tag.getInt("RegrowThreshold");
     }
 
-    public static boolean checkSpawn(EntityType<? extends LivingEntity> entity, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        int i = level.getLevel().getSeaLevel();
-        int j = i - 13;
-        return (pos.getY() >= j
-                && pos.getY() <= i
-                && level.getFluidState(pos.below()).is(FluidTags.WATER)
-                && level.getBlockState(pos.above()).is(Blocks.WATER))
-                || spawnType == MobSpawnType.SPAWNER;
+    public static boolean checkSpawn(EntityType<GloomieEntity> entity, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        return (level.getFluidState(pos.below()).is(FluidTags.WATER) || spawnType == MobSpawnType.SPAWNER);
     }
 
 }

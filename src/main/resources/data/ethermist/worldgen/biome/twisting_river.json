@@ -97,6 +97,12 @@
         "maxCount": 4,
         "minCount": 2,
         "weight": 10
+      },
+      {
+        "type": "ethermist:gloomie",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 100
       }
     ],
     "misc": [],
@@ -125,12 +131,6 @@
     "water_ambient": [
     ],
     "water_creature": [
-      {
-        "type": "ethermist:gloomie",
-        "maxCount": 4,
-        "minCount": 2,
-        "weight": 10
-      }
     ]
   },
   "temperature": 0.5
