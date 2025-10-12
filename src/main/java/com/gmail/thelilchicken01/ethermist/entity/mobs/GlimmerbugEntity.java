@@ -9,6 +9,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -226,6 +228,10 @@ public class GlimmerbugEntity extends TamableAnimal {
         this.entityData.set(HAS_LIFESPAN, tag.getBoolean("HasLifespan"));
         remainingLife = tag.getInt("RemainingLifeTicks");
         lifespanSeconds = tag.getDouble("LifespanSeconds");
+    }
+
+    public static boolean checkSpawn(EntityType<? extends LivingEntity> entity, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        return level.getBlockState(pos.below()).is(BlockTags.DIRT) || spawnType == MobSpawnType.SPAWNER;
     }
 
 }

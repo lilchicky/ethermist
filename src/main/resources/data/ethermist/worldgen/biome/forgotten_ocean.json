@@ -98,6 +98,12 @@
         "maxCount": 4,
         "minCount": 2,
         "weight": 10
+      },
+      {
+        "type": "ethermist:glimmerbug",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 10
       }
     ],
     "misc": [],
