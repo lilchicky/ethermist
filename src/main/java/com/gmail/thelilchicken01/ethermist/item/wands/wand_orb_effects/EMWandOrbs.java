@@ -280,7 +280,7 @@ public class EMWandOrbs {
                                     )
                                     .sound(SoundEvents.GLASS_BREAK)
                                     .effect((shotItem, target, player, shot) -> {
-                                            target.setTicksFrozen(target.getTicksFrozen() + (shot.getOriginWandTier().doesBuffSpell() ? 200 : 120));
+                                            target.setTicksFrozen(target.getTicksFrozen() + (shot.getOriginWandTier().doesBuffSpell() ? 300 : 200));
                                     })
                                     .build()
             );
