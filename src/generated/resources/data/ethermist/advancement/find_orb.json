@@ -1,0 +1,33 @@
+{
+  "parent": "ethermist:root",
+  "criteria": {
+    "find_orb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#ethermist:orbs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ethermist.find_orb.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ethermist:dull_orb"
+    },
+    "title": {
+      "translate": "advancements.ethermist.find_orb.title"
+    }
+  },
+  "requirements": [
+    [
+      "find_orb"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

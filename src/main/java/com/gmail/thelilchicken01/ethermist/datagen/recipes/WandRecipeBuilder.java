@@ -33,7 +33,7 @@ public class WandRecipeBuilder extends EMRecipeBuilder {
                 .requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancement::addCriterion);
         WandRecipe recipe = new WandRecipe(this.base, this.orb, this.result);
-        output.accept(id, recipe, advancement.build(id.withPrefix("recipe/")));
+        output.accept(id, recipe, advancement.build(id.withPrefix("recipes/wandforging/")));
 
     }
 }

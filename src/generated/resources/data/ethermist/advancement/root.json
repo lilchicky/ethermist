@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "on_join": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "background": "ethermist:textures/block/ancient_etherstone/ancient_etherstone.png",
+    "description": {
+      "translate": "advancements.ethermist.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ethermist:rich_grass_block"
+    },
+    "title": {
+      "translate": "advancements.ethermist.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "on_join"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

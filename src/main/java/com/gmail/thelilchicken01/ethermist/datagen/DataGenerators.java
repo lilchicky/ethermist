@@ -74,6 +74,8 @@ public class DataGenerators {
 
         gen.addProvider(event.includeServer(), new EMGlobalLootModifierProvider(packOutput, lookupProvider));
 
+        gen.addProvider(event.includeServer(), new EMAdvancements(packOutput, lookupProvider, existingFileHelper));
+
     }
 
 }

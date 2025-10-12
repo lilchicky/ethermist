@@ -1,0 +1,33 @@
+{
+  "parent": "ethermist:find_orb",
+  "criteria": {
+    "find_handle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#ethermist:handles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ethermist.find_handle.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ethermist:wooden_wand_handle"
+    },
+    "title": {
+      "translate": "advancements.ethermist.find_handle.title"
+    }
+  },
+  "requirements": [
+    [
+      "find_handle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

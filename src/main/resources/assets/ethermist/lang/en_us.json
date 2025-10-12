@@ -611,5 +611,15 @@
   "block.ethermist.wandforging_table.jei": "Wandforging",
 
   "_comment": "--------------- Sounds ---------------",
-  "subtitles.block.chronothorn.rewind": "Chronothorn Rewind"
+  "subtitles.block.chronothorn.rewind": "Chronothorn Rewind",
+
+  "_comment": "--------------- Sounds ---------------",
+  "advancements.ethermist.root.title": "Ethermist",
+  "advancements.ethermist.root.description": "A world of magic",
+
+  "advancements.ethermist.find_orb.title": "A ball of power",
+  "advancements.ethermist.find_orb.description": "Find or craft a wand Orb",
+
+  "advancements.ethermist.find_handle.title": "Something to hold onto",
+  "advancements.ethermist.find_handle.description": "Find or craft a wand Handle"
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-11T14:32:39.9235258	Tags for minecraft:item mod id ethermist
+// 1.21.1	2025-10-11T21:59:30.2049453	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods.json
@@ -22,6 +22,7 @@ ce11b1851f749ca1edf8436930585b0266339ac2 data/ethermist/tags/item/enchantable_au
 1dd763b62f8612b127d69e03933da897becedf8f data/ethermist/tags/item/enchantable_base.json
 f620b5417e6639850162450c2b2f5a26dd432fe4 data/ethermist/tags/item/enchantable_exclusions.json
 a84d11c51d435b5d06702eb25760a70c715139c2 data/ethermist/tags/item/enchantable_main_spells.json
+e1b2e2698b96fda9188d95c9d7b8f4f578c13a16 data/ethermist/tags/item/handles.json
 c8729b95e5589bbb16799c45120839b904459228 data/ethermist/tags/item/magic_enchantable.json
 f09fe0d5296515592e253540051fd7599b43cc2b data/ethermist/tags/item/orbs.json
 0da64c509af51eca306093d010d9f7fef62e5fc0 data/ethermist/tags/item/tomes.json
