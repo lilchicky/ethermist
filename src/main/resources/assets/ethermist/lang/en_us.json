@@ -431,6 +431,10 @@
   "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
   "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
 
+  "_comment": "--------------- EQUIPMENT ---------------",
+  "item.ethermist.leather_hood": "Leather Hood",
+  "item.ethermist.iron_hood": "Iron Hood",
+
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
   "enchantment.ethermist.quick_cast.desc": "Decreases cooldown of wands.",
