@@ -434,6 +434,10 @@
   "_comment": "--------------- EQUIPMENT ---------------",
   "item.ethermist.leather_hood": "Leather Hood",
   "item.ethermist.iron_hood": "Iron Hood",
+  "item.ethermist.golden_hood": "Golden Hood",
+  "item.ethermist.diamond_hood": "Diamond Hood",
+  "item.ethermist.netherite_hood": "Netherite Hood",
+  "item.ethermist.amethyst_crown": "Amethyst Crown",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",

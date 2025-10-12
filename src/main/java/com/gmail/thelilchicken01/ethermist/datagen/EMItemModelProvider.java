@@ -180,6 +180,10 @@ public class EMItemModelProvider extends ItemModelProvider {
 
         basicItem(EMItems.LEATHER_HOOD.get());
         basicItem(EMItems.IRON_HOOD.get());
+        basicItem(EMItems.GOLDEN_HOOD.get());
+        basicItem(EMItems.DIAMOND_HOOD.get());
+        basicItem(EMItems.NETHERITE_HOOD.get());
+        basicItem(EMItems.AMETHYST_CROWN.get());
 
     }
 

@@ -1,6 +1,10 @@
 {
   "values": [
     "ethermist:leather_hood",
-    "ethermist:iron_hood"
+    "ethermist:iron_hood",
+    "ethermist:golden_hood",
+    "ethermist:diamond_hood",
+    "ethermist:netherite_hood",
+    "ethermist:amethyst_crown"
   ]
 }

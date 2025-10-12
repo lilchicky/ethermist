@@ -30,6 +30,7 @@ public class EMArmorMaterials {
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 3);
             }), 5, () -> Items.LEATHER, SoundEvents.ARMOR_EQUIP_LEATHER);
+
     public static final Holder<ArmorMaterial> IRON_HOOD = register("iron_hood",
             Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
                 attribute.put(ArmorItem.Type.BOOTS, 1);
@@ -37,7 +38,43 @@ public class EMArmorMaterials {
                 attribute.put(ArmorItem.Type.CHESTPLATE, 3);
                 attribute.put(ArmorItem.Type.HELMET, 1);
                 attribute.put(ArmorItem.Type.BODY, 3);
-            }), 5, () -> Items.LEATHER, SoundEvents.ARMOR_EQUIP_IRON);
+            }), 5, () -> Items.IRON_INGOT, SoundEvents.ARMOR_EQUIP_IRON);
+
+    public static final Holder<ArmorMaterial> GOLD_HOOD = register("gold_hood",
+            Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 3);
+            }), 5, () -> Items.GOLD_INGOT, SoundEvents.ARMOR_EQUIP_GOLD);
+
+    public static final Holder<ArmorMaterial> DIAMOND_HOOD = register("diamond_hood",
+            Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 3);
+            }), 5, () -> Items.DIAMOND, SoundEvents.ARMOR_EQUIP_DIAMOND);
+
+    public static final Holder<ArmorMaterial> NETHERITE_HOOD = register("netherite_hood",
+            Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 3);
+            }), 5, () -> Items.NETHERITE_INGOT, SoundEvents.ARMOR_EQUIP_NETHERITE);
+
+    public static final Holder<ArmorMaterial> AMETHYST_CROWN = register("amethyst_crown",
+            Util.make(new EnumMap<>(ArmorItem.Type.class), attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 1);
+                attribute.put(ArmorItem.Type.LEGGINGS, 2);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 3);
+                attribute.put(ArmorItem.Type.HELMET, 1);
+                attribute.put(ArmorItem.Type.BODY, 3);
+            }), 5, () -> Items.AMETHYST_SHARD, SoundEvents.ARMOR_EQUIP_GOLD);
 
     private static Holder<ArmorMaterial> register(
             String name,
