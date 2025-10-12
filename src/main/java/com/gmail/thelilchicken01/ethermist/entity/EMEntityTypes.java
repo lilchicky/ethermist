@@ -55,6 +55,13 @@ public class EMEntityTypes {
                             .sized(0.72f, 1.7f)
                             .build(Ethermist.MODID + ":pylon"));
 
+    // Runic Skeleton
+    public static final DeferredHolder<EntityType<?>, EntityType<RunicSkeletonEntity>> RUNIC_SKELETON =
+            EM_ENTITY_TYPES.register("runic_skeleton",
+                    () -> EntityType.Builder.of(RunicSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.8f, 1.875f)
+                            .build(Ethermist.MODID + ":runic_skeleton"));
+
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);
     }

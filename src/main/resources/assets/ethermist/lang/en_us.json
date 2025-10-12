@@ -429,6 +429,7 @@
   "item.ethermist.glimmerbug_spawn_egg": "Glimmerbug Spawn Egg",
   "item.ethermist.forgemaster_spawn_egg": "Forgemaster Spawn Egg",
   "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
+  "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
 
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -486,6 +487,7 @@
   "entity.ethermist.glimmerbug": "Glimmerbug",
   "entity.ethermist.forgemaster": "The Forgemaster",
   "entity.ethermist.pylon": "Forgemaster's Pylon",
+  "entity.ethermist.runic_skeleton": "Runic Skeleton",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",
   "death.attack.icicle": "%1$s was impaled by an icicle",

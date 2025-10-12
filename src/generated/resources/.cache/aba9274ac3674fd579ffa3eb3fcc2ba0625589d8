@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-11T14:32:39.9255275	Item Models: ethermist
+// 1.21.1	2025-10-12T01:27:10.7348138	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -92,6 +92,7 @@ fbd0bf1d2be3a8449f18e2ea4887e97aa2fdf3b7 assets/ethermist/models/item/polished_d
 662b6a8019ade3e16ee9bdac49a001c67b01407b assets/ethermist/models/item/red_amberwood_sapling.json
 1755e52233ca3f47ac8515f635d389ba819888a4 assets/ethermist/models/item/rich_grass.json
 5d7471593587702170797d80e27a3415f653777b assets/ethermist/models/item/rich_tall_grass.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/ethermist/models/item/runic_skeleton_spawn_egg.json
 c27b6784b91cadd53fd03d674aa0b228ee987300 assets/ethermist/models/item/shroom_cluster.json
 36aaf6f67961fdb2757dcb66e7653c337dce097e assets/ethermist/models/item/slimy_allium.json
 316b5dc9a02dee71bcf78a3a7fdf784e9c204112 assets/ethermist/models/item/slimy_button.json

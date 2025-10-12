@@ -1,7 +1,11 @@
-// 1.21.1	2025-09-25T21:38:05.0461854	Tags for minecraft:entity_type mod id ethermist
+// 1.21.1	2025-10-12T01:34:33.705817	Tags for minecraft:entity_type mod id ethermist
 feec86b0b963ac1c053cd0f97504ef381f5c43c9 data/c/tags/entity_type/bosses.json
+9d72c9065e810b219135a3e84b6e2dd70e4db6de data/c/tags/entity_type/capturing_not_supported.json
 72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/aquatic.json
 36bed97f1c3d3b5e1d867543da2d915bc1646169 data/minecraft/tags/entity_type/arthropod.json
 228f269e32be9e3436b0be107afe0f764a9d2ca6 data/minecraft/tags/entity_type/can_breathe_under_water.json
 c6a0e24f77cf36b851f824a4851347aa3092c818 data/minecraft/tags/entity_type/fall_damage_immune.json
-aa8ab057da361b8da69f5ab9164336cd820f3098 data/minecraft/tags/entity_type/undead.json
+1272ed8cc0ef48a72cf1666c8715fc7b76340bc2 data/minecraft/tags/entity_type/impact_projectiles.json
+85c5105c4b2623b6013666e0229c9bc5bdf61242 data/minecraft/tags/entity_type/skeletons.json
+f1764d2edc34ddcf18bdb5f0538ab2f83cee577a data/minecraft/tags/entity_type/undead.json
+85c5105c4b2623b6013666e0229c9bc5bdf61242 data/minecraft/tags/entity_type/wither_friends.json

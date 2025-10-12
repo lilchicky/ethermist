@@ -40,6 +40,7 @@ public class EMClientModEvents {
         event.registerEntityRenderer(EMEntityTypes.GLIMMERBUG.get(), GlimmerbugRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.FORGEMASTER.get(), ForgemasterRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.PYLON.get(), PylonRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonRenderer::new);
 
     }
 

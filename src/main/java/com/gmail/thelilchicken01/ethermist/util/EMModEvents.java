@@ -22,6 +22,7 @@ public class EMModEvents {
         event.registerLayerDefinition(GlimmerbugModel.LAYER_LOCATION, GlimmerbugModel::createBodyLayer);
         event.registerLayerDefinition(ForgemasterModel.LAYER_LOCATION, ForgemasterModel::createBodyLayer);
         event.registerLayerDefinition(PylonModel.LAYER_LOCATION, PylonModel::createBodyLayer);
+        event.registerLayerDefinition(RunicSkeletonModel.LAYER_LOCATION, RunicSkeletonModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -31,6 +32,7 @@ public class EMModEvents {
         event.put(EMEntityTypes.GLIMMERBUG.get(), GlimmerbugEntity.createAttributes().build());
         event.put(EMEntityTypes.FORGEMASTER.get(), ForgemasterEntity.createAttributes().build());
         event.put(EMEntityTypes.PYLON.get(), PylonEntity.createAttributes().build());
+        event.put(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonEntity.createAttributes().build());
     }
 
     @SubscribeEvent
