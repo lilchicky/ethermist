@@ -124,21 +124,18 @@ public class RunicSkeletonEntity extends Monster {
 
         boolean isMoving = this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6;
 
-        if (this.getTarget() != null && isMoving) {
+        if (this.isAggressive() && isMoving) {
+            walkState.stop();
+            idleState.stop();
             pursueState.startIfStopped(this.tickCount);
-            walkState.stop();
+        } else if (isMoving) {
+            pursueState.stop();
             idleState.stop();
-            return;
-        }
-
-        if (isMoving) {
             walkState.startIfStopped(this.tickCount);
-            pursueState.stop();
-            idleState.stop();
         } else {
-            idleState.startIfStopped(this.tickCount);
             pursueState.stop();
             walkState.stop();
+            idleState.startIfStopped(this.tickCount);
         }
     }
 }
