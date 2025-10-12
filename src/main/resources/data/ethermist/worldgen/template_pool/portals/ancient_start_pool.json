@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "ethermist:portals/stone_base",
+        "location": "ethermist:portals/ancient_base",
         "processors": "ethermist:frozen_portal",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
