@@ -70,7 +70,7 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
             MinecraftServer server = level.getServer();
 
-            AtomicBoolean makesProjectile = new AtomicBoolean(false);
+            AtomicBoolean makesProjectile = new AtomicBoolean(true);
             EnchantmentHelper.runIterationOnItem(wandItem, (enchant, enchantLevel) -> {
                 IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
                 IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
