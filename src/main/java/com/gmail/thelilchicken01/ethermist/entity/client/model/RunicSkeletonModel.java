@@ -20,12 +20,14 @@ public class RunicSkeletonModel<T extends RunicSkeletonEntity> extends Hierarchi
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
 			ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "runic_skeleton"), "main");
 
+	private final ModelPart root;
 	private final ModelPart body;
     private final ModelPart head;
 
 	public RunicSkeletonModel(ModelPart root) {
 		this.body = root.getChild("body");
         this.head = this.body.getChild("head");
+        this.root = root;
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -90,6 +92,7 @@ public class RunicSkeletonModel<T extends RunicSkeletonEntity> extends Hierarchi
 
 	@Override
 	public ModelPart root() {
-		return body;
+		return root;
 	}
+
 }

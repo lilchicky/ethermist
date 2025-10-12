@@ -86,18 +86,8 @@ public class RunicSkeletonEntity extends Monster {
     }
 
     @Override
-    public boolean isPushable() {
-        return false;
-    }
-
-    @Override
-    public boolean isPersistenceRequired() {
-        return true;
-    }
-
-    @Override
     protected int getBaseExperienceReward() {
-        return 12000;
+        return 20;
     }
 
     @Override
