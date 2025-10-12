@@ -280,9 +280,7 @@ public class EMWandOrbs {
                                     )
                                     .sound(SoundEvents.GLASS_BREAK)
                                     .effect((shotItem, target, player, shot) -> {
-                                        if (target instanceof LivingEntity livingTarget) {
-                                            livingTarget.setTicksFrozen(livingTarget.getTicksFrozen() + (shot.getOriginWandTier().doesBuffSpell() ? 120 : 60));
-                                        }
+                                            target.setTicksFrozen(target.getTicksFrozen() + (shot.getOriginWandTier().doesBuffSpell() ? 200 : 120));
                                     })
                                     .build()
             );
