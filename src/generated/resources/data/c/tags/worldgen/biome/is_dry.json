@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "ethermist:timeworn_desert",
+      "required": false
+    },
+    {
+      "id": "ethermist:burning_crags",
+      "required": false
+    },
+    {
+      "id": "ethermist:amethyst_gardens",
+      "required": false
+    },
+    {
+      "id": "ethermist:windy_peaks",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "ethermist:ancient_forest",
+      "required": false
+    },
+    {
+      "id": "ethermist:glimmering_ancient_forest",
+      "required": false
+    },
+    {
+      "id": "ethermist:slimy_forest",
+      "required": false
+    },
+    {
+      "id": "ethermist:frostpine_forest",
+      "required": false
+    },
+    {
+      "id": "ethermist:amberwood_grove",
+      "required": false
+    }
+  ]
+}

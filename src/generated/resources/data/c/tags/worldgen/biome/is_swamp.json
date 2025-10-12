@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "ethermist:slimy_swamp",
+      "required": false
+    },
+    {
+      "id": "ethermist:slimy_forest",
+      "required": false
+    }
+  ]
+}

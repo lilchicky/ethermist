@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "ethermist:sparkling_beach",
+      "required": false
+    },
+    {
+      "id": "ethermist:eroded_beach",
+      "required": false
+    }
+  ]
+}

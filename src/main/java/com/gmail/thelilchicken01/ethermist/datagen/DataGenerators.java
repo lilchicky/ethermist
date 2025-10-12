@@ -5,10 +5,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMBlockTagProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEnchantTagProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMEntityTagProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMItemTagProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -68,6 +65,7 @@ public class DataGenerators {
         gen.addProvider(event.includeServer(), new EMItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookupProvider, existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEntityTagProvider(packOutput, lookupProvider, existingFileHelper));
+        gen.addProvider(event.includeServer(), new EMBiomeTagProvider(packOutput, lookupProvider, existingFileHelper));
 
         gen.addProvider(event.includeClient(), new EMBlockstateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeClient(), new EMItemModelProvider(packOutput, existingFileHelper));

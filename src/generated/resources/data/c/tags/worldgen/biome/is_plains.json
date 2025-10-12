@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "ethermist:ancient_fields",
+      "required": false
+    },
+    {
+      "id": "ethermist:blooming_meadows",
+      "required": false
+    }
+  ]
+}

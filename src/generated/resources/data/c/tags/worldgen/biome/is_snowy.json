@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "ethermist:frozen_expanse",
+      "required": false
+    },
+    {
+      "id": "ethermist:frostpine_forest",
+      "required": false
+    },
+    {
+      "id": "ethermist:windy_peaks",
+      "required": false
+    }
+  ]
+}

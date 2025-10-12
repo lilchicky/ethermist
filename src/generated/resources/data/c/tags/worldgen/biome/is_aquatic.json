@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "ethermist:abyssal_depths",
+      "required": false
+    },
+    {
+      "id": "ethermist:forgotten_ocean",
+      "required": false
+    },
+    {
+      "id": "ethermist:twisting_river",
+      "required": false
+    }
+  ]
+}

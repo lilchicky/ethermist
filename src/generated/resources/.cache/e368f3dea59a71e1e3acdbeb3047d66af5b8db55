@@ -1,0 +1,25 @@
+// 1.21.1	2025-10-11T18:35:42.5773664	Tags for minecraft:worldgen/biome mod id ethermist
+68d7c430be9c55a847b9638668de1c5a11e0fc99 data/c/tags/worldgen/biome/is_aquatic.json
+dff1d405338892cc48f1a40993d3756447a226f0 data/c/tags/worldgen/biome/is_beach.json
+a3dfc1446eb2abcd5055f755e7ff54615a557df6 data/c/tags/worldgen/biome/is_cold.json
+aa239abe0983b6d8be514ba960bef00be6528731 data/c/tags/worldgen/biome/is_dead.json
+b1180a5ce44e9adb7b068c70e6aed6fabc5077a8 data/c/tags/worldgen/biome/is_deep_ocean.json
+cf74e61485daae81175e1007a850f99e5ffbe000 data/c/tags/worldgen/biome/is_dense_vegetation.json
+30d68012423acf41a7696adf7531fed7c512b050 data/c/tags/worldgen/biome/is_desert.json
+f9f97b1044e057b386541323df64e59c378825eb data/c/tags/worldgen/biome/is_dry.json
+a8ba9936180cd5cfe9be36773cb5585e9083bee7 data/c/tags/worldgen/biome/is_floral.json
+1310f34c95e9e562c0d1977f54414eaed7a23a76 data/c/tags/worldgen/biome/is_forest.json
+43436026f4a4e17b1e384d1e309c0044d890b02b data/c/tags/worldgen/biome/is_hot.json
+adfaaf2a95fe547d88ca5acaecc9437ff08c6135 data/c/tags/worldgen/biome/is_icy.json
+cf74e61485daae81175e1007a850f99e5ffbe000 data/c/tags/worldgen/biome/is_jungle.json
+2e8cb54380fe90c5997ec263e8d21c45c234b01d data/c/tags/worldgen/biome/is_mountain.json
+c015763e5eeb3418fc331c1a3dac4752e9720bba data/c/tags/worldgen/biome/is_plains.json
+d3474b120a266205759adc0cbea3186ffa443e0b data/c/tags/worldgen/biome/is_rare.json
+97221b22ee200770a323be8377e791376e237a99 data/c/tags/worldgen/biome/is_river.json
+1fda2a51d493e154d24bbb4da42ff1e643b9eceb data/c/tags/worldgen/biome/is_sandy.json
+006e60094bdfb84274cfc87e87258d54fc8e1443 data/c/tags/worldgen/biome/is_snowy.json
+7a989c36daad0ab9c65aca25c2f9f92978584ca6 data/c/tags/worldgen/biome/is_sparse_vegetation.json
+9baf47425f0302d681e00065d6f08c8307e2af2a data/c/tags/worldgen/biome/is_stony_shores.json
+df1c4e27d2e20de415fafad4901aa8e9c2e9629c data/c/tags/worldgen/biome/is_swamp.json
+aad7b4dc6ad9e4d51f5f9698c2115044b0b7ae24 data/c/tags/worldgen/biome/is_tree/deciduous.json
+d8332f5fbc01827f4d68768f263b36dbb07a2d30 data/c/tags/worldgen/biome/is_wet.json
