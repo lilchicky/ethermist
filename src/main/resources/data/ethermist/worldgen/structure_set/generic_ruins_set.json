@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "ethermist:generic_ruins",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 4919286,
+    "spacing": 4,
+    "separation": 2
+  }
+}

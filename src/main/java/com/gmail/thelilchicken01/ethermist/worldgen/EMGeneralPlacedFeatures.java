@@ -37,6 +37,8 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> YELLOW_AMBERWOOD_PLACED_TREE_KEY = registerKey("yellow_amberwood_tree_placed");
     public static final ResourceKey<PlacedFeature> GREEN_AMBERWOOD_PLACED_TREE_KEY = registerKey("green_amberwood_tree_placed");
 
+    public static final ResourceKey<PlacedFeature> BUSH_TREE_PLACED_KEY = registerKey("bush_tree_placed");
+
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
 
     public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PLACED = registerKey("large_abyssal_mushroom_placed");
@@ -88,6 +90,10 @@ public class EMGeneralPlacedFeatures {
 
         register(context, GLIMMERING_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.GLIMMERING_ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.5f, 2),
+                        EMBlocks.GLIMMERING_ANCIENT_SAPLING.get()));
+
+        register(context, BUSH_TREE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.BUSH_TREES_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(6, 0.5f, 2),
                         EMBlocks.GLIMMERING_ANCIENT_SAPLING.get()));
 
         register(context, MEGA_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.MEGA_ANCIENT_TREE_KEY),

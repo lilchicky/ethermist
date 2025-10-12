@@ -66,6 +66,8 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MEGA_AMBERWOOD_TREE_KEY = registerKey("yellow_mega_amberwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_MEGA_AMBERWOOD_TREE_KEY = registerKey("green_mega_amberwood_tree");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BUSH_TREES_KEY = registerKey("bush_trees");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERSTONE_BOULDER_KEY = registerKey("etherstone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOLTEN_ETHERSTONE_DISK_KEY = registerKey("molten_etherstone_rock");
@@ -308,6 +310,15 @@ public class EMGeneralFeatures {
         register(context, ORANGE_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.ORANGE_AMBERWOOD_LEAVES.get()));
         register(context, YELLOW_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.YELLOW_AMBERWOOD_LEAVES.get()));
         register(context, GREEN_MEGA_AMBERWOOD_TREE_KEY, Feature.TREE, createMegaAmberwoodTree(EMBlocks.GREEN_AMBERWOOD_LEAVES.get()));
+
+        register(context, BUSH_TREES_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(EMBlocks.ANCIENT_LOG.get()),
+                        new StraightTrunkPlacer(1, 0, 0),
+                        BlockStateProvider.simple(EMBlocks.ANCIENT_LEAVES.get()),
+                        new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
+                        new TwoLayersFeatureSize(0, 0, 0)
+                ).build()
+        );
 
         /*
         ---------- Random Features ----------
@@ -605,7 +616,7 @@ public class EMGeneralFeatures {
                 ))
         );
 
-        MultifaceBlock multifaceblock = (MultifaceBlock)Blocks.GLOW_LICHEN;
+        MultifaceBlock multifaceblock = (MultifaceBlock) Blocks.GLOW_LICHEN;
         register(
                 context,
                 ETHERMIST_GLOW_LICHEN,

@@ -1,0 +1,96 @@
+{
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins1",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins2",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins3",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins4",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins5",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins6",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins7",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins8",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins9",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "ethermist:generic_ruins/ruins10",
+        "processors": "ethermist:forgemaster_castle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

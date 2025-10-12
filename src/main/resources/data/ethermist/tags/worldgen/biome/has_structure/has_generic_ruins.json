@@ -1,0 +1,17 @@
+{
+  "replace": false,
+
+  "values": [
+    "ethermist:amberwood_grove",
+    "ethermist:amethyst_gardens",
+    "ethermist:ancient_fields",
+    "ethermist:ancient_forest",
+    "ethermist:blooming_meadows",
+    "ethermist:burning_crags",
+    "ethermist:frostpine_forest",
+    "ethermist:frozen_expanse",
+    "ethermist:glimmering_ancient_forest",
+    "ethermist:slimy_forest",
+    "ethermist:slimy_swamp"
+  ]
+}
