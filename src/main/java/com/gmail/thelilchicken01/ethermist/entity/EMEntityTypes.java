@@ -25,7 +25,7 @@ public class EMEntityTypes {
 
     public static final DeferredHolder<EntityType<?>, EntityType<GloomieEntity>> GLOOMIE =
             EM_ENTITY_TYPES.register("gloomie",
-                    () -> EntityType.Builder.of(GloomieEntity::new, MobCategory.CREATURE)
+                    () -> EntityType.Builder.of(GloomieEntity::new, MobCategory.WATER_CREATURE)
                             .sized(0.7f, 0.7f)
                             .build(Ethermist.MODID + ":gloomie"));
 
