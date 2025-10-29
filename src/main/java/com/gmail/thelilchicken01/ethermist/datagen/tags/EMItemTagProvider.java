@@ -163,11 +163,15 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.FOODS)
                 .add(EMItems.SHROOM_CLUSTER.get())
-                .add(EMItems.TOASTED_SHROOM_CLUSTER.get());
+                .add(EMItems.TOASTED_SHROOM_CLUSTER.get())
+                .add(EMItems.GLIMMERBUG_SHELL.get());
 
         tag(Tags.Items.FOODS_VEGETABLE)
                 .add(EMItems.SHROOM_CLUSTER.get())
                 .add(EMItems.TOASTED_SHROOM_CLUSTER.get());
+
+        tag(Tags.Items.FOODS_RAW_MEAT)
+                .add(EMItems.GLIMMERBUG_SHELL.get());
 
         /*
         ---------- Wand Stuff ----------

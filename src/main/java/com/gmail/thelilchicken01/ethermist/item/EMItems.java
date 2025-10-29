@@ -3,19 +3,15 @@ package com.gmail.thelilchicken01.ethermist.item;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.armor.EMArmorMaterials;
-import com.gmail.thelilchicken01.ethermist.item.foods.ShroomCluster;
-import com.gmail.thelilchicken01.ethermist.item.foods.ToastedShroomCluster;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -101,8 +97,9 @@ public class EMItems {
     ---------- Foods ----------
      */
 
-    public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", ShroomCluster::new);
-    public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", ToastedShroomCluster::new);
+    public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.SHROOM_CLUSTER)));
+    public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.TOASTED_SHROOM_CLUSTER)));
+    public static final DeferredItem<Item> GLIMMERBUG_SHELL = ITEMS.register("glimmerbug_shell", () -> new Item(new Item.Properties().food(EMFoods.GLIMMERBUG_SHELL)));
 
     /*
     ---------- Spawn Eggs ----------

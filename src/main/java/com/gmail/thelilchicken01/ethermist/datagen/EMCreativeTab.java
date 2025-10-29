@@ -390,6 +390,7 @@ public class EMCreativeTab {
                 // Foods
                 output.accept(EMItems.SHROOM_CLUSTER.get());
                 output.accept(EMItems.TOASTED_SHROOM_CLUSTER.get());
+                output.accept(EMItems.GLIMMERBUG_SHELL.get());
 
                 // Spawn Eggs
                 output.accept(EMItems.RUNIC_SKELETON_SPAWN_EGG.get());
