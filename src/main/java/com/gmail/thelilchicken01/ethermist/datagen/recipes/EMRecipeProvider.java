@@ -802,7 +802,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Orbs ----------
          */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.WITCH_ORB, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.WITCH_ORB, 1)
                 .pattern(" b ")
                 .pattern("bab")
                 .pattern(" b ")
@@ -812,7 +812,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_witchstone", has(EMBlocks.WITCHSTONE.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.FROZEN_ORB, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.FROZEN_ORB, 1)
                 .pattern(" b ")
                 .pattern("bab")
                 .pattern(" b ")
@@ -822,7 +822,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_icicle", has(EMBlocks.ICICLE.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMItems.GLASS_ORB, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GLASS_ORB, 1)
                 .pattern(" b ")
                 .pattern("bab")
                 .pattern(" b ")
@@ -830,6 +830,17 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('b', Blocks.GLASS)
                 .unlockedBy("has_orb", has(EMTags.Items.ORBS))
                 .unlockedBy("has_glass", has(Blocks.GLASS))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.ANCIENT_ORB, 1)
+                .pattern("cbc")
+                .pattern("bab")
+                .pattern("cbc")
+                .define('a', EMTags.Items.ORBS)
+                .define('b', Items.ECHO_SHARD)
+                .define('c', Blocks.SCULK_CATALYST)
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .unlockedBy("has_echo_shard", has(Items.ECHO_SHARD))
                 .save(output);
 
         /*
@@ -883,6 +894,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         wandRecipe(output, EMItems.GLASS_WAND.get(), EMItems.GLASS_ORB.get());
         wandRecipe(output, EMItems.GLIMMERBUG_WAND.get(), EMItems.GLIMMERBUG_ORB.get());
         wandRecipe(output, EMItems.FORGED_HEART_WAND.get(), EMItems.FORGEMASTER_HEART_ORB.get());
+        wandRecipe(output, EMItems.ANCIENT_WAND.get(), EMItems.ANCIENT_ORB.get());
 
         /*
         ---------- Foods ----------

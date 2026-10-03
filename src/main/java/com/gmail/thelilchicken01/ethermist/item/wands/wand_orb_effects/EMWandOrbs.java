@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -448,6 +449,36 @@ public class EMWandOrbs {
                                     livingTarget.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
                                     livingTarget.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0));
                                     livingTarget.addEffect(new MobEffectInstance(EMMobEffects.SLOWER_CASTING, 40, 1));
+                                }
+                            })
+                            .build()
+            );
+
+    public static final DeferredHolder<WandOrb, WandOrb> ANCIENT =
+            EM_WAND_ORBS.register("ancient", () ->
+                    new WandOrb.Builder()
+                            .durabilityMult(6.2)
+                            .enchantability(25)
+                            .lifespanSeconds(1)
+                            .damage(14)
+                            .inaccuracy(0.5f)
+                            .projectileSpeed(0.1f)
+                            .canIgnite(false)
+                            .knockback(0.15)
+                            .cooldown(80)
+                            .shot(EMItems.ANCIENT_SHOT.get())
+                            .damageType(DamageTypes.SONIC_BOOM)
+                            .color(0.012f, 0.255f, 0.314f)
+                            .repair(() ->
+                                    Ingredient.of(
+                                            Items.AMETHYST_SHARD,
+                                            Items.ECHO_SHARD
+                                    )
+                            )
+                            .sound(SoundEvents.WARDEN_SONIC_BOOM)
+                            .effect((shotItem, target, player, shot) -> {
+                                if (target instanceof LivingEntity livingTarget) {
+                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.DARKNESS, shot.getOriginWandTier().doesBuffSpell() ? 300 : 200));
                                 }
                             })
                             .build()

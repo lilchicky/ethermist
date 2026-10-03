@@ -187,7 +187,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.FROZEN_ORB.get())
                 .add(EMItems.GLASS_ORB.get())
                 .add(EMItems.GLIMMERBUG_ORB.get())
-                .add(EMItems.FORGEMASTER_HEART_ORB.get());
+                .add(EMItems.FORGEMASTER_HEART_ORB.get())
+                .add(EMItems.ANCIENT_ORB.get());
 
         addHandle(EMItems.WOODEN_WAND_HANDLE.get());
         addHandle(EMItems.EMERALD_WAND_HANDLE.get());
@@ -212,6 +213,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addWands(EMItems.GLASS_WAND.get());
         addWands(EMItems.GLIMMERBUG_WAND.get());
         addWands(EMItems.FORGED_HEART_WAND.get());
+        addWands(EMItems.ANCIENT_WAND.get());
 
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get().asItem(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get().asItem(), false);

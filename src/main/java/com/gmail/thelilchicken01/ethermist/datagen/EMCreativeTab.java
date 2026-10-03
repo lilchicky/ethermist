@@ -347,6 +347,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.LEVITATION_ORB.get());
                 output.accept(EMItems.GLIMMERBUG_ORB.get());
                 output.accept(EMItems.FORGEMASTER_HEART_ORB.get());
+                output.accept(EMItems.ANCIENT_ORB.get());
 
                 // Wands
                 output.accept(EMItems.WOODEN_WAND_HANDLE.get());
@@ -371,6 +372,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.HEAVY_WAND.get());
                 output.accept(EMItems.GLIMMERBUG_WAND.get());
                 output.accept(EMItems.FORGED_HEART_WAND.get());
+                output.accept(EMItems.ANCIENT_WAND.get());
 
                 // Tomes
                 output.accept(EMItems.WAND_TOME.get());

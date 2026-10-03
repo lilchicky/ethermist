@@ -11,7 +11,8 @@
     "ethermist:poison_orb_to_jungle_temple",
     "ethermist:poison_orb_to_mineshaft",
     "ethermist:levitation_orb_to_end_city_treasure",
-    "ethermist:frozen_orb_to_igloo"
+    "ethermist:frozen_orb_to_igloo",
+    "ethermist:ancient_orb_to_ancient_city"
   ],
   "replace": false
 }

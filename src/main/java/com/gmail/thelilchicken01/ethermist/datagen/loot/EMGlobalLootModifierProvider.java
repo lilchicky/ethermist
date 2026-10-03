@@ -46,6 +46,9 @@ public class EMGlobalLootModifierProvider extends GlobalLootModifierProvider {
     private static final ResourceKey<LootTable> FROZEN_ORB_TO_IGLOO = ResourceKey.create(Registries.LOOT_TABLE,
             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/frozen_orb/frozen_orb_to_igloo"));
 
+    private static final ResourceKey<LootTable> ANCIENT_ORB_TO_ANCIENT_CITY = ResourceKey.create(Registries.LOOT_TABLE,
+            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/ancient_orb/ancient_orb_to_ancient_city"));
+
     public EMGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, Ethermist.MODID);
     }
@@ -94,6 +97,12 @@ public class EMGlobalLootModifierProvider extends GlobalLootModifierProvider {
          */
 
         this.add("frozen_orb_to_igloo", addLootTable("chests/igloo_chest", FROZEN_ORB_TO_IGLOO));
+
+        /*
+        ----------  Ancient Orb  ----------
+         */
+
+        this.add("ancient_orb_to_ancient_city", addLootTable("chests/ancient_city", ANCIENT_ORB_TO_ANCIENT_CITY));
 
     }
 

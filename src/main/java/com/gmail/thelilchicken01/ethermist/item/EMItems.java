@@ -28,6 +28,7 @@ public class EMItems {
     public static final DeferredItem<WandShotItem> GLASS_SHOT = ITEMS.register("glass_shot", WandShotItem::new);
     public static final DeferredItem<WandShotItem> GLIMMERBUG_SHOT = ITEMS.register("glimmerbug_shot", WandShotItem::new);
     public static final DeferredItem<WandShotItem> FORGEMASTER_HEART_SHOT = ITEMS.register("forgemaster_heart_shot", WandShotItem::new);
+    public static final DeferredItem<WandShotItem> ANCIENT_SHOT = ITEMS.register("ancient_shot", WandShotItem::new);
 
     public static final DeferredItem<WandShotItem> FORGEMASTER_SHOT = ITEMS.register("forgemaster_shot", WandShotItem::new);
 
@@ -45,6 +46,7 @@ public class EMItems {
     public static final DeferredItem<OrbItem> GLASS_ORB = ITEMS.register("glass_orb", () -> new OrbItem(EMWandOrbs.GLASS));
     public static final DeferredItem<OrbItem> GLIMMERBUG_ORB = ITEMS.register("glimmerbug_orb", () -> new OrbItem(EMWandOrbs.GLIMMERBUG));
     public static final DeferredItem<OrbItem> FORGEMASTER_HEART_ORB = ITEMS.register("forgemaster_heart_orb", () -> new OrbItem(EMWandOrbs.FORGEMASTER_HEART));
+    public static final DeferredItem<OrbItem> ANCIENT_ORB = ITEMS.register("ancient_orb", () -> new OrbItem(EMWandOrbs.ANCIENT));
 
     /*
     ---------- Wands ----------
@@ -60,6 +62,7 @@ public class EMItems {
     public static final DeferredItem<WandItem> GLASS_WAND = ITEMS.register("glass_wand", () -> new WandItem(EMWandOrbs.GLASS, EMWandHandles.WOODEN));
     public static final DeferredItem<WandItem> GLIMMERBUG_WAND = ITEMS.register("glimmerbug_wand", () -> new WandItem(EMWandOrbs.GLIMMERBUG, EMWandHandles.WOODEN));
     public static final DeferredItem<WandItem> FORGED_HEART_WAND = ITEMS.register("forged_heart_wand", () -> new WandItem(EMWandOrbs.FORGEMASTER_HEART, EMWandHandles.WOODEN));
+    public static final DeferredItem<WandItem> ANCIENT_WAND = ITEMS.register("ancient_wand", () -> new WandItem(EMWandOrbs.ANCIENT, EMWandHandles.WOODEN));
 
      /*
     ---------- Handles ----------

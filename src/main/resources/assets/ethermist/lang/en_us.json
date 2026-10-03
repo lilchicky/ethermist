@@ -312,6 +312,7 @@
   "item.ethermist.glass_wand": "Glass Wand",
   "item.ethermist.glimmerbug_wand": "Glimmerbug Wand",
   "item.ethermist.forged_heart_wand": "Forged Heart Wand",
+  "item.ethermist.ancient_wand": "Ancient Wand",
 
   "item.ethermist.handle_description.line_1": "Combine with an Orb or another Wand in a",
   "item.ethermist.handle_description.line_2": "Wandforging Table to craft a Wand with this Handle.",
@@ -339,6 +340,8 @@
   "item.ethermist.glimmerbug_orb.desc": "Filled with the skittering sounds of Glimmerbugs.",
   "item.ethermist.forgemaster_heart_orb": "Forgemaster's Heart",
   "item.ethermist.forgemaster_heart_orb.desc": "The heavy, pulsing core of the Forgemaster.",
+  "item.ethermist.ancient_orb": "Ancient Orb",
+  "item.ethermist.ancient_orb.desc": "Filled with the beating heart of a Warden.",
 
   "item.ethermist.exclusion_spell_tome": "Exclusion Spell Tome",
   "item.ethermist.exclusion_spell_tome.desc": "Can be enchanted with Exclusion enchantments in an enchanting table.",
@@ -361,6 +364,7 @@
   "item.ethermist.glass_shot": "Glass Shot",
   "item.ethermist.glimmerbug_shot": "Glimmerbug Shot",
   "item.ethermist.forgemaster_heart_shot": "Forgemaster Heart Shot",
+  "item.ethermist.ancient_shot": "Ancient Shot",
 
   "item.ethermist.forgemaster_shot": "Forgemaster Shot",
 
@@ -390,6 +394,7 @@
   "item.ethermist.glass_wand.desc": "Sharp glass does extra damage, but is quite delicate.",
   "item.ethermist.glimmerbug_wand.desc": "Hitting a target summons a Glimmerbug to fight for you.",
   "item.ethermist.forged_heart_wand.desc": "Hitting a target summons a pylon that buffs nearby allies.",
+  "item.ethermist.ancient_wand.desc": "Deals the same damage type as a Warden's sonic boom.",
 
   "item.ethermist.wand.dyeable": "Dyeable",
 

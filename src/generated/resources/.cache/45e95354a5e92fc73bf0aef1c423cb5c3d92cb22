@@ -1,4 +1,5 @@
-// 1.21.1	2026-10-03T03:05:21.9876589	Global Loot Modifiers : ethermist
+// 1.21.1	2026-10-03T04:10:50.1330668	Global Loot Modifiers : ethermist
+7e6aa8e3ff1dd96d0b81dfe18dbcbd4bb3b70c67 data/ethermist/loot_modifiers/ancient_orb_to_ancient_city.json
 64e297a32fc0e6e1789d27a74d4407d8820bbe1f data/ethermist/loot_modifiers/dull_orb_to_simple_dungeon.json
 00d8d8a373b7d5ac6e2c20afa52a6ca4fad5600d data/ethermist/loot_modifiers/dull_orb_to_stronghold_corridor.json
 93931905feda572fed0f19b4b9b1c191ee64c331 data/ethermist/loot_modifiers/dull_orb_to_stronghold_crossing.json
@@ -11,4 +12,4 @@ c50a1f97caf81e0a48f56a0440a38ada565fdbad data/ethermist/loot_modifiers/levitatio
 44a38e73011d62e0eee86598278f07c2bdb8f4ef data/ethermist/loot_modifiers/poison_orb_to_mineshaft.json
 f77158f25883654f438fa3fa55a5d1f65d6f9b54 data/ethermist/loot_modifiers/witch_orb_to_pillager_outpost.json
 da5e1195de379de34543678fe3b75c17714f0850 data/ethermist/loot_modifiers/witch_orb_to_witch.json
-1b52f8dfbbccfdc301d2696c8450ebcbe37f509f data/neoforge/loot_modifiers/global_loot_modifiers.json
+594c8fa7b0ac7fd32891b522287e027778ba3263 data/neoforge/loot_modifiers/global_loot_modifiers.json
