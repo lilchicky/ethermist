@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.util;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.*;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
@@ -10,10 +11,17 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWand
 import com.gmail.thelilchicken01.ethermist.particle.*;
 import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
 import com.gmail.thelilchicken01.ethermist.screen.WandforgingTableScreen;
+import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -22,6 +30,9 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 @EventBusSubscriber(modid = Ethermist.MODID, value = Dist.CLIENT)
 public class EMClientModEvents {
@@ -57,70 +68,38 @@ public class EMClientModEvents {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        event.register((stack, layer) -> {
+        ItemColor colorer = (stack, layer) -> {
+            DyedItemColor color = stack.get(DataComponents.DYED_COLOR);
+            int baseColor = 0xFF000000 | (color != null ? color.rgb() & 0xFFFFFF : Ethermist.WAND_COLOR & 0xFFFFFF);
 
-                    int baseColor = 0xFF000000 | (
-                            stack.get(DataComponents.DYED_COLOR) != null
-                                    ? (stack.get(DataComponents.DYED_COLOR).rgb() & 0xFFFFFF)
-                                    : (Ethermist.WAND_COLOR & 0xFFFFFF)
-                    );
+            if (layer == 0) {
+                return baseColor;
+            }
 
-                    if (layer == 0) {
+            else if (layer == 1) {
+                IWandHandle tier = ((IDyeableWandItem) stack.getItem()).getHandle(stack);
 
-                        return baseColor;
+                boolean isWooden = tier.id().equals(EMWandHandles.WOODEN.getId());
 
-                    } else if (layer == 1) {
+                if (isWooden) {
+                    return baseColor;
+                }
 
-                        IWandHandle tier = (stack.getItem() instanceof IDyeableWandItem dyeable)
-                                ? dyeable.getHandle(stack)
-                                : null;
+                float[] rgb = tier.getHandleColor();
+                int r = (int) (Math.max(0f, Math.min(1f, rgb[0])) * 255f);
+                int g = (int) (Math.max(0f, Math.min(1f, rgb[1])) * 255f);
+                int b = (int) (Math.max(0f, Math.min(1f, rgb[2])) * 255f);
+                return 0xFF000000 | (r << 16) | (g << 8) | b;
+            }
 
-                        if (tier != null) {
-                            boolean isWooden = tier.id().equals(EMWandHandles.WOODEN.getId());
+            return 0xFFFFFFFF;
+        };
 
-                            if (isWooden) {
-                                return baseColor;
-                            }
-
-                            float[] rgb = tier.getHandleColor();
-                            int r = (int) (Math.max(0f, Math.min(1f, rgb[0])) * 255f);
-                            int g = (int) (Math.max(0f, Math.min(1f, rgb[1])) * 255f);
-                            int b = (int) (Math.max(0f, Math.min(1f, rgb[2])) * 255f);
-                            return 0xFF000000 | (r << 16) | (g << 8) | b;
-                        }
-
-                        return baseColor;
-                    }
-
-                    return 0xFFFFFFFF;
-                },
-                
-                // ---------- Wand Handles ----------
-                EMItems.WOODEN_WAND_HANDLE.get(),
-                EMItems.EMERALD_WAND_HANDLE.get(),
-                EMItems.DIAMOND_WAND_HANDLE.get(),
-                EMItems.GOLDEN_WAND_HANDLE.get(),
-                EMItems.LAPIS_WAND_HANDLE.get(),
-                EMItems.QUARTZ_WAND_HANDLE.get(),
-                EMItems.REDSTONE_WAND_HANDLE.get(),
-                EMItems.GLOWSTONE_WAND_HANDLE.get(),
-                EMItems.PRISMARINE_WAND_HANDLE.get(),
-                EMItems.NETHERITE_WAND_HANDLE.get(),
-
-                // ---------- Wands ----------
-                EMItems.DULL_WAND.get(),
-                EMItems.FLAME_WAND.get(),
-                EMItems.POISON_WAND.get(),
-                EMItems.WITHER_WAND.get(),
-                EMItems.LEVITATION_WAND.get(),
-                EMItems.WITCH_WAND.get(),
-                EMItems.HEAVY_WAND.get(),
-                EMItems.FROZEN_WAND.get(),
-                EMItems.GLASS_WAND.get(),
-                EMItems.GLIMMERBUG_WAND.get(),
-                EMItems.FORGED_HEART_WAND.get()
-
-        );
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (item instanceof IDyeableWandItem) {
+                event.register(colorer, item);
+            }
+        }
     }
 
     @SubscribeEvent
