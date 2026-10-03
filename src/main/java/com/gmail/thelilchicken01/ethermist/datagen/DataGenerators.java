@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Ethermist.MODID)
 public class DataGenerators {
 
     // Folder Locations
