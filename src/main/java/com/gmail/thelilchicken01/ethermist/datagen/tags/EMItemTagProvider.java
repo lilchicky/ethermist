@@ -331,22 +331,6 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.ETHERSTONE_IRON_ORE.get().asItem())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get().asItem());
 
-        tag(Tags.Items.ARMORS)
-                .add(EMItems.LEATHER_HOOD.get())
-                .add(EMItems.IRON_HOOD.get())
-                .add(EMItems.GOLDEN_HOOD.get())
-                .add(EMItems.DIAMOND_HOOD.get())
-                .add(EMItems.NETHERITE_HOOD.get())
-                .add(EMItems.AMETHYST_CROWN.get());
-
-        tag(ItemTags.HEAD_ARMOR)
-                .add(EMItems.LEATHER_HOOD.get())
-                .add(EMItems.IRON_HOOD.get())
-                .add(EMItems.GOLDEN_HOOD.get())
-                .add(EMItems.DIAMOND_HOOD.get())
-                .add(EMItems.NETHERITE_HOOD.get())
-                .add(EMItems.AMETHYST_CROWN.get());
-
     }
 
     // Functions to make sure I don't miss any tags

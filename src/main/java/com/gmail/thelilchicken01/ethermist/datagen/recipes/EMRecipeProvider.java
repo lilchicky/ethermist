@@ -707,51 +707,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
         /*
-        ---------- Equipment ----------
-         */
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.LEATHER_HOOD, 1)
-                .pattern("aba")
-                .pattern("a a")
-                .define('a', Items.LEATHER)
-                .define('b', Items.AMETHYST_SHARD)
-                .unlockedBy("has_leather", has(Items.LEATHER))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.IRON_HOOD, 1)
-                .pattern("aba")
-                .pattern("a a")
-                .define('a', Tags.Items.INGOTS_IRON)
-                .define('b', Items.AMETHYST_SHARD)
-                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GOLDEN_HOOD, 1)
-                .pattern("aba")
-                .pattern("a a")
-                .define('a', Tags.Items.INGOTS_GOLD)
-                .define('b', Items.AMETHYST_SHARD)
-                .unlockedBy("has_gold_ingot", has(Tags.Items.INGOTS_GOLD))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.DIAMOND_HOOD, 1)
-                .pattern("aba")
-                .pattern("a a")
-                .define('a', Items.DIAMOND)
-                .define('b', Items.AMETHYST_SHARD)
-                .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(output);
-
-        netheriteSmithing(output, EMItems.DIAMOND_HOOD.get(), RecipeCategory.COMBAT, EMItems.NETHERITE_HOOD.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.AMETHYST_CROWN, 1)
-                .pattern("a a")
-                .pattern("aaa")
-                .define('a', Items.AMETHYST_SHARD)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .save(output);
-
-        /*
         ---------- Ores ----------
          */
         oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),

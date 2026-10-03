@@ -336,14 +336,6 @@ public class EMCreativeTab {
             .title(Component.translatable("creativetab.ethermist.em_item_tab"))
             .displayItems((itemDisplayParameters, output) -> {
 
-                // Equipment
-                output.accept(EMItems.LEATHER_HOOD.get());
-                output.accept(EMItems.IRON_HOOD.get());
-                output.accept(EMItems.GOLDEN_HOOD.get());
-                output.accept(EMItems.DIAMOND_HOOD.get());
-                output.accept(EMItems.NETHERITE_HOOD.get());
-                output.accept(EMItems.AMETHYST_CROWN.get());
-
                 // Orbs
                 output.accept(EMItems.DULL_ORB.get());
                 output.accept(EMItems.GLASS_ORB.get());

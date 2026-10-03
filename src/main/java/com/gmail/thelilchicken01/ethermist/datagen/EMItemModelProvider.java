@@ -179,13 +179,6 @@ public class EMItemModelProvider extends ItemModelProvider {
         withExistingParent(EMItems.PYLON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(EMItems.RUNIC_SKELETON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
-        basicItem(EMItems.LEATHER_HOOD.get());
-        basicItem(EMItems.IRON_HOOD.get());
-        basicItem(EMItems.GOLDEN_HOOD.get());
-        basicItem(EMItems.DIAMOND_HOOD.get());
-        basicItem(EMItems.NETHERITE_HOOD.get());
-        basicItem(EMItems.AMETHYST_CROWN.get());
-
     }
 
     public void basicItemFolder(Item item, String folder) {

@@ -432,14 +432,6 @@
   "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
   "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
 
-  "_comment": "--------------- EQUIPMENT ---------------",
-  "item.ethermist.leather_hood": "Leather Hood",
-  "item.ethermist.iron_hood": "Iron Hood",
-  "item.ethermist.golden_hood": "Golden Hood",
-  "item.ethermist.diamond_hood": "Diamond Hood",
-  "item.ethermist.netherite_hood": "Netherite Hood",
-  "item.ethermist.amethyst_crown": "Amethyst Crown",
-
   "_comment": "--------------- ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
   "enchantment.ethermist.quick_cast.desc": "Decreases cooldown of wands.",

@@ -2,19 +2,12 @@ package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
-import com.gmail.thelilchicken01.ethermist.item.armor.EMArmorMaterials;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
-import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -117,81 +110,6 @@ public class EMItems {
             () -> new DeferredSpawnEggItem(EMEntityTypes.PYLON, 0xFF3B3B, 0x7F7F7F, new Item.Properties()));
     public static final DeferredItem<Item> RUNIC_SKELETON_SPAWN_EGG = ITEMS.register("runic_skeleton_spawn_egg",
             () -> new DeferredSpawnEggItem(EMEntityTypes.RUNIC_SKELETON, 0xaf815e, 0x832387, new Item.Properties()));
-
-    /*
-    ---------- Equipment ----------
-     */
-
-    public static final DeferredItem<ArmorItem> LEATHER_HOOD = ITEMS.register("leather_hood",
-            () -> new ArmorItem(EMArmorMaterials.LEATHER_HOOD, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(5))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.WAND_DAMAGE, new AttributeModifier(
-                                            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.damage"),
-                                            0.5,
-                                            AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
-
-    public static final DeferredItem<ArmorItem> IRON_HOOD = ITEMS.register("iron_hood",
-            () -> new ArmorItem(EMArmorMaterials.IRON_HOOD, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(15))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.WAND_DAMAGE, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.damage"),
-                                                    1,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
-
-    public static final DeferredItem<ArmorItem> GOLDEN_HOOD = ITEMS.register("golden_hood",
-            () -> new ArmorItem(EMArmorMaterials.GOLD_HOOD, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(7))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.WAND_DAMAGE, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.damage"),
-                                                    1,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .add(EMAttributes.PROJECTILE_SPEED, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.projectile_speed"),
-                                                    0.5,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
-
-    public static final DeferredItem<ArmorItem> DIAMOND_HOOD = ITEMS.register("diamond_hood",
-            () -> new ArmorItem(EMArmorMaterials.DIAMOND_HOOD, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(33))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.WAND_DAMAGE, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.damage"),
-                                                    1.5,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
-
-    public static final DeferredItem<ArmorItem> NETHERITE_HOOD = ITEMS.register("netherite_hood",
-            () -> new ArmorItem(EMArmorMaterials.NETHERITE_HOOD, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(37))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.WAND_DAMAGE, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.damage"),
-                                                    2,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
-
-    public static final DeferredItem<ArmorItem> AMETHYST_CROWN = ITEMS.register("amethyst_crown",
-            () -> new ArmorItem(EMArmorMaterials.AMETHYST_CROWN, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(6))
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(EMAttributes.COOLDOWN, new AttributeModifier(
-                                                    ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "hood.cooldown"),
-                                                    -0.5,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.HEAD)
-                                    .build())));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
