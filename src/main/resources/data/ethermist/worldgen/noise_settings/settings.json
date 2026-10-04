@@ -40,7 +40,7 @@
               "type": "minecraft:blend_density",
               "argument": {
                 "type": "minecraft:add",
-                "argument1": 0.4,
+                "argument1": 0.25,
                 "argument2": {
                   "type": "minecraft:mul",
                   "argument1": {
@@ -52,7 +52,7 @@
                   },
                   "argument2": {
                     "type": "minecraft:add",
-                    "argument1": -0.4,
+                    "argument1": -0.25,
                     "argument2": {
                       "type": "minecraft:add",
                       "argument1": -0.078125,
@@ -61,21 +61,21 @@
                         "argument1": {
                           "type": "minecraft:y_clamped_gradient",
                           "from_value": 1,
-                          "from_y": 304,
+                          "from_y": 240,
                           "to_value": 0,
-                          "to_y": 320
+                          "to_y": 256
                         },
                         "argument2": {
                           "type": "minecraft:add",
                           "argument1": 0.078125,
                           "argument2": {
                             "type": "minecraft:range_choice",
-                            "input": "minecraft:overworld_amplified/sloped_cheese",
+                            "input": "ethermist:sloped_cheese",
                             "max_exclusive": 1.5625,
                             "min_inclusive": -1000000,
                             "when_in_range": {
                               "type": "minecraft:min",
-                              "argument1": "minecraft:overworld_amplified/sloped_cheese",
+                              "argument1": "ethermist:sloped_cheese",
                               "argument2": {
                                 "type": "minecraft:mul",
                                 "argument1": 5,
@@ -128,7 +128,7 @@
                                           "argument2": {
                                             "type": "minecraft:mul",
                                             "argument1": -0.64,
-                                            "argument2": "minecraft:overworld_amplified/sloped_cheese"
+                                            "argument2": "ethermist:sloped_cheese"
                                           }
                                         },
                                         "max": 0.5,

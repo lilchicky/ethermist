@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@EventBusSubscriber(modid = Ethermist.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = Ethermist.MODID)
 public class EMGameEvents {
 
     @SubscribeEvent

@@ -23,6 +23,7 @@ public class EMTags {
         public static final TagKey<Block> ANCIENT_ETHERSTONE_ORE_REPLACEABLES = mod("ancient_etherstone_ore_replaceables");
         public static final TagKey<Block> ETHERMIST_STONES = mod("ethermist_stones");
         public static final TagKey<Block> CAN_SUPPORT_FORGEMASTER_PYLON = mod("can_support_forgemaster_pylon");
+        public static final TagKey<Block> ETHERMIST_SURFACE_BLOCKS = mod("ethermist_surface_block");
 
         private static TagKey<Block> mod(String path) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

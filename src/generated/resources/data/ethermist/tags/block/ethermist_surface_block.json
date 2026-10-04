@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#c:gravels",
+    "#c:sands",
+    "#minecraft:sand",
+    "#minecraft:dirt",
+    "minecraft:calcite",
+    "minecraft:blackstone",
+    "minecraft:smooth_basalt",
+    "ethermist:cobbled_etherstone",
+    "minecraft:packed_ice"
+  ]
+}

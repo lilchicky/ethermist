@@ -225,6 +225,17 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.GRAVELS)
                 .add(EMBlocks.CRUMBLING_ETHERSTONE.get());
 
+        tag(EMTags.Blocks.ETHERMIST_SURFACE_BLOCKS)
+                .addTag(Tags.Blocks.GRAVELS)
+                .addTag(Tags.Blocks.SANDS)
+                .addTag(BlockTags.SAND)
+                .addTag(BlockTags.DIRT)
+                .add(Blocks.CALCITE)
+                .add(Blocks.BLACKSTONE)
+                .add(Blocks.SMOOTH_BASALT)
+                .add(EMBlocks.COBBLED_ETHERSTONE.get())
+                .add(Blocks.PACKED_ICE);
+
         tag(BlockTags.FLOWERS)
                 .add(EMBlocks.GLIMMERBUD.get())
                 .add(EMBlocks.SLIMY_ALLIUM.get())

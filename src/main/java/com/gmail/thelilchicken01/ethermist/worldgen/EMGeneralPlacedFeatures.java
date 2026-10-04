@@ -2,7 +2,9 @@ package com.gmail.thelilchicken01.ethermist.worldgen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -10,6 +12,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -18,6 +21,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
 
@@ -106,9 +110,10 @@ public class EMGeneralPlacedFeatures {
 
         register(context, SPARSE_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ANCIENT_TREE_KEY),
                 List.of(
+                        CountPlacement.of(128),
                         RarityFilter.onAverageOnceEvery(48),
                         InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                         BiomeFilter.biome(),
                         BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(EMBlocks.ANCIENT_SAPLING.get().defaultBlockState(), BlockPos.ZERO))
                 )
@@ -116,9 +121,10 @@ public class EMGeneralPlacedFeatures {
 
         register(context, SPARSE_FROSTPINE_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.FROSTPINE_TREE_KEY),
                 List.of(
+                        CountPlacement.of(128),
                         RarityFilter.onAverageOnceEvery(24),
                         InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                         BiomeFilter.biome(),
                         BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(EMBlocks.FROSTPINE_SAPLING.get().defaultBlockState(), BlockPos.ZERO))
                 )
@@ -134,9 +140,10 @@ public class EMGeneralPlacedFeatures {
 
         register(context, CHARRED_TREE_STUMP_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHARRED_TREE_STUMP_KEY),
                 List.of(
+                        CountPlacement.of(128),
                         RarityFilter.onAverageOnceEvery(2),
                         InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                         BiomeFilter.biome(),
                         BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(EMBlocks.CHARRED_SAPLING.get().defaultBlockState(), BlockPos.ZERO))
                 )
@@ -144,9 +151,9 @@ public class EMGeneralPlacedFeatures {
 
         register(context, CHARRED_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHARRED_TREE_KEY),
                 List.of(
+                        CountPlacement.of(128),
                         RarityFilter.onAverageOnceEvery(2),
-                        InSquarePlacement.spread(),
-                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                         BiomeFilter.biome(),
                         BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(EMBlocks.CHARRED_SAPLING.get().defaultBlockState(), BlockPos.ZERO))
                 )
@@ -272,9 +279,16 @@ public class EMGeneralPlacedFeatures {
 
     private static List<PlacementModifier> simpleSpawn(int chance) {
         return List.of(
+                CountPlacement.of(128),
                 RarityFilter.onAverageOnceEvery(chance),
                 InSquarePlacement.spread(),
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
+                BlockPredicateFilter.forPredicate(
+                        BlockPredicate.matchesTag(
+                                Direction.DOWN.getNormal(),
+                                EMTags.Blocks.ETHERMIST_SURFACE_BLOCKS
+                        )
+                ),
                 BiomeFilter.biome()
         );
     }
