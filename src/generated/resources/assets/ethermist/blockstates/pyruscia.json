@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "ethermist:block/pyruscia_lower"
+    },
+    "half=upper": {
+      "model": "ethermist:block/pyruscia_upper"
+    }
+  }
+}

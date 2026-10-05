@@ -394,6 +394,8 @@ public class EMBlockstateProvider extends BlockStateProvider {
         plantBlock(EMBlocks.DAWNING_HYACINTH);
         flowerPotBlock(EMBlocks.DAWNING_HYACINTH_FLOWER_POT, EMBlocks.DAWNING_HYACINTH);
 
+        doublePlantBlock(EMBlocks.PYRUSCIA);
+
         plantBlock(EMBlocks.SLIMY_ALLIUM);
         plantBlock(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
         doublePlantBlock(EMBlocks.TALL_ABYSSAL_MUSHROOM);

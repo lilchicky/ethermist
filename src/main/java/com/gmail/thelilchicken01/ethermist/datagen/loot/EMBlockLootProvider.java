@@ -371,6 +371,12 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 )
         );
 
+        add(EMBlocks.PYRUSCIA.get(), block -> generateDoubleBlockDrops(
+                EMBlocks.PYRUSCIA.get(),
+                LootItem.lootTableItem(EMBlocks.PYRUSCIA.get())
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+        ));
+
         // Abyssal Mushrooms
         dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get());
         dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
@@ -505,19 +511,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         return LootTable.lootTable().withPool(poolBuilder);
     }
 
-    protected LootTable.Builder generateDoubleBlockShearsDrops(Block block, ItemLike noShears, Block sheared, float otherwiseChance) {
-
-        LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(sheared)
-                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
-                .when(AnyOfCondition.anyOf(
-                        HAS_SHEARS,
-                        hasSilkTouch()
-                ))
-                .otherwise(
-                        ((LootPoolSingletonContainer.Builder<?>) this.applyExplosionCondition(block, LootItem.lootTableItem(noShears)))
-                                .when(LootItemRandomChanceCondition.randomChance(otherwiseChance))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
-                );
+    protected LootTable.Builder generateDoubleBlockDrops(Block block, LootPoolEntryContainer.Builder<?> builder) {
         return LootTable.lootTable()
                 .withPool(
                         LootPool.lootPool()
@@ -557,6 +551,22 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                                         )
                                 )
                 );
+    }
+
+    protected LootTable.Builder generateDoubleBlockShearsDrops(Block block, ItemLike noShears, Block sheared, float otherwiseChance) {
+
+        LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(sheared)
+                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
+                .when(AnyOfCondition.anyOf(
+                        HAS_SHEARS,
+                        hasSilkTouch()
+                ))
+                .otherwise(
+                        ((LootPoolSingletonContainer.Builder<?>) this.applyExplosionCondition(block, LootItem.lootTableItem(noShears)))
+                                .when(LootItemRandomChanceCondition.randomChance(otherwiseChance))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
+                );
+        return generateDoubleBlockDrops(block, builder);
     }
 
 }

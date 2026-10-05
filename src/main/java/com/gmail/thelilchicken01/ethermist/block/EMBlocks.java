@@ -284,6 +284,7 @@ public class EMBlocks {
     public static final DeferredBlock<Block> CINDERBLOOM = registerBlock("cinderbloom", Cinderbloom::new);
     public static final DeferredBlock<Block> FALLEN_AMBERWOOD_LEAVES = registerBlock("fallen_amberwood_leaves", FallenAmberwoodLeaves::new);
     public static final DeferredBlock<FlowerBlock> SLIMY_ALLIUM = registerBlock("slimy_allium", SlimyAllium::new);
+    public static final DeferredBlock<TallFlowerBlock> PYRUSCIA = registerBlock("pyruscia", Pyruscia::new);
 
     public static final DeferredBlock<FlowerBlock> SMALL_ABYSSAL_MUSHROOM = registerBlock("small_abyssal_mushroom", SmallAbyssalMushroom::new);
     public static final DeferredBlock<DoublePlantBlock> TALL_ABYSSAL_MUSHROOM = registerBlock("tall_abyssal_mushroom", TallAbyssalMushroom::new);

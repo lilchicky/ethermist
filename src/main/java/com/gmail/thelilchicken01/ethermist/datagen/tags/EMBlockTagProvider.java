@@ -164,7 +164,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.REPLACEABLE_BY_TREES)
                 .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_GILLS.get())
                 .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())
-                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
+                .add(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get())
+                .add(EMBlocks.PYRUSCIA.get());
 
         tag(BlockTags.LOGS)
                 .add(EMBlocks.LARGE_ABYSSAL_MUSHROOM_STEM.get());
@@ -243,7 +244,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.DAWNING_HYACINTH.get())
                 .add(EMBlocks.CINDERBLOOM.get())
                 .add(EMBlocks.NIGHTBELL.get())
-                .add(EMBlocks.CHRONOTHORN.get());
+                .add(EMBlocks.CHRONOTHORN.get())
+                .add(EMBlocks.PYRUSCIA.get());
+
+        tag(BlockTags.TALL_FLOWERS)
+                .add(EMBlocks.PYRUSCIA.get());
 
         tag(BlockTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMERBUD.get())

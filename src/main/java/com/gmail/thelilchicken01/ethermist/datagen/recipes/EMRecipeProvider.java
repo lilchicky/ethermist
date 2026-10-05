@@ -666,6 +666,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_chronothorn", has(EMBlocks.CHRONOTHORN))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.CHRONOTHORN.getId().getPath() + "_magenta_dye"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.ORANGE_DYE, 1)
+                .requires(EMBlocks.PYRUSCIA.get())
+                .unlockedBy("has_pyruscia", has(EMBlocks.PYRUSCIA))
+                .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.PYRUSCIA.getId().getPath() + "_orange_dye"));
+
         /*
         ---------- Misc Recipes ----------
          */

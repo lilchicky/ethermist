@@ -102,7 +102,11 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.DAWNING_HYACINTH.get().asItem())
                 .add(EMBlocks.CINDERBLOOM.get().asItem())
                 .add(EMBlocks.NIGHTBELL.get().asItem())
-                .add(EMBlocks.CHRONOTHORN.get().asItem());
+                .add(EMBlocks.CHRONOTHORN.get().asItem())
+                .add(EMBlocks.PYRUSCIA.get().asItem());
+
+        tag(ItemTags.TALL_FLOWERS)
+                .add(EMBlocks.PYRUSCIA.get().asItem());
 
         tag(ItemTags.SMALL_FLOWERS)
                 .add(EMBlocks.GLIMMERBUD.get().asItem())

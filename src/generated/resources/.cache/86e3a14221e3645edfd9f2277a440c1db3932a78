@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-28T20:26:07.4995181	Block States: ethermist
+// 1.21.1	2026-10-04T22:06:33.8518829	Block States: ethermist
 3ae376842b28c82134fe853e9acb41689b1fdeba assets/ethermist/blockstates/abyssal_mushroom.json
 0b5457259efae8f3d737d37059a36391387a8d95 assets/ethermist/blockstates/amberwood_button.json
 8c4637c409249471fd1365f09122b757705a6ca8 assets/ethermist/blockstates/amberwood_door.json
@@ -158,6 +158,7 @@ fa326d114c3b5391af8b6c4b6bcf1c7e7b2c2e80 assets/ethermist/blockstates/polished_w
 b7c044e2bcc4be3e2c3f534999d9f86dd53524ee assets/ethermist/blockstates/polished_witchstone_slab.json
 8f0528e48ff4e9da1b60af2276ac169009ddf445 assets/ethermist/blockstates/polished_witchstone_stairs.json
 2b709791946d31bc97ba7bcea6d32f211790a317 assets/ethermist/blockstates/polished_witchstone_wall.json
+454432d63121b07bf0c3e748cbf2c1e600f79b37 assets/ethermist/blockstates/pyruscia.json
 7be20455323174ece3a0dc2ed8be074a1cc70836 assets/ethermist/blockstates/red_amberwood_leaves.json
 41ef059294f1ca7fac0fe307bd304a83913b14b6 assets/ethermist/blockstates/red_amberwood_sapling.json
 48b2c7ccc9aa8f6e6492b9e56abd54a22431fe90 assets/ethermist/blockstates/rich_grass.json
@@ -590,6 +591,8 @@ ff42eb89a07812b4b0913f2d1d8d4569273b1615 assets/ethermist/models/block/polished_
 e9ba3add24d05efcd9056567702ed75518c97c8c assets/ethermist/models/block/polished_witchstone_wall_post.json
 5a27343e25da8d27920fe8d9ea23a0ffb312b357 assets/ethermist/models/block/polished_witchstone_wall_side.json
 daccc7740ca625b2e1bf244e6c583b9370345094 assets/ethermist/models/block/polished_witchstone_wall_side_tall.json
+fc2f64d5090fbb72ef6c5d8c2ea3bdb0af38e35d assets/ethermist/models/block/pyruscia_lower.json
+c74208ed77ff4e785c27c8f7da2f609a145607c7 assets/ethermist/models/block/pyruscia_upper.json
 c2531553796cf6abdbda5542570acc2d12e2a4fe assets/ethermist/models/block/red_amberwood_leaves.json
 1baadebc5313eb663fa1d96057541a6c2c907981 assets/ethermist/models/block/rich_grass.json
 173101ed46b09b1d4512514f6522c6ee59099041 assets/ethermist/models/block/rich_grass_block.json
