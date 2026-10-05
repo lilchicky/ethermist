@@ -248,7 +248,20 @@ public class EMGeneralPlacedFeatures {
         register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
         register(context, CHRONOTHORN_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHRONOTHORN_PATCH), simpleSpawn(3));
-        register(context, CINDERBLOOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CINDERBLOOM_PATCH), simpleSpawn(2));
+        register(
+                context,
+                CINDERBLOOM_PATCH_KEY,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.CINDERBLOOM_PATCH),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(2),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.wouldSurvive(EMBlocks.CINDERBLOOM.get().defaultBlockState(), BlockPos.ZERO)
+                        ),
+                        BiomeFilter.biome()
+                )
+        );
         register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
         register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
 

@@ -381,7 +381,7 @@ public class EMGeneralFeatures {
                 UniformInt.of(32, 96),
                 UniformFloat.of(4.0f, 8.0f),
                 UniformInt.of(-8, 8),
-                BlockStateProvider.simple(EMBlocks.COBBLED_ETHERSTONE.get().defaultBlockState())
+                BlockStateProvider.simple(Blocks.OBSIDIAN.defaultBlockState())
         ));
 
         register(context, ICICLE_GROUND_KEY, EMFeatures.GROUND_ICICLE_FEATURE.get(), new GroundIcicleFeature.GroundIcicleConfiguration(
