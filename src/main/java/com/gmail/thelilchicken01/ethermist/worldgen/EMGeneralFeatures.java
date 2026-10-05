@@ -335,7 +335,7 @@ public class EMGeneralFeatures {
                 BlockPredicate.matchesBlocks(
                         List.of(EMBlocks.ETHERSTONE.get(), EMBlocks.COBBLED_ETHERSTONE.get())
                 ),
-                UniformInt.of(2, 3),
+                UniformInt.of(3, 8),
                 1
         ));
         register(context, CRUMBLING_ETHERSTONE_DISK_KEY, Feature.DISK, new DiskConfiguration(
@@ -566,7 +566,7 @@ public class EMGeneralFeatures {
                 CINDERBLOOM_PATCH,
                 Feature.FLOWER,
                 new RandomPatchConfiguration(
-                        96, 6, 6,
+                        256, 8, 8,
                         PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
                                 new WeightedStateProvider(multiFlowerPatch(EMBlocks.CINDERBLOOM.get()))
                         ))
