@@ -68,9 +68,9 @@
     [
       "ethermist:ethermist_glow_lichen_placed",
       "ethermist:rich_grass_patch_placed",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane"
+      "minecraft:patch_sugar_cane",
+      "ethermist:small_abyssal_mushroom_patch_placed",
+      "ethermist:large_abyssal_mushroom_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"

@@ -89,6 +89,7 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHRONOTHORN_PATCH = registerKey("chronothorn_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PYRUSCIA_PATCH = registerKey("pyruscia_key");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AMBERWOOD_LEAVES_PATCH = registerKey("fallen_amberwood_leaves_patch");
@@ -545,6 +546,7 @@ public class EMGeneralFeatures {
         register(context, NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 128, 8, 1, 1));
         register(context, WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 128, 8, 1, 1));
         register(context, DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 128, 8, 1, 1));
+        register(context, PYRUSCIA_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.PYRUSCIA.get(), 128, 8, 1, 2));
         register(context, CHRONOTHORN_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(
                         32,
