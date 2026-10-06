@@ -64,6 +64,7 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ABYSSAL_FOSSIL_KEY_PLACED = registerKey("abyssal_fossil_placed");
 
     public static final ResourceKey<PlacedFeature> EM_LAVA_SPRING_PLACED = registerKey("lava_spring_placed");
+    public static final ResourceKey<PlacedFeature> EM_DENSE_LAVA_SPRING_PLACED = registerKey("dense_lava_spring_placed");
     public static final ResourceKey<PlacedFeature> EM_WATER_SPRING_PLACED = registerKey("water_spring_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMERBUD_PATCH_KEY = registerKey("glimmerbud_patch_placed");
@@ -223,6 +224,18 @@ public class EMGeneralPlacedFeatures {
                         CountPlacement.of(20),
                         InSquarePlacement.spread(),
                         HeightRangePlacement.of(VeryBiasedToBottomHeight.of(VerticalAnchor.bottom(), VerticalAnchor.belowTop(8), 8)),
+                        BiomeFilter.biome()
+                )
+        );
+
+        register(
+                context,
+                EM_DENSE_LAVA_SPRING_PLACED,
+                configuredFeatures.getOrThrow(EMGeneralFeatures.EM_LAVA_SPRING_KEY),
+                List.of(
+                        CountPlacement.of(256),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.top()),
                         BiomeFilter.biome()
                 )
         );

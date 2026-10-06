@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-05T17:32:54.7586928	Registries
+// 1.21.1	2026-10-05T18:09:02.1262899	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -127,6 +127,7 @@ d0c5beaefbd89f157cdbedf65448b7ef0a59ab2b data/ethermist/worldgen/placed_feature/
 f27d237ef64143946adac6eb10ba1d5c01f50ade data/ethermist/worldgen/placed_feature/dawnshale_blob_lower_placed.json
 352387e3b9c9dca6ac9d8f1444c23ee12e8551d9 data/ethermist/worldgen/placed_feature/dawnshale_blob_upper_placed.json
 5783781329e1a06feebd3dd0e9bd2d47cc8179e9 data/ethermist/worldgen/placed_feature/dense_ethermist_lava_lake_placed.json
+81ac3e01ba1ede8cfe2f09f14c655bc6272303b1 data/ethermist/worldgen/placed_feature/dense_lava_spring_placed.json
 9da01b347f038a1d648839d578edf78cec82d2e4 data/ethermist/worldgen/placed_feature/dense_rich_grass_patch_placed.json
 5cb184459a6f83328d12a451a8b849292c72d4fe data/ethermist/worldgen/placed_feature/dense_slimy_allium_placed.json
 0fbdaa6ac59700497acfa05a1e4402e41616cba2 data/ethermist/worldgen/placed_feature/ethermist_glow_lichen_placed.json
