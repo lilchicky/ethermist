@@ -74,7 +74,13 @@
     ],
     [
       "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:rich_grass_patch_placed",
+      "ethermist:sparse_ancient_tree_placed",
+      "ethermist:dense_nightbell_patch_placed",
+      "ethermist:dense_witch_lavender_patch_placed",
+      "ethermist:dense_dawning_hyacinth_patch_placed",
+      "ethermist:dense_pyruscia_patch_placed",
+      "ethermist:dense_rich_grass_patch_placed",
+      "ethermist:rich_tall_grass_patch_placed",
       "ethermist:small_abyssal_mushroom_patch_placed",
       "ethermist:large_abyssal_mushroom_patch_placed"
     ],

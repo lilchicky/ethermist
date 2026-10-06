@@ -1,5 +1,5 @@
 {
-  "feature": "ethermist:pyruscia_patch",
+  "feature": "ethermist:dense_witch_lavender_patch",
   "placement": [
     {
       "type": "minecraft:count",
@@ -7,7 +7,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 16
+      "chance": 2
     },
     {
       "type": "minecraft:in_square"

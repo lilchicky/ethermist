@@ -89,8 +89,13 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERBLOOM_PATCH = registerKey("cinderbloom_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHRONOTHORN_PATCH = registerKey("chronothorn_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PYRUSCIA_PATCH = registerKey("pyruscia_key");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PYRUSCIA_PATCH = registerKey("pyruscia_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_WITCH_LAVENDER_PATCH = registerKey("dense_witch_lavender_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_NIGHTBELL_PATCH = registerKey("dense_nightbell_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_DAWNING_HYACINTH_PATCH = registerKey("dense_dawning_hyacinth_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_PYRUSCIA_PATCH = registerKey("dense_pyruscia_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AMBERWOOD_LEAVES_PATCH = registerKey("fallen_amberwood_leaves_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch");
@@ -562,6 +567,10 @@ public class EMGeneralFeatures {
                 )
         );
         register(context, DENSE_SLIMY_ALLIUM_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.SLIMY_ALLIUM.get(), 512, 16, 1, 8));
+        register(context, DENSE_DAWNING_HYACINTH_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.DAWNING_HYACINTH.get(), 512, 16, 1, 8));
+        register(context, DENSE_NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 512, 16, 1, 8));
+        register(context, DENSE_PYRUSCIA_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.PYRUSCIA.get(), 512, 16, 1, 8));
+        register(context, DENSE_WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 512, 16, 1, 8));
 
         register(
                 context,

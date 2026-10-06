@@ -77,6 +77,11 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
     public static final ResourceKey<PlacedFeature> PYRUSCIA_PATCH_KEY = registerKey("pyruscia_patch_placed");
 
+    public static final ResourceKey<PlacedFeature> DENSE_NIGHTBELL_PATCH_KEY = registerKey("dense_nightbell_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_WITCH_LAVENDER_PATCH_KEY = registerKey("dense_witch_lavender_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_DAWNING_HYACINTH_PATCH_KEY = registerKey("dense_dawning_hyacinth_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_PYRUSCIA_PATCH_KEY = registerKey("dense_pyruscia_patch_placed");
+
     public static final ResourceKey<PlacedFeature> FALLEN_AMBERWOOD_LEAVES_KEY = registerKey("fallen_amberwood_leaves_placed");
     public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
     public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
@@ -261,6 +266,10 @@ public class EMGeneralPlacedFeatures {
         register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
         register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
+        register(context, DENSE_NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_NIGHTBELL_PATCH), simpleSpawn(2));
+        register(context, DENSE_PYRUSCIA_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_PYRUSCIA_PATCH), simpleSpawn(4));
+        register(context, DENSE_DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_DAWNING_HYACINTH_PATCH), simpleSpawn(2));
+        register(context, DENSE_WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_WITCH_LAVENDER_PATCH), simpleSpawn(2));
         register(context, CHRONOTHORN_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHRONOTHORN_PATCH), simpleSpawn(3));
         register(context, PYRUSCIA_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.PYRUSCIA_PATCH), simpleSpawn(16));
         register(
