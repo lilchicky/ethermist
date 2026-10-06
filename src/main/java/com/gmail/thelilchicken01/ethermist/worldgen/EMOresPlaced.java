@@ -40,6 +40,8 @@ public class EMOresPlaced {
     public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_LOWER_KEY = registerKey("witchstone_blob_lower_placed");
     public static final ResourceKey<PlacedFeature> DAWNMARL_BLOB_UPPER_KEY = registerKey("dawnmarl_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> DAWNMARL_BLOB_LOWER_KEY = registerKey("dawnmarl_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> DUSKSHALE_BLOB_UPPER_KEY = registerKey("duskshale_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> DUSKSHALE_BLOB_LOWER_KEY = registerKey("duskshale_blob_lower_placed");
 
     public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_UPPER_KEY = registerKey("blackstone_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_LOWER_KEY = registerKey("blackstone_blob_lower_placed");
@@ -81,6 +83,7 @@ public class EMOresPlaced {
         Holder<ConfiguredFeature<?, ?>> crumbling_etherstone_blob = holdergetter.getOrThrow(EMOreFeatures.CRUMBLING_ETHERSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> witchstone_blob = holdergetter.getOrThrow(EMOreFeatures.WITCHSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> dawnmarl_blob = holdergetter.getOrThrow(EMOreFeatures.DAWNMARL_BLOB);
+        Holder<ConfiguredFeature<?, ?>> duskshale_blob = holdergetter.getOrThrow(EMOreFeatures.DUSKSHALE_BLOB);
         Holder<ConfiguredFeature<?, ?>> blackstone_blob = holdergetter.getOrThrow(EMOreFeatures.BLACKSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> calcite_blob = holdergetter.getOrThrow(EMOreFeatures.CALCITE_BLOB);
         Holder<ConfiguredFeature<?, ?>> basalt_blob = holdergetter.getOrThrow(EMOreFeatures.BASALT_BLOB);
@@ -208,6 +211,19 @@ public class EMOresPlaced {
                 context,
                 DAWNMARL_BLOB_LOWER_KEY,
                 dawnmarl_blob,
+                commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
+        );
+
+        register(
+                context,
+                DUSKSHALE_BLOB_UPPER_KEY,
+                duskshale_blob,
+                rareOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
+        );
+        register(
+                context,
+                DUSKSHALE_BLOB_LOWER_KEY,
+                duskshale_blob,
                 commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
         );
 

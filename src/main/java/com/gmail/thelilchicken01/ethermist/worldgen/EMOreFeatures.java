@@ -39,6 +39,7 @@ public class EMOreFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRUMBLING_ETHERSTONE_BLOB = registerKey("crumbling_etherstone_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCHSTONE_BLOB = registerKey("witchstone_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNMARL_BLOB = registerKey("dawnmarl_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DUSKSHALE_BLOB = registerKey("duskshale_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACKSTONE_BLOB = registerKey("blackstone_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_BLOB = registerKey("calcite_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = registerKey("basalt_blob");
@@ -116,6 +117,7 @@ public class EMOreFeatures {
         register(context, CRUMBLING_ETHERSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.CRUMBLING_ETHERSTONE.get().defaultBlockState(), 33));
         register(context, WITCHSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.WITCHSTONE.get().defaultBlockState(), 64));
         register(context, DAWNMARL_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.DAWNMARL.get().defaultBlockState(), 64));
+        register(context, DUSKSHALE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.DUSKSHALE.get().defaultBlockState(), 64));
         register(context, BLACKSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.BLACKSTONE.defaultBlockState(), 64));
         register(context, CALCITE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.CALCITE.defaultBlockState(), 64));
         register(context, BASALT_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.SMOOTH_BASALT.defaultBlockState(), 64));
