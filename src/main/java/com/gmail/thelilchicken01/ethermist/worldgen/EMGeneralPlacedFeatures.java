@@ -86,6 +86,9 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
     public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
 
+    public static final ResourceKey<PlacedFeature> SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_grounded_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_grounded_abyssal_mushroom_patch_placed");
+
     public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_TALL_GRASS_PATCH_KEY = registerKey("rich_tall_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
@@ -288,6 +291,9 @@ public class EMGeneralPlacedFeatures {
         );
         register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
         register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
+
+        register(context, SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
+        register(context, LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
 
         /*
         ---------- Misc Plants ----------
