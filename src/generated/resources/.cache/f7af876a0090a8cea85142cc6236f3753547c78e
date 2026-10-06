@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-05T19:57:56.0954358	Tags for minecraft:item mod id ethermist
+// 1.21.1	2026-10-05T20:24:29.1377853	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 9bc0d282717153a19438738b270e4956c4da256b data/c/tags/item/foods.json
@@ -17,7 +17,7 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/item/ores/lapis.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/item/ores/redstone.json
 9a71c0c0c8b9e124c861aa6de78ea9d9a33ffdf1 data/c/tags/item/player_workstations/crafting_tables.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
-498e79dd56df3109525f30bdf615d8322d6900f6 data/c/tags/item/stones.json
+3319070ed9bfa0a86343379978fe39d8dc53b64a data/c/tags/item/stones.json
 5199d71781fb8c12091bec6b9a543d2cb1fac68c data/ethermist/tags/item/dyeable_wands.json
 ce11b1851f749ca1edf8436930585b0266339ac2 data/ethermist/tags/item/enchantable_augments.json
 1dd763b62f8612b127d69e03933da897becedf8f data/ethermist/tags/item/enchantable_base.json
@@ -29,7 +29,7 @@ c346b20852109a822dc3f9908f4a12a538a80978 data/ethermist/tags/item/magic_enchanta
 0da64c509af51eca306093d010d9f7fef62e5fc0 data/ethermist/tags/item/tomes.json
 048a6cb74d61a007b4f2885befc2c5a94c6041c7 data/ethermist/tags/item/wands.json
 5199d71781fb8c12091bec6b9a543d2cb1fac68c data/ethermist/tags/item/wand_base.json
-fbbc43c5effe96d7c2810c1f016ddbb31ff0a317 data/minecraft/tags/item/buttons.json
+3efe14cf0877702d7cce8496d4d1c24d6f33cd7d data/minecraft/tags/item/buttons.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/coal_ores.json
 43f27771d370843005011355d6e7b530a221d27d data/minecraft/tags/item/copper_ores.json
 d919ec363a1fe394e8b967875b25163d716a67e8 data/minecraft/tags/item/diamond_ores.json

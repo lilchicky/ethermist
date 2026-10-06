@@ -48,12 +48,22 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.DAWNMARL.get())
                 .add(EMBlocks.DAWNMARL_STAIRS.get())
                 .add(EMBlocks.DAWNMARL_SLAB.get())
-                .add(EMBlocks.DAWNSHALE_WALL.get())
+                .add(EMBlocks.DAWNMARL_WALL.get())
 
                 .add(EMBlocks.POLISHED_DAWNMARL.get())
                 .add(EMBlocks.POLISHED_DAWNMARL_STAIRS.get())
                 .add(EMBlocks.POLISHED_DAWNMARL_SLAB.get())
                 .add(EMBlocks.POLISHED_DAWNMARL_WALL.get())
+
+                .add(EMBlocks.DUSKSHALE.get())
+                .add(EMBlocks.DUSKSHALE_STAIRS.get())
+                .add(EMBlocks.DUSKSHALE_SLAB.get())
+                .add(EMBlocks.DUSKSHALE_WALL.get())
+
+                .add(EMBlocks.POLISHED_DUSKSHALE.get())
+                .add(EMBlocks.POLISHED_DUSKSHALE_STAIRS.get())
+                .add(EMBlocks.POLISHED_DUSKSHALE_SLAB.get())
+                .add(EMBlocks.POLISHED_DUSKSHALE_WALL.get())
 
                 .add(EMBlocks.COBBLED_ETHERSTONE.get())
                 .add(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get())
@@ -197,6 +207,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNMARL.get())
+                .add(EMBlocks.DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.SCULK_REPLACEABLE)
@@ -207,12 +218,14 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNMARL.get())
+                .add(EMBlocks.DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.DRIPSTONE_REPLACEABLE)
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNMARL.get())
+                .add(EMBlocks.DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(BlockTags.DIRT)
@@ -279,9 +292,11 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE_WALL.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_WALL.get())
                 .add(EMBlocks.WITCHSTONE_WALL.get())
-                .add(EMBlocks.DAWNSHALE_WALL.get())
+                .add(EMBlocks.DAWNMARL_WALL.get())
+                .add(EMBlocks.DUSKSHALE_WALL.get())
                 .add(EMBlocks.POLISHED_WITCHSTONE_WALL.get())
                 .add(EMBlocks.POLISHED_DAWNMARL_WALL.get())
+                .add(EMBlocks.POLISHED_DUSKSHALE_WALL.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICK_WALL.get())
                 .add(EMBlocks.ETHERSTONE_BRICK_WALL.get())
                 .add(EMBlocks.COBBLED_ETHERSTONE_WALL.get())
@@ -298,6 +313,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.MOSSY_ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.POLISHED_WITCHSTONE.get())
                 .add(EMBlocks.POLISHED_DAWNMARL.get())
+                .add(EMBlocks.POLISHED_DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE_BRICKS.get())
                 .add(EMBlocks.SPARKLING_SANDSTONE_BRICKS.get())
                 .add(EMBlocks.POLISHED_TIMEWORN_SANDSTONE.get());
@@ -332,12 +348,14 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNMARL.get())
+                .add(EMBlocks.DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(EMTags.Blocks.ETHERMIST_STONES)
                 .add(EMBlocks.ETHERSTONE.get())
                 .add(EMBlocks.WITCHSTONE.get())
                 .add(EMBlocks.DAWNMARL.get())
+                .add(EMBlocks.DUSKSHALE.get())
                 .add(EMBlocks.ANCIENT_ETHERSTONE.get());
 
         tag(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
@@ -357,6 +375,7 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         addRedstone(EMBlocks.ETHERSTONE_BUTTON.get(), EMBlocks.ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_WITCHSTONE_BUTTON.get(), EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.POLISHED_DAWNMARL_BUTTON.get(), EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE.get(), false);
+        addRedstone(EMBlocks.POLISHED_DUSKSHALE_BUTTON.get(), EMBlocks.POLISHED_DUSKSHALE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.ANCIENT_ETHERSTONE_BUTTON.get(), EMBlocks.ANCIENT_ETHERSTONE_PRESSURE_PLATE.get(), false);
         addRedstone(EMBlocks.GLIMMERING_ANCIENT_BUTTON.get(), EMBlocks.GLIMMERING_ANCIENT_PRESSURE_PLATE.get(), true);
         addRedstone(EMBlocks.ANCIENT_BUTTON.get(), EMBlocks.ANCIENT_PRESSURE_PLATE.get(), true);

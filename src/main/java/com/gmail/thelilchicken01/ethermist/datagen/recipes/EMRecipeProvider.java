@@ -145,17 +145,17 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_SLAB.get(), EMBlocks.POLISHED_WITCHSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_WITCHSTONE_WALL.get(), EMBlocks.POLISHED_WITCHSTONE.get(), 1);
 
-        // Dawnshale
+        // Dawnmarl
         stairBuilder(EMBlocks.DAWNMARL_STAIRS.get(), Ingredient.of(EMBlocks.DAWNMARL))
                 .unlockedBy("has_dawnmarl", has(EMBlocks.DAWNMARL)).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNMARL_SLAB.get(), EMBlocks.DAWNMARL.get());
-        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNSHALE_WALL.get(), EMBlocks.DAWNMARL.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNMARL_WALL.get(), EMBlocks.DAWNMARL.get());
 
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNMARL_STAIRS.get(), EMBlocks.DAWNMARL.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNMARL_SLAB.get(), EMBlocks.DAWNMARL.get(), 2);
-        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNSHALE_WALL.get(), EMBlocks.DAWNMARL.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DAWNMARL_WALL.get(), EMBlocks.DAWNMARL.get(), 1);
 
-        // Polished Dawnshale
+        // Polished Dawnmarl
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNMARL.get(), 4)
                 .pattern("aa")
                 .pattern("aa")
@@ -174,6 +174,36 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNMARL_STAIRS.get(), EMBlocks.POLISHED_DAWNMARL.get(), 1);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNMARL_SLAB.get(), EMBlocks.POLISHED_DAWNMARL.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DAWNMARL_WALL.get(), EMBlocks.POLISHED_DAWNMARL.get(), 1);
+
+        // Duskshale
+        stairBuilder(EMBlocks.DUSKSHALE_STAIRS.get(), Ingredient.of(EMBlocks.DUSKSHALE))
+                .unlockedBy("has_duskshale", has(EMBlocks.DUSKSHALE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DUSKSHALE_SLAB.get(), EMBlocks.DUSKSHALE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DUSKSHALE_WALL.get(), EMBlocks.DUSKSHALE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DUSKSHALE_STAIRS.get(), EMBlocks.DUSKSHALE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DUSKSHALE_SLAB.get(), EMBlocks.DUSKSHALE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.DUSKSHALE_WALL.get(), EMBlocks.DUSKSHALE.get(), 1);
+
+        // Polished Duskshale
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE.get(), 4)
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', EMBlocks.DUSKSHALE.get())
+                .unlockedBy("has_duskshale", has(EMBlocks.DUSKSHALE)).save(output);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE.get(), EMBlocks.DUSKSHALE.get(), 1);
+
+        stairBuilder(EMBlocks.POLISHED_DUSKSHALE_STAIRS.get(), Ingredient.of(EMBlocks.POLISHED_DUSKSHALE))
+                .unlockedBy("has_polished_duskshale", has(EMBlocks.POLISHED_DUSKSHALE)).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE_SLAB.get(), EMBlocks.POLISHED_DUSKSHALE.get());
+        buttonBuilder(EMBlocks.POLISHED_DUSKSHALE_BUTTON.get(), Ingredient.of(EMBlocks.POLISHED_DUSKSHALE))
+                .unlockedBy("has_polished_duskshale", has(EMBlocks.POLISHED_DUSKSHALE)).save(output);
+        pressurePlate(output, EMBlocks.POLISHED_DUSKSHALE_PRESSURE_PLATE.get(), EMBlocks.POLISHED_DUSKSHALE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE_WALL.get(), EMBlocks.POLISHED_DUSKSHALE.get());
+
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE_STAIRS.get(), EMBlocks.POLISHED_DUSKSHALE.get(), 1);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE_SLAB.get(), EMBlocks.POLISHED_DUSKSHALE.get(), 2);
+        stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.POLISHED_DUSKSHALE_WALL.get(), EMBlocks.POLISHED_DUSKSHALE.get(), 1);
 
         // Cobbled Etherstone
         stairBuilder(EMBlocks.COBBLED_ETHERSTONE_STAIRS.get(), Ingredient.of(EMBlocks.COBBLED_ETHERSTONE))

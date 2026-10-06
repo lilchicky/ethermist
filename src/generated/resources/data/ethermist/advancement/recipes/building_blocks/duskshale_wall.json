@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_duskshale": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:duskshale"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:duskshale_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_duskshale"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:duskshale_wall"
+    ]
+  }
+}

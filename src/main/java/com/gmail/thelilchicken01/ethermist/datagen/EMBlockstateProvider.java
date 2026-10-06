@@ -80,16 +80,16 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.POLISHED_WITCHSTONE_SLAB, null);
         blockItem(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE, null);
 
-        // Dawnshale
+        // Dawnmarl
         simpleBlock(EMBlocks.DAWNMARL, null);
         stairsBlock(EMBlocks.DAWNMARL_STAIRS.get(), blockTexture(EMBlocks.DAWNMARL.get()));
         slabBlock(EMBlocks.DAWNMARL_SLAB.get(), blockTexture(EMBlocks.DAWNMARL.get()), blockTexture(EMBlocks.DAWNMARL.get()));
-        wallBlock(EMBlocks.DAWNSHALE_WALL.get(), blockTexture(EMBlocks.DAWNMARL.get()));
+        wallBlock(EMBlocks.DAWNMARL_WALL.get(), blockTexture(EMBlocks.DAWNMARL.get()));
         blockItem(EMBlocks.DAWNMARL, null);
         blockItem(EMBlocks.DAWNMARL_STAIRS, null);
         blockItem(EMBlocks.DAWNMARL_SLAB, null);
 
-        // Polished Dawnshale
+        // Polished Dawnmarl
         simpleBlock(EMBlocks.POLISHED_DAWNMARL, null);
         stairsBlock(EMBlocks.POLISHED_DAWNMARL_STAIRS.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
         slabBlock(EMBlocks.POLISHED_DAWNMARL_SLAB.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
@@ -99,6 +99,26 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.POLISHED_DAWNMARL_STAIRS, null);
         blockItem(EMBlocks.POLISHED_DAWNMARL_SLAB, null);
         blockItem(EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE, null);
+
+        // Duskshale
+        simpleBlock(EMBlocks.DUSKSHALE, null);
+        stairsBlock(EMBlocks.DUSKSHALE_STAIRS.get(), blockTexture(EMBlocks.DUSKSHALE.get()));
+        slabBlock(EMBlocks.DUSKSHALE_SLAB.get(), blockTexture(EMBlocks.DUSKSHALE.get()), blockTexture(EMBlocks.DUSKSHALE.get()));
+        wallBlock(EMBlocks.DUSKSHALE_WALL.get(), blockTexture(EMBlocks.DUSKSHALE.get()));
+        blockItem(EMBlocks.DUSKSHALE, null);
+        blockItem(EMBlocks.DUSKSHALE_STAIRS, null);
+        blockItem(EMBlocks.DUSKSHALE_SLAB, null);
+
+        // Polished Duskshale
+        simpleBlock(EMBlocks.POLISHED_DUSKSHALE, null);
+        stairsBlock(EMBlocks.POLISHED_DUSKSHALE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()));
+        slabBlock(EMBlocks.POLISHED_DUSKSHALE_SLAB.get(), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()));
+        buttonBlock(EMBlocks.POLISHED_DUSKSHALE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()));
+        pressurePlateBlock(EMBlocks.POLISHED_DUSKSHALE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()));
+        wallBlock(EMBlocks.POLISHED_DUSKSHALE_WALL.get(), blockTexture(EMBlocks.POLISHED_DUSKSHALE.get()));
+        blockItem(EMBlocks.POLISHED_DUSKSHALE_STAIRS, null);
+        blockItem(EMBlocks.POLISHED_DUSKSHALE_SLAB, null);
+        blockItem(EMBlocks.POLISHED_DUSKSHALE_PRESSURE_PLATE, null);
 
         // Ancient Etherstone
         stairsBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
