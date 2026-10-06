@@ -5,10 +5,8 @@ import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -40,7 +38,7 @@ public class EMOreFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> RICH_DIRT_BLOB = registerKey("rich_dirt_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRUMBLING_ETHERSTONE_BLOB = registerKey("crumbling_etherstone_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCHSTONE_BLOB = registerKey("witchstone_blob");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNSHALE_BLOB = registerKey("dawnshale_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DAWNMARL_BLOB = registerKey("dawnmarl_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACKSTONE_BLOB = registerKey("blackstone_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_BLOB = registerKey("calcite_blob");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = registerKey("basalt_blob");
@@ -117,7 +115,7 @@ public class EMOreFeatures {
         register(context, RICH_DIRT_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.RICH_DIRT.get().defaultBlockState(), 33));
         register(context, CRUMBLING_ETHERSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.CRUMBLING_ETHERSTONE.get().defaultBlockState(), 33));
         register(context, WITCHSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.WITCHSTONE.get().defaultBlockState(), 64));
-        register(context, DAWNSHALE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.DAWNSHALE.get().defaultBlockState(), 64));
+        register(context, DAWNMARL_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, EMBlocks.DAWNMARL.get().defaultBlockState(), 64));
         register(context, BLACKSTONE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.BLACKSTONE.defaultBlockState(), 64));
         register(context, CALCITE_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.CALCITE.defaultBlockState(), 64));
         register(context, BASALT_BLOB, Feature.ORE, new OreConfiguration(ethermistStones, Blocks.SMOOTH_BASALT.defaultBlockState(), 64));

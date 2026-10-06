@@ -74,18 +74,18 @@ public class EMBlocks {
     public static final DeferredBlock<WallBlock> POLISHED_WITCHSTONE_WALL = registerBlock("polished_witchstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_WITCHSTONE.get())));
 
     // Dawnshale
-    public static final DeferredBlock<Block> DAWNSHALE = registerBlock("dawnshale", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
-    public static final DeferredBlock<StairBlock> DAWNSHALE_STAIRS = registerBlock("dawnshale_stairs", () -> new StairBlock(EMBlocks.DAWNSHALE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNSHALE.get())));
-    public static final DeferredBlock<SlabBlock> DAWNSHALE_SLAB = registerBlock("dawnshale_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNSHALE.get())));
-    public static final DeferredBlock<WallBlock> DAWNSHALE_WALL = registerBlock("dawnshale_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNSHALE.get())));
+    public static final DeferredBlock<Block> DAWNMARL = registerBlock("dawnmarl", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.ETHERSTONE.get())));
+    public static final DeferredBlock<StairBlock> DAWNMARL_STAIRS = registerBlock("dawnmarl_stairs", () -> new StairBlock(EMBlocks.DAWNMARL.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNMARL.get())));
+    public static final DeferredBlock<SlabBlock> DAWNMARL_SLAB = registerBlock("dawnmarl_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNMARL.get())));
+    public static final DeferredBlock<WallBlock> DAWNSHALE_WALL = registerBlock("dawnmarl_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNMARL.get())));
 
     // Polished Dawnshale
-    public static final DeferredBlock<Block> POLISHED_DAWNSHALE = registerBlock("polished_dawnshale", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNSHALE.get()).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<StairBlock> POLISHED_DAWNSHALE_STAIRS = registerBlock("polished_dawnshale_stairs", () -> new StairBlock(EMBlocks.POLISHED_DAWNSHALE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNSHALE.get())));
-    public static final DeferredBlock<SlabBlock> POLISHED_DAWNSHALE_SLAB = registerBlock("polished_dawnshale_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNSHALE.get())));
-    public static final DeferredBlock<PressurePlateBlock> POLISHED_DAWNSHALE_PRESSURE_PLATE = registerBlock("polished_dawnshale_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNSHALE.get())));
-    public static final DeferredBlock<ButtonBlock> POLISHED_DAWNSHALE_BUTTON = registerBlock("polished_dawnshale_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNSHALE.get()).noCollission()));
-    public static final DeferredBlock<WallBlock> POLISHED_DAWNSHALE_WALL = registerBlock("polished_dawnshale_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNSHALE.get())));
+    public static final DeferredBlock<Block> POLISHED_DAWNMARL = registerBlock("polished_dawnmarl", () -> new Block(BlockBehaviour.Properties.ofFullCopy(EMBlocks.DAWNMARL.get()).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<StairBlock> POLISHED_DAWNMARL_STAIRS = registerBlock("polished_dawnmarl_stairs", () -> new StairBlock(EMBlocks.POLISHED_DAWNMARL.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNMARL.get())));
+    public static final DeferredBlock<SlabBlock> POLISHED_DAWNMARL_SLAB = registerBlock("polished_dawnmarl_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNMARL.get())));
+    public static final DeferredBlock<PressurePlateBlock> POLISHED_DAWNMARL_PRESSURE_PLATE = registerBlock("polished_dawnmarl_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNMARL.get())));
+    public static final DeferredBlock<ButtonBlock> POLISHED_DAWNMARL_BUTTON = registerBlock("polished_dawnmarl_button", () -> new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNMARL.get()).noCollission()));
+    public static final DeferredBlock<WallBlock> POLISHED_DAWNMARL_WALL = registerBlock("polished_dawnmarl_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(EMBlocks.POLISHED_DAWNMARL.get())));
 
     // Rich Dirt
     public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);

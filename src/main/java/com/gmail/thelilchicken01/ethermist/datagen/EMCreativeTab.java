@@ -181,18 +181,18 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.POLISHED_WITCHSTONE_BUTTON);
 
                 // Dawnshale
-                output.accept(EMBlocks.DAWNSHALE);
-                output.accept(EMBlocks.DAWNSHALE_STAIRS);
-                output.accept(EMBlocks.DAWNSHALE_SLAB);
+                output.accept(EMBlocks.DAWNMARL);
+                output.accept(EMBlocks.DAWNMARL_STAIRS);
+                output.accept(EMBlocks.DAWNMARL_SLAB);
                 output.accept(EMBlocks.DAWNSHALE_WALL);
 
                 // Polished Dawnshale
-                output.accept(EMBlocks.POLISHED_DAWNSHALE);
-                output.accept(EMBlocks.POLISHED_DAWNSHALE_STAIRS);
-                output.accept(EMBlocks.POLISHED_DAWNSHALE_SLAB);
-                output.accept(EMBlocks.POLISHED_DAWNSHALE_WALL);
-                output.accept(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE);
-                output.accept(EMBlocks.POLISHED_DAWNSHALE_BUTTON);
+                output.accept(EMBlocks.POLISHED_DAWNMARL);
+                output.accept(EMBlocks.POLISHED_DAWNMARL_STAIRS);
+                output.accept(EMBlocks.POLISHED_DAWNMARL_SLAB);
+                output.accept(EMBlocks.POLISHED_DAWNMARL_WALL);
+                output.accept(EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE);
+                output.accept(EMBlocks.POLISHED_DAWNMARL_BUTTON);
 
                 // Ancient Etherstone
                 output.accept(EMBlocks.ANCIENT_ETHERSTONE);

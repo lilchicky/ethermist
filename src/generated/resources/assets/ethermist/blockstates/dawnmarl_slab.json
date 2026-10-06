@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ethermist:block/dawnmarl_slab"
+    },
+    "type=double": {
+      "model": "ethermist:block/dawnmarl"
+    },
+    "type=top": {
+      "model": "ethermist:block/dawnmarl_slab_top"
+    }
+  }
+}

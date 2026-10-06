@@ -5,7 +5,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -39,8 +38,8 @@ public class EMOresPlaced {
     public static final ResourceKey<PlacedFeature> CRUMBLING_ETHERSTONE_BLOB_KEY = registerKey("crumbling_etherstone_blob_placed");
     public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_UPPER_KEY = registerKey("witchstone_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> WITCHSTONE_BLOB_LOWER_KEY = registerKey("witchstone_blob_lower_placed");
-    public static final ResourceKey<PlacedFeature> DAWNSHALE_BLOB_UPPER_KEY = registerKey("dawnshale_blob_upper_placed");
-    public static final ResourceKey<PlacedFeature> DAWNSHALE_BLOB_LOWER_KEY = registerKey("dawnshale_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> DAWNMARL_BLOB_UPPER_KEY = registerKey("dawnmarl_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> DAWNMARL_BLOB_LOWER_KEY = registerKey("dawnmarl_blob_lower_placed");
 
     public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_UPPER_KEY = registerKey("blackstone_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_LOWER_KEY = registerKey("blackstone_blob_lower_placed");
@@ -81,7 +80,7 @@ public class EMOresPlaced {
         Holder<ConfiguredFeature<?, ?>> rich_dirt_blob = holdergetter.getOrThrow(EMOreFeatures.RICH_DIRT_BLOB);
         Holder<ConfiguredFeature<?, ?>> crumbling_etherstone_blob = holdergetter.getOrThrow(EMOreFeatures.CRUMBLING_ETHERSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> witchstone_blob = holdergetter.getOrThrow(EMOreFeatures.WITCHSTONE_BLOB);
-        Holder<ConfiguredFeature<?, ?>> dawnshale_blob = holdergetter.getOrThrow(EMOreFeatures.DAWNSHALE_BLOB);
+        Holder<ConfiguredFeature<?, ?>> dawnmarl_blob = holdergetter.getOrThrow(EMOreFeatures.DAWNMARL_BLOB);
         Holder<ConfiguredFeature<?, ?>> blackstone_blob = holdergetter.getOrThrow(EMOreFeatures.BLACKSTONE_BLOB);
         Holder<ConfiguredFeature<?, ?>> calcite_blob = holdergetter.getOrThrow(EMOreFeatures.CALCITE_BLOB);
         Holder<ConfiguredFeature<?, ?>> basalt_blob = holdergetter.getOrThrow(EMOreFeatures.BASALT_BLOB);
@@ -201,14 +200,14 @@ public class EMOresPlaced {
 
         register(
                 context,
-                DAWNSHALE_BLOB_UPPER_KEY,
-                dawnshale_blob,
+                DAWNMARL_BLOB_UPPER_KEY,
+                dawnmarl_blob,
                 rareOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
         );
         register(
                 context,
-                DAWNSHALE_BLOB_LOWER_KEY,
-                dawnshale_blob,
+                DAWNMARL_BLOB_LOWER_KEY,
+                dawnmarl_blob,
                 commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
         );
 

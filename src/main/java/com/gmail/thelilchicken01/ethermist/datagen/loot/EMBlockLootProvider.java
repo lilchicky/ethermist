@@ -86,20 +86,20 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
         dropSelf(EMBlocks.POLISHED_WITCHSTONE_WALL.get());
 
         // Dawnshale
-        dropSelf(EMBlocks.DAWNSHALE.get());
-        dropSelf(EMBlocks.DAWNSHALE_STAIRS.get());
-        add(EMBlocks.DAWNSHALE_SLAB.get(),
-                block -> createSlabItemTable(EMBlocks.DAWNSHALE_SLAB.get()));
+        dropSelf(EMBlocks.DAWNMARL.get());
+        dropSelf(EMBlocks.DAWNMARL_STAIRS.get());
+        add(EMBlocks.DAWNMARL_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.DAWNMARL_SLAB.get()));
         dropSelf(EMBlocks.DAWNSHALE_WALL.get());
 
         // Polished Dawnshale
-        dropSelf(EMBlocks.POLISHED_DAWNSHALE.get());
-        dropSelf(EMBlocks.POLISHED_DAWNSHALE_STAIRS.get());
-        add(EMBlocks.POLISHED_DAWNSHALE_SLAB.get(),
-                block -> createSlabItemTable(EMBlocks.POLISHED_DAWNSHALE_SLAB.get()));
-        dropSelf(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get());
-        dropSelf(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get());
-        dropSelf(EMBlocks.POLISHED_DAWNSHALE_WALL.get());
+        dropSelf(EMBlocks.POLISHED_DAWNMARL.get());
+        dropSelf(EMBlocks.POLISHED_DAWNMARL_STAIRS.get());
+        add(EMBlocks.POLISHED_DAWNMARL_SLAB.get(),
+                block -> createSlabItemTable(EMBlocks.POLISHED_DAWNMARL_SLAB.get()));
+        dropSelf(EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE.get());
+        dropSelf(EMBlocks.POLISHED_DAWNMARL_BUTTON.get());
+        dropSelf(EMBlocks.POLISHED_DAWNMARL_WALL.get());
 
         // Ancient Etherstone
         dropSelf(EMBlocks.ANCIENT_ETHERSTONE.get());

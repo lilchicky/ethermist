@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dawnmarl": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:dawnmarl"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:dawnmarl_stairs_from_dawnmarl_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dawnmarl"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:dawnmarl_stairs_from_dawnmarl_stonecutting"
+    ]
+  }
+}

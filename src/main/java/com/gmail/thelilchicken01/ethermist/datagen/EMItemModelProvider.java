@@ -6,21 +6,13 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.armortrim.TrimMaterial;
-import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
-
-import java.util.LinkedHashMap;
 
 import static com.gmail.thelilchicken01.ethermist.datagen.DataGenerators.*;
 
@@ -41,10 +33,10 @@ public class EMItemModelProvider extends ItemModelProvider {
         buttonItem(EMBlocks.POLISHED_WITCHSTONE_BUTTON, EMBlocks.POLISHED_WITCHSTONE);
         wallItem(EMBlocks.POLISHED_WITCHSTONE_WALL, EMBlocks.POLISHED_WITCHSTONE);
 
-        wallItem(EMBlocks.DAWNSHALE_WALL, EMBlocks.DAWNSHALE);
+        wallItem(EMBlocks.DAWNSHALE_WALL, EMBlocks.DAWNMARL);
 
-        buttonItem(EMBlocks.POLISHED_DAWNSHALE_BUTTON, EMBlocks.POLISHED_DAWNSHALE);
-        wallItem(EMBlocks.POLISHED_DAWNSHALE_WALL, EMBlocks.POLISHED_DAWNSHALE);
+        buttonItem(EMBlocks.POLISHED_DAWNMARL_BUTTON, EMBlocks.POLISHED_DAWNMARL);
+        wallItem(EMBlocks.POLISHED_DAWNMARL_WALL, EMBlocks.POLISHED_DAWNMARL);
 
         buttonItemFolder(EMBlocks.ANCIENT_ETHERSTONE_BUTTON, EMBlocks.ANCIENT_ETHERSTONE, ANCIENT_ETHERSTONE);
         wallItemFolder(EMBlocks.ANCIENT_ETHERSTONE_WALL, EMBlocks.ANCIENT_ETHERSTONE, ANCIENT_ETHERSTONE);

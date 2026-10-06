@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "ethermist:block/dawnmarl",
+    "side": "ethermist:block/dawnmarl",
+    "top": "ethermist:block/dawnmarl"
+  }
+}

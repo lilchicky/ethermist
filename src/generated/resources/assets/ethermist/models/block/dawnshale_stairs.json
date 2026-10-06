@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "ethermist:block/dawnshale",
-    "side": "ethermist:block/dawnshale",
-    "top": "ethermist:block/dawnshale"
-  }
-}

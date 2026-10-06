@@ -2,7 +2,6 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -82,24 +81,24 @@ public class EMBlockstateProvider extends BlockStateProvider {
         blockItem(EMBlocks.POLISHED_WITCHSTONE_PRESSURE_PLATE, null);
 
         // Dawnshale
-        simpleBlock(EMBlocks.DAWNSHALE, null);
-        stairsBlock(EMBlocks.DAWNSHALE_STAIRS.get(), blockTexture(EMBlocks.DAWNSHALE.get()));
-        slabBlock(EMBlocks.DAWNSHALE_SLAB.get(), blockTexture(EMBlocks.DAWNSHALE.get()), blockTexture(EMBlocks.DAWNSHALE.get()));
-        wallBlock(EMBlocks.DAWNSHALE_WALL.get(), blockTexture(EMBlocks.DAWNSHALE.get()));
-        blockItem(EMBlocks.DAWNSHALE, null);
-        blockItem(EMBlocks.DAWNSHALE_STAIRS, null);
-        blockItem(EMBlocks.DAWNSHALE_SLAB, null);
+        simpleBlock(EMBlocks.DAWNMARL, null);
+        stairsBlock(EMBlocks.DAWNMARL_STAIRS.get(), blockTexture(EMBlocks.DAWNMARL.get()));
+        slabBlock(EMBlocks.DAWNMARL_SLAB.get(), blockTexture(EMBlocks.DAWNMARL.get()), blockTexture(EMBlocks.DAWNMARL.get()));
+        wallBlock(EMBlocks.DAWNSHALE_WALL.get(), blockTexture(EMBlocks.DAWNMARL.get()));
+        blockItem(EMBlocks.DAWNMARL, null);
+        blockItem(EMBlocks.DAWNMARL_STAIRS, null);
+        blockItem(EMBlocks.DAWNMARL_SLAB, null);
 
         // Polished Dawnshale
-        simpleBlock(EMBlocks.POLISHED_DAWNSHALE, null);
-        stairsBlock(EMBlocks.POLISHED_DAWNSHALE_STAIRS.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
-        slabBlock(EMBlocks.POLISHED_DAWNSHALE_SLAB.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
-        buttonBlock(EMBlocks.POLISHED_DAWNSHALE_BUTTON.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
-        pressurePlateBlock(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
-        wallBlock(EMBlocks.POLISHED_DAWNSHALE_WALL.get(), blockTexture(EMBlocks.POLISHED_DAWNSHALE.get()));
-        blockItem(EMBlocks.POLISHED_DAWNSHALE_STAIRS, null);
-        blockItem(EMBlocks.POLISHED_DAWNSHALE_SLAB, null);
-        blockItem(EMBlocks.POLISHED_DAWNSHALE_PRESSURE_PLATE, null);
+        simpleBlock(EMBlocks.POLISHED_DAWNMARL, null);
+        stairsBlock(EMBlocks.POLISHED_DAWNMARL_STAIRS.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
+        slabBlock(EMBlocks.POLISHED_DAWNMARL_SLAB.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
+        buttonBlock(EMBlocks.POLISHED_DAWNMARL_BUTTON.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
+        pressurePlateBlock(EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
+        wallBlock(EMBlocks.POLISHED_DAWNMARL_WALL.get(), blockTexture(EMBlocks.POLISHED_DAWNMARL.get()));
+        blockItem(EMBlocks.POLISHED_DAWNMARL_STAIRS, null);
+        blockItem(EMBlocks.POLISHED_DAWNMARL_SLAB, null);
+        blockItem(EMBlocks.POLISHED_DAWNMARL_PRESSURE_PLATE, null);
 
         // Ancient Etherstone
         stairsBlockFolder(EMBlocks.ANCIENT_ETHERSTONE_STAIRS.get(), blockTextureFolder(EMBlocks.ANCIENT_ETHERSTONE.get(), ANCIENT_ETHERSTONE), ANCIENT_ETHERSTONE);
