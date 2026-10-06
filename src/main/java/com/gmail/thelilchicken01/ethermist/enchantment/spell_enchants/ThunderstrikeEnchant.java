@@ -5,6 +5,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -39,7 +40,11 @@ public class ThunderstrikeEnchant implements IWandSpellEffect {
             LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
             if (bolt != null) {
                 bolt.moveTo(shot.getX(), shot.getY(), shot.getZ());
+                bolt.setVisualOnly(true);
                 level.addFreshEntity(bolt);
+                if (target != null) {
+                    target.thunderHit((ServerLevel) level, bolt);
+                }
             }
         }
 
