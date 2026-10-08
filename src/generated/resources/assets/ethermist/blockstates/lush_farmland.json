@@ -22,7 +22,7 @@
       "model": "ethermist:block/lush_farmland"
     },
     "moisture=7": {
-      "model": "ethermist:block/lush_farmland"
+      "model": "ethermist:block/lush_farmland_moist"
     }
   }
 }

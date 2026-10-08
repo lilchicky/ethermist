@@ -107,7 +107,7 @@ public class EMBlocks {
     // Rich Dirt
     public static final DeferredBlock<Block> RICH_DIRT = registerBlock("rich_dirt", RichDirt::new);
     public static final DeferredBlock<Block> RICH_GRASS_BLOCK = registerBlock("rich_grass_block", () -> new RichGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
-    public static final DeferredBlock<Block> LUSH_FARMLAND = registerBlock("lush_farmland", () -> new LushFarmland(BlockBehaviour.Properties.ofFullCopy(EMBlocks.RICH_DIRT.get())));
+    public static final DeferredBlock<Block> LUSH_FARMLAND = registerBlock("lush_farmland", () -> new LushFarmland(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND)));
 
     // Glimmering Ancient Wood
     public static final DeferredBlock<Block> GLIMMERING_ANCIENT_LOG = registerBlock("glimmering_ancient_log", () -> new EMRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LOG), true));

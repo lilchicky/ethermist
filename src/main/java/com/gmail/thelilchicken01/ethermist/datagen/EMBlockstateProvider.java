@@ -717,7 +717,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         ModelFile moist = models()
                 .withExistingParent(
-                        farmlandId,
+                        farmlandId + "_moist",
                         mcLoc("block/template_farmland")
                 )
                 .texture("dirt", modLoc("block/" + dirtId))
