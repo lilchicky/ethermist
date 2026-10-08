@@ -668,14 +668,14 @@ public class EMBlockstateProvider extends BlockStateProvider {
                         "attached_" + unattachedId,
                         mcLoc("block/stem_fruit")
                 )
-                .texture("stem", modLoc("block/" + unattachedId))
-                .texture("upperstem", modLoc("block/attached_" + unattachedId));
+                .texture("stem", modLoc("block/" + unattachedId)).renderType("cutout")
+                .texture("upperstem", modLoc("block/attached_" + unattachedId)).renderType("cutout");
 
         for (int age = 0; age <= 7; age++) {
             models().withExistingParent(
                 unattachedId + "_stage" + age,
                     mcLoc("block/stem_growth" + age)
-            ).texture("stem", modLoc("block/" + unattachedId));
+            ).texture("stem", modLoc("block/" + unattachedId)).renderType("cutout");
 
             getVariantBuilder(unattached)
                     .partialState()

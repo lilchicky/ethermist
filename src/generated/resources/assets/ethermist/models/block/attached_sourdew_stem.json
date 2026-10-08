@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/stem_fruit",
+  "render_type": "minecraft:cutout",
   "textures": {
     "stem": "ethermist:block/sourdew_stem",
     "upperstem": "ethermist:block/attached_sourdew_stem"
