@@ -1,6 +1,108 @@
 {
   "values": {
+    "ethermist:abyssal_mushroom": {
+      "chance": 0.5
+    },
+    "ethermist:ancient_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:ancient_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:chronothorn": {
+      "chance": 0.65
+    },
+    "ethermist:cinderbloom": {
+      "chance": 0.3
+    },
+    "ethermist:dawning_hyacinth": {
+      "chance": 0.65
+    },
+    "ethermist:fallen_amberwood_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:frostpine_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:frostpine_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:glimmerbud": {
+      "chance": 0.65
+    },
+    "ethermist:glimmering_ancient_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:green_amberwood_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:green_amberwood_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:large_abyssal_mushroom_gills": {
+      "chance": 0.85
+    },
+    "ethermist:large_blue_abyssal_mushroom_top": {
+      "chance": 0.85
+    },
+    "ethermist:large_orange_abyssal_mushroom_top": {
+      "chance": 0.85
+    },
+    "ethermist:nightbell": {
+      "chance": 0.65
+    },
+    "ethermist:orange_amberwood_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:orange_amberwood_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:pyruscia": {
+      "chance": 0.65
+    },
+    "ethermist:red_amberwood_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:red_amberwood_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:rich_grass": {
+      "chance": 0.3
+    },
+    "ethermist:rich_tall_grass": {
+      "chance": 0.5
+    },
+    "ethermist:shroom_cluster": {
+      "chance": 0.85
+    },
+    "ethermist:slimy_allium": {
+      "chance": 0.65
+    },
+    "ethermist:slimy_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:slimy_sapling": {
+      "chance": 0.3
+    },
+    "ethermist:small_abyssal_mushroom": {
+      "chance": 0.3
+    },
+    "ethermist:sourdew": {
+      "chance": 0.65
+    },
     "ethermist:sourdew_seeds": {
+      "chance": 0.3
+    },
+    "ethermist:tall_abyssal_mushroom": {
+      "chance": 0.65
+    },
+    "ethermist:witch_lavender": {
+      "chance": 0.65
+    },
+    "ethermist:yellow_amberwood_leaves": {
+      "chance": 0.3
+    },
+    "ethermist:yellow_amberwood_sapling": {
       "chance": 0.3
     }
   }
