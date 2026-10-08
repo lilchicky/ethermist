@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -109,6 +110,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         crossItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM);
         basicItem(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
         crossItem(EMBlocks.ABYSSAL_MUSHROOM);
+
+        farmlandItem(EMBlocks.LUSH_FARMLAND, "rich_dirt/rich_dirt");
 
         basicItem(EMItems.SOURDEW_SEEDS.get());
 
@@ -278,6 +281,15 @@ public class EMItemModelProvider extends ItemModelProvider {
         this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "item/shots/" + item.getId().getPath()));
+    }
+
+    public void farmlandItem(DeferredBlock<?> farmland, String dirtPath) {
+        this.withExistingParent(
+                        farmland.getId().getPath(),
+                        mcLoc("block/template_farmland")
+                )
+                .texture("dirt", modLoc("block/" + dirtPath))
+                .texture("top", modLoc("block/" + farmland.getId().getPath()));
     }
 
 }

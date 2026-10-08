@@ -336,6 +336,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                 block -> createSilkTouchDispatchTable(EMBlocks.RICH_GRASS_BLOCK.get(),
                         LootItem.lootTableItem(EMBlocks.RICH_DIRT.get())
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))));
+        dropOther(EMBlocks.LUSH_FARMLAND.get(), EMBlocks.RICH_DIRT.get());
 
         // Flowers
         dropSelf(EMBlocks.GLIMMERBUD.get());

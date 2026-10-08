@@ -114,7 +114,8 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.RICH_DIRT.get())
                 .add(EMBlocks.RICH_GRASS_BLOCK.get())
                 .add(EMBlocks.SPARKLING_SAND.get())
-                .add(EMBlocks.TIMEWORN_SAND.get());
+                .add(EMBlocks.TIMEWORN_SAND.get())
+                .add(EMBlocks.LUSH_FARMLAND.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(EMBlocks.GLIMMERING_ANCIENT_STAIRS.get())
@@ -231,6 +232,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.DIRT)
                 .add(EMBlocks.RICH_GRASS_BLOCK.get())
                 .add(EMBlocks.RICH_DIRT.get());
+
+        tag(Tags.Blocks.VILLAGER_FARMLANDS)
+                .add(EMBlocks.LUSH_FARMLAND.get());
 
         tag(BlockTags.SAND)
                 .add(EMBlocks.SPARKLING_SAND.get())

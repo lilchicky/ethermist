@@ -336,6 +336,7 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.SOURDEW.get());
 
                 // Misc
+                output.accept(EMBlocks.LUSH_FARMLAND.get());
                 output.accept(EMBlocks.WANDFORGING_TABLE);
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
                 output.accept(EMBlocks.ETHERMIST_PORTAL);

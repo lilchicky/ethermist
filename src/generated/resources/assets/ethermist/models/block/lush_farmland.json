@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "ethermist:block/rich_dirt/rich_dirt",
+    "top": "ethermist:block/lush_farmland_moist"
+  }
+}

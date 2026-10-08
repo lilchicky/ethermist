@@ -406,6 +406,7 @@ public class EMBlockstateProvider extends BlockStateProvider {
         }));
 
         blockItem(EMBlocks.RICH_GRASS_BLOCK, null);
+        createFarmland(EMBlocks.LUSH_FARMLAND.get(), "rich_dirt/rich_dirt");
 
         // Flowers
         plantBlock(EMBlocks.GLIMMERBUD);
@@ -701,5 +702,34 @@ public class EMBlockstateProvider extends BlockStateProvider {
                 .partialState()
                 .with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
                 .modelForState().modelFile(attachedModel).addModel();
+    }
+
+    private void createFarmland(Block farmland, String dirtId) {
+        String farmlandId = BuiltInRegistries.BLOCK.getKey(farmland).getPath();
+
+        ModelFile dry = models()
+                .withExistingParent(
+                        farmlandId,
+                        mcLoc("block/template_farmland")
+                )
+                .texture("dirt", modLoc("block/" + dirtId))
+                .texture("top", modLoc("block/" + farmlandId));
+
+        ModelFile moist = models()
+                .withExistingParent(
+                        farmlandId,
+                        mcLoc("block/template_farmland")
+                )
+                .texture("dirt", modLoc("block/" + dirtId))
+                .texture("top", modLoc("block/" + farmlandId + "_moist"));
+
+        for (int moisture = 0; moisture <= 7; moisture++) {
+            getVariantBuilder(farmland)
+                    .partialState()
+                    .with(BlockStateProperties.MOISTURE, moisture)
+                    .modelForState()
+                    .modelFile(moisture == 7 ? moist : dry)
+                    .addModel();
+        }
     }
 }
