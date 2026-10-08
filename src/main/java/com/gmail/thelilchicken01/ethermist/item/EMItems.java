@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.wands.*;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_orb_effects.EMWandOrbs;
@@ -8,8 +9,11 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotIt
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -96,6 +100,8 @@ public class EMItems {
     public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.SHROOM_CLUSTER)));
     public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.TOASTED_SHROOM_CLUSTER)));
     public static final DeferredItem<Item> GLIMMERBUG_SHELL = ITEMS.register("glimmerbug_shell", () -> new Item(new Item.Properties().food(EMFoods.GLIMMERBUG_SHELL)));
+
+    public static final DeferredItem<Item> SOURDEW_SEEDS = ITEMS.register("sourdew_seeds", () -> new ItemNameBlockItem(EMBlocks.SOURDEW_STEM.get(), new Item.Properties()));
 
     /*
     ---------- Spawn Eggs ----------

@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen.loot;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.providers.number.BinomialDistributionGenerator;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -393,6 +395,10 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
         ));
 
+        add(EMBlocks.SOURDEW_STEM.get(), generateStemDrops(EMBlocks.SOURDEW_STEM.get(), EMItems.SOURDEW_SEEDS.get()));
+        add(EMBlocks.ATTACHED_SOURDEW_STEM.get(), generateStemDrops(EMBlocks.ATTACHED_SOURDEW_STEM.get(), EMItems.SOURDEW_SEEDS.get()));
+        dropSelf(EMBlocks.SOURDEW.get());
+
         // Abyssal Mushrooms
         dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get());
         dropSelf(EMBlocks.LARGE_ORANGE_ABYSSAL_MUSHROOM_TOP.get());
@@ -583,6 +589,25 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
                 );
         return generateDoubleBlockDrops(block, builder);
+    }
+
+    protected LootTable.Builder generateStemDrops(Block block, Item seeds) {
+        return LootTable.lootTable().withPool(
+                this.applyExplosionDecay(
+                        block,
+                        LootPool.lootPool().setRolls(
+                                        ConstantValue.exactly(1.0f)
+                                )
+                                .add(
+                                        LootItem.lootTableItem(seeds)
+                                                .apply(
+                                                        SetItemCountFunction.setCount(
+                                                                BinomialDistributionGenerator.binomial(3, 0.53333336F)
+                                                        )
+                                                )
+                                )
+                )
+        );
     }
 
 }

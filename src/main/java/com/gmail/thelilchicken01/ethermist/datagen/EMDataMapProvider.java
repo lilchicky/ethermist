@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 
@@ -28,6 +29,9 @@ public class EMDataMapProvider extends DataMapProvider {
                 .add(EMItems.GLOWSTONE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
                 .add(EMItems.PRISMARINE_WAND_HANDLE.getId(), new FurnaceFuel(80), false)
                 .add(EMItems.NETHERITE_WAND_HANDLE.getId(), new FurnaceFuel(80), false);
+
+        this.builder(NeoForgeDataMaps.COMPOSTABLES)
+                .add(EMItems.SOURDEW_SEEDS.getId(), new Compostable(0.3f), false);
     }
 
 }

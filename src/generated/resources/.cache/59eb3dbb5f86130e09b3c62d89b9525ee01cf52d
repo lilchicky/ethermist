@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-05T20:24:29.1330013	Loot Tables
+// 1.21.1	2026-10-08T06:03:45.9043733	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -42,6 +42,7 @@ a3a53c3ccc618d3a91967783b5e53e79f50630d8 data/ethermist/loot_table/blocks/ancien
 ce2851f439df78895400a4325a8d8bbe9110acf7 data/ethermist/loot_table/blocks/ancient_stairs.json
 7d1155e7205b3823f8237d1678dbc26b53f2d079 data/ethermist/loot_table/blocks/ancient_trapdoor.json
 0bdcd219971d04e436b42f135cdbaa51a604c6a5 data/ethermist/loot_table/blocks/ancient_wood.json
+ad72f81eee7bcd3f119a0591b0b59b89e9e756a0 data/ethermist/loot_table/blocks/attached_sourdew_stem.json
 edcb4f70450bf66796b658920611b154877f7782 data/ethermist/loot_table/blocks/charred_button.json
 4476ab202b1887a386600dc3ae5d71ab7f49e45d data/ethermist/loot_table/blocks/charred_door.json
 d903f2effc841b6a22c7c8469c3503e500054729 data/ethermist/loot_table/blocks/charred_fence.json
@@ -196,6 +197,8 @@ daba9c7b471e9a7cc821c7f2354906e922ebb168 data/ethermist/loot_table/blocks/slimy_
 b0e474b726e361f6af5284a4a57f710005b902ed data/ethermist/loot_table/blocks/slimy_trapdoor.json
 f55a2a2bd479e496e4a5419bad1ee04baf48f9ed data/ethermist/loot_table/blocks/slimy_wood.json
 258b8314b2d5c3f9e04d5b53c598534890f698b3 data/ethermist/loot_table/blocks/small_abyssal_mushroom.json
+3a8f174008451b2f4eae58ca74d4cec66d9dadd6 data/ethermist/loot_table/blocks/sourdew.json
+a0c99e4b2e0a228dcb07bbdb523ddbfcbe1cf2a3 data/ethermist/loot_table/blocks/sourdew_stem.json
 f14b5c654e1e3be3991c84de210c74b7da968051 data/ethermist/loot_table/blocks/sparkling_sand.json
 f3508f2df34fb9da244616bb73a8fc7f4050ec77 data/ethermist/loot_table/blocks/sparkling_sandstone.json
 164979f05ab23529f21cc1be7cc33885e4c2f2a1 data/ethermist/loot_table/blocks/sparkling_sandstone_bricks.json

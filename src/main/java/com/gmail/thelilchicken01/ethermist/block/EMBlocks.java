@@ -5,6 +5,9 @@ import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.particle.EMParticleTypes;
 import com.gmail.thelilchicken01.ethermist.sound.EMSoundEvents;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.EMTreeGrowers;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -306,6 +309,32 @@ public class EMBlocks {
 
     public static final DeferredBlock<BushBlock> RICH_GRASS = registerBlock("rich_grass", () -> new RichGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
     public static final DeferredBlock<DoublePlantBlock> RICH_TALL_GRASS = registerBlock("rich_tall_grass", RichTallGrass::new);
+
+    // Crops
+    public static final ResourceKey<Block> SOURDEW_KEY = ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sourdew"));
+    public static final ResourceKey<Block> ATTACHED_SOURDEW_STEM_KEY = ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "attached_sourdew_stem"));
+    public static final ResourceKey<Block> SOURDEW_STEM_KEY = ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sourdew_stem"));
+    public static final ResourceKey<Item> SOURDEW_SEEDS_KEY = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sourdew_seeds"));
+
+    public static final DeferredBlock<Block> SOURDEW = registerBlock("sourdew", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)));
+    public static final DeferredBlock<Block> ATTACHED_SOURDEW_STEM = BLOCKS.register(
+            "attached_sourdew_stem",
+            () -> new AttachedStemBlock(
+                    SOURDEW_STEM_KEY,
+                    SOURDEW_KEY,
+                    SOURDEW_SEEDS_KEY,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_MELON_STEM)
+            )
+    );
+    public static final DeferredBlock<StemBlock> SOURDEW_STEM = BLOCKS.register(
+            "sourdew_stem",
+            () -> new StemBlock(
+                    SOURDEW_KEY,
+                    ATTACHED_SOURDEW_STEM_KEY,
+                    SOURDEW_SEEDS_KEY,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.MELON_STEM)
+            )
+    );
 
     // Abyssal Mushroom
     public static final DeferredBlock<Block> LARGE_BLUE_ABYSSAL_MUSHROOM_TOP = registerBlock("large_blue_abyssal_mushroom_top", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f).sound(SoundType.MUD)));

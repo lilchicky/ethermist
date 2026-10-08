@@ -2,9 +2,18 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -12,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
@@ -433,6 +443,17 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         simpleBlock(EMBlocks.CUBED_ABYSSAL_MUSHROOM, ABYSSAL_MUSHROOM);
 
+        // Crops
+        createStems(EMBlocks.SOURDEW_STEM.get(), EMBlocks.ATTACHED_SOURDEW_STEM.get());
+        getVariantBuilder(EMBlocks.SOURDEW.get()).forAllStates((state -> ConfiguredModel.builder()
+                .modelFile(models().cubeBottomTop("sourdew",
+                        modLoc("block/sourdew_side"),
+                        modLoc("block/sourdew_top"),
+                        modLoc("block/sourdew_top")
+                )).build()));
+
+        blockItem(EMBlocks.SOURDEW, null);
+
         stairsBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_STAIRS.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
         slabBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
         buttonBlockFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM_BUTTON.get(), blockTextureFolder(EMBlocks.CUBED_ABYSSAL_MUSHROOM.get(), ABYSSAL_MUSHROOM), ABYSSAL_MUSHROOM);
@@ -522,7 +543,6 @@ public class EMBlockstateProvider extends BlockStateProvider {
 
         getVariantBuilder(block.get()).forAllStates(function);
     }
-
 
     private ConfiguredModel[] customDoubleBlockStates(BlockState state, DeferredBlock<?> block) {
         DoubleBlockHalf blockHalf = state.getValue(TallFlowerBlock.HALF);
@@ -641,4 +661,45 @@ public class EMBlockstateProvider extends BlockStateProvider {
         return modLoc("block/" + folder + "/" + name.getPath());
     }
 
+    private void createStems(Block unattached, Block attached) {
+        String unattachedId = BuiltInRegistries.BLOCK.getKey(unattached).getPath();
+        ModelFile attachedModel = models()
+                .withExistingParent(
+                        "attached_" + unattachedId,
+                        mcLoc("block/stem_fruit")
+                )
+                .texture("stem", modLoc("block/" + unattachedId))
+                .texture("upperstem", modLoc("block/attached_" + unattachedId));
+
+        for (int age = 0; age <= 7; age++) {
+            models().withExistingParent(
+                unattachedId + "_stage" + age,
+                    mcLoc("block/stem_growth" + age)
+            ).texture("stem", modLoc("block/" + unattachedId));
+
+            getVariantBuilder(unattached)
+                    .partialState()
+                    .with(BlockStateProperties.AGE_7, age)
+                    .modelForState()
+                    .modelFile(
+                            models().getExistingFile(
+                                    modLoc("block/" + unattachedId + "_stage" + age)
+                            )
+                    ).addModel();
+        }
+
+        getVariantBuilder(attached)
+                .partialState()
+                .with(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST)
+                .modelForState().modelFile(attachedModel).rotationY(180).addModel()
+                .partialState()
+                .with(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
+                .modelForState().modelFile(attachedModel).rotationY(90).addModel()
+                .partialState()
+                .with(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH)
+                .modelForState().modelFile(attachedModel).rotationY(270).addModel()
+                .partialState()
+                .with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
+                .modelForState().modelFile(attachedModel).addModel();
+    }
 }

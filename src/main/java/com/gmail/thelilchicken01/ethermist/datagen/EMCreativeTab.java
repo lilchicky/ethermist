@@ -332,6 +332,9 @@ public class EMCreativeTab {
                 output.accept(EMBlocks.ABYSSAL_MUSHROOM);
                 output.accept(EMBlocks.TALL_ABYSSAL_MUSHROOM);
 
+                // Food/Crop Blocks
+                output.accept(EMBlocks.SOURDEW.get());
+
                 // Misc
                 output.accept(EMBlocks.WANDFORGING_TABLE);
                 output.accept(EMBlocks.GLIMMERBUG_HIVE);
@@ -395,6 +398,9 @@ public class EMCreativeTab {
                 output.accept(EMItems.AUGMENT_TOME.get());
                 output.accept(EMItems.MAIN_SPELL_TOME.get());
                 output.accept(EMItems.EXCLUSION_TOME.get());
+
+                // Seeds/Crops
+                output.accept(EMItems.SOURDEW_SEEDS.get());
 
                 // Foods
                 output.accept(EMItems.SHROOM_CLUSTER.get());

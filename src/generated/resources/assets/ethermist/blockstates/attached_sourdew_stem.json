@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "ethermist:block/attached_sourdew_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "ethermist:block/attached_sourdew_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ethermist:block/attached_sourdew_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "ethermist:block/attached_sourdew_stem"
+    }
+  }
+}

@@ -118,6 +118,9 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMBlocks.NIGHTBELL.get().asItem())
                 .add(EMBlocks.CHRONOTHORN.get().asItem());
 
+        tag(Tags.Items.SEEDS)
+                .add(EMItems.SOURDEW_SEEDS.get());
+
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())
                 .add(EMItems.AUGMENT_TOME.get())

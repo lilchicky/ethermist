@@ -110,6 +110,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItem(EMBlocks.TALL_ABYSSAL_MUSHROOM.get().asItem());
         crossItem(EMBlocks.ABYSSAL_MUSHROOM);
 
+        basicItem(EMItems.SOURDEW_SEEDS.get());
+
         // ---------- Wand Handles ----------
         wandHandle(EMItems.WOODEN_WAND_HANDLE);
         wandHandle(EMItems.EMERALD_WAND_HANDLE);
