@@ -64,7 +64,7 @@ public class LushFarmland extends FarmBlock {
 
     @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
-        super.fallOn(level, state, pos, entity, fallDistance);
+        entity.causeFallDamage(fallDistance, 1.0F, entity.damageSources().fall());
     }
 
     public static void turnToDirt(@Nullable Entity entity, BlockState state, Level level, BlockPos pos) {
