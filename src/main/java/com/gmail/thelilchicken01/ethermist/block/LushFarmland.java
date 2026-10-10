@@ -29,35 +29,11 @@ import net.neoforged.neoforge.common.FarmlandWaterManager;
 
 import javax.annotation.Nullable;
 
-public class LushFarmland extends Block {
-    public static final MapCodec<LushFarmland> CODEC = simpleCodec(LushFarmland::new);
-    public static final IntegerProperty MOISTURE;
-    protected static final VoxelShape SHAPE;
-    public static final int MAX_MOISTURE = 7;
-
-    @Override
-    public MapCodec<LushFarmland> codec() {
-        return CODEC;
-    }
+public class LushFarmland extends FarmBlock {
 
     public LushFarmland(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(MOISTURE, 0));
-    }
-
-    @Override
-    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        if (facing == Direction.UP && !state.canSurvive(level, currentPos)) {
-            level.scheduleTick(currentPos, this, 1);
-        }
-
-        return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-    }
-
-    @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockState blockstate = level.getBlockState(pos.above());
-        return !blockstate.isSolid() || blockstate.getBlock() instanceof FenceGateBlock || blockstate.getBlock() instanceof MovingPistonBlock;
     }
 
     @Override
@@ -66,21 +42,10 @@ public class LushFarmland extends Block {
     }
 
     @Override
-    protected boolean useShapeForLightOcclusion(BlockState state) {
-        return true;
-    }
-
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
-    }
-
-    @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!state.canSurvive(level, pos)) {
             turnToDirt(null, state, level, pos);
         }
-
     }
 
     @Override
@@ -95,7 +60,11 @@ public class LushFarmland extends Block {
         } else if (i < MAX_MOISTURE) {
             level.setBlock(pos, state.setValue(MOISTURE, MAX_MOISTURE), 2);
         }
+    }
 
+    @Override
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+        entity.causeFallDamage(fallDistance, 1.0F, entity.damageSources().fall());
     }
 
     public static void turnToDirt(@Nullable Entity entity, BlockState state, Level level, BlockPos pos) {
@@ -118,20 +87,5 @@ public class LushFarmland extends Block {
         }
 
         return FarmlandWaterManager.hasBlockWaterTicket(level, pos);
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(MOISTURE);
-    }
-
-    @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType pathComputationType) {
-        return false;
-    }
-
-    static {
-        MOISTURE = BlockStateProperties.MOISTURE;
-        SHAPE = Block.box(0.0F, 0.0F, 0.0F, 16.0F, 15.0F, 16.0F);
     }
 }
