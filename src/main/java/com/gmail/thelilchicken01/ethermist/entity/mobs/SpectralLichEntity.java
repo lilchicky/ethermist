@@ -1,11 +1,16 @@
 package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
+import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -13,8 +18,15 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.Optional;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class SpectralLichEntity extends Monster {
@@ -82,6 +94,32 @@ public class SpectralLichEntity extends Monster {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.SKELETON_HURT;
+    }
+
+    @Override
+    protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
+        super.populateDefaultEquipmentSlots(random, difficulty);
+
+        Optional<HolderSet.Named<Item>> holdable = BuiltInRegistries.ITEM.getTag(EMTags.Items.SPECTRAL_LICH_CAN_HOLD);
+
+        holdable.flatMap(holders -> holders.getRandomElement(random)).ifPresent(item ->
+                setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(item.value())));
+    }
+
+    @Override
+    protected void populateDefaultEquipmentEnchantments(ServerLevelAccessor level, RandomSource random, DifficultyInstance difficulty) {
+        super.populateDefaultEquipmentEnchantments(level, random, difficulty);
+    }
+
+    @Override
+    public boolean canPickUpLoot() {
+        return true;
+    }
+
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        this.populateDefaultEquipmentSlots(random, difficulty);
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
 
     private void setupAnimationStates() {

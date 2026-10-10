@@ -8,10 +8,10 @@ import net.minecraft.client.animation.KeyframeAnimations;
 /**
  * Made with Blockbench 5.2.2
  * Exported for Minecraft version 1.19 or later with Mojang mappings
- * @author Author
+ * @author Hexodiax
  */
 public class SpectralLichAnimations {
-	public static final AnimationDefinition WALK = AnimationDefinition.Builder.withLength(1.8F).looping()
+	public static final AnimationDefinition WALK = AnimationDefinition.Builder.withLength(1.0F).looping()
 		.addAnimation("body", new AnimationChannel(AnimationChannel.Targets.ROTATION,
 			new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, -2.5F), AnimationChannel.Interpolations.LINEAR),
 			new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 2.5F), AnimationChannel.Interpolations.LINEAR),

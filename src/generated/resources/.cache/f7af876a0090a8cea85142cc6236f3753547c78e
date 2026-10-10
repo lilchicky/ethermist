@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-08T06:03:45.9096212	Tags for minecraft:item mod id ethermist
+// 1.21.1	2026-10-10T04:10:56.7989377	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 9bc0d282717153a19438738b270e4956c4da256b data/c/tags/item/foods.json
@@ -27,6 +27,7 @@ a84d11c51d435b5d06702eb25760a70c715139c2 data/ethermist/tags/item/enchantable_ma
 e1b2e2698b96fda9188d95c9d7b8f4f578c13a16 data/ethermist/tags/item/handles.json
 c346b20852109a822dc3f9908f4a12a538a80978 data/ethermist/tags/item/magic_enchantable.json
 1b37520318739e7ac284bceaca46149d4de3eb14 data/ethermist/tags/item/orbs.json
+2c55892b14cf3027cc126a14cf23fc00fd108e22 data/ethermist/tags/item/spectral_lich_can_hold.json
 0da64c509af51eca306093d010d9f7fef62e5fc0 data/ethermist/tags/item/tomes.json
 048a6cb74d61a007b4f2885befc2c5a94c6041c7 data/ethermist/tags/item/wands.json
 5199d71781fb8c12091bec6b9a543d2cb1fac68c data/ethermist/tags/item/wand_base.json

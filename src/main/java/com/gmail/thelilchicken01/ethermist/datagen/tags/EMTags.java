@@ -44,6 +44,7 @@ public class EMTags {
         public static final TagKey<Item> ORBS = mod("orbs");
         public static final TagKey<Item> WAND_BASE = mod("wand_base");
         public static final TagKey<Item> HANDLES = mod("handles");
+        public static final TagKey<Item> SPECTRAL_LICH_CAN_HOLD = mod("spectral_lich_can_hold");
 
         private static TagKey<Item> mod(String path) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

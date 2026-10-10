@@ -13,3 +13,7 @@ Author: UlyssesAtSea
 Source: https://freesound.org/s/648136/  
 License: Creative Commons 0  
 Modifications: trimmed, pitch modified  
+
+Runic Skeleton model by Amaresse
+
+Spectral Lich model by Hexodiax

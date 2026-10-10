@@ -25,4 +25,8 @@ public interface IDyeableWandItem {
         return handle != null ? handle : EMWandHandles.WOODEN.get();
     }
 
+    default float[] getTrailColor(ItemStack stack) {
+        return new float[] {1.0F, 1.0F, 1.0F};
+    }
+
 }

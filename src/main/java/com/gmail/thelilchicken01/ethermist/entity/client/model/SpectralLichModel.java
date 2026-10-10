@@ -8,6 +8,8 @@ import com.gmail.thelilchicken01.ethermist.entity.client.animation.SpectralLichA
 import com.gmail.thelilchicken01.ethermist.entity.mobs.SpectralLichEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
+import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -15,8 +17,14 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.HumanoidArm;
 
-public class SpectralLichModel<T extends SpectralLichEntity> extends HierarchicalModel<T> {
+/**
+ * Made with Blockbench 5.2.2
+ * Exported for Minecraft version 1.19 or later with Mojang mappings
+ * @author Hexodiax
+ */
+public class SpectralLichModel<T extends SpectralLichEntity> extends HierarchicalModel<T> implements ArmedModel {
 
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "spectral_lich"), "main");
 	private final ModelPart root;
@@ -110,6 +118,18 @@ public class SpectralLichModel<T extends SpectralLichEntity> extends Hierarchica
 
 		this.head.yRot = headYaw * ((float) Math.PI / 180f);
 		this.head.xRot = headPitch * ((float) Math.PI / 180f);
+	}
+
+	@Override
+	public void translateToHand(HumanoidArm arm, PoseStack poseStack) {
+		body.translateAndRotate(poseStack);
+		arms.translateAndRotate(poseStack);
+
+		ModelPart armPart = arm == HumanoidArm.RIGHT ? arms2 : arms3;
+		armPart.translateAndRotate(poseStack);
+		poseStack.mulPose(Axis.YP.rotationDegrees(90));
+
+		poseStack.translate(0.0f, 0.0f, 0.1f);
 	}
 
 	@Override
