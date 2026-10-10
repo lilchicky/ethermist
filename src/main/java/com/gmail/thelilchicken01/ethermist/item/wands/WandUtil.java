@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.decoration.LeashFenceKnotEntity;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -65,6 +66,7 @@ public class WandUtil {
                                 !(iterate instanceof OwnableEntity tamed && tamed.getOwnerUUID() != null) &&
                                 !(iterate instanceof Projectile) &&
                                 !(iterate instanceof ArmorStand) &&
+                                !(iterate instanceof FallingBlockEntity) &&
                                 !iterate.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES)
                 )
                 .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceTo(self)))
