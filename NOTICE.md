@@ -14,6 +14,8 @@ Source: https://freesound.org/s/648136/
 License: Creative Commons 0  
 Modifications: trimmed, pitch modified  
 
-Runic Skeleton model by Amaresse
+Runic Skeleton model
+Author: Amaresse
 
-Spectral Lich model by Hexodiax
+Spectral Lich model
+Author: Hexodiax
