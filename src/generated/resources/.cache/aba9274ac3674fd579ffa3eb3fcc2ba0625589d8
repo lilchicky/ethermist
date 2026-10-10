@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-08T08:01:53.0809972	Item Models: ethermist
+// 1.21.1	2026-10-10T00:49:22.5854004	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -113,6 +113,7 @@ c27b6784b91cadd53fd03d674aa0b228ee987300 assets/ethermist/models/item/shroom_clu
 869934067c6cd02d9beaa6576843cc1826e7286c assets/ethermist/models/item/sparkling_sandstone_brick_wall.json
 c34bef977b1af9dd5a06d8612df3d87848d7210e assets/ethermist/models/item/sparkling_sandstone_button.json
 20b1887ed3e71ed1f80c143dea5f9f1a48510ee4 assets/ethermist/models/item/sparkling_sandstone_wall.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/ethermist/models/item/spectral_lich_spawn_egg.json
 f5f9e618d215dd844d8b33041fe6b893ca8043ff assets/ethermist/models/item/tall_abyssal_mushroom.json
 c7f7ed178d7fb6275a7b0e0951ce5c11cdaf5aaf assets/ethermist/models/item/timeworn_sandstone_wall.json
 65d040aedf8caabe442a1829bd4d90092d36beb8 assets/ethermist/models/item/toasted_shroom_cluster.json

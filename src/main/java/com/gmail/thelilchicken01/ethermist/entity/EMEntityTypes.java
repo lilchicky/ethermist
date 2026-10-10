@@ -62,6 +62,13 @@ public class EMEntityTypes {
                             .sized(0.8f, 1.875f)
                             .build(Ethermist.MODID + ":runic_skeleton"));
 
+    // Spectral Lich
+    public static final DeferredHolder<EntityType<?>, EntityType<SpectralLichEntity>> SPECTRAL_LICH =
+            EM_ENTITY_TYPES.register("spectral_lich",
+                    () -> EntityType.Builder.of(SpectralLichEntity::new, MobCategory.MONSTER)
+                            .sized(0.8f, 1.875f)
+                            .build(Ethermist.MODID + ":spectral_lich"));
+
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);
     }

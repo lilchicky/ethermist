@@ -457,6 +457,7 @@
   "item.ethermist.forgemaster_spawn_egg": "Forgemaster Spawn Egg",
   "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
   "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
+  "item.ethermist.spectral_lich_spawn_egg": "Spectral Lich Spawn Egg",
 
   "_comment": "--------------- BASE ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
@@ -521,6 +522,7 @@
   "entity.ethermist.forgemaster": "The Forgemaster",
   "entity.ethermist.pylon": "Forgemaster's Pylon",
   "entity.ethermist.runic_skeleton": "Runic Skeleton",
+  "entity.ethermist.spectral_lich": "Spectral Lich",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",
   "death.attack.icicle": "%1$s was impaled by an icicle",

@@ -119,6 +119,8 @@ public class EMItems {
             () -> new DeferredSpawnEggItem(EMEntityTypes.PYLON, 0xFF3B3B, 0x7F7F7F, new Item.Properties()));
     public static final DeferredItem<Item> RUNIC_SKELETON_SPAWN_EGG = ITEMS.register("runic_skeleton_spawn_egg",
             () -> new DeferredSpawnEggItem(EMEntityTypes.RUNIC_SKELETON, 0xaf815e, 0x832387, new Item.Properties()));
+    public static final DeferredItem<Item> SPECTRAL_LICH_SPAWN_EGG = ITEMS.register("spectral_lich_spawn_egg",
+            () -> new DeferredSpawnEggItem(EMEntityTypes.SPECTRAL_LICH, 0x1f1628, 0x8b7867, new Item.Properties()));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
