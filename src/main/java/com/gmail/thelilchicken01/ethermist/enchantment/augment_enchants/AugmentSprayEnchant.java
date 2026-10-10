@@ -45,8 +45,6 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
         state.projectileSpeedMult *= 0.5;
 
-        state.cooldownTicks = 5;
-
     }
 
     @Override
