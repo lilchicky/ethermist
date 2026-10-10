@@ -19,3 +19,4 @@ Author: Amaresse
 
 Spectral Lich model
 Author: Hexodiax
+Link: https://ko-fi.com/hexodiax/shop
