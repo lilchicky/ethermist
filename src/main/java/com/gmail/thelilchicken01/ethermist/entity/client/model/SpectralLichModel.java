@@ -19,6 +19,7 @@ import net.minecraft.util.Mth;
 public class SpectralLichModel<T extends SpectralLichEntity> extends HierarchicalModel<T> {
 
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "spectral_lich"), "main");
+	private final ModelPart root;
 	private final ModelPart body;
 	private final ModelPart robe;
 	private final ModelPart robe2;
@@ -31,6 +32,7 @@ public class SpectralLichModel<T extends SpectralLichEntity> extends Hierarchica
 	private final ModelPart head;
 
 	public SpectralLichModel(ModelPart root) {
+		this.root = root;
 		this.body = root.getChild("body");
 		this.robe = this.body.getChild("robe");
 		this.robe2 = this.robe.getChild("robe2");
@@ -117,6 +119,6 @@ public class SpectralLichModel<T extends SpectralLichEntity> extends Hierarchica
 
 	@Override
 	public ModelPart root() {
-		return this.body;
+		return this.root;
 	}
 }
