@@ -6,9 +6,11 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjec
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -185,7 +187,14 @@ public class ChaosMagicEnchant implements IWandSpellEffect {
                     case 11 -> {
                         level.setBlock(BlockPos.containing(new Vec3(target.getX(), target.getY(), target.getZ())), Blocks.CAKE.defaultBlockState(), 3);
                         if (!(target instanceof Player)) {
-                            target.kill();
+                            target.hurt(
+                                    new DamageSource(
+                                            shot.level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(shot.getDamageType()),
+                                            target,
+                                            shooter
+                                    ),
+                                    (shot.getDamage() + 20.0f) * spellLevel
+                            );
                         }
                     }
                     case 12 -> {
