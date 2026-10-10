@@ -1,6 +1,7 @@
-// 1.21.1	2026-10-10T00:49:22.5839457	Tags for minecraft:entity_type mod id ethermist
+// 1.21.1	2026-10-10T06:02:26.3835068	Tags for minecraft:entity_type mod id ethermist
 feec86b0b963ac1c053cd0f97504ef381f5c43c9 data/c/tags/entity_type/bosses.json
 9d72c9065e810b219135a3e84b6e2dd70e4db6de data/c/tags/entity_type/capturing_not_supported.json
+e2d92b42735d21a96df2b4f4ecd06f24e3c964e7 data/ethermist/tags/entity_type/ignored_by_wand_targetting.json
 72ca38e9a34c768c2f4c17de846733b91df0273a data/minecraft/tags/entity_type/aquatic.json
 36bed97f1c3d3b5e1d867543da2d915bc1646169 data/minecraft/tags/entity_type/arthropod.json
 228f269e32be9e3436b0be107afe0f764a9d2ca6 data/minecraft/tags/entity_type/can_breathe_under_water.json

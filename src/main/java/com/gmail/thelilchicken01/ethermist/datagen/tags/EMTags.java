@@ -10,7 +10,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.Tags;
 
 public class EMTags {
 
@@ -64,6 +63,14 @@ public class EMTags {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
         }
 
+    }
+
+    public static final class EntityTypes {
+        public static final TagKey<EntityType<?>> IGNORED_BY_WAND_TARGETING = mod("ignored_by_wand_targetting");
+
+        private static TagKey<EntityType<?>> mod(String path) {
+            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+        }
     }
 
 }

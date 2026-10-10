@@ -1,0 +1,30 @@
+{
+  "values": [
+    "#minecraft:deflects_projectiles",
+    "minecraft:item",
+    "minecraft:experience_orb",
+    "minecraft:painting",
+    "minecraft:item_frame",
+    "minecraft:area_effect_cloud",
+    "minecraft:armor_stand",
+    "minecraft:arrow",
+    "#minecraft:impact_projectiles",
+    "#c:boats",
+    "minecraft:block_display",
+    "#c:minecarts",
+    "minecraft:egg",
+    "minecraft:experience_bottle",
+    "minecraft:eye_of_ender",
+    "minecraft:ender_pearl",
+    "minecraft:falling_block",
+    "minecraft:fishing_bobber",
+    "minecraft:glow_item_frame",
+    "minecraft:item_display",
+    "minecraft:leash_knot",
+    "minecraft:lightning_bolt",
+    "minecraft:potion",
+    "minecraft:llama_spit",
+    "minecraft:spectral_arrow",
+    "minecraft:text_display"
+  ]
+}

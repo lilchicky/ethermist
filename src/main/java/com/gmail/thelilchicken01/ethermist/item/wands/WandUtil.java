@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
+import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
@@ -58,16 +59,9 @@ public class WandUtil {
                                 hasLineOfSight(level, self, iterate) &&
                                 !iterate.equals(owner) &&
                                 !iterate.equals(self) &&
-                                !(iterate instanceof ItemEntity) &&
-                                !(iterate instanceof ExperienceOrb) &&
-                                !(iterate instanceof HangingEntity) &&
-                                !(iterate instanceof LeashFenceKnotEntity) &&
-                                !(iterate.isInvisible()) &&
+                                !iterate.isInvisible() &&
                                 !(iterate instanceof OwnableEntity tamed && tamed.getOwnerUUID() != null) &&
-                                !(iterate instanceof Projectile) &&
-                                !(iterate instanceof ArmorStand) &&
-                                !(iterate instanceof FallingBlockEntity) &&
-                                !iterate.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES)
+                                !iterate.getType().is(EMTags.EntityTypes.IGNORED_BY_WAND_TARGETING)
                 )
                 .sorted(Comparator.comparingDouble(iterate -> -iterate.distanceTo(self)))
                 .collect(Collectors.toList());
