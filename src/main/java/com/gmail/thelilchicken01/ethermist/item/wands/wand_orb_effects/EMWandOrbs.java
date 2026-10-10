@@ -138,7 +138,7 @@ public class EMWandOrbs {
                             .sound(SoundEvents.SHULKER_SHOOT)
                             .effect((shotItem, target, player, shot) -> {
                                 if (target instanceof LivingEntity livingTarget) {
-                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, shot.getOriginWandTier().doesBuffSpell() ? 150 : 100));
+                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, shot.getOriginWandTier().doesBuffSpell() ? 40 : 20));
                                 }
                             })
                             .build()
