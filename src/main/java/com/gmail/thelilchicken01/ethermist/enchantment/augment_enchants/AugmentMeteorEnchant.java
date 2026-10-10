@@ -11,6 +11,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -68,7 +69,7 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
     @Override
     public boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,
@@ -85,9 +86,9 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
 
         if (pos != null) {
 
-            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+            WandProjectile shot = shotItem.createProjectile(level, shotStack, shooter, target);
 
-            Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
+            Vec3 currentPos = shooter.getEyePosition().add(0.0, 4.0, 0.0);
             Vec3 targetPos = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
             Vec3 targetVector = targetPos.subtract(currentPos).normalize();
 
@@ -96,21 +97,21 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     targetVector.y + 0.1,
                     targetVector.z,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                    (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
             shot.setPos(shot.getX(),
                     shot.getY() + 4.0,
                     shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(shooter, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
             return true;
 
         }
         else if (clickedEntity != null) {
 
-            WandProjectile shot = shotItem.createProjectile(level, shotStack, player, List.of(clickedEntity));
+            WandProjectile shot = shotItem.createProjectile(level, shotStack, shooter, List.of(clickedEntity));
 
-            Vec3 currentPos = player.getEyePosition().add(0.0, 4.0, 0.0);
+            Vec3 currentPos = shooter.getEyePosition().add(0.0, 4.0, 0.0);
             Vec3 targetPos = new Vec3(clickedEntity.getX(), clickedEntity.getY(), clickedEntity.getZ());
             Vec3 targetVector = targetPos.subtract(currentPos).normalize();
 
@@ -119,13 +120,13 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
                     targetVector.y + 0.1,
                     targetVector.z,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                    (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
 
             shot.setPos(shot.getX(),
                     shot.getY() + 4.0,
                     shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(shooter, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
             return true;
 

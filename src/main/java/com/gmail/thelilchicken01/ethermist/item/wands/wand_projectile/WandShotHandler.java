@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -13,22 +14,22 @@ import java.util.List;
 
 public class WandShotHandler {
 
-    public static void shoot(Level level, Player player, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
+    public static void shoot(Level level, LivingEntity shooter, @Nullable List<? extends Entity> target, float pSpeed, double lifespan,
                              ItemStack shotStack, WandItem wand, WandShotItem shotItem, ItemStack wandItem,
                              boolean isHoming, List<Class<?>> targetType, List<WandProjectile.SpellEntry> savedSpells) {
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, target);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, shooter, target);
 
         shot.shootFromRotation(
-                player,
-                player.getXRot(),
-                player.getYRot(),
+                shooter,
+                shooter.getXRot(),
+                shooter.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
 
-        float yaw = (float) Math.toRadians(player.getYRot());
-        float pitch = (float) Math.toRadians(player.getXRot());
+        float yaw = (float) Math.toRadians(shooter.getYRot());
+        float pitch = (float) Math.toRadians(shooter.getXRot());
 
         double x = -Math.sin(yaw) * Math.cos(pitch);
         double y = -Math.sin(pitch);
@@ -41,16 +42,16 @@ public class WandShotHandler {
 
         shot.setPos(
                 shot.getX() + xOffset,
-                player.getEyeHeight() * 0.925 + player.getY() + yOffset,
+                shooter.getEyeHeight() * 0.925 + shooter.getY() + yOffset,
                 shot.getZ() + zOffset
         );
 
-        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+        level.addFreshEntity(setShotInfo(shooter, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
     }
 
     // Public helper method to bulk apply relevant details to spawned wand projectiles
-    public static WandProjectile setShotInfo(Player player,
+    public static WandProjectile setShotInfo(LivingEntity shooter,
                                              WandProjectile shot,
                                              WandItem wand,
                                              ItemStack wandItem,
@@ -59,10 +60,10 @@ public class WandShotHandler {
                                              List<Class<?>> targetType,
                                              List<WandProjectile.SpellEntry> savedSpells) {
 
-        shot.setDamage((int)WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE));
+        shot.setDamage((int)WandUtil.getAttribute(shooter, EMAttributes.WAND_DAMAGE));
         shot.setLifetime((int)(lifespan * 20));
         shot.setCanIgnite(wand.getOrb().getCanIgnite());
-        shot.setKnockbackStrength(WandUtil.getAttribute(player, EMAttributes.WAND_KNOCKBACK));
+        shot.setKnockbackStrength(WandUtil.getAttribute(shooter, EMAttributes.WAND_KNOCKBACK));
         shot.setHoming(isHoming);
         shot.setTargetType(targetType);
         shot.setDamageType(wand.getOrb().getDamageType());

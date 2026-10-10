@@ -16,6 +16,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -51,7 +52,7 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
     @Override
     public boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,
@@ -75,12 +76,12 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
                 IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
                 IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
                 if (augment != null) {
-                    if (!augment.doesCreateProjectile(player, target, pos, clickedEntity, enchantLevel)) {
+                    if (!augment.doesCreateProjectile(shooter, target, pos, clickedEntity, enchantLevel)) {
                         makesProjectile.set(false);
                     }
                 }
                 if (spell != null) {
-                    if (!spell.doesCreateProjectile(player, target, pos, clickedEntity, enchantLevel)) {
+                    if (!spell.doesCreateProjectile(shooter, target, pos, clickedEntity, enchantLevel)) {
                         makesProjectile.set(false);
                     }
                 }
@@ -93,12 +94,12 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
                     int scheduleShot = server.getTickCount() + (x * 2);
 
                     Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
-                        WandShotHandler.shoot(level, player, target, pSpeed, lifespan, shotStack, wand, shotItem, wandItem,
+                        WandShotHandler.shoot(level, shooter, target, pSpeed, lifespan, shotStack, wand, shotItem, wandItem,
                                 isHoming, targetType, savedSpells);
                         level.playSound(null,
-                                player.getX(),
-                                player.getY(),
-                                player.getZ(),
+                                shooter.getX(),
+                                shooter.getY(),
+                                shooter.getZ(),
                                 wand.getShootSound(),
                                 SoundSource.PLAYERS,
                                 0.5f,

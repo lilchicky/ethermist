@@ -10,6 +10,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotIt
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -36,7 +37,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
     @Override
     public boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,
@@ -57,41 +58,41 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             targetHolder = List.of(target.getLast());
         }
 
-        WandProjectile shot = shotItem.createProjectile(level, shotStack, player, targetHolder);
+        WandProjectile shot = shotItem.createProjectile(level, shotStack, shooter, targetHolder);
 
         shot.shootFromRotation(
-                player,
-                player.getXRot(),
-                player.getYRot(),
+                shooter,
+                shooter.getXRot(),
+                shooter.getYRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
 
-        level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+        level.addFreshEntity(setShotInfo(shooter, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         for (int x = 1; x < spellLevel; x++) {
 
-            WandProjectile leftShot = shotItem.createProjectile(level, shotStack, player, target);
-            WandProjectile rightShot = shotItem.createProjectile(level, shotStack, player, target);
+            WandProjectile leftShot = shotItem.createProjectile(level, shotStack, shooter, target);
+            WandProjectile rightShot = shotItem.createProjectile(level, shotStack, shooter, target);
 
             leftShot.shootFromRotation(
-                    player,
-                    player.getXRot(),
-                    player.getYRot() + (10 * x),
+                    shooter,
+                    shooter.getXRot(),
+                    shooter.getYRot() + (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                    (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
 
             rightShot.shootFromRotation(
-                    player,
-                    player.getXRot(),
-                    player.getYRot() - (10 * x),
+                    shooter,
+                    shooter.getXRot(),
+                    shooter.getYRot() - (10 * x),
                     0,
                     pSpeed,
-                    (float)(100 - (WandUtil.getAttribute(player, EMAttributes.ACCURACY)*100)));
+                    (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
 
-            level.addFreshEntity(setShotInfo(player, leftShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
-            level.addFreshEntity(setShotInfo(player, rightShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(shooter, leftShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(shooter, rightShot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 

@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,7 +31,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
     @Override
     public boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,
@@ -53,7 +54,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
         for (int x = 0; x < spellLevel * 3; x++) {
 
             if (target != null && !target.isEmpty()) {
-                shot = shotItem.createProjectile(level, shotStack, player, List.of(target.get(index)));
+                shot = shotItem.createProjectile(level, shotStack, shooter, List.of(target.get(index)));
                 index++;
 
                 if (index >= target.size()) {
@@ -61,20 +62,20 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
                 }
             }
             else {
-                shot = shotItem.createProjectile(level, shotStack, player, target);
+                shot = shotItem.createProjectile(level, shotStack, shooter, target);
             }
 
             shot.shootFromRotation(
-                    player,
+                    shooter,
                     0.0f,
-                    player.getYRot() + (x * wedges),
+                    shooter.getYRot() + (x * wedges),
                     0.0f,
                     pSpeed,
                     0.0f);
 
-            shot.setPos(shot.getX(), player.getEyeHeight() * 0.8 + player.getY(), shot.getZ());
+            shot.setPos(shot.getX(), shooter.getEyeHeight() * 0.8 + shooter.getY(), shot.getZ());
 
-            level.addFreshEntity(setShotInfo(player, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
+            level.addFreshEntity(setShotInfo(shooter, shot, wand, wandItem, lifespan, isHoming, targetType, savedSpells));
 
         }
 

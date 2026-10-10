@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
@@ -31,6 +32,6 @@ public interface IWandSpellEffect {
 
     default void onHit(Level level, Entity shooter, @Nullable Entity target, @Nullable BlockPos hitPos, WandProjectile shot, int spellLevel) {}
     default void onTick(WandProjectile shot, int tick, List<? extends Entity> target, int spellLevel) {}
-    default boolean onShoot(Level level, Player player) { return false; }
+    default boolean onShoot(Level level, LivingEntity shooter) { return false; }
 
 }

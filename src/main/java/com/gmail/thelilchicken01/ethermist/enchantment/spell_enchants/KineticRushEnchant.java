@@ -7,6 +7,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -29,15 +30,15 @@ public class KineticRushEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public boolean onShoot(Level level, Player player) {
+    public boolean onShoot(Level level, LivingEntity shooter) {
 
         if (!level.isClientSide()) {
             RandomSource random = RandomSource.create();
 
-            double power = WandUtil.getAttribute(player, EMAttributes.WAND_DAMAGE) / 2.0;
-            double inaccuracy = 1 - WandUtil.getAttribute(player, EMAttributes.ACCURACY);
+            double power = WandUtil.getAttribute(shooter, EMAttributes.WAND_DAMAGE) / 2.0;
+            double inaccuracy = 1 - WandUtil.getAttribute(shooter, EMAttributes.ACCURACY);
 
-            Vec3 launch = player.getViewVector(1.0f);
+            Vec3 launch = shooter.getViewVector(1.0f);
 
             double xOff = (random.nextDouble() * 2 - 1) * inaccuracy;
             double yOff = (random.nextDouble() * 2 - 1) * inaccuracy;
@@ -49,8 +50,8 @@ public class KineticRushEnchant implements IWandSpellEffect {
                     launch.z + zOff
             ).normalize().scale(power);
 
-            player.setDeltaMovement(offsetLaunch);
-            player.hurtMarked = true;
+            shooter.setDeltaMovement(offsetLaunch);
+            shooter.hurtMarked = true;
         }
 
         return true;

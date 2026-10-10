@@ -9,6 +9,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -37,7 +38,7 @@ public interface IWandAugmentEffect {
     // Not required - ProjectileHandler will shoot a simple, straight projectile if not modified.
     default boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,

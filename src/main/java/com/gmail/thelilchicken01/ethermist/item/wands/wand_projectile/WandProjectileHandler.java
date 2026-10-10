@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
@@ -45,12 +46,12 @@ public class WandProjectileHandler {
 
     }
 
-    public static boolean processShot(Level level, Player player, ItemStack thisWand, WandItem wand,
-                                   @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
+    public static boolean processShot(Level level, LivingEntity shooter, ItemStack thisWand, WandItem wand,
+                                      @Nullable BlockPos pos, @Nullable Entity clickedEntity) {
 
         // Get lifespan and projectile speed from wand
-        double newLifespan = WandUtil.getAttribute(player, EMAttributes.LIFESPAN);
-        float pSpeed = (float) WandUtil.getAttribute(player, EMAttributes.PROJECTILE_SPEED);
+        double newLifespan = WandUtil.getAttribute(shooter, EMAttributes.LIFESPAN);
+        float pSpeed = (float) WandUtil.getAttribute(shooter, EMAttributes.PROJECTILE_SPEED);
 
         // Projectile flags
         AtomicBoolean isHoming = new AtomicBoolean(false);
@@ -74,8 +75,8 @@ public class WandProjectileHandler {
         });
 
         // Find all nearby entities based on wand filters
-        List<Entity> nearby = WandUtil.getNearbyEntities(level, (int) (newLifespan * 10), player);
-        List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, player, null, types);
+        List<Entity> nearby = WandUtil.getNearbyEntities(level, (int) (newLifespan * 10), shooter);
+        List<Entity> target = WandUtil.filterNearbyEntities(level, nearby, shooter, null, types);
 
         // Special wand flags. Currently implemented for if wand is homing, and if it should create a projectile
         // or not (like Kinetic Rush)
@@ -87,7 +88,7 @@ public class WandProjectileHandler {
                     isHoming.set(true);
                 }
                 if (!augment.doesCreateProjectile(
-                        player,
+                        shooter,
                         target,
                         pos,
                         clickedEntity,
@@ -98,7 +99,7 @@ public class WandProjectileHandler {
             }
             if (spell != null) {
                 if (!spell.doesCreateProjectile(
-                        player,
+                        shooter,
                         target,
                         pos,
                         clickedEntity,
@@ -118,7 +119,7 @@ public class WandProjectileHandler {
             if (augment != null) {
                 if (!hasShot.get() && augment.shoot(
                         level,
-                        player,
+                        shooter,
                         target,
                         pSpeed,
                         newLifespan,
@@ -141,7 +142,7 @@ public class WandProjectileHandler {
         if (!hasShot.get() && makesProjectile.get()) {
             WandShotHandler.shoot(
                     level,
-                    player,
+                    shooter,
                     target,
                     pSpeed,
                     newLifespan,
@@ -159,14 +160,14 @@ public class WandProjectileHandler {
         EnchantmentHelper.runIterationOnItem(thisWand, (enchant, enchantLevel) -> {
             IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
             if (spell != null) {
-                if (spell.onShoot(level, player)) {
+                if (spell.onShoot(level, shooter)) {
                     hasShot.set(true);
                 }
             }
         });
 
         // Add cooldown to wand
-        if (hasShot.get()) {
+        if (hasShot.get() && shooter instanceof Player player) {
             player.getCooldowns().addCooldown(wand, (int) (WandUtil.getAttribute(player, EMAttributes.COOLDOWN) * 20));
         }
 

@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -39,7 +40,7 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
     @Override
     public boolean shoot(
             Level level,
-            Player player,
+            LivingEntity shooter,
             @Nullable List<? extends Entity> target,
             float pSpeed,
             double lifespan,
@@ -55,8 +56,8 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
             int spellLevel) {
 
         if (!level.isClientSide()) {
-            player.setDeltaMovement(player.getDeltaMovement().add(player.getLookAngle().scale(-0.3f)));
-            player.hurtMarked = true;
+            shooter.setDeltaMovement(shooter.getDeltaMovement().add(shooter.getLookAngle().scale(-0.3f)));
+            shooter.hurtMarked = true;
         }
 
         return false;
