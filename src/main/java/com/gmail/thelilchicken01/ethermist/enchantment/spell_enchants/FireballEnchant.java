@@ -30,7 +30,7 @@ public class FireballEnchant implements IWandSpellEffect {
             int spellLevel) {
 
         level.explode(
-                null,
+                shooter,
                 shot.getX(),
                 shot.getY(),
                 shot.getZ(),
