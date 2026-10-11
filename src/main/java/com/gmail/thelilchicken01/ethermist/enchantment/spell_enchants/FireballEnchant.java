@@ -34,7 +34,7 @@ public class FireballEnchant implements IWandSpellEffect {
                 shot.getX(),
                 shot.getY(),
                 shot.getZ(),
-                (float) spellLevel,
+                (float) Math.sqrt(spellLevel),
                 true,
                 Level.ExplosionInteraction.TNT
         );
