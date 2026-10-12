@@ -57,7 +57,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     public final AnimationState walkState = new AnimationState();
 
     private int wandAttackCooldown = 80;
-    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 24, wandAttackCooldown);
+    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, wandAttackCooldown);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2, false) {
         public void stop() {
             super.stop();
