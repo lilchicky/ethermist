@@ -168,7 +168,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
 
         if (handItem.isEmpty() || enchantHolders.isEmpty()) return;
 
-        int numEnchants = 1 + random.nextInt(1 + Mth.floor(difficulty.getSpecialMultiplier() * 2));
+        int numEnchants = 2 + random.nextInt(1 + Mth.floor(difficulty.getSpecialMultiplier() * 2));
         List<Holder<Enchantment>> enchants = new ArrayList<>(enchantHolders.get().stream().toList());
 
         if (enchants.isEmpty()) return;
