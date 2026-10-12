@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -201,7 +202,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
             ItemStack held = this.getMainHandItem();
 
             if (held.getItem() instanceof WandItem wand) {
-                this.wandAttackCooldown = (int)(wand.getOrb().getCooldown() * 0.75);
+                this.wandAttackCooldown = (int)(this.getAttributeValue(EMAttributes.COOLDOWN) * 0.75);
                 this.wandGoal.setCooldownTicks(wandAttackCooldown);
                 this.goalSelector.addGoal(1, this.wandGoal);
             }
