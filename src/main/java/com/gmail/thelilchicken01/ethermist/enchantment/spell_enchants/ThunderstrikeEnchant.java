@@ -42,7 +42,7 @@ public class ThunderstrikeEnchant implements IWandSpellEffect {
                 bolt.moveTo(shot.getX(), shot.getY(), shot.getZ());
                 bolt.setVisualOnly(true);
                 level.addFreshEntity(bolt);
-                if (target != null) {
+                if (target != null && !target.level().isClientSide) {
                     target.thunderHit((ServerLevel) level, bolt);
                 }
             }

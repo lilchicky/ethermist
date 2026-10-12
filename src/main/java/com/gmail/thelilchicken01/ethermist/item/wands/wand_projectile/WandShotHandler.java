@@ -23,10 +23,10 @@ public class WandShotHandler {
         shot.shootFromRotation(
                 shooter,
                 shooter.getXRot(),
-                shooter.getYRot(),
+                shooter.getYHeadRot(),
                 0,
                 pSpeed,
-                (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
+                shooter instanceof Player ? (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)) : 0.0f);
 
         float yaw = (float) Math.toRadians(shooter.getYRot());
         float pitch = (float) Math.toRadians(shooter.getXRot());

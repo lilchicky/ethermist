@@ -2,13 +2,23 @@ package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -16,34 +26,59 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class SpectralLichEntity extends Monster {
+public class SpectralLichEntity extends Monster implements RangedAttackMob {
 
     public final AnimationState idleState = new AnimationState();
     public final AnimationState pursueState = new AnimationState();
     public final AnimationState walkState = new AnimationState();
 
+    private int wandAttackCooldown = 80;
+    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 24, wandAttackCooldown);
+    private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2, false) {
+        public void stop() {
+            super.stop();
+            SpectralLichEntity.this.setAggressive(false);
+        }
+
+        public void start() {
+            super.start();
+            SpectralLichEntity.this.setAggressive(true);
+        }
+    };
+
     public SpectralLichEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
+        this.reassessWeaponGoal();
     }
 
     @Override
     protected void registerGoals() {
 
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.005, false));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.00f));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 24.0f));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
@@ -68,6 +103,24 @@ public class SpectralLichEntity extends Monster {
 
         if (this.level().isClientSide()) {
             this.setupAnimationStates();
+        }
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity livingEntity, float v) {
+        ItemStack wandStack = this.getMainHandItem();
+
+        if (wandStack.getItem() instanceof WandItem wand &&
+                WandProjectileHandler.processShot(this.level(), this, wandStack, wand, null, null))
+        {
+            this.level().playSound(null,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    wand.getOrb().getShootSound(),
+                    SoundSource.HOSTILE,
+                    1.0f,
+                    random.nextFloat() * 0.4f + 0.8f);
         }
     }
 
@@ -109,6 +162,53 @@ public class SpectralLichEntity extends Monster {
     @Override
     protected void populateDefaultEquipmentEnchantments(ServerLevelAccessor level, RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentEnchantments(level, random, difficulty);
+
+        var enchantHolders = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getTag(EMTags.Enchantments.SPECTRAL_LICH_WAND_CAN_HAVE);
+        ItemStack handItem = getItemBySlot(EquipmentSlot.MAINHAND);
+
+        if (handItem.isEmpty() || enchantHolders.isEmpty()) return;
+
+        int numEnchants = 1 + random.nextInt(1 + Mth.floor(difficulty.getSpecialMultiplier() * 2));
+        List<Holder<Enchantment>> enchants = new ArrayList<>(enchantHolders.get().stream().toList());
+
+        if (enchants.isEmpty()) return;
+
+        for (int i = 0; i < numEnchants; i++) {
+            Holder<Enchantment> next = enchants.remove(random.nextInt(enchants.size()));
+
+            if (!next.value().definition().supportedItems().contains(handItem.getItemHolder())) continue;
+
+            boolean compatible = EnchantmentHelper.getEnchantmentsForCrafting(handItem)
+                    .keySet()
+                    .stream()
+                    .allMatch(existing -> Enchantment.areCompatible(existing, next));
+
+            if (!compatible) continue;
+
+            int levelToApply = random.nextInt(next.value().getMaxLevel());
+
+            if (levelToApply > 0) {
+                handItem.enchant(next, levelToApply);
+            }
+        }
+    }
+
+    public void reassessWeaponGoal() {
+        if (!this.level().isClientSide) {
+            this.goalSelector.removeGoal(this.meleeGoal);
+            this.goalSelector.removeGoal(this.wandGoal);
+
+            ItemStack held = this.getMainHandItem();
+
+            if (held.getItem() instanceof WandItem wand) {
+                this.wandAttackCooldown = (int)(wand.getOrb().getCooldown() * 0.75);
+                this.wandGoal.setCooldownTicks(wandAttackCooldown);
+                this.goalSelector.addGoal(1, this.wandGoal);
+            }
+            else {
+                this.goalSelector.addGoal(1, this.meleeGoal);
+            }
+        }
     }
 
     @Override
@@ -119,6 +219,9 @@ public class SpectralLichEntity extends Monster {
     @Override
     public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         this.populateDefaultEquipmentSlots(random, difficulty);
+        this.populateDefaultEquipmentEnchantments(level, random, difficulty);
+        this.reassessWeaponGoal();
+
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
 
@@ -140,4 +243,76 @@ public class SpectralLichEntity extends Monster {
             idleState.startIfStopped(this.tickCount);
         }
     }
+
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.reassessWeaponGoal();
+    }
+
+    public void setItemSlot(EquipmentSlot slot, ItemStack stack) {
+        super.setItemSlot(slot, stack);
+        if (!this.level().isClientSide) {
+            this.reassessWeaponGoal();
+        }
+    }
+
+    public static class WandAttackGoal<T extends Mob & RangedAttackMob> extends Goal {
+        private final T mob;
+        private final double speed;
+        private final float rangeSqr;
+        private int cooldownTicks;
+        private int cooldown;
+
+        public WandAttackGoal(T mob, double speed, float range, int cooldownTicks) {
+            this.mob = mob;
+            this.speed = speed;
+            this.rangeSqr = range * range;
+            this.cooldownTicks = cooldownTicks;
+            this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
+        }
+
+        public void setCooldownTicks(int ticks) {
+            this.cooldownTicks = ticks;
+        }
+
+        @Override
+        public boolean canUse() {
+            return mob.getTarget() != null && mob.getMainHandItem().getItem() instanceof WandItem;
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return canUse();
+        }
+
+        @Override
+        public void start() {
+            cooldown = cooldownTicks;
+        }
+
+        @Override
+        public void tick() {
+            LivingEntity target = mob.getTarget();
+            if (target == null) return;
+
+            mob.getLookControl().setLookAt(target, 30.0F, 30.0F);
+
+            double distanceSqr = mob.distanceToSqr(target);
+            if (distanceSqr > rangeSqr || !mob.getSensing().hasLineOfSight(target)) {
+                mob.getNavigation().moveTo(target, speed);
+                return;
+            }
+
+            mob.getNavigation().stop();
+
+            if (cooldown > 0) {
+                cooldown--;
+                return;
+            }
+
+            mob.performRangedAttack(target, 1.0F);
+            cooldown = cooldownTicks;
+        }
+    }
+
 }
