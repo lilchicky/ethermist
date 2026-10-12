@@ -64,7 +64,6 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
                 .add(EMEnchantments.QUICK_CAST)
                 .add(EMEnchantments.ARCANE_VELOCITY)
                 .add(EMEnchantments.ENDURING_MAGIC)
-                .add(EMEnchantments.AUGMENT_AOE)
                 .add(EMEnchantments.AUGMENT_SPLIT)
                 .add(EMEnchantments.AUGMENT_SPRAY);
 

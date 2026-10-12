@@ -1,10 +1,10 @@
-// 1.21.1	2026-10-12T02:16:28.9306715	Tags for minecraft:enchantment mod id ethermist
+// 1.21.1	2026-10-12T02:26:43.7276882	Tags for minecraft:enchantment mod id ethermist
 9a2d8d1ef096647658d5c9e73342e08e6f845273 data/c/tags/enchantment/increase_block_drops.json
 9a2d8d1ef096647658d5c9e73342e08e6f845273 data/c/tags/enchantment/increase_entity_drops.json
 f9b84730161ec595b8ab3734345bbc55ad014985 data/ethermist/tags/enchantment/augment_spells.json
 08239dffcec4782c13200ab5c42ec54fd5e0d82d data/ethermist/tags/enchantment/focus_spells.json
 e24f2d07187d4973201f719f027f0824216482d6 data/ethermist/tags/enchantment/main_damage_spells.json
-9bfa2abbe45533721b835c65805448ad2b93ab18 data/ethermist/tags/enchantment/spectral_lich_wand_can_have.json
+5178d5b189bb5842645f541438af89abee9212b8 data/ethermist/tags/enchantment/spectral_lich_wand_can_have.json
 d63ea262a9ded4210b11ec35b2d25b7e555a0db4 data/ethermist/tags/enchantment/wand_enchantments.json
 b2393f7e271dd2cad5b0724cd1b73df4a321d8ec data/minecraft/tags/enchantment/in_enchanting_table.json
 b2393f7e271dd2cad5b0724cd1b73df4a321d8ec data/minecraft/tags/enchantment/non_treasure.json
