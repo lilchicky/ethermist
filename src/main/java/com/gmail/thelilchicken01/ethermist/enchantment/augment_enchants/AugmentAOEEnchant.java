@@ -68,7 +68,7 @@ public record AugmentAOEEnchant() implements IWandAugmentEffect {
             shot.shootFromRotation(
                     shooter,
                     0.0f,
-                    shooter.getYRot() + (x * wedges),
+                    shooter.getYHeadRot() + (x * wedges),
                     0.0f,
                     pSpeed,
                     0.0f);

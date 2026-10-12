@@ -28,7 +28,7 @@ public class WandShotHandler {
                 pSpeed,
                 shooter instanceof Player ? (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)) : 0.0f);
 
-        float yaw = (float) Math.toRadians(shooter.getYRot());
+        float yaw = (float) Math.toRadians(shooter.getYHeadRot());
         float pitch = (float) Math.toRadians(shooter.getXRot());
 
         double x = -Math.sin(yaw) * Math.cos(pitch);

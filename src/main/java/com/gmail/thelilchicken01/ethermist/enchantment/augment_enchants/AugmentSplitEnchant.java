@@ -63,7 +63,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
         shot.shootFromRotation(
                 shooter,
                 shooter.getXRot(),
-                shooter.getYRot(),
+                shooter.getYHeadRot(),
                 0,
                 pSpeed,
                 (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
@@ -78,7 +78,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             leftShot.shootFromRotation(
                     shooter,
                     shooter.getXRot(),
-                    shooter.getYRot() + (10 * x),
+                    shooter.getYHeadRot() + (10 * x),
                     0,
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));
@@ -86,7 +86,7 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
             rightShot.shootFromRotation(
                     shooter,
                     shooter.getXRot(),
-                    shooter.getYRot() - (10 * x),
+                    shooter.getYHeadRot() - (10 * x),
                     0,
                     pSpeed,
                     (float)(100 - (WandUtil.getAttribute(shooter, EMAttributes.ACCURACY)*100)));

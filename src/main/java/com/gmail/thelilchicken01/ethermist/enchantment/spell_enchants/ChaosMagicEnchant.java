@@ -216,7 +216,7 @@ public class ChaosMagicEnchant implements IWandSpellEffect {
                     case 13 -> {
                         Entity clone = target.getType().create(level);
                         if (clone != null) {
-                            clone.moveTo(target.getX(), target.getY(), target.getZ(), target.getYRot(), target.getXRot());
+                            clone.moveTo(target.getX(), target.getY(), target.getZ(), target.getYHeadRot(), target.getXRot());
                             clone.setDeltaMovement(target.getDeltaMovement());
                             if (clone instanceof LivingEntity livingClone && target instanceof LivingEntity livingTarget) {
                                 livingClone.setHealth(livingTarget.getHealth());
