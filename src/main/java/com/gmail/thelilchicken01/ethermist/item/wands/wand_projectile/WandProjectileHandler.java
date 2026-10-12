@@ -205,19 +205,15 @@ public class WandProjectileHandler {
 
             // Knockback Math
             if (shot.knockbackStrength != 0 && target.isPushable()) {
-                Vec3 vec = shot.getDeltaMovement().multiply(1, 0, 1).normalize().scale(shot.knockbackStrength);
+                Vec3 vec = shot.getDeltaMovement().multiply(1, 0, 1).normalize().scale(shot.knockbackStrength * 0.1);
                 if (vec.lengthSqr() > 0) {
                     target.push(vec.x, 0.1, vec.z);
                 }
             }
 
             // Wand Specific Modifiers
-            if (shooter instanceof Player player) {
-                WandSpellHandler.processWandModifiers(shotItem, target, player, shot);
-                WandSpellHandler.processSpells(level, player, target, null, shot);
-            } else {
-                WandSpellHandler.processWandModifiers(shotItem, target, shooter, shot);
-            }
+            WandSpellHandler.processWandModifiers(shotItem, target, shooter, shot);
+            WandSpellHandler.processSpells(level, shooter, target, null, shot);
 
         } else {
             target.invulnerableTime = lastHurtResistant;

@@ -16,7 +16,7 @@ public class RunicForceEnchant implements IWandBaseEffect {
     @Override
     public void attributeChanges(WandAttributeState state, int level) {
 
-        state.knockbackMult = state.knockbackMult + (level * 0.85);
+        state.knockbackMult = state.knockbackMult + (level * 1.75);
 
     }
 
