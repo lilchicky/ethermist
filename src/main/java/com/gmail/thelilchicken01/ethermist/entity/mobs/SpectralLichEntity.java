@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.entity.mobs;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import net.minecraft.core.BlockPos;
@@ -57,8 +58,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     public final AnimationState pursueState = new AnimationState();
     public final AnimationState walkState = new AnimationState();
 
-    private int wandAttackCooldown = 80;
-    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, wandAttackCooldown);
+    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, 0.75f);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2, false) {
         public void stop() {
             super.stop();
@@ -201,9 +201,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
 
             ItemStack held = this.getMainHandItem();
 
-            if (held.getItem() instanceof WandItem wand) {
-                this.wandAttackCooldown = (int)(this.getAttributeValue(EMAttributes.COOLDOWN) * 0.75);
-                this.wandGoal.setCooldownTicks(wandAttackCooldown);
+            if (held.getItem() instanceof WandItem) {
                 this.goalSelector.addGoal(1, this.wandGoal);
             }
             else {
@@ -263,17 +261,19 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
         private final float rangeSqr;
         private int cooldownTicks;
         private int cooldown;
+        private final float cooldownManager;
 
-        public WandAttackGoal(T mob, double speed, float range, int cooldownTicks) {
+        public WandAttackGoal(T mob, double speed, float range, float cooldownModifier) {
             this.mob = mob;
             this.speed = speed;
             this.rangeSqr = range * range;
-            this.cooldownTicks = cooldownTicks;
+            this.cooldownManager = cooldownModifier;
+            refreshCooldown();
             this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
-        public void setCooldownTicks(int ticks) {
-            this.cooldownTicks = ticks;
+        private void refreshCooldown() {
+            this.cooldownTicks = Math.max((int)((WandUtil.getAttribute(mob, EMAttributes.COOLDOWN) * 20) * cooldownManager), 5);
         }
 
         @Override
@@ -293,6 +293,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
 
         @Override
         public void tick() {
+            refreshCooldown();
             LivingEntity target = mob.getTarget();
             if (target == null) return;
 
