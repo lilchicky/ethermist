@@ -5,6 +5,7 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.client.model.*;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.*;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.monster.Monster;
@@ -43,12 +44,14 @@ public class EMModEvents {
 
     @SubscribeEvent
     public static void onAddEntityAttributes(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, EMAttributes.COOLDOWN);
-        event.add(EntityType.PLAYER, EMAttributes.WAND_DAMAGE);
-        event.add(EntityType.PLAYER, EMAttributes.WAND_KNOCKBACK, 1.0);
-        event.add(EntityType.PLAYER, EMAttributes.PROJECTILE_SPEED, 1.0);
-        event.add(EntityType.PLAYER, EMAttributes.LIFESPAN);
-        event.add(EntityType.PLAYER, EMAttributes.ACCURACY, 0.0);
+        for (EntityType<? extends LivingEntity> entity : event.getTypes()) {
+            event.add(entity, EMAttributes.COOLDOWN);
+            event.add(entity, EMAttributes.WAND_DAMAGE);
+            event.add(entity, EMAttributes.WAND_KNOCKBACK, 1.0);
+            event.add(entity, EMAttributes.PROJECTILE_SPEED, 1.0);
+            event.add(entity, EMAttributes.LIFESPAN);
+            event.add(entity, EMAttributes.ACCURACY, 0.0);
+        }
     }
 
     @SubscribeEvent
