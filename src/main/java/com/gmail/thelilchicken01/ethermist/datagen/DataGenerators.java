@@ -45,6 +45,9 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        EMDatapackProvider provider = new EMDatapackProvider(packOutput, lookupProvider);
+        CompletableFuture<HolderLookup.Provider> lookup = provider.getRegistryProvider();
+
         BlockTagsProvider blockTagsProvider = new EMBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
 
         gen.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
@@ -55,7 +58,7 @@ public class DataGenerators {
                 lookupProvider)
         );
 
-        gen.addProvider(event.includeServer(), new EMDatapackProvider(packOutput, lookupProvider));
+        gen.addProvider(event.includeServer(), provider);
 
         gen.addProvider(event.includeServer(), new EMRecipeProvider(packOutput, lookupProvider));
 
@@ -63,7 +66,7 @@ public class DataGenerators {
 
         gen.addProvider(event.includeServer(), blockTagsProvider);
         gen.addProvider(event.includeServer(), new EMItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
-        gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookupProvider, existingFileHelper));
+        gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookup, existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEntityTagProvider(packOutput, lookupProvider, existingFileHelper));
         gen.addProvider(event.includeServer(), new EMBiomeTagProvider(packOutput, lookupProvider, existingFileHelper));
 

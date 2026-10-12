@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "ethermist:augment_homing",
-      "required": false
-    },
-    {
-      "id": "ethermist:chaos_magic",
-      "required": false
-    }
+    "ethermist:augment_homing",
+    "ethermist:chaos_magic"
   ]
 }

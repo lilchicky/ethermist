@@ -1,24 +1,9 @@
 {
   "values": [
-    {
-      "id": "ethermist:augment_split",
-      "required": false
-    },
-    {
-      "id": "ethermist:augment_aoe",
-      "required": false
-    },
-    {
-      "id": "ethermist:augment_spray",
-      "required": false
-    },
-    {
-      "id": "ethermist:augment_meteor",
-      "required": false
-    },
-    {
-      "id": "ethermist:augment_focus",
-      "required": false
-    }
+    "ethermist:augment_split",
+    "ethermist:augment_aoe",
+    "ethermist:augment_spray",
+    "ethermist:augment_meteor",
+    "ethermist:augment_focus"
   ]
 }

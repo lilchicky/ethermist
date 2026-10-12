@@ -1,20 +1,8 @@
 {
   "values": [
-    {
-      "id": "ethermist:exclude_monsters",
-      "required": false
-    },
-    {
-      "id": "ethermist:exclude_animals",
-      "required": false
-    },
-    {
-      "id": "ethermist:exclude_players",
-      "required": false
-    },
-    {
-      "id": "ethermist:exclude_villagers",
-      "required": false
-    }
+    "ethermist:exclude_monsters",
+    "ethermist:exclude_animals",
+    "ethermist:exclude_players",
+    "ethermist:exclude_villagers"
   ]
 }

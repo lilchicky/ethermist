@@ -1,11 +1,14 @@
 package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EnchantmentTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -21,84 +24,88 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
-        addBaseEnchantment("arcane_velocity");
-        addBaseEnchantment("quick_cast");
-        addBaseEnchantment("enduring_magic");
-        addBaseEnchantment("runic_power");
-        addBaseEnchantment("ancient_power");
-        addBaseEnchantment("stable_orb");
+        addBaseEnchantment(EMEnchantments.ARCANE_VELOCITY);
+        addBaseEnchantment(EMEnchantments.QUICK_CAST);
+        addBaseEnchantment(EMEnchantments.ENDURING_MAGIC);
+        addBaseEnchantment(EMEnchantments.RUNIC_FORCE);
+        addBaseEnchantment(EMEnchantments.ANCIENT_POWER);
+        addBaseEnchantment(EMEnchantments.STABLE_ORB);
 
-        addAugmentEnchantment("augment_split", true);
-        addAugmentEnchantment("augment_aoe", true);
-        addAugmentEnchantment("augment_spray", true);
-        addAugmentEnchantment("augment_meteor", true);
-        addAugmentEnchantment("augment_abundance", false);
-        addAugmentEnchantment("augment_focus", true);
-        addTreasureAugmentEnchantment("augment_homing", false);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_SPLIT, true);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_AOE, true);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_SPRAY, true);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_METEOR, true);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_ABUNDANCE, false);
+        addAugmentEnchantment(EMEnchantments.AUGMENT_FOCUS, true);
+        addTreasureAugmentEnchantment(EMEnchantments.AUGMENT_HOMING, false);
 
-        addExcludeEnchantment("exclude_monsters");
-        addExcludeEnchantment("exclude_animals");
-        addExcludeEnchantment("exclude_players");
-        addExcludeEnchantment("exclude_villagers");
+        addExcludeEnchantment(EMEnchantments.EXCLUDE_MONSTERS);
+        addExcludeEnchantment(EMEnchantments.EXCLUDE_ANIMALS);
+        addExcludeEnchantment(EMEnchantments.EXCLUDE_PLAYERS);
+        addExcludeEnchantment(EMEnchantments.EXCLUDE_VILLAGERS);
 
-        addMainEnchantment("fireball");
-        addMainEnchantment("thunderstrike");
-        addMainEnchantment("kinetic_rush");
-        addMainEnchantment("volatile_energy");
-        addMainEnchantment("seismic_surge");
-        addTreasureMainEnchantment("chaos_magic");
+        addMainEnchantment(EMEnchantments.FIREBALL);
+        addMainEnchantment(EMEnchantments.THUNDERSTRIKE);
+        addMainEnchantment(EMEnchantments.KINETIC_RUSH);
+        addMainEnchantment(EMEnchantments.VOLATILE_ENERGY);
+        addMainEnchantment(EMEnchantments.SEISMIC_SURGE);
+        addTreasureMainEnchantment(EMEnchantments.CHAOS_MAGIC);
 
         tag(Tags.Enchantments.INCREASE_BLOCK_DROPS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+                .add(EMEnchantments.AUGMENT_ABUNDANCE);
 
         tag(Tags.Enchantments.INCREASE_ENTITY_DROPS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "augment_abundance"));
+                .add(EMEnchantments.AUGMENT_ABUNDANCE);
+
+        tag(EMTags.Enchantments.SPECTRAL_LICH_WAND_CAN_HAVE)
+                .add(EMEnchantments.THUNDERSTRIKE)
+                .add(EMEnchantments.RUNIC_FORCE);
 
     }
 
-    private void addMainEnchantment(String ench) {
-        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addMainEnchantment(ResourceKey<Enchantment> ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).add(ench);
+        tag(EnchantmentTags.NON_TREASURE).add(ench);
     }
 
-    private void addExcludeEnchantment(String ench) {
-        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.EXCLUDE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addExcludeEnchantment(ResourceKey<Enchantment> ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EMTags.Enchantments.EXCLUDE_SPELLS).add(ench);
+        tag(EnchantmentTags.NON_TREASURE).add(ench);
     }
 
-    private void addAugmentEnchantment(String ench, boolean exclusive) {
-        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addAugmentEnchantment(ResourceKey<Enchantment> ench, boolean exclusive) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EnchantmentTags.NON_TREASURE).add(ench);
         if (exclusive) {
-            tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+            tag(EMTags.Enchantments.AUGMENT_SPELLS).add(ench);
         }
     }
 
-    private void addTreasureMainEnchantment(String ench) {
-        tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.ON_RANDOM_LOOT).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addTreasureMainEnchantment(ResourceKey<Enchantment> ench) {
+        tag(EnchantmentTags.TREASURE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EMTags.Enchantments.MAIN_DAMAGE_SPELLS).add(ench);
+        tag(EnchantmentTags.ON_RANDOM_LOOT).add(ench);
     }
 
-    private void addTreasureAugmentEnchantment(String ench, boolean exclusive) {
-        tag(EnchantmentTags.TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.ON_RANDOM_LOOT).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addTreasureAugmentEnchantment(ResourceKey<Enchantment> ench, boolean exclusive) {
+        tag(EnchantmentTags.TREASURE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EnchantmentTags.ON_RANDOM_LOOT).add(ench);
         if (exclusive) {
-            tag(EMTags.Enchantments.AUGMENT_SPELLS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+            tag(EMTags.Enchantments.AUGMENT_SPELLS).add(ench);
         }
     }
 
-    private void addBaseEnchantment(String ench) {
-        tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
-        tag(EnchantmentTags.NON_TREASURE).addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, ench));
+    private void addBaseEnchantment(ResourceKey<Enchantment> ench) {
+        tag(EnchantmentTags.IN_ENCHANTING_TABLE).add(ench);
+        tag(EMTags.Enchantments.WAND_ENCHANTMENTS).add(ench);
+        tag(EnchantmentTags.NON_TREASURE).add(ench);
     }
 
 }

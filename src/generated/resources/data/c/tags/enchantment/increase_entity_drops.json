@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:augment_abundance",
-      "required": false
-    }
+    "ethermist:augment_abundance"
   ]
 }

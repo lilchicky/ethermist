@@ -1,11 +1,12 @@
-// 1.21.1	2025-09-25T23:02:10.6079792	Tags for minecraft:enchantment mod id ethermist
-a0ca1e4f805a2f8b5056fee3b43930bf370db749 data/c/tags/enchantment/increase_block_drops.json
-a0ca1e4f805a2f8b5056fee3b43930bf370db749 data/c/tags/enchantment/increase_entity_drops.json
-06b65c4e25510e2b3fd6da6340e5916adab0b48a data/ethermist/tags/enchantment/augment_spells.json
-97b832a58e872d4a2460c15b3011df4ba1532f43 data/ethermist/tags/enchantment/focus_spells.json
-68b71fed6fdd9485a46dcbc9f86c0fdf9a02bdda data/ethermist/tags/enchantment/main_damage_spells.json
-ecca6b0effadf1f3347d8c6385343e4073cb44bd data/ethermist/tags/enchantment/wand_enchantments.json
-c8e582f72ebbcf82e97ffd4745efb6bfea92e528 data/minecraft/tags/enchantment/in_enchanting_table.json
-c8e582f72ebbcf82e97ffd4745efb6bfea92e528 data/minecraft/tags/enchantment/non_treasure.json
-c0aa1998f17049e28cfe0c531423ca0cdac22c4e data/minecraft/tags/enchantment/on_random_loot.json
-c0aa1998f17049e28cfe0c531423ca0cdac22c4e data/minecraft/tags/enchantment/treasure.json
+// 1.21.1	2026-10-12T00:19:59.5471813	Tags for minecraft:enchantment mod id ethermist
+9a2d8d1ef096647658d5c9e73342e08e6f845273 data/c/tags/enchantment/increase_block_drops.json
+9a2d8d1ef096647658d5c9e73342e08e6f845273 data/c/tags/enchantment/increase_entity_drops.json
+f9b84730161ec595b8ab3734345bbc55ad014985 data/ethermist/tags/enchantment/augment_spells.json
+08239dffcec4782c13200ab5c42ec54fd5e0d82d data/ethermist/tags/enchantment/focus_spells.json
+e24f2d07187d4973201f719f027f0824216482d6 data/ethermist/tags/enchantment/main_damage_spells.json
+2a486d609460dfaece52ef41fc06914ab1e398c3 data/ethermist/tags/enchantment/spectral_lich_wand_can_have.json
+d63ea262a9ded4210b11ec35b2d25b7e555a0db4 data/ethermist/tags/enchantment/wand_enchantments.json
+b2393f7e271dd2cad5b0724cd1b73df4a321d8ec data/minecraft/tags/enchantment/in_enchanting_table.json
+b2393f7e271dd2cad5b0724cd1b73df4a321d8ec data/minecraft/tags/enchantment/non_treasure.json
+c9b593e470e0cea51934bec4ebaed193d5d433d1 data/minecraft/tags/enchantment/on_random_loot.json
+c9b593e470e0cea51934bec4ebaed193d5d433d1 data/minecraft/tags/enchantment/treasure.json

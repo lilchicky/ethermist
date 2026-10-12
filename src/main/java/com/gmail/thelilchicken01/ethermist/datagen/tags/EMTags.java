@@ -59,6 +59,8 @@ public class EMTags {
         public static final TagKey<Enchantment> AUGMENT_SPELLS = mod("augment_spells");
         public static final TagKey<Enchantment> EXCLUDE_SPELLS = mod("focus_spells");
 
+        public static final TagKey<Enchantment> SPECTRAL_LICH_WAND_CAN_HAVE = mod("spectral_lich_wand_can_have");
+
         private static TagKey<Enchantment> mod(String path) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
         }
