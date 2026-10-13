@@ -139,49 +139,49 @@ public class ChaosMagicEnchant implements IWandSpellEffect {
                                 level.getRandom().nextFloat() * 0.4f + 0.8f);
                     }
                     case 3 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * spellLevel, 2 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * spellLevel, 2 * spellLevel));
                         }
                         if (target instanceof LivingEntity livingTarget) {
                             livingTarget.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 * spellLevel, 2 * spellLevel));
                         }
                     }
                     case 4 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 * spellLevel, 100 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 * spellLevel, 100 * spellLevel));
                         }
                     }
                     case 5 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, 200 * spellLevel, 2 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, 200 * spellLevel, 2 * spellLevel));
                         }
                     }
                     case 6 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 400 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 400 * spellLevel));
                         }
                     }
                     case 7 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * spellLevel));
                         }
                         if (target instanceof LivingEntity livingTarget) {
                             livingTarget.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100 * spellLevel));
                         }
                     }
                     case 8 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 * spellLevel, spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 * spellLevel, spellLevel));
                         }
                     }
                     case 9 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100 * spellLevel, spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100 * spellLevel, spellLevel));
                         }
                     }
                     case 10 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 100 * spellLevel, spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 100 * spellLevel, spellLevel));
                         }
                     }
                     case 11 -> {
@@ -228,8 +228,8 @@ public class ChaosMagicEnchant implements IWandSpellEffect {
                         }
                     }
                     case 14 -> {
-                        if (shooter instanceof Player player) {
-                            player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 10 * spellLevel));
+                        if (shooter instanceof LivingEntity livingShooter) {
+                            livingShooter.addEffect(new MobEffectInstance(MobEffects.SATURATION, 10 * spellLevel));
                         }
                     }
                     case 15 -> {

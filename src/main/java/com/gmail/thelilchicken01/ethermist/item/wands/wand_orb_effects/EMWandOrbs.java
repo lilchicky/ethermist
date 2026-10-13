@@ -200,16 +200,16 @@ public class EMWandOrbs {
                             )
                             .sound(SoundEvents.WITCH_THROW)
                             .effect((shotItem, target, shooter, shot) -> {
-                                if (shooter instanceof Player player) {
-                                    RandomSource random = player.getRandom();
+                                if (shooter instanceof LivingEntity livingShooter) {
+                                    RandomSource random = livingShooter.getRandom();
 
                                     switch (random.nextInt(3)) {
                                         case 0 ->
-                                                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, shot.getOriginWandTier().doesBuffSpell() ? 80 : 40, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
+                                                livingShooter.addEffect(new MobEffectInstance(MobEffects.REGENERATION, shot.getOriginWandTier().doesBuffSpell() ? 80 : 40, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                                         case 1 ->
-                                                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100));
+                                                livingShooter.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, shot.getOriginWandTier().doesBuffSpell() ? 200 : 100));
                                         case 2 ->
-                                                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
+                                                livingShooter.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, shot.getOriginWandTier().doesBuffSpell() ? 120 : 60, shot.getOriginWandTier().doesBuffSpell() ? 1 : 0));
                                     }
 
                                     if (target instanceof LivingEntity livingTarget) {
@@ -223,8 +223,8 @@ public class EMWandOrbs {
                                         }
                                     }
 
-                                    if (player.isInWater() && random.nextBoolean()) {
-                                        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, shot.getOriginWandTier().doesBuffSpell() ? 400 : 100));
+                                    if (livingShooter.isInWater() && random.nextBoolean()) {
+                                        livingShooter.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, shot.getOriginWandTier().doesBuffSpell() ? 400 : 100));
                                     }
                                 }
                             })
