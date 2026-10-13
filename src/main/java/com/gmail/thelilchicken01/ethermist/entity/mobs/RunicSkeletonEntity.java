@@ -62,7 +62,7 @@ public class RunicSkeletonEntity extends Monster {
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 24.0f));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 
-        this.targetSelector.addGoal(0, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(0, new HurtByTargetGoal(this, SpectralLichEntity.class));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
 
     }
