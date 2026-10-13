@@ -5,14 +5,14 @@ import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.EntityLootSubProvider;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntry;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryType;
+import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -28,7 +28,11 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
 
     @Override
     protected @NotNull Stream<EntityType<?>> getKnownEntityTypes() {
-        return Stream.of(EMEntityTypes.GLOOMIE.get());
+        return Stream.of(
+                EMEntityTypes.GLOOMIE.get(),
+                EMEntityTypes.RUNIC_SKELETON.get(),
+                EMEntityTypes.SPECTRAL_LICH.get()
+        );
     }
 
 
@@ -39,15 +43,34 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
-                                .add(
-                                        LootItem.lootTableItem(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get())
-                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
-                                                .setWeight(1)
-                                )
+                                .add(getDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 1, 2, 1))
                                 .add(EmptyLootItem.emptyItem().setWeight(3))
                 )
         );
 
+        add(EMEntityTypes.RUNIC_SKELETON.get(),
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0f))
+                                .add(getDrop(Items.BONE, 0, 3, 1))
+                )
+        );
+
+        add(EMEntityTypes.SPECTRAL_LICH.get(),
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0f))
+                                .add(getDrop(Items.BONE, 0, 3, 30))
+                                .add(getDrop(EMItems.WOODEN_WAND_HANDLE, 1, 1, 1))
+                )
+        );
+
+    }
+
+    private LootPoolEntryContainer.Builder<?> getDrop(ItemLike drop, int min, int max, int weight) {
+        return LootItem.lootTableItem(drop)
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                .setWeight(weight);
     }
 
 }
