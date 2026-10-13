@@ -58,7 +58,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     public final AnimationState pursueState = new AnimationState();
     public final AnimationState walkState = new AnimationState();
 
-    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, 0.75f);
+    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, 0.5f);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2, false) {
         public void stop() {
             super.stop();
@@ -93,8 +93,8 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
         return Monster.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.ARMOR, 2)
-                .add(Attributes.ATTACK_DAMAGE, 4)
-                .add(Attributes.MOVEMENT_SPEED, 0.2)
+                .add(Attributes.ATTACK_DAMAGE, 2)
+                .add(Attributes.MOVEMENT_SPEED, 0.23)
                 .add(Attributes.FOLLOW_RANGE, 24);
     }
 
@@ -261,19 +261,19 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
         private final float rangeSqr;
         private int cooldownTicks;
         private int cooldown;
-        private final float cooldownManager;
+        private final float cooldownModifier;
 
         public WandAttackGoal(T mob, double speed, float range, float cooldownModifier) {
             this.mob = mob;
             this.speed = speed;
             this.rangeSqr = range * range;
-            this.cooldownManager = cooldownModifier;
+            this.cooldownModifier = cooldownModifier;
             refreshCooldown();
             this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
         private void refreshCooldown() {
-            this.cooldownTicks = Math.max((int)((WandUtil.getAttribute(mob, EMAttributes.COOLDOWN) * 20) * cooldownManager), 5);
+            this.cooldownTicks = Math.max((int)((WandUtil.getAttribute(mob, EMAttributes.COOLDOWN) * 20) * this.cooldownModifier), 5);
         }
 
         @Override

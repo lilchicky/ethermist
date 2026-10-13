@@ -69,8 +69,8 @@ public class RunicSkeletonEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 20)
-                .add(Attributes.ARMOR, 2)
+                .add(Attributes.MAX_HEALTH, 25)
+                .add(Attributes.ARMOR, 3)
                 .add(Attributes.ATTACK_DAMAGE, 4)
                 .add(Attributes.MOVEMENT_SPEED, 0.2)
                 .add(Attributes.FOLLOW_RANGE, 24);

@@ -81,6 +81,14 @@ public class EMModEvents {
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
         );
 
+        event.register(
+                EMEntityTypes.SPECTRAL_LICH.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.REPLACE
+        );
+
     }
 
 }

@@ -107,6 +107,12 @@
         "weight": 100
       },
       {
+        "type": "ethermist:spectral_lich",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 45
+      },
+      {
         "type": "minecraft:witch",
         "maxCount": 1,
         "minCount": 1,
