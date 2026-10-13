@@ -155,7 +155,7 @@ public class GlimmerbugQueenEntity extends Monster implements OwnableEntity {
 
     @Override
     protected int getBaseExperienceReward() {
-        return 400;
+        return 500;
     }
 
     @Override

@@ -87,7 +87,7 @@ public class RunicSkeletonEntity extends Monster {
 
     @Override
     protected int getBaseExperienceReward() {
-        return 20;
+        return 10;
     }
 
     @Override

@@ -127,7 +127,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
 
     @Override
     protected int getBaseExperienceReward() {
-        return 20;
+        return 15;
     }
 
     @Override
