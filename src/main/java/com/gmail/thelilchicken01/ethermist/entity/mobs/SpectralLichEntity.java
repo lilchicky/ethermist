@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectileHandler;
@@ -15,12 +14,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -28,15 +24,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.animal.Turtle;
-import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -154,7 +144,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
 
-        Optional<HolderSet.Named<Item>> holdable = BuiltInRegistries.ITEM.getTag(EMTags.Items.SPECTRAL_LICH_CAN_HOLD);
+        Optional<HolderSet.Named<Item>> holdable = BuiltInRegistries.ITEM.getTag(EMTags.Items.SPECTRAL_LICH_CAN_SPAWN_WITH);
 
         holdable.flatMap(holders -> holders.getRandomElement(random)).ifPresent(item ->
                 setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(item.value())));

@@ -185,10 +185,13 @@ public class EMItemTagProvider extends ItemTagsProvider {
         ---------- Wand Stuff ----------
          */
 
-        tag(EMTags.Items.SPECTRAL_LICH_CAN_HOLD)
+        tag(EMTags.Items.SPECTRAL_LICH_CAN_SPAWN_WITH)
                 .add(EMItems.DULL_WAND.get())
                 .add(EMItems.POISON_WAND.get())
-                .add(EMItems.FLAME_WAND.get());
+                .add(EMItems.FLAME_WAND.get())
+                .add(EMItems.WITCH_WAND.get())
+                .add(EMItems.FROZEN_WAND.get())
+                .add(EMItems.WITHER_WAND.get());
 
         tag(EMTags.Items.ORBS)
                 .add(EMItems.DULL_ORB.get())
