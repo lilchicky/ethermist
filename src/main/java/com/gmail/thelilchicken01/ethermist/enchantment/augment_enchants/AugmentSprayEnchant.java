@@ -91,6 +91,8 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
 
                     int scheduleShot = server.getTickCount() + (x * 2);
 
+                    if (shotStack.isEmpty()) break;
+
                     Ethermist.SCHEDULER.schedule(scheduleShot, () -> {
                         WandShotHandler.shoot(level, shooter, target, pSpeed, lifespan, shotStack, wand, shotItem, wandItem,
                                 isHoming, targetType, savedSpells);
