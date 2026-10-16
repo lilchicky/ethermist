@@ -1,22 +1,25 @@
 # Notices for files used in this mod:
-
+_________
 ### The following third-party sound assets are used under their respective licenses:
+_________
+- ### alarm_clock_ticking_01.wav  
+    Author: joedeshon  
+    Source: https://freesound.org/s/78563/  
+    License: Attribution 4.0  
+    Modifications: trimmed, volume increased  
 
-alarm_clock_ticking_01.wav  
-Author: joedeshon  
-Source: https://freesound.org/s/78563/  
-License: Attribution 4.0  
-Modifications: trimmed, volume increased  
+- ### Charcoal Foley.wav  
+    Author: UlyssesAtSea  
+    Source: https://freesound.org/s/648136/  
+    License: Creative Commons 0  
+    Modifications: trimmed, pitch modified  
 
-Charcoal Foley.wav  
-Author: UlyssesAtSea  
-Source: https://freesound.org/s/648136/  
-License: Creative Commons 0  
-Modifications: trimmed, pitch modified  
+### The following models/textures/animations were commissioned externally:
+_________
+- ### Runic Skeleton model
+    Author: Amaresse
 
-Runic Skeleton model
-Author: Amaresse
+- ### Spectral Lich model
+    Author: Hexodiax 
 
-Spectral Lich model
-Author: Hexodiax
-Link: https://ko-fi.com/hexodiax/shop
+    Link: https://ko-fi.com/hexodiax/shop

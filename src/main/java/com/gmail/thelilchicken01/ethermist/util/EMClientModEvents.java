@@ -53,6 +53,7 @@ public class EMClientModEvents {
         event.registerEntityRenderer(EMEntityTypes.PYLON.get(), PylonRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.SPECTRAL_LICH.get(), SpectralLichRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.KARAKA.get(), KarakaRenderer::new);
 
     }
 

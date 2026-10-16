@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-12T22:42:02.6598781	Tags for minecraft:item mod id ethermist
+// 1.21.1	2026-10-15T22:28:10.657458	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 9bc0d282717153a19438738b270e4956c4da256b data/c/tags/item/foods.json
@@ -25,6 +25,7 @@ ce11b1851f749ca1edf8436930585b0266339ac2 data/ethermist/tags/item/enchantable_au
 f620b5417e6639850162450c2b2f5a26dd432fe4 data/ethermist/tags/item/enchantable_exclusions.json
 a84d11c51d435b5d06702eb25760a70c715139c2 data/ethermist/tags/item/enchantable_main_spells.json
 e1b2e2698b96fda9188d95c9d7b8f4f578c13a16 data/ethermist/tags/item/handles.json
+0feda0012ebf78cc6331d4d9d1fa43e1d1e2df1c data/ethermist/tags/item/is_karaka_food.json
 c346b20852109a822dc3f9908f4a12a538a80978 data/ethermist/tags/item/magic_enchantable.json
 1b37520318739e7ac284bceaca46149d4de3eb14 data/ethermist/tags/item/orbs.json
 c492f340f38af29daacf882469cefadcd804a60b data/ethermist/tags/item/spectral_lich_can_spawn_with.json

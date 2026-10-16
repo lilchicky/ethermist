@@ -29,6 +29,7 @@ public class EMModEvents {
         event.registerLayerDefinition(PylonModel.LAYER_LOCATION, PylonModel::createBodyLayer);
         event.registerLayerDefinition(RunicSkeletonModel.LAYER_LOCATION, RunicSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(SpectralLichModel.LAYER_LOCATION, SpectralLichModel::createBodyLayer);
+        event.registerLayerDefinition(KarakaModel.LAYER_LOCATION, KarakaModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -40,6 +41,7 @@ public class EMModEvents {
         event.put(EMEntityTypes.PYLON.get(), PylonEntity.createAttributes().build());
         event.put(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonEntity.createAttributes().build());
         event.put(EMEntityTypes.SPECTRAL_LICH.get(), SpectralLichEntity.createAttributes().build());
+        event.put(EMEntityTypes.KARAKA.get(), KarakaEntity.createAttributes().build());
     }
 
     @SubscribeEvent

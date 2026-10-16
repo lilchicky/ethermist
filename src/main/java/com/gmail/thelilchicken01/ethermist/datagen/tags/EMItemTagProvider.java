@@ -181,6 +181,10 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.FOODS_RAW_MEAT)
                 .add(EMItems.GLIMMERBUG_SHELL.get());
 
+        tag(EMTags.Items.IS_KARAKA_FOOD)
+                .addTag(ItemTags.LEAVES)
+                .addTag(Tags.Items.SEEDS);
+
         /*
         ---------- Wand Stuff ----------
          */

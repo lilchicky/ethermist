@@ -69,6 +69,13 @@ public class EMEntityTypes {
                             .sized(0.8f, 1.875f)
                             .build(Ethermist.MODID + ":spectral_lich"));
 
+    // Karaka
+    public static final DeferredHolder<EntityType<?>, EntityType<KarakaEntity>> KARAKA =
+            EM_ENTITY_TYPES.register("karaka",
+                    () -> EntityType.Builder.of(KarakaEntity::new, MobCategory.CREATURE)
+                            .sized(1.5f, 1.8f)
+                            .build(Ethermist.MODID + ":karaka"));
+
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);
     }
