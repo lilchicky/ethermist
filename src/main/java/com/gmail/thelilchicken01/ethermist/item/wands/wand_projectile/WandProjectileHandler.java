@@ -186,7 +186,7 @@ public class WandProjectileHandler {
                 level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(shot.damageType),
                 shot,
                 shooter,
-                null
+                hitPos
         );
 
         boolean damaged;
