@@ -21,7 +21,7 @@ public class KarakaRenderer extends MobRenderer<KarakaEntity, KarakaModel<Karaka
     public void render(KarakaEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
 
         if (entity.isBaby()) {
-            poseStack.scale(0.35f, 0.35f, 0.35f);
+            poseStack.scale(0.65f, 0.65f, 0.65f);
         }
 
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
