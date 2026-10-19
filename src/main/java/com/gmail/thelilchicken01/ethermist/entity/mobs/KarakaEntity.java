@@ -136,7 +136,7 @@ public class KarakaEntity extends Animal {
 
                 if (nextState < 0.1) {
                     eatState.startIfStopped(this.tickCount);
-                    animTicks = 40;
+                    animTicks = 70;
                 } else if (nextState < 0.4) {
                     wagState.startIfStopped(this.tickCount);
                     animTicks = 40;
