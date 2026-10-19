@@ -109,6 +109,12 @@
         "maxCount": 4,
         "minCount": 2,
         "weight": 10
+      },
+      {
+        "type": "ethermist:karaka",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
       }
     ],
     "misc": [],

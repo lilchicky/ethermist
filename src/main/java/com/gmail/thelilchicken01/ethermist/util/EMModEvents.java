@@ -68,6 +68,14 @@ public class EMModEvents {
         );
 
         event.register(
+                EMEntityTypes.KARAKA.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                KarakaEntity::checkSpawn,
+                RegisterSpawnPlacementsEvent.Operation.REPLACE
+        );
+
+        event.register(
                 EMEntityTypes.GLOOMIE.get(),
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
