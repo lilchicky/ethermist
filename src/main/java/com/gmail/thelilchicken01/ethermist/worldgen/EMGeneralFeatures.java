@@ -7,10 +7,7 @@ import com.gmail.thelilchicken01.ethermist.worldgen.feature.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.feature.SpikeFeature;
 import com.gmail.thelilchicken01.ethermist.worldgen.tree.*;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderSet;
+import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -19,6 +16,7 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Block;
@@ -41,6 +39,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
 
@@ -91,6 +90,8 @@ public class EMGeneralFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CHRONOTHORN_PATCH = registerKey("chronothorn_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PYRUSCIA_PATCH = registerKey("pyruscia_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SOURDEW_PATCH = registerKey("sourdew_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_WITCH_LAVENDER_PATCH = registerKey("dense_witch_lavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DENSE_NIGHTBELL_PATCH = registerKey("dense_nightbell_patch");
@@ -571,6 +572,25 @@ public class EMGeneralFeatures {
         register(context, DENSE_NIGHTBELL_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.NIGHTBELL.get(), 512, 16, 1, 8));
         register(context, DENSE_PYRUSCIA_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.PYRUSCIA.get(), 512, 16, 1, 8));
         register(context, DENSE_WITCH_LAVENDER_PATCH, Feature.RANDOM_PATCH, createFlowerPatch(EMBlocks.WITCH_LAVENDER.get(), 512, 16, 1, 8));
+
+        register(
+                context,
+                SOURDEW_PATCH,
+                Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        128,
+                        6,
+                        8,
+                        PlacementUtils.filtered(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(EMBlocks.SOURDEW.get())),
+                                BlockPredicate.allOf(
+                                        BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                                        BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)
+                                )
+                        )
+                )
+        );
 
         register(
                 context,

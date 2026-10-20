@@ -77,6 +77,8 @@ public class EMGeneralPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
     public static final ResourceKey<PlacedFeature> PYRUSCIA_PATCH_KEY = registerKey("pyruscia_patch_placed");
 
+    public static final ResourceKey<PlacedFeature> SOURDEW_PATCH_KEY = registerKey("sourdew_patch_placed");
+
     public static final ResourceKey<PlacedFeature> DENSE_NIGHTBELL_PATCH_KEY = registerKey("dense_nightbell_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_WITCH_LAVENDER_PATCH_KEY = registerKey("dense_witch_lavender_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_DAWNING_HYACINTH_PATCH_KEY = registerKey("dense_dawning_hyacinth_patch_placed");
@@ -289,6 +291,7 @@ public class EMGeneralPlacedFeatures {
                         BiomeFilter.biome()
                 )
         );
+        register(context, SOURDEW_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SOURDEW_PATCH), simpleSpawn(128));
         register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
         register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
 
