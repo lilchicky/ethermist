@@ -52,7 +52,8 @@ public class DataGenerators {
                 List.of(
                         new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK),
                         new LootTableProvider.SubProviderEntry(EMEntityLootProvider::new, LootContextParamSets.ENTITY),
-                        new LootTableProvider.SubProviderEntry(EMChestLootTableProvider::new, LootContextParamSets.CHEST)
+                        new LootTableProvider.SubProviderEntry(EMChestLootTableProvider::new, LootContextParamSets.CHEST),
+                        new LootTableProvider.SubProviderEntry(EMInjectLootTableProvider::new, LootContextParamSets.EMPTY)
                 ),
                 lookupProvider)
         );

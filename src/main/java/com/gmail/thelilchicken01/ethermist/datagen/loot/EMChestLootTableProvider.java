@@ -14,8 +14,6 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
 
-import static com.gmail.thelilchicken01.ethermist.datagen.loot.EMLootTableHelper.*;
-
 public class EMChestLootTableProvider implements LootTableSubProvider {
 
     private final HolderLookup.Provider registries;
@@ -31,13 +29,13 @@ public class EMChestLootTableProvider implements LootTableSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(1.0f, 4.0f))
-                                .add(rangedDrop(Items.BONE, 1, 3, 3))
-                                .add(singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
+                                .add(EMLootTableHelper.rangedDrop(Items.BONE, 1, 3, 3))
+                                .add(EMLootTableHelper.singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
                 ).withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
-                                .add(singleDrop(Items.DIAMOND, 1))
-                                .add(enchantedItem(Items.BOOK, 1, this.registries))
+                                .add(EMLootTableHelper.singleDrop(Items.DIAMOND, 1))
+                                .add(EMLootTableHelper.enchantedItem(Items.BOOK, 1, this.registries))
                 )
         );
     }

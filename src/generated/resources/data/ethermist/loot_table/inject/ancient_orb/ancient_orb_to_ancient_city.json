@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ethermist:ancient_orb",
+          "weight": 33
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 67
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ethermist:inject/ancient_orb/ancient_orb_to_ancient_city"
+}

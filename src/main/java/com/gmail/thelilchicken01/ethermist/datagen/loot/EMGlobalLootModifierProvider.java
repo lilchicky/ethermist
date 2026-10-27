@@ -16,39 +16,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class EMGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
-    private static final ResourceKey<LootTable> WITCH_ORB_TO_WITCH = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/witch_orb/witch_orb_to_witch"));
-    private static final ResourceKey<LootTable> WITCH_ORB_TO_PILLAGER_OUTPOST = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/witch_orb/witch_orb_to_pillager_outpost"));
-
-    private static final ResourceKey<LootTable> DULL_ORB_TO_SIMPLE_DUNGEON = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/dull_orb/dull_orb_to_simple_dungeon"));
-    private static final ResourceKey<LootTable> DULL_ORB_TO_STRONGHOLD_CORRIDOR = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/dull_orb/dull_orb_to_stronghold_corridor"));
-    private static final ResourceKey<LootTable> DULL_ORB_TO_STRONGHOLD_CROSSING = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/dull_orb/dull_orb_to_stronghold_crossing"));
-
-    private static final ResourceKey<LootTable> FLAME_ORB_TO_NETHER_BRIDGE = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/flame_orb/flame_orb_to_nether_bridge"));
-    private static final ResourceKey<LootTable> FLAME_ORB_TO_BASTION_OTHER = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/flame_orb/flame_orb_to_bastion_other"));
-
-    private static final ResourceKey<LootTable> POISON_ORB_TO_CAVE_SPIDER = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/poison_orb/poison_orb_to_cave_spider"));
-    private static final ResourceKey<LootTable> POISON_ORB_TO_JUNGLE_TEMPLE = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/poison_orb/poison_orb_to_jungle_temple"));
-    private static final ResourceKey<LootTable> POISON_ORB_TO_MINESHAFT = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/poison_orb/poison_orb_to_mineshaft"));
-
-    private static final ResourceKey<LootTable> LEVITATION_ORB_TO_END_CITY = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/levitation_orb/levitation_orb_to_end_city"));
-
-    private static final ResourceKey<LootTable> FROZEN_ORB_TO_IGLOO = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/frozen_orb/frozen_orb_to_igloo"));
-
-    private static final ResourceKey<LootTable> ANCIENT_ORB_TO_ANCIENT_CITY = ResourceKey.create(Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "inject/ancient_orb/ancient_orb_to_ancient_city"));
-
     public EMGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, Ethermist.MODID);
     }
@@ -60,49 +27,49 @@ public class EMGlobalLootModifierProvider extends GlobalLootModifierProvider {
         ----------  Witch Orb  ----------
          */
 
-        this.add("witch_orb_to_witch", addLootTable("entities/witch", WITCH_ORB_TO_WITCH));
-        this.add("witch_orb_to_pillager_outpost", addLootTable("chests/pillager_outpost", WITCH_ORB_TO_PILLAGER_OUTPOST));
+        this.add("witch_orb_to_witch", addLootTable("entities/witch", EMLootTables.WITCH_ORB_TO_WITCH));
+        this.add("witch_orb_to_pillager_outpost", addLootTable("chests/pillager_outpost", EMLootTables.WITCH_ORB_TO_PILLAGER_OUTPOST));
 
         /*
         ----------  Dull Orb  ----------
          */
 
-        this.add("dull_orb_to_simple_dungeon", addLootTable("chests/simple_dungeon", DULL_ORB_TO_SIMPLE_DUNGEON));
-        this.add("dull_orb_to_stronghold_corridor", addLootTable("chests/stronghold_corridor", DULL_ORB_TO_STRONGHOLD_CORRIDOR));
-        this.add("dull_orb_to_stronghold_crossing", addLootTable("chests/stronghold_crossing", DULL_ORB_TO_STRONGHOLD_CROSSING));
+        this.add("dull_orb_to_simple_dungeon", addLootTable("chests/simple_dungeon", EMLootTables.DULL_ORB_TO_SIMPLE_DUNGEON));
+        this.add("dull_orb_to_stronghold_corridor", addLootTable("chests/stronghold_corridor", EMLootTables.DULL_ORB_TO_STRONGHOLD_CORRIDOR));
+        this.add("dull_orb_to_stronghold_crossing", addLootTable("chests/stronghold_crossing", EMLootTables.DULL_ORB_TO_STRONGHOLD_CROSSING));
 
         /*
         ----------  Flame Orb  ----------
          */
 
-        this.add("flame_orb_to_nether_bridge", addLootTable("chests/nether_bridge", FLAME_ORB_TO_NETHER_BRIDGE));
-        this.add("flame_orb_to_bastion_other", addLootTable("chests/bastion_other", FLAME_ORB_TO_BASTION_OTHER));
+        this.add("flame_orb_to_nether_bridge", addLootTable("chests/nether_bridge", EMLootTables.FLAME_ORB_TO_NETHER_BRIDGE));
+        this.add("flame_orb_to_bastion_other", addLootTable("chests/bastion_other", EMLootTables.FLAME_ORB_TO_BASTION_OTHER));
 
         /*
         ----------  Poison Orb  ----------
          */
 
-        this.add("poison_orb_to_cave_spider", addLootTable("entities/cave_spider", POISON_ORB_TO_CAVE_SPIDER));
-        this.add("poison_orb_to_jungle_temple", addLootTable("chests/jungle_temple", POISON_ORB_TO_JUNGLE_TEMPLE));
-        this.add("poison_orb_to_mineshaft", addLootTable("chests/abandoned_mineshaft", POISON_ORB_TO_MINESHAFT));
+        this.add("poison_orb_to_cave_spider", addLootTable("entities/cave_spider", EMLootTables.POISON_ORB_TO_CAVE_SPIDER));
+        this.add("poison_orb_to_jungle_temple", addLootTable("chests/jungle_temple", EMLootTables.POISON_ORB_TO_JUNGLE_TEMPLE));
+        this.add("poison_orb_to_mineshaft", addLootTable("chests/abandoned_mineshaft", EMLootTables.POISON_ORB_TO_MINESHAFT));
 
         /*
         ----------  Levitation Orb  ----------
          */
 
-        this.add("levitation_orb_to_end_city_treasure", addLootTable("chests/end_city_treasure", LEVITATION_ORB_TO_END_CITY));
+        this.add("levitation_orb_to_end_city_treasure", addLootTable("chests/end_city_treasure", EMLootTables.LEVITATION_ORB_TO_END_CITY));
 
         /*
         ----------  Frozen Orb  ----------
          */
 
-        this.add("frozen_orb_to_igloo", addLootTable("chests/igloo_chest", FROZEN_ORB_TO_IGLOO));
+        this.add("frozen_orb_to_igloo", addLootTable("chests/igloo_chest", EMLootTables.FROZEN_ORB_TO_IGLOO));
 
         /*
         ----------  Ancient Orb  ----------
          */
 
-        this.add("ancient_orb_to_ancient_city", addLootTable("chests/ancient_city", ANCIENT_ORB_TO_ANCIENT_CITY));
+        this.add("ancient_orb_to_ancient_city", addLootTable("chests/ancient_city", EMLootTables.ANCIENT_ORB_TO_ANCIENT_CITY));
 
     }
 

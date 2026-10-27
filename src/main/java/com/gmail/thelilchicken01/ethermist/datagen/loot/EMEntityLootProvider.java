@@ -15,8 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.stream.Stream;
 
-import static com.gmail.thelilchicken01.ethermist.datagen.loot.EMLootTableHelper.*;
-
 public class EMEntityLootProvider extends EntityLootSubProvider {
 
     public EMEntityLootProvider(HolderLookup.Provider registries) {
@@ -39,8 +37,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
-                                .add(rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 1, 2, 1))
-                                .add(empty(3))
+                                .add(EMLootTableHelper.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 1, 2, 1))
+                                .add(EMLootTableHelper.empty(3))
                 )
         );
 
@@ -48,7 +46,7 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
-                                .add(rangedDrop(Items.BONE, 0, 3, 1))
+                                .add(EMLootTableHelper.rangedDrop(Items.BONE, 0, 3, 1))
                 )
         );
 
@@ -56,8 +54,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
-                                .add(rangedDrop(Items.BONE, 0, 3, 30))
-                                .add(singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
+                                .add(EMLootTableHelper.rangedDrop(Items.BONE, 0, 3, 30))
+                                .add(EMLootTableHelper.singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
                 )
         );
 
