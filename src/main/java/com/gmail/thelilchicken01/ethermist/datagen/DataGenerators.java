@@ -1,10 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.loot.chests.EMChestLootTableProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.*;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.*;
 import net.minecraft.core.HolderLookup;
@@ -51,7 +48,7 @@ public class DataGenerators {
 
         BlockTagsProvider blockTagsProvider = new EMBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
 
-        gen.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
+        gen.addProvider(event.includeServer(), new LootTableProvider(packOutput, EMLootTables.all(),
                 List.of(
                         new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK),
                         new LootTableProvider.SubProviderEntry(EMEntityLootProvider::new, LootContextParamSets.ENTITY),
