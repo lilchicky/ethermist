@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.EMChestLootTableProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.*;
 import net.minecraft.core.HolderLookup;
@@ -53,7 +54,8 @@ public class DataGenerators {
         gen.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(
                         new LootTableProvider.SubProviderEntry(EMBlockLootProvider::new, LootContextParamSets.BLOCK),
-                        new LootTableProvider.SubProviderEntry(EMEntityLootProvider::new, LootContextParamSets.ENTITY)
+                        new LootTableProvider.SubProviderEntry(EMEntityLootProvider::new, LootContextParamSets.ENTITY),
+                        new LootTableProvider.SubProviderEntry(EMChestLootTableProvider::new, LootContextParamSets.CHEST)
                 ),
                 lookupProvider)
         );

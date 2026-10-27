@@ -35,7 +35,6 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
         );
     }
 
-
     @Override
     public void generate() {
 
