@@ -4,7 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMEntityLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.loot.EMGlobalLootModifierProvider;
-import com.gmail.thelilchicken01.ethermist.datagen.loot.EMChestLootTableProvider;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.chests.EMChestLootTableProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.*;
 import net.minecraft.core.HolderLookup;
