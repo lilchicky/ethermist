@@ -37,8 +37,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
-                                .add(EMLootTableHelper.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 1, 2, 1))
-                                .add(EMLootTableHelper.empty(3))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM.get(), 1, 2, 1))
+                                .add(EMLootTableUtil.empty(3))
                 )
         );
 
@@ -46,7 +46,7 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
-                                .add(EMLootTableHelper.rangedDrop(Items.BONE, 0, 3, 1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 0, 3, 1))
                 )
         );
 
@@ -54,8 +54,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
-                                .add(EMLootTableHelper.rangedDrop(Items.BONE, 0, 3, 30))
-                                .add(EMLootTableHelper.singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 0, 3, 30))
+                                .add(EMLootTableUtil.singleDrop(EMItems.WOODEN_WAND_HANDLE, 1))
                 )
         );
 

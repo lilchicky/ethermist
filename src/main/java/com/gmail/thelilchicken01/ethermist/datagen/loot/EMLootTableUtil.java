@@ -1,8 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.datagen.loot;
 
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -17,7 +15,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public abstract class EMLootTableHelper {
+public abstract class EMLootTableUtil {
 
     public static LootPoolEntryContainer.Builder<?> rangedDrop(ItemLike drop, int min, int max, int weight) {
         return LootItem.lootTableItem(drop)
@@ -65,8 +63,8 @@ public abstract class EMLootTableHelper {
         return LootTable.lootTable().withPool(
                 LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1.0f))
-                        .add(EMLootTableHelper.singleDrop(item, itemWeight.intValue()))
-                        .add(EMLootTableHelper.empty(emptyWeight.intValue()))
+                        .add(EMLootTableUtil.singleDrop(item, itemWeight.intValue()))
+                        .add(EMLootTableUtil.empty(emptyWeight.intValue()))
         );
     }
 
