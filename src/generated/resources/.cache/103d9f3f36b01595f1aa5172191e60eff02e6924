@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-28T00:26:34.1390881	Registries
+// 1.21.1	2026-10-28T01:03:59.7988796	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -216,7 +216,9 @@ b6fc9e93e097896a1c46955ce6d0787203ca81d2 data/ethermist/worldgen/placed_feature/
 1a86662df805ffd201735f298651fdb8b6149d65 data/ethermist/worldgen/placed_feature/witchstone_blob_upper_placed.json
 e148fa2d1d3190d08dfea4c455237f78c11fe1ca data/ethermist/worldgen/placed_feature/witch_lavender_patch.json
 674c28a1d4b3e5abd49fdc73ad31172246de3b11 data/ethermist/worldgen/placed_feature/yellow_amberwood_tree.json
-ed0665c62c2a3de06fba732e89c2bbfde244c9b8 data/ethermist/worldgen/processor_list/forgemaster_general.json
+084adc7f875fda9f5f49d7fe17a114e8b9f549a5 data/ethermist/worldgen/processor_list/forgemaster_general.json
+3f672f99276db22d58240d9a028a5c2979aab140 data/ethermist/worldgen/structure/forgemaster_castle.json
+ee065b624d95ee6bafbe086a70df32d97eaa59c3 data/ethermist/worldgen/structure_set/forgemaster_castle.json
 32596e0e88b345915459d8707b0a1723bf5e5173 data/ethermist/worldgen/template_pool/forgemaster_castle/fallback_pool.json
 18694b8e23a08b5026566624939c9ed784f52c57 data/ethermist/worldgen/template_pool/forgemaster_castle/hallway_pool.json
 5c0b153ab8ba5aa4a1baadb4a8538fc4ab914212 data/ethermist/worldgen/template_pool/forgemaster_castle/room_pool.json

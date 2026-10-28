@@ -33,7 +33,7 @@ public class EMProcessors {
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
         register(context, FORGEMASTER_GENERAL, List.of(
-                new BlockRotProcessor(0.05f),
+                new BlockRotProcessor(0.95f),
                 new RuleProcessor(
                         List.of(
                                 new ProcessorRule(
