@@ -1,0 +1,86 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_basic",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_door",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_left",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_long",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_old",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_quadruple",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_quadruple_tower",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_right",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:forgemaster_castle/hallway_triple",
+        "processors": "ethermist:forgemaster_general",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "ethermist:forgemaster_castle/fallback_pool"
+}

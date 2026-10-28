@@ -11,7 +11,7 @@
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -60,7 +60,7 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
+      "ethermist:crumbling_etherstone_blob_placed",
       "ethermist:sparkling_sand_disk_placed"
     ],
     [],
@@ -70,14 +70,14 @@
     ],
     [
       "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:large_abyssal_mushroom_placed",
+      "ethermist:large_abyssal_mushroom_patch_placed",
+      "ethermist:small_abyssal_mushroom_patch_placed",
       "ethermist:nightbell_patch_placed",
       "ethermist:witch_lavender_patch_placed",
       "ethermist:dawning_hyacinth_patch_placed",
       "ethermist:pyruscia_patch_placed",
       "ethermist:rich_grass_patch_placed",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:large_abyssal_mushroom_placed"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -100,12 +100,6 @@
         "type": "ethermist:glimmerbug",
         "maxCount": 4,
         "minCount": 2,
-        "weight": 10
-      },
-      {
-        "type": "ethermist:karaka",
-        "maxCount": 3,
-        "minCount": 1,
         "weight": 10
       },
       {
@@ -144,12 +138,8 @@
         "weight": 10
       }
     ],
-    "water_ambient": [
-
-    ],
-    "water_creature": [
-
-    ]
+    "water_ambient": [],
+    "water_creature": []
   },
   "temperature": 0.5
 }

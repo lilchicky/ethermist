@@ -68,7 +68,7 @@ public class DataGenerators {
         gen.addProvider(event.includeServer(), new EMItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEnchantTagProvider(packOutput, lookup, existingFileHelper));
         gen.addProvider(event.includeServer(), new EMEntityTagProvider(packOutput, lookupProvider, existingFileHelper));
-        gen.addProvider(event.includeServer(), new EMBiomeTagProvider(packOutput, lookupProvider, existingFileHelper));
+        gen.addProvider(event.includeServer(), new EMBiomeTagProvider(packOutput, lookup, existingFileHelper));
 
         gen.addProvider(event.includeClient(), new EMBlockstateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeClient(), new EMItemModelProvider(packOutput, existingFileHelper));

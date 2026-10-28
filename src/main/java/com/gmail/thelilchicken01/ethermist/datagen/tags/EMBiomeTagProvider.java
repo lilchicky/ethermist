@@ -1,14 +1,19 @@
 package com.gmail.thelilchicken01.ethermist.datagen.tags;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
+import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
+import com.gmail.thelilchicken01.ethermist.worldgen.biome.EMBiomes;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -21,13 +26,17 @@ public class EMBiomeTagProvider extends BiomeTagsProvider {
         super(output, lookupProvider, Ethermist.MODID, existingFileHelper);
     }
 
+    private static ResourceKey<Biome> create(String path) {
+        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+    }
+
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(Tags.Biomes.IS_AQUATIC)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_depths"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "forgotten_ocean"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "twisting_river"));
+                .add(EMBiomes.ABYSSAL_DEPTHS)
+                .add(EMBiomes.FORGOTTEN_OCEAN)
+                .add(EMBiomes.TWISTING_RIVER);
 
         tag(Tags.Biomes.IS_BEACH)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sparkling_beach"))
@@ -138,6 +147,10 @@ public class EMBiomeTagProvider extends BiomeTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_flats"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"));
+
+        // Structures
+        tag(EMTags.Biomes.HAS_FORGEMASTER_CASTLE)
+                .add(EMBiomes.ANCIENT_FOREST);
 
     }
 

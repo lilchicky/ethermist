@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-27T13:08:27.514097	Registries
+// 1.21.1	2026-10-27T18:34:14.883759	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -36,6 +36,9 @@ a8ac08b207f72d8774fd0dec91722fb76848c19e data/ethermist/enchantment/runic_force.
 9bd882f05f414d0d98189511cd500800735c9dc2 data/ethermist/enchantment/stable_orb.json
 1ec58214f591a4e94754e10ec1d02ce61306c5a8 data/ethermist/enchantment/thunderstrike.json
 14efab189a09d6ed13e18843b04f557369007b79 data/ethermist/enchantment/volatile_energy.json
+21baeb0bf8b733ff715d923003ae8cef3e2e7c61 data/ethermist/worldgen/biome/abyssal_depths.json
+4c8f4d52df591479aafc0050effbab9aa1208bf1 data/ethermist/worldgen/biome/abyssal_flats.json
+452924a87592ae20821fe177710fbf71d8d68870 data/ethermist/worldgen/biome/ancient_forest.json
 eee8192ba147eb721a5e5d3341d89324cbe84861 data/ethermist/worldgen/configured_feature/abyssal_fossil.json
 e9cd65b2b55839e0ab1e33e90802081d1fb38f72 data/ethermist/worldgen/configured_feature/amethyst_spike.json
 7f83b7318bdcf768a2198eeb7ae8950979486da7 data/ethermist/worldgen/configured_feature/ancient_tree.json
@@ -198,3 +201,7 @@ e148fa2d1d3190d08dfea4c455237f78c11fe1ca data/ethermist/worldgen/placed_feature/
 1a86662df805ffd201735f298651fdb8b6149d65 data/ethermist/worldgen/placed_feature/witchstone_blob_upper_placed.json
 674c28a1d4b3e5abd49fdc73ad31172246de3b11 data/ethermist/worldgen/placed_feature/yellow_amberwood_tree_placed.json
 ed0665c62c2a3de06fba732e89c2bbfde244c9b8 data/ethermist/worldgen/processor_list/generic_ruins.json
+32596e0e88b345915459d8707b0a1723bf5e5173 data/ethermist/worldgen/template_pool/forgemaster_castle/fallback_pool.json
+18694b8e23a08b5026566624939c9ed784f52c57 data/ethermist/worldgen/template_pool/forgemaster_castle/hallway_pool.json
+5c0b153ab8ba5aa4a1baadb4a8538fc4ab914212 data/ethermist/worldgen/template_pool/forgemaster_castle/room_pool.json
+41836e82bbb9d2a16d418bb5f291c85e7c45ec29 data/ethermist/worldgen/template_pool/forgemaster_castle/start_pool.json

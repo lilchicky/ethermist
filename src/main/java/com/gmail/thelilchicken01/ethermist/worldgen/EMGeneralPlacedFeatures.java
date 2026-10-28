@@ -12,7 +12,6 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
 
@@ -29,8 +27,8 @@ public class EMGeneralPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> MEGA_GLIMMERING_ANCIENT_PLACED_TREE_KEY = registerKey("mega_glimmering_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> GLIMMERING_ANCIENT_PLACED_TREE_KEY = registerKey("glimmering_ancient_tree_placed");
-    public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_PLACED_TREE_KEY = registerKey("mega_ancient_tree_placed");
-    public static final ResourceKey<PlacedFeature> ANCIENT_PLACED_TREE_KEY = registerKey("ancient_tree_placed");
+    public static final ResourceKey<PlacedFeature> MEGA_ANCIENT_TREE = registerKey("mega_ancient_tree_placed");
+    public static final ResourceKey<PlacedFeature> ANCIENT_TREE = registerKey("ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SPARSE_ANCIENT_PLACED_TREE_KEY = registerKey("sparse_ancient_tree_placed");
     public static final ResourceKey<PlacedFeature> SPARSE_FROSTPINE_PLACED_TREE_KEY = registerKey("sparse_frostpine_tree_placed");
     public static final ResourceKey<PlacedFeature> CHARRED_TREE_STUMP_PLACED_KEY = registerKey("charred_tree_stump_placed");
@@ -45,56 +43,56 @@ public class EMGeneralPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SLIMY_PLACED_TREE_KEY = registerKey("slimy_tree_placed");
 
-    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PLACED = registerKey("large_abyssal_mushroom_placed");
-    public static final ResourceKey<PlacedFeature> SPARSE_LARGE_ABYSSAL_MUSHROOM_PLACED = registerKey("sparse_large_abyssal_mushroom_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM = registerKey("large_abyssal_mushroom_placed");
+    public static final ResourceKey<PlacedFeature> SPARSE_LARGE_ABYSSAL_MUSHROOM = registerKey("sparse_large_abyssal_mushroom_placed");
 
     public static final ResourceKey<PlacedFeature> FROSTPINE_PLACED_TREE_KEY = registerKey("frostpine_tree_placed");
 
-    public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE_PLACED_KEY = registerKey("ethermist_lava_lake_placed");
+    public static final ResourceKey<PlacedFeature> ETHERMIST_LAVA_LAKE = registerKey("ethermist_lava_lake_placed");
     public static final ResourceKey<PlacedFeature> DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY = registerKey("dense_ethermist_lava_lake_placed");
-    public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER_PLACED_KEY = registerKey("etherstone_boulder_placed");
+    public static final ResourceKey<PlacedFeature> ETHERSTONE_BOULDER = registerKey("etherstone_boulder_placed");
     public static final ResourceKey<PlacedFeature> MOLTEN_ETHERSTONE_DISK_PLACED_KEY = registerKey("molten_etherstone_disk_placed");
     public static final ResourceKey<PlacedFeature> CRUMBLING_ETHERSTONE_DISK_PLACED_KEY = registerKey("crumbling_etherstone_disk_placed");
-    public static final ResourceKey<PlacedFeature> SPARKLING_SAND_DISK_PLACED_KEY = registerKey("sparkling_sand_disk_placed");
+    public static final ResourceKey<PlacedFeature> SPARKLING_SAND_DISK = registerKey("sparkling_sand_disk_placed");
     public static final ResourceKey<PlacedFeature> AMETHYST_SPIKE_PLACED_KEY = registerKey("amethyst_spike_placed");
     public static final ResourceKey<PlacedFeature> SMALL_AMETHYST_SPIKE_PLACED_KEY = registerKey("small_amethyst_spike_placed");
     public static final ResourceKey<PlacedFeature> ICICLE_GROUND_PLACED_KEY = registerKey("icicle_ground_placed");
-    public static final ResourceKey<PlacedFeature> CRAG_SPIKE_PLACED_KEY = registerKey("crag_spike_placed");
+    public static final ResourceKey<PlacedFeature> CRAG_SPIKE_PLACED = registerKey("crag_spike_placed");
     public static final ResourceKey<PlacedFeature> CHARRED_DEAD_LOG_PLACED_KEY = registerKey("charred_dead_log_placed");
-    public static final ResourceKey<PlacedFeature> ABYSSAL_FOSSIL_KEY_PLACED = registerKey("abyssal_fossil_placed");
+    public static final ResourceKey<PlacedFeature> ABYSSAL_FOSSIL = registerKey("abyssal_fossil_placed");
 
     public static final ResourceKey<PlacedFeature> EM_LAVA_SPRING_PLACED = registerKey("lava_spring_placed");
     public static final ResourceKey<PlacedFeature> EM_DENSE_LAVA_SPRING_PLACED = registerKey("dense_lava_spring_placed");
     public static final ResourceKey<PlacedFeature> EM_WATER_SPRING_PLACED = registerKey("water_spring_placed");
 
     public static final ResourceKey<PlacedFeature> GLIMMERBUD_PATCH_KEY = registerKey("glimmerbud_patch_placed");
-    public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH_KEY = registerKey("nightbell_patch_placed");
-    public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH_KEY = registerKey("witch_lavender_patch_placed");
-    public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH_KEY = registerKey("dawning_hyacinth_patch_placed");
+    public static final ResourceKey<PlacedFeature> NIGHTBELL_PATCH = registerKey("nightbell_patch_placed");
+    public static final ResourceKey<PlacedFeature> WITCH_LAVENDER_PATCH = registerKey("witch_lavender_patch_placed");
+    public static final ResourceKey<PlacedFeature> DAWNING_HYACINTH_PATCH = registerKey("dawning_hyacinth_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_SLIMY_ALLIUM_PATCH_KEY = registerKey("dense_slimy_allium_placed");
     public static final ResourceKey<PlacedFeature> CHRONOTHORN_PATCH_KEY = registerKey("chronothorn_patch_placed");
     public static final ResourceKey<PlacedFeature> CINDERBLOOM_PATCH_KEY = registerKey("cinderbloom_patch_placed");
-    public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN_KEY = registerKey("ethermist_glow_lichen_placed");
-    public static final ResourceKey<PlacedFeature> PYRUSCIA_PATCH_KEY = registerKey("pyruscia_patch_placed");
+    public static final ResourceKey<PlacedFeature> ETHERMIST_GLOW_LICHEN = registerKey("ethermist_glow_lichen_placed");
+    public static final ResourceKey<PlacedFeature> PYRUSCIA_PATCH = registerKey("pyruscia_patch_placed");
 
-    public static final ResourceKey<PlacedFeature> SOURDEW_PATCH_KEY = registerKey("sourdew_patch_placed");
+    public static final ResourceKey<PlacedFeature> SOURDEW_PATCH = registerKey("sourdew_patch_placed");
 
-    public static final ResourceKey<PlacedFeature> DENSE_NIGHTBELL_PATCH_KEY = registerKey("dense_nightbell_patch_placed");
-    public static final ResourceKey<PlacedFeature> DENSE_WITCH_LAVENDER_PATCH_KEY = registerKey("dense_witch_lavender_patch_placed");
-    public static final ResourceKey<PlacedFeature> DENSE_DAWNING_HYACINTH_PATCH_KEY = registerKey("dense_dawning_hyacinth_patch_placed");
-    public static final ResourceKey<PlacedFeature> DENSE_PYRUSCIA_PATCH_KEY = registerKey("dense_pyruscia_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_NIGHTBELL_PATCH = registerKey("dense_nightbell_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_WITCH_LAVENDER_PATCH = registerKey("dense_witch_lavender_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_DAWNING_HYACINTH_PATCH = registerKey("dense_dawning_hyacinth_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_PYRUSCIA_PATCH = registerKey("dense_pyruscia_patch_placed");
 
     public static final ResourceKey<PlacedFeature> FALLEN_AMBERWOOD_LEAVES_KEY = registerKey("fallen_amberwood_leaves_placed");
-    public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_abyssal_mushroom_patch_placed");
-    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> SMALL_ABYSSAL_MUSHROOM_PATCH = registerKey("small_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_ABYSSAL_MUSHROOM_PATCH = registerKey("large_abyssal_mushroom_patch_placed");
 
-    public static final ResourceKey<PlacedFeature> SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("small_grounded_abyssal_mushroom_patch_placed");
-    public static final ResourceKey<PlacedFeature> LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY = registerKey("large_grounded_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH = registerKey("small_grounded_abyssal_mushroom_patch_placed");
+    public static final ResourceKey<PlacedFeature> LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH = registerKey("large_grounded_abyssal_mushroom_patch_placed");
 
-    public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH_KEY = registerKey("rich_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> RICH_GRASS_PATCH = registerKey("rich_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_TALL_GRASS_PATCH_KEY = registerKey("rich_tall_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> RICH_GRASS_BONEMEAL_KEY = registerKey("rich_grass_bonemeal_placed");
-    public static final ResourceKey<PlacedFeature> DENSE_RICH_GRASS_PATCH_KEY = registerKey("dense_rich_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> DENSE_RICH_GRASS_PATCH = registerKey("dense_rich_grass_patch_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 
@@ -112,11 +110,11 @@ public class EMGeneralPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(6, 0.5f, 2),
                         EMBlocks.GLIMMERING_ANCIENT_SAPLING.get()));
 
-        register(context, MEGA_ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.MEGA_ANCIENT_TREE_KEY),
+        register(context, MEGA_ANCIENT_TREE, configuredFeatures.getOrThrow(EMGeneralFeatures.MEGA_ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
                         EMBlocks.ANCIENT_SAPLING.get()));
 
-        register(context, ANCIENT_PLACED_TREE_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ANCIENT_TREE_KEY),
+        register(context, ANCIENT_TREE, configuredFeatures.getOrThrow(EMGeneralFeatures.ANCIENT_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(5, 0.5f, 2),
                         EMBlocks.ANCIENT_SAPLING.get()));
 
@@ -185,16 +183,16 @@ public class EMGeneralPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.5f, 2),
                         EMBlocks.GREEN_AMBERWOOD_SAPLING.get()));
 
-        register(context, LARGE_ABYSSAL_MUSHROOM_PLACED, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(10));
-        register(context, SPARSE_LARGE_ABYSSAL_MUSHROOM_PLACED, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(4));
+        register(context, LARGE_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(10));
+        register(context, SPARSE_LARGE_ABYSSAL_MUSHROOM, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_KEY), ignoreWaterSpawnNoise(4));
 
         /*
         ---------- Biome Features ----------
          */
 
-        register(context, ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(200));
+        register(context, ETHERMIST_LAVA_LAKE, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(200));
         register(context, DENSE_ETHERMIST_LAVA_LAKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_LAVA_LAKE), simpleSpawn(2));
-        register(context, ETHERSTONE_BOULDER_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERSTONE_BOULDER_KEY), simpleSpawn(2));
+        register(context, ETHERSTONE_BOULDER, configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERSTONE_BOULDER_KEY), simpleSpawn(2));
         register(context, MOLTEN_ETHERSTONE_DISK_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.MOLTEN_ETHERSTONE_DISK_KEY), simpleSpawn(2));
         register(
                 context,
@@ -209,7 +207,7 @@ public class EMGeneralPlacedFeatures {
         );
         register(
                 context,
-                SPARKLING_SAND_DISK_PLACED_KEY,
+                SPARKLING_SAND_DISK,
                 configuredFeatures.getOrThrow(EMGeneralFeatures.SPARKLING_SAND_DISK_KEY),
                 List.of(
                         CountPlacement.of(3),
@@ -220,11 +218,11 @@ public class EMGeneralPlacedFeatures {
                 )
         );
         register(context, AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.AMETHYST_SPIKE_KEY), simpleSpawn(3));
-        register(context, CRAG_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CRAG_SPIKE_KEY), simpleSpawn(24));
+        register(context, CRAG_SPIKE_PLACED, configuredFeatures.getOrThrow(EMGeneralFeatures.CRAG_SPIKE_KEY), simpleSpawn(24));
         register(context, SMALL_AMETHYST_SPIKE_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_AMETHYST_SPIKE_KEY), simpleSpawn(1));
         register(context, ICICLE_GROUND_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.ICICLE_GROUND_KEY), simpleSpawn(1));
         register(context, CHARRED_DEAD_LOG_PLACED_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHARRED_DEAD_LOG_KEY), simpleSpawn(4));
-        register(context, ABYSSAL_FOSSIL_KEY_PLACED, configuredFeatures.getOrThrow(EMGeneralFeatures.ABYSSAL_FOSSIL_KEY), ignoreWaterSpawn(10));
+        register(context, ABYSSAL_FOSSIL, configuredFeatures.getOrThrow(EMGeneralFeatures.ABYSSAL_FOSSIL_KEY), ignoreWaterSpawn(10));
 
         register(
                 context,
@@ -267,16 +265,16 @@ public class EMGeneralPlacedFeatures {
          */
 
         register(context, GLIMMERBUD_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.GLIMMERBUD_PATCH), simpleSpawn(1));
-        register(context, NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.NIGHTBELL_PATCH), simpleSpawn(12));
-        register(context, WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
-        register(context, DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
+        register(context, NIGHTBELL_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.NIGHTBELL_PATCH), simpleSpawn(12));
+        register(context, WITCH_LAVENDER_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.WITCH_LAVENDER_PATCH), simpleSpawn(12));
+        register(context, DAWNING_HYACINTH_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DAWNING_HYACINTH_PATCH), simpleSpawn(12));
         register(context, DENSE_SLIMY_ALLIUM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_SLIMY_ALLIUM_PATCH), simpleSpawn(2));
-        register(context, DENSE_NIGHTBELL_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_NIGHTBELL_PATCH), simpleSpawn(2));
-        register(context, DENSE_PYRUSCIA_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_PYRUSCIA_PATCH), simpleSpawn(4));
-        register(context, DENSE_DAWNING_HYACINTH_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_DAWNING_HYACINTH_PATCH), simpleSpawn(2));
-        register(context, DENSE_WITCH_LAVENDER_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_WITCH_LAVENDER_PATCH), simpleSpawn(2));
+        register(context, DENSE_NIGHTBELL_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_NIGHTBELL_PATCH), simpleSpawn(2));
+        register(context, DENSE_PYRUSCIA_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_PYRUSCIA_PATCH), simpleSpawn(4));
+        register(context, DENSE_DAWNING_HYACINTH_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_DAWNING_HYACINTH_PATCH), simpleSpawn(2));
+        register(context, DENSE_WITCH_LAVENDER_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_WITCH_LAVENDER_PATCH), simpleSpawn(2));
         register(context, CHRONOTHORN_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.CHRONOTHORN_PATCH), simpleSpawn(3));
-        register(context, PYRUSCIA_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.PYRUSCIA_PATCH), simpleSpawn(16));
+        register(context, PYRUSCIA_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.PYRUSCIA_PATCH), simpleSpawn(16));
         register(
                 context,
                 CINDERBLOOM_PATCH_KEY,
@@ -291,26 +289,26 @@ public class EMGeneralPlacedFeatures {
                         BiomeFilter.biome()
                 )
         );
-        register(context, SOURDEW_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SOURDEW_PATCH), simpleSpawn(128));
-        register(context, SMALL_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
-        register(context, LARGE_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
+        register(context, SOURDEW_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.SOURDEW_PATCH), simpleSpawn(128));
+        register(context, SMALL_ABYSSAL_MUSHROOM_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
+        register(context, LARGE_ABYSSAL_MUSHROOM_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), ignoreWaterSpawn(2));
 
-        register(context, SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
-        register(context, LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
+        register(context, SMALL_GROUNDED_ABYSSAL_MUSHROOM_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.SMALL_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
+        register(context, LARGE_GROUNDED_ABYSSAL_MUSHROOM_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.LARGE_ABYSSAL_MUSHROOM_PATCH), simpleSpawn(2));
 
         /*
         ---------- Misc Plants ----------
          */
 
         register(context, FALLEN_AMBERWOOD_LEAVES_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.FALLEN_AMBERWOOD_LEAVES_PATCH), simpleSpawn(1));
-        register(context, RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_GRASS_PATCH), simpleSpawn(1));
+        register(context, RICH_GRASS_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_GRASS_PATCH), simpleSpawn(1));
         register(context, RICH_TALL_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.RICH_TALL_GRASS_PATCH), simpleSpawn(2));
         register(context, RICH_GRASS_BONEMEAL_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.BONEMEAL_RICH_GRASS_PATCH), List.of());
-        register(context, DENSE_RICH_GRASS_PATCH_KEY, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
+        register(context, DENSE_RICH_GRASS_PATCH, configuredFeatures.getOrThrow(EMGeneralFeatures.DENSE_RICH_GRASS_PATCH), simpleSpawn(1));
 
         register(
                 context,
-                ETHERMIST_GLOW_LICHEN_KEY,
+                ETHERMIST_GLOW_LICHEN,
                 configuredFeatures.getOrThrow(EMGeneralFeatures.ETHERMIST_GLOW_LICHEN),
                 List.of(
                         CountPlacement.of(UniformInt.of(104, 157)),

@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class EMTags {
@@ -66,6 +67,14 @@ public class EMTags {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
         }
 
+    }
+
+    public static final class Biomes {
+        public static final TagKey<Biome> HAS_FORGEMASTER_CASTLE = mod("has_structure/has_forgemaster_castle");
+
+        private static TagKey<Biome> mod(String path) {
+            return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+        }
     }
 
     public static final class EntityTypes {

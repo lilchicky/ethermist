@@ -6,12 +6,12 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -19,11 +19,11 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.desert"
+      "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 11184810,
-    "water_color": 7829367,
-    "water_fog_color": 5592405
+    "sky_color": 2049470,
+    "water_color": 986997,
+    "water_fog_color": 1184396
   },
   "features": [
     [],
@@ -32,17 +32,13 @@
     ],
     [
       "minecraft:amethyst_geode",
-      "ethermist:abyssal_fossil_placed"
+      "ethermist:etherstone_boulder_placed"
     ],
     [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [
-      "minecraft:desert_well"
-    ],
+    [],
     [],
     [
       "ethermist:rich_dirt_blob_placed",
@@ -70,6 +66,7 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
+      "ethermist:crumbling_etherstone_blob_placed",
       "ethermist:sparkling_sand_disk_placed"
     ],
     [],
@@ -79,22 +76,22 @@
     ],
     [
       "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:sparse_large_abyssal_mushroom_placed",
+      "ethermist:large_abyssal_mushroom_patch_placed",
+      "ethermist:small_abyssal_mushroom_patch_placed",
       "ethermist:nightbell_patch_placed",
       "ethermist:witch_lavender_patch_placed",
       "ethermist:dawning_hyacinth_patch_placed",
       "ethermist:pyruscia_patch_placed",
       "ethermist:rich_grass_patch_placed",
-      "ethermist:small_grounded_abyssal_mushroom_patch_placed",
-      "ethermist:large_grounded_abyssal_mushroom_patch_placed",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:mega_ancient_tree_placed",
+      "ethermist:ancient_tree_placed",
+      "ethermist:sourdew_patch_placed"
     ],
     [
       "minecraft:freeze_top_layer"
     ]
   ],
-  "has_precipitation": false,
+  "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
     "ambient": [
@@ -106,7 +103,20 @@
       }
     ],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "ethermist:glimmerbug",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "ethermist:karaka",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      }
+    ],
     "misc": [],
     "monster": [
       {
@@ -139,5 +149,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 2
+  "temperature": 0.7
 }
