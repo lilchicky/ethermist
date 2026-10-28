@@ -6,21 +6,14 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.8,
+  "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
-    "grass_color_modifier": "dark_forest",
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
-    },
-    "music": {
-      "max_delay": 24000,
-      "min_delay": 12000,
-      "replace_current_music": false,
-      "sound": "minecraft:music.overworld.cherry_grove"
     },
     "sky_color": 2049470,
     "water_color": 986997,
@@ -29,7 +22,7 @@
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
       "minecraft:amethyst_geode"
@@ -66,25 +59,27 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed",
-      "ethermist:lava_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:sparse_ancient_tree_placed",
-      "ethermist:dense_nightbell_patch_placed",
-      "ethermist:dense_witch_lavender_patch_placed",
-      "ethermist:dense_dawning_hyacinth_patch_placed",
-      "ethermist:dense_pyruscia_patch_placed",
-      "ethermist:dense_rich_grass_patch_placed",
-      "ethermist:rich_tall_grass_patch_placed",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:ethermist_glow_lichen",
+      "ethermist:large_abyssal_mushroom_patch",
+      "ethermist:small_abyssal_mushroom_patch",
+      "ethermist:nightbell_patch",
+      "ethermist:witch_lavender_patch",
+      "ethermist:dawning_hyacinth_patch",
+      "ethermist:rich_grass_patch",
+      "ethermist:pyruscia_patch",
+      "ethermist:sparse_ancient_tree",
+      "ethermist:rich_tall_grass_patch",
+      "ethermist:dense_rich_grass_patch",
+      "ethermist:large_abyssal_mushroom"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -114,6 +109,12 @@
         "maxCount": 3,
         "minCount": 1,
         "weight": 10
+      },
+      {
+        "type": "ethermist:gloomie",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 100
       }
     ],
     "misc": [],
@@ -148,5 +149,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.7
+  "temperature": 0.5
 }

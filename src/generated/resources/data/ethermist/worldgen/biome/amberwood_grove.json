@@ -1,5 +1,4 @@
 {
-  "temperature_modifier": "none",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -7,12 +6,12 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.5,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -20,30 +19,25 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.snowy_slopes"
+      "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 7972607,
-    "water_color": 4350177,
-    "water_fog_color": 4358396
+    "sky_color": 2049470,
+    "water_color": 986997,
+    "water_fog_color": 1184396
   },
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
-      "minecraft:amethyst_geode",
-      "ethermist:icicle_ground_placed"
+      "minecraft:amethyst_geode"
     ],
     [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [
-      "minecraft:desert_well"
-    ],
+    [],
     [],
     [
       "ethermist:rich_dirt_blob_placed",
@@ -71,20 +65,29 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:sparse_frostpine_tree_placed",
-      "ethermist:nightbell_patch_placed",
-      "ethermist:witch_lavender_patch_placed",
-      "ethermist:dawning_hyacinth_patch_placed",
-      "ethermist:rich_grass_patch_placed"
+      "ethermist:ethermist_glow_lichen",
+      "ethermist:large_abyssal_mushroom_patch",
+      "ethermist:small_abyssal_mushroom_patch",
+      "ethermist:nightbell_patch",
+      "ethermist:witch_lavender_patch",
+      "ethermist:dawning_hyacinth_patch",
+      "ethermist:rich_grass_patch",
+      "ethermist:pyruscia_patch",
+      "ethermist:red_amberwood_tree",
+      "ethermist:orange_amberwood_tree",
+      "ethermist:yellow_amberwood_tree",
+      "ethermist:green_amberwood_tree",
+      "ethermist:fallen_amberwood_leaves",
+      "ethermist:sourdew_patch"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -104,10 +107,16 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:rabbit",
-        "maxCount": 3,
+        "type": "ethermist:glimmerbug",
+        "maxCount": 4,
         "minCount": 2,
-        "weight": 4
+        "weight": 10
+      },
+      {
+        "type": "ethermist:karaka",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
       }
     ],
     "misc": [],
@@ -142,5 +151,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0
+  "temperature": 0.7
 }

@@ -6,30 +6,40 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.4,
+  "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "sky_color": 2049470,
-    "water_color": 986997,
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.snowy_slopes"
+    },
+    "sky_color": 7972607,
+    "water_color": 4350177,
     "water_fog_color": 1184396
   },
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:icicle_ground",
+      "ethermist:abyssal_fossil"
     ],
     [
       "minecraft:monster_room",
-      "minecraft:monster_room_deep"
+      "minecraft:monster_room_deep",
+      "minecraft:fossil_upper",
+      "minecraft:fossil_lower"
     ],
     [],
     [],
@@ -59,20 +69,23 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed",
-      "ethermist:lava_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:rich_grass_patch_placed",
-      "minecraft:patch_sugar_cane",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:ethermist_glow_lichen",
+      "ethermist:large_abyssal_mushroom_patch",
+      "ethermist:small_abyssal_mushroom_patch",
+      "ethermist:nightbell_patch",
+      "ethermist:witch_lavender_patch",
+      "ethermist:dawning_hyacinth_patch",
+      "ethermist:rich_grass_patch",
+      "ethermist:sparse_frostpine_tree"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -90,14 +103,7 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:turtle",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 5
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {
@@ -130,5 +136,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.8
+  "temperature": 0.0
 }

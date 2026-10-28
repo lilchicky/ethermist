@@ -32,7 +32,7 @@ public class EMProcessors {
     public static void bootstrap(BootstrapContext<StructureProcessorList> context) {
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
-        register(context, GENERIC_RUINS, List.of(
+        register(context, FORGEMASTER_GENERAL, List.of(
                 new BlockRotProcessor(0.05f),
                 new RuleProcessor(
                         List.of(

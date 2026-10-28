@@ -6,13 +6,12 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.8,
+  "downfall": 1.0,
   "effects": {
     "fog_color": 12638463,
-    "grass_color_modifier": "dark_forest",
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -20,16 +19,16 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.forest"
+      "sound": "minecraft:music.overworld.jungle"
     },
-    "sky_color": 2049470,
+    "sky_color": 2075391,
     "water_color": 986997,
     "water_fog_color": 1184396
   },
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
       "minecraft:amethyst_geode"
@@ -66,29 +65,28 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed",
-      "ethermist:lava_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:red_amberwood_tree_placed",
-      "ethermist:orange_amberwood_tree_placed",
-      "ethermist:yellow_amberwood_tree_placed",
-      "ethermist:green_amberwood_tree_placed",
-      "ethermist:sourdew_patch_placed",
-      "ethermist:nightbell_patch_placed",
-      "ethermist:witch_lavender_patch_placed",
-      "ethermist:dawning_hyacinth_patch_placed",
-      "ethermist:pyruscia_patch_placed",
-      "ethermist:fallen_amberwood_leaves_placed",
-      "ethermist:rich_grass_patch_placed",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:ethermist_glow_lichen",
+      "ethermist:large_abyssal_mushroom_patch",
+      "ethermist:small_abyssal_mushroom_patch",
+      "ethermist:nightbell_patch",
+      "ethermist:witch_lavender_patch",
+      "ethermist:dawning_hyacinth_patch",
+      "ethermist:rich_grass_patch",
+      "ethermist:pyruscia_patch",
+      "ethermist:mega_glimmering_ancient_tree",
+      "ethermist:glimmering_ancient_tree",
+      "ethermist:bush_tree",
+      "ethermist:glimmerbud_patch",
+      "ethermist:sourdew_patch"
     ],
     [
       "minecraft:freeze_top_layer"

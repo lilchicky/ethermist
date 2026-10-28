@@ -43,8 +43,8 @@ public class EMOresPlaced {
     public static final ResourceKey<PlacedFeature> DUSKSHALE_BLOB_UPPER = registerKey("duskshale_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> DUSKSHALE_BLOB_LOWER = registerKey("duskshale_blob_lower_placed");
 
-    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_UPPER_KEY = registerKey("blackstone_blob_upper_placed");
-    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_LOWER_KEY = registerKey("blackstone_blob_lower_placed");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_UPPER = registerKey("blackstone_blob_upper_placed");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_BLOB_LOWER = registerKey("blackstone_blob_lower_placed");
     public static final ResourceKey<PlacedFeature> CALCITE_BLOB_UPPER_KEY = registerKey("calcite_blob_upper_placed");
     public static final ResourceKey<PlacedFeature> CALCITE_BLOB_LOWER_KEY = registerKey("calcite_blob_lower_placed");
     public static final ResourceKey<PlacedFeature> BASALT_BLOB_UPPER_KEY = registerKey("basalt_blob_upper_placed");
@@ -229,13 +229,13 @@ public class EMOresPlaced {
 
         register(
                 context,
-                BLACKSTONE_BLOB_UPPER_KEY,
+                BLACKSTONE_BLOB_UPPER,
                 blackstone_blob,
                 rareOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128)))
         );
         register(
                 context,
-                BLACKSTONE_BLOB_LOWER_KEY,
+                BLACKSTONE_BLOB_LOWER,
                 blackstone_blob,
                 commonOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60)))
         );

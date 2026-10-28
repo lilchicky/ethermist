@@ -6,12 +6,12 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0,
+  "downfall": 0.0,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -21,21 +21,25 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.desert"
     },
-    "sky_color": 6724,
-    "water_color": 3628949,
-    "water_fog_color": 3624823
+    "sky_color": 16746496,
+    "water_color": 15624960,
+    "water_fog_color": 14308864
   },
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "ethermist:abyssal_fossil",
+      "ethermist:crag_spike"
     ],
     [
       "minecraft:monster_room",
-      "minecraft:monster_room_deep"
+      "minecraft:monster_room_deep",
+      "minecraft:fossil_upper",
+      "minecraft:fossil_lower"
     ],
     [],
     [],
@@ -65,21 +69,23 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk",
+      "ethermist:blackstone_blob_upper_placed",
+      "ethermist:blackstone_blob_lower_placed",
+      "ethermist:molten_etherstone_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed",
-      "ethermist:lava_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:dense_lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:rich_grass_patch_placed",
-      "ethermist:chronothorn_patch_placed",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:patch_sugar_cane_desert",
-      "minecraft:patch_cactus_desert"
+      "ethermist:charred_tree_stump",
+      "ethermist:charred_tree",
+      "ethermist:charred_dead_log",
+      "ethermist:cinderbloom_patch",
+      "ethermist:rich_grass_patch"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -97,14 +103,7 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:rabbit",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {
@@ -137,5 +136,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 2
+  "temperature": 2.0
 }

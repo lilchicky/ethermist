@@ -2,7 +2,7 @@
   "type": "minecraft:jigsaw",
   "start_pool": "ethermist:glimmerbug_cave/start_pool",
   "size": 5,
-  "max_distance_from_center": 128,
+  "max_distance_from_center": 96,
   "biomes": "#ethermist:has_structure/has_glimmerbug_cave",
   "step": "surface_structures",
   "start_height": {

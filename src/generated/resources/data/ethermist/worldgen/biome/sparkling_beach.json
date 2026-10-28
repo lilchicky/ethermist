@@ -6,27 +6,26 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.5,
+  "downfall": 0.4,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2,
+      "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "sky_color": 3824789,
-    "water_color": 986964,
-    "water_fog_color": 1184348
+    "sky_color": 2049470,
+    "water_color": 986997,
+    "water_fog_color": 1184396
   },
   "features": [
     [],
     [
-      "ethermist:ethermist_lava_lake_placed"
+      "ethermist:ethermist_lava_lake"
     ],
     [
-      "minecraft:amethyst_geode",
-      "ethermist:abyssal_fossil_placed"
+      "minecraft:amethyst_geode"
     ],
     [
       "minecraft:monster_room",
@@ -60,24 +59,23 @@
       "ethermist:etherstone_ore_lapis_buried",
       "ethermist:etherstone_ore_copper",
       "minecraft:underwater_magma",
-      "ethermist:crumbling_etherstone_disk_placed",
-      "ethermist:sparkling_sand_disk_placed"
+      "ethermist:crumbling_etherstone_disk",
+      "ethermist:sparkling_sand_disk"
     ],
     [],
     [
-      "ethermist:water_spring_placed",
-      "ethermist:lava_spring_placed"
+      "ethermist:water_spring",
+      "ethermist:lava_spring"
     ],
     [
-      "ethermist:ethermist_glow_lichen_placed",
-      "ethermist:large_abyssal_mushroom_placed",
-      "ethermist:nightbell_patch_placed",
-      "ethermist:witch_lavender_patch_placed",
-      "ethermist:dawning_hyacinth_patch_placed",
-      "ethermist:pyruscia_patch_placed",
-      "ethermist:rich_grass_patch_placed",
-      "ethermist:small_abyssal_mushroom_patch_placed",
-      "ethermist:large_abyssal_mushroom_patch_placed"
+      "ethermist:ethermist_glow_lichen",
+      "ethermist:large_abyssal_mushroom_patch",
+      "ethermist:small_abyssal_mushroom_patch",
+      "ethermist:nightbell_patch",
+      "ethermist:witch_lavender_patch",
+      "ethermist:dawning_hyacinth_patch",
+      "ethermist:rich_grass_patch",
+      "ethermist:pyruscia_patch"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -101,12 +99,6 @@
         "maxCount": 4,
         "minCount": 2,
         "weight": 10
-      },
-      {
-        "type": "ethermist:gloomie",
-        "maxCount": 4,
-        "minCount": 2,
-        "weight": 100
       }
     ],
     "misc": [],
@@ -138,10 +130,8 @@
         "weight": 10
       }
     ],
-    "water_ambient": [
-    ],
-    "water_creature": [
-    ]
+    "water_ambient": [],
+    "water_creature": []
   },
-  "temperature": 0.5
+  "temperature": 0.8
 }

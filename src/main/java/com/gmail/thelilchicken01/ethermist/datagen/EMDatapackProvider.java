@@ -2,7 +2,7 @@ package com.gmail.thelilchicken01.ethermist.datagen;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.EMProcessors;
-import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.EMAllPools;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.EMTemplatePoolsProvider;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantments;
 import com.gmail.thelilchicken01.ethermist.worldgen.*;
 import com.gmail.thelilchicken01.ethermist.worldgen.biome.EMBiomes;
@@ -11,7 +11,6 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -25,7 +24,7 @@ public class EMDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.DAMAGE_TYPE, EMDamageTypesProvider::bootstrap)
             .add(Registries.ENCHANTMENT, EMEnchantments::bootstrap)
             .add(Registries.PROCESSOR_LIST, EMProcessors::bootstrap)
-            .add(Registries.TEMPLATE_POOL, EMAllPools::bootstrap);
+            .add(Registries.TEMPLATE_POOL, EMTemplatePoolsProvider::bootstrap);
 
     public EMDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Ethermist.MODID));
