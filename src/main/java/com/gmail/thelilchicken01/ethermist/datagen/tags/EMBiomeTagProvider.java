@@ -18,6 +18,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class EMBiomeTagProvider extends BiomeTagsProvider {
@@ -151,6 +152,46 @@ public class EMBiomeTagProvider extends BiomeTagsProvider {
         // Structures
         tag(EMTags.Biomes.HAS_FORGEMASTER_CASTLE)
                 .add(EMBiomes.ANCIENT_FOREST);
+
+        tag(EMTags.Biomes.HAS_TIMEWORN_PORTAL)
+                .addTag(Tags.Biomes.IS_DESERT)
+                .addTag(Tags.Biomes.IS_DRY);
+
+        tag(EMTags.Biomes.HAS_STONE_PORTAL)
+                .addTag(Tags.Biomes.IS_JUNGLE)
+                .addTag(Tags.Biomes.IS_FOREST)
+                .addTag(Tags.Biomes.IS_MOUNTAIN)
+                .addTag(Tags.Biomes.IS_PLAINS)
+                .addTag(Tags.Biomes.IS_SWAMP);
+
+        tag(EMTags.Biomes.HAS_SPARKLING_PORTAL)
+                .addTag(Tags.Biomes.IS_AQUATIC)
+                .addTag(Tags.Biomes.IS_BEACH);
+
+        tag(EMTags.Biomes.HAS_GLIMMERBUG_CAVE)
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST);
+
+        tag(EMTags.Biomes.HAS_GENERIC_RUINS)
+                .addAll(
+                        List.of(
+                                EMBiomes.AMBERWOOD_GROVE,
+                                EMBiomes.AMETHYST_GARDENS,
+                                EMBiomes.ANCIENT_FIELDS,
+                                EMBiomes.ANCIENT_FOREST,
+                                EMBiomes.BLOOMING_MEADOWS,
+                                EMBiomes.BURNING_CRAGS,
+                                EMBiomes.FROSTPINE_FOREST,
+                                EMBiomes.FROZEN_EXPANSE,
+                                EMBiomes.GLIMMERING_ANCIENT_FOREST,
+                                EMBiomes.SLIMY_FOREST,
+                                EMBiomes.SLIMY_SWAMP
+                        )
+                );
+
+        tag(EMTags.Biomes.HAS_ANCIENT_STONE_PORTAL)
+                .addTag(Tags.Biomes.IS_COLD)
+                .addTag(Tags.Biomes.IS_SNOWY)
+                .addTag(Tags.Biomes.IS_ICY);
 
     }
 

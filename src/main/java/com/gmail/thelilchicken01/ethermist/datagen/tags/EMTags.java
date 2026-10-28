@@ -71,6 +71,12 @@ public class EMTags {
 
     public static final class Biomes {
         public static final TagKey<Biome> HAS_FORGEMASTER_CASTLE = mod("has_structure/has_forgemaster_castle");
+        public static final TagKey<Biome> HAS_GENERIC_RUINS = mod("has_structure/has_generic_ruins");
+        public static final TagKey<Biome> HAS_GLIMMERBUG_CAVE = mod("has_structure/has_glimmerbug_cave");
+        public static final TagKey<Biome> HAS_SPARKLING_PORTAL = mod("has_structure/has_sparkling_portal");
+        public static final TagKey<Biome> HAS_STONE_PORTAL = mod("has_structure/has_stone_portal");
+        public static final TagKey<Biome> HAS_TIMEWORN_PORTAL = mod("has_structure/has_timeworn_portal");
+        public static final TagKey<Biome> HAS_ANCIENT_STONE_PORTAL = mod("has_structure/has_ancient_stone_portal");
 
         private static TagKey<Biome> mod(String path) {
             return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

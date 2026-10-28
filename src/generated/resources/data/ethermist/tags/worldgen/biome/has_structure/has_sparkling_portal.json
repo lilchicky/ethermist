@@ -1,6 +1,4 @@
 {
-  "replace": false,
-
   "values": [
     "#c:is_aquatic",
     "#c:is_beach"

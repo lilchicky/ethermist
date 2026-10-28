@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-27T18:34:14.88599	Tags for minecraft:worldgen/biome mod id ethermist
+// 1.21.1	2026-10-28T15:11:13.866461	Tags for minecraft:worldgen/biome mod id ethermist
 f62bbf762a52ff7984210e7991881ce3fdd4e16b data/c/tags/worldgen/biome/is_aquatic.json
 dff1d405338892cc48f1a40993d3756447a226f0 data/c/tags/worldgen/biome/is_beach.json
 a3dfc1446eb2abcd5055f755e7ff54615a557df6 data/c/tags/worldgen/biome/is_cold.json
@@ -23,4 +23,10 @@ d3474b120a266205759adc0cbea3186ffa443e0b data/c/tags/worldgen/biome/is_rare.json
 df1c4e27d2e20de415fafad4901aa8e9c2e9629c data/c/tags/worldgen/biome/is_swamp.json
 aad7b4dc6ad9e4d51f5f9698c2115044b0b7ae24 data/c/tags/worldgen/biome/is_tree/deciduous.json
 d8332f5fbc01827f4d68768f263b36dbb07a2d30 data/c/tags/worldgen/biome/is_wet.json
+2d0ad00488cb7efa3559b937c4e4549a4a00093d data/ethermist/tags/worldgen/biome/has_structure/has_ancient_stone_portal.json
 ba89c05e45661fa0755f903aad353522c1679b4f data/ethermist/tags/worldgen/biome/has_structure/has_forgemaster_castle.json
+90e83220cc2c003e311bf0e82e1c23f1b20cde92 data/ethermist/tags/worldgen/biome/has_structure/has_generic_ruins.json
+591ae8c111473b5ef44d0ab14745800ebfeb93c4 data/ethermist/tags/worldgen/biome/has_structure/has_glimmerbug_cave.json
+50367ddd13a849269e57095427c1fd956f2b13de data/ethermist/tags/worldgen/biome/has_structure/has_sparkling_portal.json
+414e5b624f560b48e5a6a9e5044a431a0f557062 data/ethermist/tags/worldgen/biome/has_structure/has_stone_portal.json
+27e293b1c72491f9180af297038502aea8916c71 data/ethermist/tags/worldgen/biome/has_structure/has_timeworn_portal.json
