@@ -3,10 +3,12 @@ package com.gmail.thelilchicken01.ethermist.datagen.structure;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.ReloadableServerRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EMProcessors {
 
@@ -35,12 +38,15 @@ public class EMProcessors {
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
         register(context, FORGEMASTER_GENERAL, List.of(
-                new BlockRotProcessor(0.95f),
                 new RuleProcessor(
                         List.of(
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 0.04f)
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.CRACKED_ETHERSTONE_BRICKS.get(), 0.15f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 0.15f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 0.05f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 0.05f)
                         )
                 ),
+                defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
                 new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
         ));
 

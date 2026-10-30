@@ -1,23 +1,193 @@
 {
   "processors": [
     {
-      "integrity": 0.95,
-      "processor_type": "minecraft:block_rot"
-    },
-    {
       "processor_type": "minecraft:rule",
       "rules": [
         {
           "input_predicate": {
             "block": "ethermist:etherstone_bricks",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.04
+            "probability": 0.15
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:cracked_etherstone_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ethermist:etherstone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.15
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
             "Name": "ethermist:mossy_etherstone_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ethermist:etherstone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.05
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:cobbled_etherstone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ethermist:etherstone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.05
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:mossy_cobbled_etherstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_coal_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_copper_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_iron_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:raw_copper_block"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_gold_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:raw_gold_block"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_iron_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ethermist:etherstone_diamond_ore"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:iron_block"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:raw_iron_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:gold_block"
           }
         }
       ]
