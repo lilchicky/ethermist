@@ -7,6 +7,7 @@ public class EMTemplatePoolsProvider {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         ForgemasterCastlePools.bootstrap(context);
+        GlimmerbugCavePools.bootstrap(context);
     }
 
 }

@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.datagen.structure;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ForgemasterCastlePools;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.GlimmerbugCavePools;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.HolderGetter;
@@ -32,18 +33,13 @@ import java.util.Optional;
 
 public class EMStructures {
 
-    public static final ResourceKey<Structure> FORGEMASTER_CASTLE = create("forgemaster_castle");
-
-    private static ResourceKey<Structure> create(String path) {
-        return ResourceKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
-    }
-
     public static void bootstrap(BootstrapContext<Structure> context) {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         HolderGetter<StructureTemplatePool> pools = context.lookup(Registries.TEMPLATE_POOL);
 
+        // Forgemaster Castle
         context.register(
-                FORGEMASTER_CASTLE,
+                EMStructureConstants.FORGEMASTER_CASTLE.structureKey(),
                 new JigsawStructure(
                         new Structure.StructureSettings.Builder(biomes.getOrThrow(EMTags.Biomes.HAS_FORGEMASTER_CASTLE))
                                 .spawnOverrides(
@@ -64,6 +60,38 @@ public class EMStructures {
                         Optional.empty(),
                         9,
                         ConstantHeight.of(VerticalAnchor.absolute(0)),
+                        true,
+                        Optional.of(Heightmap.Types.WORLD_SURFACE_WG),
+                        96,
+                        List.of(),
+                        DimensionPadding.ZERO,
+                        LiquidSettings.APPLY_WATERLOGGING
+                )
+        );
+
+        // Glimmerbug Cave
+        context.register(
+                EMStructureConstants.GLIMMERBUG_CAVE.structureKey(),
+                new JigsawStructure(
+                        new Structure.StructureSettings.Builder(biomes.getOrThrow(EMTags.Biomes.HAS_GLIMMERBUG_CAVE))
+                                .spawnOverrides(
+                                        Map.of(
+                                                MobCategory.CREATURE,
+                                                new StructureSpawnOverride(
+                                                        StructureSpawnOverride.BoundingBoxType.STRUCTURE,
+                                                        WeightedRandomList.create(
+                                                                new MobSpawnSettings.SpawnerData(EMEntityTypes.GLIMMERBUG.get(), 1, 3, 5)
+                                                        )
+                                                )
+                                        )
+                                )
+                                .generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                                .terrainAdapation(TerrainAdjustment.NONE)
+                                .build(),
+                        pools.getOrThrow(GlimmerbugCavePools.START),
+                        Optional.empty(),
+                        6,
+                        ConstantHeight.of(VerticalAnchor.absolute(-32)),
                         true,
                         Optional.of(Heightmap.Types.WORLD_SURFACE_WG),
                         96,

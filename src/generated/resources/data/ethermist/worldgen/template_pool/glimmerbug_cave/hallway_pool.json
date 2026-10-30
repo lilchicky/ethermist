@@ -1,69 +1,68 @@
 {
-  "name": "ethermist:glimmerbug_cave/hallway_pool",
-  "fallback": "ethermist:glimmerbug_cave/fallback_pool",
   "elements": [
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_four_down",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_four_flat",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_left",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_right",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_up",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 3,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_wiggle",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
-      "weight": 4,
       "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "ethermist:glimmerbug_cave/hallway_up_big",
         "processors": "ethermist:glimmerbug_cave",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
+        "projection": "rigid"
+      },
+      "weight": 2
     }
-  ]
+  ],
+  "fallback": "ethermist:glimmerbug_cave/fallback_pool"
 }

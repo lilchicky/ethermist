@@ -15,10 +15,10 @@ import java.util.List;
 public class ForgemasterCastlePools extends EMTemplatePool {
     private static final String FOLDER = "forgemaster_castle/";
 
-    public static final ResourceKey<StructureTemplatePool> START = create("forgemaster_castle/start_pool");
-    private static final ResourceKey<StructureTemplatePool> FALLBACK = create("forgemaster_castle/fallback_pool");
-    private static final ResourceKey<StructureTemplatePool> HALLWAY = create("forgemaster_castle/hallway_pool");
-    private static final ResourceKey<StructureTemplatePool> ROOM = create("forgemaster_castle/room_pool");
+    public static final ResourceKey<StructureTemplatePool> START = create(FOLDER + "start_pool");
+    private static final ResourceKey<StructureTemplatePool> FALLBACK = create(FOLDER + "fallback_pool");
+    private static final ResourceKey<StructureTemplatePool> HALLWAY = create(FOLDER + "hallway_pool");
+    private static final ResourceKey<StructureTemplatePool> ROOM = create(FOLDER + "room_pool");
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         HolderGetter<StructureProcessorList> processors = context.lookup(Registries.PROCESSOR_LIST);
