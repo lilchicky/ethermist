@@ -10,9 +10,12 @@ import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class EMTemplatePool {
+    public static final Holder<StructureProcessorList> EMPTY_PROCESSOR = Holder.direct(new StructureProcessorList(List.of()));
+
     public static ResourceKey<StructureTemplatePool> create(String key) {
         return ResourceKey.create(Registries.TEMPLATE_POOL, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, key));
     }
