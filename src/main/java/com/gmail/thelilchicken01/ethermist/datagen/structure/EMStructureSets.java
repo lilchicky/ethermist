@@ -17,6 +17,7 @@ public class EMStructureSets {
         HolderGetter<Structure> structures = context.lookup(Registries.STRUCTURE);
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
 
+        // Forgemaster Castle
         context.register(
                 EMStructureConstants.FORGEMASTER_CASTLE.set(),
                 new StructureSet(
@@ -25,6 +26,7 @@ public class EMStructureSets {
                 )
         );
 
+        // Glimmerbug Cave
         context.register(
                 EMStructureConstants.GLIMMERBUG_CAVE.set(),
                 new StructureSet(
@@ -33,6 +35,7 @@ public class EMStructureSets {
                 )
         );
 
+        // Portals
         context.register(
                 EMStructureConstants.ANCIENT_STONE_PORTAL.set("portals"),
                 new StructureSet(
@@ -43,6 +46,17 @@ public class EMStructureSets {
                                 new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.TIMEWORN_PORTAL.structure()), 1)
                         ),
                         new RandomSpreadStructurePlacement(40, 20, RandomSpreadType.LINEAR, 43293109)
+                )
+        );
+
+        // Ruins
+        context.register(
+                EMStructureConstants.GENERIC_RUINS.set(),
+                new StructureSet(
+                        List.of(
+                                new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.GENERIC_RUINS.structure()), 1)
+                        ),
+                        new RandomSpreadStructurePlacement(4, 2, RandomSpreadType.LINEAR, 31390291)
                 )
         );
     }

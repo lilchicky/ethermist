@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.EMTemplatePoo
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ForgemasterCastlePools;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.GlimmerbugCavePools;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.PortalPools;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ruins.GenericRuinsPools;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.HolderGetter;
@@ -172,6 +173,29 @@ public class EMStructures {
                                 .terrainAdapation(TerrainAdjustment.BEARD_THIN)
                                 .build(),
                         pools.getOrThrow(PortalPools.TIMEWORN_START),
+                        Optional.empty(),
+                        2,
+                        ConstantHeight.of(VerticalAnchor.absolute(0)),
+                        true,
+                        Optional.of(Heightmap.Types.WORLD_SURFACE_WG),
+                        32,
+                        List.of(),
+                        DimensionPadding.ZERO,
+                        LiquidSettings.APPLY_WATERLOGGING
+                )
+        );
+
+        /*
+        Ruins
+         */
+        context.register(
+                EMStructureConstants.GENERIC_RUINS.structure(),
+                new JigsawStructure(
+                        new Structure.StructureSettings.Builder(biomes.getOrThrow(EMTags.Biomes.HAS_GENERIC_RUINS))
+                                .generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                                .terrainAdapation(TerrainAdjustment.BEARD_THIN)
+                                .build(),
+                        pools.getOrThrow(GenericRuinsPools.START),
                         Optional.empty(),
                         2,
                         ConstantHeight.of(VerticalAnchor.absolute(0)),

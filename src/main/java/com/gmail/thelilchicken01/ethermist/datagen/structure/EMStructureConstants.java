@@ -16,6 +16,8 @@ public class EMStructureConstants {
     public static final StructureConstant STONE_PORTAL = new StructureConstant("stone_portal");
     public static final StructureConstant TIMEWORN_PORTAL = new StructureConstant("timeworn_portal");
 
+    public static final StructureConstant GENERIC_RUINS = new StructureConstant("generic_ruins");
+
     public record StructureConstant(String name) {
         public ResourceKey<Structure> structure() {
             return structure(name);

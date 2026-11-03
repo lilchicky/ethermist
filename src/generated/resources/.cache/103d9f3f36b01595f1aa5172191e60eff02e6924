@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-02T17:55:35.083077	Registries
+// 1.21.1	2026-11-02T18:10:51.706837	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -220,11 +220,13 @@ e148fa2d1d3190d08dfea4c455237f78c11fe1ca data/ethermist/worldgen/placed_feature/
 c341edbc5778f7904e2ac459a0229dac16902548 data/ethermist/worldgen/processor_list/glimmerbug_cave.json
 3292c94a92f3e906414c8209c0fc46596e73cc2b data/ethermist/worldgen/structure/ancient_stone_portal.json
 3f672f99276db22d58240d9a028a5c2979aab140 data/ethermist/worldgen/structure/forgemaster_castle.json
+2c43ccc20d43eff83bf2305d418b44347bab6ff8 data/ethermist/worldgen/structure/generic_ruins.json
 51f6c09120e60becdd78e378344f1389f89072ac data/ethermist/worldgen/structure/glimmerbug_cave.json
 5baed26f11b5b6e4613733573487e1a96e849890 data/ethermist/worldgen/structure/sparkling_portal.json
 3cb410b05313a284f565312b1c03093b0b668824 data/ethermist/worldgen/structure/stone_portal.json
 69991429cc729121f5e967bd8427879ad0a48152 data/ethermist/worldgen/structure/timeworn_portal.json
 ee065b624d95ee6bafbe086a70df32d97eaa59c3 data/ethermist/worldgen/structure_set/forgemaster_castle.json
+0a77d201509135f988dd353c192c564bca6e21d9 data/ethermist/worldgen/structure_set/generic_ruins.json
 4de00c83bc5523551daae4141b81c4a89bc49d97 data/ethermist/worldgen/structure_set/glimmerbug_cave.json
 015af66cda00226106c3d880dce5fba1a4cb03b1 data/ethermist/worldgen/structure_set/portals.json
 32596e0e88b345915459d8707b0a1723bf5e5173 data/ethermist/worldgen/template_pool/forgemaster_castle/fallback_pool.json
@@ -243,3 +245,4 @@ b199a8a7ff6d3bc136946f11944ca2cfde49826c data/ethermist/worldgen/template_pool/p
 2d76b0c806e2f4ed9174941a476c27825c1083b1 data/ethermist/worldgen/template_pool/portals/stone_start.json
 2b6f5506cfb7471f3e249014d0b6607e9fe2f865 data/ethermist/worldgen/template_pool/portals/timeworn_side.json
 1fe53adcfd100a5afada1283f9bd08e9eec2267a data/ethermist/worldgen/template_pool/portals/timeworn_start.json
+6f0cfa39e88ed8a6186c2ecc124e94d2bdc3d15e data/ethermist/worldgen/template_pool/ruins/start_pool.json
