@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ruins;
 
 import com.gmail.thelilchicken01.ethermist.datagen.structure.EMProcessors;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.EMStructureConstants;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.EMTemplatePool;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.List;
 
 public class GenericRuinsPools extends EMTemplatePool {
-    private static final String FOLDER = "ruins/";
+    private static final String FOLDER = EMStructureConstants.GENERIC_RUINS.getFolder();
 
     public static final ResourceKey<StructureTemplatePool> START = create(FOLDER + "start_pool");
 

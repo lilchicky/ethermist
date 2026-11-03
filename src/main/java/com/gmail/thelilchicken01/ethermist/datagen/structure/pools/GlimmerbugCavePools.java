@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen.structure.pools;
 
 import com.gmail.thelilchicken01.ethermist.datagen.structure.EMProcessors;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.EMStructureConstants;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.List;
 
 public class GlimmerbugCavePools extends EMTemplatePool {
-    private static final String FOLDER = "glimmerbug_cave/";
+    private static final String FOLDER = EMStructureConstants.GLIMMERBUG_CAVE.getFolder();
 
     public static final ResourceKey<StructureTemplatePool> START = create(FOLDER + "start_pool");
     private static final ResourceKey<StructureTemplatePool> FALLBACK = create(FOLDER + "fallback_pool");

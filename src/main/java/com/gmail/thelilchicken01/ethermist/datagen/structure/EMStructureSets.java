@@ -37,7 +37,7 @@ public class EMStructureSets {
 
         // Portals
         context.register(
-                EMStructureConstants.ANCIENT_STONE_PORTAL.set("portals"),
+                EMStructureConstants.ANCIENT_STONE_PORTAL.set(),
                 new StructureSet(
                         List.of(
                                 new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.ANCIENT_STONE_PORTAL.structure()), 1),

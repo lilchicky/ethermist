@@ -8,31 +8,48 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 
 public class EMStructureConstants {
-    public static final StructureConstant FORGEMASTER_CASTLE = new StructureConstant("forgemaster_castle");
-    public static final StructureConstant GLIMMERBUG_CAVE = new StructureConstant("glimmerbug_cave");
+    public static final StructureConstant FORGEMASTER_CASTLE = new StructureConstant("forgemaster_castle", "forgemaster_castle");
+    public static final StructureConstant GLIMMERBUG_CAVE = new StructureConstant("glimmerbug_cave", "glimmerbug_cave");
 
-    public static final StructureConstant ANCIENT_STONE_PORTAL = new StructureConstant("ancient_stone_portal");
-    public static final StructureConstant SPARKLING_PORTAL = new StructureConstant("sparkling_portal");
-    public static final StructureConstant STONE_PORTAL = new StructureConstant("stone_portal");
-    public static final StructureConstant TIMEWORN_PORTAL = new StructureConstant("timeworn_portal");
+    public static final StructureConstant ANCIENT_STONE_PORTAL = new StructureConstant("ancient_stone_portal", "portals", "portals");
+    public static final StructureConstant SPARKLING_PORTAL = new StructureConstant("sparkling_portal", "portals", "portals");
+    public static final StructureConstant STONE_PORTAL = new StructureConstant("stone_portal", "portals", "portals");
+    public static final StructureConstant TIMEWORN_PORTAL = new StructureConstant("timeworn_portal", "portals", "portals");
 
-    public static final StructureConstant GENERIC_RUINS = new StructureConstant("generic_ruins");
+    public static final StructureConstant GENERIC_RUINS = new StructureConstant("generic_ruins", "ruins");
 
-    public record StructureConstant(String name) {
-        public ResourceKey<Structure> structure() {
-            return structure(name);
+    public static class StructureConstant {
+
+        private final String FOLDER;
+        private final ResourceKey<Structure> STRUCTURE_KEY;
+        private final ResourceKey<StructureSet> SET_KEY;
+
+        public StructureConstant(String name) {
+            this(name, name, null);
         }
 
-        public ResourceKey<Structure> structure(String name) {
-            return ResourceKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, name));
+        public StructureConstant(String name, String folder) {
+            this(name, name, folder);
+        }
+
+        public StructureConstant(String name, String set_name, String folder) {
+            String path = folder == null ? name : folder + "/" + name;
+
+            this.FOLDER = folder;
+            this.STRUCTURE_KEY = ResourceKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));
+            this.SET_KEY = ResourceKey.create(Registries.STRUCTURE_SET, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, set_name));
+        }
+
+        public String getFolder() {
+            return this.FOLDER + "/";
+        }
+
+        public ResourceKey<Structure> structure() {
+            return this.STRUCTURE_KEY;
         }
 
         public ResourceKey<StructureSet> set() {
-            return set(name);
-        }
-
-        public ResourceKey<StructureSet> set(String name) {
-            return ResourceKey.create(Registries.STRUCTURE_SET, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, name));
+            return this.SET_KEY;
         }
     }
 }

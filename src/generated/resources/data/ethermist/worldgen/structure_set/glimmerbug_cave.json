@@ -7,7 +7,7 @@
   },
   "structures": [
     {
-      "structure": "ethermist:glimmerbug_cave",
+      "structure": "ethermist:glimmerbug_cave/glimmerbug_cave",
       "weight": 1
     }
   ]

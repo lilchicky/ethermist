@@ -7,19 +7,19 @@
   },
   "structures": [
     {
-      "structure": "ethermist:ancient_stone_portal",
+      "structure": "ethermist:portals/ancient_stone_portal",
       "weight": 1
     },
     {
-      "structure": "ethermist:sparkling_portal",
+      "structure": "ethermist:portals/sparkling_portal",
       "weight": 1
     },
     {
-      "structure": "ethermist:stone_portal",
+      "structure": "ethermist:portals/stone_portal",
       "weight": 1
     },
     {
-      "structure": "ethermist:timeworn_portal",
+      "structure": "ethermist:portals/timeworn_portal",
       "weight": 1
     }
   ]

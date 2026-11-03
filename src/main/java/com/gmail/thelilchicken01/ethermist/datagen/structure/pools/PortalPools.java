@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.datagen.structure.pools;
 
 import com.gmail.thelilchicken01.ethermist.datagen.structure.EMProcessors;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.EMStructureConstants;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.List;
 
 public class PortalPools extends EMTemplatePool {
-    private static final String FOLDER = "portals/";
+    private static final String FOLDER = EMStructureConstants.STONE_PORTAL.getFolder();
     
     public static final ResourceKey<StructureTemplatePool> ANCIENT_STONE_START = create(FOLDER + "ancient_stone_start");
     private static final ResourceKey<StructureTemplatePool> ANCIENT_STONE_SIDE = create(FOLDER + "ancient_stone_side");

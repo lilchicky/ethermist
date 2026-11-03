@@ -7,7 +7,7 @@
   },
   "structures": [
     {
-      "structure": "ethermist:generic_ruins",
+      "structure": "ethermist:ruins/generic_ruins",
       "weight": 1
     }
   ]

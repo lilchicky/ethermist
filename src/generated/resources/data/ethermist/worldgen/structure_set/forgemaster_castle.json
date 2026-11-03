@@ -7,7 +7,7 @@
   },
   "structures": [
     {
-      "structure": "ethermist:forgemaster_castle",
+      "structure": "ethermist:forgemaster_castle/forgemaster_castle",
       "weight": 1
     }
   ]
