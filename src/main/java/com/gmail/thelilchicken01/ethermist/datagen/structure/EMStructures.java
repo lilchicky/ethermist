@@ -5,11 +5,14 @@ import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ForgemasterCa
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.GlimmerbugCavePools;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.PortalPools;
 import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ruins.GenericRuinsPools;
+import com.gmail.thelilchicken01.ethermist.datagen.structure.pools.ruins.StoneRuinsPools;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
@@ -190,22 +193,31 @@ public class EMStructures {
          */
         context.register(
                 EMStructureConstants.GENERIC_RUINS.structure(),
-                new JigsawStructure(
-                        new Structure.StructureSettings.Builder(biomes.getOrThrow(EMTags.Biomes.HAS_GENERIC_RUINS))
-                                .generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
-                                .terrainAdapation(TerrainAdjustment.BEARD_THIN)
-                                .build(),
-                        pools.getOrThrow(GenericRuinsPools.START),
-                        Optional.empty(),
-                        2,
-                        ConstantHeight.of(VerticalAnchor.absolute(0)),
-                        true,
-                        Optional.of(Heightmap.Types.WORLD_SURFACE_WG),
-                        32,
-                        List.of(),
-                        DimensionPadding.ZERO,
-                        LiquidSettings.APPLY_WATERLOGGING
-                )
+                defaultSinglePool(biomes, pools, EMTags.Biomes.HAS_GENERIC_RUINS, GenericRuinsPools.START)
+        );
+
+        context.register(
+                EMStructureConstants.STONE_RUINS.structure(),
+                defaultSinglePool(biomes, pools, EMTags.Biomes.HAS_GENERIC_RUINS, StoneRuinsPools.START)
+        );
+    }
+
+    private static JigsawStructure defaultSinglePool(HolderGetter<Biome> biomeGetter, HolderGetter<StructureTemplatePool> poolGetter, TagKey<Biome> hasStructure, ResourceKey<StructureTemplatePool> pool) {
+        return new JigsawStructure(
+                new Structure.StructureSettings.Builder(biomeGetter.getOrThrow(hasStructure))
+                        .generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                        .terrainAdapation(TerrainAdjustment.BEARD_THIN)
+                        .build(),
+                poolGetter.getOrThrow(pool),
+                Optional.empty(),
+                2,
+                ConstantHeight.of(VerticalAnchor.absolute(0)),
+                true,
+                Optional.of(Heightmap.Types.WORLD_SURFACE_WG),
+                32,
+                List.of(),
+                DimensionPadding.ZERO,
+                LiquidSettings.APPLY_WATERLOGGING
         );
     }
 

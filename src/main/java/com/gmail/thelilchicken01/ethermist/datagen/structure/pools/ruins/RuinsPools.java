@@ -6,5 +6,6 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 public class RuinsPools {
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         GenericRuinsPools.bootstrap(context);
+        StoneRuinsPools.bootstrap(context);
     }
 }

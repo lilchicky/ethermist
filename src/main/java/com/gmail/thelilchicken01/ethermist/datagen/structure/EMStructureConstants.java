@@ -16,7 +16,8 @@ public class EMStructureConstants {
     public static final StructureConstant STONE_PORTAL = new StructureConstant("stone_portal", "portals", "portals");
     public static final StructureConstant TIMEWORN_PORTAL = new StructureConstant("timeworn_portal", "portals", "portals");
 
-    public static final StructureConstant GENERIC_RUINS = new StructureConstant("generic_ruins", "ruins");
+    public static final StructureConstant GENERIC_RUINS = new StructureConstant("generic_ruins", "ruins", "ruins");
+    public static final StructureConstant STONE_RUINS = new StructureConstant("stone_ruins", "ruins");
 
     public static class StructureConstant {
 
@@ -42,6 +43,11 @@ public class EMStructureConstants {
 
         public String getFolder() {
             return this.FOLDER + "/";
+        }
+
+        public String getNamedFolder() {
+            // Get structure file name as a folder instead
+            return this.STRUCTURE_KEY.location().getPath() + "/";
         }
 
         public ResourceKey<Structure> structure() {

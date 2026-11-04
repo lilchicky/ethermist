@@ -21,7 +21,7 @@ import java.util.Optional;
 public class EMProcessors {
 
     public static final ResourceKey<StructureProcessorList> FORGEMASTER_GENERAL = create("forgemaster_general");
-    public static final ResourceKey<StructureProcessorList> GENERIC_RUINS = create("generic_ruins");
+    public static final ResourceKey<StructureProcessorList> STONE_RUINS = create("stone_ruins");
     public static final ResourceKey<StructureProcessorList> GLIMMERBUG_CAVE = create("glimmerbug_cave");
 
     public EMProcessors() {}
@@ -56,6 +56,19 @@ public class EMProcessors {
                                 replace(EMBlocks.RICH_DIRT.get(), EMBlocks.GLIMMERBUG_HIVE.get(), 0.01f),
                                 replace(EMBlocks.RICH_GRASS_BLOCK.get(), EMBlocks.RICH_DIRT.get(), 0.5f),
                                 replace(EMBlocks.RICH_GRASS.get(), Blocks.AIR, 0.5f)
+                        )
+                ),
+                defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
+                new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
+        ));
+
+        register(context, STONE_RUINS, List.of(
+                new RuleProcessor(
+                        List.of(
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.CRACKED_ETHERSTONE_BRICKS.get(), 0.15f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 0.15f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 0.15f),
+                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 0.15f)
                         )
                 ),
                 defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),

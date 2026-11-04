@@ -1,0 +1,302 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/pillar_broken",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/pillar_carved",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/pillar_mossy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/pillar_pair",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/pillar_fancy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/arch_castle",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/arch_ruined",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/arch_mossy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_tiny",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_small",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_medium",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_large",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_small_plus",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_small_t",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/wall_mossy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/gate_stone_small",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/gate_stone_large",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/well_stone",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/well_mossy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/well_dry",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/well_grand",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/fountain_large",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/fountain_small",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/fountain_broken",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/altar_small",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/altar_end",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/altar_mossy",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/altar_ruined",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/statue_axolotl",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/statue_frog",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/statue_gloomie",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/obelisk",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:ruins/stone_ruins/marker_stone",
+        "processors": "ethermist:stone_ruins",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

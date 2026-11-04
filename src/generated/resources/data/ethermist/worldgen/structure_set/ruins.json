@@ -2,12 +2,16 @@
   "placement": {
     "type": "minecraft:random_spread",
     "salt": 31390291,
-    "separation": 2,
-    "spacing": 4
+    "separation": 6,
+    "spacing": 10
   },
   "structures": [
     {
       "structure": "ethermist:ruins/generic_ruins",
+      "weight": 1
+    },
+    {
+      "structure": "ethermist:ruins/stone_ruins",
       "weight": 1
     }
   ]

@@ -54,9 +54,10 @@ public class EMStructureSets {
                 EMStructureConstants.GENERIC_RUINS.set(),
                 new StructureSet(
                         List.of(
-                                new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.GENERIC_RUINS.structure()), 1)
+                                new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.GENERIC_RUINS.structure()), 1),
+                                new StructureSet.StructureSelectionEntry(structures.getOrThrow(EMStructureConstants.STONE_RUINS.structure()), 1)
                         ),
-                        new RandomSpreadStructurePlacement(4, 2, RandomSpreadType.LINEAR, 31390291)
+                        new RandomSpreadStructurePlacement(10, 6, RandomSpreadType.LINEAR, 31390291)
                 )
         );
     }

@@ -17,7 +17,7 @@ import java.util.List;
 public class GenericRuinsPools extends EMTemplatePool {
     private static final String FOLDER = EMStructureConstants.GENERIC_RUINS.getFolder();
 
-    public static final ResourceKey<StructureTemplatePool> START = create(FOLDER + "start_pool");
+    public static final ResourceKey<StructureTemplatePool> START = create(FOLDER + "generic_pool");
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         HolderGetter<StructureProcessorList> processors = context.lookup(Registries.PROCESSOR_LIST);
