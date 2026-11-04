@@ -56,7 +56,7 @@ public class EMProcessors {
         ));
 
         register(context, STONE_RUINS, List.of(
-                etherstoneBrickRot(0.15f, 0.15f),
+                etherstoneBrickRot(0.25f, 0.2f),
                 defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
                 new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
         ));
