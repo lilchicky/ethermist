@@ -38,14 +38,7 @@ public class EMProcessors {
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
         register(context, FORGEMASTER_GENERAL, List.of(
-                new RuleProcessor(
-                        List.of(
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.CRACKED_ETHERSTONE_BRICKS.get(), 0.15f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 0.15f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 0.05f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 0.05f)
-                        )
-                ),
+                etherstoneBrickRot(0.15f, 0.05f),
                 defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
                 new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
         ));
@@ -63,14 +56,7 @@ public class EMProcessors {
         ));
 
         register(context, STONE_RUINS, List.of(
-                new RuleProcessor(
-                        List.of(
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.CRACKED_ETHERSTONE_BRICKS.get(), 0.15f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), 0.15f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 0.15f),
-                                replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), 0.15f)
-                        )
-                ),
+                etherstoneBrickRot(0.15f, 0.15f),
                 defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
                 new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
         ));
@@ -114,6 +100,17 @@ public class EMProcessors {
                         Blocks.GOLD_BLOCK
                 ),
                 chanceToUpgrade
+        );
+    }
+
+    public static RuleProcessor etherstoneBrickRot(float brickChance, float cobbleChance) {
+        return new RuleProcessor(
+                List.of(
+                        replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.CRACKED_ETHERSTONE_BRICKS.get(), brickChance),
+                        replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_ETHERSTONE_BRICKS.get(), brickChance),
+                        replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), cobbleChance),
+                        replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), cobbleChance)
+                )
         );
     }
 
