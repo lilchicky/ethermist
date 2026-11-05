@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:frostpine_forest",
-      "required": false
-    }
+    "ethermist:frostpine_forest"
   ]
 }

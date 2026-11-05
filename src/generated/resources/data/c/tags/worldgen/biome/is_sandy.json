@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "ethermist:timeworn_desert",
-      "required": false
-    },
-    {
-      "id": "ethermist:sparkling_beach",
-      "required": false
-    }
+    "ethermist:timeworn_desert",
+    "ethermist:sparkling_beach"
   ]
 }

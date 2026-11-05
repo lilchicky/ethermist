@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:forgotten_ocean",
-      "required": false
-    }
+    "ethermist:forgotten_ocean"
   ]
 }

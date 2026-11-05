@@ -1,16 +1,7 @@
 {
   "values": [
-    {
-      "id": "ethermist:windy_peaks",
-      "required": false
-    },
-    {
-      "id": "ethermist:amethyst_gardens",
-      "required": false
-    },
-    {
-      "id": "ethermist:burning_crags",
-      "required": false
-    }
+    "ethermist:windy_peaks",
+    "ethermist:amethyst_gardens",
+    "ethermist:burning_crags"
   ]
 }

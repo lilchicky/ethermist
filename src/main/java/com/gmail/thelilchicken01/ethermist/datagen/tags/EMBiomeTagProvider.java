@@ -40,114 +40,114 @@ public class EMBiomeTagProvider extends BiomeTagsProvider {
                 .add(EMBiomes.TWISTING_RIVER);
 
         tag(Tags.Biomes.IS_BEACH)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sparkling_beach"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "eroded_beach"));
+                .add(EMBiomes.SPARKLING_BEACH)
+                .add(EMBiomes.ERODED_BEACH);
 
         tag(Tags.Biomes.IS_MOUNTAIN)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amethyst_gardens"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"));
+                .add(EMBiomes.WINDY_PEAKS)
+                .add(EMBiomes.AMETHYST_GARDENS)
+                .add(EMBiomes.BURNING_CRAGS);
 
         tag(Tags.Biomes.IS_DESERT)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "timeworn_desert"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"));
+                .add(EMBiomes.TIMEWORN_DESERT)
+                .add(EMBiomes.FROZEN_EXPANSE)
+                .add(EMBiomes.BURNING_CRAGS);
 
         tag(Tags.Biomes.IS_FOREST)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmering_ancient_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frostpine_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amberwood_grove"));
+                .add(EMBiomes.ANCIENT_FOREST)
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST)
+                .add(EMBiomes.SLIMY_FOREST)
+                .add(EMBiomes.FROSTPINE_FOREST)
+                .add(EMBiomes.AMBERWOOD_GROVE);
 
         tag(Tags.Biomes.IS_PLAINS)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_fields"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "blooming_meadows"));
+                .add(EMBiomes.ANCIENT_FIELDS)
+                .add(EMBiomes.BLOOMING_MEADOWS);
 
         tag(Tags.Biomes.IS_SNOWY)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frostpine_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"));
+                .add(EMBiomes.FROZEN_EXPANSE)
+                .add(EMBiomes.FROSTPINE_FOREST)
+                .add(EMBiomes.WINDY_PEAKS);
 
         tag(Tags.Biomes.IS_SWAMP)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_swamp"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_forest"));
+                .add(EMBiomes.SLIMY_SWAMP)
+                .add(EMBiomes.SLIMY_FOREST);
 
         tag(Tags.Biomes.IS_RARE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amethyst_gardens"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_flats"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_forest"));
+                .add(EMBiomes.AMETHYST_GARDENS)
+                .add(EMBiomes.BURNING_CRAGS)
+                .add(EMBiomes.ABYSSAL_FLATS)
+                .add(EMBiomes.SLIMY_FOREST);
 
         tag(Tags.Biomes.IS_JUNGLE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmering_ancient_forest"));
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST);
 
         tag(Tags.Biomes.IS_HOT)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "timeworn_desert"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amberwood_grove"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmering_ancient_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_swamp"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_forest"));
+                .add(EMBiomes.TIMEWORN_DESERT)
+                .add(EMBiomes.BURNING_CRAGS)
+                .add(EMBiomes.AMBERWOOD_GROVE)
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST)
+                .add(EMBiomes.SLIMY_SWAMP)
+                .add(EMBiomes.SLIMY_FOREST);
 
         tag(Tags.Biomes.IS_COLD)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frostpine_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"));
+                .add(EMBiomes.FROSTPINE_FOREST)
+                .add(EMBiomes.FROZEN_EXPANSE)
+                .add(EMBiomes.WINDY_PEAKS);
 
         tag(Tags.Biomes.IS_DRY)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "timeworn_desert"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amethyst_gardens"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"));
+                .add(EMBiomes.TIMEWORN_DESERT)
+                .add(EMBiomes.BURNING_CRAGS)
+                .add(EMBiomes.AMETHYST_GARDENS)
+                .add(EMBiomes.WINDY_PEAKS);
 
         tag(Tags.Biomes.IS_WET)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_swamp"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "slimy_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "blooming_meadows"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "ancient_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmering_ancient_forest"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "twisting_river"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "forgotten_ocean"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_depths"));
+                .add(EMBiomes.SLIMY_SWAMP)
+                .add(EMBiomes.SLIMY_FOREST)
+                .add(EMBiomes.BLOOMING_MEADOWS)
+                .add(EMBiomes.ANCIENT_FOREST)
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST)
+                .add(EMBiomes.TWISTING_RIVER)
+                .add(EMBiomes.FORGOTTEN_OCEAN)
+                .add(EMBiomes.ABYSSAL_DEPTHS);
 
         tag(Tags.Biomes.IS_STONY_SHORES)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "eroded_beach"));
+                .add(EMBiomes.ERODED_BEACH);
 
         tag(Tags.Biomes.IS_RIVER)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "twisting_river"));
+                .add(EMBiomes.TWISTING_RIVER);
 
         tag(Tags.Biomes.IS_DEAD)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_flats"));
+                .add(EMBiomes.ABYSSAL_FLATS);
 
         tag(Tags.Biomes.IS_DEEP_OCEAN)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "forgotten_ocean"));
+                .add(EMBiomes.FORGOTTEN_OCEAN);
 
         tag(Tags.Biomes.IS_DENSE_VEGETATION)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glimmering_ancient_forest"));
+                .add(EMBiomes.GLIMMERING_ANCIENT_FOREST);
 
         tag(Tags.Biomes.IS_DECIDUOUS_TREE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frostpine_forest"));
+                .add(EMBiomes.FROSTPINE_FOREST);
 
         tag(Tags.Biomes.IS_FLORAL)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "blooming_meadows"));
+                .add(EMBiomes.BLOOMING_MEADOWS);
 
         tag(Tags.Biomes.IS_ICY)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"));
+                .add(EMBiomes.FROZEN_EXPANSE);
 
         tag(Tags.Biomes.IS_SANDY)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "timeworn_desert"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sparkling_beach"));
+                .add(EMBiomes.TIMEWORN_DESERT)
+                .add(EMBiomes.SPARKLING_BEACH);
 
         tag(Tags.Biomes.IS_SPARSE_VEGETATION)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "timeworn_desert"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "sparkling_beach"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "eroded_beach"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "burning_crags"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "amethyst_gardens"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "abyssal_flats"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "frozen_expanse"))
-                .addOptional(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "windy_peaks"));
+                .add(EMBiomes.TIMEWORN_DESERT)
+                .add(EMBiomes.SPARKLING_BEACH)
+                .add(EMBiomes.ERODED_BEACH)
+                .add(EMBiomes.BURNING_CRAGS)
+                .add(EMBiomes.AMETHYST_GARDENS)
+                .add(EMBiomes.ABYSSAL_FLATS)
+                .add(EMBiomes.FROZEN_EXPANSE)
+                .add(EMBiomes.WINDY_PEAKS);
 
         // Structures
         tag(EMTags.Biomes.HAS_FORGEMASTER_CASTLE)

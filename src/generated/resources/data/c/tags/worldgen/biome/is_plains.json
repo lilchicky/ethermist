@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "ethermist:ancient_fields",
-      "required": false
-    },
-    {
-      "id": "ethermist:blooming_meadows",
-      "required": false
-    }
+    "ethermist:ancient_fields",
+    "ethermist:blooming_meadows"
   ]
 }

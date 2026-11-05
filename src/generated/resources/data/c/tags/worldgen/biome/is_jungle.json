@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:glimmering_ancient_forest",
-      "required": false
-    }
+    "ethermist:glimmering_ancient_forest"
   ]
 }

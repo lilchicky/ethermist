@@ -1,16 +1,7 @@
 {
   "values": [
-    {
-      "id": "ethermist:timeworn_desert",
-      "required": false
-    },
-    {
-      "id": "ethermist:frozen_expanse",
-      "required": false
-    },
-    {
-      "id": "ethermist:burning_crags",
-      "required": false
-    }
+    "ethermist:timeworn_desert",
+    "ethermist:frozen_expanse",
+    "ethermist:burning_crags"
   ]
 }

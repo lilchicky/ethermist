@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:frozen_expanse",
-      "required": false
-    }
+    "ethermist:frozen_expanse"
   ]
 }

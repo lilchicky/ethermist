@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:eroded_beach",
-      "required": false
-    }
+    "ethermist:eroded_beach"
   ]
 }

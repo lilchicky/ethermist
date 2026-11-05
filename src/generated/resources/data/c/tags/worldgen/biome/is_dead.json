@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "ethermist:abyssal_flats",
-      "required": false
-    }
+    "ethermist:abyssal_flats"
   ]
 }

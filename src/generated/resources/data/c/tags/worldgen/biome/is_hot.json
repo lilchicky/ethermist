@@ -1,28 +1,10 @@
 {
   "values": [
-    {
-      "id": "ethermist:timeworn_desert",
-      "required": false
-    },
-    {
-      "id": "ethermist:burning_crags",
-      "required": false
-    },
-    {
-      "id": "ethermist:amberwood_grove",
-      "required": false
-    },
-    {
-      "id": "ethermist:glimmering_ancient_forest",
-      "required": false
-    },
-    {
-      "id": "ethermist:slimy_swamp",
-      "required": false
-    },
-    {
-      "id": "ethermist:slimy_forest",
-      "required": false
-    }
+    "ethermist:timeworn_desert",
+    "ethermist:burning_crags",
+    "ethermist:amberwood_grove",
+    "ethermist:glimmering_ancient_forest",
+    "ethermist:slimy_swamp",
+    "ethermist:slimy_forest"
   ]
 }
