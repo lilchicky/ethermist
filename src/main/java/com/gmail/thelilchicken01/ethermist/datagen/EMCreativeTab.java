@@ -407,6 +407,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.SHROOM_CLUSTER.get());
                 output.accept(EMItems.TOASTED_SHROOM_CLUSTER.get());
                 output.accept(EMItems.GLIMMERBUG_ABDOMEN.get());
+                output.accept(EMItems.COOKED_GLIMMERBUG_ABDOMEN.get());
                 output.accept(EMItems.SOURDEW_SLICE.get());
                 output.accept(EMItems.SOURDEW_SMOOTHIE.get());
 

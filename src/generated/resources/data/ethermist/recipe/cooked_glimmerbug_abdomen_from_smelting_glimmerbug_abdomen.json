@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "glimmerbug_abdomen",
+  "ingredient": {
+    "item": "ethermist:glimmerbug_abdomen"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:cooked_glimmerbug_abdomen"
+  }
+}

@@ -931,16 +931,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Foods ----------
          */
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.SHROOM_CLUSTER.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, EMItems.SHROOM_CLUSTER.get(), 1)
                 .pattern("aa")
                 .pattern("aa")
                 .define('a', EMBlocks.SMALL_ABYSSAL_MUSHROOM.get())
                 .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM)).save(output);
 
         oreSmelting(output, List.of(EMItems.SHROOM_CLUSTER.get()),
-                RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 200, "shroom_cluster");
+                RecipeCategory.FOOD, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 200, "shroom_cluster");
         oreSmoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
-                RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
+                RecipeCategory.FOOD, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.SOURDEW_SLICE, 9)
                 .requires(EMBlocks.SOURDEW)
@@ -957,6 +957,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.GLASS_BOTTLE)
                 .requires(EMItems.SOURDEW_SLICE, 3)
                 .unlockedBy("has_sourdew_slice", has(EMItems.SOURDEW_SLICE)).save(output);
+
+        oreSmelting(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
+                RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 200, "glimmerbug_abdomen");
+        oreSmoking(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
+                RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 100, "glimmerbug_abdomen");
 
     }
 

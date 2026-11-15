@@ -17,7 +17,14 @@ public class EMFoods {
             .nutrition(2)
             .saturationModifier(0.2F)
             .fast()
-            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 60, 0), 0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 80, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.3f)
+            .build();
+    public static final FoodProperties COOKED_GLIMMERBUG_ABDOMEN = new FoodProperties.Builder()
+            .nutrition(5)
+            .saturationModifier(0.6F)
+            .fast()
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0f)
             .build();
     public static final FoodProperties SOURDEW_SLICE = new FoodProperties.Builder().nutrition(2).saturationModifier(0.3f).build();
     public static final FoodProperties SOURDEW_SMOOTHIE = new FoodProperties.Builder()
