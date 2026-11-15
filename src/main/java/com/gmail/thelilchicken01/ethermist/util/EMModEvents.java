@@ -6,7 +6,6 @@ import com.gmail.thelilchicken01.ethermist.entity.client.model.*;
 import com.gmail.thelilchicken01.ethermist.entity.mobs.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -28,7 +27,7 @@ public class EMModEvents {
         event.registerLayerDefinition(ForgemasterModel.LAYER_LOCATION, ForgemasterModel::createBodyLayer);
         event.registerLayerDefinition(PylonModel.LAYER_LOCATION, PylonModel::createBodyLayer);
         event.registerLayerDefinition(RunicSkeletonModel.LAYER_LOCATION, RunicSkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(SpectralLichModel.LAYER_LOCATION, SpectralLichModel::createBodyLayer);
+        event.registerLayerDefinition(SiherekModel.LAYER_LOCATION, SiherekModel::createBodyLayer);
         event.registerLayerDefinition(KarakaModel.LAYER_LOCATION, KarakaModel::createBodyLayer);
     }
 
@@ -40,7 +39,7 @@ public class EMModEvents {
         event.put(EMEntityTypes.FORGEMASTER.get(), ForgemasterEntity.createAttributes().build());
         event.put(EMEntityTypes.PYLON.get(), PylonEntity.createAttributes().build());
         event.put(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonEntity.createAttributes().build());
-        event.put(EMEntityTypes.SPECTRAL_LICH.get(), SpectralLichEntity.createAttributes().build());
+        event.put(EMEntityTypes.SIHEREK.get(), SiherekEntity.createAttributes().build());
         event.put(EMEntityTypes.KARAKA.get(), KarakaEntity.createAttributes().build());
     }
 
@@ -92,7 +91,7 @@ public class EMModEvents {
         );
 
         event.register(
-                EMEntityTypes.SPECTRAL_LICH.get(),
+                EMEntityTypes.SIHEREK.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,

@@ -1,10 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.util;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.entity.EMEntityTypes;
 import com.gmail.thelilchicken01.ethermist.entity.client.renderer.*;
-import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.IWandHandle;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWandHandles;
@@ -13,15 +11,10 @@ import com.gmail.thelilchicken01.ethermist.screen.EMMenuTypes;
 import com.gmail.thelilchicken01.ethermist.screen.WandforgingTableScreen;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.DyedItemColor;
-import net.minecraft.world.level.ItemLike;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -30,9 +23,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 @EventBusSubscriber(modid = Ethermist.MODID, value = Dist.CLIENT)
 public class EMClientModEvents {
@@ -52,7 +42,7 @@ public class EMClientModEvents {
         event.registerEntityRenderer(EMEntityTypes.FORGEMASTER.get(), ForgemasterRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.PYLON.get(), PylonRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonRenderer::new);
-        event.registerEntityRenderer(EMEntityTypes.SPECTRAL_LICH.get(), SpectralLichRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.SIHEREK.get(), SiherekRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.KARAKA.get(), KarakaRenderer::new);
 
     }

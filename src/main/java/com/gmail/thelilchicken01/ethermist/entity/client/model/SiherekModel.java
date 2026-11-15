@@ -4,8 +4,8 @@ package com.gmail.thelilchicken01.ethermist.entity.client.model;// Made with Blo
 
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.entity.client.animation.SpectralLichAnimations;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.SpectralLichEntity;
+import com.gmail.thelilchicken01.ethermist.entity.client.animation.SiherekAnimations;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.SiherekEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -24,9 +24,9 @@ import net.minecraft.world.entity.HumanoidArm;
  * Exported for Minecraft version 1.19 or later with Mojang mappings
  * @author Hexodiax
  */
-public class SpectralLichModel<T extends SpectralLichEntity> extends HierarchicalModel<T> implements ArmedModel {
+public class SiherekModel<T extends SiherekEntity> extends HierarchicalModel<T> implements ArmedModel {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "spectral_lich"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "siherek"), "main");
 	private final ModelPart root;
 	private final ModelPart body;
 	private final ModelPart robe;
@@ -39,7 +39,7 @@ public class SpectralLichModel<T extends SpectralLichEntity> extends Hierarchica
 	private final ModelPart arms2;
 	private final ModelPart head;
 
-	public SpectralLichModel(ModelPart root) {
+	public SiherekModel(ModelPart root) {
 		this.root = root;
 		this.body = root.getChild("body");
 		this.robe = this.body.getChild("robe");
@@ -101,14 +101,14 @@ public class SpectralLichModel<T extends SpectralLichEntity> extends Hierarchica
 	}
 
 	@Override
-	public void setupAnim(SpectralLichEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(SiherekEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch);
 
-		this.animate(entity.idleState, SpectralLichAnimations.IDLE, ageInTicks, 1f);
-		this.animate(entity.pursueState, SpectralLichAnimations.PURSUE, ageInTicks, 1f);
-		this.animate(entity.walkState, SpectralLichAnimations.WALK, ageInTicks, 1f);
+		this.animate(entity.idleState, SiherekAnimations.IDLE, ageInTicks, 1f);
+		this.animate(entity.pursueState, SiherekAnimations.PURSUE, ageInTicks, 1f);
+		this.animate(entity.walkState, SiherekAnimations.WALK, ageInTicks, 1f);
 
 	}
 

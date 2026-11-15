@@ -211,7 +211,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         ---------- Wand Stuff ----------
          */
 
-        tag(EMTags.Items.SPECTRAL_LICH_CAN_SPAWN_WITH)
+        tag(EMTags.Items.SIHEREK_CAN_SPAWN_WITH)
                 .add(EMItems.DULL_WAND.get())
                 .add(EMItems.POISON_WAND.get())
                 .add(EMItems.FLAME_WAND.get())

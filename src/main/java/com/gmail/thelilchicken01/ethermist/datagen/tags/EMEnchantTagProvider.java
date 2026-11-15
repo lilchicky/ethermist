@@ -6,7 +6,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EnchantmentTagsProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.Tags;
@@ -57,7 +56,7 @@ public class EMEnchantTagProvider extends EnchantmentTagsProvider {
         tag(Tags.Enchantments.INCREASE_ENTITY_DROPS)
                 .add(EMEnchantments.AUGMENT_ABUNDANCE);
 
-        tag(EMTags.Enchantments.SPECTRAL_LICH_WAND_CAN_HAVE)
+        tag(EMTags.Enchantments.SIHEREK_WAND_CAN_HAVE)
                 .add(EMEnchantments.THUNDERSTRIKE)
                 .add(EMEnchantments.RUNIC_FORCE)
                 .add(EMEnchantments.ANCIENT_POWER)

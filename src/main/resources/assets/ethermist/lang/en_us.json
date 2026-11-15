@@ -459,7 +459,7 @@
   "item.ethermist.forgemaster_spawn_egg": "Forgemaster Spawn Egg",
   "item.ethermist.pylon_spawn_egg": "Pylon Spawn Egg",
   "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
-  "item.ethermist.spectral_lich_spawn_egg": "Spectral Lich Spawn Egg",
+  "item.ethermist.siherek_spawn_egg": "Siherek Spawn Egg",
   "item.ethermist.karaka_spawn_egg": "Karaka Spawn Egg",
 
   "_comment": "--------------- BASE ENCHANTMENTS ---------------",
@@ -525,7 +525,7 @@
   "entity.ethermist.forgemaster": "The Forgemaster",
   "entity.ethermist.pylon": "Forgemaster's Pylon",
   "entity.ethermist.runic_skeleton": "Runic Skeleton",
-  "entity.ethermist.spectral_lich": "Spectral Lich",
+  "entity.ethermist.siherek": "Siherek",
   "entity.ethermist.karaka": "Karaka",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",

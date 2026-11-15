@@ -130,7 +130,7 @@
         "weight": 100
       },
       {
-        "type": "ethermist:spectral_lich",
+        "type": "ethermist:siherek",
         "maxCount": 2,
         "minCount": 1,
         "weight": 45

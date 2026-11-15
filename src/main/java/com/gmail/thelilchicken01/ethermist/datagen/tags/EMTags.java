@@ -44,7 +44,7 @@ public class EMTags {
         public static final TagKey<Item> ORBS = mod("orbs");
         public static final TagKey<Item> WAND_BASE = mod("wand_base");
         public static final TagKey<Item> HANDLES = mod("handles");
-        public static final TagKey<Item> SPECTRAL_LICH_CAN_SPAWN_WITH = mod("spectral_lich_can_spawn_with");
+        public static final TagKey<Item> SIHEREK_CAN_SPAWN_WITH = mod("siherek_can_spawn_with");
         public static final TagKey<Item> IS_KARAKA_FOOD = mod("is_karaka_food");
 
         private static TagKey<Item> mod(String path) {
@@ -61,7 +61,7 @@ public class EMTags {
         public static final TagKey<Enchantment> AUGMENT_SPELLS = mod("augment_spells");
         public static final TagKey<Enchantment> EXCLUDE_SPELLS = mod("focus_spells");
 
-        public static final TagKey<Enchantment> SPECTRAL_LICH_WAND_CAN_HAVE = mod("spectral_lich_wand_can_have");
+        public static final TagKey<Enchantment> SIHEREK_WAND_CAN_HAVE = mod("siherek_wand_can_have");
 
         private static TagKey<Enchantment> mod(String path) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, path));

@@ -42,26 +42,26 @@ import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class SpectralLichEntity extends Monster implements RangedAttackMob {
+public class SiherekEntity extends Monster implements RangedAttackMob {
 
     public final AnimationState idleState = new AnimationState();
     public final AnimationState pursueState = new AnimationState();
     public final AnimationState walkState = new AnimationState();
 
-    private final WandAttackGoal<SpectralLichEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, 0.5f);
+    private final WandAttackGoal<SiherekEntity> wandGoal = new WandAttackGoal<>(this, 1.0F, 15.0f, 0.5f);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2, false) {
         public void stop() {
             super.stop();
-            SpectralLichEntity.this.setAggressive(false);
+            SiherekEntity.this.setAggressive(false);
         }
 
         public void start() {
             super.start();
-            SpectralLichEntity.this.setAggressive(true);
+            SiherekEntity.this.setAggressive(true);
         }
     };
 
-    public SpectralLichEntity(EntityType<? extends Monster> entityType, Level level) {
+    public SiherekEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         this.reassessWeaponGoal();
     }
@@ -144,7 +144,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
 
-        Optional<HolderSet.Named<Item>> holdable = BuiltInRegistries.ITEM.getTag(EMTags.Items.SPECTRAL_LICH_CAN_SPAWN_WITH);
+        Optional<HolderSet.Named<Item>> holdable = BuiltInRegistries.ITEM.getTag(EMTags.Items.SIHEREK_CAN_SPAWN_WITH);
 
         holdable.flatMap(holders -> holders.getRandomElement(random)).ifPresent(item ->
                 setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(item.value())));
@@ -154,7 +154,7 @@ public class SpectralLichEntity extends Monster implements RangedAttackMob {
     protected void populateDefaultEquipmentEnchantments(ServerLevelAccessor level, RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentEnchantments(level, random, difficulty);
 
-        var enchantHolders = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getTag(EMTags.Enchantments.SPECTRAL_LICH_WAND_CAN_HAVE);
+        var enchantHolders = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getTag(EMTags.Enchantments.SIHEREK_WAND_CAN_HAVE);
         ItemStack handItem = getItemBySlot(EquipmentSlot.MAINHAND);
 
         if (handItem.isEmpty() || enchantHolders.isEmpty()) return;

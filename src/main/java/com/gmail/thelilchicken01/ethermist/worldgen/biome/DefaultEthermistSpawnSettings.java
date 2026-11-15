@@ -60,7 +60,7 @@ public class DefaultEthermistSpawnSettings {
                 new MobSpawnSettings.SpawnerData(EMEntityTypes.RUNIC_SKELETON.get(), 100, 2, 4)
         ).addSpawn(
                 MobCategory.MONSTER,
-                new MobSpawnSettings.SpawnerData(EMEntityTypes.SPECTRAL_LICH.get(), 45, 1, 2)
+                new MobSpawnSettings.SpawnerData(EMEntityTypes.SIHEREK.get(), 45, 1, 2)
         ).addSpawn(
                 MobCategory.MONSTER,
                 new MobSpawnSettings.SpawnerData(EntityType.WITCH, 20, 1, 1)

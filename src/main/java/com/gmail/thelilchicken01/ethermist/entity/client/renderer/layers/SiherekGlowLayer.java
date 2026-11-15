@@ -1,9 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.entity.client.renderer.layers;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
-import com.gmail.thelilchicken01.ethermist.entity.client.model.SpectralLichModel;
-import com.gmail.thelilchicken01.ethermist.entity.mobs.SpectralLichEntity;
+import com.gmail.thelilchicken01.ethermist.entity.client.model.SiherekModel;
+import com.gmail.thelilchicken01.ethermist.entity.mobs.SiherekEntity;
 import com.gmail.thelilchicken01.ethermist.item.IDyeableWandItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -17,17 +16,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 
-public class SpectralLichGlowLayer extends RenderLayer<SpectralLichEntity, SpectralLichModel<SpectralLichEntity>> {
-    private static final ResourceLocation GLOW_WHITE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "textures/entity/spectral_lich/spectral_lich_emmisive_whites.png");
-    private static final ResourceLocation GLOW_PURPLE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "textures/entity/spectral_lich/spectral_lich_emmisive.png");
+public class SiherekGlowLayer extends RenderLayer<SiherekEntity, SiherekModel<SiherekEntity>> {
+    private static final ResourceLocation GLOW_WHITE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "textures/entity/siherek/siherek_emmisive_whites.png");
+    private static final ResourceLocation GLOW_PURPLE = ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "textures/entity/siherek/siherek_emmisive.png");
 
-    public SpectralLichGlowLayer(RenderLayerParent<SpectralLichEntity, SpectralLichModel<SpectralLichEntity>> parent) {
+    public SiherekGlowLayer(RenderLayerParent<SiherekEntity, SiherekModel<SiherekEntity>> parent) {
         super(parent);
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, SpectralLichEntity spectralLichEntity, float v, float v1, float v2, float v3, float v4, float v5) {
-        ItemStack held = spectralLichEntity.getItemBySlot(EquipmentSlot.MAINHAND);
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, SiherekEntity siherekEntity, float v, float v1, float v2, float v3, float v4, float v5) {
+        ItemStack held = siherekEntity.getItemBySlot(EquipmentSlot.MAINHAND);
         float[] wandColor = (!held.isEmpty() && held.getItem() instanceof IDyeableWandItem wand) ? wand.getTrailColor(held) : new float[] {1.0f, 1.0f, 1.0f};
 
         int finalColor =

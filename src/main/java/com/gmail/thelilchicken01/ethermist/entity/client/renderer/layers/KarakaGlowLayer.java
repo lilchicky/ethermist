@@ -21,7 +21,7 @@ public class KarakaGlowLayer extends RenderLayer<KarakaEntity, KarakaModel<Karak
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, KarakaEntity spectralLichEntity, float v, float v1, float v2, float v3, float v4, float v5) {
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, KarakaEntity karakaEntity, float v, float v1, float v2, float v3, float v4, float v5) {
         VertexConsumer vertex = multiBufferSource.getBuffer(
                 RenderType.eyes(KARAKA_GLOW)
         );

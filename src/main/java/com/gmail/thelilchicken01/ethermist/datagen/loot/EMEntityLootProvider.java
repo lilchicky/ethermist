@@ -26,7 +26,7 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
         return Stream.of(
                 EMEntityTypes.GLOOMIE.get(),
                 EMEntityTypes.RUNIC_SKELETON.get(),
-                EMEntityTypes.SPECTRAL_LICH.get()
+                EMEntityTypes.SIHEREK.get()
         );
     }
 
@@ -50,7 +50,7 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 )
         );
 
-        add(EMEntityTypes.SPECTRAL_LICH.get(),
+        add(EMEntityTypes.SIHEREK.get(),
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))

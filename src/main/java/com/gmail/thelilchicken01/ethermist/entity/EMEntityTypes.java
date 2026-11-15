@@ -63,11 +63,11 @@ public class EMEntityTypes {
                             .build(Ethermist.MODID + ":runic_skeleton"));
 
     // Spectral Lich
-    public static final DeferredHolder<EntityType<?>, EntityType<SpectralLichEntity>> SPECTRAL_LICH =
-            EM_ENTITY_TYPES.register("spectral_lich",
-                    () -> EntityType.Builder.of(SpectralLichEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SiherekEntity>> SIHEREK =
+            EM_ENTITY_TYPES.register("siherek",
+                    () -> EntityType.Builder.of(SiherekEntity::new, MobCategory.MONSTER)
                             .sized(0.8f, 1.875f)
-                            .build(Ethermist.MODID + ":spectral_lich"));
+                            .build(Ethermist.MODID + ":siherek"));
 
     // Karaka
     public static final DeferredHolder<EntityType<?>, EntityType<KarakaEntity>> KARAKA =

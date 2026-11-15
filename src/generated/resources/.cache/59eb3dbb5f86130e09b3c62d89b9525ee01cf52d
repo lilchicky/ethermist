@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-15T00:42:54.298005	Loot Tables
+// 1.21.1	2026-11-15T14:05:58.4977307	Loot Tables
 772d7c71fa83b7b198878f799f7df15266b7a15c data/ethermist/loot_table/blocks/abyssal_mushroom.json
 04aeb72e120551ba8fd082574f83201d98bd2041 data/ethermist/loot_table/blocks/amberwood_button.json
 72a35d631a71c1b5e3f72122497e9da17f07bac2 data/ethermist/loot_table/blocks/amberwood_door.json
@@ -249,7 +249,7 @@ a6fa81276e222f28dc67f301592933914b56e894 data/ethermist/loot_table/chests/stone_
 d6dd255c077ae5c17e91f7414518d0d4b68e67f7 data/ethermist/loot_table/chests/stone_ruins_simple.json
 3e136b9764dd1a4e396f813d29239a7857791917 data/ethermist/loot_table/entities/gloomie.json
 86513b91e1c0912322738d23da39db7a31608a9c data/ethermist/loot_table/entities/runic_skeleton.json
-745f308675912bec42762e9b6edf4ebfbe78f5c6 data/ethermist/loot_table/entities/spectral_lich.json
+d895917489f8104a0fe826df66205215ff03f12d data/ethermist/loot_table/entities/siherek.json
 e79917a2ff0fbd243f2836043a54c68347e3a036 data/ethermist/loot_table/inject/ancient_orb/ancient_orb_to_ancient_city.json
 c5620f1ba7e8d19cc21a10cf5e16e643b47c1344 data/ethermist/loot_table/inject/dull_orb/dull_orb_to_simple_dungeon.json
 36389721ae394f4f9db1a9c973efef6166f08d9d data/ethermist/loot_table/inject/dull_orb/dull_orb_to_stronghold_corridor.json
