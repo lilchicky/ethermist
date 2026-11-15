@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist;
 
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import com.gmail.thelilchicken01.ethermist.component.EMDataComponents;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.predicates.EMSubPredicates;
 import com.gmail.thelilchicken01.ethermist.datagen.recipes.EMRecipeRegistration;
 import com.gmail.thelilchicken01.ethermist.effect.EMMobEffects;
 import com.gmail.thelilchicken01.ethermist.effect.potion.EMPotions;
@@ -104,6 +105,7 @@ public class Ethermist {
         LOGGER.info("Successfully registered Ethermist world generation features");
 
         EMRecipeRegistration.register(bus);
+        EMSubPredicates.register(bus);
 
         EMEntityTypes.register(bus);
 
