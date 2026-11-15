@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ethermist:sourdew"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "ethermist:sourdew_slice"
+  }
+}

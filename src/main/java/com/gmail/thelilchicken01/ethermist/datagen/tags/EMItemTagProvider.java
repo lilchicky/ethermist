@@ -121,6 +121,12 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.SEEDS)
                 .add(EMItems.SOURDEW_SEEDS.get());
 
+        tag(Tags.Items.SEEDS_MELON)
+                .add(EMItems.SOURDEW_SEEDS.get());
+
+        tag(Tags.Items.CROPS_MELON)
+                .add(EMBlocks.SOURDEW.asItem());
+
         tag(EMTags.Items.TOMES)
                 .add(EMItems.EXCLUSION_TOME.get())
                 .add(EMItems.AUGMENT_TOME.get())
@@ -172,7 +178,8 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.FOODS)
                 .add(EMItems.SHROOM_CLUSTER.get())
                 .add(EMItems.TOASTED_SHROOM_CLUSTER.get())
-                .add(EMItems.GLIMMERBUG_SHELL.get());
+                .add(EMItems.GLIMMERBUG_SHELL.get())
+                .add(EMItems.SOURDEW_SLICE.get());
 
         tag(Tags.Items.FOODS_VEGETABLE)
                 .add(EMItems.SHROOM_CLUSTER.get())
@@ -180,6 +187,21 @@ public class EMItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.FOODS_RAW_MEAT)
                 .add(EMItems.GLIMMERBUG_SHELL.get());
+
+        tag(Tags.Items.FOODS_FRUIT)
+                .add(EMItems.SOURDEW_SLICE.get());
+
+        tag(Tags.Items.DRINKS_MAGIC)
+                .add(EMItems.SOURDEW_SMOOTHIE.get());
+
+        tag(Tags.Items.DRINKS)
+                .add(EMItems.SOURDEW_SMOOTHIE.get());
+
+        tag(Tags.Items.DRINK_CONTAINING_BOTTLE)
+                .add(EMItems.SOURDEW_SMOOTHIE.get());
+
+        tag(Tags.Items.DRINKS_JUICE)
+                .add(EMItems.SOURDEW_SMOOTHIE.get());
 
         tag(EMTags.Items.IS_KARAKA_FOOD)
                 .addTag(ItemTags.LEAVES)

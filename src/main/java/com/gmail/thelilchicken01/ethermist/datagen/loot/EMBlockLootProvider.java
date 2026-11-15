@@ -398,7 +398,7 @@ public class EMBlockLootProvider extends BlockLootSubProvider {
 
         add(EMBlocks.SOURDEW_STEM.get(), generateStemDrops(EMBlocks.SOURDEW_STEM.get(), EMItems.SOURDEW_SEEDS.get()));
         add(EMBlocks.ATTACHED_SOURDEW_STEM.get(), generateStemDrops(EMBlocks.ATTACHED_SOURDEW_STEM.get(), EMItems.SOURDEW_SEEDS.get()));
-        dropSelf(EMBlocks.SOURDEW.get());
+        add(EMBlocks.SOURDEW.get(), block -> createMultipleOreDrops(EMBlocks.SOURDEW.get(), EMItems.SOURDEW_SLICE.get(), 1, 4));
 
         // Abyssal Mushrooms
         dropSelf(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get());

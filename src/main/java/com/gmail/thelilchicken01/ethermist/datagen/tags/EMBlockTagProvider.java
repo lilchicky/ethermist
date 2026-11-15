@@ -152,7 +152,9 @@ public class EMBlockTagProvider extends BlockTagsProvider {
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_SLAB.get())
                 .add(EMBlocks.CUBED_ABYSSAL_MUSHROOM_FENCE_GATE.get())
 
-                .add(EMBlocks.WANDFORGING_TABLE.get());
+                .add(EMBlocks.WANDFORGING_TABLE.get())
+
+                .add(EMBlocks.SOURDEW.get());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(EMBlocks.LARGE_BLUE_ABYSSAL_MUSHROOM_TOP.get())

@@ -1,7 +1,13 @@
-// 1.21.1	2026-10-15T22:28:10.657458	Tags for minecraft:item mod id ethermist
+// 1.21.1	2026-11-15T01:25:17.9586123	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
-9bc0d282717153a19438738b270e4956c4da256b data/c/tags/item/foods.json
+65a9a22c6ae28a9e3b1f2bc683c38a4376f40107 data/c/tags/item/crops/melon.json
+ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks.json
+ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks/juice.json
+ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks/magic.json
+ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drink_containing/bottle.json
+831d6237bab34a0aeebc5e4c9f579ff411275888 data/c/tags/item/foods.json
+2c5bfd38df12ceaea040f6e9faae0a3baa967078 data/c/tags/item/foods/fruit.json
 7579b9dd05bf5c96eb875e32d7b93d697310e160 data/c/tags/item/foods/raw_meat.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods/vegetable.json
 f9441cf65d67b8b870c27e6d56c9580dafadf0a2 data/c/tags/item/gravels.json
@@ -18,6 +24,7 @@ d919ec363a1fe394e8b967875b25163d716a67e8 data/c/tags/item/ores/redstone.json
 9a71c0c0c8b9e124c861aa6de78ea9d9a33ffdf1 data/c/tags/item/player_workstations/crafting_tables.json
 202349ad223bb50236d5a1ca994bd8044694732c data/c/tags/item/sandstone/blocks.json
 c6c93501f36e4aee053a995816943bc8a16267fb data/c/tags/item/seeds.json
+c6c93501f36e4aee053a995816943bc8a16267fb data/c/tags/item/seeds/melon.json
 3319070ed9bfa0a86343379978fe39d8dc53b64a data/c/tags/item/stones.json
 5199d71781fb8c12091bec6b9a543d2cb1fac68c data/ethermist/tags/item/dyeable_wands.json
 ce11b1851f749ca1edf8436930585b0266339ac2 data/ethermist/tags/item/enchantable_augments.json

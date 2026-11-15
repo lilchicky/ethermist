@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sourdew_slice": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:sourdew_slice"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:sourdew"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sourdew_slice"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:sourdew"
+    ]
+  }
+}

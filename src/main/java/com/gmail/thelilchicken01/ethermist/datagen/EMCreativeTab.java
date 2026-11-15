@@ -407,6 +407,8 @@ public class EMCreativeTab {
                 output.accept(EMItems.SHROOM_CLUSTER.get());
                 output.accept(EMItems.TOASTED_SHROOM_CLUSTER.get());
                 output.accept(EMItems.GLIMMERBUG_SHELL.get());
+                output.accept(EMItems.SOURDEW_SLICE.get());
+                output.accept(EMItems.SOURDEW_SMOOTHIE.get());
 
                 // Spawn Eggs
                 output.accept(EMItems.RUNIC_SKELETON_SPAWN_EGG.get());

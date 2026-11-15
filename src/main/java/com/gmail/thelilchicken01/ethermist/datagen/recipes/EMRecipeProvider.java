@@ -10,6 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -940,6 +941,22 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 200, "shroom_cluster");
         oreSmoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
                 RecipeCategory.MISC, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.SOURDEW_SLICE, 9)
+                .requires(EMBlocks.SOURDEW)
+                .unlockedBy("has_sourdew_melon", has(EMBlocks.SOURDEW)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, EMBlocks.SOURDEW, 1)
+                .pattern("aaa")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', EMItems.SOURDEW_SLICE)
+                .unlockedBy("has_sourdew_slice", has(EMItems.SOURDEW_SLICE)).save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.SOURDEW_SMOOTHIE, 1)
+                .requires(Items.SNOWBALL, 3)
+                .requires(Items.GLASS_BOTTLE)
+                .requires(EMItems.SOURDEW_SLICE, 3)
+                .unlockedBy("has_sourdew_slice", has(EMItems.SOURDEW_SLICE)).save(output);
 
     }
 

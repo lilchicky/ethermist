@@ -443,6 +443,8 @@
   "item.ethermist.shroom_cluster": "Shroom Cluster",
   "item.ethermist.toasted_shroom_cluster": "Toasted Shroom Cluster",
   "item.ethermist.glimmerbug_shell": "Glimmerbug Shell",
+  "item.ethermist.sourdew_slice": "Sourdew Slice",
+  "item.ethermist.sourdew_smoothie": "Sourdew Smoothie",
 
   "_comment": "--------------- CROPS AND RELATED ---------------",
   "item.ethermist.sourdew_seeds": "Sourdew Seeds",
