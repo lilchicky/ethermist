@@ -97,7 +97,7 @@ public class EMItems {
 
     public static final DeferredItem<Item> SHROOM_CLUSTER = ITEMS.register("shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.SHROOM_CLUSTER)));
     public static final DeferredItem<Item> TOASTED_SHROOM_CLUSTER = ITEMS.register("toasted_shroom_cluster", () -> new Item(new Item.Properties().food(EMFoods.TOASTED_SHROOM_CLUSTER)));
-    public static final DeferredItem<Item> GLIMMERBUG_SHELL = ITEMS.register("glimmerbug_shell", () -> new Item(new Item.Properties().food(EMFoods.GLIMMERBUG_SHELL)));
+    public static final DeferredItem<Item> GLIMMERBUG_ABDOMEN = ITEMS.register("glimmerbug_abdomen", () -> new Item(new Item.Properties().food(EMFoods.GLIMMERBUG_ABDOMEN)));
     public static final DeferredItem<Item> SOURDEW_SLICE = ITEMS.register("sourdew_slice", () -> new Item(new Item.Properties().food(EMFoods.SOURDEW_SLICE)));
     public static final DeferredItem<Item> SOURDEW_SMOOTHIE = ITEMS.register("sourdew_smoothie", () -> new SmoothieItem(new Item.Properties().food(EMFoods.SOURDEW_SMOOTHIE).stacksTo(16)));
 

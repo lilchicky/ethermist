@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.entity.mobs;
 
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -182,7 +181,7 @@ public class GlimmerbugEntity extends TamableAnimal {
         super.dropCustomDeathLoot(level, damageSource, recentlyHit);
 
         if (this.getOwner() != null && !this.isSummoned()) {
-            spawnAtLocation(EMItems.GLIMMERBUG_SHELL.get(), 1);
+            spawnAtLocation(EMItems.GLIMMERBUG_ABDOMEN.get(), 1);
         }
     }
 

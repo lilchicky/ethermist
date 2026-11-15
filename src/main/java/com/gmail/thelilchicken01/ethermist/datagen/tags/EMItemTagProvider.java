@@ -178,7 +178,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.FOODS)
                 .add(EMItems.SHROOM_CLUSTER.get())
                 .add(EMItems.TOASTED_SHROOM_CLUSTER.get())
-                .add(EMItems.GLIMMERBUG_SHELL.get())
+                .add(EMItems.GLIMMERBUG_ABDOMEN.get())
                 .add(EMItems.SOURDEW_SLICE.get());
 
         tag(Tags.Items.FOODS_VEGETABLE)
@@ -186,7 +186,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
                 .add(EMItems.TOASTED_SHROOM_CLUSTER.get());
 
         tag(Tags.Items.FOODS_RAW_MEAT)
-                .add(EMItems.GLIMMERBUG_SHELL.get());
+                .add(EMItems.GLIMMERBUG_ABDOMEN.get());
 
         tag(Tags.Items.FOODS_FRUIT)
                 .add(EMItems.SOURDEW_SLICE.get());
