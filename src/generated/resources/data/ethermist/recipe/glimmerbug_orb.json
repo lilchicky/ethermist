@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "ethermist:glimmerbug_parts"
+    },
+    "b": {
+      "tag": "ethermist:orbs"
+    }
+  },
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:glimmerbug_orb"
+  }
+}

@@ -738,6 +738,24 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.WANDFORGING_TABLE, 1)
+                .pattern("aa")
+                .pattern("bb")
+                .pattern("bb")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('b', ItemTags.PLANKS)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.GLIMMERBUG_HIVE, 4)
+                .pattern(" a ")
+                .pattern("aba")
+                .pattern(" a ")
+                .define('b', EMItems.GLIMMERBUG_PARTS)
+                .define('a', Blocks.GLOWSTONE.asItem())
+                .unlockedBy("has_glimmerbug_parts", has(EMItems.GLIMMERBUG_PARTS))
+                .save(output);
+
         /*
         ---------- Ores ----------
          */
@@ -875,6 +893,16 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_echo_shard", has(Items.ECHO_SHARD))
                 .save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItems.GLIMMERBUG_ORB, 1)
+                .pattern(" a ")
+                .pattern("aba")
+                .pattern(" a ")
+                .define('a', EMItems.GLIMMERBUG_PARTS)
+                .define('b', EMTags.Items.ORBS)
+                .unlockedBy("has_glimmerbug_parts", has(EMItems.GLIMMERBUG_PARTS))
+                .unlockedBy("has_orb", has(EMTags.Items.ORBS))
+                .save(output);
+
         /*
         ---------- Wand Handles ----------
          */
@@ -896,18 +924,6 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         addHandleRecipe(EMItems.GLOWSTONE_WAND_HANDLE.get(), Tags.Items.DUSTS_GLOWSTONE, output);
         addHandleRecipe(EMItems.PRISMARINE_WAND_HANDLE.get(), Tags.Items.GEMS_PRISMARINE, output);
         addHandleRecipe(EMItems.NETHERITE_WAND_HANDLE.get(), Tags.Items.INGOTS_NETHERITE, output);
-
-        /*
-        ---------- Misc ----------
-         */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.WANDFORGING_TABLE, 1)
-                .pattern("aa")
-                .pattern("bb")
-                .pattern("bb")
-                .define('a', Items.AMETHYST_SHARD)
-                .define('b', ItemTags.PLANKS)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
-                .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
         /*
         ---------- Wands ----------
@@ -962,6 +978,10 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 200, "glimmerbug_abdomen");
         oreSmoking(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
                 RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 100, "glimmerbug_abdomen");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.GLIMMERBUG_ABDOMEN, 4)
+                .requires(EMItems.GLIMMERBUG_PARTS, 1)
+                .unlockedBy("has_glimmerbug_parts", has(EMItems.GLIMMERBUG_PARTS)).save(output);
 
     }
 

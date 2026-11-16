@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glimmerbug_parts": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ethermist:glimmerbug_parts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ethermist:glimmerbug_hive"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_glimmerbug_parts"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ethermist:glimmerbug_hive"
+    ]
+  }
+}

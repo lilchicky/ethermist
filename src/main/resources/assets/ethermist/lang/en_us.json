@@ -463,6 +463,9 @@
   "item.ethermist.siherek_spawn_egg": "Siherek Spawn Egg",
   "item.ethermist.karaka_spawn_egg": "Karaka Spawn Egg",
 
+  "_comment": "--------------- Miscellaneous ---------------",
+  "item.ethermist.glimmerbug_parts": "Glimmerbug Parts",
+
   "_comment": "--------------- BASE ENCHANTMENTS ---------------",
   "enchantment.ethermist.quick_cast": "Quick Cast",
   "enchantment.ethermist.quick_cast.desc": "Decreases cooldown of wands.",

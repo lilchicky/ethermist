@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ethermist:glimmerbug_parts"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ethermist:glimmerbug_abdomen"
+  }
+}

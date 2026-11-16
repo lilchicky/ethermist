@@ -189,6 +189,8 @@ public class EMItemModelProvider extends ItemModelProvider {
         withExistingParent(EMItems.SIHEREK_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(EMItems.KARAKA_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
+        basicItem(EMItems.GLIMMERBUG_PARTS.get());
+
     }
 
     public void basicItemFolder(Item item, String folder) {

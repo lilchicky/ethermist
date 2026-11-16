@@ -10,6 +10,7 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects.EMWand
 import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -124,6 +125,12 @@ public class EMItems {
             () -> new DeferredSpawnEggItem(EMEntityTypes.SIHEREK, 0x1f1628, 0x8b7867, new Item.Properties()));
     public static final DeferredItem<Item> KARAKA_SPAWN_EGG = ITEMS.register("karaka_spawn_egg",
             () -> new DeferredSpawnEggItem(EMEntityTypes.KARAKA, 0x442a1f, 0xe4e0d9, new Item.Properties()));
+
+    /*
+    ---------- Miscellaneous ----------
+     */
+
+    public static final DeferredItem<Item> GLIMMERBUG_PARTS = ITEMS.register("glimmerbug_parts", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

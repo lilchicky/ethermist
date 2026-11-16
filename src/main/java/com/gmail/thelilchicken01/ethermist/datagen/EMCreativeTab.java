@@ -411,6 +411,9 @@ public class EMCreativeTab {
                 output.accept(EMItems.SOURDEW_SLICE.get());
                 output.accept(EMItems.SOURDEW_SMOOTHIE.get());
 
+                // Misc
+                output.accept(EMItems.GLIMMERBUG_PARTS.get());
+
                 // Spawn Eggs
                 output.accept(EMItems.RUNIC_SKELETON_SPAWN_EGG.get());
                 output.accept(EMItems.SIHEREK_SPAWN_EGG.get());
