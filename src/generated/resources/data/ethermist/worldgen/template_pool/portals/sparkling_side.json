@@ -3,10 +3,8 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "ethermist:portals/medium_sparkling_frame",
-        "processors": {
-          "processors": []
-        },
+        "location": "ethermist:portals/sparkling_small",
+        "processors": "ethermist:sparkling_portal",
         "projection": "rigid"
       },
       "weight": 1

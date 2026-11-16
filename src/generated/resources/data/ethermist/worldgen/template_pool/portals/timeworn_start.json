@@ -4,9 +4,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "ethermist:portals/timeworn_base",
-        "processors": {
-          "processors": []
-        },
+        "processors": "ethermist:timeworn_portal",
         "projection": "rigid"
       },
       "weight": 1

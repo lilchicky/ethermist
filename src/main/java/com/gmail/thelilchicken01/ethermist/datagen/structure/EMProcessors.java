@@ -4,6 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -23,6 +24,11 @@ public class EMProcessors {
     public static final ResourceKey<StructureProcessorList> FORGEMASTER_GENERAL = create("forgemaster_general");
     public static final ResourceKey<StructureProcessorList> STONE_RUINS = create("stone_ruins");
     public static final ResourceKey<StructureProcessorList> GLIMMERBUG_CAVE = create("glimmerbug_cave");
+
+    public static final ResourceKey<StructureProcessorList> ANCIENT_STONE_PORTAL = create("ancient_stone_portal");
+    public static final ResourceKey<StructureProcessorList> STONE_PORTAL = create("stone_portal");
+    public static final ResourceKey<StructureProcessorList> TIMEWORN_PORTAL = create("timeworn_portal");
+    public static final ResourceKey<StructureProcessorList> SPARKLING_PORTAL = create("sparkling_portal");
 
     public EMProcessors() {}
 
@@ -58,6 +64,30 @@ public class EMProcessors {
         register(context, STONE_RUINS, List.of(
                 etherstoneBrickRot(0.25f, 0.2f),
                 defaultTreasureMound(Blocks.RAW_IRON_BLOCK, 0.1f),
+                new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
+        ));
+
+        register(context, ANCIENT_STONE_PORTAL, List.of(
+                new RuleProcessor(
+                        List.of(replace(EMBlocks.CRUMBLING_ETHERSTONE.get(), Blocks.PACKED_ICE, 0.25f))
+                ),
+                rotSingleBlock(EMBlocks.CRUMBLING_ETHERSTONE.get(), 0.5f),
+                new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
+        ));
+
+        register(context, STONE_PORTAL, List.of(
+                etherstoneBrickRot(0.2f, 0.0f),
+                rotSingleBlock(EMBlocks.RICH_GRASS_BLOCK.get(), 0.5f),
+                new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
+        ));
+
+        register(context, TIMEWORN_PORTAL, List.of(
+                rotSingleBlock(EMBlocks.TIMEWORN_SAND.get(), 0.5f),
+                new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
+        ));
+
+        register(context, SPARKLING_PORTAL, List.of(
+                rotSingleBlock(EMBlocks.SPARKLING_SAND.get(), 0.5f),
                 new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)
         ));
     }
@@ -111,6 +141,15 @@ public class EMProcessors {
                         replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.COBBLED_ETHERSTONE.get(), cobbleChance),
                         replace(EMBlocks.ETHERSTONE_BRICKS.get(), EMBlocks.MOSSY_COBBLED_ETHERSTONE.get(), cobbleChance)
                 )
+        );
+    }
+
+    public static BlockRotProcessor rotSingleBlock(Block block, float chance) {
+        return new BlockRotProcessor(HolderSet.direct(
+                BuiltInRegistries.BLOCK.getHolderOrThrow(
+                        BuiltInRegistries.BLOCK.getResourceKey(block).orElseThrow()
+                )),
+                1.0f - chance
         );
     }
 

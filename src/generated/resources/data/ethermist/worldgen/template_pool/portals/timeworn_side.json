@@ -3,10 +3,8 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "ethermist:portals/medium_timeworn_frame",
-        "processors": {
-          "processors": []
-        },
+        "location": "ethermist:portals/timeworn_small",
+        "processors": "ethermist:timeworn_portal",
         "projection": "rigid"
       },
       "weight": 1

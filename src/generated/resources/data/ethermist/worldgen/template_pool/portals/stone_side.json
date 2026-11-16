@@ -3,10 +3,8 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "ethermist:portals/medium_stone_frame",
-        "processors": {
-          "processors": []
-        },
+        "location": "ethermist:portals/stone_small",
+        "processors": "ethermist:stone_portal",
         "projection": "rigid"
       },
       "weight": 1

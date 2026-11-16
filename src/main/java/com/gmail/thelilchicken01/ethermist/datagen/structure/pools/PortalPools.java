@@ -30,7 +30,10 @@ public class PortalPools extends EMTemplatePool {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         HolderGetter<StructureProcessorList> processors = context.lookup(Registries.PROCESSOR_LIST);
-        Holder<StructureProcessorList> glimmerbug_cave = processors.getOrThrow(EMProcessors.GLIMMERBUG_CAVE);
+        Holder<StructureProcessorList> ancient = processors.getOrThrow(EMProcessors.ANCIENT_STONE_PORTAL);
+        Holder<StructureProcessorList> stone = processors.getOrThrow(EMProcessors.STONE_PORTAL);
+        Holder<StructureProcessorList> timeworn = processors.getOrThrow(EMProcessors.TIMEWORN_PORTAL);
+        Holder<StructureProcessorList> sparkling = processors.getOrThrow(EMProcessors.SPARKLING_PORTAL);
 
         HolderGetter<StructureTemplatePool> pools = context.lookup(Registries.TEMPLATE_POOL);
         Holder<StructureTemplatePool> empty = pools.getOrThrow(Pools.EMPTY);
@@ -41,7 +44,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "ancient_base", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "ancient_base", ancient, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -51,7 +54,9 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "medium_ancient_frame", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "ancient_stone_small", ancient, 1),
+                                single(FOLDER, "ancient_stone_medium", ancient, 1),
+                                single(FOLDER, "ancient_stone_large", ancient, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -63,7 +68,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "sparkling_base", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "sparkling_base", sparkling, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -73,7 +78,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "medium_sparkling_frame", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "sparkling_small", sparkling, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -85,7 +90,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "stone_base", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "stone_base", stone, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -95,7 +100,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "medium_stone_frame", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "stone_small", stone, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -107,7 +112,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "timeworn_base", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "timeworn_base", timeworn, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )
@@ -117,7 +122,7 @@ public class PortalPools extends EMTemplatePool {
                 new StructureTemplatePool(
                         empty,
                         List.of(
-                                single(FOLDER, "medium_timeworn_frame", EMPTY_PROCESSOR, 1)
+                                single(FOLDER, "timeworn_small", timeworn, 1)
                         ),
                         StructureTemplatePool.Projection.RIGID
                 )

@@ -4,9 +4,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "ethermist:portals/ancient_base",
-        "processors": {
-          "processors": []
-        },
+        "processors": "ethermist:ancient_stone_portal",
         "projection": "rigid"
       },
       "weight": 1

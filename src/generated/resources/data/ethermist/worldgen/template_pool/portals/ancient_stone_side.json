@@ -3,10 +3,26 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "ethermist:portals/medium_ancient_frame",
-        "processors": {
-          "processors": []
-        },
+        "location": "ethermist:portals/ancient_stone_small",
+        "processors": "ethermist:ancient_stone_portal",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:portals/ancient_stone_medium",
+        "processors": "ethermist:ancient_stone_portal",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ethermist:portals/ancient_stone_large",
+        "processors": "ethermist:ancient_stone_portal",
         "projection": "rigid"
       },
       "weight": 1

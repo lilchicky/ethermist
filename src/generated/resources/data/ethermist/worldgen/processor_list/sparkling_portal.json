@@ -1,0 +1,13 @@
+{
+  "processors": [
+    {
+      "integrity": 0.5,
+      "processor_type": "minecraft:block_rot",
+      "rottable_blocks": "ethermist:sparkling_sand"
+    },
+    {
+      "processor_type": "minecraft:protected_blocks",
+      "value": "#minecraft:features_cannot_replace"
+    }
+  ]
+}
