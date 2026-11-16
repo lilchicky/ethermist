@@ -329,12 +329,17 @@ public class EMWandOrbs {
                             .color(0.784f, 0.353f, 0.196f)
                             .repair(() ->
                                     Ingredient.of(
-                                            Items.AMETHYST_SHARD
+                                            Items.AMETHYST_SHARD,
+                                            EMItems.GLIMMERBUG_PARTS
                                     )
                             )
                             .sound(SoundEvents.TURTLE_EGG_BREAK)
                             .tooltip(Component.translatable("item.ethermist.glimmerbug_wand.bug_lifespan.desc").withColor(0xAAAAAA))
                             .effect((shotItem, target, shooter, shot) -> {
+                                if (target instanceof LivingEntity livingTarget) {
+                                    livingTarget.addEffect(new MobEffectInstance(MobEffects.GLOWING, 320, 0));
+                                }
+
                                 if (!shooter.level().isClientSide() && shooter instanceof Player player) {
                                     GlimmerbugEntity bug = new GlimmerbugEntity(EMEntityTypes.GLIMMERBUG.get(), player.level());
 
