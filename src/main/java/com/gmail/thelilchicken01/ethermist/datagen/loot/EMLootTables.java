@@ -17,10 +17,16 @@ public class EMLootTables {
 
     // Chests
     public static final ResourceKey<LootTable> FORGEMASTER_GENERIC = chest("forgemaster_generic");
+
     public static final ResourceKey<LootTable> STONE_RUINS_SIMPLE = chest("stone_ruins_simple");
     public static final ResourceKey<LootTable> STONE_RUINS_MEDIUM = chest("stone_ruins_medium");
     public static final ResourceKey<LootTable> STONE_RUINS_LARGE = chest("stone_ruins_large");
     public static final ResourceKey<LootTable> STONE_RUINS_END = chest("stone_ruins_end");
+
+    public static final ResourceKey<LootTable> ANCIENT_STONE_PORTAL = chest("ancient_stone_portal");
+    public static final ResourceKey<LootTable> STONE_PORTAL = chest("stone_portal");
+    public static final ResourceKey<LootTable> TIMEWORN_PORTAL = chest("timeworn_portal");
+    public static final ResourceKey<LootTable> SPARKLING_PORTAL = chest("sparkling_portal");
 
     // Injections
     public static final ResourceKey<LootTable> WITCH_ORB_TO_WITCH = inject("witch_orb/witch_orb_to_witch");

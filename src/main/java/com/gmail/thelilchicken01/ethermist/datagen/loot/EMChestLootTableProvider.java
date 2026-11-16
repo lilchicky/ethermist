@@ -111,5 +111,129 @@ public class EMChestLootTableProvider implements LootTableSubProvider {
                                 .add(EMLootTableUtil.enchantedItem(Items.BOOK, 3, this.registries, 2.0f, 4.0f))
                 )
         );
+
+        writer.accept(
+                EMLootTables.ANCIENT_STONE_PORTAL,
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 3.0f))
+                                .add(EMLootTableUtil.singleDrop(EMItems.FROZEN_ORB, 20))
+                                .add(EMLootTableUtil.singleDrop(Items.GOLDEN_APPLE, 10))
+                                .add(EMLootTableUtil.singleDrop(Items.ENCHANTED_GOLDEN_APPLE, 1))
+                                .add(EMLootTableUtil.singleDrop(Items.NAME_TAG, 10))
+                                .add(EMLootTableUtil.enchantedItem(Items.BOOK, 20, this.registries))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 4.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.IRON_INGOT, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GOLD_INGOT, 1, 4, 5))
+                                .add(EMLootTableUtil.rangedDrop(Items.SNOWBALL, 2, 6, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.PACKED_ICE, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.COAL, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.WHEAT_SEEDS, 1, 3, 10))
+                                .add(EMLootTableUtil.singleDrop(EMItems.WOODEN_WAND_HANDLE, 5))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 1, 8, 20))
+                                .add(EMLootTableUtil.rangedDrop(Items.AMETHYST_SHARD, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GUNPOWDER, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.STRING, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM, 1, 3, 10))
+                )
+        );
+
+        writer.accept(
+                EMLootTables.STONE_PORTAL,
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 3.0f))
+                                .add(EMLootTableUtil.singleDrop(EMItems.DULL_ORB, 20))
+                                .add(EMLootTableUtil.singleDrop(Items.GOLDEN_APPLE, 10))
+                                .add(EMLootTableUtil.singleDrop(Items.ENCHANTED_GOLDEN_APPLE, 1))
+                                .add(EMLootTableUtil.singleDrop(Items.NAME_TAG, 10))
+                                .add(EMLootTableUtil.enchantedItem(Items.BOOK, 20, this.registries))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 4.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.IRON_INGOT, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GOLD_INGOT, 1, 4, 5))
+                                .add(EMLootTableUtil.rangedDrop(Items.STICK, 2, 6, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE_MEAL, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.COAL, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.WHEAT_SEEDS, 1, 3, 10))
+                                .add(EMLootTableUtil.singleDrop(EMItems.WOODEN_WAND_HANDLE, 5))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 1, 8, 20))
+                                .add(EMLootTableUtil.rangedDrop(Items.AMETHYST_SHARD, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GUNPOWDER, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.STRING, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM, 1, 3, 10))
+                )
+        );
+
+        writer.accept(
+                EMLootTables.TIMEWORN_PORTAL,
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 3.0f))
+                                .add(EMLootTableUtil.singleDrop(EMItems.FLAME_ORB, 20))
+                                .add(EMLootTableUtil.singleDrop(Items.GOLDEN_APPLE, 10))
+                                .add(EMLootTableUtil.singleDrop(Items.ENCHANTED_GOLDEN_APPLE, 1))
+                                .add(EMLootTableUtil.singleDrop(Items.NAME_TAG, 10))
+                                .add(EMLootTableUtil.enchantedItem(Items.BOOK, 20, this.registries))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 4.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.IRON_INGOT, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GOLD_INGOT, 1, 4, 5))
+                                .add(EMLootTableUtil.rangedDrop(Items.CACTUS, 2, 6, 10))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.TIMEWORN_SAND, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.COAL, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.WHEAT_SEEDS, 1, 3, 10))
+                                .add(EMLootTableUtil.singleDrop(EMItems.WOODEN_WAND_HANDLE, 5))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 1, 8, 20))
+                                .add(EMLootTableUtil.rangedDrop(Items.AMETHYST_SHARD, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GUNPOWDER, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.STRING, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM, 1, 3, 10))
+                )
+        );
+
+        writer.accept(
+                EMLootTables.SPARKLING_PORTAL,
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 3.0f))
+                                .add(EMLootTableUtil.singleDrop(EMItems.DULL_ORB, 20))
+                                .add(EMLootTableUtil.singleDrop(Items.GOLDEN_APPLE, 10))
+                                .add(EMLootTableUtil.singleDrop(Items.ENCHANTED_GOLDEN_APPLE, 1))
+                                .add(EMLootTableUtil.singleDrop(Items.NAME_TAG, 10))
+                                .add(EMLootTableUtil.enchantedItem(Items.BOOK, 20, this.registries))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0f, 4.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.IRON_INGOT, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GOLD_INGOT, 1, 4, 5))
+                                .add(EMLootTableUtil.rangedDrop(Items.SUGAR_CANE, 2, 6, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.PACKED_ICE, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.COAL, 1, 3, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.WHEAT_SEEDS, 1, 3, 10))
+                                .add(EMLootTableUtil.singleDrop(EMItems.WOODEN_WAND_HANDLE, 5))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 1, 8, 20))
+                                .add(EMLootTableUtil.rangedDrop(Items.AMETHYST_SHARD, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.GUNPOWDER, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(Items.STRING, 1, 4, 10))
+                                .add(EMLootTableUtil.rangedDrop(EMBlocks.SMALL_ABYSSAL_MUSHROOM, 1, 3, 10))
+                )
+        );
     }
 }
