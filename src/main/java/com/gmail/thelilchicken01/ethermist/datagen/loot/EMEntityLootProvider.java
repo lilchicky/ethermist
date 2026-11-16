@@ -36,7 +36,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 EMEntityTypes.GLOOMIE.get(),
                 EMEntityTypes.RUNIC_SKELETON.get(),
                 EMEntityTypes.SIHEREK.get(),
-                EMEntityTypes.GLIMMERBUG.get()
+                EMEntityTypes.GLIMMERBUG.get(),
+                EMEntityTypes.GLIMMERBUG_QUEEN.get()
         );
     }
 
@@ -63,6 +64,19 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                                                 EntityPredicate.Builder.entity().subPredicate(GlimmerbugPredicate.isSummoned(false))
                                         )
                                 )
+                )
+        );
+
+        add(EMEntityTypes.GLIMMERBUG_QUEEN.get(),
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.singleDrop(EMItems.GLIMMERBUG_PARTS, 99))
+                                .add(EMLootTableUtil.singleDrop(EMItems.GLIMMERBUG_ORB, 1))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(EMLootTableUtil.rangedDrop(EMItems.GLIMMERBUG_ABDOMEN, 2, 6, 1))
                 )
         );
 
