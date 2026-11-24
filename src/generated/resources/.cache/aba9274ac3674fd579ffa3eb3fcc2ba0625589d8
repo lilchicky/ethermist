@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-15T17:09:49.1413965	Item Models: ethermist
+// 1.21.1	2026-11-23T17:23:55.5636618	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -133,3 +133,4 @@ b1be305c117766b7db918254995226700beaa517 assets/ethermist/models/item/wither_sho
 a88b9e79059ed6ebd84bf1ef2571e0dfa5f49895 assets/ethermist/models/item/wither_wand.json
 8e287c74d9b5d4bc2f6073a96330fb7da6f19ac9 assets/ethermist/models/item/wooden_wand_handle.json
 96500ba8577075c2a751e5e0636b4ea56a9ddc4d assets/ethermist/models/item/yellow_amberwood_sapling.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/ethermist/models/item/zalkul_spawn_egg.json

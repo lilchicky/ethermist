@@ -76,6 +76,13 @@ public class EMEntityTypes {
                             .sized(1.5f, 1.8f)
                             .build(Ethermist.MODID + ":karaka"));
 
+    // Zalkul
+    public static final DeferredHolder<EntityType<?>, EntityType<ZalkulEntity>> ZALKUL =
+            EM_ENTITY_TYPES.register("zalkul",
+                    () -> EntityType.Builder.of(ZalkulEntity::new, MobCategory.MONSTER)
+                            .sized(0.8f, 1.875f)
+                            .build(Ethermist.MODID + ":zalkul"));
+
     public static void register (IEventBus bus) {
         EM_ENTITY_TYPES.register(bus);
     }

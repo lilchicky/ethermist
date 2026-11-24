@@ -41,18 +41,21 @@ public class EMEntityTagProvider extends EntityTypeTagsProvider {
         tag(EntityTypeTags.UNDEAD)
                 .add(EMEntityTypes.FORGEMASTER.get())
                 .add(EMEntityTypes.RUNIC_SKELETON.get())
-                .add(EMEntityTypes.SIHEREK.get());
+                .add(EMEntityTypes.SIHEREK.get())
+                .add(EMEntityTypes.ZALKUL.get());
 
         tag(EntityTypeTags.FALL_DAMAGE_IMMUNE)
                 .add(EMEntityTypes.PYLON.get());
 
         tag(EntityTypeTags.SKELETONS)
                 .add(EMEntityTypes.RUNIC_SKELETON.get())
-                .add(EMEntityTypes.SIHEREK.get());
+                .add(EMEntityTypes.SIHEREK.get())
+                .add(EMEntityTypes.ZALKUL.get());
 
         tag(EntityTypeTags.WITHER_FRIENDS)
                 .add(EMEntityTypes.RUNIC_SKELETON.get())
-                .add(EMEntityTypes.SIHEREK.get());
+                .add(EMEntityTypes.SIHEREK.get())
+                .add(EMEntityTypes.ZALKUL.get());
 
         tag(EntityTypeTags.IMPACT_PROJECTILES)
                 .add(EMEntityTypes.WAND_PROJECTILE.get());

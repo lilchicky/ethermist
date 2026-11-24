@@ -462,6 +462,7 @@
   "item.ethermist.runic_skeleton_spawn_egg": "Runic Skeleton Spawn Egg",
   "item.ethermist.siherek_spawn_egg": "Siherek Spawn Egg",
   "item.ethermist.karaka_spawn_egg": "Karaka Spawn Egg",
+  "item.ethermist.zalkul_spawn_egg": "Zalkul Spawn Egg",
 
   "_comment": "--------------- Miscellaneous ---------------",
   "item.ethermist.glimmerbug_parts": "Glimmerbug Parts",
@@ -531,6 +532,7 @@
   "entity.ethermist.runic_skeleton": "Runic Skeleton",
   "entity.ethermist.siherek": "Siherek",
   "entity.ethermist.karaka": "Karaka",
+  "entity.ethermist.zalkul": "Zalkul",
 
   "_comment": "--------------- DEATH MESSAGES ---------------",
   "death.attack.icicle": "%1$s was impaled by an icicle",

@@ -417,6 +417,7 @@ public class EMCreativeTab {
                 // Spawn Eggs
                 output.accept(EMItems.RUNIC_SKELETON_SPAWN_EGG.get());
                 output.accept(EMItems.SIHEREK_SPAWN_EGG.get());
+                output.accept(EMItems.ZALKUL_SPAWN_EGG.get());
                 output.accept(EMItems.GLOOMIE_SPAWN_EGG.get());
                 output.accept(EMItems.KARAKA_SPAWN_EGG.get());
                 output.accept(EMItems.GLIMMERBUG_SPAWN_EGG.get());

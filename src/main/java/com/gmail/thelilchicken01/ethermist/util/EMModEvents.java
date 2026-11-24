@@ -29,6 +29,7 @@ public class EMModEvents {
         event.registerLayerDefinition(RunicSkeletonModel.LAYER_LOCATION, RunicSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(SiherekModel.LAYER_LOCATION, SiherekModel::createBodyLayer);
         event.registerLayerDefinition(KarakaModel.LAYER_LOCATION, KarakaModel::createBodyLayer);
+        event.registerLayerDefinition(ZalkulModel.LAYER_LOCATION, ZalkulModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -41,6 +42,7 @@ public class EMModEvents {
         event.put(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonEntity.createAttributes().build());
         event.put(EMEntityTypes.SIHEREK.get(), SiherekEntity.createAttributes().build());
         event.put(EMEntityTypes.KARAKA.get(), KarakaEntity.createAttributes().build());
+        event.put(EMEntityTypes.ZALKUL.get(), ZalkulEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -92,6 +94,14 @@ public class EMModEvents {
 
         event.register(
                 EMEntityTypes.SIHEREK.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.REPLACE
+        );
+
+        event.register(
+                EMEntityTypes.ZALKUL.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,

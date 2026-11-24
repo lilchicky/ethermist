@@ -44,6 +44,7 @@ public class EMClientModEvents {
         event.registerEntityRenderer(EMEntityTypes.RUNIC_SKELETON.get(), RunicSkeletonRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.SIHEREK.get(), SiherekRenderer::new);
         event.registerEntityRenderer(EMEntityTypes.KARAKA.get(), KarakaRenderer::new);
+        event.registerEntityRenderer(EMEntityTypes.ZALKUL.get(), ZalkulRenderer::new);
 
     }
 
