@@ -110,13 +110,19 @@
         "type": "ethermist:runic_skeleton",
         "maxCount": 4,
         "minCount": 2,
+        "weight": 65
+      },
+      {
+        "type": "ethermist:zalkul",
+        "maxCount": 4,
+        "minCount": 2,
         "weight": 100
       },
       {
         "type": "ethermist:siherek",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 45
+        "weight": 65
       },
       {
         "type": "minecraft:witch",

@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -319,7 +320,7 @@ public class EMBiomes {
                         .mobSpawnSettings(
                                 new DefaultEthermistSpawnSettings(context)
                                         .defaultAmbient()
-                                        .defaultMonsters()
+                                        .cragsMonsters()
                                         .builder()
                                         .addSpawn(MobCategory.UNDERGROUND_WATER_CREATURE, DefaultEthermistSpawnSettings.DEFAULT_GLOW_SQUID)
                                         .build()

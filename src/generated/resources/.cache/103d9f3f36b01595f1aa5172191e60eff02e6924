@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-15T18:49:36.645544	Registries
+// 1.21.1	2026-11-23T17:36:54.998274	Registries
 e2913d777d5e10bfbeb4ce1362f459a592b2b4ac data/ethermist/damage_type/flame_magic_damage.json
 7cacc8ea910ab55d0ca38f6ee4ba85b4b3cb8c37 data/ethermist/damage_type/forgemaster_heart_damage.json
 f1b9b0496e2f5a9ee7a6a7f20cb5b6701489be47 data/ethermist/damage_type/forgemaster_knockup.json
@@ -43,7 +43,7 @@ f0c5e4d05c709090f1c70f5babaf61237133b405 data/ethermist/worldgen/biome/abyssal_f
 4db47b0338d61a930be3cf9e379eb97be99ede6c data/ethermist/worldgen/biome/ancient_fields.json
 f4309a9c43a2e187c33e50aa1762225667bd42c8 data/ethermist/worldgen/biome/ancient_forest.json
 b5329b567abfb65162d7fc2c31831eef6760a12f data/ethermist/worldgen/biome/blooming_meadows.json
-9523ad875d4bf9bd6e1cbfefad49b72c24b5ab92 data/ethermist/worldgen/biome/burning_crags.json
+3376b6211087549fc28fb6ab6c5b5b997b2835af data/ethermist/worldgen/biome/burning_crags.json
 cb23fca6e1ac56cddbac8e06680d71103ebe65ad data/ethermist/worldgen/biome/eroded_beach.json
 be46e7da5843fb0b80032e198925498db89d1441 data/ethermist/worldgen/biome/forgotten_ocean.json
 0407dc14d0a0b7a6a459a64bc84f0559f42acef5 data/ethermist/worldgen/biome/frostpine_forest.json

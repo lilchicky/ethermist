@@ -69,6 +69,24 @@ public class DefaultEthermistSpawnSettings {
         return this;
     }
 
+    public DefaultEthermistSpawnSettings cragsMonsters() {
+        this.BUILDER.addSpawn(
+                MobCategory.MONSTER,
+                new MobSpawnSettings.SpawnerData(EMEntityTypes.RUNIC_SKELETON.get(), 65, 2, 4)
+        ).addSpawn(
+                MobCategory.MONSTER,
+                new MobSpawnSettings.SpawnerData(EMEntityTypes.ZALKUL.get(), 100, 2, 4)
+        ).addSpawn(
+                MobCategory.MONSTER,
+                new MobSpawnSettings.SpawnerData(EMEntityTypes.SIHEREK.get(), 65, 1, 2)
+        ).addSpawn(
+                MobCategory.MONSTER,
+                new MobSpawnSettings.SpawnerData(EntityType.WITCH, 20, 1, 1)
+        );
+
+        return this;
+    }
+
     public DefaultEthermistSpawnSettings defaultWater() {
         this.BUILDER.addSpawn(
                 MobCategory.CREATURE,
