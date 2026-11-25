@@ -162,9 +162,6 @@ public class WandItem extends Item implements IDyeableWandItem {
                 WAND_ORB.get().getInaccuracy()
         );
 
-        // Apply tier (handle) modifiers to default attributes
-        getHandle(stack).apply(currentAttributeState);
-
         // Order here is implemented base -> augment -> spell, for priority of hard attribute
         // adjustments (such as Focus Augment overriding default accuracy enchantments).
         // This prevents something like damage being set to 1 for balance, then at a later point
@@ -205,6 +202,9 @@ public class WandItem extends Item implements IDyeableWandItem {
             }
 
         });
+
+        // Apply tier (handle) modifiers to default attributes
+        getHandle(stack).apply(currentAttributeState);
 
         // Clamp final attribute values.
         // This is to prevent numbers that screw up projectile math, like having 0 damage projectiles or
