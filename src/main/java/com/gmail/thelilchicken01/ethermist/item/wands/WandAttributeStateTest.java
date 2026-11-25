@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands;
 
+import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -23,7 +24,9 @@ public class WandAttributeStateTest {
             if (holder.attribute != attribute) continue;
 
             holder.amount = operation == Operation.ADDITION ? holder.amount + amount : holder.amount * amount;
+            return;
         }
+        Ethermist.LOGGER.warn("Attempted to modify attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
     }
 
     // Used when the value of an existing attribute is being outright replaced.
@@ -32,7 +35,9 @@ public class WandAttributeStateTest {
             if (holder.attribute != attribute) continue;
 
             holder.amount = amount;
+            return;
         }
+        Ethermist.LOGGER.warn("Attempted to set value of attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
     }
 
     public float getAttributeModifierAmount(Holder<Attribute> attribute) {
@@ -40,12 +45,16 @@ public class WandAttributeStateTest {
             if (holder.attribute != attribute) continue;
             return holder.amount;
         }
+        Ethermist.LOGGER.warn("Attempted to get the value of attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
         return 0.0f;
     }
 
     public void addAttribute(WandAttributeHolder attribute) {
         for (WandAttributeHolder holder : modifiers) {
-            if (attribute.attribute == holder.attribute) return;
+            if (attribute.attribute == holder.attribute) {
+                Ethermist.LOGGER.warn("Attempted to add attribute {} to itemstack, but it already exists. New value will be ignored.", attribute.attribute.getRegisteredName());
+                return;
+            }
         }
 
         modifiers.add(attribute);
@@ -68,7 +77,7 @@ public class WandAttributeStateTest {
         return this;
     }
 
-    public void build(ItemAttributeModifiers.Builder builder) {
+    public void addAllAttributesToBuilder(ItemAttributeModifiers.Builder builder) {
         for (WandAttributeHolder holder : modifiers) holder.addToBuilder(builder, EquipmentSlotGroup.MAINHAND);
     }
 
