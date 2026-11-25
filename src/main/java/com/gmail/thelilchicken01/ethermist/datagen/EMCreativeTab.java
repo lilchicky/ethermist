@@ -409,6 +409,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.GLIMMERBUG_ABDOMEN.get());
                 output.accept(EMItems.COOKED_GLIMMERBUG_ABDOMEN.get());
                 output.accept(EMItems.RAW_KARAKA_STEAK.get());
+                output.accept(EMItems.COOKED_KARAKA_STEAK.get());
                 output.accept(EMItems.SOURDEW_SLICE.get());
                 output.accept(EMItems.SOURDEW_SMOOTHIE.get());
 

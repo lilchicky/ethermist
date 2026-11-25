@@ -39,5 +39,9 @@ public class EMFoods {
             .nutrition(3)
             .saturationModifier(0.3F)
             .build();
+    public static final FoodProperties COOKED_KARAKA_STEAK = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationModifier(0.8F)
+            .build();
 
 }

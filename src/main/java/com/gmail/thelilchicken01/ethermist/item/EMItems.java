@@ -103,6 +103,7 @@ public class EMItems {
     public static final DeferredItem<Item> SOURDEW_SLICE = ITEMS.register("sourdew_slice", () -> new Item(new Item.Properties().food(EMFoods.SOURDEW_SLICE)));
     public static final DeferredItem<Item> SOURDEW_SMOOTHIE = ITEMS.register("sourdew_smoothie", () -> new SmoothieItem(new Item.Properties().food(EMFoods.SOURDEW_SMOOTHIE).stacksTo(16)));
     public static final DeferredItem<Item> RAW_KARAKA_STEAK = ITEMS.register("raw_karaka_steak", () -> new Item(new Item.Properties().food(EMFoods.RAW_KARAKA_STEAK)));
+    public static final DeferredItem<Item> COOKED_KARAKA_STEAK = ITEMS.register("cooked_karaka_steak", () -> new Item(new Item.Properties().food(EMFoods.COOKED_KARAKA_STEAK)));
 
     public static final DeferredItem<Item> SOURDEW_SEEDS = ITEMS.register("sourdew_seeds", () -> new ItemNameBlockItem(EMBlocks.SOURDEW_STEM.get(), new Item.Properties()));
 

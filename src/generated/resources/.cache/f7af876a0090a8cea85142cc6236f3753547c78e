@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-24T20:44:53.6494651	Tags for minecraft:item mod id ethermist
+// 1.21.1	2026-11-24T21:28:21.2266729	Tags for minecraft:item mod id ethermist
 b83280513ad0c4e2b6c8edfd16693d4b207ee11c data/c/tags/item/cobblestones/mossy.json
 11764381a15feb456d1a2a72a46287e395365f55 data/c/tags/item/cobblestones/normal.json
 65a9a22c6ae28a9e3b1f2bc683c38a4376f40107 data/c/tags/item/crops/melon.json
@@ -6,8 +6,8 @@ ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks.json
 ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks/juice.json
 ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drinks/magic.json
 ecce0fd48e960d865edd52a8828c3bb5c5890d89 data/c/tags/item/drink_containing/bottle.json
-2cd5c22f5760f564a53984bece68fc2b47d4b2e0 data/c/tags/item/foods.json
-b27c29ce1a1276b5aa5db342afe30c5fee28b251 data/c/tags/item/foods/cooked_meat.json
+1ba6c30346e3c11b3136f75c8377014066cefa2e data/c/tags/item/foods.json
+2a7f7daddc4d553f5000d8c4d17fe2df62548e8c data/c/tags/item/foods/cooked_meat.json
 2c5bfd38df12ceaea040f6e9faae0a3baa967078 data/c/tags/item/foods/fruit.json
 3fefd6ea303c9fde611e9de713387d755a09c9d6 data/c/tags/item/foods/raw_meat.json
 2cbc7e8159426b5c687573a863beb0b24e5c378f data/c/tags/item/foods/vegetable.json
