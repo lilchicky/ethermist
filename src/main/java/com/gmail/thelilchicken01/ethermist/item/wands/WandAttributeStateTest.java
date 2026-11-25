@@ -17,6 +17,7 @@ public class WandAttributeStateTest {
 
     public WandAttributeStateTest() {}
 
+    // Used when a set operation is being done on an existing attribute.
     public void modifyExistingAttribute(Holder<Attribute> attribute, Operation operation, float amount) {
         for (WandAttributeHolder holder : modifiers) {
             if (holder.attribute != attribute) continue;
@@ -25,6 +26,7 @@ public class WandAttributeStateTest {
         }
     }
 
+    // Used when the value of an existing attribute is being outright replaced.
     public void modifyExistingAttribute(Holder<Attribute> attribute, float amount) {
         for (WandAttributeHolder holder : modifiers) {
             if (holder.attribute != attribute) continue;
