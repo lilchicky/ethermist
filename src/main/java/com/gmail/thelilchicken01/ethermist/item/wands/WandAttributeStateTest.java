@@ -13,7 +13,7 @@ import java.util.List;
 
 public class WandAttributeStateTest {
 
-    private List<WandAttributeHolder> modifiers = new ArrayList<>();
+    private final List<WandAttributeHolder> modifiers = new ArrayList<>();
 
     public WandAttributeStateTest() {}
 
