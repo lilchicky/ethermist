@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "group": "karaka_steak",
+  "ingredient": {
+    "item": "ethermist:raw_karaka_steak"
+  },
+  "result": {
+    "count": 1,
+    "id": "ethermist:cooked_karaka_steak"
+  }
+}

@@ -10,7 +10,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -216,7 +215,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_SLAB.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 2);
         stonecutting(output, RecipeCategory.BUILDING_BLOCKS, EMBlocks.COBBLED_ETHERSTONE_WALL.get(), EMBlocks.COBBLED_ETHERSTONE.get(), 1);
 
-        oreSmelting(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
+        furnace(output, List.of(EMBlocks.COBBLED_ETHERSTONE.get()),
                 RecipeCategory.BUILDING_BLOCKS, EMBlocks.ETHERSTONE.get(), 0.25f, 200, "stone");
 
         // Mossy Cobbled Etherstone
@@ -759,85 +758,85 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
         /*
         ---------- Ores ----------
          */
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 100, "copper_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_IRON_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_IRON_ORE.get()),
                 RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 200, "iron_ingot");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_IRON_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_IRON_ORE.get()),
                 RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 100, "iron_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_COAL_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_COAL_ORE.get()),
                 RecipeCategory.MISC, Items.COAL, 0.7f, 200, "coal");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_COAL_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_COAL_ORE.get()),
                 RecipeCategory.MISC, Items.COAL, 0.7f, 100, "coal");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_GOLD_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_GOLD_ORE.get()),
                 RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 200, "gold_ingot");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_GOLD_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_GOLD_ORE.get()),
                 RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 100, "gold_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_REDSTONE_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_REDSTONE_ORE.get()),
                 RecipeCategory.MISC, Items.REDSTONE, 0.7f, 200, "redstone");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_REDSTONE_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_REDSTONE_ORE.get()),
                 RecipeCategory.MISC, Items.REDSTONE, 0.7f, 100, "redstone");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_DIAMOND_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_DIAMOND_ORE.get()),
                 RecipeCategory.MISC, Items.DIAMOND, 1.0f, 200, "diamond");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_DIAMOND_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_DIAMOND_ORE.get()),
                 RecipeCategory.MISC, Items.DIAMOND, 1.0f, 100, "diamond");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_EMERALD_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_EMERALD_ORE.get()),
                 RecipeCategory.MISC, Items.EMERALD, 1.0f, 200, "emerald");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_EMERALD_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_EMERALD_ORE.get()),
                 RecipeCategory.MISC, Items.EMERALD, 1.0f, 100, "emerald");
 
-        oreSmelting(output, List.of(EMBlocks.ETHERSTONE_LAPIS_ORE.get()),
+        furnace(output, List.of(EMBlocks.ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 200, "lapis_lazuli");
-        oreBlasting(output, List.of(EMBlocks.ETHERSTONE_LAPIS_ORE.get()),
+        blasting(output, List.of(EMBlocks.ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200, "copper_ingot");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COPPER_ORE.get()),
                 RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 100, "copper_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
                 RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 200, "iron_ingot");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_IRON_ORE.get()),
                 RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 100, "iron_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
                 RecipeCategory.MISC, Items.COAL, 0.7f, 200, "coal");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_COAL_ORE.get()),
                 RecipeCategory.MISC, Items.COAL, 0.7f, 100, "coal");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
                 RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 200, "gold_ingot");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_GOLD_ORE.get()),
                 RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 100, "gold_ingot");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
                 RecipeCategory.MISC, Items.REDSTONE, 0.7f, 200, "redstone");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_REDSTONE_ORE.get()),
                 RecipeCategory.MISC, Items.REDSTONE, 0.7f, 100, "redstone");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
                 RecipeCategory.MISC, Items.DIAMOND, 1.0f, 200, "diamond");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_DIAMOND_ORE.get()),
                 RecipeCategory.MISC, Items.DIAMOND, 1.0f, 100, "diamond");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
                 RecipeCategory.MISC, Items.EMERALD, 1.0f, 200, "emerald");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_EMERALD_ORE.get()),
                 RecipeCategory.MISC, Items.EMERALD, 1.0f, 100, "emerald");
 
-        oreSmelting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
+        furnace(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 200, "lapis_lazuli");
-        oreBlasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
+        blasting(output, List.of(EMBlocks.ANCIENT_ETHERSTONE_LAPIS_ORE.get()),
                 RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.7f, 100, "lapis_lazuli");
 
         /*
@@ -953,9 +952,9 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('a', EMBlocks.SMALL_ABYSSAL_MUSHROOM.get())
                 .unlockedBy("has_small_abyssal_mushroom", has(EMBlocks.SMALL_ABYSSAL_MUSHROOM)).save(output);
 
-        oreSmelting(output, List.of(EMItems.SHROOM_CLUSTER.get()),
+        furnace(output, List.of(EMItems.SHROOM_CLUSTER.get()),
                 RecipeCategory.FOOD, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 200, "shroom_cluster");
-        oreSmoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
+        smoking(output, List.of(EMItems.SHROOM_CLUSTER.get()),
                 RecipeCategory.FOOD, EMItems.TOASTED_SHROOM_CLUSTER.get(), 0.35f, 100, "shroom_cluster");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.SOURDEW_SLICE, 9)
@@ -974,10 +973,15 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(EMItems.SOURDEW_SLICE, 3)
                 .unlockedBy("has_sourdew_slice", has(EMItems.SOURDEW_SLICE)).save(output);
 
-        oreSmelting(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
+        furnace(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
                 RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 200, "glimmerbug_abdomen");
-        oreSmoking(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
+        smoking(output, List.of(EMItems.GLIMMERBUG_ABDOMEN.get()),
                 RecipeCategory.FOOD, EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), 0.35f, 100, "glimmerbug_abdomen");
+
+        furnace(output, List.of(EMItems.RAW_KARAKA_STEAK.get()),
+                RecipeCategory.FOOD, EMItems.COOKED_KARAKA_STEAK.get(), 0.35f, 200, "karaka_steak");
+        smoking(output, List.of(EMItems.RAW_KARAKA_STEAK.get()),
+                RecipeCategory.FOOD, EMItems.COOKED_KARAKA_STEAK.get(), 0.35f, 100, "karaka_steak");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, EMItems.GLIMMERBUG_ABDOMEN, 4)
                 .requires(EMItems.GLIMMERBUG_PARTS, 1)
@@ -991,20 +995,20 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "wandforging_" + BuiltInRegistries.ITEM.getKey(orb).getPath()));
     }
 
-    protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-                                      float pExperience, int pCookingTIme, String pGroup) {
+    protected static void furnace(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                  float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
-    protected static void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-                                      float pExperience, int pCookingTime, String pGroup) {
+    protected static void blasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                   float pExperience, int pCookingTime, String pGroup) {
         oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTime, pGroup, "_from_blasting");
     }
 
-    protected static void oreSmoking(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-                                     float pExperience, int pCookingTime, String pGroup) {
+    protected static void smoking(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                  float pExperience, int pCookingTime, String pGroup) {
         oreCooking(recipeOutput, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTime, pGroup, "_from_smoking");
     }
