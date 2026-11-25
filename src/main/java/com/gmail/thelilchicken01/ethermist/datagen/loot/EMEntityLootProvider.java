@@ -37,7 +37,8 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                 EMEntityTypes.RUNIC_SKELETON.get(),
                 EMEntityTypes.SIHEREK.get(),
                 EMEntityTypes.GLIMMERBUG.get(),
-                EMEntityTypes.GLIMMERBUG_QUEEN.get()
+                EMEntityTypes.GLIMMERBUG_QUEEN.get(),
+                EMEntityTypes.ZALKUL.get()
         );
     }
 
@@ -85,6 +86,23 @@ public class EMEntityLootProvider extends EntityLootSubProvider {
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0f))
                                 .add(EMLootTableUtil.rangedDrop(Items.BONE, 0, 3, 1))
+                )
+        );
+
+        add(EMEntityTypes.ZALKUL.get(),
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.BONE, 0, 3, 1))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0f))
+                                .add(EMLootTableUtil.rangedDrop(Items.BLAZE_POWDER, 0, 2, 1))
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0f))
+                                .add(EMLootTableUtil.empty(99))
+                                .add(EMLootTableUtil.singleDrop(EMItems.FLAME_ORB, 1))
                 )
         );
 
