@@ -211,6 +211,9 @@ public class EMItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.DRINKS_JUICE)
                 .add(EMItems.SOURDEW_SMOOTHIE.get());
 
+        tag(Tags.Items.BONES)
+                .add(EMItems.KARAKA_ANTLER.get());
+
         tag(EMTags.Items.IS_KARAKA_FOOD)
                 .addTag(ItemTags.LEAVES)
                 .addTag(Tags.Items.SEEDS);

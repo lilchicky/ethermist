@@ -135,6 +135,7 @@ public class EMItems {
      */
 
     public static final DeferredItem<Item> GLIMMERBUG_PARTS = ITEMS.register("glimmerbug_parts", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final DeferredItem<Item> KARAKA_ANTLER = ITEMS.register("karaka_antler", () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-24T21:39:20.6454178	Recipes
+// 1.21.1	2026-11-25T01:45:31.2870819	Recipes
 3530c70e113d6023ac8c92c76f88d516fbe5902e data/ethermist/advancement/recipes/building_blocks/amberwood_planks_log.json
 1095bd422a44ac5cf7e125f30ed527351acc6f93 data/ethermist/advancement/recipes/building_blocks/amberwood_planks_stripped_log.json
 6d8e2900ae31b4d8c1108bdf7e3a2045ccac8d89 data/ethermist/advancement/recipes/building_blocks/amberwood_planks_stripped_wood.json
@@ -670,5 +670,7 @@ e63ca9077cc91b2d507b3458aea646d3de288675 data/ethermist/recipe/witchstone_stairs
 88592842be2e8c03944c4366f1468734fb6851be data/ethermist/recipe/witch_lavender_purple_dye.json
 6853521f638e42aadd1a81dec344c6e0c0236e83 data/ethermist/recipe/witch_orb.json
 0da9ccd886dc44060db86891b0b68c100b60eb4c data/ethermist/recipe/wooden_wand_handle.json
+42d325ece215ac30b8c858a9706c6b2908af58e7 data/minecraft/advancement/recipes/misc/bone_meal.json
 418fed21c33a4f2c32721aa07ea4cdc9578fb743 data/minecraft/advancement/recipes/misc/slime_ball.json
+ea56aa818f99932a69341117ba278a654bae5733 data/minecraft/recipe/bone_meal.json
 bc12f644366b974d2a1b72ac43bb866f26fcc0e8 data/minecraft/recipe/slime_ball.json

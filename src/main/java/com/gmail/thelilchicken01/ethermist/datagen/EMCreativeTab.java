@@ -414,6 +414,7 @@ public class EMCreativeTab {
                 output.accept(EMItems.SOURDEW_SMOOTHIE.get());
 
                 // Misc
+                output.accept(EMItems.KARAKA_ANTLER.get());
                 output.accept(EMItems.GLIMMERBUG_PARTS.get());
 
                 // Spawn Eggs

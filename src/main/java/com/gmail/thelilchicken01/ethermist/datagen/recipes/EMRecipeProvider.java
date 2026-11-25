@@ -2,6 +2,7 @@ package com.gmail.thelilchicken01.ethermist.datagen.recipes;
 
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.block.EMBlocks;
+import com.gmail.thelilchicken01.ethermist.datagen.loot.EMBlockLootProvider;
 import com.gmail.thelilchicken01.ethermist.datagen.tags.EMTags;
 import com.gmail.thelilchicken01.ethermist.item.EMItems;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
@@ -698,7 +699,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.PYRUSCIA.getId().getPath() + "_orange_dye"));
 
         /*
-        ---------- Misc Recipes ----------
+        ---------- Miscellaneous Recipes ----------
          */
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 1)
                 .pattern("aa")
@@ -736,6 +737,11 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(EMBlocks.ABYSSAL_MUSHROOM.get())
                 .unlockedBy("has_abyssal_mushroom", has(EMBlocks.ABYSSAL_MUSHROOM))
                 .save(output, ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, EMBlocks.ABYSSAL_MUSHROOM.getId().getPath() + "_to_small"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL, 6)
+                .requires(EMItems.KARAKA_ANTLER.get())
+                .unlockedBy("has_karaka_antler", has(EMItems.KARAKA_ANTLER))
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, EMBlocks.WANDFORGING_TABLE, 1)
                 .pattern("aa")

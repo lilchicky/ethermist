@@ -193,6 +193,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         withExistingParent(EMItems.ZALKUL_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         basicItem(EMItems.GLIMMERBUG_PARTS.get());
+        basicItem(EMItems.KARAKA_ANTLER.get());
 
     }
 
