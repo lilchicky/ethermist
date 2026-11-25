@@ -1,17 +1,15 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -28,13 +26,14 @@ public class AugmentFocusEnchant implements IWandAugmentEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, ((level + 1) * 0.5f) + 1);
+        state.modifyExistingAttribute(EMAttributes.PROJECTILE_SPEED, WandAttributeStateTest.Operation.MULT, 4.5f);
+        state.modifyExistingAttribute(EMAttributes.ACCURACY, 1.0f);
 
-        state.damage *= ((level + 1) * 0.5) + 1;
-        state.projectileSpeedMult *= 4.5;
-        state.inaccuracyPercent = 0.0;
-        state.cooldownTicks = Math.max(state.cooldownTicks * 4, 160);
+        int cooldownTicks = (int) (state.getAttributeModifierAmount(EMAttributes.COOLDOWN) * 20);
 
+        state.modifyExistingAttribute(EMAttributes.COOLDOWN, Math.max(cooldownTicks * 4, 160) / 20.0f);
     }
 
     @Override

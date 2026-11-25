@@ -1,7 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.base_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 
 public class RunicForceEnchant implements IWandBaseEffect {
@@ -14,10 +15,8 @@ public class RunicForceEnchant implements IWandBaseEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
-
-        state.knockbackMult = state.knockbackMult + (level * 1.75);
-
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_KNOCKBACK, WandAttributeStateTest.Operation.ADDITION, (level * 1.75f));
     }
 
 }

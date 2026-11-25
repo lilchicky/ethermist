@@ -15,14 +15,14 @@ import java.util.function.Supplier;
 
 public class WandOrb implements IWandOrb {
 
-    private final double durabilityMult;
+    private final float durabilityMult;
     private final int cooldown;
-    private final double knockback;
+    private final float knockback;
     private final float inaccuracy;
     private final float projectileSpeed;
     private final boolean canIgnite;
     private final int enchantability;
-    private final double lifespanSeconds;
+    private final float lifespanSeconds;
     private final int damage;
     private final Component tooltip;
 
@@ -35,14 +35,14 @@ public class WandOrb implements IWandOrb {
     private final IWandOrbEffect effect;
 
     private WandOrb(
-            double durabilityMult,
+            float durabilityMult,
             int cooldown,
-            double knockback,
+            float knockback,
             float inaccuracy,
             float projectileSpeed,
             boolean canIgnite,
             int enchantability,
-            double lifespanSeconds,
+            float lifespanSeconds,
             int damage,
             WandShotItem shotItem,
             ResourceKey<DamageType> damageType,
@@ -70,13 +70,13 @@ public class WandOrb implements IWandOrb {
         this.tooltip = tooltip;
     }
 
-    @Override public double getDurabilityMult() { return durabilityMult; }
+    @Override public float getDurabilityMult() { return durabilityMult; }
 
     @Override public int getEnchantability() {return enchantability;}
-    @Override public double getLifespanSeconds() {return lifespanSeconds;}
+    @Override public float getLifespanSeconds() {return lifespanSeconds;}
     @Override public int getSpellDamage() {return damage;}
     @Override public int getCooldown() { return cooldown; }
-    @Override public double getKnockback() { return knockback; }
+    @Override public float getKnockback() { return knockback; }
     @Override public float getInaccuracy() { return inaccuracy; }
     @Override public float getProjectileSpeed() { return projectileSpeed; }
     @Override public boolean getCanIgnite() { return canIgnite; }
@@ -93,14 +93,14 @@ public class WandOrb implements IWandOrb {
     }
 
     public static final class Builder {
-        private double durabilityMult;
+        private float durabilityMult;
         private int cooldown;
-        private double knockback;
+        private float knockback;
         private float inaccuracy;
         private float projectileSpeed;
         private boolean canIgnite;
         private int damage;
-        private double lifespanSeconds;
+        private float lifespanSeconds;
         private int enchantability;
         private WandShotItem shotItem;
         private ResourceKey<DamageType> damageType;
@@ -110,14 +110,14 @@ public class WandOrb implements IWandOrb {
         private Component tooltip;
         private IWandOrbEffect effect = (a, b, c, d) -> {};
 
-        public Builder durabilityMult(double value){ this.durabilityMult = value; return this; }
+        public Builder durabilityMult(float value){ this.durabilityMult = value; return this; }
         public Builder cooldown(int value){ this.cooldown = value; return this; }
-        public Builder knockback(double value){ this.knockback = value; return this; }
+        public Builder knockback(float value){ this.knockback = value; return this; }
         public Builder inaccuracy(float value){ this.inaccuracy = value; return this; }
         public Builder projectileSpeed(float value){ this.projectileSpeed = value; return this; }
         public Builder canIgnite(boolean value){ this.canIgnite = value; return this; }
         public Builder damage(int value){ this.damage = value; return this; }
-        public Builder lifespanSeconds(double value){ this.lifespanSeconds = value; return this; }
+        public Builder lifespanSeconds(float value){ this.lifespanSeconds = value; return this; }
         public Builder enchantability(int value){ this.enchantability = value; return this; }
         public Builder shot(WandShotItem value){ this.shotItem = value; return this; }
         public Builder damageType(ResourceKey<DamageType> value){ this.damageType = value; return this; }

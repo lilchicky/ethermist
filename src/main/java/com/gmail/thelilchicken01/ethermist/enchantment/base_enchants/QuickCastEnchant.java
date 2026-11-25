@@ -1,8 +1,16 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.base_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+
+import static com.gmail.thelilchicken01.ethermist.item.wands.WandItem.BLOCK_INTERACTION_RANGE_ID;
+import static com.gmail.thelilchicken01.ethermist.item.wands.WandItem.ENTITY_INTERACTION_RANGE_ID;
 
 public class QuickCastEnchant implements IWandBaseEffect {
 
@@ -14,10 +22,26 @@ public class QuickCastEnchant implements IWandBaseEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.COOLDOWN, WandAttributeStateTest.Operation.MULT, (float)(1 / Math.pow((level + 1), 0.3f)));
 
-        state.cooldownTicks = (int) (state.cooldownTicks / Math.pow((level + 1), 0.3));
+        state.addAttribute(
+                new WandAttributeStateTest.WandAttributeHolder(
+                        Attributes.BLOCK_INTERACTION_RANGE,
+                        BLOCK_INTERACTION_RANGE_ID,
+                        16,
+                        AttributeModifier.Operation.ADD_VALUE
+                )
+        );
 
+        state.addAttribute(
+                new WandAttributeStateTest.WandAttributeHolder(
+                        Attributes.ENTITY_INTERACTION_RANGE,
+                        ENTITY_INTERACTION_RANGE_ID,
+                        16,
+                        AttributeModifier.Operation.ADD_VALUE
+                )
+        );
     }
 
 }

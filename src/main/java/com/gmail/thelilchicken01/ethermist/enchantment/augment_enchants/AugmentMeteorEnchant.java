@@ -1,8 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
@@ -14,7 +14,6 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
@@ -37,28 +36,28 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, 3.0f);
+        state.modifyExistingAttribute(EMAttributes.LIFESPAN, WandAttributeStateTest.Operation.MULT, 5.0f);
+        state.modifyExistingAttribute(EMAttributes.ACCURACY, WandAttributeStateTest.Operation.MULT, 1.1f);
 
-        state.damage *= 3.0;
-        state.lifespanSeconds *= 5.0;
-        state.inaccuracyPercent *= 0.1; // 90% more accurate
-
-    }
-
-    @Override
-    public void addSpecialAttributes(ItemAttributeModifiers.Builder builder) {
-
-        builder.add(
-                Attributes.BLOCK_INTERACTION_RANGE,
-                new AttributeModifier(BLOCK_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
-                EquipmentSlotGroup.MAINHAND
-        );
-        builder.add(
-                Attributes.ENTITY_INTERACTION_RANGE,
-                new AttributeModifier(ENTITY_INTERACTION_RANGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
-                EquipmentSlotGroup.MAINHAND
+        state.addAttribute(
+                new WandAttributeStateTest.WandAttributeHolder(
+                        Attributes.BLOCK_INTERACTION_RANGE,
+                        BLOCK_INTERACTION_RANGE_ID,
+                        16,
+                        AttributeModifier.Operation.ADD_VALUE
+                )
         );
 
+        state.addAttribute(
+                new WandAttributeStateTest.WandAttributeHolder(
+                        Attributes.ENTITY_INTERACTION_RANGE,
+                        ENTITY_INTERACTION_RANGE_ID,
+                        16,
+                        AttributeModifier.Operation.ADD_VALUE
+                )
+        );
     }
 
     @Override

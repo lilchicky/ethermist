@@ -1,8 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
@@ -11,7 +11,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -30,8 +29,8 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
-        state.damage *= 0.5 + 0.3 * Math.exp(-0.5 * (level - 1));
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, (float)(0.5f + 0.3f * Math.exp(-0.5f * (level - 1))));
     }
 
     @Override

@@ -14,14 +14,14 @@ import java.util.function.Supplier;
 
 public interface IWandOrb {
 
-    double getDurabilityMult();
+    float getDurabilityMult();
     int getEnchantability();
-    double getLifespanSeconds();
+    float getLifespanSeconds();
     int getSpellDamage();
     float getInaccuracy();
     float getProjectileSpeed();
     boolean getCanIgnite();
-    double getKnockback();
+    float getKnockback();
     int getCooldown();
     WandShotItem getShotItem();
     ResourceKey<DamageType> getDamageType();

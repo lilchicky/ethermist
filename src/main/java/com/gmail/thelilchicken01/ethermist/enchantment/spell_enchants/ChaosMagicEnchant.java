@@ -1,8 +1,9 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -36,10 +37,8 @@ public class ChaosMagicEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
-
-        state.damage *= level;
-
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, level);
     }
 
     @Override

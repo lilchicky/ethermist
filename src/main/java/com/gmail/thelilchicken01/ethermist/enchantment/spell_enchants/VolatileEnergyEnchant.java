@@ -1,10 +1,11 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandUtil;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
@@ -26,10 +27,8 @@ public class VolatileEnergyEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
-
-        state.damage *= 0.5;
-
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, 0.5f);
     }
 
     @Override

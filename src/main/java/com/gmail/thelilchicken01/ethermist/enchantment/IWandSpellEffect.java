@@ -1,5 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.enchantment;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
@@ -8,7 +9,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 
@@ -26,8 +26,8 @@ public interface IWandSpellEffect {
 
     MapCodec<? extends IWandSpellEffect> codec();
 
-    default void attributeChanges(WandAttributeState state, int level) {}
-    default void addSpecialAttributes(ItemAttributeModifiers.Builder builder) {}
+    default void modifyWandAttributes(WandAttributeStateTest state, int level) {}
+    default void addGenericAttributes(ItemAttributeModifiers.Builder builder) {}
     default boolean doesCreateProjectile(Entity shooter, @Nullable List<? extends Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) { return true; }
 
     default void onHit(Level level, Entity shooter, @Nullable Entity target, @Nullable BlockPos hitPos, WandProjectile shot, int spellLevel) {}

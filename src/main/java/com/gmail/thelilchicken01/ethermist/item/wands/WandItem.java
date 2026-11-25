@@ -153,7 +153,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         var builder = ItemAttributeModifiers.builder();
 
         // Get base attributes based on wand type (orb)
-        WandAttributeState currentAttributeState = new WandAttributeState().seed(
+        WandAttributeStateTest currentAttributeState = new WandAttributeStateTest().seed(
                 WAND_ORB.get().getCooldown(),
                 WAND_ORB.get().getSpellDamage(),
                 WAND_ORB.get().getLifespanSeconds(),
@@ -173,8 +173,8 @@ public class WandItem extends Item implements IDyeableWandItem {
             IWandBaseEffect base = enchant.value().effects().get(EMEnchantComponents.WAND_BASE_EFFECT.get());
 
             if (base != null) {
-                base.attributeChanges(currentAttributeState, level);
-                base.addSpecialAttributes(builder);
+                base.modifyWandAttributes(currentAttributeState, level);
+                base.addGenericAttributes(builder);
             }
 
         });
@@ -185,8 +185,8 @@ public class WandItem extends Item implements IDyeableWandItem {
             IWandAugmentEffect augment = enchant.value().effects().get(EMEnchantComponents.WAND_AUGMENT_EFFECT.get());
 
             if (augment != null) {
-                augment.attributeChanges(currentAttributeState, level);
-                augment.addSpecialAttributes(builder);
+                augment.modifyWandAttributes(currentAttributeState, level);
+                augment.addGenericAttributes(builder);
             }
 
         });
@@ -197,22 +197,22 @@ public class WandItem extends Item implements IDyeableWandItem {
             IWandSpellEffect spell = enchant.value().effects().get(EMEnchantComponents.WAND_SPELL_EFFECT.get());
 
             if (spell != null) {
-                spell.attributeChanges(currentAttributeState, level);
-                spell.addSpecialAttributes(builder);
+                spell.modifyWandAttributes(currentAttributeState, level);
+                spell.addGenericAttributes(builder);
             }
 
         });
 
         // Apply tier (handle) modifiers to default attributes
-        getHandle(stack).apply(currentAttributeState);
+        //getHandle(stack).apply(currentAttributeState);
 
         // Clamp final attribute values.
         // This is to prevent numbers that screw up projectile math, like having 0 damage projectiles or
         // negative lifespans.
-        currentAttributeState.clamp();
+        //currentAttributeState.clamp();
 
         // Add the final attribute state to this itemstack
-        currentAttributeState.addToBuilder(builder, EquipmentSlotGroup.MAINHAND);
+        currentAttributeState.build(builder);
 
         return builder.build();
     }

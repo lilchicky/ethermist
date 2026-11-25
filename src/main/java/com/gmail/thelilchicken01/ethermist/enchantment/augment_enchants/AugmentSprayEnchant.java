@@ -4,20 +4,18 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotHandler;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotItem;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -36,15 +34,13 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void attributeChanges(WandAttributeState state, int level) {
+    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+        float damage = state.getAttributeModifierAmount(EMAttributes.WAND_DAMAGE);
+        float lifespan = state.getAttributeModifierAmount(EMAttributes.LIFESPAN);
 
-        double damageMod = 1.0 / (1.0 + 0.81 * (1.0 / (1.0 + level)) * Math.sqrt(state.damage));
-        state.damage *= damageMod;
-
-        state.lifespanSeconds = Math.max(1.0, state.lifespanSeconds * 0.1);
-
-        state.projectileSpeedMult *= 0.5;
-
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, (float)(1.0f / (1.0f + 0.81f * (1.0f / (1.0f + level)) * Math.sqrt(damage))));
+        state.modifyExistingAttribute(EMAttributes.LIFESPAN, Math.max(1.0f, lifespan * 0.2f));
+        state.modifyExistingAttribute(EMAttributes.PROJECTILE_SPEED, WandAttributeStateTest.Operation.MULT, 0.5f);
     }
 
     @Override
