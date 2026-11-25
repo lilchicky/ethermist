@@ -177,6 +177,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         basicItemFolder(EMItems.TOASTED_SHROOM_CLUSTER.get(), "food");
         basicItemFolder(EMItems.GLIMMERBUG_ABDOMEN.get(), "food");
         basicItemFolder(EMItems.COOKED_GLIMMERBUG_ABDOMEN.get(), "food");
+        basicItemFolder(EMItems.RAW_KARAKA_STEAK.get(), "food");
         basicItemFolder(EMItems.SOURDEW_SLICE.get(), "food");
         basicItemFolder(EMItems.SOURDEW_SMOOTHIE.get(), "food");
 

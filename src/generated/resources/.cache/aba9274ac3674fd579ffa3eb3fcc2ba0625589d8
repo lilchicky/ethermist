@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-23T17:23:55.5636618	Item Models: ethermist
+// 1.21.1	2026-11-24T20:44:53.6524628	Item Models: ethermist
 8e2929dfc6fa32f66201c6d613ae9163b9acd449 assets/ethermist/models/item/abyssal_mushroom.json
 9dbc24734a06b936d4e6d7e380dc89021f92d0ff assets/ethermist/models/item/amberwood_button.json
 be81173147d2b58dc6d773130a50f5a5c798b36b assets/ethermist/models/item/amberwood_door.json
@@ -100,6 +100,7 @@ b34d59c82382f18e0a007aecf73cb6b41eeddba5 assets/ethermist/models/item/polished_d
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/ethermist/models/item/pylon_spawn_egg.json
 87a5c01915a01bbc8c3aaf56b79f27a995789f2f assets/ethermist/models/item/pyruscia.json
 8e287c74d9b5d4bc2f6073a96330fb7da6f19ac9 assets/ethermist/models/item/quartz_wand_handle.json
+037e610f1184653840d272e6902528904f7c9bbe assets/ethermist/models/item/raw_karaka_steak.json
 8e287c74d9b5d4bc2f6073a96330fb7da6f19ac9 assets/ethermist/models/item/redstone_wand_handle.json
 662b6a8019ade3e16ee9bdac49a001c67b01407b assets/ethermist/models/item/red_amberwood_sapling.json
 1755e52233ca3f47ac8515f635d389ba819888a4 assets/ethermist/models/item/rich_grass.json

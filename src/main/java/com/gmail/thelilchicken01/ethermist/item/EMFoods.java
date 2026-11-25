@@ -35,4 +35,9 @@ public class EMFoods {
             .usingConvertsTo(Items.GLASS_BOTTLE)
             .effect(() -> new MobEffectInstance(EMMobEffects.FASTER_CASTING, 320, 2), 1.0f)
             .build();
+    public static final FoodProperties RAW_KARAKA_STEAK = new FoodProperties.Builder()
+            .nutrition(3)
+            .saturationModifier(0.3F)
+            .build();
+
 }
