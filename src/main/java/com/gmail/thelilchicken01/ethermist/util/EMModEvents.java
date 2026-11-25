@@ -104,7 +104,7 @@ public class EMModEvents {
                 EMEntityTypes.ZALKUL.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkAnyLightMonsterSpawnRules,
+                ZalkulEntity::checkZalkulSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
         );
 
