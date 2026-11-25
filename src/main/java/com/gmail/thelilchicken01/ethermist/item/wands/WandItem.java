@@ -162,7 +162,7 @@ public class WandItem extends Item implements IDyeableWandItem {
                 WAND_ORB.get().getInaccuracy()
         );
 
-        // Apply tier (orb) modifiers to default attributes
+        // Apply tier (handle) modifiers to default attributes
         getHandle(stack).apply(currentAttributeState);
 
         // Order here is implemented base -> augment -> spell, for priority of hard attribute
