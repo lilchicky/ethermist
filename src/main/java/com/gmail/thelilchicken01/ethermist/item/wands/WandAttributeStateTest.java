@@ -3,6 +3,7 @@ package com.gmail.thelilchicken01.ethermist.item.wands;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -11,6 +12,9 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest.Operation.*;
+import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMAT;
 
 public class WandAttributeStateTest {
 
@@ -23,7 +27,7 @@ public class WandAttributeStateTest {
         for (WandAttributeHolder holder : modifiers) {
             if (holder.attribute != attribute) continue;
 
-            holder.amount = operation == Operation.ADDITION ? holder.amount + amount : holder.amount * amount;
+            holder.modifyAmount(operation, amount);
             return;
         }
         Ethermist.LOGGER.warn("Attempted to modify attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
@@ -68,12 +72,12 @@ public class WandAttributeStateTest {
             float baseKnockback,
             float baseInaccuracy
     ) {
-        modifiers.add(new WandAttributeHolder(EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID, baseCooldownTicks / 20.0f, AttributeModifier.Operation.ADD_VALUE));
-        modifiers.add(new WandAttributeHolder(EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID, baseDamage, AttributeModifier.Operation.ADD_VALUE));
-        modifiers.add(new WandAttributeHolder(EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID, baseLifespanSeconds, AttributeModifier.Operation.ADD_VALUE));
-        modifiers.add(new WandAttributeHolder(EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID, baseProjectileSpeed, AttributeModifier.Operation.ADD_VALUE));
-        modifiers.add(new WandAttributeHolder(EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID, baseKnockback, AttributeModifier.Operation.ADD_VALUE));
-        modifiers.add(new WandAttributeHolder(EMAttributes.ACCURACY, WandItem.ACCURACY_ID, 1.0f - (baseInaccuracy / 100), AttributeModifier.Operation.ADD_VALUE));
+        modifiers.add(new WandAttributeHolder("bonus_cooldown", EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID, baseCooldownTicks / 20.0f, ADDITION));
+        modifiers.add(new WandAttributeHolder("bonus_damage", EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID, baseDamage, ADDITION));
+        modifiers.add(new WandAttributeHolder("bonus_lifespan", EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID, baseLifespanSeconds, ADDITION));
+        modifiers.add(new WandAttributeHolder("bonus_projectile_speed", EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID, baseProjectileSpeed, ADDITION));
+        modifiers.add(new WandAttributeHolder("bonus_knockback", EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID, baseKnockback, ADDITION));
+        modifiers.add(new WandAttributeHolder("bonus_accuracy", EMAttributes.ACCURACY, WandItem.ACCURACY_ID, 1.0f - (baseInaccuracy / 100), ADDITION));
         return this;
     }
 
@@ -83,15 +87,17 @@ public class WandAttributeStateTest {
 
     public static class WandAttributeHolder {
 
+        private final String id;
         private final Holder<Attribute> attribute;
-        private final ResourceLocation id;
+        private final ResourceLocation attributeId;
         private float amount;
-        private final AttributeModifier.Operation operation;
+        private final Operation operation;
 
-        public WandAttributeHolder(Holder<Attribute> attribute, ResourceLocation id, float amount,
-                                   AttributeModifier.Operation operation) {
-            this.attribute = attribute;
+        public WandAttributeHolder(String id, Holder<Attribute> attribute, ResourceLocation attributeId, float amount,
+                                   Operation operation) {
             this.id = id;
+            this.attribute = attribute;
+            this.attributeId = attributeId;
             this.amount = amount;
             this.operation = operation;
         }
@@ -99,14 +105,77 @@ public class WandAttributeStateTest {
         public void addToBuilder(ItemAttributeModifiers.Builder builder, EquipmentSlotGroup slot) {
             builder.add(
                     attribute,
-                    new AttributeModifier(id, amount, operation),
+                    new AttributeModifier(
+                            attributeId,
+                            amount,
+                            operation == MULT || operation == PERCENT ?
+                                    AttributeModifier.Operation.ADD_MULTIPLIED_BASE :
+                                    AttributeModifier.Operation.ADD_VALUE
+                    ),
                     slot
             );
         }
 
-    }
+        public boolean apply(WandAttributeStateTest state) {
+            for (WandAttributeHolder holder : state.modifiers) {
+                if (holder.attribute != attribute) continue;
 
-    public record WandAttributeModifier(Holder<Attribute> attribute, float amount, Operation operation) {}
+                modifyAmount(holder.operation, holder.amount);
+
+                return true;
+            }
+            return false;
+        }
+
+        public void modifyAmount(Operation operation, float amount) {
+            switch(operation) {
+                case ADDITION -> this.amount += amount;
+                case MULT -> this.amount *= amount;
+                case PERCENT -> this.amount *= 1.0f + amount;
+            }
+        }
+
+        public float getAmount() {
+            return this.amount;
+        }
+
+        public Holder<Attribute> getAttribute() {
+            return this.attribute;
+        }
+
+        public Operation getOperation() {
+            return this.operation;
+        }
+
+        public Component getAttributeComponent() {
+            final int color = 0xAAAAAA;
+            Component line = Component.empty();
+            Component base = Component.translatable("item.ethermist.wand_handle." + id);
+
+            switch (this.operation) {
+                case ADDITION -> {
+                    String sign = amount > 0 ? "+" : "";
+                    line = base.copy()
+                            .append(Component.literal(sign + FORMAT.format(amount)))
+                            .withColor(color);
+                }
+                case PERCENT -> {
+                    //boolean isAccuracy = mod.attribute().equals(WandAttributeState.WandAttribute.INACCURACY_PERCENT);
+                    double pct = amount * 100.0f;
+                    String sign = pct > 0 ? "+" : "";
+                    line = base.copy()
+                            .append(Component.literal(sign + FORMAT.format(pct)))
+                            .append(Component.literal("%"))
+                            .withColor(color);
+                }
+                case MULT -> line = base.copy()
+                        .append(Component.literal("x" + FORMAT.format(amount)))
+                        .withColor(color);
+            }
+            return line;
+        }
+
+    }
 
     public enum Operation {
         ADDITION,

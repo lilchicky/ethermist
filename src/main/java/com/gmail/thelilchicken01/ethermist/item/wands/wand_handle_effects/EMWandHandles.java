@@ -1,5 +1,8 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
+import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
@@ -22,14 +25,6 @@ public final class EMWandHandles {
     public static final double DIAMOND_DURABILITY_MULT = 5.0;
     public static final double LAPIS_ENCHANTABILITY_MULT = 2.5;
 
-    // Some default attribute mod holder tooltip IDs
-    public static final String PROJECTILE_SPEED_TOOLTIP_ID = "bonus_projectile_speed";
-    public static final String DAMAGE_TOOLTIP_ID = "bonus_damage";
-    public static final String COOLDOWN_TOOLTIP_ID = "bonus_cooldown";
-    public static final String LIFESPAN_TOOLTIP_ID = "bonus_lifespan";
-    public static final String KNOCKBACK_TOOLTIP_ID = "bonus_knockback";
-    public static final String ACCURACY_TOOLTIP_ID = "bonus_accuracy";
-
     // WOODEN (default)
     public static final DeferredHolder<WandHandle, WandHandle> WOODEN =
             EM_WAND_HANDLES.register("wooden", () ->
@@ -50,7 +45,9 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "emerald"),
                             "emerald",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.LIFESPAN_SECONDS, WandAttributeState.AttributeOperation.ADDITION, 2.0, true, LIFESPAN_TOOLTIP_ID, WandAttributeState.TooltipStyle.ADDITION)),
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_lifespan", EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID, 2.0f, WandAttributeStateTest.Operation.ADDITION)
+                            ),
                             new float[]{0.086f, 0.839f, 0.380f},
                             () -> Ingredient.of(Tags.Items.GEMS_EMERALD),
                             true,
@@ -64,7 +61,9 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "golden"),
                             "golden",
-                            List.of(new WandAttributeState.AttributeModifierHolder(WandAttributeState.WandAttribute.DAMAGE, WandAttributeState.AttributeOperation.ADDITION, 3.0, false, DAMAGE_TOOLTIP_ID, WandAttributeState.TooltipStyle.ADDITION)),
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_damage", EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID, 3.0f, WandAttributeStateTest.Operation.ADDITION)
+                            ),
                             new float[]{0.992f, 0.961f, 0.373f},
                             () -> Ingredient.of(Tags.Items.INGOTS_GOLD),
                             true,
@@ -110,13 +109,8 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "nether_quartz"),
                             "nether_quartz",
-                            List.of(new WandAttributeState.AttributeModifierHolder(
-                                    WandAttributeState.WandAttribute.KNOCKBACK_MULT,
-                                    WandAttributeState.AttributeOperation.ADDITION,
-                                    0.5,
-                                    false,
-                                    KNOCKBACK_TOOLTIP_ID,
-                                    WandAttributeState.TooltipStyle.PERCENT)
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_knockback", EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID, 0.5f, WandAttributeStateTest.Operation.PERCENT)
                             ),
                             new float[]{0.847f, 0.847f, 0.847f},
                             () -> Ingredient.of(Tags.Items.GEMS_QUARTZ),
@@ -131,13 +125,8 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "redstone"),
                             "redstone",
-                            List.of(new WandAttributeState.AttributeModifierHolder(
-                                    WandAttributeState.WandAttribute.COOLDOWN_TICKS,
-                                    WandAttributeState.AttributeOperation.ADDITION,
-                                    -2.0,
-                                    true,
-                                    COOLDOWN_TOOLTIP_ID,
-                                    WandAttributeState.TooltipStyle.ADDITION)
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_cooldown", EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID, -2.0f, WandAttributeStateTest.Operation.ADDITION)
                             ),
                             new float[]{0.965f, 0f, 0f},
                             () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE),
@@ -152,13 +141,8 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glowstone"),
                             "glowstone",
-                            List.of(new WandAttributeState.AttributeModifierHolder(
-                                    WandAttributeState.WandAttribute.PROJECTILE_SPEED_MULT,
-                                    WandAttributeState.AttributeOperation.ADDITION,
-                                    0.25,
-                                    false,
-                                    PROJECTILE_SPEED_TOOLTIP_ID,
-                                    WandAttributeState.TooltipStyle.PERCENT)
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_projectile_speed", EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID, 0.25f, WandAttributeStateTest.Operation.PERCENT)
                             ),
                             new float[]{1f, 0.737f, 0.369f},
                             () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE),
@@ -173,13 +157,8 @@ public final class EMWandHandles {
                     new WandHandle(
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "prismarine"),
                             "prismarine",
-                            List.of(new WandAttributeState.AttributeModifierHolder(
-                                    WandAttributeState.WandAttribute.INACCURACY_PERCENT,
-                                    WandAttributeState.AttributeOperation.ADDITION,
-                                    10.0,
-                                    false,
-                                    ACCURACY_TOOLTIP_ID,
-                                    WandAttributeState.TooltipStyle.PERCENT)
+                            List.of(
+                                    new WandAttributeStateTest.WandAttributeHolder("modify_accuracy", EMAttributes.ACCURACY, WandItem.ACCURACY_ID, 0.1f, WandAttributeStateTest.Operation.PERCENT)
                             ),
                             new float[]{0.706f, 0.847f, 0.792f},
                             () -> Ingredient.of(Tags.Items.GEMS_PRISMARINE),

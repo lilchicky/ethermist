@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -15,7 +16,7 @@ public final class WandHandle implements IWandHandle {
 
     private final ResourceLocation id;
     private final String descriptionKey;
-    private final List<WandAttributeState.AttributeModifierHolder> attributeModifiers;
+    private final List<WandAttributeStateTest.WandAttributeHolder> attributeModifiers;
     private final float[] handleColor;
     private final Supplier<Ingredient> repairItem;
     private final boolean doesModify;
@@ -25,7 +26,7 @@ public final class WandHandle implements IWandHandle {
 
     public WandHandle(ResourceLocation id,
                       String descriptionKey,
-                      List<WandAttributeState.AttributeModifierHolder> effects,
+                      List<WandAttributeStateTest.WandAttributeHolder> effects,
                       float[] handleColor,
                       Supplier<Ingredient> repairItem,
                       boolean doesModify,
@@ -36,7 +37,7 @@ public final class WandHandle implements IWandHandle {
 
     public WandHandle(ResourceLocation id,
                       String descriptionKey,
-                      List<WandAttributeState.AttributeModifierHolder> effects,
+                      List<WandAttributeStateTest.WandAttributeHolder> effects,
                       float[] handleColor,
                       Supplier<Ingredient> repairItem,
                       boolean doesModify,
@@ -86,8 +87,8 @@ public final class WandHandle implements IWandHandle {
     }
 
     @Override
-    public void apply(WandAttributeState state) {
-        for (var attribute : attributeModifiers) attribute.apply(state);
+    public void apply(WandAttributeStateTest state) {
+        for (WandAttributeStateTest.WandAttributeHolder holder : attributeModifiers) state.modifyExistingAttribute(holder.getAttribute(), holder.getOperation(), holder.getAmount());
     }
 
     @Override
@@ -99,39 +100,8 @@ public final class WandHandle implements IWandHandle {
 
         if (doesModify) {
             if (!attributeModifiers.isEmpty()) {
-                for (var mod : attributeModifiers) {
-
-                    double shownValue = mod.value();
-
-                    Component line = Component.empty();
-                    Component base = Component.translatable("item.ethermist.wand_handle." + mod.tooltipId());
-
-                    switch (mod.tooltipStyle()) {
-                        case ADDITION -> {
-                            String sign = shownValue > 0 ? "+" : "";
-                            line = base.copy()
-                                    .append(Component.literal(sign + FORMAT.format(shownValue)))
-                                    .append(mod.seconds() ? Component.translatable("generic.ethermist.time.seconds") : Component.empty())
-                                    .withColor(color);
-                        }
-                        case PERCENT -> {
-                            boolean isAccuracy = mod.attribute().equals(WandAttributeState.WandAttribute.INACCURACY_PERCENT);
-                            double pct = isAccuracy ? shownValue : (shownValue * 100.0);
-                            String sign = pct > 0 ? "+" : "";
-                            line = base.copy()
-                                    .append(Component.literal(sign + FORMAT.format(pct)))
-                                    .append(Component.literal("%"))
-                                    .withColor(color);
-                        }
-                        case MULT -> {
-                            line = base.copy()
-                                    .append(Component.literal("x" + FORMAT.format(shownValue)))
-                                    .withColor(color);
-                        }
-                    }
-
-                    lines.add(line);
-
+                for (WandAttributeStateTest.WandAttributeHolder holder : attributeModifiers) {
+                    lines.add(holder.getAttributeComponent());
                 }
             }
             if (durabilityMult != 1.0) {

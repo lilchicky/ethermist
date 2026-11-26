@@ -24,24 +24,6 @@ public class QuickCastEnchant implements IWandBaseEffect {
     @Override
     public void modifyWandAttributes(WandAttributeStateTest state, int level) {
         state.modifyExistingAttribute(EMAttributes.COOLDOWN, WandAttributeStateTest.Operation.MULT, (float)(1 / Math.pow((level + 1), 0.3f)));
-
-        state.addAttribute(
-                new WandAttributeStateTest.WandAttributeHolder(
-                        Attributes.BLOCK_INTERACTION_RANGE,
-                        BLOCK_INTERACTION_RANGE_ID,
-                        16,
-                        AttributeModifier.Operation.ADD_VALUE
-                )
-        );
-
-        state.addAttribute(
-                new WandAttributeStateTest.WandAttributeHolder(
-                        Attributes.ENTITY_INTERACTION_RANGE,
-                        ENTITY_INTERACTION_RANGE_ID,
-                        16,
-                        AttributeModifier.Operation.ADD_VALUE
-                )
-        );
     }
 
 }

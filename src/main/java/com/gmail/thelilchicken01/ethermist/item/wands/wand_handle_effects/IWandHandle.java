@@ -1,6 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -20,7 +21,7 @@ public interface IWandHandle {
     double getEnchantabilityMult();
     boolean doesBuffSpell();
 
-    void apply(WandAttributeState state);
+    void apply(WandAttributeStateTest state);
 
 }
 

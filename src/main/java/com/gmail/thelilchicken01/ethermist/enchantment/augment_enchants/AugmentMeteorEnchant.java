@@ -43,19 +43,21 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
 
         state.addAttribute(
                 new WandAttributeStateTest.WandAttributeHolder(
+                        "meteor_block_range",
                         Attributes.BLOCK_INTERACTION_RANGE,
                         BLOCK_INTERACTION_RANGE_ID,
                         16,
-                        AttributeModifier.Operation.ADD_VALUE
+                        WandAttributeStateTest.Operation.ADDITION
                 )
         );
 
         state.addAttribute(
                 new WandAttributeStateTest.WandAttributeHolder(
+                        "meteor_entity_range",
                         Attributes.ENTITY_INTERACTION_RANGE,
                         ENTITY_INTERACTION_RANGE_ID,
                         16,
-                        AttributeModifier.Operation.ADD_VALUE
+                        WandAttributeStateTest.Operation.ADDITION
                 )
         );
     }
