@@ -920,6 +920,15 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.KARAKA_ANTLER_WAND_HANDLE.get(), 1)
+                .pattern(" bc")
+                .pattern("bcb")
+                .pattern("cb ")
+                .define('b', Items.STICK)
+                .define('c', EMItems.KARAKA_ANTLER)
+                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
+                .unlockedBy("has_karaka_antler", has(EMItems.KARAKA_ANTLER)).save(output);
+
         addHandleRecipe(EMItems.EMERALD_WAND_HANDLE.get(), Tags.Items.GEMS_EMERALD, output);
         addHandleRecipe(EMItems.DIAMOND_WAND_HANDLE.get(), Tags.Items.GEMS_DIAMOND, output);
         addHandleRecipe(EMItems.GOLDEN_WAND_HANDLE.get(), Tags.Items.INGOTS_GOLD, output);

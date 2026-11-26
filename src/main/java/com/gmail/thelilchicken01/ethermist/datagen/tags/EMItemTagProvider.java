@@ -253,6 +253,7 @@ public class EMItemTagProvider extends ItemTagsProvider {
         addHandle(EMItems.GLOWSTONE_WAND_HANDLE.get());
         addHandle(EMItems.PRISMARINE_WAND_HANDLE.get());
         addHandle(EMItems.NETHERITE_WAND_HANDLE.get());
+        addHandle(EMItems.KARAKA_ANTLER_WAND_HANDLE.get());
 
         // ---------- Wands ----------
         addWands(EMItems.DULL_WAND.get());

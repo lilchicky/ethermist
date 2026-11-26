@@ -81,6 +81,7 @@ public class EMItems {
     public static final DeferredItem<Item> GLOWSTONE_WAND_HANDLE = ITEMS.register("glowstone_wand_handle", () -> new HandleItem(EMWandHandles.GLOWSTONE));
     public static final DeferredItem<Item> PRISMARINE_WAND_HANDLE = ITEMS.register("prismarine_wand_handle", () -> new HandleItem(EMWandHandles.PRISMARINE));
     public static final DeferredItem<Item> NETHERITE_WAND_HANDLE = ITEMS.register("netherite_wand_handle", () -> new HandleItem(EMWandHandles.NETHERITE));
+    public static final DeferredItem<Item> KARAKA_ANTLER_WAND_HANDLE = ITEMS.register("karaka_antler_wand_handle", () -> new HandleItem(EMWandHandles.KARAKA));
 
     /*
     ---------- Tomes ----------

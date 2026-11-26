@@ -304,6 +304,7 @@
   "item.ethermist.glowstone_wand_handle": "Glowstone Wand Handle",
   "item.ethermist.prismarine_wand_handle": "Prismarine Wand Handle",
   "item.ethermist.netherite_wand_handle": "Netherite Wand Handle",
+  "item.ethermist.karaka_antler_wand_handle": "Karaka Antler Wand Handle",
 
   "item.ethermist.wand_handle.wooden": "Wooden",
   "item.ethermist.wand_handle.emerald": "Emerald",
@@ -315,6 +316,7 @@
   "item.ethermist.wand_handle.glowstone": "Glowstone",
   "item.ethermist.wand_handle.prismarine": "Prismarine",
   "item.ethermist.wand_handle.netherite": "Netherite",
+  "item.ethermist.wand_handle.karaka": "Karaka",
 
   "item.ethermist.dull_wand": "Dull Wand",
   "item.ethermist.flame_wand": "Flame Wand",
@@ -429,6 +431,7 @@
   "item.ethermist.wand_handle.glowstone.desc": "Handle Material: Glowstone",
   "item.ethermist.wand_handle.prismarine.desc": "Handle Material: Prismarine",
   "item.ethermist.wand_handle.netherite.desc": "Handle Material: Netherite",
+  "item.ethermist.wand_handle.karaka.desc": "Handle Material: Karaka Antler",
 
   "item.ethermist.wand_handle.modify_damage": "%1$s Bolt Damage",
   "item.ethermist.wand_handle.modify_cooldown": "%1$s Second Cooldown",
@@ -438,6 +441,7 @@
   "item.ethermist.wand_handle.enchantability": "%1$s Enchantability",
   "item.ethermist.wand_handle.modify_lifespan": "%1$s Second Bolt Lifespan",
   "item.ethermist.wand_handle.modify_projectile_speed": "%1$s Bolt Speed",
+  "item.ethermist.wand_handle.modify_movement_speed": "%1$s Movement Speed",
 
   "_comment": "--------------- FOODS ---------------",
   "item.ethermist.shroom_cluster": "Shroom Cluster",

@@ -125,6 +125,7 @@ public class EMItemModelProvider extends ItemModelProvider {
         wandHandle(EMItems.GLOWSTONE_WAND_HANDLE);
         wandHandle(EMItems.PRISMARINE_WAND_HANDLE);
         wandHandle(EMItems.NETHERITE_WAND_HANDLE);
+        wandHandle(EMItems.KARAKA_ANTLER_WAND_HANDLE);
 
         // ---------- Wands ----------
         wandItem(EMItems.DULL_WAND);

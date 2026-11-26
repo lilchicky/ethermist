@@ -192,10 +192,10 @@ public final class EMWandHandles {
                                         Attributes.MOVEMENT_SPEED,
                                         ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "movement_speed"),
                                         0.1f,
-                                        WandAttributeState.Operation.MULT
+                                        WandAttributeState.Operation.PERCENT
                                 )
                             ),
-                            new float[]{0.02f, 0.02f, 0.02f},
+                            new float[]{0.92f, 0.92f, 0.92f},
                             () -> Ingredient.of(Tags.Items.BONES),
                             true,
                             false

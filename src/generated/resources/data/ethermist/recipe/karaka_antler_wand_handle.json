@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:stick"
+    },
+    "c": {
+      "item": "ethermist:karaka_antler"
+    }
+  },
+  "pattern": [
+    " bc",
+    "bcb",
+    "cb "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ethermist:karaka_antler_wand_handle"
+  }
+}
