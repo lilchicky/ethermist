@@ -203,7 +203,6 @@ public class WandItem extends Item implements IDyeableWandItem {
         });
 
         // Apply tier (handle) modifiers to default attributes
-        //getHandle(stack).apply(currentAttributeState);
         getHandle(stack).apply(currentAttributeState);
 
         // Clamp final attribute values.

@@ -87,7 +87,7 @@ public final class WandHandle implements IWandHandle {
 
     @Override
     public void apply(WandAttributeState state) {
-        for (WandAttributeState.WandAttributeHolder holder : attributeModifiers) state.modifyExistingAttribute(holder.getAttribute(), holder.getOperation(), holder.getAmount());
+        for (WandAttributeState.WandAttributeHolder holder : attributeModifiers) state.modifyState(holder);
     }
 
     @Override

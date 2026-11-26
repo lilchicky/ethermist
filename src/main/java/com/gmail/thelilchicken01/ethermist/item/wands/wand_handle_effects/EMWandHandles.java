@@ -7,6 +7,7 @@ import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
@@ -177,6 +178,27 @@ public final class EMWandHandles {
                             () -> Ingredient.of(Tags.Items.INGOTS_NETHERITE),
                             true,
                             true
+                    )
+            );
+
+    public static final DeferredHolder<WandHandle, WandHandle> KARAKA =
+            EM_WAND_HANDLES.register("karaka", () ->
+                    new WandHandle(
+                            ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "karaka"),
+                            "karaka",
+                            List.of(
+                                new WandAttributeState.WandAttributeHolder(
+                                        "modify_movement_speed",
+                                        Attributes.MOVEMENT_SPEED,
+                                        ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "movement_speed"),
+                                        0.1f,
+                                        WandAttributeState.Operation.MULT
+                                )
+                            ),
+                            new float[]{0.02f, 0.02f, 0.02f},
+                            () -> Ingredient.of(Tags.Items.BONES),
+                            true,
+                            false
                     )
             );
 

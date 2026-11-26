@@ -22,6 +22,18 @@ public class WandAttributeState {
 
     public WandAttributeState() {}
 
+    // Used to modify an attribute if it exists, and add it if it doesn't.
+    public void modifyState(WandAttributeHolder modifyingHolder) {
+        for (WandAttributeHolder holder : modifiers) {
+            if (holder.getAttribute() != modifyingHolder.getAttribute()) continue;
+
+            holder.modifyAmount(modifyingHolder.getOperation(), modifyingHolder.getAmount());
+            return;
+        }
+
+        modifiers.add(modifyingHolder);
+    }
+
     // Used when a set operation is being done on an existing attribute.
     public void modifyExistingAttribute(Holder<Attribute> attribute, Operation operation, float amount) {
         for (WandAttributeHolder holder : modifiers) {
@@ -30,7 +42,7 @@ public class WandAttributeState {
             holder.modifyAmount(operation, amount);
             return;
         }
-        Ethermist.LOGGER.warn("Attempted to modify attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
+        Ethermist.LOGGER.warn("Attempted to update value of attribute {}, but it could not be found on itemstack.", attribute.getRegisteredName());
     }
 
     // Used when the value of an existing attribute is being outright replaced.
