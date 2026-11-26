@@ -917,13 +917,13 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("cb ")
                 .define('b', Items.STICK)
                 .define('c', ItemTags.PLANKS)
-                .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMItems.KARAKA_ANTLER_WAND_HANDLE.get(), 1)
-                .pattern(" bc")
+                .pattern(" ba")
                 .pattern("bcb")
-                .pattern("cb ")
+                .pattern("ab ")
+                .define('a', Items.AMETHYST_SHARD)
                 .define('b', Items.STICK)
                 .define('c', EMItems.KARAKA_ANTLER)
                 .unlockedBy("has_amethyst_shard", has(Items.AMETHYST_SHARD))
