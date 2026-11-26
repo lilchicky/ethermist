@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
@@ -10,12 +10,9 @@ import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotIt
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -36,28 +33,28 @@ public record AugmentMeteorEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
-        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, 3.0f);
-        state.modifyExistingAttribute(EMAttributes.LIFESPAN, WandAttributeStateTest.Operation.MULT, 5.0f);
-        state.modifyExistingAttribute(EMAttributes.ACCURACY, WandAttributeStateTest.Operation.MULT, 1.1f);
+    public void modifyWandAttributes(WandAttributeState state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeState.Operation.MULT, 3.0f);
+        state.modifyExistingAttribute(EMAttributes.LIFESPAN, WandAttributeState.Operation.MULT, 5.0f);
+        state.modifyExistingAttribute(EMAttributes.ACCURACY, WandAttributeState.Operation.MULT, 1.1f);
 
         state.addAttribute(
-                new WandAttributeStateTest.WandAttributeHolder(
+                new WandAttributeState.WandAttributeHolder(
                         "meteor_block_range",
                         Attributes.BLOCK_INTERACTION_RANGE,
                         BLOCK_INTERACTION_RANGE_ID,
                         16,
-                        WandAttributeStateTest.Operation.ADDITION
+                        WandAttributeState.Operation.ADDITION
                 )
         );
 
         state.addAttribute(
-                new WandAttributeStateTest.WandAttributeHolder(
+                new WandAttributeState.WandAttributeHolder(
                         "meteor_entity_range",
                         Attributes.ENTITY_INTERACTION_RANGE,
                         ENTITY_INTERACTION_RANGE_ID,
                         16,
-                        WandAttributeStateTest.Operation.ADDITION
+                        WandAttributeState.Operation.ADDITION
                 )
         );
     }

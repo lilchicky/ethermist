@@ -152,7 +152,7 @@ public class WandItem extends Item implements IDyeableWandItem {
         var builder = ItemAttributeModifiers.builder();
 
         // Get base attributes based on wand type (orb)
-        WandAttributeStateTest currentAttributeState = new WandAttributeStateTest().seed(
+        WandAttributeState currentAttributeState = new WandAttributeState().seed(
                 WAND_ORB.get().getCooldown(),
                 WAND_ORB.get().getSpellDamage(),
                 WAND_ORB.get().getLifespanSeconds(),

@@ -1,8 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.enchantment;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
-import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -19,7 +18,7 @@ public interface IWandBaseEffect {
 
     MapCodec<? extends IWandBaseEffect> codec();
 
-    void modifyWandAttributes(WandAttributeStateTest state, int level);
+    void modifyWandAttributes(WandAttributeState state, int level);
     default void addGenericAttributes(ItemAttributeModifiers.Builder builder) {}
 
 }

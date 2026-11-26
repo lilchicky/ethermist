@@ -4,7 +4,7 @@ import com.gmail.thelilchicken01.ethermist.Ethermist;
 import com.gmail.thelilchicken01.ethermist.enchantment.EMEnchantComponents;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandShotHandler;
@@ -34,13 +34,13 @@ public record AugmentSprayEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+    public void modifyWandAttributes(WandAttributeState state, int level) {
         float damage = state.getAttributeModifierAmount(EMAttributes.WAND_DAMAGE);
         float lifespan = state.getAttributeModifierAmount(EMAttributes.LIFESPAN);
 
-        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, (float)(1.0f / (1.0f + 0.81f * (1.0f / (1.0f + level)) * Math.sqrt(damage))));
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeState.Operation.MULT, (float)(1.0f / (1.0f + 0.81f * (1.0f / (1.0f + level)) * Math.sqrt(damage))));
         state.modifyExistingAttribute(EMAttributes.LIFESPAN, Math.max(1.0f, lifespan * 0.2f));
-        state.modifyExistingAttribute(EMAttributes.PROJECTILE_SPEED, WandAttributeStateTest.Operation.MULT, 0.5f);
+        state.modifyExistingAttribute(EMAttributes.PROJECTILE_SPEED, WandAttributeState.Operation.MULT, 0.5f);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

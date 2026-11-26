@@ -1,8 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.enchantment;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
-import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
+import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -26,7 +25,7 @@ public interface IWandSpellEffect {
 
     MapCodec<? extends IWandSpellEffect> codec();
 
-    default void modifyWandAttributes(WandAttributeStateTest state, int level) {}
+    default void modifyWandAttributes(WandAttributeState state, int level) {}
     default void addGenericAttributes(ItemAttributeModifiers.Builder builder) {}
     default boolean doesCreateProjectile(Entity shooter, @Nullable List<? extends Entity> target, @Nullable BlockPos pos, @Nullable Entity clickedEntity, int spellLevel) { return true; }
 

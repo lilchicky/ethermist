@@ -1,7 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
 import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -16,7 +15,7 @@ public final class WandHandle implements IWandHandle {
 
     private final ResourceLocation id;
     private final String descriptionKey;
-    private final List<WandAttributeStateTest.WandAttributeHolder> attributeModifiers;
+    private final List<WandAttributeState.WandAttributeHolder> attributeModifiers;
     private final float[] handleColor;
     private final Supplier<Ingredient> repairItem;
     private final boolean doesModify;
@@ -26,7 +25,7 @@ public final class WandHandle implements IWandHandle {
 
     public WandHandle(ResourceLocation id,
                       String descriptionKey,
-                      List<WandAttributeStateTest.WandAttributeHolder> effects,
+                      List<WandAttributeState.WandAttributeHolder> effects,
                       float[] handleColor,
                       Supplier<Ingredient> repairItem,
                       boolean doesModify,
@@ -37,7 +36,7 @@ public final class WandHandle implements IWandHandle {
 
     public WandHandle(ResourceLocation id,
                       String descriptionKey,
-                      List<WandAttributeStateTest.WandAttributeHolder> effects,
+                      List<WandAttributeState.WandAttributeHolder> effects,
                       float[] handleColor,
                       Supplier<Ingredient> repairItem,
                       boolean doesModify,
@@ -87,8 +86,8 @@ public final class WandHandle implements IWandHandle {
     }
 
     @Override
-    public void apply(WandAttributeStateTest state) {
-        for (WandAttributeStateTest.WandAttributeHolder holder : attributeModifiers) state.modifyExistingAttribute(holder.getAttribute(), holder.getOperation(), holder.getAmount());
+    public void apply(WandAttributeState state) {
+        for (WandAttributeState.WandAttributeHolder holder : attributeModifiers) state.modifyExistingAttribute(holder.getAttribute(), holder.getOperation(), holder.getAmount());
     }
 
     @Override
@@ -100,7 +99,7 @@ public final class WandHandle implements IWandHandle {
 
         if (doesModify) {
             if (!attributeModifiers.isEmpty()) {
-                for (WandAttributeStateTest.WandAttributeHolder holder : attributeModifiers) {
+                for (WandAttributeState.WandAttributeHolder holder : attributeModifiers) {
                     lines.add(holder.getAttributeComponent());
                 }
             }

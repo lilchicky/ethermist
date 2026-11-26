@@ -1,7 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.base_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandBaseEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
 
@@ -15,8 +15,8 @@ public class StableOrbEnchant implements IWandBaseEffect {
     }
 
     @Override
-    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
-        state.modifyExistingAttribute(EMAttributes.ACCURACY, WandAttributeStateTest.Operation.MULT, 1.0f + (float)(1 / Math.pow((level + 1), 0.95f)));
+    public void modifyWandAttributes(WandAttributeState state, int level) {
+        state.modifyExistingAttribute(EMAttributes.ACCURACY, WandAttributeState.Operation.MULT, 1.0f + (float)(1 / Math.pow((level + 1), 0.95f)));
     }
 
 }

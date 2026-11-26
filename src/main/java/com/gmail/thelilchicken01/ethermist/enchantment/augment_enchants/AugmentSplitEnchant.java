@@ -1,6 +1,6 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.augment_enchants;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandAugmentEffect;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
@@ -29,8 +29,8 @@ public record AugmentSplitEnchant() implements IWandAugmentEffect {
     }
 
     @Override
-    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
-        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeStateTest.Operation.MULT, (float)(0.5f + 0.3f * Math.exp(-0.5f * (level - 1))));
+    public void modifyWandAttributes(WandAttributeState state, int level) {
+        state.modifyExistingAttribute(EMAttributes.WAND_DAMAGE, WandAttributeState.Operation.MULT, (float)(0.5f + 0.3f * Math.exp(-0.5f * (level - 1))));
     }
 
     @Override

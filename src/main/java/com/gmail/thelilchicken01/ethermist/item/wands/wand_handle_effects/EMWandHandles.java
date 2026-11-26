@@ -1,11 +1,10 @@
 package com.gmail.thelilchicken01.ethermist.item.wands.wand_handle_effects;
 
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.WandItem;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.gmail.thelilchicken01.ethermist.util.EMRegistries;
 import com.gmail.thelilchicken01.ethermist.Ethermist;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -46,7 +45,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "emerald"),
                             "emerald",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_lifespan", EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID, 2.0f, WandAttributeStateTest.Operation.ADDITION)
+                                    new WandAttributeState.WandAttributeHolder("modify_lifespan", EMAttributes.LIFESPAN, WandItem.LIFESPAN_ID, 2.0f, WandAttributeState.Operation.ADDITION)
                             ),
                             new float[]{0.086f, 0.839f, 0.380f},
                             () -> Ingredient.of(Tags.Items.GEMS_EMERALD),
@@ -62,7 +61,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "golden"),
                             "golden",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_damage", EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID, 3.0f, WandAttributeStateTest.Operation.ADDITION)
+                                    new WandAttributeState.WandAttributeHolder("modify_damage", EMAttributes.WAND_DAMAGE, WandItem.BASE_WAND_DAMAGE_ID, 3.0f, WandAttributeState.Operation.ADDITION)
                             ),
                             new float[]{0.992f, 0.961f, 0.373f},
                             () -> Ingredient.of(Tags.Items.INGOTS_GOLD),
@@ -110,7 +109,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "nether_quartz"),
                             "nether_quartz",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_knockback", EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID, 0.5f, WandAttributeStateTest.Operation.PERCENT)
+                                    new WandAttributeState.WandAttributeHolder("modify_knockback", EMAttributes.WAND_KNOCKBACK, WandItem.WAND_KNOCKBACK_ID, 0.5f, WandAttributeState.Operation.PERCENT)
                             ),
                             new float[]{0.847f, 0.847f, 0.847f},
                             () -> Ingredient.of(Tags.Items.GEMS_QUARTZ),
@@ -126,7 +125,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "redstone"),
                             "redstone",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_cooldown", EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID, -2.0f, WandAttributeStateTest.Operation.ADDITION)
+                                    new WandAttributeState.WandAttributeHolder("modify_cooldown", EMAttributes.COOLDOWN, WandItem.COOLDOWN_ID, -2.0f, WandAttributeState.Operation.ADDITION)
                             ),
                             new float[]{0.965f, 0f, 0f},
                             () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE),
@@ -142,7 +141,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "glowstone"),
                             "glowstone",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_projectile_speed", EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID, 0.25f, WandAttributeStateTest.Operation.PERCENT)
+                                    new WandAttributeState.WandAttributeHolder("modify_projectile_speed", EMAttributes.PROJECTILE_SPEED, WandItem.PROJECTILE_SPEED_ID, 0.25f, WandAttributeState.Operation.PERCENT)
                             ),
                             new float[]{1f, 0.737f, 0.369f},
                             () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE),
@@ -158,7 +157,7 @@ public final class EMWandHandles {
                             ResourceLocation.fromNamespaceAndPath(Ethermist.MODID, "prismarine"),
                             "prismarine",
                             List.of(
-                                    new WandAttributeStateTest.WandAttributeHolder("modify_accuracy", EMAttributes.ACCURACY, WandItem.ACCURACY_ID, 0.1f, WandAttributeStateTest.Operation.PERCENT)
+                                    new WandAttributeState.WandAttributeHolder("modify_accuracy", EMAttributes.ACCURACY, WandItem.ACCURACY_ID, 0.1f, WandAttributeState.Operation.PERCENT)
                             ),
                             new float[]{0.706f, 0.847f, 0.792f},
                             () -> Ingredient.of(Tags.Items.GEMS_PRISMARINE),

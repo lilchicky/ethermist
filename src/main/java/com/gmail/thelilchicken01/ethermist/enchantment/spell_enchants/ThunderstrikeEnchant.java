@@ -1,7 +1,7 @@
 package com.gmail.thelilchicken01.ethermist.enchantment.spell_enchants;
 
 import com.gmail.thelilchicken01.ethermist.enchantment.IWandSpellEffect;
-import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeStateTest;
+import com.gmail.thelilchicken01.ethermist.item.wands.WandAttributeState;
 import com.gmail.thelilchicken01.ethermist.item.wands.wand_projectile.WandProjectile;
 import com.gmail.thelilchicken01.ethermist.util.EMAttributes;
 import com.mojang.serialization.MapCodec;
@@ -23,7 +23,7 @@ public class ThunderstrikeEnchant implements IWandSpellEffect {
     }
 
     @Override
-    public void modifyWandAttributes(WandAttributeStateTest state, int level) {
+    public void modifyWandAttributes(WandAttributeState state, int level) {
         float cooldownTicks = state.getAttributeModifierAmount(EMAttributes.COOLDOWN) * 20;
         state.modifyExistingAttribute(EMAttributes.COOLDOWN, (Math.round((8L * cooldownTicks + 240L) / 7.0)) / 20.0f);
     }
