@@ -106,16 +106,12 @@ public final class WandHandle implements IWandHandle {
             }
             if (durabilityMult != 1.0) {
                 lines.add(
-                        Component.translatable("item.ethermist.wand_handle.durability_mult")
-                                .append(Component.literal("x" + FORMAT.format(durabilityMult)))
-                                .withColor(color)
+                        Component.translatable("item.ethermist.wand_handle.durability_mult", "x" + FORMAT.format(durabilityMult)).withColor(color)
                 );
             }
             if (enchantMult != 1.0) {
                 lines.add(
-                        Component.translatable("item.ethermist.wand_handle.enchantability")
-                                .append(Component.literal("x" + FORMAT.format(enchantMult)))
-                                .withColor(color)
+                        Component.translatable("item.ethermist.wand_handle.enchantability", "x" + FORMAT.format(enchantMult)).withColor(color)
                 );
             }
             if (doesBuffSpell) {

@@ -149,30 +149,17 @@ public class WandAttributeStateTest {
 
         public Component getAttributeComponent() {
             final int color = 0xAAAAAA;
-            Component line = Component.empty();
-            Component base = Component.translatable("item.ethermist.wand_handle." + id);
+            String formattedAmount = "";
 
             switch (this.operation) {
-                case ADDITION -> {
-                    String sign = amount > 0 ? "+" : "";
-                    line = base.copy()
-                            .append(Component.literal(sign + FORMAT.format(amount)))
-                            .withColor(color);
-                }
+                case ADDITION -> formattedAmount = (amount > 0 ? "+" : "") + FORMAT.format(amount);
                 case PERCENT -> {
-                    //boolean isAccuracy = mod.attribute().equals(WandAttributeState.WandAttribute.INACCURACY_PERCENT);
                     double pct = amount * 100.0f;
-                    String sign = pct > 0 ? "+" : "";
-                    line = base.copy()
-                            .append(Component.literal(sign + FORMAT.format(pct)))
-                            .append(Component.literal("%"))
-                            .withColor(color);
+                    formattedAmount = (pct > 0 ? "+" : "") + FORMAT.format(pct) + "%";
                 }
-                case MULT -> line = base.copy()
-                        .append(Component.literal("x" + FORMAT.format(amount)))
-                        .withColor(color);
+                case MULT -> formattedAmount = "x" + FORMAT.format(amount);
             }
-            return line;
+            return Component.translatable("item.ethermist.wand_handle." + id, formattedAmount).withColor(color);
         }
 
     }
